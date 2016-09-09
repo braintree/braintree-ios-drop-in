@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8507F29F2A160B72DBF0B7E1A26572B0035F8386",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8507F29F2A160B72DBF0B7E1A26572B0035F8386" : 0,
+    "C651443B7B39808FD2DCA93E3E7C4F2141FF7B0D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "90EDD10A-3848-47DD-9307-53E7EB32CAC5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8507F29F2A160B72DBF0B7E1A26572B0035F8386" : "braintree-ios-drop-in\/",
+    "C651443B7B39808FD2DCA93E3E7C4F2141FF7B0D" : "braintree-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BraintreeDropIn",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BraintreeDropIn.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:braintree\/braintree-ios-drop-in.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8507F29F2A160B72DBF0B7E1A26572B0035F8386"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.paypal.com:card-io\/braintree-vzero-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C651443B7B39808FD2DCA93E3E7C4F2141FF7B0D"
+    }
+  ]
+}

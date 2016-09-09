@@ -1,0 +1,2459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A519F9FE1D8863EF00819A39 /* BTDropInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41951D833597000DFFAB /* BTDropInRequest.m */; };
+		A519F9FF1D8863EF00819A39 /* BTDropInResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41961D833597000DFFAB /* BTDropInResult.m */; };
+		A519FA001D8863EF00819A39 /* BTCardFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41871D833568000DFFAB /* BTCardFormViewController.m */; };
+		A519FA011D8863EF00819A39 /* BTDropInBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */; };
+		A519FA021D8863EF00819A39 /* BTDropInController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41891D833568000DFFAB /* BTDropInController.m */; };
+		A519FA031D8863EF00819A39 /* BTDropInUIUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */; };
+		A519FA041D8863EF00819A39 /* BTPaymentSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */; };
+		A519FA051D8863EF00819A39 /* BTVaultManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */; };
+		A519FA061D8863EF00819A39 /* BTDropInPaymentSeletionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C419A1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m */; };
+		A519FA071D8863EF00819A39 /* BTEnrollmentVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C419C1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m */; };
+		A519FA081D8863EF00819A39 /* BTUIPaymentMethodCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C419E1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m */; };
+		A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */; };
+		A52901631D8903A600032220 /* BTUIKBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D11D8903A600032220 /* BTUIKBarButtonItem.m */; };
+		A52901641D8903A600032220 /* BTUIKBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D11D8903A600032220 /* BTUIKBarButtonItem.m */; };
+		A52901651D8903A600032220 /* BTUIKCardListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D21D8903A600032220 /* BTUIKCardListLabel.m */; };
+		A52901661D8903A600032220 /* BTUIKCardListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D21D8903A600032220 /* BTUIKCardListLabel.m */; };
+		A52901671D8903A600032220 /* BTUIKCardNumberFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D31D8903A600032220 /* BTUIKCardNumberFormField.m */; };
+		A52901681D8903A600032220 /* BTUIKCardNumberFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D31D8903A600032220 /* BTUIKCardNumberFormField.m */; };
+		A52901691D8903A600032220 /* BTUIKCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */; };
+		A529016A1D8903A600032220 /* BTUIKCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */; };
+		A529016B1D8903A600032220 /* BTUIKCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */; };
+		A529016C1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */; };
+		A529016D1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */; };
+		A529016E1D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */; };
+		A529016F1D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */; };
+		A52901701D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */; };
+		A52901711D8903A600032220 /* BTUIKExpiryInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */; };
+		A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */; };
+		A52901731D8903A600032220 /* BTUIKFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DA1D8903A600032220 /* BTUIKFormField.m */; };
+		A52901741D8903A600032220 /* BTUIKFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DA1D8903A600032220 /* BTUIKFormField.m */; };
+		A52901751D8903A600032220 /* BTUIKInputAccessoryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */; };
+		A52901761D8903A600032220 /* BTUIKInputAccessoryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */; };
+		A52901771D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */; };
+		A52901781D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */; };
+		A52901791D8903A600032220 /* BTUIKMobileNumberFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DD1D8903A600032220 /* BTUIKMobileNumberFormField.m */; };
+		A529017A1D8903A600032220 /* BTUIKMobileNumberFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DD1D8903A600032220 /* BTUIKMobileNumberFormField.m */; };
+		A529017B1D8903A600032220 /* BTUIKPaymentOptionCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DE1D8903A600032220 /* BTUIKPaymentOptionCardView.m */; };
+		A529017C1D8903A600032220 /* BTUIKPaymentOptionCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DE1D8903A600032220 /* BTUIKPaymentOptionCardView.m */; };
+		A529017D1D8903A600032220 /* BTUIKPostalCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DF1D8903A600032220 /* BTUIKPostalCodeFormField.m */; };
+		A529017E1D8903A600032220 /* BTUIKPostalCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DF1D8903A600032220 /* BTUIKPostalCodeFormField.m */; };
+		A529017F1D8903A600032220 /* BTUIKSecurityCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E01D8903A600032220 /* BTUIKSecurityCodeFormField.m */; };
+		A52901801D8903A600032220 /* BTUIKSecurityCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E01D8903A600032220 /* BTUIKSecurityCodeFormField.m */; };
+		A52901811D8903A600032220 /* BTUIKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E11D8903A600032220 /* BTUIKTextField.m */; };
+		A52901821D8903A600032220 /* BTUIKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E11D8903A600032220 /* BTUIKTextField.m */; };
+		A52901831D8903A600032220 /* BTUIKAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E31D8903A600032220 /* BTUIKAppearance.m */; };
+		A52901841D8903A600032220 /* BTUIKAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E31D8903A600032220 /* BTUIKAppearance.m */; };
+		A52901851D8903A600032220 /* BTUIKViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E41D8903A600032220 /* BTUIKViewUtil.m */; };
+		A52901861D8903A600032220 /* BTUIKViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E41D8903A600032220 /* BTUIKViewUtil.m */; };
+		A52901871D8903A600032220 /* UIColor+BTUIK.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E51D8903A600032220 /* UIColor+BTUIK.m */; };
+		A52901881D8903A600032220 /* UIColor+BTUIK.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E51D8903A600032220 /* UIColor+BTUIK.m */; };
+		A52901891D8903A600032220 /* BTUIKLocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E71D8903A600032220 /* BTUIKLocalizedString.m */; };
+		A529018A1D8903A600032220 /* BTUIKLocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E71D8903A600032220 /* BTUIKLocalizedString.m */; };
+		A529018B1D8903A600032220 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
+		A529018C1D8903A600032220 /* BTUIKCardExpirationValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900FF1D8903A600032220 /* BTUIKCardExpirationValidator.m */; };
+		A529018D1D8903A600032220 /* BTUIKCardExpirationValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900FF1D8903A600032220 /* BTUIKCardExpirationValidator.m */; };
+		A529018E1D8903A600032220 /* BTUIKCardExpiryFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901001D8903A600032220 /* BTUIKCardExpiryFormat.m */; };
+		A529018F1D8903A600032220 /* BTUIKCardExpiryFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901001D8903A600032220 /* BTUIKCardExpiryFormat.m */; };
+		A52901901D8903A600032220 /* BTUIKCardType.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901011D8903A600032220 /* BTUIKCardType.m */; };
+		A52901911D8903A600032220 /* BTUIKCardType.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901011D8903A600032220 /* BTUIKCardType.m */; };
+		A52901921D8903A600032220 /* BTUIKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901021D8903A600032220 /* BTUIKUtil.m */; };
+		A52901931D8903A600032220 /* BTUIKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901021D8903A600032220 /* BTUIKUtil.m */; };
+		A52901941D8903A600032220 /* BraintreeUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901041D8903A600032220 /* BraintreeUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901951D8903A600032220 /* BTUIKAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901051D8903A600032220 /* BTUIKAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901961D8903A600032220 /* BTUIKCardExpirationValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901971D8903A600032220 /* BTUIKCardExpiryFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901981D8903A600032220 /* BTUIKCardListLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901081D8903A600032220 /* BTUIKCardListLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901991D8903A600032220 /* BTUIKCardNumberFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A529019A1D8903A600032220 /* BTUIKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010A1D8903A600032220 /* BTUIKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A529019B1D8903A600032220 /* BTUIKExpiryFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A529019C1D8903A600032220 /* BTUIKExpiryInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A529019D1D8903A600032220 /* BTUIKFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010D1D8903A600032220 /* BTUIKFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A529019E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A529019F1D8903A600032220 /* BTUIKLocalizedString.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010F1D8903A600032220 /* BTUIKLocalizedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A01D8903A600032220 /* BTUIKMobileCountryCodeFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901101D8903A600032220 /* BTUIKMobileCountryCodeFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A11D8903A600032220 /* BTUIKMobileNumberFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A21D8903A600032220 /* BTUIKPaymentOptionCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A31D8903A600032220 /* BTUIKPaymentOptionType.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A41D8903A700032220 /* BTUIKPostalCodeFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A51D8903A700032220 /* BTUIKSecurityCodeFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A61D8903A700032220 /* BTUIKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901161D8903A600032220 /* BTUIKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A71D8903A700032220 /* BTUIKUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901171D8903A600032220 /* BTUIKUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A81D8903A700032220 /* BTUIKVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901181D8903A600032220 /* BTUIKVectorArtView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901A91D8903A700032220 /* BTUIKViewUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901191D8903A600032220 /* BTUIKViewUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901AA1D8903A700032220 /* UIColor+BTUIK.h in Headers */ = {isa = PBXBuildFile; fileRef = A529011A1D8903A600032220 /* UIColor+BTUIK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52901AB1D8903A700032220 /* BTUIKAmExVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529011C1D8903A600032220 /* BTUIKAmExVectorArtView.h */; };
+		A52901AC1D8903A700032220 /* BTUIKAmExVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529011D1D8903A600032220 /* BTUIKAmExVectorArtView.m */; };
+		A52901AD1D8903A700032220 /* BTUIKAmExVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529011D1D8903A600032220 /* BTUIKAmExVectorArtView.m */; };
+		A52901AE1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529011E1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.h */; };
+		A52901AF1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529011F1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.m */; };
+		A52901B01D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529011F1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.m */; };
+		A52901B11D8903A700032220 /* BTUIKCardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901201D8903A600032220 /* BTUIKCardVectorArtView.h */; };
+		A52901B21D8903A700032220 /* BTUIKCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901211D8903A600032220 /* BTUIKCardVectorArtView.m */; };
+		A52901B31D8903A700032220 /* BTUIKCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901211D8903A600032220 /* BTUIKCardVectorArtView.m */; };
+		A52901B41D8903A700032220 /* BTUIKCoinbaseMonogramCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901221D8903A600032220 /* BTUIKCoinbaseMonogramCardView.h */; };
+		A52901B51D8903A700032220 /* BTUIKCoinbaseMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901231D8903A600032220 /* BTUIKCoinbaseMonogramCardView.m */; };
+		A52901B61D8903A700032220 /* BTUIKCoinbaseMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901231D8903A600032220 /* BTUIKCoinbaseMonogramCardView.m */; };
+		A52901B71D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901241D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.h */; };
+		A52901B81D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901251D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.m */; };
+		A52901B91D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901251D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.m */; };
+		A52901BA1D8903A700032220 /* BTUIKCVVBackVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901261D8903A600032220 /* BTUIKCVVBackVectorArtView.h */; };
+		A52901BB1D8903A700032220 /* BTUIKCVVBackVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901271D8903A600032220 /* BTUIKCVVBackVectorArtView.m */; };
+		A52901BC1D8903A700032220 /* BTUIKCVVBackVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901271D8903A600032220 /* BTUIKCVVBackVectorArtView.m */; };
+		A52901BD1D8903A700032220 /* BTUIKCVVFrontVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901281D8903A600032220 /* BTUIKCVVFrontVectorArtView.h */; };
+		A52901BE1D8903A700032220 /* BTUIKCVVFrontVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901291D8903A600032220 /* BTUIKCVVFrontVectorArtView.m */; };
+		A52901BF1D8903A700032220 /* BTUIKCVVFrontVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901291D8903A600032220 /* BTUIKCVVFrontVectorArtView.m */; };
+		A52901C01D8903A700032220 /* BTUIKDinersClubVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529012A1D8903A600032220 /* BTUIKDinersClubVectorArtView.h */; };
+		A52901C11D8903A700032220 /* BTUIKDinersClubVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529012B1D8903A600032220 /* BTUIKDinersClubVectorArtView.m */; };
+		A52901C21D8903A700032220 /* BTUIKDinersClubVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529012B1D8903A600032220 /* BTUIKDinersClubVectorArtView.m */; };
+		A52901C31D8903A700032220 /* BTUIKDiscoverVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529012C1D8903A600032220 /* BTUIKDiscoverVectorArtView.h */; };
+		A52901C41D8903A700032220 /* BTUIKDiscoverVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529012D1D8903A600032220 /* BTUIKDiscoverVectorArtView.m */; };
+		A52901C51D8903A700032220 /* BTUIKDiscoverVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529012D1D8903A600032220 /* BTUIKDiscoverVectorArtView.m */; };
+		A52901C61D8903A700032220 /* BTUIKJCBVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529012E1D8903A600032220 /* BTUIKJCBVectorArtView.h */; };
+		A52901C71D8903A700032220 /* BTUIKJCBVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529012F1D8903A600032220 /* BTUIKJCBVectorArtView.m */; };
+		A52901C81D8903A700032220 /* BTUIKJCBVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529012F1D8903A600032220 /* BTUIKJCBVectorArtView.m */; };
+		A52901C91D8903A700032220 /* BTUIKMaestroVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901301D8903A600032220 /* BTUIKMaestroVectorArtView.h */; };
+		A52901CA1D8903A700032220 /* BTUIKMaestroVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901311D8903A600032220 /* BTUIKMaestroVectorArtView.m */; };
+		A52901CB1D8903A700032220 /* BTUIKMaestroVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901311D8903A600032220 /* BTUIKMaestroVectorArtView.m */; };
+		A52901CC1D8903A700032220 /* BTUIKMasterCardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901321D8903A600032220 /* BTUIKMasterCardVectorArtView.h */; };
+		A52901CD1D8903A700032220 /* BTUIKMasterCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901331D8903A600032220 /* BTUIKMasterCardVectorArtView.m */; };
+		A52901CE1D8903A700032220 /* BTUIKMasterCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901331D8903A600032220 /* BTUIKMasterCardVectorArtView.m */; };
+		A52901CF1D8903A700032220 /* BTUIKPayPalMonogramCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901341D8903A600032220 /* BTUIKPayPalMonogramCardView.h */; };
+		A52901D01D8903A700032220 /* BTUIKPayPalMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901351D8903A600032220 /* BTUIKPayPalMonogramCardView.m */; };
+		A52901D11D8903A700032220 /* BTUIKPayPalMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901351D8903A600032220 /* BTUIKPayPalMonogramCardView.m */; };
+		A52901D21D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901361D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h */; };
+		A52901D31D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901371D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m */; };
+		A52901D41D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901371D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m */; };
+		A52901D51D8903A700032220 /* BTUIKPayPalWordmarkVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901381D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.h */; };
+		A52901D61D8903A700032220 /* BTUIKPayPalWordmarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901391D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.m */; };
+		A52901D71D8903A700032220 /* BTUIKPayPalWordmarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901391D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.m */; };
+		A52901D81D8903A700032220 /* BTUIKUnionPayVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529013A1D8903A600032220 /* BTUIKUnionPayVectorArtView.h */; };
+		A52901D91D8903A700032220 /* BTUIKUnionPayVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529013B1D8903A600032220 /* BTUIKUnionPayVectorArtView.m */; };
+		A52901DA1D8903A700032220 /* BTUIKUnionPayVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529013B1D8903A600032220 /* BTUIKUnionPayVectorArtView.m */; };
+		A52901DB1D8903A700032220 /* BTUIKUnknownCardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529013C1D8903A600032220 /* BTUIKUnknownCardVectorArtView.h */; };
+		A52901DC1D8903A700032220 /* BTUIKUnknownCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529013D1D8903A600032220 /* BTUIKUnknownCardVectorArtView.m */; };
+		A52901DD1D8903A700032220 /* BTUIKUnknownCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529013D1D8903A600032220 /* BTUIKUnknownCardVectorArtView.m */; };
+		A52901DE1D8903A700032220 /* BTUIKVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529013E1D8903A600032220 /* BTUIKVectorArtView.m */; };
+		A52901DF1D8903A700032220 /* BTUIKVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529013E1D8903A600032220 /* BTUIKVectorArtView.m */; };
+		A52901E01D8903A700032220 /* BTUIKVenmoMonogramCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529013F1D8903A600032220 /* BTUIKVenmoMonogramCardView.h */; };
+		A52901E11D8903A700032220 /* BTUIKVenmoMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901401D8903A600032220 /* BTUIKVenmoMonogramCardView.m */; };
+		A52901E21D8903A700032220 /* BTUIKVenmoMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901401D8903A600032220 /* BTUIKVenmoMonogramCardView.m */; };
+		A52901E31D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901411D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.h */; };
+		A52901E41D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901421D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.m */; };
+		A52901E51D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901421D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.m */; };
+		A52901E61D8903A700032220 /* BTUIKVisaVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901431D8903A600032220 /* BTUIKVisaVectorArtView.h */; };
+		A52901E71D8903A700032220 /* BTUIKVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901441D8903A600032220 /* BTUIKVisaVectorArtView.m */; };
+		A52901E81D8903A700032220 /* BTUIKVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901441D8903A600032220 /* BTUIKVisaVectorArtView.m */; };
+		A52901E91D8903A700032220 /* BTUIKLargeAmExVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901461D8903A600032220 /* BTUIKLargeAmExVectorArtView.h */; };
+		A52901EA1D8903A700032220 /* BTUIKLargeAmExVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901471D8903A600032220 /* BTUIKLargeAmExVectorArtView.m */; };
+		A52901EB1D8903A700032220 /* BTUIKLargeAmExVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901471D8903A600032220 /* BTUIKLargeAmExVectorArtView.m */; };
+		A52901EC1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901481D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.h */; };
+		A52901ED1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901491D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.m */; };
+		A52901EE1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901491D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.m */; };
+		A52901EF1D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529014A1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.h */; };
+		A52901F01D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529014B1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.m */; };
+		A52901F11D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529014B1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.m */; };
+		A52901F21D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529014C1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.h */; };
+		A52901F31D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529014D1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.m */; };
+		A52901F41D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529014D1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.m */; };
+		A52901F51D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529014E1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.h */; };
+		A52901F61D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529014F1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.m */; };
+		A52901F71D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529014F1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.m */; };
+		A52901F81D8903A700032220 /* BTUIKLargeJCBVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901501D8903A600032220 /* BTUIKLargeJCBVectorArtView.h */; };
+		A52901F91D8903A700032220 /* BTUIKLargeJCBVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901511D8903A600032220 /* BTUIKLargeJCBVectorArtView.m */; };
+		A52901FA1D8903A700032220 /* BTUIKLargeJCBVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901511D8903A600032220 /* BTUIKLargeJCBVectorArtView.m */; };
+		A52901FB1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901521D8903A600032220 /* BTUIKLargeMaestroVectorArtView.h */; };
+		A52901FC1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901531D8903A600032220 /* BTUIKLargeMaestroVectorArtView.m */; };
+		A52901FD1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901531D8903A600032220 /* BTUIKLargeMaestroVectorArtView.m */; };
+		A52901FE1D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901541D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.h */; };
+		A52901FF1D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901551D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.m */; };
+		A52902001D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901551D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.m */; };
+		A52902011D8903A700032220 /* BTUIKLargePayPalMonogramCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901561D8903A600032220 /* BTUIKLargePayPalMonogramCardView.h */; };
+		A52902021D8903A700032220 /* BTUIKLargePayPalMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901571D8903A600032220 /* BTUIKLargePayPalMonogramCardView.m */; };
+		A52902031D8903A700032220 /* BTUIKLargePayPalMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901571D8903A600032220 /* BTUIKLargePayPalMonogramCardView.m */; };
+		A52902041D8903A700032220 /* BTUIKLargeUnionPayVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901581D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.h */; };
+		A52902051D8903A700032220 /* BTUIKLargeUnionPayVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901591D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.m */; };
+		A52902061D8903A700032220 /* BTUIKLargeUnionPayVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901591D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.m */; };
+		A52902071D8903A700032220 /* BTUIKLargeUnknownCardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529015A1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.h */; };
+		A52902081D8903A700032220 /* BTUIKLargeUnknownCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529015B1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.m */; };
+		A52902091D8903A700032220 /* BTUIKLargeUnknownCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529015B1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.m */; };
+		A529020A1D8903A700032220 /* BTUIKLargeVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529015C1D8903A600032220 /* BTUIKLargeVectorArtView.h */; };
+		A529020B1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529015D1D8903A600032220 /* BTUIKLargeVectorArtView.m */; };
+		A529020C1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529015D1D8903A600032220 /* BTUIKLargeVectorArtView.m */; };
+		A529020D1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529015E1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.h */; };
+		A529020E1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529015F1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.m */; };
+		A529020F1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A529015F1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.m */; };
+		A52902101D8903A700032220 /* BTUIKLargeVisaVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */; };
+		A52902111D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */; };
+		A52902121D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */; };
+		A52902131D8904EE00032220 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52900361D88FB5100032220 /* BraintreeUIKit.framework */; };
+		A5411A1F1D8A1F090041BE92 /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5411A1E1D8A1F090041BE92 /* UnitTests.m */; };
+		A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */; };
+		A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A371D8A23990041BE92 /* BTUITest.swift */; };
+		A55F56531D88EBB700C55BFD /* BraintreeApplePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBC041D8898C50064FD29 /* BraintreeApplePay.framework */; };
+		A55F56541D88EBE400C55BFD /* BraintreeApplePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBC041D8898C50064FD29 /* BraintreeApplePay.framework */; };
+		A56C418E1D833568000DFFAB /* BTCardFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41871D833568000DFFAB /* BTCardFormViewController.m */; };
+		A56C418F1D833568000DFFAB /* BTDropInBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */; };
+		A56C41901D833568000DFFAB /* BTDropInController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41891D833568000DFFAB /* BTDropInController.m */; };
+		A56C41911D833568000DFFAB /* BTDropInUIUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C418A1D833568000DFFAB /* BTDropInUIUtilities.h */; };
+		A56C41921D833568000DFFAB /* BTDropInUIUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */; };
+		A56C41931D833568000DFFAB /* BTPaymentSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */; };
+		A56C41941D833568000DFFAB /* BTVaultManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */; };
+		A56C41971D833597000DFFAB /* BTDropInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41951D833597000DFFAB /* BTDropInRequest.m */; };
+		A56C41981D833597000DFFAB /* BTDropInResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41961D833597000DFFAB /* BTDropInResult.m */; };
+		A56C419F1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41991D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h */; };
+		A56C41A01D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C419A1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m */; };
+		A56C41A11D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C419B1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h */; };
+		A56C41A21D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C419C1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m */; };
+		A56C41A31D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C419D1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h */; };
+		A56C41A41D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C419E1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m */; };
+		A56C41AD1D8335C7000DFFAB /* BraintreeDropIn.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41A51D8335C7000DFFAB /* BraintreeDropIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41AE1D8335C7000DFFAB /* BTCardFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41A61D8335C7000DFFAB /* BTCardFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41AF1D8335C7000DFFAB /* BTDropInBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41A71D8335C7000DFFAB /* BTDropInBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41B01D8335C7000DFFAB /* BTDropInController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41A81D8335C7000DFFAB /* BTDropInController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41B11D8335C7000DFFAB /* BTDropInRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41A91D8335C7000DFFAB /* BTDropInRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41B21D8335C7000DFFAB /* BTDropInResult.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41B31D8335C7000DFFAB /* BTPaymentSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A56C41B41D8335C7000DFFAB /* BTVaultManagementViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D601D83599D009BE61A /* BraintreeDemoBaseViewController.m */; };
+		A5CE1D741D83599D009BE61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D631D83599D009BE61A /* Main.storyboard */; };
+		A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */; };
+		A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */; };
+		A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */; };
+		A5CE1D781D83599D009BE61A /* BraintreeDemoSlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6C1D83599D009BE61A /* BraintreeDemoSlideNavigationController.m */; };
+		A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */; };
+		A5CE1D7A1D83599D009BE61A /* BraintreeDemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */; };
+		A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D711D83599D009BE61A /* Settings.bundle */; };
+		A5CE1D8B1D835A9F009BE61A /* Braintree-Demo.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */; };
+		A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */; };
+		A5CE1DFA1D835AB6009BE61A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DD51D835AB6009BE61A /* Images.xcassets */; };
+		A5CE1DFB1D835AB6009BE61A /* BraintreeDemoMerchantAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DD81D835AB6009BE61A /* BraintreeDemoMerchantAPI.m */; };
+		A5CE1DFE1D835AB6009BE61A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DDD1D835AB6009BE61A /* InfoPlist.strings */; };
+		A5CE1DFF1D835AB6009BE61A /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DDF1D835AB6009BE61A /* Main.strings */; };
+		A5CE1E001D835AB6009BE61A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DE11D835AB6009BE61A /* main.m */; };
+		A5CE1E081D835CC0009BE61A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE1E071D835CC0009BE61A /* PassKit.framework */; };
+		A5CEBBFC1D8898490064FD29 /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBBF81D8898490064FD29 /* BraintreeCard.framework */; };
+		A5CEBBFD1D8898490064FD29 /* BraintreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBBF91D8898490064FD29 /* BraintreeCore.framework */; };
+		A5CEBBFF1D8898490064FD29 /* BraintreeUnionPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBBFB1D8898490064FD29 /* BraintreeUnionPay.framework */; };
+		A5CEBC001D8898600064FD29 /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBBF81D8898490064FD29 /* BraintreeCard.framework */; };
+		A5CEBC011D8898600064FD29 /* BraintreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBBF91D8898490064FD29 /* BraintreeCore.framework */; };
+		A5CEBC031D8898600064FD29 /* BraintreeUnionPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBBFB1D8898490064FD29 /* BraintreeUnionPay.framework */; };
+		D9125B16377B9423DD5DF709 /* libPods-Tests-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */; };
+		EC90D2D27A8B2F09C81EED7B /* libPods-DropInDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A52902141D89052300032220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A56C41611D833348000DFFAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52900351D88FB5100032220;
+			remoteInfo = BraintreeUIKit;
+		};
+		A5411A211D8A1F090041BE92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A56C41611D833348000DFFAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5CE1D131D835832009BE61A;
+			remoteInfo = DropInDemo;
+		};
+		A5411A2F1D8A20D00041BE92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A56C41611D833348000DFFAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5CE1D131D835832009BE61A;
+			remoteInfo = DropInDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A519F9F31D88618200819A39 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52900501D88FB5200032220 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A519F9F51D88618200819A39 /* libBraintreeDropIn-StaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBraintreeDropIn-StaticLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52900361D88FB5100032220 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A529003A1D88FB5100032220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKBarButtonItem.h; sourceTree = "<group>"; };
+		A52900D11D8903A600032220 /* BTUIKBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKBarButtonItem.m; sourceTree = "<group>"; };
+		A52900D21D8903A600032220 /* BTUIKCardListLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardListLabel.m; sourceTree = "<group>"; };
+		A52900D31D8903A600032220 /* BTUIKCardNumberFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardNumberFormField.m; sourceTree = "<group>"; };
+		A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCollectionReusableView.h; sourceTree = "<group>"; };
+		A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCollectionReusableView.m; sourceTree = "<group>"; };
+		A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryFormField.m; sourceTree = "<group>"; };
+		A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryInputCollectionViewCell.h; sourceTree = "<group>"; };
+		A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryInputCollectionViewCell.m; sourceTree = "<group>"; };
+		A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryInputView.m; sourceTree = "<group>"; };
+		A52900DA1D8903A600032220 /* BTUIKFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKFormField.m; sourceTree = "<group>"; };
+		A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKInputAccessoryToolbar.m; sourceTree = "<group>"; };
+		A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMobileCountryCodeFormField.m; sourceTree = "<group>"; };
+		A52900DD1D8903A600032220 /* BTUIKMobileNumberFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMobileNumberFormField.m; sourceTree = "<group>"; };
+		A52900DE1D8903A600032220 /* BTUIKPaymentOptionCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKPaymentOptionCardView.m; sourceTree = "<group>"; };
+		A52900DF1D8903A600032220 /* BTUIKPostalCodeFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKPostalCodeFormField.m; sourceTree = "<group>"; };
+		A52900E01D8903A600032220 /* BTUIKSecurityCodeFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKSecurityCodeFormField.m; sourceTree = "<group>"; };
+		A52900E11D8903A600032220 /* BTUIKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKTextField.m; sourceTree = "<group>"; };
+		A52900E31D8903A600032220 /* BTUIKAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKAppearance.m; sourceTree = "<group>"; };
+		A52900E41D8903A600032220 /* BTUIKViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKViewUtil.m; sourceTree = "<group>"; };
+		A52900E51D8903A600032220 /* UIColor+BTUIK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BTUIK.m"; sourceTree = "<group>"; };
+		A52900E71D8903A600032220 /* BTUIKLocalizedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLocalizedString.m; sourceTree = "<group>"; };
+		A52900E91D8903A600032220 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900EA1D8903A600032220 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900EB1D8903A600032220 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900EC1D8903A600032220 /* en_AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_AU; path = en_AU.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900ED1D8903A600032220 /* en_CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_CA; path = en_CA.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900EE1D8903A600032220 /* en_GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_GB; path = en_GB.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900EF1D8903A600032220 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F01D8903A600032220 /* es_ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es_ES; path = es_ES.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F11D8903A600032220 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F21D8903A600032220 /* fr_CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr_CA; path = fr_CA.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F31D8903A600032220 /* fr_FR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr_FR; path = fr_FR.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F41D8903A600032220 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F51D8903A600032220 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F61D8903A600032220 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F71D8903A600032220 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F81D8903A600032220 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900F91D8903A600032220 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900FA1D8903A600032220 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900FB1D8903A600032220 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900FC1D8903A600032220 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/BTUI.strings; sourceTree = "<group>"; };
+		A52900FD1D8903A600032220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BTUI.strings"; sourceTree = "<group>"; };
+		A52900FF1D8903A600032220 /* BTUIKCardExpirationValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardExpirationValidator.m; sourceTree = "<group>"; };
+		A52901001D8903A600032220 /* BTUIKCardExpiryFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardExpiryFormat.m; sourceTree = "<group>"; };
+		A52901011D8903A600032220 /* BTUIKCardType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardType.m; sourceTree = "<group>"; };
+		A52901021D8903A600032220 /* BTUIKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKUtil.m; sourceTree = "<group>"; };
+		A52901041D8903A600032220 /* BraintreeUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeUIKit.h; sourceTree = "<group>"; };
+		A52901051D8903A600032220 /* BTUIKAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKAppearance.h; sourceTree = "<group>"; };
+		A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardExpirationValidator.h; sourceTree = "<group>"; };
+		A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardExpiryFormat.h; sourceTree = "<group>"; };
+		A52901081D8903A600032220 /* BTUIKCardListLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardListLabel.h; sourceTree = "<group>"; };
+		A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardNumberFormField.h; sourceTree = "<group>"; };
+		A529010A1D8903A600032220 /* BTUIKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardType.h; sourceTree = "<group>"; };
+		A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryFormField.h; sourceTree = "<group>"; };
+		A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryInputView.h; sourceTree = "<group>"; };
+		A529010D1D8903A600032220 /* BTUIKFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKFormField.h; sourceTree = "<group>"; };
+		A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKInputAccessoryToolbar.h; sourceTree = "<group>"; };
+		A529010F1D8903A600032220 /* BTUIKLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLocalizedString.h; sourceTree = "<group>"; };
+		A52901101D8903A600032220 /* BTUIKMobileCountryCodeFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMobileCountryCodeFormField.h; sourceTree = "<group>"; };
+		A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMobileNumberFormField.h; sourceTree = "<group>"; };
+		A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPaymentOptionCardView.h; sourceTree = "<group>"; };
+		A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPaymentOptionType.h; sourceTree = "<group>"; };
+		A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPostalCodeFormField.h; sourceTree = "<group>"; };
+		A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKSecurityCodeFormField.h; sourceTree = "<group>"; };
+		A52901161D8903A600032220 /* BTUIKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKTextField.h; sourceTree = "<group>"; };
+		A52901171D8903A600032220 /* BTUIKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKUtil.h; sourceTree = "<group>"; };
+		A52901181D8903A600032220 /* BTUIKVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVectorArtView.h; sourceTree = "<group>"; };
+		A52901191D8903A600032220 /* BTUIKViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKViewUtil.h; sourceTree = "<group>"; };
+		A529011A1D8903A600032220 /* UIColor+BTUIK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BTUIK.h"; sourceTree = "<group>"; };
+		A529011C1D8903A600032220 /* BTUIKAmExVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKAmExVectorArtView.h; sourceTree = "<group>"; };
+		A529011D1D8903A600032220 /* BTUIKAmExVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKAmExVectorArtView.m; sourceTree = "<group>"; };
+		A529011E1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKApplePayMarkVectorArtView.h; sourceTree = "<group>"; };
+		A529011F1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKApplePayMarkVectorArtView.m; sourceTree = "<group>"; };
+		A52901201D8903A600032220 /* BTUIKCardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardVectorArtView.h; sourceTree = "<group>"; };
+		A52901211D8903A600032220 /* BTUIKCardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardVectorArtView.m; sourceTree = "<group>"; };
+		A52901221D8903A600032220 /* BTUIKCoinbaseMonogramCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCoinbaseMonogramCardView.h; sourceTree = "<group>"; };
+		A52901231D8903A600032220 /* BTUIKCoinbaseMonogramCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCoinbaseMonogramCardView.m; sourceTree = "<group>"; };
+		A52901241D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCoinbaseWordmarkVectorArtView.h; sourceTree = "<group>"; };
+		A52901251D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCoinbaseWordmarkVectorArtView.m; sourceTree = "<group>"; };
+		A52901261D8903A600032220 /* BTUIKCVVBackVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCVVBackVectorArtView.h; sourceTree = "<group>"; };
+		A52901271D8903A600032220 /* BTUIKCVVBackVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCVVBackVectorArtView.m; sourceTree = "<group>"; };
+		A52901281D8903A600032220 /* BTUIKCVVFrontVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCVVFrontVectorArtView.h; sourceTree = "<group>"; };
+		A52901291D8903A600032220 /* BTUIKCVVFrontVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCVVFrontVectorArtView.m; sourceTree = "<group>"; };
+		A529012A1D8903A600032220 /* BTUIKDinersClubVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKDinersClubVectorArtView.h; sourceTree = "<group>"; };
+		A529012B1D8903A600032220 /* BTUIKDinersClubVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKDinersClubVectorArtView.m; sourceTree = "<group>"; };
+		A529012C1D8903A600032220 /* BTUIKDiscoverVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKDiscoverVectorArtView.h; sourceTree = "<group>"; };
+		A529012D1D8903A600032220 /* BTUIKDiscoverVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKDiscoverVectorArtView.m; sourceTree = "<group>"; };
+		A529012E1D8903A600032220 /* BTUIKJCBVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKJCBVectorArtView.h; sourceTree = "<group>"; };
+		A529012F1D8903A600032220 /* BTUIKJCBVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKJCBVectorArtView.m; sourceTree = "<group>"; };
+		A52901301D8903A600032220 /* BTUIKMaestroVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMaestroVectorArtView.h; sourceTree = "<group>"; };
+		A52901311D8903A600032220 /* BTUIKMaestroVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMaestroVectorArtView.m; sourceTree = "<group>"; };
+		A52901321D8903A600032220 /* BTUIKMasterCardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMasterCardVectorArtView.h; sourceTree = "<group>"; };
+		A52901331D8903A600032220 /* BTUIKMasterCardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMasterCardVectorArtView.m; sourceTree = "<group>"; };
+		A52901341D8903A600032220 /* BTUIKPayPalMonogramCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPayPalMonogramCardView.h; sourceTree = "<group>"; };
+		A52901351D8903A600032220 /* BTUIKPayPalMonogramCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKPayPalMonogramCardView.m; sourceTree = "<group>"; };
+		A52901361D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPayPalWordmarkCompactVectorArtView.h; sourceTree = "<group>"; };
+		A52901371D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKPayPalWordmarkCompactVectorArtView.m; sourceTree = "<group>"; };
+		A52901381D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPayPalWordmarkVectorArtView.h; sourceTree = "<group>"; };
+		A52901391D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKPayPalWordmarkVectorArtView.m; sourceTree = "<group>"; };
+		A529013A1D8903A600032220 /* BTUIKUnionPayVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKUnionPayVectorArtView.h; sourceTree = "<group>"; };
+		A529013B1D8903A600032220 /* BTUIKUnionPayVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKUnionPayVectorArtView.m; sourceTree = "<group>"; };
+		A529013C1D8903A600032220 /* BTUIKUnknownCardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKUnknownCardVectorArtView.h; sourceTree = "<group>"; };
+		A529013D1D8903A600032220 /* BTUIKUnknownCardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKUnknownCardVectorArtView.m; sourceTree = "<group>"; };
+		A529013E1D8903A600032220 /* BTUIKVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKVectorArtView.m; sourceTree = "<group>"; };
+		A529013F1D8903A600032220 /* BTUIKVenmoMonogramCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVenmoMonogramCardView.h; sourceTree = "<group>"; };
+		A52901401D8903A600032220 /* BTUIKVenmoMonogramCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKVenmoMonogramCardView.m; sourceTree = "<group>"; };
+		A52901411D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVenmoWordmarkVectorArtView.h; sourceTree = "<group>"; };
+		A52901421D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKVenmoWordmarkVectorArtView.m; sourceTree = "<group>"; };
+		A52901431D8903A600032220 /* BTUIKVisaVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVisaVectorArtView.h; sourceTree = "<group>"; };
+		A52901441D8903A600032220 /* BTUIKVisaVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKVisaVectorArtView.m; sourceTree = "<group>"; };
+		A52901461D8903A600032220 /* BTUIKLargeAmExVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeAmExVectorArtView.h; sourceTree = "<group>"; };
+		A52901471D8903A600032220 /* BTUIKLargeAmExVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeAmExVectorArtView.m; sourceTree = "<group>"; };
+		A52901481D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeApplePayMarkVectorArtView.h; sourceTree = "<group>"; };
+		A52901491D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeApplePayMarkVectorArtView.m; sourceTree = "<group>"; };
+		A529014A1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeCoinbaseMonogramCardView.h; sourceTree = "<group>"; };
+		A529014B1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeCoinbaseMonogramCardView.m; sourceTree = "<group>"; };
+		A529014C1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeDinersClubVectorArtView.h; sourceTree = "<group>"; };
+		A529014D1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeDinersClubVectorArtView.m; sourceTree = "<group>"; };
+		A529014E1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeDiscoverVectorArtView.h; sourceTree = "<group>"; };
+		A529014F1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeDiscoverVectorArtView.m; sourceTree = "<group>"; };
+		A52901501D8903A600032220 /* BTUIKLargeJCBVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeJCBVectorArtView.h; sourceTree = "<group>"; };
+		A52901511D8903A600032220 /* BTUIKLargeJCBVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeJCBVectorArtView.m; sourceTree = "<group>"; };
+		A52901521D8903A600032220 /* BTUIKLargeMaestroVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeMaestroVectorArtView.h; sourceTree = "<group>"; };
+		A52901531D8903A600032220 /* BTUIKLargeMaestroVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeMaestroVectorArtView.m; sourceTree = "<group>"; };
+		A52901541D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeMasterCardVectorArtView.h; sourceTree = "<group>"; };
+		A52901551D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeMasterCardVectorArtView.m; sourceTree = "<group>"; };
+		A52901561D8903A600032220 /* BTUIKLargePayPalMonogramCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargePayPalMonogramCardView.h; sourceTree = "<group>"; };
+		A52901571D8903A600032220 /* BTUIKLargePayPalMonogramCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargePayPalMonogramCardView.m; sourceTree = "<group>"; };
+		A52901581D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeUnionPayVectorArtView.h; sourceTree = "<group>"; };
+		A52901591D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeUnionPayVectorArtView.m; sourceTree = "<group>"; };
+		A529015A1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeUnknownCardVectorArtView.h; sourceTree = "<group>"; };
+		A529015B1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeUnknownCardVectorArtView.m; sourceTree = "<group>"; };
+		A529015C1D8903A600032220 /* BTUIKLargeVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeVectorArtView.h; sourceTree = "<group>"; };
+		A529015D1D8903A600032220 /* BTUIKLargeVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeVectorArtView.m; sourceTree = "<group>"; };
+		A529015E1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeVenmoMonogramCardView.h; sourceTree = "<group>"; };
+		A529015F1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeVenmoMonogramCardView.m; sourceTree = "<group>"; };
+		A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeVisaVectorArtView.h; sourceTree = "<group>"; };
+		A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeVisaVectorArtView.m; sourceTree = "<group>"; };
+		A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5411A1E1D8A1F090041BE92 /* UnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTests.m; sourceTree = "<group>"; };
+		A5411A201D8A1F090041BE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5411A2A1D8A20D00041BE92 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5411A2E1D8A20D00041BE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
+		A5411A371D8A23990041BE92 /* BTUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTUITest.swift; sourceTree = "<group>"; };
+		A55F56511D88EBAB00C55BFD /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = "../braintree-ios/build/Debug-iphoneos/BraintreeApplePay.framework"; sourceTree = "<group>"; };
+		A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A56C416F1D833348000DFFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A56C41871D833568000DFFAB /* BTCardFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCardFormViewController.m; sourceTree = "<group>"; };
+		A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInBaseViewController.m; sourceTree = "<group>"; };
+		A56C41891D833568000DFFAB /* BTDropInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInController.m; sourceTree = "<group>"; };
+		A56C418A1D833568000DFFAB /* BTDropInUIUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInUIUtilities.h; sourceTree = "<group>"; };
+		A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInUIUtilities.m; sourceTree = "<group>"; };
+		A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionViewController.m; sourceTree = "<group>"; };
+		A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTVaultManagementViewController.m; sourceTree = "<group>"; };
+		A56C41951D833597000DFFAB /* BTDropInRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInRequest.m; sourceTree = "<group>"; };
+		A56C41961D833597000DFFAB /* BTDropInResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInResult.m; sourceTree = "<group>"; };
+		A56C41991D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInPaymentSeletionCell.h; sourceTree = "<group>"; };
+		A56C419A1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInPaymentSeletionCell.m; sourceTree = "<group>"; };
+		A56C419B1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTEnrollmentVerificationViewController.h; sourceTree = "<group>"; };
+		A56C419C1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTEnrollmentVerificationViewController.m; sourceTree = "<group>"; };
+		A56C419D1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIPaymentMethodCollectionViewCell.h; sourceTree = "<group>"; };
+		A56C419E1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIPaymentMethodCollectionViewCell.m; sourceTree = "<group>"; };
+		A56C41A51D8335C7000DFFAB /* BraintreeDropIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDropIn.h; sourceTree = "<group>"; };
+		A56C41A61D8335C7000DFFAB /* BTCardFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCardFormViewController.h; sourceTree = "<group>"; };
+		A56C41A71D8335C7000DFFAB /* BTDropInBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInBaseViewController.h; sourceTree = "<group>"; };
+		A56C41A81D8335C7000DFFAB /* BTDropInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInController.h; sourceTree = "<group>"; };
+		A56C41A91D8335C7000DFFAB /* BTDropInRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInRequest.h; sourceTree = "<group>"; };
+		A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInResult.h; sourceTree = "<group>"; };
+		A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTPaymentSelectionViewController.h; sourceTree = "<group>"; };
+		A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTVaultManagementViewController.h; sourceTree = "<group>"; };
+		A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTAPIClient_Internal_Category.h; sourceTree = "<group>"; };
+		A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKBarButtonItem_Internal_Declaration.h; sourceTree = "<group>"; };
+		A5A45B241D874F550029A3B5 /* BraintreeCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCard.framework; path = Carthage/Build/iOS/BraintreeCard.framework; sourceTree = "<group>"; };
+		A5A45B251D874F550029A3B5 /* BraintreeCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCore.framework; path = Carthage/Build/iOS/BraintreeCore.framework; sourceTree = "<group>"; };
+		A5A45B261D874F550029A3B5 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = Carthage/Build/iOS/BraintreeUIKit.framework; sourceTree = "<group>"; };
+		A5A45B271D874F550029A3B5 /* BraintreeUnionPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUnionPay.framework; path = Carthage/Build/iOS/BraintreeUnionPay.framework; sourceTree = "<group>"; };
+		A5CE1D141D835832009BE61A /* DropInDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropInDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5CE1D5F1D83599D009BE61A /* BraintreeDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoBaseViewController.h; sourceTree = "<group>"; };
+		A5CE1D601D83599D009BE61A /* BraintreeDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoBaseViewController.m; sourceTree = "<group>"; };
+		A5CE1D641D83599D009BE61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5CE1D651D83599D009BE61A /* BraintreeDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoAppDelegate.h; sourceTree = "<group>"; };
+		A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoAppDelegate.m; sourceTree = "<group>"; };
+		A5CE1D671D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoDemoContainmentViewController.h; sourceTree = "<group>"; };
+		A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoDemoContainmentViewController.m; sourceTree = "<group>"; };
+		A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoIntegrationViewController.h; sourceTree = "<group>"; };
+		A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoIntegrationViewController.m; sourceTree = "<group>"; };
+		A5CE1D6B1D83599D009BE61A /* BraintreeDemoSlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoSlideNavigationController.h; sourceTree = "<group>"; };
+		A5CE1D6C1D83599D009BE61A /* BraintreeDemoSlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoSlideNavigationController.m; sourceTree = "<group>"; };
+		A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A5CE1D6F1D83599D009BE61A /* BraintreeDemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoSettings.h; sourceTree = "<group>"; };
+		A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoSettings.m; sourceTree = "<group>"; };
+		A5CE1D711D83599D009BE61A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Braintree-Demo.entitlements"; sourceTree = "<group>"; };
+		A5CE1DA71D835AB6009BE61A /* BraintreeDemoDropInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoDropInViewController.h; sourceTree = "<group>"; };
+		A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoDropInViewController.m; sourceTree = "<group>"; };
+		A5CE1DD51D835AB6009BE61A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DropInDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		A5CE1DD71D835AB6009BE61A /* BraintreeDemoMerchantAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoMerchantAPI.h; sourceTree = "<group>"; };
+		A5CE1DD81D835AB6009BE61A /* BraintreeDemoMerchantAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoMerchantAPI.m; sourceTree = "<group>"; };
+		A5CE1DD91D835AB6009BE61A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = DropInDemo/README.md; sourceTree = SOURCE_ROOT; };
+		A5CE1DDB1D835AB6009BE61A /* Braintree-Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Braintree-Demo-Info.plist"; sourceTree = "<group>"; };
+		A5CE1DDC1D835AB6009BE61A /* Braintree-Demo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Braintree-Demo-Prefix.pch"; sourceTree = "<group>"; };
+		A5CE1DDE1D835AB6009BE61A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A5CE1DE01D835AB6009BE61A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A5CE1DE11D835AB6009BE61A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A5CE1E071D835CC0009BE61A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		A5CE1E091D835CD1009BE61A /* DropInDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DropInDemo.entitlements; sourceTree = "<group>"; };
+		A5CE1E0A1D835F53009BE61A /* Braintree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Braintree.framework; path = "../../../Library/Developer/Xcode/DerivedData/BraintreeDropIn-hgzxvexnfbykxnekrghbfbreqyri/Build/Products/Debug-iphonesimulator/Braintree/Braintree.framework"; sourceTree = "<group>"; };
+		A5CEBB1D1D88857A0064FD29 /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = "../braintree-ios/build/Debug-iphoneos/BraintreeApplePay.framework"; sourceTree = "<group>"; };
+		A5CEBB1F1D8885910064FD29 /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = Carthage/Build/iOS/BraintreeApplePay.framework; sourceTree = "<group>"; };
+		A5CEBB211D8885C00064FD29 /* libBraintree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBraintree.a; path = "../../../Library/Developer/Xcode/DerivedData/BraintreeDropInSampleStaticLib-czvlfzajgufrbydxfsjtvqriemso/Build/Products/Debug-iphoneos/libBraintree.a"; sourceTree = "<group>"; };
+		A5CEBBF81D8898490064FD29 /* BraintreeCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCard.framework; path = Vendor/BraintreeCard.framework; sourceTree = "<group>"; };
+		A5CEBBF91D8898490064FD29 /* BraintreeCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCore.framework; path = Vendor/BraintreeCore.framework; sourceTree = "<group>"; };
+		A5CEBBFA1D8898490064FD29 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = Vendor/BraintreeUIKit.framework; sourceTree = "<group>"; };
+		A5CEBBFB1D8898490064FD29 /* BraintreeUnionPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUnionPay.framework; path = Vendor/BraintreeUnionPay.framework; sourceTree = "<group>"; };
+		A5CEBC041D8898C50064FD29 /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = Vendor/BraintreeApplePay.framework; sourceTree = "<group>"; };
+		CB5342685A05987416D3E9FD /* libPods-BraintreeDropIn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BraintreeDropIn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A519F9F21D88618200819A39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A55F56541D88EBE400C55BFD /* BraintreeApplePay.framework in Frameworks */,
+				A5CEBBFC1D8898490064FD29 /* BraintreeCard.framework in Frameworks */,
+				A5CEBBFD1D8898490064FD29 /* BraintreeCore.framework in Frameworks */,
+				A5CEBBFF1D8898490064FD29 /* BraintreeUnionPay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52900321D88FB5100032220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5411A191D8A1F090041BE92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9125B16377B9423DD5DF709 /* libPods-Tests-UnitTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5411A271D8A20D00041BE92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A56C41661D833348000DFFAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52902131D8904EE00032220 /* BraintreeUIKit.framework in Frameworks */,
+				A55F56531D88EBB700C55BFD /* BraintreeApplePay.framework in Frameworks */,
+				A5CEBC001D8898600064FD29 /* BraintreeCard.framework in Frameworks */,
+				A5CEBC011D8898600064FD29 /* BraintreeCore.framework in Frameworks */,
+				A5CEBC031D8898600064FD29 /* BraintreeUnionPay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5CE1D111D835832009BE61A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5CE1E081D835CC0009BE61A /* PassKit.framework in Frameworks */,
+				EC90D2D27A8B2F09C81EED7B /* libPods-DropInDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34DC3C0A1580ACE28BE5BB89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */,
+				69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */,
+				4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */,
+				1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7CB021C39C809C0427A911A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A55F56511D88EBAB00C55BFD /* BraintreeApplePay.framework */,
+				A5CEBC041D8898C50064FD29 /* BraintreeApplePay.framework */,
+				A5CEBBF81D8898490064FD29 /* BraintreeCard.framework */,
+				A5CEBBF91D8898490064FD29 /* BraintreeCore.framework */,
+				A5CEBBFA1D8898490064FD29 /* BraintreeUIKit.framework */,
+				A5CEBBFB1D8898490064FD29 /* BraintreeUnionPay.framework */,
+				A5CEBB211D8885C00064FD29 /* libBraintree.a */,
+				A5CEBB1F1D8885910064FD29 /* BraintreeApplePay.framework */,
+				A5CEBB1D1D88857A0064FD29 /* BraintreeApplePay.framework */,
+				A5A45B241D874F550029A3B5 /* BraintreeCard.framework */,
+				A5A45B251D874F550029A3B5 /* BraintreeCore.framework */,
+				A5A45B261D874F550029A3B5 /* BraintreeUIKit.framework */,
+				A5A45B271D874F550029A3B5 /* BraintreeUnionPay.framework */,
+				A5CE1E0A1D835F53009BE61A /* Braintree.framework */,
+				A5CE1E071D835CC0009BE61A /* PassKit.framework */,
+				CB5342685A05987416D3E9FD /* libPods-BraintreeDropIn.a */,
+				9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */,
+				9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A519F9F61D88618200819A39 /* BraintreeDropInStaticLibrary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BraintreeDropInStaticLibrary;
+			sourceTree = "<group>";
+		};
+		A52900CE1D8903A600032220 /* BraintreeUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A529003A1D88FB5100032220 /* Info.plist */,
+				A52900CF1D8903A600032220 /* Components */,
+				A52900E21D8903A600032220 /* Helpers */,
+				A52900E61D8903A600032220 /* Localization */,
+				A52900FE1D8903A600032220 /* Models */,
+				A52901031D8903A600032220 /* Public */,
+				A529011B1D8903A600032220 /* Vector Art */,
+			);
+			path = BraintreeUIKit;
+			sourceTree = "<group>";
+		};
+		A52900CF1D8903A600032220 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */,
+				A52900D11D8903A600032220 /* BTUIKBarButtonItem.m */,
+				A52900D21D8903A600032220 /* BTUIKCardListLabel.m */,
+				A52900D31D8903A600032220 /* BTUIKCardNumberFormField.m */,
+				A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */,
+				A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */,
+				A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */,
+				A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */,
+				A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */,
+				A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */,
+				A52900DA1D8903A600032220 /* BTUIKFormField.m */,
+				A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */,
+				A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */,
+				A52900DD1D8903A600032220 /* BTUIKMobileNumberFormField.m */,
+				A52900DE1D8903A600032220 /* BTUIKPaymentOptionCardView.m */,
+				A52900DF1D8903A600032220 /* BTUIKPostalCodeFormField.m */,
+				A52900E01D8903A600032220 /* BTUIKSecurityCodeFormField.m */,
+				A52900E11D8903A600032220 /* BTUIKTextField.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A52900E21D8903A600032220 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A52900E31D8903A600032220 /* BTUIKAppearance.m */,
+				A52900E41D8903A600032220 /* BTUIKViewUtil.m */,
+				A52900E51D8903A600032220 /* UIColor+BTUIK.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A52900E61D8903A600032220 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				A52900E71D8903A600032220 /* BTUIKLocalizedString.m */,
+				A52900E81D8903A600032220 /* BTUI.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		A52900FE1D8903A600032220 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A52900FF1D8903A600032220 /* BTUIKCardExpirationValidator.m */,
+				A52901001D8903A600032220 /* BTUIKCardExpiryFormat.m */,
+				A52901011D8903A600032220 /* BTUIKCardType.m */,
+				A52901021D8903A600032220 /* BTUIKUtil.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A52901031D8903A600032220 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A52901041D8903A600032220 /* BraintreeUIKit.h */,
+				A52901051D8903A600032220 /* BTUIKAppearance.h */,
+				A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */,
+				A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */,
+				A52901081D8903A600032220 /* BTUIKCardListLabel.h */,
+				A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */,
+				A529010A1D8903A600032220 /* BTUIKCardType.h */,
+				A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */,
+				A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */,
+				A529010D1D8903A600032220 /* BTUIKFormField.h */,
+				A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */,
+				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
+				A52901101D8903A600032220 /* BTUIKMobileCountryCodeFormField.h */,
+				A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */,
+				A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */,
+				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
+				A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */,
+				A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */,
+				A52901161D8903A600032220 /* BTUIKTextField.h */,
+				A52901171D8903A600032220 /* BTUIKUtil.h */,
+				A52901181D8903A600032220 /* BTUIKVectorArtView.h */,
+				A52901191D8903A600032220 /* BTUIKViewUtil.h */,
+				A529011A1D8903A600032220 /* UIColor+BTUIK.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A529011B1D8903A600032220 /* Vector Art */ = {
+			isa = PBXGroup;
+			children = (
+				A529011C1D8903A600032220 /* BTUIKAmExVectorArtView.h */,
+				A529011D1D8903A600032220 /* BTUIKAmExVectorArtView.m */,
+				A529011E1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.h */,
+				A529011F1D8903A600032220 /* BTUIKApplePayMarkVectorArtView.m */,
+				A52901201D8903A600032220 /* BTUIKCardVectorArtView.h */,
+				A52901211D8903A600032220 /* BTUIKCardVectorArtView.m */,
+				A52901221D8903A600032220 /* BTUIKCoinbaseMonogramCardView.h */,
+				A52901231D8903A600032220 /* BTUIKCoinbaseMonogramCardView.m */,
+				A52901241D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.h */,
+				A52901251D8903A600032220 /* BTUIKCoinbaseWordmarkVectorArtView.m */,
+				A52901261D8903A600032220 /* BTUIKCVVBackVectorArtView.h */,
+				A52901271D8903A600032220 /* BTUIKCVVBackVectorArtView.m */,
+				A52901281D8903A600032220 /* BTUIKCVVFrontVectorArtView.h */,
+				A52901291D8903A600032220 /* BTUIKCVVFrontVectorArtView.m */,
+				A529012A1D8903A600032220 /* BTUIKDinersClubVectorArtView.h */,
+				A529012B1D8903A600032220 /* BTUIKDinersClubVectorArtView.m */,
+				A529012C1D8903A600032220 /* BTUIKDiscoverVectorArtView.h */,
+				A529012D1D8903A600032220 /* BTUIKDiscoverVectorArtView.m */,
+				A529012E1D8903A600032220 /* BTUIKJCBVectorArtView.h */,
+				A529012F1D8903A600032220 /* BTUIKJCBVectorArtView.m */,
+				A52901301D8903A600032220 /* BTUIKMaestroVectorArtView.h */,
+				A52901311D8903A600032220 /* BTUIKMaestroVectorArtView.m */,
+				A52901321D8903A600032220 /* BTUIKMasterCardVectorArtView.h */,
+				A52901331D8903A600032220 /* BTUIKMasterCardVectorArtView.m */,
+				A52901341D8903A600032220 /* BTUIKPayPalMonogramCardView.h */,
+				A52901351D8903A600032220 /* BTUIKPayPalMonogramCardView.m */,
+				A52901361D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h */,
+				A52901371D8903A600032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m */,
+				A52901381D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.h */,
+				A52901391D8903A600032220 /* BTUIKPayPalWordmarkVectorArtView.m */,
+				A529013A1D8903A600032220 /* BTUIKUnionPayVectorArtView.h */,
+				A529013B1D8903A600032220 /* BTUIKUnionPayVectorArtView.m */,
+				A529013C1D8903A600032220 /* BTUIKUnknownCardVectorArtView.h */,
+				A529013D1D8903A600032220 /* BTUIKUnknownCardVectorArtView.m */,
+				A529013E1D8903A600032220 /* BTUIKVectorArtView.m */,
+				A529013F1D8903A600032220 /* BTUIKVenmoMonogramCardView.h */,
+				A52901401D8903A600032220 /* BTUIKVenmoMonogramCardView.m */,
+				A52901411D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.h */,
+				A52901421D8903A600032220 /* BTUIKVenmoWordmarkVectorArtView.m */,
+				A52901431D8903A600032220 /* BTUIKVisaVectorArtView.h */,
+				A52901441D8903A600032220 /* BTUIKVisaVectorArtView.m */,
+				A52901451D8903A600032220 /* Large */,
+			);
+			path = "Vector Art";
+			sourceTree = "<group>";
+		};
+		A52901451D8903A600032220 /* Large */ = {
+			isa = PBXGroup;
+			children = (
+				A52901461D8903A600032220 /* BTUIKLargeAmExVectorArtView.h */,
+				A52901471D8903A600032220 /* BTUIKLargeAmExVectorArtView.m */,
+				A52901481D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.h */,
+				A52901491D8903A600032220 /* BTUIKLargeApplePayMarkVectorArtView.m */,
+				A529014A1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.h */,
+				A529014B1D8903A600032220 /* BTUIKLargeCoinbaseMonogramCardView.m */,
+				A529014C1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.h */,
+				A529014D1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.m */,
+				A529014E1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.h */,
+				A529014F1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.m */,
+				A52901501D8903A600032220 /* BTUIKLargeJCBVectorArtView.h */,
+				A52901511D8903A600032220 /* BTUIKLargeJCBVectorArtView.m */,
+				A52901521D8903A600032220 /* BTUIKLargeMaestroVectorArtView.h */,
+				A52901531D8903A600032220 /* BTUIKLargeMaestroVectorArtView.m */,
+				A52901541D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.h */,
+				A52901551D8903A600032220 /* BTUIKLargeMasterCardVectorArtView.m */,
+				A52901561D8903A600032220 /* BTUIKLargePayPalMonogramCardView.h */,
+				A52901571D8903A600032220 /* BTUIKLargePayPalMonogramCardView.m */,
+				A52901581D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.h */,
+				A52901591D8903A600032220 /* BTUIKLargeUnionPayVectorArtView.m */,
+				A529015A1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.h */,
+				A529015B1D8903A600032220 /* BTUIKLargeUnknownCardVectorArtView.m */,
+				A529015C1D8903A600032220 /* BTUIKLargeVectorArtView.h */,
+				A529015D1D8903A600032220 /* BTUIKLargeVectorArtView.m */,
+				A529015E1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.h */,
+				A529015F1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.m */,
+				A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */,
+				A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */,
+			);
+			path = Large;
+			sourceTree = "<group>";
+		};
+		A5411A1D1D8A1F090041BE92 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5411A1E1D8A1F090041BE92 /* UnitTests.m */,
+				A5411A201D8A1F090041BE92 /* Info.plist */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		A5411A2B1D8A20D00041BE92 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */,
+				A5411A361D8A23580041BE92 /* Helpers */,
+				A5411A2E1D8A20D00041BE92 /* Info.plist */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		A5411A361D8A23580041BE92 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A5411A371D8A23990041BE92 /* BTUITest.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A56C41601D833348000DFFAB = {
+			isa = PBXGroup;
+			children = (
+				A56C416C1D833348000DFFAB /* BraintreeDropIn */,
+				A5CE1D151D835832009BE61A /* DropInDemo */,
+				A519F9F61D88618200819A39 /* BraintreeDropInStaticLibrary */,
+				A52900CE1D8903A600032220 /* BraintreeUIKit */,
+				A5411A1D1D8A1F090041BE92 /* UnitTests */,
+				A5411A2B1D8A20D00041BE92 /* UITests */,
+				A56C416B1D833348000DFFAB /* Products */,
+				34DC3C0A1580ACE28BE5BB89 /* Pods */,
+				7CB021C39C809C0427A911A4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A56C416B1D833348000DFFAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */,
+				A5CE1D141D835832009BE61A /* DropInDemo.app */,
+				A519F9F51D88618200819A39 /* libBraintreeDropIn-StaticLibrary.a */,
+				A52900361D88FB5100032220 /* BraintreeUIKit.framework */,
+				A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */,
+				A5411A2A1D8A20D00041BE92 /* UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A56C416C1D833348000DFFAB /* BraintreeDropIn */ = {
+			isa = PBXGroup;
+			children = (
+				A56C41B61D83387D000DFFAB /* Braintree Internal Headers */,
+				A56C41841D8334D1000DFFAB /* Models */,
+				A56C41871D833568000DFFAB /* BTCardFormViewController.m */,
+				A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */,
+				A56C41891D833568000DFFAB /* BTDropInController.m */,
+				A56C418A1D833568000DFFAB /* BTDropInUIUtilities.h */,
+				A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */,
+				A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */,
+				A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */,
+				A56C41851D8334D7000DFFAB /* Custom Views */,
+				A56C41861D8334DD000DFFAB /* Public */,
+				A56C416F1D833348000DFFAB /* Info.plist */,
+			);
+			path = BraintreeDropIn;
+			sourceTree = "<group>";
+		};
+		A56C41841D8334D1000DFFAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A56C41951D833597000DFFAB /* BTDropInRequest.m */,
+				A56C41961D833597000DFFAB /* BTDropInResult.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A56C41851D8334D7000DFFAB /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				A56C41991D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h */,
+				A56C419A1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m */,
+				A56C419B1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h */,
+				A56C419C1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m */,
+				A56C419D1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h */,
+				A56C419E1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		A56C41861D8334DD000DFFAB /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A56C41A51D8335C7000DFFAB /* BraintreeDropIn.h */,
+				A56C41A61D8335C7000DFFAB /* BTCardFormViewController.h */,
+				A56C41A71D8335C7000DFFAB /* BTDropInBaseViewController.h */,
+				A56C41A81D8335C7000DFFAB /* BTDropInController.h */,
+				A56C41A91D8335C7000DFFAB /* BTDropInRequest.h */,
+				A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */,
+				A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */,
+				A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A56C41B61D83387D000DFFAB /* Braintree Internal Headers */ = {
+			isa = PBXGroup;
+			children = (
+				A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */,
+				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
+			);
+			name = "Braintree Internal Headers";
+			sourceTree = "<group>";
+		};
+		A5CE1D151D835832009BE61A /* DropInDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1E091D835CD1009BE61A /* DropInDemo.entitlements */,
+				A5CE1D951D835AB6009BE61A /* Features */,
+				A5CE1DD51D835AB6009BE61A /* Images.xcassets */,
+				A5CE1DD61D835AB6009BE61A /* Merchant API Client */,
+				A5CE1DD91D835AB6009BE61A /* README.md */,
+				A5CE1DDA1D835AB6009BE61A /* Supporting Files */,
+				A5CE1D7C1D835A9F009BE61A /* Base.lproj */,
+				A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */,
+				A5CE1D5D1D83599D009BE61A /* Demo Base */,
+			);
+			path = DropInDemo;
+			sourceTree = "<group>";
+		};
+		A5CE1D5D1D83599D009BE61A /* Demo Base */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1D5E1D83599D009BE61A /* Base View Controllers */,
+				A5CE1D631D83599D009BE61A /* Main.storyboard */,
+				A5CE1D651D83599D009BE61A /* BraintreeDemoAppDelegate.h */,
+				A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */,
+				A5CE1D671D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.h */,
+				A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */,
+				A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */,
+				A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */,
+				A5CE1D6B1D83599D009BE61A /* BraintreeDemoSlideNavigationController.h */,
+				A5CE1D6C1D83599D009BE61A /* BraintreeDemoSlideNavigationController.m */,
+				A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */,
+				A5CE1D6E1D83599D009BE61A /* Settings */,
+			);
+			path = "Demo Base";
+			sourceTree = "<group>";
+		};
+		A5CE1D5E1D83599D009BE61A /* Base View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1D5F1D83599D009BE61A /* BraintreeDemoBaseViewController.h */,
+				A5CE1D601D83599D009BE61A /* BraintreeDemoBaseViewController.m */,
+			);
+			path = "Base View Controllers";
+			sourceTree = "<group>";
+		};
+		A5CE1D6E1D83599D009BE61A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1D6F1D83599D009BE61A /* BraintreeDemoSettings.h */,
+				A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */,
+				A5CE1D711D83599D009BE61A /* Settings.bundle */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A5CE1D7C1D835A9F009BE61A /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		A5CE1D951D835AB6009BE61A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1DA61D835AB6009BE61A /* Drop In */,
+			);
+			name = Features;
+			path = DropInDemo/Features;
+			sourceTree = SOURCE_ROOT;
+		};
+		A5CE1DA61D835AB6009BE61A /* Drop In */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1DA71D835AB6009BE61A /* BraintreeDemoDropInViewController.h */,
+				A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */,
+			);
+			path = "Drop In";
+			sourceTree = "<group>";
+		};
+		A5CE1DD61D835AB6009BE61A /* Merchant API Client */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1DD71D835AB6009BE61A /* BraintreeDemoMerchantAPI.h */,
+				A5CE1DD81D835AB6009BE61A /* BraintreeDemoMerchantAPI.m */,
+			);
+			name = "Merchant API Client";
+			path = "DropInDemo/Merchant API Client";
+			sourceTree = SOURCE_ROOT;
+		};
+		A5CE1DDA1D835AB6009BE61A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A5CE1DDB1D835AB6009BE61A /* Braintree-Demo-Info.plist */,
+				A5CE1DDC1D835AB6009BE61A /* Braintree-Demo-Prefix.pch */,
+				A5CE1DDD1D835AB6009BE61A /* InfoPlist.strings */,
+				A5CE1DDF1D835AB6009BE61A /* Main.strings */,
+				A5CE1DE11D835AB6009BE61A /* main.m */,
+			);
+			name = "Supporting Files";
+			path = "DropInDemo/Supporting Files";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A52900331D88FB5100032220 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52901A61D8903A700032220 /* BTUIKTextField.h in Headers */,
+				A52901941D8903A600032220 /* BraintreeUIKit.h in Headers */,
+				A52901CF1D8903A700032220 /* BTUIKPayPalMonogramCardView.h in Headers */,
+				A52901C91D8903A700032220 /* BTUIKMaestroVectorArtView.h in Headers */,
+				A52901F81D8903A700032220 /* BTUIKLargeJCBVectorArtView.h in Headers */,
+				A52902101D8903A700032220 /* BTUIKLargeVisaVectorArtView.h in Headers */,
+				A52901A41D8903A700032220 /* BTUIKPostalCodeFormField.h in Headers */,
+				A529019F1D8903A600032220 /* BTUIKLocalizedString.h in Headers */,
+				A52901971D8903A600032220 /* BTUIKCardExpiryFormat.h in Headers */,
+				A52901BA1D8903A700032220 /* BTUIKCVVBackVectorArtView.h in Headers */,
+				A52901A71D8903A700032220 /* BTUIKUtil.h in Headers */,
+				A52901E61D8903A700032220 /* BTUIKVisaVectorArtView.h in Headers */,
+				A52901D51D8903A700032220 /* BTUIKPayPalWordmarkVectorArtView.h in Headers */,
+				A52901991D8903A600032220 /* BTUIKCardNumberFormField.h in Headers */,
+				A52902071D8903A700032220 /* BTUIKLargeUnknownCardVectorArtView.h in Headers */,
+				A52901BD1D8903A700032220 /* BTUIKCVVFrontVectorArtView.h in Headers */,
+				A52901C01D8903A700032220 /* BTUIKDinersClubVectorArtView.h in Headers */,
+				A52901951D8903A600032220 /* BTUIKAppearance.h in Headers */,
+				A529020D1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.h in Headers */,
+				A52901A31D8903A600032220 /* BTUIKPaymentOptionType.h in Headers */,
+				A52901A91D8903A700032220 /* BTUIKViewUtil.h in Headers */,
+				A52901EC1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.h in Headers */,
+				A52901B11D8903A700032220 /* BTUIKCardVectorArtView.h in Headers */,
+				A52902011D8903A700032220 /* BTUIKLargePayPalMonogramCardView.h in Headers */,
+				A52901F21D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.h in Headers */,
+				A52901AE1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.h in Headers */,
+				A52901FE1D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.h in Headers */,
+				A52901A21D8903A600032220 /* BTUIKPaymentOptionCardView.h in Headers */,
+				A529019E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h in Headers */,
+				A52901EF1D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.h in Headers */,
+				A529019D1D8903A600032220 /* BTUIKFormField.h in Headers */,
+				A52901AB1D8903A700032220 /* BTUIKAmExVectorArtView.h in Headers */,
+				A52901B71D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.h in Headers */,
+				A52901C31D8903A700032220 /* BTUIKDiscoverVectorArtView.h in Headers */,
+				A52901691D8903A600032220 /* BTUIKCollectionReusableView.h in Headers */,
+				A529016E1D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h in Headers */,
+				A52901961D8903A600032220 /* BTUIKCardExpirationValidator.h in Headers */,
+				A52901E01D8903A700032220 /* BTUIKVenmoMonogramCardView.h in Headers */,
+				A52901C61D8903A700032220 /* BTUIKJCBVectorArtView.h in Headers */,
+				A529019C1D8903A600032220 /* BTUIKExpiryInputView.h in Headers */,
+				A52901E91D8903A700032220 /* BTUIKLargeAmExVectorArtView.h in Headers */,
+				A52901F51D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.h in Headers */,
+				A52901A11D8903A600032220 /* BTUIKMobileNumberFormField.h in Headers */,
+				A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */,
+				A529019A1D8903A600032220 /* BTUIKCardType.h in Headers */,
+				A52901FB1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.h in Headers */,
+				A52901CC1D8903A700032220 /* BTUIKMasterCardVectorArtView.h in Headers */,
+				A52901D21D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h in Headers */,
+				A529020A1D8903A700032220 /* BTUIKLargeVectorArtView.h in Headers */,
+				A529019B1D8903A600032220 /* BTUIKExpiryFormField.h in Headers */,
+				A52901D81D8903A700032220 /* BTUIKUnionPayVectorArtView.h in Headers */,
+				A52901E31D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.h in Headers */,
+				A52901A51D8903A700032220 /* BTUIKSecurityCodeFormField.h in Headers */,
+				A52901AA1D8903A700032220 /* UIColor+BTUIK.h in Headers */,
+				A52901981D8903A600032220 /* BTUIKCardListLabel.h in Headers */,
+				A52902041D8903A700032220 /* BTUIKLargeUnionPayVectorArtView.h in Headers */,
+				A52901A81D8903A700032220 /* BTUIKVectorArtView.h in Headers */,
+				A52901A01D8903A600032220 /* BTUIKMobileCountryCodeFormField.h in Headers */,
+				A52901B41D8903A700032220 /* BTUIKCoinbaseMonogramCardView.h in Headers */,
+				A52901DB1D8903A700032220 /* BTUIKUnknownCardVectorArtView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A56C41671D833348000DFFAB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A56C41B31D8335C7000DFFAB /* BTPaymentSelectionViewController.h in Headers */,
+				A56C41AD1D8335C7000DFFAB /* BraintreeDropIn.h in Headers */,
+				A56C41B41D8335C7000DFFAB /* BTVaultManagementViewController.h in Headers */,
+				A56C41AE1D8335C7000DFFAB /* BTCardFormViewController.h in Headers */,
+				A56C41B01D8335C7000DFFAB /* BTDropInController.h in Headers */,
+				A56C41B11D8335C7000DFFAB /* BTDropInRequest.h in Headers */,
+				A56C41AF1D8335C7000DFFAB /* BTDropInBaseViewController.h in Headers */,
+				A56C41B21D8335C7000DFFAB /* BTDropInResult.h in Headers */,
+				A56C41A11D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h in Headers */,
+				A56C419F1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h in Headers */,
+				A56C41A31D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h in Headers */,
+				A56C41911D833568000DFFAB /* BTDropInUIUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A519F9F41D88618200819A39 /* BraintreeDropIn-StaticLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A519F9FD1D88618200819A39 /* Build configuration list for PBXNativeTarget "BraintreeDropIn-StaticLibrary" */;
+			buildPhases = (
+				A519F9F11D88618200819A39 /* Sources */,
+				A519F9F21D88618200819A39 /* Frameworks */,
+				A519F9F31D88618200819A39 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BraintreeDropIn-StaticLibrary";
+			productName = BraintreeDropInStaticLibrary;
+			productReference = A519F9F51D88618200819A39 /* libBraintreeDropIn-StaticLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A52900351D88FB5100032220 /* BraintreeUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A529004D1D88FB5200032220 /* Build configuration list for PBXNativeTarget "BraintreeUIKit" */;
+			buildPhases = (
+				A52900311D88FB5100032220 /* Sources */,
+				A52900321D88FB5100032220 /* Frameworks */,
+				A52900331D88FB5100032220 /* Headers */,
+				A52900341D88FB5100032220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BraintreeUIKit;
+			productName = BraintreeUIKit;
+			productReference = A52900361D88FB5100032220 /* BraintreeUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A5411A1B1D8A1F090041BE92 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5411A251D8A1F090041BE92 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				2962BC4627E3BA868F492B79 /* [CP] Check Pods Manifest.lock */,
+				A5411A181D8A1F090041BE92 /* Sources */,
+				A5411A191D8A1F090041BE92 /* Frameworks */,
+				A5411A1A1D8A1F090041BE92 /* Resources */,
+				5BF6CC06AA2A3575137B429B /* [CP] Embed Pods Frameworks */,
+				DF907D108E2E946308AD26AB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5411A221D8A1F090041BE92 /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A5411A291D8A20D00041BE92 /* UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5411A311D8A20D00041BE92 /* Build configuration list for PBXNativeTarget "UITests" */;
+			buildPhases = (
+				A5411A261D8A20D00041BE92 /* Sources */,
+				A5411A271D8A20D00041BE92 /* Frameworks */,
+				A5411A281D8A20D00041BE92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5411A301D8A20D00041BE92 /* PBXTargetDependency */,
+			);
+			name = UITests;
+			productName = UITests;
+			productReference = A5411A2A1D8A20D00041BE92 /* UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A56C41691D833348000DFFAB /* BraintreeDropIn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A56C417E1D833348000DFFAB /* Build configuration list for PBXNativeTarget "BraintreeDropIn" */;
+			buildPhases = (
+				A56C41651D833348000DFFAB /* Sources */,
+				A56C41661D833348000DFFAB /* Frameworks */,
+				A56C41671D833348000DFFAB /* Headers */,
+				A56C41681D833348000DFFAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52902151D89052300032220 /* PBXTargetDependency */,
+			);
+			name = BraintreeDropIn;
+			productName = BraintreeDropIn;
+			productReference = A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A5CE1D131D835832009BE61A /* DropInDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5CE1D441D835832009BE61A /* Build configuration list for PBXNativeTarget "DropInDemo" */;
+			buildPhases = (
+				3C129A7138F4E46974B60D7A /* [CP] Check Pods Manifest.lock */,
+				89EEA5B9FE670B3862CAF54A /* [CP] Check Pods Manifest.lock */,
+				A5CE1D101D835832009BE61A /* Sources */,
+				A5CE1D111D835832009BE61A /* Frameworks */,
+				A5CE1D121D835832009BE61A /* Resources */,
+				B28F6D7E9D568DAC87F0F5A9 /* [CP] Embed Pods Frameworks */,
+				DA34FBA9A87C5DA5B91041E0 /* [CP] Copy Pods Resources */,
+				A9DF8362AF6163316B56758A /* 📦 Embed Pods Frameworks */,
+				402EE4E859AE66292B81C73A /* 📦 Copy Pods Resources */,
+				A52900501D88FB5200032220 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DropInDemo;
+			productName = DropInDemo;
+			productReference = A5CE1D141D835832009BE61A /* DropInDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A56C41611D833348000DFFAB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Braintree Payments Solution, LLC";
+				TargetAttributes = {
+					A519F9F41D88618200819A39 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A52900351D88FB5100032220 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 43253H4X22;
+					};
+					A5411A1B1D8A1F090041BE92 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A5CE1D131D835832009BE61A;
+					};
+					A5411A291D8A20D00041BE92 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A5CE1D131D835832009BE61A;
+					};
+					A56C41691D833348000DFFAB = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A5CE1D131D835832009BE61A = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 43253H4X22;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = A56C41641D833348000DFFAB /* Build configuration list for PBXProject "BraintreeDropIn" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				da,
+				de,
+				en_AU,
+				en_CA,
+				en_GB,
+				es,
+				es_ES,
+				fr,
+				fr_CA,
+				fr_FR,
+				he,
+				it,
+				nb,
+				nl,
+				pl,
+				pt,
+				ru,
+				sv,
+				tr,
+				"zh-Hans",
+			);
+			mainGroup = A56C41601D833348000DFFAB;
+			productRefGroup = A56C416B1D833348000DFFAB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A56C41691D833348000DFFAB /* BraintreeDropIn */,
+				A5CE1D131D835832009BE61A /* DropInDemo */,
+				A519F9F41D88618200819A39 /* BraintreeDropIn-StaticLibrary */,
+				A52900351D88FB5100032220 /* BraintreeUIKit */,
+				A5411A1B1D8A1F090041BE92 /* UnitTests */,
+				A5411A291D8A20D00041BE92 /* UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A52900341D88FB5100032220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A529018B1D8903A600032220 /* BTUI.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5411A1A1D8A1F090041BE92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5411A281D8A20D00041BE92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A56C41681D833348000DFFAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5CE1D121D835832009BE61A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5CE1DFE1D835AB6009BE61A /* InfoPlist.strings in Resources */,
+				A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */,
+				A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */,
+				A5CE1D741D83599D009BE61A /* Main.storyboard in Resources */,
+				A5CE1DFF1D835AB6009BE61A /* Main.strings in Resources */,
+				A5CE1DFA1D835AB6009BE61A /* Images.xcassets in Resources */,
+				A5CE1D8B1D835A9F009BE61A /* Braintree-Demo.entitlements in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2962BC4627E3BA868F492B79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3C129A7138F4E46974B60D7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		402EE4E859AE66292B81C73A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BF6CC06AA2A3575137B429B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89EEA5B9FE670B3862CAF54A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A9DF8362AF6163316B56758A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B28F6D7E9D568DAC87F0F5A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA34FBA9A87C5DA5B91041E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF907D108E2E946308AD26AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A519F9F11D88618200819A39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A519F9FE1D8863EF00819A39 /* BTDropInRequest.m in Sources */,
+				A519F9FF1D8863EF00819A39 /* BTDropInResult.m in Sources */,
+				A52901F61D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.m in Sources */,
+				A52901ED1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */,
+				A52901BB1D8903A700032220 /* BTUIKCVVBackVectorArtView.m in Sources */,
+				A52901851D8903A600032220 /* BTUIKViewUtil.m in Sources */,
+				A52901711D8903A600032220 /* BTUIKExpiryInputView.m in Sources */,
+				A519FA001D8863EF00819A39 /* BTCardFormViewController.m in Sources */,
+				A52901CA1D8903A700032220 /* BTUIKMaestroVectorArtView.m in Sources */,
+				A519FA011D8863EF00819A39 /* BTDropInBaseViewController.m in Sources */,
+				A52901791D8903A600032220 /* BTUIKMobileNumberFormField.m in Sources */,
+				A52901771D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */,
+				A52901751D8903A600032220 /* BTUIKInputAccessoryToolbar.m in Sources */,
+				A519FA021D8863EF00819A39 /* BTDropInController.m in Sources */,
+				A52901671D8903A600032220 /* BTUIKCardNumberFormField.m in Sources */,
+				A52902021D8903A700032220 /* BTUIKLargePayPalMonogramCardView.m in Sources */,
+				A52901E11D8903A700032220 /* BTUIKVenmoMonogramCardView.m in Sources */,
+				A52901D31D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m in Sources */,
+				A52901AC1D8903A700032220 /* BTUIKAmExVectorArtView.m in Sources */,
+				A52901E41D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.m in Sources */,
+				A52901D61D8903A700032220 /* BTUIKPayPalWordmarkVectorArtView.m in Sources */,
+				A52901EA1D8903A700032220 /* BTUIKLargeAmExVectorArtView.m in Sources */,
+				A52901921D8903A600032220 /* BTUIKUtil.m in Sources */,
+				A52901C41D8903A700032220 /* BTUIKDiscoverVectorArtView.m in Sources */,
+				A52901831D8903A600032220 /* BTUIKAppearance.m in Sources */,
+				A52901FC1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.m in Sources */,
+				A519FA031D8863EF00819A39 /* BTDropInUIUtilities.m in Sources */,
+				A529017F1D8903A600032220 /* BTUIKSecurityCodeFormField.m in Sources */,
+				A52901AF1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */,
+				A529016F1D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */,
+				A52901F31D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.m in Sources */,
+				A52901731D8903A600032220 /* BTUIKFormField.m in Sources */,
+				A52902111D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */,
+				A52902081D8903A700032220 /* BTUIKLargeUnknownCardVectorArtView.m in Sources */,
+				A529020B1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */,
+				A519FA041D8863EF00819A39 /* BTPaymentSelectionViewController.m in Sources */,
+				A529018C1D8903A600032220 /* BTUIKCardExpirationValidator.m in Sources */,
+				A52901D91D8903A700032220 /* BTUIKUnionPayVectorArtView.m in Sources */,
+				A52901F91D8903A700032220 /* BTUIKLargeJCBVectorArtView.m in Sources */,
+				A52901E71D8903A700032220 /* BTUIKVisaVectorArtView.m in Sources */,
+				A519FA051D8863EF00819A39 /* BTVaultManagementViewController.m in Sources */,
+				A529020E1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.m in Sources */,
+				A529016C1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */,
+				A52901D01D8903A700032220 /* BTUIKPayPalMonogramCardView.m in Sources */,
+				A52901C11D8903A700032220 /* BTUIKDinersClubVectorArtView.m in Sources */,
+				A519FA061D8863EF00819A39 /* BTDropInPaymentSeletionCell.m in Sources */,
+				A529018E1D8903A600032220 /* BTUIKCardExpiryFormat.m in Sources */,
+				A519FA071D8863EF00819A39 /* BTEnrollmentVerificationViewController.m in Sources */,
+				A529017D1D8903A600032220 /* BTUIKPostalCodeFormField.m in Sources */,
+				A52901651D8903A600032220 /* BTUIKCardListLabel.m in Sources */,
+				A52901B21D8903A700032220 /* BTUIKCardVectorArtView.m in Sources */,
+				A52901631D8903A600032220 /* BTUIKBarButtonItem.m in Sources */,
+				A52901C71D8903A700032220 /* BTUIKJCBVectorArtView.m in Sources */,
+				A52901DE1D8903A700032220 /* BTUIKVectorArtView.m in Sources */,
+				A52901871D8903A600032220 /* UIColor+BTUIK.m in Sources */,
+				A529016A1D8903A600032220 /* BTUIKCollectionReusableView.m in Sources */,
+				A52901891D8903A600032220 /* BTUIKLocalizedString.m in Sources */,
+				A52901BE1D8903A700032220 /* BTUIKCVVFrontVectorArtView.m in Sources */,
+				A52902051D8903A700032220 /* BTUIKLargeUnionPayVectorArtView.m in Sources */,
+				A52901CD1D8903A700032220 /* BTUIKMasterCardVectorArtView.m in Sources */,
+				A519FA081D8863EF00819A39 /* BTUIPaymentMethodCollectionViewCell.m in Sources */,
+				A52901B51D8903A700032220 /* BTUIKCoinbaseMonogramCardView.m in Sources */,
+				A52901901D8903A600032220 /* BTUIKCardType.m in Sources */,
+				A529017B1D8903A600032220 /* BTUIKPaymentOptionCardView.m in Sources */,
+				A52901FF1D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.m in Sources */,
+				A52901B81D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.m in Sources */,
+				A52901DC1D8903A700032220 /* BTUIKUnknownCardVectorArtView.m in Sources */,
+				A52901F01D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.m in Sources */,
+				A52901811D8903A600032220 /* BTUIKTextField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52900311D88FB5100032220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52901DD1D8903A700032220 /* BTUIKUnknownCardVectorArtView.m in Sources */,
+				A52901C81D8903A700032220 /* BTUIKJCBVectorArtView.m in Sources */,
+				A52901781D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */,
+				A52901FD1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.m in Sources */,
+				A52901B31D8903A700032220 /* BTUIKCardVectorArtView.m in Sources */,
+				A529018A1D8903A600032220 /* BTUIKLocalizedString.m in Sources */,
+				A52901C21D8903A700032220 /* BTUIKDinersClubVectorArtView.m in Sources */,
+				A52901BF1D8903A700032220 /* BTUIKCVVFrontVectorArtView.m in Sources */,
+				A52901AD1D8903A700032220 /* BTUIKAmExVectorArtView.m in Sources */,
+				A52901D71D8903A700032220 /* BTUIKPayPalWordmarkVectorArtView.m in Sources */,
+				A52901BC1D8903A700032220 /* BTUIKCVVBackVectorArtView.m in Sources */,
+				A52901681D8903A600032220 /* BTUIKCardNumberFormField.m in Sources */,
+				A529016B1D8903A600032220 /* BTUIKCollectionReusableView.m in Sources */,
+				A52901B91D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.m in Sources */,
+				A52901D11D8903A700032220 /* BTUIKPayPalMonogramCardView.m in Sources */,
+				A52901C51D8903A700032220 /* BTUIKDiscoverVectorArtView.m in Sources */,
+				A52901761D8903A600032220 /* BTUIKInputAccessoryToolbar.m in Sources */,
+				A529018F1D8903A600032220 /* BTUIKCardExpiryFormat.m in Sources */,
+				A52902061D8903A700032220 /* BTUIKLargeUnionPayVectorArtView.m in Sources */,
+				A52901741D8903A600032220 /* BTUIKFormField.m in Sources */,
+				A52901E81D8903A700032220 /* BTUIKVisaVectorArtView.m in Sources */,
+				A52901881D8903A600032220 /* UIColor+BTUIK.m in Sources */,
+				A52902031D8903A700032220 /* BTUIKLargePayPalMonogramCardView.m in Sources */,
+				A52901801D8903A600032220 /* BTUIKSecurityCodeFormField.m in Sources */,
+				A52901E21D8903A700032220 /* BTUIKVenmoMonogramCardView.m in Sources */,
+				A529020F1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.m in Sources */,
+				A529017A1D8903A600032220 /* BTUIKMobileNumberFormField.m in Sources */,
+				A52901DF1D8903A700032220 /* BTUIKVectorArtView.m in Sources */,
+				A52901F41D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.m in Sources */,
+				A529017C1D8903A600032220 /* BTUIKPaymentOptionCardView.m in Sources */,
+				A52901701D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */,
+				A529016D1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */,
+				A52901CE1D8903A700032220 /* BTUIKMasterCardVectorArtView.m in Sources */,
+				A52901CB1D8903A700032220 /* BTUIKMaestroVectorArtView.m in Sources */,
+				A52902001D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.m in Sources */,
+				A52901F11D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.m in Sources */,
+				A52901861D8903A600032220 /* BTUIKViewUtil.m in Sources */,
+				A52901661D8903A600032220 /* BTUIKCardListLabel.m in Sources */,
+				A52901931D8903A600032220 /* BTUIKUtil.m in Sources */,
+				A52901D41D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.m in Sources */,
+				A52901841D8903A600032220 /* BTUIKAppearance.m in Sources */,
+				A529018D1D8903A600032220 /* BTUIKCardExpirationValidator.m in Sources */,
+				A52901EB1D8903A700032220 /* BTUIKLargeAmExVectorArtView.m in Sources */,
+				A52901821D8903A600032220 /* BTUIKTextField.m in Sources */,
+				A52902121D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */,
+				A52902091D8903A700032220 /* BTUIKLargeUnknownCardVectorArtView.m in Sources */,
+				A529017E1D8903A600032220 /* BTUIKPostalCodeFormField.m in Sources */,
+				A52901E51D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.m in Sources */,
+				A52901DA1D8903A700032220 /* BTUIKUnionPayVectorArtView.m in Sources */,
+				A52901EE1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */,
+				A52901B01D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */,
+				A52901911D8903A600032220 /* BTUIKCardType.m in Sources */,
+				A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */,
+				A529020C1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */,
+				A52901641D8903A600032220 /* BTUIKBarButtonItem.m in Sources */,
+				A52901FA1D8903A700032220 /* BTUIKLargeJCBVectorArtView.m in Sources */,
+				A52901F71D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.m in Sources */,
+				A52901B61D8903A700032220 /* BTUIKCoinbaseMonogramCardView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5411A181D8A1F090041BE92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5411A1F1D8A1F090041BE92 /* UnitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5411A261D8A20D00041BE92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */,
+				A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A56C41651D833348000DFFAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A56C41971D833597000DFFAB /* BTDropInRequest.m in Sources */,
+				A56C41A01D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m in Sources */,
+				A56C41941D833568000DFFAB /* BTVaultManagementViewController.m in Sources */,
+				A56C41A41D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m in Sources */,
+				A56C41921D833568000DFFAB /* BTDropInUIUtilities.m in Sources */,
+				A56C418E1D833568000DFFAB /* BTCardFormViewController.m in Sources */,
+				A56C41981D833597000DFFAB /* BTDropInResult.m in Sources */,
+				A56C41901D833568000DFFAB /* BTDropInController.m in Sources */,
+				A56C41A21D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m in Sources */,
+				A56C41931D833568000DFFAB /* BTPaymentSelectionViewController.m in Sources */,
+				A56C418F1D833568000DFFAB /* BTDropInBaseViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5CE1D101D835832009BE61A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5CE1D7A1D83599D009BE61A /* BraintreeDemoSettings.m in Sources */,
+				A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */,
+				A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */,
+				A5CE1D781D83599D009BE61A /* BraintreeDemoSlideNavigationController.m in Sources */,
+				A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */,
+				A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */,
+				A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */,
+				A5CE1E001D835AB6009BE61A /* main.m in Sources */,
+				A5CE1DFB1D835AB6009BE61A /* BraintreeDemoMerchantAPI.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A52902151D89052300032220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52900351D88FB5100032220 /* BraintreeUIKit */;
+			targetProxy = A52902141D89052300032220 /* PBXContainerItemProxy */;
+		};
+		A5411A221D8A1F090041BE92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5CE1D131D835832009BE61A /* DropInDemo */;
+			targetProxy = A5411A211D8A1F090041BE92 /* PBXContainerItemProxy */;
+		};
+		A5411A301D8A20D00041BE92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5CE1D131D835832009BE61A /* DropInDemo */;
+			targetProxy = A5411A2F1D8A20D00041BE92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A52900E81D8903A600032220 /* BTUI.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52900E91D8903A600032220 /* da */,
+				A52900EA1D8903A600032220 /* de */,
+				A52900EB1D8903A600032220 /* en */,
+				A52900EC1D8903A600032220 /* en_AU */,
+				A52900ED1D8903A600032220 /* en_CA */,
+				A52900EE1D8903A600032220 /* en_GB */,
+				A52900EF1D8903A600032220 /* es */,
+				A52900F01D8903A600032220 /* es_ES */,
+				A52900F11D8903A600032220 /* fr */,
+				A52900F21D8903A600032220 /* fr_CA */,
+				A52900F31D8903A600032220 /* fr_FR */,
+				A52900F41D8903A600032220 /* he */,
+				A52900F51D8903A600032220 /* it */,
+				A52900F61D8903A600032220 /* nb */,
+				A52900F71D8903A600032220 /* nl */,
+				A52900F81D8903A600032220 /* pl */,
+				A52900F91D8903A600032220 /* pt */,
+				A52900FA1D8903A600032220 /* ru */,
+				A52900FB1D8903A600032220 /* sv */,
+				A52900FC1D8903A600032220 /* tr */,
+				A52900FD1D8903A600032220 /* zh-Hans */,
+			);
+			name = BTUI.strings;
+			sourceTree = "<group>";
+		};
+		A5CE1D631D83599D009BE61A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5CE1D641D83599D009BE61A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5CE1DDD1D835AB6009BE61A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5CE1DDE1D835AB6009BE61A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A5CE1DDF1D835AB6009BE61A /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5CE1DE01D835AB6009BE61A /* en */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A519F9FB1D88618200819A39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A519F9FC1D88618200819A39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A529004E1D88FB5200032220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/BraintreeUIKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.BraintreeUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A529004F1D88FB5200032220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/BraintreeUIKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.BraintreeUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A5411A231D8A1F090041BE92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropInDemo.app/DropInDemo";
+			};
+			name = Debug;
+		};
+		A5411A241D8A1F090041BE92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropInDemo.app/DropInDemo";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5411A321D8A20D00041BE92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = DropInDemo;
+			};
+			name = Debug;
+		};
+		A5411A331D8A20D00041BE92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DropInDemo;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A56C417C1D833348000DFFAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				INFOPLIST_FILE = "$(TARGET_TYPE)/$(PRODUCT_NAME)/Supporting Files/$(PRODUCT_NAME)-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGET_TYPE = Specs;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Werror",
+				);
+			};
+			name = Debug;
+		};
+		A56C417D1D833348000DFFAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				INFOPLIST_FILE = "$(TARGET_TYPE)/$(PRODUCT_NAME)/Supporting Files/$(PRODUCT_NAME)-Info.plist";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGET_TYPE = Specs;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Werror",
+				);
+			};
+			name = Release;
+		};
+		A56C417F1D833348000DFFAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/BraintreeDropIn/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.BraintreeDropIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		A56C41801D833348000DFFAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/BraintreeDropIn/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.BraintreeDropIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		A5CE1D3E1D835832009BE61A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = DropInDemo/DropInDemo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/DropInDemo/Supporting Files/Braintree-Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.DropInDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5CE1D3F1D835832009BE61A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = DropInDemo/DropInDemo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/DropInDemo/Supporting Files/Braintree-Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.DropInDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A519F9FD1D88618200819A39 /* Build configuration list for PBXNativeTarget "BraintreeDropIn-StaticLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A519F9FB1D88618200819A39 /* Debug */,
+				A519F9FC1D88618200819A39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A529004D1D88FB5200032220 /* Build configuration list for PBXNativeTarget "BraintreeUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A529004E1D88FB5200032220 /* Debug */,
+				A529004F1D88FB5200032220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5411A251D8A1F090041BE92 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5411A231D8A1F090041BE92 /* Debug */,
+				A5411A241D8A1F090041BE92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5411A311D8A20D00041BE92 /* Build configuration list for PBXNativeTarget "UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5411A321D8A20D00041BE92 /* Debug */,
+				A5411A331D8A20D00041BE92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A56C41641D833348000DFFAB /* Build configuration list for PBXProject "BraintreeDropIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A56C417C1D833348000DFFAB /* Debug */,
+				A56C417D1D833348000DFFAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A56C417E1D833348000DFFAB /* Build configuration list for PBXNativeTarget "BraintreeDropIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A56C417F1D833348000DFFAB /* Debug */,
+				A56C41801D833348000DFFAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5CE1D441D835832009BE61A /* Build configuration list for PBXNativeTarget "DropInDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5CE1D3E1D835832009BE61A /* Debug */,
+				A5CE1D3F1D835832009BE61A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A56C41611D833348000DFFAB /* Project object */;
+}
