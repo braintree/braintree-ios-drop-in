@@ -22,11 +22,19 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 /// @param A string representing a payment option type (e.g `Visa` or `PayPal`)
 /// @return The BTUIKPaymentOptionType associated with the string if it can be found. Otherwise, BTUIKPaymentOptionTypeUnknown.
 + (BTUIKPaymentOptionType)paymentOptionTypeForPaymentInfoType:(NSString *)typeString;
+
 /// Get a BTUIKPaymentOptionType from a BTUIKCardType
 ///
 /// @param cardType A BTUIKCardType that represents a card
 /// @return The BTUIKPaymentOptionType associated with the BTUIKCardType if it can be found. Otherwise, BTUIKPaymentOptionTypeUnknown.
 + (BTUIKPaymentOptionType)paymentMethodTypeForCardType:(BTUIKCardType *)cardType;
+
+/// Determine if the payment option is a credit card type.
+///
+/// @param paymentOptionType A BTUIKPaymentOptionType
+/// @return true if the payment option is a credit card type, false otherwise
++ (BOOL)isPaymentOptionTypeACreditCard:(BTUIKPaymentOptionType)paymentOptionType;
+
 /// Get a localized string for a payment option.
 ///
 /// @param A BTUIKPaymentOptionType

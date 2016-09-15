@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
+		A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */; };
 		A519F9FE1D8863EF00819A39 /* BTDropInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41951D833597000DFFAB /* BTDropInRequest.m */; };
 		A519F9FF1D8863EF00819A39 /* BTDropInResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41961D833597000DFFAB /* BTDropInResult.m */; };
 		A519FA001D8863EF00819A39 /* BTCardFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41871D833568000DFFAB /* BTCardFormViewController.m */; };
@@ -196,7 +198,6 @@
 		A52902111D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */; };
 		A52902121D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */; };
 		A52902131D8904EE00032220 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52900361D88FB5100032220 /* BraintreeUIKit.framework */; };
-		A5411A1F1D8A1F090041BE92 /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5411A1E1D8A1F090041BE92 /* UnitTests.m */; };
 		A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */; };
 		A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A371D8A23990041BE92 /* BTUITest.swift */; };
 		A55F56531D88EBB700C55BFD /* BraintreeApplePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CEBC041D8898C50064FD29 /* BraintreeApplePay.framework */; };
@@ -304,6 +305,8 @@
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionViewControllerTests.m; sourceTree = "<group>"; };
+		A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKViewUtilTests.m; sourceTree = "<group>"; };
 		A519F9F51D88618200819A39 /* libBraintreeDropIn-StaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBraintreeDropIn-StaticLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52900361D88FB5100032220 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A529003A1D88FB5100032220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -447,7 +450,6 @@
 		A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeVisaVectorArtView.h; sourceTree = "<group>"; };
 		A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeVisaVectorArtView.m; sourceTree = "<group>"; };
 		A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5411A1E1D8A1F090041BE92 /* UnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTests.m; sourceTree = "<group>"; };
 		A5411A201D8A1F090041BE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5411A2A1D8A20D00041BE92 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5411A2E1D8A20D00041BE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -814,8 +816,9 @@
 		A5411A1D1D8A1F090041BE92 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A5411A1E1D8A1F090041BE92 /* UnitTests.m */,
 				A5411A201D8A1F090041BE92 /* Info.plist */,
+				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
+				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -1654,7 +1657,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5411A1F1D8A1F090041BE92 /* UnitTests.m in Sources */,
+				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
+				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
