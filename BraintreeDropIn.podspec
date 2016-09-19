@@ -33,17 +33,6 @@ Pod::Spec.new do |s|
     s.dependency "BraintreeDropIn/UIKit"
   end
 
-  s.subspec "UI" do |s|
-    s.source_files  = "BraintreeUI/**/*.{h,m}"
-    s.public_header_files = "BraintreeUI/Public/*.h"
-    s.frameworks = "UIKit"
-    s.resource_bundles = {
-      "Braintree-UI-Localization" => ["BraintreeUI/Localization/*.lproj"],
-      "Braintree-Drop-In-Localization" => ["BraintreeUI/Drop-In/Localization/*.lproj"] }
-    s.dependency "Braintree/Card"
-    s.dependency "Braintree/Core"
-  end
-
   s.subspec "UIKit" do |s|
     s.source_files  = "BraintreeUIKit/**/*.{h,m}"
     s.public_header_files = "BraintreeUIKit/Public/*.h"
