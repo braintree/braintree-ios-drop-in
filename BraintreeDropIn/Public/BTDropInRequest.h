@@ -1,16 +1,8 @@
 #import <Foundation/Foundation.h>
-#if __has_include("BraintreeCore.h")
-#import "BTPostalAddress.h"
-#else
-#import <BraintreeCore/BTPostalAddress.h>
-#endif
-#if __has_include("BraintreeUIKit.h")
-#import "BraintreeUIKit.h"
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class BTPostalAddress;
 
 @interface BTDropInRequest : NSObject <NSCopying>
 

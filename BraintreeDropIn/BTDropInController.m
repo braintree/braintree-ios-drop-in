@@ -3,6 +3,11 @@
 #import "BTCardFormViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTAPIClient_Internal_Category.h"
+#if __has_include("BraintreeCore.h")
+#import "BraintreeCore.h"
+#else
+#import <BraintreeCore/BraintreeCore.h>
+#endif
 #if __has_include("BraintreeCard.h")
 #import "BraintreeCard.h"
 #import "BraintreeUnionPay.h"
@@ -17,7 +22,7 @@
 #define BT_HALF_SHEET_MARGIN 5
 #define BT_HALF_SHEET_CORNER_RADIUS 12
 
-@interface BTDropInController ()
+@interface BTDropInController () <BTAppSwitchDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;

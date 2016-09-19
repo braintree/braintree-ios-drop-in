@@ -1,15 +1,14 @@
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
-#else
-#import <BraintreeCore/BraintreeCore.h>
-#endif
-#if __has_include("BraintreeUIKit.h")
-#import "BraintreeUIKit.h"
+#import <UIKit/UIKit.h>
+
+#if __has_include("BTUIKPaymentOptionType.h")
+#import "BTUIKPaymentOptionType.h"
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class BTPaymentMethodNonce;
 
 @interface BTDropInResult : NSObject
 
