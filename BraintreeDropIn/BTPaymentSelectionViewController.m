@@ -187,9 +187,16 @@
                 }
             }
 
-            // Always add Cards
-            [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeUnknown)];
-            
+            NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
+            for (NSString *supportedCardType in supportedCardTypes) {
+                BTUIKPaymentOptionType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
+                if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:paymentOptionType]) {
+                    // Add credit cards if they are supported
+                    [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeUnknown)];
+                    break;
+                }
+            }
+
 #ifdef __BT_APPLE_PAY
             BTJSON *applePayConfiguration = self.configuration.json[@"applePay"];
             if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled) {

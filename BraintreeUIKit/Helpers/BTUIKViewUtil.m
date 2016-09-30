@@ -141,6 +141,26 @@
     }
 }
 
++ (BOOL)isPaymentOptionTypeACreditCard:(BTUIKPaymentOptionType)paymentOptionType {
+    switch(paymentOptionType) {
+        case BTUIKPaymentOptionTypeVisa:
+        case BTUIKPaymentOptionTypeMasterCard:
+        case BTUIKPaymentOptionTypeDinersClub:
+        case BTUIKPaymentOptionTypeJCB:
+        case BTUIKPaymentOptionTypeMaestro:
+        case BTUIKPaymentOptionTypeDiscover:
+        case BTUIKPaymentOptionTypeUKMaestro:
+        case BTUIKPaymentOptionTypeAMEX:
+        case BTUIKPaymentOptionTypeSolo:
+        case BTUIKPaymentOptionTypeLaser:
+        case BTUIKPaymentOptionTypeSwitch:
+        case BTUIKPaymentOptionTypeUnionPay:
+            return YES;
+        default:
+            return NO;
+    }
+}
+
 + (BTUIKVectorArtView *)vectorArtViewForPaymentInfoType:(NSString *)typeString {
     return [self vectorArtViewForPaymentOptionType:[self.class paymentOptionTypeForPaymentInfoType:typeString]];
 }
