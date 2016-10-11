@@ -67,10 +67,6 @@ For Apple Pay, you must add the following framework in addition to PassKit:
 BraintreeApplePay.framework
 ```
 
-### Static Library
-
-Please follow the [static library integration instructions](Docs/Braintree-Static-Integration-Guide.md).
-
 ## Documentation
 
 ### Show Drop-In

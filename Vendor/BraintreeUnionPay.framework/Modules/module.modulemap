@@ -1,6 +1,0 @@
-framework module BraintreeUnionPay {
-  umbrella header "BraintreeUnionPay.h"
-
-  export *
-  module * { export * }
-}
