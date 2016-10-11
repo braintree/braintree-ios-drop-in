@@ -1268,6 +1268,7 @@
 					};
 					A5411A291D8A20D00041BE92 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = A5CE1D131D835832009BE61A;
 					};
 					A56C41691D833348000DFFAB = {
@@ -2104,6 +2105,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = DropInDemo;
 			};
 			name = Debug;
@@ -2143,6 +2145,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = DropInDemo;
 				VALIDATE_PRODUCT = YES;
 			};
