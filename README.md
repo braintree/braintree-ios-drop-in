@@ -136,7 +136,7 @@ If your user already has an existing payment method, you may not need to show th
 ![Example payment method icon and description](Docs/saved-single-payment-method.png "Example payment method icon and description")
 
 ```swift
-    BTDropInController.fetchDropInResultForAuthorization(clientTokenOrTokenizationKey, handler: { (result, error) in
+    BTDropInResult.fetchDropInResultForAuthorization(clientTokenOrTokenizationKey, handler: { (result, error) in
         if (error != nil) {
             print("ERROR")
         } else if let result = result {
