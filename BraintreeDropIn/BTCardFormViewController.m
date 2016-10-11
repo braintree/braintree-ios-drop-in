@@ -228,7 +228,7 @@
     [self updateFormBorders];
     
     //Error labels
-    self.cardNumberErrorView = [BTDropInUIUtilities newStackViewForError:@"You must provide a valid card number"];
+    self.cardNumberErrorView = [BTDropInUIUtilities newStackViewForError:@""];
     [self cardNumberErrorHidden:YES];
     
     //Enrollment footer
@@ -490,10 +490,16 @@
 - (void)cardNumberErrorHidden:(BOOL)hidden {
     NSInteger indexOfCardNumberFormField = [self.stackView.arrangedSubviews indexOfObject:self.cardNumberField];
     if (indexOfCardNumberFormField != NSNotFound && !hidden) {
+        [self cardNumberErrorString:@"You must provide a valid card number"];
         [self.stackView insertArrangedSubview:self.cardNumberErrorView atIndex:indexOfCardNumberFormField + 1];
     } else if (self.cardNumberErrorView.superview != nil && hidden) {
         [self.cardNumberErrorView removeFromSuperview];
     }
+}
+
+- (void)cardNumberErrorString:(NSString*)errorString {
+    UILabel* label = self.cardNumberErrorView.arrangedSubviews.firstObject;
+    label.text = errorString;
 }
 
 - (void)tokenizeCard {
@@ -605,6 +611,21 @@
 #pragma mark FormField Delegate Methods
 
 - (void)validateButtonPressed:(__unused BTUIKFormField *)formField {
+    BTUIKCardType *cardType = self.cardNumberField.cardType;
+    BOOL cardSupported = NO;
+    for (id object in self.supportedCardTypes) {
+        BTUIKPaymentOptionType supportedCardType = ((NSNumber*)object).intValue;
+        if ( supportedCardType == [BTUIKViewUtil paymentMethodTypeForCardType:cardType]) {
+            cardSupported = YES;
+            break;
+        }
+    }
+    if (!cardSupported) {
+        [self cardNumberErrorHidden:NO];
+        [self cardNumberErrorString:@"Card not accepted"];
+        return;
+    }
+
     if (!self.unionPayEnabledMerchant) {
         [self cardNumberErrorHidden:formField.valid];
         if (formField.valid) {
@@ -648,6 +669,7 @@
     
     // Highlight card brand in card hint view according to BIN number
     if (self.collapsed && formField == self.cardNumberField) {
+        [self cardNumberErrorHidden:YES];
         BTUIKPaymentOptionType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType];
         [self.cardList emphasizePaymentOption:paymentMethodType];
     }
