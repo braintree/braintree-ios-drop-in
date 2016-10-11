@@ -647,7 +647,7 @@
     }
     
     // Highlight card brand in card hint view according to BIN number
-    if (self.collapsed && formField == self.cardNumberField && !self.unionPayEnabledMerchant) {
+    if (self.collapsed && formField == self.cardNumberField) {
         BTUIKPaymentOptionType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType];
         [self.cardList emphasizePaymentOption:paymentMethodType];
     }
