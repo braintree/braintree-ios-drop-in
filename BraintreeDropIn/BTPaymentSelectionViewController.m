@@ -104,8 +104,6 @@
 
     [self.vaultedPaymentsLabelContainerStackView addArrangedSubview:self.vaultedPaymentsHeader];
     [self.stackView addArrangedSubview:self.vaultedPaymentsLabelContainerStackView];
-
-    //[self addSpacerToStackView:self.stackView beforeView:self.vaultedPaymentsLabelContainerStackView];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
@@ -126,10 +124,12 @@
     self.paymentOptionsHeader.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.paymentOptionsLabelContainerStackView = [self newStackView];
-    self.paymentOptionsLabelContainerStackView.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], [BTUIKAppearance verticalFormSpaceTight], [BTUIKAppearance horizontalFormContentPadding]);
+    self.paymentOptionsLabelContainerStackView.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
+
     self.paymentOptionsLabelContainerStackView.layoutMarginsRelativeArrangement = true;
 
     [self.paymentOptionsLabelContainerStackView addArrangedSubview:self.paymentOptionsHeader];
+    [self addSpacerToStackView:self.paymentOptionsLabelContainerStackView size:[BTUIKAppearance verticalFormSpaceTight] beforeView:nil];
     [self.stackView addArrangedSubview:self.paymentOptionsLabelContainerStackView];
     
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -280,18 +280,19 @@
     return sectionLabel;
 }
 
-- (UIView *)addSpacerToStackView:(UIStackView *)stackView beforeView:(UIView *)view {
-    NSInteger indexOfView = [stackView.arrangedSubviews indexOfObject:view];
+- (UIView *)addSpacerToStackView:(UIStackView *)stackView size:(CGFloat)spacerSize beforeView:(UIView * _Nullable )view {
+    NSInteger indexOfView = view != nil ? [stackView.arrangedSubviews indexOfObject:view] : NSNotFound;
+    UIView* spacer = [[UIView alloc] init];
+    spacer.translatesAutoresizingMaskIntoConstraints = NO;
     if (indexOfView != NSNotFound) {
-        UIView* spacer = [[UIView alloc] init];
-        spacer.translatesAutoresizingMaskIntoConstraints = NO;
         [stackView insertArrangedSubview:spacer atIndex:indexOfView];
-        NSLayoutConstraint* heightConstraint = [spacer.heightAnchor constraintEqualToConstant:22];
-        heightConstraint.priority = UILayoutPriorityDefaultHigh;
-        heightConstraint.active = true;
-        return spacer;
+    } else {
+        [stackView insertArrangedSubview:spacer atIndex:stackView.arrangedSubviews.count];
     }
-    return nil;
+    NSLayoutConstraint* heightConstraint = [spacer.heightAnchor constraintEqualToConstant:spacerSize];
+    heightConstraint.priority = UILayoutPriorityDefaultHigh;
+    heightConstraint.active = true;
+    return spacer;
 }
 
 #pragma mark - Protocol conformance

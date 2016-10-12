@@ -47,7 +47,7 @@
                                        request:(BTDropInRequest *)request
                                        handler:(BTDropInControllerHandler) handler {
     if (self = [super init]) {
-        BTAPIClient *client = [[BTAPIClient alloc] initWithAuthorization:authorization];
+        BTAPIClient *client = [[BTAPIClient alloc] initWithAuthorization:authorization sendAnalyticsEvent:NO];
         self.apiClient = [client copyWithSource:client.metadata.source integration:BTClientMetadataIntegrationDropIn2];
 
         _dropInRequest = [request copy];
