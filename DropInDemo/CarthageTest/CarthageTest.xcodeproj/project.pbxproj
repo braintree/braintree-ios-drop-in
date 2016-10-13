@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03CA658D1DB02024002E438D /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CA658B1DB02024002E438D /* BraintreeDropIn.framework */; };
+		03CA658E1DB02024002E438D /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03CA658B1DB02024002E438D /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03CA658F1DB02024002E438D /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CA658C1DB02024002E438D /* BraintreeUIKit.framework */; };
+		03CA65901DB02024002E438D /* BraintreeUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03CA658C1DB02024002E438D /* BraintreeUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A74D4AF51BFBB3FB00BF36CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D4AF41BFBB3FB00BF36CD /* AppDelegate.swift */; };
 		A74D4AF71BFBB3FB00BF36CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D4AF61BFBB3FB00BF36CD /* ViewController.swift */; };
 		A74D4AFA1BFBB3FB00BF36CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74D4AF81BFBB3FB00BF36CD /* Main.storyboard */; };
@@ -39,7 +43,9 @@
 				A74D4B381BFBBA1A00BF36CD /* BraintreeCard.framework in Embed Frameworks */,
 				A74D4B341BFBBA1A00BF36CD /* Braintree3DSecure.framework in Embed Frameworks */,
 				A74D4B401BFBBA1A00BF36CD /* BraintreeUI.framework in Embed Frameworks */,
+				03CA65901DB02024002E438D /* BraintreeUIKit.framework in Embed Frameworks */,
 				A74D4B361BFBBA1A00BF36CD /* BraintreeApplePay.framework in Embed Frameworks */,
+				03CA658E1DB02024002E438D /* BraintreeDropIn.framework in Embed Frameworks */,
 				A74D4B3E1BFBBA1A00BF36CD /* BraintreePayPal.framework in Embed Frameworks */,
 				A74D4B3C1BFBBA1A00BF36CD /* BraintreeDataCollector.framework in Embed Frameworks */,
 			);
@@ -49,6 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03CA658B1DB02024002E438D /* BraintreeDropIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeDropIn.framework; path = ../../Carthage/Build/iOS/BraintreeDropIn.framework; sourceTree = "<group>"; };
+		03CA658C1DB02024002E438D /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = ../../Carthage/Build/iOS/BraintreeUIKit.framework; sourceTree = "<group>"; };
 		A74D4AF11BFBB3FB00BF36CD /* CarthageTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarthageTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74D4AF41BFBB3FB00BF36CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74D4AF61BFBB3FB00BF36CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +82,9 @@
 				A77B38DC1BFBEE64002716C1 /* BraintreeApplePay.framework in Frameworks */,
 				A77B38DD1BFBEE64002716C1 /* BraintreeCard.framework in Frameworks */,
 				A77B38DE1BFBEE64002716C1 /* BraintreeCore.framework in Frameworks */,
+				03CA658F1DB02024002E438D /* BraintreeUIKit.framework in Frameworks */,
 				A77B38DF1BFBEE64002716C1 /* BraintreeDataCollector.framework in Frameworks */,
+				03CA658D1DB02024002E438D /* BraintreeDropIn.framework in Frameworks */,
 				A77B38E01BFBEE64002716C1 /* BraintreePayPal.framework in Frameworks */,
 				A77B38E11BFBEE64002716C1 /* BraintreeUI.framework in Frameworks */,
 			);
@@ -86,6 +96,8 @@
 		A74D4AE81BFBB3FB00BF36CD = {
 			isa = PBXGroup;
 			children = (
+				03CA658B1DB02024002E438D /* BraintreeDropIn.framework */,
+				03CA658C1DB02024002E438D /* BraintreeUIKit.framework */,
 				A74D4B271BFBB55600BF36CD /* Braintree3DSecure.framework */,
 				A74D4B281BFBB55600BF36CD /* BraintreeApplePay.framework */,
 				A74D4B291BFBB55600BF36CD /* BraintreeCard.framework */,
@@ -147,11 +159,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Braintree;
 				TargetAttributes = {
 					A74D4AF01BFBB3FB00BF36CD = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 43253H4X22;
 					};
 				};
 			};
@@ -231,10 +244,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -259,6 +275,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -275,10 +292,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -295,6 +315,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -303,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 43253H4X22;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -312,6 +335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.CarthageTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -319,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 43253H4X22;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -328,6 +353,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.CarthageTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

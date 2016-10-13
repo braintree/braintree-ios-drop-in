@@ -6,6 +6,10 @@ import BraintreeCore
 import BraintreeDataCollector
 import BraintreePayPal
 import BraintreeUI
+import BraintreeDropIn
+import BraintreeUIKit
+import BraintreeUnionPay
+import BraintreeVenmo
 
 class ViewController: UIViewController {
 
