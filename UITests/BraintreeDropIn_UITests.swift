@@ -166,7 +166,7 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         XCTAssertFalse(app.buttons["Next"].exists)
     }
     
-    func testDropIn_showsSpinnerDuringUnionPayCapabilitiesFetch() {
+    func pendDropIn_showsSpinnerDuringUnionPayCapabilitiesFetch() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
         
@@ -181,7 +181,7 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         XCTAssertTrue(app.activityIndicators.count == 1 && app.activityIndicators["In progress"].exists)
     }
     
-    func testDropIn_unionPayCardNumber_receivesNonce() {
+    func pendDropIn_unionPayCardNumber_receivesNonce() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
         
