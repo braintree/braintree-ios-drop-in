@@ -6,19 +6,39 @@
 
 #pragma mark Forms and Helpers
 
-/// Credit card number field placeholder
++ (NSString *)NEXT_ACTION;
++ (NSString *)EXPIRATION_DATE_LABEL;
++ (NSString *)YEAR_LABEL;
++ (NSString *)MONTH_LABEL;
++ (NSString *)MOBILE_COUNTRY_CODE_LABEL;
++ (NSString *)MOBILE_NUMBER_LABEL;
++ (NSString *)SECURITY_CODE_LABEL;
++ (NSString *)CARD_TYPE_GENERIC_CARD;
++ (NSString *)INVALID_LABEL;
++ (NSString *)CONFIRM_ENROLLMENT_LABEL;
++ (NSString *)CONFIRM_ACTION;
++ (NSString *)ENTER_SMS_CODE_SENT_HELP_LABEL;
++ (NSString *)SMS_CODE_LABEL;
++ (NSString *)USE_DIFFERENT_PHONE_NUMBER_ACTION;
++ (NSString *)INVALID_SMS_CODE_LABEL;
++ (NSString *)CANCEL_ACTION;
++ (NSString *)SELECT_PAYMENT_LABEL;
++ (NSString *)RECENT_LABEL;
++ (NSString *)OTHER_LABEL;
++ (NSString *)CREDIT_OR_DEBIT_CARD_LABEL;
++ (NSString *)CARD_DETAILS_LABEL;
++ (NSString *)ENTER_CARD_DETAILS_HELP_LABEL;
++ (NSString *)ENROLLMENT_REQUIRED_HELP_LABEL;
++ (NSString *)ENROLLMENT_VIA_SMS_HELP_LABEL;
++ (NSString *)ADD_CARD_ACTION;
++ (NSString *)VALID_CARD_ERROR_LABEL;
++ (NSString *)CARD_NOT_ACCEPTED_ERROR_LABEL;
 + (NSString *)CARD_NUMBER_PLACEHOLDER;
-/// CVV (credit card security code) field placeholder
 + (NSString *)CVV_FIELD_PLACEHOLDER;
-/// Credit card expiration date field placeholder (MM/YYYY format)
 + (NSString *)EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR;
-/// Credit card expiration date field placeholder (MM/YY format)
 + (NSString *)EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR;
-/// Credit card billing postal code field placeholder"
 + (NSString *)POSTAL_CODE_PLACEHOLDER;
-/// OK Button on card form alert view for top level errors
 + (NSString *)TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT;
-/// Phone number field placeholder
 + (NSString *)PHONE_NUMBER_PLACEHOLDER;
 
 #pragma mark Card Brands and Payment Methods
@@ -55,5 +75,10 @@
 + (NSString *)PAYMENT_METHOD_TYPE_VENMO;
 /// Apple Pay (as a standalone term, referring to Apple Pay the product offered by Apple.)
 + (NSString *)PAYMENT_METHOD_TYPE_APPLE_PAY;
+
+#pragma mark Development Strings (usually not localized)
+
++ (NSString *)DEV_SAMPLE_SMS_CODE_TITLE;
++ (NSString *)DEV_SAMPLE_SMS_CODE_INFO;
 
 @end

@@ -1,14 +1,15 @@
 #import "BTUIKMobileNumberFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
+#import "BTUIKLocalizedString.h"
 
 @implementation BTUIKMobileNumberFormField
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = @"Mobile Number";
-        self.formLabel.text = @"Mobile Number";
+        self.textField.accessibilityLabel = BTUIKLocalizedString(MOBILE_NUMBER_LABEL);
+        self.formLabel.text = BTUIKLocalizedString(MOBILE_NUMBER_LABEL);
         self.textField.placeholder = @"00 0000 0000";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
+		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
 		A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */; };
 		A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */; };
@@ -1233,6 +1234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */,
 				A5CE1DFE1D835AB6009BE61A /* InfoPlist.strings in Resources */,
 				A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */,
 				A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */,

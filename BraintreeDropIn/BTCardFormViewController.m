@@ -140,7 +140,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.title = @"Card Details";
+    self.title = BTUIKLocalizedString(CARD_DETAILS_LABEL);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -155,7 +155,7 @@
 
 - (void)setupForm {
     self.nextButton = [[UIButton alloc] init];
-    [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
+    [self.nextButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
     self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.nextButton setTitleColor:self.view.tintColor forState:UIControlStateNormal];
     
@@ -179,7 +179,7 @@
     UILabel *cardNumberHeaderLabel = [[UILabel alloc] init];
     cardNumberHeaderLabel.numberOfLines = 0;
     cardNumberHeaderLabel.textAlignment = NSTextAlignmentCenter;
-    cardNumberHeaderLabel.text = @"Enter your card details starting with the card number.";
+    cardNumberHeaderLabel.text = BTUIKLocalizedString(ENTER_CARD_DETAILS_HELP_LABEL);
     [BTUIKAppearance styleLargeLabelSecondary:cardNumberHeaderLabel];
     [self.cardNumberHeader addArrangedSubview:cardNumberHeaderLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.cardNumberHeader beforeView:cardNumberHeaderLabel size: [BTUIKAppearance verticalFormSpace]];
@@ -238,7 +238,7 @@
     UILabel *enrollmentFooterLabel = [[UILabel alloc] init];
     enrollmentFooterLabel.numberOfLines = 0;
     enrollmentFooterLabel.textAlignment = [BTUIKViewUtil naturalTextAlignment];
-    enrollmentFooterLabel.text = @"Enrollment is required for this card. An enrollment number will be sent by SMS.";
+    enrollmentFooterLabel.text = [NSString stringWithFormat:@"%@ %@", BTUIKLocalizedString(ENROLLMENT_REQUIRED_HELP_LABEL), BTUIKLocalizedString(ENROLLMENT_VIA_SMS_HELP_LABEL)];
     [BTUIKAppearance styleLabelSecondary:enrollmentFooterLabel];
     [self.enrollmentFooter addArrangedSubview:enrollmentFooterLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.enrollmentFooter beforeView:enrollmentFooterLabel size: [BTUIKAppearance verticalFormSpaceTight]];
@@ -335,8 +335,8 @@
 #pragma mark - Public methods
 
 - (void)resetForm {
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
-    BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:@"Add Card" style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
+    BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(ADD_CARD_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
     addButton.bold = true;
     self.navigationItem.rightBarButtonItem = addButton;
     
@@ -490,7 +490,7 @@
 - (void)cardNumberErrorHidden:(BOOL)hidden {
     NSInteger indexOfCardNumberFormField = [self.stackView.arrangedSubviews indexOfObject:self.cardNumberField];
     if (indexOfCardNumberFormField != NSNotFound && !hidden) {
-        [self cardNumberErrorString:@"You must provide a valid card number"];
+        [self cardNumberErrorString:BTUIKLocalizedString(VALID_CARD_ERROR_LABEL)];
         [self.stackView insertArrangedSubview:self.cardNumberErrorView atIndex:indexOfCardNumberFormField + 1];
     } else if (self.cardNumberErrorView.superview != nil && hidden) {
         [self.cardNumberErrorView removeFromSuperview];
@@ -594,8 +594,8 @@
                 [self.navigationController pushViewController:enrollmentController animated:YES];
                 BTJSON *environment = self.configuration.json[@"environment"];
                 if(![environment isError] && [[environment asString] isEqualToString:@"sandbox"]) {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sandbox Sample SMS Code" message:@"Any code passes, example: 12345 \n\nIncorrect code is: 999999" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(DEV_SAMPLE_SMS_CODE_TITLE) message:BTUIKLocalizedString(DEV_SAMPLE_SMS_CODE_INFO) preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction: alertAction];
                     [navController presentViewController:alertController animated:YES completion:nil];
                 }
@@ -622,7 +622,7 @@
     }
     if (!cardSupported) {
         [self cardNumberErrorHidden:NO];
-        [self cardNumberErrorString:@"Card not accepted"];
+        [self cardNumberErrorString:BTUIKLocalizedString(CARD_NOT_ACCEPTED_ERROR_LABEL)];
         return;
     }
 

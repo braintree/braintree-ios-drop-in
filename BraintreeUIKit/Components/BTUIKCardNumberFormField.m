@@ -39,11 +39,11 @@
         [self setAccessoryViewHidden:YES animated:NO];
         
         self.validateButton = [UIButton new];
-        [self.validateButton setTitle:@"Next" forState:UIControlStateNormal];
+        [self.validateButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
         
-        NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:@"Next" attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]]}];
+        NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]]}];
         [self.validateButton setAttributedTitle:normalValidateButtonString forState:UIControlStateNormal];
-        NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:@"Next" attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]]}];
+        NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]]}];
         [self.validateButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
 
         [self.validateButton sizeToFit];

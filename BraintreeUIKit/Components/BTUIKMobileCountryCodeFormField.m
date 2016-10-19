@@ -1,14 +1,15 @@
 #import "BTUIKMobileCountryCodeFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
+#import "BTUIKLocalizedString.h"
 
 @implementation BTUIKMobileCountryCodeFormField
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = @"Mobile Country Code";
-        self.formLabel.text = @"Mobile Country Code";
+        self.textField.accessibilityLabel = BTUIKLocalizedString(MOBILE_COUNTRY_CODE_LABEL);
+        self.formLabel.text = BTUIKLocalizedString(MOBILE_COUNTRY_CODE_LABEL);
         self.textField.placeholder = @"+65";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }

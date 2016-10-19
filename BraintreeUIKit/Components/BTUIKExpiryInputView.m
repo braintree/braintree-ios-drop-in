@@ -2,6 +2,7 @@
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
 #import "UIColor+BTUIK.h"
+#import "BTUIKLocalizedString.h"
 
 #define BT_EXPIRY_FULL_PADDING 10
 #define BT_EXPIRY_SECTION_HEADER_HEIGHT 12
@@ -214,7 +215,7 @@
 (__unused UICollectionView *)collectionView viewForSupplementaryElementOfKind:(__unused NSString *)kind atIndexPath:(__unused NSIndexPath *)indexPath
 {
     BTUIKCollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-    view.label.text = collectionView == self.yearCollectionView ? @"YEAR" : @"MONTH";
+    view.label.text = collectionView == self.yearCollectionView ? BTUIKLocalizedString(YEAR_LABEL) : BTUIKLocalizedString(MONTH_LABEL);
     return view;
 }
 

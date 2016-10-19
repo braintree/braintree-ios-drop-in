@@ -1,6 +1,7 @@
 #import "BTUIKSecurityCodeFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
+#import "BTUIKLocalizedString.h"
 
 @interface BTUIKSecurityCodeFormField ()
 
@@ -11,9 +12,9 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = @"Security Code";
-        self.formLabel.text = @"Security Code";
-        self.textField.placeholder = @"CVV";
+        self.textField.accessibilityLabel = BTUIKLocalizedString(SECURITY_CODE_LABEL);
+        self.formLabel.text = BTUIKLocalizedString(SECURITY_CODE_LABEL);
+        self.textField.placeholder = BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER);
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
     return self;

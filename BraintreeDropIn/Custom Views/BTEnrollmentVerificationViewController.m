@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Confirm Enrollment";
+    self.title = BTUIKLocalizedString(CONFIRM_ENROLLMENT_LABEL);
     
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
     self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
@@ -39,7 +39,7 @@
                                                                       }];
 
     //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
-    BTUIKBarButtonItem *confirmButton = [[BTUIKBarButtonItem alloc] initWithTitle:@"Confirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirm)];
+    BTUIKBarButtonItem *confirmButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CONFIRM_ACTION) style:UIBarButtonItemStyleDone target:self action:@selector(confirm)];
     confirmButton.bold = YES;
     self.navigationItem.rightBarButtonItem = confirmButton;
     self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -48,7 +48,7 @@
     self.smsSentLabel = [UILabel new];
     self.smsSentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsSentLabel.textAlignment = NSTextAlignmentCenter;
-    self.smsSentLabel.text = [NSString stringWithFormat:@"Enter the SMS code sent to\n+%@ %@", self.mobileCountryCode, self.mobilePhoneNumber];
+    self.smsSentLabel.text = [NSString stringWithFormat:@"%@\n+%@ %@", BTUIKLocalizedString(ENTER_SMS_CODE_SENT_HELP_LABEL) ,self.mobileCountryCode, self.mobilePhoneNumber];
     self.smsSentLabel.numberOfLines = 0;
     [self.view addSubview:self.smsSentLabel];
     [BTUIKAppearance styleLargeLabelSecondary:self.smsSentLabel];
@@ -56,11 +56,11 @@
     self.smsTextField = [BTUIKFormField new];
     self.smsTextField.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsTextField.textField.keyboardType = UIKeyboardTypeNumberPad;
-    self.smsTextField.textField.placeholder = @"SMS Code";
+    self.smsTextField.textField.placeholder = BTUIKLocalizedString(SMS_CODE_LABEL);
     self.smsTextField.delegate = self;
     [self.view addSubview:self.smsTextField];
     
-    NSString *smsButtonText = @"Use a Different Phone Number";
+    NSString *smsButtonText = BTUIKLocalizedString(USE_DIFFERENT_PHONE_NUMBER_ACTION);
     self.resendSmsButton = [UIButton new];
     self.resendSmsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.resendSmsButton setTitle:smsButtonText forState:UIControlStateNormal];
@@ -89,7 +89,7 @@
 
     [self.view addSubview:self.stackView];
 
-    self.smsErrorView = [BTDropInUIUtilities newStackViewForError:@"Invalid SMS Code"];
+    self.smsErrorView = [BTDropInUIUtilities newStackViewForError:BTUIKLocalizedString(INVALID_SMS_CODE_LABEL)];
     [self smsErrorHidden:YES];
 
     NSDictionary* viewBindings = @{

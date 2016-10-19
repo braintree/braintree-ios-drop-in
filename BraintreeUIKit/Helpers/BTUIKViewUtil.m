@@ -61,7 +61,7 @@
 + (NSString *)nameForPaymentMethodType:(BTUIKPaymentOptionType)paymentMethodType {
   switch (paymentMethodType) {
     case BTUIKPaymentOptionTypeUnknown:
-      return @"Card";
+      return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
     case BTUIKPaymentOptionTypeAMEX:
           return BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS);
     case BTUIKPaymentOptionTypeDinersClub:

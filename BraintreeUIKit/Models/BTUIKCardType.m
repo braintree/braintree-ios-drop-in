@@ -39,7 +39,7 @@
 
         _validNumberPrefixes = prefixes;
         if (error != nil) {
-            NSLog(@"Braintree-Payments-UI: %@", error);
+            NSLog(@"Braintree-Payments-UIKit: %@", error);
         }
         _validNumberLengths = validLengths;
         _validCvvLength = cvvLength;
