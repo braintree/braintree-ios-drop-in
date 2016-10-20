@@ -87,7 +87,7 @@
     case BTUIKPaymentOptionTypeUKMaestro:
           return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
     case BTUIKPaymentOptionTypePayPal:
-          return BTUIKLocalizedString(PAYPAL_CARD_BRAND);
+          return BTUIKLocalizedString(PAYMENT_METHOD_TYPE_PAYPAL);
     case BTUIKPaymentOptionTypeCoinbase:
           return BTUIKLocalizedString(PAYMENT_METHOD_TYPE_COINBASE);
     case BTUIKPaymentOptionTypeVenmo:

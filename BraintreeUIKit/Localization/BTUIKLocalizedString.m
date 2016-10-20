@@ -155,10 +155,6 @@
 
 #pragma mark Card Brands
 
-+ (NSString *)PAYPAL_CARD_BRAND {
-    return NSLocalizedStringWithDefaultValue(@"PAYPAL_CARD_BRAND", [self localizationTable], [self localizationBundle], @"PayPal", @"PayPal payment method name");
-}
-
 + (NSString *)CARD_TYPE_AMERICAN_EXPRESS {
     return NSLocalizedStringWithDefaultValue(@"CARD_TYPE_AMERICAN_EXPRESS", [self localizationTable], [self localizationBundle], @"American Express", @"American Express card brand");
 }

@@ -43,8 +43,6 @@
 
 #pragma mark Card Brands and Payment Methods
 
-/// PayPal payment method name
-+ (NSString *)PAYPAL_CARD_BRAND;
 /// American Express card brand
 + (NSString *)CARD_TYPE_AMERICAN_EXPRESS;
 /// Discover card brand
