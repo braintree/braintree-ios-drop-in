@@ -48,7 +48,8 @@
     self.smsSentLabel = [UILabel new];
     self.smsSentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsSentLabel.textAlignment = NSTextAlignmentCenter;
-    self.smsSentLabel.text = [NSString stringWithFormat:@"%@\n+%@ %@", BTUIKLocalizedString(ENTER_SMS_CODE_SENT_HELP_LABEL) ,self.mobileCountryCode, self.mobilePhoneNumber];
+    NSString * fullMobileNumber = [NSString stringWithFormat:@"+%@ %@", self.mobileCountryCode, self.mobilePhoneNumber];
+    self.smsSentLabel.text = [BTUIKLocalizedString insertIntoLozalizedString:BTUIKLocalizedString(ENTER_SMS_CODE_SENT_HELP_LABEL) replacement:fullMobileNumber];
     self.smsSentLabel.numberOfLines = 0;
     [self.view addSubview:self.smsSentLabel];
     [BTUIKAppearance styleLargeLabelSecondary:self.smsSentLabel];
@@ -89,7 +90,7 @@
 
     [self.view addSubview:self.stackView];
 
-    self.smsErrorView = [BTDropInUIUtilities newStackViewForError:BTUIKLocalizedString(INVALID_SMS_CODE_LABEL)];
+    self.smsErrorView = [BTDropInUIUtilities newStackViewForError:BTUIKLocalizedString(SMS_CODE_INVALID)];
     [self smsErrorHidden:YES];
 
     NSDictionary* viewBindings = @{

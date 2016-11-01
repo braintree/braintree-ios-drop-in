@@ -238,7 +238,7 @@
     UILabel *enrollmentFooterLabel = [[UILabel alloc] init];
     enrollmentFooterLabel.numberOfLines = 0;
     enrollmentFooterLabel.textAlignment = [BTUIKViewUtil naturalTextAlignment];
-    enrollmentFooterLabel.text = [NSString stringWithFormat:@"%@ %@", BTUIKLocalizedString(ENROLLMENT_REQUIRED_HELP_LABEL), BTUIKLocalizedString(ENROLLMENT_VIA_SMS_HELP_LABEL)];
+    enrollmentFooterLabel.text = BTUIKLocalizedString(ENROLLMENT_WITH_SMS_HELP_LABEL);
     [BTUIKAppearance styleLabelSecondary:enrollmentFooterLabel];
     [self.enrollmentFooter addArrangedSubview:enrollmentFooterLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.enrollmentFooter beforeView:enrollmentFooterLabel size: [BTUIKAppearance verticalFormSpaceTight]];
