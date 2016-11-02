@@ -215,6 +215,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030D981E1DC933EF00161899 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D981F1DC9340500161899 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98221DC9347C00161899 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98231DC9348F00161899 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98241DC934A600161899 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/BTUI.strings"; sourceTree = "<group>"; };
+		030D98251DC934B700161899 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98261DC934CD00161899 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98271DC934D900161899 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98281DC934F600161899 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98291DC9350300161899 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D982A1DC9351B00161899 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D982B1DC9352400161899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D982C1DC9353300161899 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D982D1DC9355700161899 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D982E1DC9357500161899 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D982F1DC9357C00161899 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98301DC9358500161899 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98311DC9359100161899 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98321DC935A000161899 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BTUI.strings"; sourceTree = "<group>"; };
+		030D98331DC935B200161899 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BTUI.strings"; sourceTree = "<group>"; };
+		030D98351DC9363500161899 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BTUI.strings; sourceTree = "<group>"; };
+		030D98361DC9385300161899 /* zh-Hant-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-HK"; path = "zh-Hant-HK.lproj/BTUI.strings"; sourceTree = "<group>"; };
 		03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInResultTests.m; sourceTree = "<group>"; };
 		1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,27 +270,7 @@
 		A52900E41D8903A600032220 /* BTUIKViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKViewUtil.m; sourceTree = "<group>"; };
 		A52900E51D8903A600032220 /* UIColor+BTUIK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BTUIK.m"; sourceTree = "<group>"; };
 		A52900E71D8903A600032220 /* BTUIKLocalizedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLocalizedString.m; sourceTree = "<group>"; };
-		A52900E91D8903A600032220 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900EA1D8903A600032220 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BTUI.strings; sourceTree = "<group>"; };
 		A52900EB1D8903A600032220 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900EC1D8903A600032220 /* en_AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_AU; path = en_AU.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900ED1D8903A600032220 /* en_CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_CA; path = en_CA.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900EE1D8903A600032220 /* en_GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_GB; path = en_GB.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900EF1D8903A600032220 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F01D8903A600032220 /* es_ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es_ES; path = es_ES.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F11D8903A600032220 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F21D8903A600032220 /* fr_CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr_CA; path = fr_CA.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F31D8903A600032220 /* fr_FR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr_FR; path = fr_FR.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F41D8903A600032220 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F51D8903A600032220 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F61D8903A600032220 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F71D8903A600032220 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F81D8903A600032220 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900F91D8903A600032220 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900FA1D8903A600032220 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900FB1D8903A600032220 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900FC1D8903A600032220 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/BTUI.strings; sourceTree = "<group>"; };
-		A52900FD1D8903A600032220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BTUI.strings"; sourceTree = "<group>"; };
 		A52900FF1D8903A600032220 /* BTUIKCardExpirationValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardExpirationValidator.m; sourceTree = "<group>"; };
 		A52901001D8903A600032220 /* BTUIKCardExpiryFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardExpiryFormat.m; sourceTree = "<group>"; };
 		A52901011D8903A600032220 /* BTUIKCardType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardType.m; sourceTree = "<group>"; };
@@ -575,8 +577,8 @@
 		A52900E61D8903A600032220 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				A52900E71D8903A600032220 /* BTUIKLocalizedString.m */,
 				A52900E81D8903A600032220 /* BTUI.strings */,
+				A52900E71D8903A600032220 /* BTUIKLocalizedString.m */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -1165,26 +1167,34 @@
 			knownRegions = (
 				en,
 				Base,
-				da,
-				de,
 				en_AU,
 				en_CA,
 				en_GB,
-				es,
 				es_ES,
-				fr,
 				fr_CA,
 				fr_FR,
+				da,
+				de,
+				es,
+				fr,
+				"fr-CA",
 				he,
+				id,
 				it,
+				ja,
+				ko,
 				nb,
 				nl,
 				pl,
 				pt,
 				ru,
 				sv,
+				th,
 				tr,
 				"zh-Hans",
+				"zh-Hant",
+				ar,
+				"zh-Hant-HK",
 			);
 			mainGroup = A56C41601D833348000DFFAB;
 			productRefGroup = A56C416B1D833348000DFFAB /* Products */;
@@ -1528,27 +1538,29 @@
 		A52900E81D8903A600032220 /* BTUI.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A52900E91D8903A600032220 /* da */,
-				A52900EA1D8903A600032220 /* de */,
 				A52900EB1D8903A600032220 /* en */,
-				A52900EC1D8903A600032220 /* en_AU */,
-				A52900ED1D8903A600032220 /* en_CA */,
-				A52900EE1D8903A600032220 /* en_GB */,
-				A52900EF1D8903A600032220 /* es */,
-				A52900F01D8903A600032220 /* es_ES */,
-				A52900F11D8903A600032220 /* fr */,
-				A52900F21D8903A600032220 /* fr_CA */,
-				A52900F31D8903A600032220 /* fr_FR */,
-				A52900F41D8903A600032220 /* he */,
-				A52900F51D8903A600032220 /* it */,
-				A52900F61D8903A600032220 /* nb */,
-				A52900F71D8903A600032220 /* nl */,
-				A52900F81D8903A600032220 /* pl */,
-				A52900F91D8903A600032220 /* pt */,
-				A52900FA1D8903A600032220 /* ru */,
-				A52900FB1D8903A600032220 /* sv */,
-				A52900FC1D8903A600032220 /* tr */,
-				A52900FD1D8903A600032220 /* zh-Hans */,
+				030D981E1DC933EF00161899 /* da */,
+				030D981F1DC9340500161899 /* de */,
+				030D98221DC9347C00161899 /* es */,
+				030D98231DC9348F00161899 /* fr */,
+				030D98241DC934A600161899 /* fr-CA */,
+				030D98251DC934B700161899 /* he */,
+				030D98261DC934CD00161899 /* id */,
+				030D98271DC934D900161899 /* it */,
+				030D98281DC934F600161899 /* ja */,
+				030D98291DC9350300161899 /* ko */,
+				030D982A1DC9351B00161899 /* nb */,
+				030D982B1DC9352400161899 /* nl */,
+				030D982C1DC9353300161899 /* pl */,
+				030D982D1DC9355700161899 /* pt */,
+				030D982E1DC9357500161899 /* ru */,
+				030D982F1DC9357C00161899 /* sv */,
+				030D98301DC9358500161899 /* th */,
+				030D98311DC9359100161899 /* tr */,
+				030D98321DC935A000161899 /* zh-Hans */,
+				030D98331DC935B200161899 /* zh-Hant */,
+				030D98351DC9363500161899 /* ar */,
+				030D98361DC9385300161899 /* zh-Hant-HK */,
 			);
 			name = BTUI.strings;
 			sourceTree = "<group>";
