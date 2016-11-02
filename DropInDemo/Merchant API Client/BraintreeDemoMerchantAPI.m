@@ -78,7 +78,7 @@ NSString *BraintreeDemoMerchantAPIEnvironmentDidChangeNotification = @"Braintree
             parameters[@"customer_id"] = [[NSUUID UUID] UUIDString];
         }
     }
-
+    
     [self.sessionManager GET:@"/client_token"
                   parameters:parameters
                      success:^(__unused AFHTTPRequestOperation *operation, id responseObject) {

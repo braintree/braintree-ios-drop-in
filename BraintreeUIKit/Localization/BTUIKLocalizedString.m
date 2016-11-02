@@ -20,7 +20,7 @@
 #pragma mark Localization helpers
 
 + (NSString *)insertIntoLozalizedString:(NSString *)string replacement:(NSString* )replacement {
-    return [self insertIntoLozalizedString:string replacement:replacement token:@""];
+    return [self insertIntoLozalizedString:string replacement:replacement token:@"%s"];
 }
 
 + (NSString *)insertIntoLozalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token {
