@@ -132,6 +132,7 @@
 		A52902131D8904EE00032220 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52900361D88FB5100032220 /* BraintreeUIKit.framework */; };
 		A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */; };
 		A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A371D8A23990041BE92 /* BTUITest.swift */; };
+		A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */; };
 		A56C418E1D833568000DFFAB /* BTCardFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41871D833568000DFFAB /* BTCardFormViewController.m */; };
 		A56C418F1D833568000DFFAB /* BTDropInBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */; };
 		A56C41901D833568000DFFAB /* BTDropInController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41891D833568000DFFAB /* BTDropInController.m */; };
@@ -371,6 +372,7 @@
 		A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
 		A5411A371D8A23990041BE92 /* BTUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTUITest.swift; sourceTree = "<group>"; };
 		A55F56511D88EBAB00C55BFD /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = "../braintree-ios/build/Debug-iphoneos/BraintreeApplePay.framework"; sourceTree = "<group>"; };
+		A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardTypeTests.m; sourceTree = "<group>"; };
 		A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56C416F1D833348000DFFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A56C41871D833568000DFFAB /* BTCardFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCardFormViewController.m; sourceTree = "<group>"; };
@@ -712,6 +714,7 @@
 				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
 				03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */,
 				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
+				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -1454,6 +1457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
+				A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */,
 				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,
 			);

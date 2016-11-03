@@ -39,14 +39,14 @@ PODS:
   - Braintree/UnionPay (4.6.0):
     - Braintree/Card
     - Braintree/Core
-  - BraintreeDropIn (4.7.0):
-    - BraintreeDropIn/DropIn (= 4.7.0)
-  - BraintreeDropIn/DropIn (4.7.0):
+  - BraintreeDropIn (5.0.0):
+    - BraintreeDropIn/DropIn (= 5.0.0)
+  - BraintreeDropIn/DropIn (5.0.0):
     - Braintree/Card (~> 4.0)
     - Braintree/Core (~> 4.0)
     - Braintree/UnionPay (~> 4.0)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (4.7.0)
+  - BraintreeDropIn/UIKit (5.0.0)
   - CardIO (5.3.2)
   - Expecta (1.0.5)
   - FLEX (2.3.0)
@@ -97,7 +97,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Braintree: 2c3d0949bae900a04cc1825a94cdb50aac89d1c7
-  BraintreeDropIn: 4ede5a3f6fd33f1c165fc9285666da8a95ed72e4
+  BraintreeDropIn: 265ea99e6f40cd51c23840fdb32fc88148b641da
   CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
