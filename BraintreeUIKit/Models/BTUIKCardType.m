@@ -39,7 +39,7 @@
 
         _validNumberPrefixes = prefixes;
         if (error != nil) {
-            NSLog(@"Braintree-Payments-UI: %@", error);
+            NSLog(@"Braintree-Payments-UIKit: %@", error);
         }
         _validNumberLengths = validLengths;
         _validCvvLength = cvvLength;
@@ -133,37 +133,37 @@
     dispatch_once(&p, ^{
 
         BTUIKCardType *visa = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_VISA)
-                                                  securityCodeName:@"CVV"
+                                                  securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
                                                           prefixes:@[@"4"]];
         BTUIKCardType *mastercard = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MASTER_CARD)
-                                                        securityCodeName:@"CVC"
+                                                        securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
                                                               prefixes:@[@"51", @"52", @"53", @"54", @"55"]];
         BTUIKCardType *discover = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_DISCOVER)
-                                                      securityCodeName:@"CID"
+                                                      securityCodeName:BTUIKLocalizedString(CID_FIELD_PLACEHOLDER)
                                                               prefixes:@[@"6011", @"65", @"644", @"645", @"646", @"647", @"648", @"649"]];
         BTUIKCardType *jcb = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_JCB)
-                                                 securityCodeName:@"CVV"
+                                                 securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
                                                          prefixes:@[@"35"]];
         BTUIKCardType *amex = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS)
-                                                  securityCodeName:@"CID"
+                                                  securityCodeName:BTUIKLocalizedString(CID_FIELD_PLACEHOLDER)
                                                         prefixes:@[@"34", @"37"]
                                               validNumberLengths:[NSIndexSet indexSetWithIndex:15]
                                                   validCvvLength:4
                                                     formatSpaces:@[@4, @10]];
         BTUIKCardType *dinersClub = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB)
-                                                        securityCodeName:@"CVV"
+                                                        securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
                                                               prefixes:@[@"36", @"38", @"300", @"301", @"302", @"303", @"304", @"305"]
                                                     validNumberLengths:[NSIndexSet indexSetWithIndex:14]
                                                         validCvvLength:3
                                                           formatSpaces:nil];
         BTUIKCardType *maestro = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MAESTRO)
-                                                     securityCodeName:@"CVC"
+                                                     securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
                                                            prefixes:@[@"5018", @"5020", @"5038", @"6020", @"6304", @"6759", @"6761", @"6762", @"6763"]
                                                  validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(12, 8)]
                                                      validCvvLength:3
                                                        formatSpaces:nil];
         BTUIKCardType *unionPay = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)
-                                                      securityCodeName:@"CVN"
+                                                      securityCodeName:BTUIKLocalizedString(CVN_FIELD_PLACEHOLDER)
                                                             prefixes:@[@"62"]
                                                   validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 4)]
                                                       validCvvLength:3

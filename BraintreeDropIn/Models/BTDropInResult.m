@@ -46,7 +46,7 @@
     if (self.paymentMethod != nil) {
         return self.paymentMethod.localizedDescription;
     } else if (self.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
-        return [BTUIKLocalizedString PAYMENT_METHOD_TYPE_APPLE_PAY];
+        return BTUIKLocalizedString(BRANDING_APPLE_PAY);
     }
     return @"";
 }

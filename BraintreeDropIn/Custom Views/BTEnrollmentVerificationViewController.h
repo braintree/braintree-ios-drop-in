@@ -13,5 +13,6 @@ typedef void (^BTEnrollmentHandler)(NSString* authCode, BOOL resendSms);
                       handler:(BTEnrollmentHandler)handler;
 
 - (void)smsErrorHidden:(BOOL)hidden;
+- (void)confirm;
 
 @end

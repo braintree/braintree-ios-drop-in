@@ -61,7 +61,7 @@
 + (NSString *)nameForPaymentMethodType:(BTUIKPaymentOptionType)paymentMethodType {
   switch (paymentMethodType) {
     case BTUIKPaymentOptionTypeUnknown:
-      return @"Card";
+      return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
     case BTUIKPaymentOptionTypeAMEX:
           return BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS);
     case BTUIKPaymentOptionTypeDinersClub:
@@ -75,25 +75,25 @@
     case BTUIKPaymentOptionTypeJCB:
           return BTUIKLocalizedString(CARD_TYPE_JCB);
     case BTUIKPaymentOptionTypeLaser:
-          return BTUIKLocalizedString(CARD_TYPE_LASER);
+          return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
     case BTUIKPaymentOptionTypeMaestro:
           return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
     case BTUIKPaymentOptionTypeUnionPay:
           return BTUIKLocalizedString(CARD_TYPE_UNION_PAY);
     case BTUIKPaymentOptionTypeSolo:
-          return BTUIKLocalizedString(CARD_TYPE_SOLO);
+          return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
     case BTUIKPaymentOptionTypeSwitch:
-          return BTUIKLocalizedString(CARD_TYPE_SWITCH);
+          return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
     case BTUIKPaymentOptionTypeUKMaestro:
           return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
     case BTUIKPaymentOptionTypePayPal:
-          return BTUIKLocalizedString(PAYPAL_CARD_BRAND);
+          return BTUIKLocalizedString(PAYPAL);
     case BTUIKPaymentOptionTypeCoinbase:
-          return BTUIKLocalizedString(PAYMENT_METHOD_TYPE_COINBASE);
+          return BTUIKLocalizedString(BRANDING_COINBASE);
     case BTUIKPaymentOptionTypeVenmo:
-          return BTUIKLocalizedString(PAYMENT_METHOD_TYPE_VENMO);
+          return BTUIKLocalizedString(BRANDING_VENMO);
     case BTUIKPaymentOptionTypeApplePay:
-        return BTUIKLocalizedString(PAYMENT_METHOD_TYPE_APPLE_PAY);
+        return BTUIKLocalizedString(BRANDING_APPLE_PAY);
     }
 }
 

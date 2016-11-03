@@ -48,6 +48,8 @@
 @property (nonatomic) BOOL unionPayEnabledMerchant;
 @property (nonatomic, assign) BOOL cardEntryDidBegin;
 @property (nonatomic, assign) BOOL cardEntryDidFocus;
+@property (nonatomic, assign) BOOL enrollmentFailed;
+@property (nonatomic, strong) NSString *enrollmentID;
 @end
 
 @implementation BTCardFormViewController
@@ -140,7 +142,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.title = @"Card Details";
+    self.title = BTUIKLocalizedString(CARD_DETAILS_LABEL);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -155,7 +157,7 @@
 
 - (void)setupForm {
     self.nextButton = [[UIButton alloc] init];
-    [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
+    [self.nextButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
     self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.nextButton setTitleColor:self.view.tintColor forState:UIControlStateNormal];
     
@@ -179,7 +181,7 @@
     UILabel *cardNumberHeaderLabel = [[UILabel alloc] init];
     cardNumberHeaderLabel.numberOfLines = 0;
     cardNumberHeaderLabel.textAlignment = NSTextAlignmentCenter;
-    cardNumberHeaderLabel.text = @"Enter your card details starting with the card number.";
+    cardNumberHeaderLabel.text = BTUIKLocalizedString(ENTER_CARD_DETAILS_HELP_LABEL);
     [BTUIKAppearance styleLargeLabelSecondary:cardNumberHeaderLabel];
     [self.cardNumberHeader addArrangedSubview:cardNumberHeaderLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.cardNumberHeader beforeView:cardNumberHeaderLabel size: [BTUIKAppearance verticalFormSpace]];
@@ -238,7 +240,7 @@
     UILabel *enrollmentFooterLabel = [[UILabel alloc] init];
     enrollmentFooterLabel.numberOfLines = 0;
     enrollmentFooterLabel.textAlignment = [BTUIKViewUtil naturalTextAlignment];
-    enrollmentFooterLabel.text = @"Enrollment is required for this card. An enrollment number will be sent by SMS.";
+    enrollmentFooterLabel.text = BTUIKLocalizedString(ENROLLMENT_WITH_SMS_HELP_LABEL);
     [BTUIKAppearance styleLabelSecondary:enrollmentFooterLabel];
     [self.enrollmentFooter addArrangedSubview:enrollmentFooterLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.enrollmentFooter beforeView:enrollmentFooterLabel size: [BTUIKAppearance verticalFormSpaceTight]];
@@ -335,8 +337,8 @@
 #pragma mark - Public methods
 
 - (void)resetForm {
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
-    BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:@"Add Card" style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
+    BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(ADD_CARD_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
     addButton.bold = true;
     self.navigationItem.rightBarButtonItem = addButton;
     
@@ -490,7 +492,7 @@
 - (void)cardNumberErrorHidden:(BOOL)hidden {
     NSInteger indexOfCardNumberFormField = [self.stackView.arrangedSubviews indexOfObject:self.cardNumberField];
     if (indexOfCardNumberFormField != NSNotFound && !hidden) {
-        [self cardNumberErrorString:@"You must provide a valid card number"];
+        [self cardNumberErrorString:BTUIKLocalizedString(VALID_CARD_ERROR_LABEL)];
         [self.stackView insertArrangedSubview:self.cardNumberErrorView atIndex:indexOfCardNumberFormField + 1];
     } else if (self.cardNumberErrorView.superview != nil && hidden) {
         [self.cardNumberErrorView removeFromSuperview];
@@ -504,107 +506,148 @@
 
 - (void)tokenizeCard {
     [self.view endEditing:YES];
-    
+
+    if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
+        [self enrollCard];
+    } else {
+        [self basicTokenization];
+    }
+}
+
+- (void)basicTokenization {
+    BTCardRequest *cardRequest = self.cardRequest;
+    BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
+
+    UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
+    spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
+    [spinner startAnimating];
+
+    UIBarButtonItem *addCardButton = self.navigationItem.rightBarButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    self.view.userInteractionEnabled = NO;
+
+    [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.view.userInteractionEnabled = YES;
+
+            self.navigationItem.rightBarButtonItem = addCardButton;
+
+            if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount != nil
+                && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && [[BTTokenizationService sharedService] isTypeAvailable:@"ThreeDSecure"]) {
+
+                NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+                options[BTTokenizationServiceViewPresentingDelegateOption] = self;
+                options[BTTokenizationServiceAmountOption] = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
+                options[BTTokenizationServiceNonceOption] = tokenizedCard.nonce;
+
+                [[BTTokenizationService sharedService] tokenizeType:@"ThreeDSecure" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
+                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+                }];
+
+            } else {
+                [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+            }
+        });
+    }];
+}
+
+- (void)enrollCard {
     __block BTCardRequest *cardRequest = self.cardRequest;
     __block BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
-    void (^basicTokenizeBlock)() = ^void() {
+
+    UIViewController *currentViewController = [self.navigationController topViewController];
+    __block UIBarButtonItem *originalRightBarButtonItem = currentViewController.navigationItem.rightBarButtonItem;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
         UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
         spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
         [spinner startAnimating];
         
-        UIBarButtonItem *addCardButton = self.navigationItem.rightBarButtonItem;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+        currentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
         self.view.userInteractionEnabled = NO;
-        
-        [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.view.userInteractionEnabled = YES;
-                
-                self.navigationItem.rightBarButtonItem = addCardButton;
-                
-                if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount != nil
-                    && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && [[BTTokenizationService sharedService] isTypeAvailable:@"ThreeDSecure"]) {
-                    
-                    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-                    options[BTTokenizationServiceViewPresentingDelegateOption] = self;
-                    options[BTTokenizationServiceAmountOption] = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
-                    options[BTTokenizationServiceNonceOption] = tokenizedCard.nonce;
-                    
-                    [[BTTokenizationService sharedService] tokenizeType:@"ThreeDSecure" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-                        [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
-                    }];
-                    
-                } else {
-                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
-                }
-            });
-        }];
-    };
+    });
     
-    if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
-        [cardClient enrollCard:cardRequest completion:^(NSString * _Nullable enrollmentID, BOOL smsCodeRequired, NSError * _Nullable error) {
-            if (error) {
-                [self.delegate cardTokenizationCompleted:nil error:error sender:self];
+    [cardClient enrollCard:cardRequest completion:^(NSString * _Nullable enrollmentID, BOOL smsCodeRequired, NSError * _Nullable error) {
+
+        if (originalRightBarButtonItem) {
+            [self.navigationController topViewController].navigationItem.rightBarButtonItem = originalRightBarButtonItem;
+        }
+        
+        if (error) {
+            [self.delegate cardTokenizationCompleted:nil error:error sender:self];
+            return;
+        }
+        
+        self.enrollmentID = enrollmentID;
+        
+        if (!smsCodeRequired) {
+            [self basicTokenization];
+            return;
+        }
+        
+        // If a BTEnrollmentVerificationViewController is displayed, retry confirmation
+        if ([[self.navigationController topViewController] isKindOfClass:[BTEnrollmentVerificationViewController class]]) {
+            BTEnrollmentVerificationViewController *enrollmentController = (BTEnrollmentVerificationViewController*)[self.navigationController topViewController];
+            [enrollmentController confirm];
+            return;
+        }
+        
+        __block UINavigationController *navController = self.navigationController;
+        __block BTEnrollmentVerificationViewController *enrollmentController;
+        enrollmentController = [[BTEnrollmentVerificationViewController alloc] initWithPhone:self.mobilePhoneField.mobileNumber mobileCountryCode:self.mobileCountryCodeField.countryCode handler:^(NSString* authCode, BOOL resend) {
+            if (resend) {
+                self.firstResponderFormField = self.mobilePhoneField;
+                [self.navigationController popViewControllerAnimated:YES];
                 return;
             }
             
-            cardRequest.enrollmentID = enrollmentID;
-            
-            if (!smsCodeRequired) {
-                basicTokenizeBlock();
+            if (self.enrollmentFailed) {
+                self.enrollmentFailed = NO;
+                [self enrollCard];
                 return;
             }
             
-            __block UINavigationController *navController = self.navigationController;
-            __block BTEnrollmentVerificationViewController *enrollmentController;
-            enrollmentController = [[BTEnrollmentVerificationViewController alloc] initWithPhone:self.mobilePhoneField.mobileNumber mobileCountryCode:self.mobileCountryCodeField.countryCode handler:^(NSString* authCode, BOOL resend) {
-                if (resend) {
-                    self.firstResponderFormField = self.mobilePhoneField;
-                    [self.navigationController popViewControllerAnimated:YES];
-                    return;
-                }
-                
-                __block UIBarButtonItem *originalRightBarButtonItem = enrollmentController.navigationItem.rightBarButtonItem;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
-                    spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
-                    [spinner startAnimating];
-                    
-                    enrollmentController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-                    self.view.userInteractionEnabled = NO;
-                });
-                
-                cardRequest.smsCode = authCode;
-                [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        self.view.userInteractionEnabled = YES;
-                        enrollmentController.navigationItem.rightBarButtonItem = originalRightBarButtonItem;
-                        if (error) {
-                            [enrollmentController smsErrorHidden:NO];
-                            return;
-                        }
-                        
-                        [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
-                    });
-                }];
-            }];
-            
+            __block UIBarButtonItem *originalRightBarButtonItem = enrollmentController.navigationItem.rightBarButtonItem;
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.title = @"";
-                [self.navigationController pushViewController:enrollmentController animated:YES];
-                BTJSON *environment = self.configuration.json[@"environment"];
-                if(![environment isError] && [[environment asString] isEqualToString:@"sandbox"]) {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sandbox Sample SMS Code" message:@"Any code passes, example: 12345 \n\nIncorrect code is: 999999" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction: alertAction];
-                    [navController presentViewController:alertController animated:YES completion:nil];
-                }
+                UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
+                spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
+                [spinner startAnimating];
                 
+                enrollmentController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+                self.view.userInteractionEnabled = NO;
             });
+            
+            cardRequest.smsCode = authCode;
+            cardRequest.enrollmentID = self.enrollmentID;
+            
+            [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.view.userInteractionEnabled = YES;
+                    enrollmentController.navigationItem.rightBarButtonItem = originalRightBarButtonItem;
+                    if (error) {
+                        [enrollmentController smsErrorHidden:NO];
+                        self.enrollmentFailed = YES;
+                        return;
+                    }
+                    
+                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+                });
+            }];
         }];
-    } else {
-        basicTokenizeBlock();
-    }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.title = @"";
+            [self.navigationController pushViewController:enrollmentController animated:YES];
+            BTJSON *environment = self.configuration.json[@"environment"];
+            if(![environment isError] && [[environment asString] isEqualToString:@"sandbox"]) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(DEV_SAMPLE_SMS_CODE_TITLE) message:BTUIKLocalizedString(DEV_SAMPLE_SMS_CODE_INFO) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction: alertAction];
+                [navController presentViewController:alertController animated:YES completion:nil];
+            }
+            
+        });
+    }];
 }
 
 #pragma mark - Protocol conformance
@@ -622,10 +665,10 @@
     }
     if (!cardSupported) {
         [self cardNumberErrorHidden:NO];
-        [self cardNumberErrorString:@"Card not accepted"];
+        [self cardNumberErrorString:BTUIKLocalizedString(CARD_NOT_ACCEPTED_ERROR_LABEL)];
         return;
     }
-
+    
     if (!self.unionPayEnabledMerchant) {
         [self cardNumberErrorHidden:formField.valid];
         if (formField.valid) {

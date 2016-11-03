@@ -40,8 +40,8 @@
     [super viewDidLoad];
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.title = @"Select Payment Method";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
     
     self.paymentMethodNonces = @[];
     self.paymentOptionsData = @[@(BTUIKPaymentOptionTypePayPal), @(BTUIKPaymentOptionTypeUnknown)];
@@ -95,7 +95,7 @@
                                                                         views:viewBindings]];
     
     NSLayoutConstraint *heightConstraint;
-    self.vaultedPaymentsHeader = [self sectionHeaderLabelWithString:@"Recent"];
+    self.vaultedPaymentsHeader = [self sectionHeaderLabelWithString:BTUIKLocalizedString(RECENT_LABEL)];
     self.vaultedPaymentsHeader.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.vaultedPaymentsLabelContainerStackView = [self newStackView];
@@ -120,7 +120,7 @@
     heightConstraint.active = YES;
     [self.stackView addArrangedSubview:self.savedPaymentMethodsCollectionView];
 
-    self.paymentOptionsHeader = [self sectionHeaderLabelWithString:@"Other"];
+    self.paymentOptionsHeader = [self sectionHeaderLabelWithString:BTUIKLocalizedString(OTHER_LABEL)];
     self.paymentOptionsHeader.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.paymentOptionsLabelContainerStackView = [self newStackView];
@@ -220,7 +220,7 @@
                 self.vaultedPaymentsHeader.hidden = NO;
                 self.paymentOptionsLabelContainerStackView.hidden = NO;
                 self.vaultedPaymentsLabelContainerStackView.hidden = NO;
-                [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
             }
             [self showLoadingScreen:NO animated:YES];
             self.stackView.hidden = NO;
@@ -365,7 +365,7 @@
 
     cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
     if (option == BTUIKPaymentOptionTypeUnknown) {
-        cell.label.text = @"Credit or Debit Card";
+        cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
     }
     cell.iconView.paymentOptionType = option;
     cell.type = option;
