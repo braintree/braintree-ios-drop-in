@@ -515,8 +515,8 @@
 }
 
 - (void)basicTokenization {
-    __block BTCardRequest *cardRequest = self.cardRequest;
-    __block BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
+    BTCardRequest *cardRequest = self.cardRequest;
+    BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
 
     UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
     spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;

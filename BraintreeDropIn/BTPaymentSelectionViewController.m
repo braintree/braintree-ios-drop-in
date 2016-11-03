@@ -220,7 +220,7 @@
                 self.vaultedPaymentsHeader.hidden = NO;
                 self.paymentOptionsLabelContainerStackView.hidden = NO;
                 self.vaultedPaymentsLabelContainerStackView.hidden = NO;
-                [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
             }
             [self showLoadingScreen:NO animated:YES];
             self.stackView.hidden = NO;

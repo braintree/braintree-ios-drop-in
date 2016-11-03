@@ -79,6 +79,9 @@ NSString *BraintreeDemoMerchantAPIEnvironmentDidChangeNotification = @"Braintree
         }
     }
     
+    // Uncomment to test UnionPay
+    //parameters[@"merchant_account_id"] = @"fake_switch_usd";
+    
     [self.sessionManager GET:@"/client_token"
                   parameters:parameters
                      success:^(__unused AFHTTPRequestOperation *operation, id responseObject) {

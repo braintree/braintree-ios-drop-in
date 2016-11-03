@@ -48,7 +48,7 @@
     self.smsSentLabel = [UILabel new];
     self.smsSentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsSentLabel.textAlignment = NSTextAlignmentCenter;
-    NSString * fullMobileNumber = [NSString stringWithFormat:@"+%@ %@", self.mobileCountryCode, self.mobilePhoneNumber];
+    NSString *fullMobileNumber = [NSString stringWithFormat:@"+%@ %@", self.mobileCountryCode, self.mobilePhoneNumber];
     self.smsSentLabel.text = [BTUIKLocalizedString insertIntoLozalizedString:BTUIKLocalizedString(ENTER_SMS_CODE_SENT_HELP_LABEL) replacement:fullMobileNumber];
     self.smsSentLabel.numberOfLines = 0;
     [self.view addSubview:self.smsSentLabel];

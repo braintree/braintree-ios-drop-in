@@ -77,7 +77,7 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4141414141414141")
         
-        self.waitForElementToAppear(elementsQuery.staticTexts["You must provide a valid card number"])
+        self.waitForElementToAppear(elementsQuery.staticTexts["You must provide a valid Card Number."])
     }
     
     func testDropIn_cardInput_hidesInvalidCardNumberState_withDeletion() {
@@ -90,7 +90,7 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4141414141414141")
         
-        self.waitForElementToAppear(elementsQuery.staticTexts["You must provide a valid card number"])
+        self.waitForElementToAppear(elementsQuery.staticTexts["You must provide a valid Card Number."])
         
         cardNumberTextField.typeText("\u{8}")
         
