@@ -155,6 +155,10 @@ func fetchExistingPaymentMethod(clientToken: String) {
 }
 ```
 
+### Localization
+
+Drop-In is currently localized for [23 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/BraintreeUIKit/Localization).
+
 ### Themes
 
 Drop-In is fully customizable, but we also provide `Light` and `Dark` themes. Drop-In will use the `Light` theme by default.
