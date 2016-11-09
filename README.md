@@ -4,7 +4,7 @@
 
 Welcome to Braintree's Drop-In SDK for iOS!
 
-![Example saved payment method](Docs/saved-payment-methods-dark.png "Example saved payment method")
+![Drop-in light theme](Docs/client-sdk-ios-series-light.png "Drop-in light theme")
 
 **The Braintree iOS Drop-In SDK requires Xcode 7+ and a Base SDK of iOS 9+**. It permits a Deployment Target of iOS 9.0 or higher.
 
@@ -80,8 +80,6 @@ import Braintree
 ### Show Drop-In
 
 Present `BTDropInController` to collect the customer's payment information and receive the `nonce` to send to your server. Saved payment methods will appear if you specified a `customer_id` when creating your client token.
-
-![Example saved payment method](Docs/saved-payment-methods.png "Example saved payment method")
 
 ```swift
 func showDropIn(clientTokenOrTokenizationKey: String) {
@@ -164,6 +162,8 @@ Drop-In is fully customizable, but we also provide `Light` and `Dark` themes. Dr
 // Set the theme before initializing Drop-In
 BTUIKAppearance.darkTheme()
 ```
+
+![Drop-in dark theme](Docs/client-sdk-ios-series-dark.png "Drop-in dark theme")
 
 ### Customization
 

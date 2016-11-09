@@ -1,5 +1,9 @@
 # Braintree Drop-In iOS SDK Release Notes
 
+## 5.0.1 (2016-11-09)
+
+* Update localizations ( https://github.com/braintree/braintree-ios-drop-in/tree/master/BraintreeUIKit/Localization )
+
 ## 5.0.0 (2016-10-13)
 
 * Bumped major version number to distinguish BraintreeDropIn from Braintree
