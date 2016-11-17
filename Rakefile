@@ -24,7 +24,7 @@ PODSPEC = "BraintreeDropIn.podspec"
 DEMO_PLIST = "DropInDemo/Supporting Files/Braintree-Demo-Info.plist"
 DROPIN_FRAMEWORKS_PLIST = "BraintreeDropIn/Info.plist"
 UIKIT_FRAMEWORKS_PLIST = "BraintreeUIKit/Info.plist"
-PUBLIC_REMOTE_NAME = "public"
+PUBLIC_REMOTE_NAME = "origin"
 
 class << self
   def run cmd
