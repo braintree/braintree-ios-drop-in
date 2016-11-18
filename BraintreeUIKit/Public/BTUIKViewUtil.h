@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "BTUIKCardType.h"
 #import "BTUIKPaymentOptionType.h"
+#import "BTUIKVisualAssetType.h"
 
 @class BTUIKVectorArtView;
 
@@ -66,6 +67,14 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 /// @param size The BTUIKVectorArtSize (Regular or Large)
 /// @return The BTUIKVectorArtView for the BTUIKPaymentOptionType if one can be found. Otherwise the art for a generic card.
 + (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTUIKPaymentOptionType)type size:(BTUIKVectorArtSize)size;
+
+/*!
+ @brief Get a BTUIKVectorArtView for a visual asset.
+
+ @param type A BTUIKVisualAssetType
+ @return The BTUIKVectorArtView for the BTUIKVisualAssetType if one can be found. Otherwise an empty BTUIKVectorArtView.
+*/
++ (BTUIKVectorArtView *)vectorArtViewForVisualAssetType:(BTUIKVisualAssetType)type;
 
 #pragma mark Right to Left Utilities
 
