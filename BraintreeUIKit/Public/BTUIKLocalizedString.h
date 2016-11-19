@@ -6,9 +6,9 @@
 
 #pragma mark Localization helpers
 
-+ (NSString *)insertIntoLozalizedString:(NSString *)string replacement:(NSString* )replacement;
++ (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement;
 
-+ (NSString *)insertIntoLozalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token;
++ (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token;
 
 #pragma mark Localizations
 
