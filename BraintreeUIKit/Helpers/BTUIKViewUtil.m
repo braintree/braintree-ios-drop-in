@@ -27,6 +27,9 @@
 #import "BTUIKLargeUnionPayVectorArtView.h"
 #import "BTUIKLargeApplePayMarkVectorArtView.h"
 
+#import "BTUIKCVVBackVectorArtView.h"
+#import "BTUIKCVVFrontVectorArtView.h"
+
 @import AudioToolbox;
 
 @implementation BTUIKViewUtil
@@ -203,6 +206,17 @@
         case BTUIKPaymentOptionTypeSwitch:
         case BTUIKPaymentOptionTypeUnknown:
             return size == BTUIKVectorArtSizeRegular ? [BTUIKUnknownCardVectorArtView new] : [BTUIKLargeUnknownCardVectorArtView new];
+    }
+}
+
++ (BTUIKVectorArtView *)vectorArtViewForVisualAssetType:(BTUIKVisualAssetType)type {
+    switch (type) {
+        case BTUIKVisualAssetTypeCVVFront:
+            return [BTUIKCVVFrontVectorArtView new];
+        case BTUIKVisualAssetTypeCVVBack:
+            return [BTUIKCVVBackVectorArtView new];
+        case BTUIKVisualAssetTypeUnknown:
+            return [BTUIKVectorArtView new];
     }
 }
 
