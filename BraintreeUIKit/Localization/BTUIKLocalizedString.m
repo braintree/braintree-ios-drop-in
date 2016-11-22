@@ -19,11 +19,11 @@
 
 #pragma mark Localization helpers
 
-+ (NSString *)insertIntoLozalizedString:(NSString *)string replacement:(NSString* )replacement {
-    return [self insertIntoLozalizedString:string replacement:replacement token:@"%s"];
++ (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement {
+    return [self insertIntoLocalizedString:string replacement:replacement token:@"%s"];
 }
 
-+ (NSString *)insertIntoLozalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token {
++ (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token {
     return [string stringByReplacingOccurrencesOfString:token withString:replacement];
 }
 
