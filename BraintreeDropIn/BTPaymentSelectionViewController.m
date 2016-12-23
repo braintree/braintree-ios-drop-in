@@ -16,6 +16,14 @@
 #import <BraintreeCard/BraintreeCard.h>
 #endif
 
+#if __has_include("BraintreeApplePay.h")
+#define __BT_APPLE_PAY
+#import "BraintreeApplePay.h"
+#elif __has_include(<BraintreeApplePay/BraintreeApplePay.h>)
+#define __BT_APPLE_PAY
+#import <BraintreeApplePay/BraintreeApplePay.h>
+#endif
+
 #define SAVED_PAYMENT_METHODS_COLLECTION_SPACING 6
 #define SAVED_PAYMENT_METHODS_COLLECTION_WIDTH 105
 #define SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT 165
