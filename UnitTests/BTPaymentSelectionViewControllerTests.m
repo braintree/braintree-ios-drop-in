@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BTPaymentSelectionViewController.h"
+#import "BTConfiguration.h"
 
 @interface BTPaymentSelectionViewController ()
 @property (nonatomic, strong) NSArray *paymentOptionsData;

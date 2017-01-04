@@ -6,14 +6,6 @@
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
-#if __has_include("BraintreeApplePay.h")
-#define __BT_APPLE_PAY 
-#import "BraintreeApplePay.h"
-#elif __has_include(<BraintreeApplePay/BraintreeApplePay.h>)
-#define __BT_APPLE_PAY
-#import <BraintreeApplePay/BraintreeApplePay.h>
-#endif
-
 @class BTPaymentMethodNonce;
 
 @protocol BTPaymentSelectionViewControllerDelegate;
