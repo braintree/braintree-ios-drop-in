@@ -291,8 +291,8 @@
 - (void)setupCardIO {
     if ([self isCardIOAvailable]) {
         BTUIKInputAccessoryToolbar *cardToolBar = [BTUIKInputAccessoryToolbar new];
-        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *cardIOButton = [[UIBarButtonItem alloc] initWithTitle:@"Scan Card" style:UIBarButtonItemStylePlain target:self action:@selector(presentCardIO)];
+        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];        
+        UIBarButtonItem *cardIOButton = [[UIBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(SCAN_CARD_IO_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(presentCardIO)];
         cardToolBar.items = @[flexSpace, cardIOButton];
         self.cardNumberField.textField.inputAccessoryView = cardToolBar;
     }
