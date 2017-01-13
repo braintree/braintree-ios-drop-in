@@ -57,9 +57,9 @@
 + (id)initWithPaymentDelegate:id;
 + (BOOL)canReadCardWithCamera;
 @property (nonatomic, strong) NSString *cardNumber;
-@property(nonatomic, assign, readwrite) BOOL hideCardIOLogo;
-@property(nonatomic, assign, readwrite) BOOL collectExpiry;
-@property(nonatomic, assign, readwrite) BOOL collectCVV;
+@property (nonatomic, assign, readwrite) BOOL hideCardIOLogo;
+@property (nonatomic, assign, readwrite) BOOL collectExpiry;
+@property (nonatomic, assign, readwrite) BOOL collectCVV;
 @end
 
 @implementation BTCardFormViewController
