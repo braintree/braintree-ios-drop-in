@@ -232,6 +232,10 @@
             }
             [self showLoadingScreen:NO animated:YES];
             self.stackView.hidden = NO;
+            [self.view layoutIfNeeded];
+            if (self.delegate) {
+                [self.delegate sheetHeightDidChange:self];
+            }
         }];
     }
 }
@@ -301,6 +305,10 @@
     heightConstraint.priority = UILayoutPriorityDefaultHigh;
     heightConstraint.active = true;
     return spacer;
+}
+
+- (float) sheetHeight {
+    return self.paymentMethodNonces.count == 0 ? 280 : 470;
 }
 
 #pragma mark - Protocol conformance

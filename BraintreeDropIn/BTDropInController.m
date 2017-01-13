@@ -18,7 +18,6 @@
 
 #define BT_ANIMATION_SLIDE_SPEED 0.35
 #define BT_ANIMATION_TRANSITION_SPEED 0.1
-#define BT_HALF_SHEET_HEIGHT 470
 #define BT_HALF_SHEET_MARGIN 5
 #define BT_HALF_SHEET_CORNER_RADIUS 12
 
@@ -327,7 +326,7 @@
         // Flexible views
         int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
         int sh = [[UIScreen mainScreen] bounds].size.height;
-        int sheetHeight = BT_HALF_SHEET_HEIGHT;
+        int sheetHeight = [self.paymentSelectionViewController sheetHeight];
         self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
     }
     
@@ -463,6 +462,24 @@
             self.handler(self, result, error);
         }
     }
+}
+
+- (void) sheetHeightDidChange:(__unused BTPaymentSelectionViewController *)sender {
+    if ([self isFormSheet]) {
+        // iPad formSheet
+        self.contentHeightConstraint.constant = 0;
+    } else {
+        // Flexible views
+        int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+        int sh = [[UIScreen mainScreen] bounds].size.height;
+        int sheetHeight = [self.paymentSelectionViewController sheetHeight];
+        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
+    }
+    self.contentHeightConstraintBottom.constant = -[self sheetInset];
+
+    [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
+        [self.view layoutIfNeeded];
+    } completion:nil];
 }
 
 @end
