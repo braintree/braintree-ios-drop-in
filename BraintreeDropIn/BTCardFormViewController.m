@@ -305,9 +305,9 @@
         && [kCardIOUtilities respondsToSelector:@selector(libraryVersion)]
         && [kCardIOUtilities respondsToSelector:@selector(canReadCardWithCamera)]) {
         NSString *cardIOVersion = [kCardIOUtilities libraryVersion];
-        NSLog(@"%@", cardIOVersion);
-        // TODO Version checking
-        return [kCardIOUtilities canReadCardWithCamera];
+        NSString *majorVersion = [cardIOVersion length] >= 2 ? [cardIOVersion substringToIndex:2] : @"";
+        // Require 5.x.x strictly
+        return [majorVersion isEqualToString:@"5."] && [kCardIOUtilities canReadCardWithCamera];
     }
     return false;
 }
