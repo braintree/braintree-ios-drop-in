@@ -1,5 +1,3 @@
-#pragma message "⚠️ BraintreeDropIn is currently in beta and may change."
-
 #import <UIKit/UIKit.h>
 #import "BTDropInBaseViewController.h"
 #import "BTDropInResult.h"
