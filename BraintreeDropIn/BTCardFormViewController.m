@@ -292,8 +292,8 @@
     if ([self isCardIOAvailable]) {
         BTUIKInputAccessoryToolbar *cardToolBar = [BTUIKInputAccessoryToolbar new];
         UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];        
-        UIBarButtonItem *cardIOButton = [[UIBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(SCAN_CARD_IO_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(presentCardIO)];
-        cardToolBar.items = @[flexSpace, cardIOButton];
+        UIBarButtonItem *cardIOButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(SCAN_CARD_IO_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(presentCardIO)];
+        cardToolBar.items = @[flexSpace, cardIOButton, flexSpace];
         self.cardNumberField.textField.inputAccessoryView = cardToolBar;
     }
 }
