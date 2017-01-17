@@ -52,6 +52,16 @@
 @property (nonatomic, strong) NSString *enrollmentID;
 @end
 
+@interface CardIOSurrogate : NSObject
++ (NSString*)cardIOLibraryVersion;
++ (id)initWithPaymentDelegate:id;
++ (BOOL)canReadCardWithCamera;
+@property (nonatomic, strong) NSString *cardNumber;
+@property (nonatomic, assign, readwrite) BOOL hideCardIOLogo;
+@property (nonatomic, assign, readwrite) BOOL collectExpiry;
+@property (nonatomic, assign, readwrite) BOOL collectCVV;
+@end
+
 @implementation BTCardFormViewController
 
 #pragma mark - Lifecycle
@@ -246,6 +256,8 @@
     [BTDropInUIUtilities addSpacerToStackView:self.enrollmentFooter beforeView:enrollmentFooterLabel size: [BTUIKAppearance verticalFormSpaceTight]];
     self.enrollmentFooter.hidden = YES;
     [self.stackView addArrangedSubview:self.enrollmentFooter];
+
+    [self setupCardIO];
 }
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(NSError *)error {
@@ -272,6 +284,54 @@
     if ([challenges containsObject:@"postal_code"]) {
         [self.requiredFields addObject:self.postalCodeField];
     }
+}
+
+#pragma mark - card.io
+
+- (void)setupCardIO {
+    if ([self isCardIOAvailable]) {
+        BTUIKInputAccessoryToolbar *cardToolBar = [BTUIKInputAccessoryToolbar new];
+        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];        
+        UIBarButtonItem *cardIOButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(SCAN_CARD_IO_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(presentCardIO)];
+        cardToolBar.items = @[flexSpace, cardIOButton, flexSpace];
+        self.cardNumberField.textField.inputAccessoryView = cardToolBar;
+    }
+}
+
+- (BOOL)isCardIOAvailable {
+    Class kCardIOView = NSClassFromString(@"CardIOPaymentViewController");
+    Class kCardIOUtilities = NSClassFromString(@"CardIOUtilities");
+    if (kCardIOView != nil && kCardIOView != nil
+        && [kCardIOUtilities respondsToSelector:@selector(cardIOLibraryVersion)]
+        && [kCardIOUtilities respondsToSelector:@selector(canReadCardWithCamera)]) {
+        NSString *cardIOVersion = [kCardIOUtilities cardIOLibraryVersion];
+        NSString *majorVersion = [cardIOVersion length] >= 2 ? [cardIOVersion substringToIndex:2] : @"";
+        // Require 5.x.x strictly
+        return [majorVersion isEqualToString:@"5."] && [kCardIOUtilities canReadCardWithCamera];
+    }
+    return NO;
+}
+
+- (void)presentCardIO {
+    Class kCardIOPaymentViewController = NSClassFromString(@"CardIOPaymentViewController");
+    id scanViewController = [[kCardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    [scanViewController setHideCardIOLogo:YES];
+    [scanViewController setCollectCVV:NO];
+    [scanViewController setCollectExpiry:NO];
+    [self presentViewController:scanViewController animated:YES completion:nil];
+}
+
+- (void)userDidCancelPaymentViewController:(UIViewController *)scanViewController {
+    [scanViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)userDidProvideCreditCardInfo:(id)info inPaymentViewController:(UIViewController *)scanViewController {
+    NSString *cardNumber = [info cardNumber];
+    [scanViewController dismissViewControllerAnimated:YES completion:^{
+        [self.cardNumberField setNumber:cardNumber];
+        [self.cardNumberField textFieldDidEndEditing:self.cardNumberField.textField];
+        [self validateButtonPressed:self.cardNumberField];
+    }];
 }
 
 #pragma mark - Custom accessors
