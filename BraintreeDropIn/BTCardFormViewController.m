@@ -53,7 +53,7 @@
 @end
 
 @interface CardIOSurrogate : NSObject
-+ (NSString*)libraryVersion;
++ (NSString*)cardIOLibraryVersion;
 + (id)initWithPaymentDelegate:id;
 + (BOOL)canReadCardWithCamera;
 @property (nonatomic, strong) NSString *cardNumber;
@@ -302,14 +302,14 @@
     Class kCardIOView = NSClassFromString(@"CardIOPaymentViewController");
     Class kCardIOUtilities = NSClassFromString(@"CardIOUtilities");
     if (kCardIOView != nil && kCardIOView != nil
-        && [kCardIOUtilities respondsToSelector:@selector(libraryVersion)]
+        && [kCardIOUtilities respondsToSelector:@selector(cardIOLibraryVersion)]
         && [kCardIOUtilities respondsToSelector:@selector(canReadCardWithCamera)]) {
-        NSString *cardIOVersion = [kCardIOUtilities libraryVersion];
+        NSString *cardIOVersion = [kCardIOUtilities cardIOLibraryVersion];
         NSString *majorVersion = [cardIOVersion length] >= 2 ? [cardIOVersion substringToIndex:2] : @"";
         // Require 5.x.x strictly
         return [majorVersion isEqualToString:@"5."] && [kCardIOUtilities canReadCardWithCamera];
     }
-    return false;
+    return NO;
 }
 
 - (void)presentCardIO {
@@ -327,7 +327,6 @@
 
 - (void)userDidProvideCreditCardInfo:(id)info inPaymentViewController:(UIViewController *)scanViewController {
     NSString *cardNumber = [info cardNumber];
-
     [scanViewController dismissViewControllerAnimated:YES completion:^{
         [self.cardNumberField setNumber:cardNumber];
         [self.cardNumberField textFieldDidEndEditing:self.cardNumberField.textField];
