@@ -44,6 +44,17 @@
 
 @implementation BTPaymentSelectionViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.paymentMethodNonces = @[];
+        self.paymentOptionsData = @[@(BTUIKPaymentOptionTypePayPal), @(BTUIKPaymentOptionTypeUnknown)];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
@@ -51,9 +62,6 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
     self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
     
-    self.paymentMethodNonces = @[];
-    self.paymentOptionsData = @[@(BTUIKPaymentOptionTypePayPal), @(BTUIKPaymentOptionTypeUnknown)];
-
     self.view.translatesAutoresizingMaskIntoConstraints = false;
     self.view.backgroundColor = [UIColor clearColor];
     
