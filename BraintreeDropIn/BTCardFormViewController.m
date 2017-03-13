@@ -22,7 +22,7 @@
 #import <BraintreeUnionPay/BraintreeUnionPay.h>
 #endif
 
-@interface BTCardFormViewController ()
+@interface BTCardFormViewController () <BTViewControllerPresentingDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *scrollViewContentWrapper;
@@ -799,6 +799,15 @@
 
 - (BOOL)textFieldShouldReturn:(__unused UITextField *)textField {
     return YES;
+}
+
+#pragma mark BTViewControllerPresentingDelegate
+- (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)paymentDriver:(__unused id)driver requestsDismissalOfViewController:(__unused UIViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
