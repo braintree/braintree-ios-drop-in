@@ -334,8 +334,9 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
 
-        self.waitForElementToAppear(app.buttons.containing(.button, identifier: "created").element(boundBy: 0))
+        let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
 
+        self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
 
     func testDropIn_threeDSecure_dismessesWhenCancelled() {
