@@ -63,9 +63,9 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     }
     
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureRequired"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"ThreeDSecureRequired"];
-    } else {
-        [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"ThreeDSecureRequired"];
+        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
+    }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureDefault"]) {
+        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusDefault forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
     }
     
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-TokenizationKey"]) {

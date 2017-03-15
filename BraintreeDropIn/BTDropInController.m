@@ -272,6 +272,8 @@
             if (tokenizedCard != nil) {
                 result.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:tokenizedCard.type];
                 result.paymentMethod = tokenizedCard;
+            } else if (error == nil) {
+                result.cancelled = YES;
             }
             [sender dismissViewControllerAnimated:YES completion:^{
                 self.handler(self, result, error);

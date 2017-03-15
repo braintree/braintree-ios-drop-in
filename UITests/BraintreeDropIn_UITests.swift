@@ -15,6 +15,7 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
         app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ThreeDSecureDefault")
         app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
         app.launch()
         sleep(1)
@@ -108,6 +109,7 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
         app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureDefault")
         app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
         app.launch()
         sleep(1)
@@ -289,8 +291,8 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
     }
-    
-    func testDropIn_threeDSecure_showsThreeDSecureWebview() {
+
+    func testDropIn_threeDSecure_showsThreeDSecureWebview_andTransacts() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
         
@@ -328,5 +330,45 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToAppear(app.staticTexts["ending in 11"])
         
         XCTAssertTrue(app.staticTexts["ending in 11"].exists);
+
+        self.waitForElementToBeHittable(app.buttons["Complete Purchase"])
+        app.buttons["Complete Purchase"].forceTapElement()
+
+        self.waitForElementToAppear(app.buttons.containing(.button, identifier: "created").element(boundBy: 0))
+
+    }
+
+    func testDropIn_threeDSecure_dismessesWhenCancelled() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts["2019"].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["Added Protection"])
+
+        self.waitForElementToBeHittable(app.buttons["Cancel"])
+        app.buttons["Cancel"].forceTapElement()
+        self.waitForElementToAppear(app.buttons["Cancelled🎲"])
+        XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
     }
 }
