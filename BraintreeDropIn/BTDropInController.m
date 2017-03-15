@@ -452,14 +452,14 @@
     [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)selectionCompletedWithPaymentMethodType:(BTUIKPaymentOptionType)type nonce:(BTPaymentMethodNonce *)nonce isRecentItem:(BOOL)recentItem error:(NSError *)error {
+- (void)selectionCompletedWithPaymentMethodType:(BTUIKPaymentOptionType)type nonce:(BTPaymentMethodNonce *)nonce isVaultedItem:(BOOL)vaultedItem error:(NSError *)error {
     if (error == nil) {
         [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"BT_dropInLastSelectedPaymentMethodType"];
         if (self.handler != nil) {
             BTDropInResult *result = [BTDropInResult new];
             result.paymentOptionType = type;
             result.paymentMethod = nonce;
-            result.recentItem = recentItem;
+            result.vaultedItem = vaultedItem;
             self.handler(self, result, error);
         }
     }
