@@ -90,6 +90,17 @@ static BTUIKAppearance *sharedTheme;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
++ (UILabel *) styledNavigationTitleLabel {
+    UILabel* tlabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
+    tlabel.textAlignment = NSTextAlignmentCenter;
+    tlabel.textColor=[BTUIKAppearance sharedInstance].primaryTextColor;
+    tlabel.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]];
+    tlabel.backgroundColor =[UIColor clearColor];
+    tlabel.adjustsFontSizeToFitWidth=YES;
+    tlabel.numberOfLines = 2;
+    return tlabel;
+}
+
 + (float)horizontalFormContentPadding {
     return 15.0f;
 }

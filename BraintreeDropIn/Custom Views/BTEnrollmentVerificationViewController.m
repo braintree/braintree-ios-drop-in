@@ -30,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = BTUIKLocalizedString(CONFIRM_ENROLLMENT_LABEL);
+    UILabel* titleView = [BTUIKAppearance styledNavigationTitleLabel];
+    titleView.text = self.title;
+    self.navigationItem.titleView = titleView;
     
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
     self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;

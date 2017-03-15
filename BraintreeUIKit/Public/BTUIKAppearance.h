@@ -52,6 +52,7 @@
 + (void) styleLabelSecondary:(UILabel *)label;
 + (void) styleLargeLabelSecondary:(UILabel *)label;
 + (void) styleSystemLabelSecondary:(UILabel *)label;
++ (UILabel *) styledNavigationTitleLabel;
 
 + (float) horizontalFormContentPadding;
 + (float) formCellHeight;
