@@ -91,12 +91,12 @@ static BTUIKAppearance *sharedTheme;
 }
 
 + (UILabel *) styledNavigationTitleLabel {
-    UILabel* tlabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
+    UILabel* tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
     tlabel.textAlignment = NSTextAlignmentCenter;
-    tlabel.textColor=[BTUIKAppearance sharedInstance].primaryTextColor;
+    tlabel.textColor = [BTUIKAppearance sharedInstance].navigationBarTitleTextColor;
     tlabel.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]];
-    tlabel.backgroundColor =[UIColor clearColor];
-    tlabel.adjustsFontSizeToFitWidth=YES;
+    tlabel.backgroundColor = [UIColor clearColor];
+    tlabel.adjustsFontSizeToFitWidth = YES;
     tlabel.numberOfLines = 2;
     return tlabel;
 }
@@ -153,6 +153,10 @@ static BTUIKAppearance *sharedTheme;
     });
     
     return sharedMetrics;
+}
+
+- (UIColor *)navigationBarTitleTextColor {
+    return _navigationBarTitleTextColor != nil ? _navigationBarTitleTextColor : _primaryTextColor;
 }
 
 @end
