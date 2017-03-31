@@ -1,11 +1,12 @@
 #import <UIKit/UIKit.h>
+#import "BTDropInBaseViewController.h"
 #if __has_include("BraintreeUIKit.h")
 #import "BraintreeUIKit.h"
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
-@interface BTEnrollmentVerificationViewController : UIViewController <UITextFieldDelegate, BTUIKFormFieldDelegate>
+@interface BTEnrollmentVerificationViewController : BTDropInBaseViewController <UITextFieldDelegate, BTUIKFormFieldDelegate>
 typedef void (^BTEnrollmentHandler)(NSString* authCode, BOOL resendSms);
 
 - (instancetype)initWithPhone:(NSString *)mobilePhoneNumber

@@ -281,8 +281,7 @@
 }
 
 - (void)updateToolbarForViewController:(UIViewController*)viewController {
-    UILabel *titleLabel = [[UILabel alloc] init];
-    [BTUIKAppearance styleLabelBoldPrimary:titleLabel];
+    UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
     titleLabel.text = viewController.title ? viewController.title : @"";
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [titleLabel sizeToFit];

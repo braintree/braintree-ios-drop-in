@@ -20,33 +20,33 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/Apple-Pay (4.7.1):
+  - Braintree/Apple-Pay (4.8.0):
     - Braintree/Core
-  - Braintree/Card (4.7.1):
+  - Braintree/Card (4.8.0):
     - Braintree/Core
-  - Braintree/Core (4.7.1)
-  - Braintree/PayPal (4.7.1):
+  - Braintree/Core (4.8.0)
+  - Braintree/PayPal (4.8.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.7.1):
+  - Braintree/PayPalDataCollector (4.8.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.7.1):
+  - Braintree/PayPalOneTouch (4.8.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.7.1)
-  - Braintree/UnionPay (4.7.1):
+  - Braintree/PayPalUtils (4.8.0)
+  - Braintree/UnionPay (4.8.0):
     - Braintree/Card
     - Braintree/Core
-  - BraintreeDropIn (5.0.0):
-    - BraintreeDropIn/DropIn (= 5.0.0)
-  - BraintreeDropIn/DropIn (5.0.0):
+  - BraintreeDropIn (5.1.0):
+    - BraintreeDropIn/DropIn (= 5.1.0)
+  - BraintreeDropIn/DropIn (5.1.0):
     - Braintree/Card (~> 4.0)
     - Braintree/Core (~> 4.0)
     - Braintree/UnionPay (~> 4.0)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (5.0.0)
+  - BraintreeDropIn/UIKit (5.1.0)
   - CardIO (5.4.1)
   - Expecta (1.0.5)
   - FLEX (2.4.0)
@@ -96,8 +96,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  Braintree: c57bcb7983412530ea6d71cee4b99a4ba316c4ef
-  BraintreeDropIn: 265ea99e6f40cd51c23840fdb32fc88148b641da
+  Braintree: 28527aed12a5904ae69af7cdf3aaf77b2717d041
+  BraintreeDropIn: ad8e18bd4f3a33105b7bcd418556988ef68272bc
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079

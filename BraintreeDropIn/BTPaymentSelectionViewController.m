@@ -61,11 +61,8 @@
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
-    
+
     self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
-    UILabel* titleView = [BTUIKAppearance styledNavigationTitleLabel];
-    titleView.text = self.title;
-    self.navigationItem.titleView = titleView;
     
     self.view.translatesAutoresizingMaskIntoConstraints = false;
     self.view.backgroundColor = [UIColor clearColor];

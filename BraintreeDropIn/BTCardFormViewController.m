@@ -152,11 +152,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     self.title = BTUIKLocalizedString(CARD_DETAILS_LABEL);
-    UILabel* titleView = [BTUIKAppearance styledNavigationTitleLabel];
-    titleView.text = self.title;
-    self.navigationItem.titleView = titleView;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
