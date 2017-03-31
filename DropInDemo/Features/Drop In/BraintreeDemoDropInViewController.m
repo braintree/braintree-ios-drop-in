@@ -225,8 +225,10 @@
 - (void)tappedToShowDropIn {
     BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
     // To test 3DS
-    //dropInRequest.amount = @"10.00";
-    //dropInRequest.threeDSecureVerification = YES;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"ThreeDSecureRequired"]) {
+        dropInRequest.amount = @"10.00";
+        dropInRequest.threeDSecureVerification = YES;
+    }
     if (self.dropinThemeSwitch.selectedSegmentIndex == 0) {
         [BTUIKAppearance lightTheme];
     } else {

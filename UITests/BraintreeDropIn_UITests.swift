@@ -271,3 +271,62 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists);
     }
 }
+
+class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureRequired")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_threeDSecure_showsThreeDSecureWebview() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+        
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+        
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts["2019"].forceTapElement()
+        
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+        
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+        
+        app.buttons["Add Card"].forceTapElement()
+        
+        self.waitForElementToAppear(app.staticTexts["Added Protection"])
+        
+        let textField = app.secureTextFields.element(boundBy: 0)
+        self.waitForElementToBeHittable(textField)
+        textField.forceTapElement()
+        textField.typeText("1234")
+        
+        app.buttons["Submit"].forceTapElement()
+        
+        self.waitForElementToAppear(app.staticTexts["ending in 11"])
+        
+        XCTAssertTrue(app.staticTexts["ending in 11"].exists);
+    }
+}
