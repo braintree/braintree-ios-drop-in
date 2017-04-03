@@ -11,9 +11,6 @@
 /// Obtain the `BTCardType` for the given number, or nil if none is found
 + (instancetype)cardTypeForNumber:(NSString *)number;
 
-/// Return all possible card types for a number
-+ (NSArray *)possibleCardTypesForNumber:(NSString *)number;
-
 /// Check if a number is valid
 - (BOOL)validNumber:(NSString *)number;
 

@@ -57,8 +57,14 @@
     [sampleCards addObject:@[@"6240888888888885127", @"UnionPay"]];
 
     for (NSArray *cardInfo in sampleCards) {
-        BTUIKCardType *card = [BTUIKCardType cardTypeForNumber:[cardInfo objectAtIndex:0]];
-        XCTAssertEqualObjects([card brand], [cardInfo objectAtIndex:1]);
+        NSString *cardNumber = [cardInfo objectAtIndex:0];
+        NSString *cardBrand = [cardInfo objectAtIndex:1];
+        BTUIKCardType *card = [BTUIKCardType cardTypeForNumber:cardNumber];
+        XCTAssertEqualObjects([card brand], cardBrand);
+
+        // Ensure that cards are found for short numbers
+        BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:4]];
+        XCTAssertEqualObjects([shortCard brand], cardBrand);
     }
 }
 
