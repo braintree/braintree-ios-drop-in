@@ -19,7 +19,12 @@
 
 - (void)test_prefersStatusBarHidden_returnsTrue {
     BTDropInBaseViewController *viewController = [[BTDropInBaseViewController alloc] init];
-    XCTAssertFalse(viewController.prefersStatusBarHidden);
+    XCTAssertTrue(viewController.prefersStatusBarHidden);
+}
+
+- (void)test_preferredStatusBarUpdateAnimation_returns_UIStatusBarAnimationSlide {
+    BTDropInBaseViewController *viewController = [[BTDropInBaseViewController alloc] init];
+    XCTAssertEqual(UIStatusBarAnimationSlide, viewController.preferredStatusBarUpdateAnimation);
 }
 
 @end
