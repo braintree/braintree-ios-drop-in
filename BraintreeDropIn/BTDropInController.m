@@ -21,7 +21,7 @@
 #define BT_HALF_SHEET_MARGIN 5
 #define BT_HALF_SHEET_CORNER_RADIUS 12
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate>
+@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -482,6 +482,14 @@
     [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
         [self.view layoutIfNeeded];
     } completion:nil];
+}
+
+#pragma mark BTDropInControllerDelegate
+
+- (void)reloadDropInData {
+    [self.paymentSelectionViewController loadConfiguration];
+    [self flexViewAnimated:NO];
+    [self.view setNeedsDisplay];
 }
 
 @end
