@@ -144,7 +144,7 @@
                                                object:nil];
     [self setupForm];
     [self resetForm];
-    [self showLoadingScreen:YES animated:NO];
+    [self showLoadingScreen:YES];
     [self loadConfiguration];
     
     self.firstResponderFormField = self.cardNumberField;
@@ -261,7 +261,7 @@
 }
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(NSError *)error {
-    [self showLoadingScreen:NO animated:YES];
+    [self showLoadingScreen:NO];
     if (!error) {
         self.collapsed = YES;
         self.unionPayEnabledMerchant = NO;

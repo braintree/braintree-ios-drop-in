@@ -34,8 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Displays an overlay loading screen
 ///
 /// @param show Modifies the hidden property of the overlay
-/// @param animated Will animate the overlay changing the hidden property if set to `true`.
-- (void)showLoadingScreen:(BOOL)show animated:(BOOL)animated;
+- (void)showLoadingScreen:(BOOL)show;
 
 @end
 

@@ -53,18 +53,11 @@
     }];
 }
 
-- (void)showLoadingScreen:(BOOL)show animated:(BOOL)animated {
+- (void)showLoadingScreen:(BOOL)show {
     if (show) {
         [self.view bringSubviewToFront:self.activityIndicatorWrapperView];
     }
-
-    if (animated) {
-        [UIView transitionWithView:self.activityIndicatorWrapperView duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            self.activityIndicatorWrapperView.hidden = !show;
-        } completion:nil];
-    } else {
-        self.activityIndicatorWrapperView.hidden = !show;
-    }
+    self.activityIndicatorWrapperView.hidden = !show;
 }
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(__unused NSError *)error {
