@@ -64,8 +64,8 @@
     }
     for (BTUIKCardType *cardType in [[self class] allCards]) {
         for (NSString *pattern in cardType.validNumberPrefixes) {
-            NSError  *error = nil;
-            NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+            NSError *error;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
             NSTextCheckingResult *match = [regex firstMatchInString:number options:0 range: NSMakeRange(0, [number length])];
 
             if (match != nil) {
