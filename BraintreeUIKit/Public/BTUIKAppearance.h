@@ -24,6 +24,9 @@
 @property (nonatomic, strong) UIColor *formFieldBackgroundColor;
 /// Primary text color
 @property (nonatomic, strong) UIColor *primaryTextColor;
+/// Navigation title text color
+/// Defaults to nil. When not set, navigation titles will use primaryTextColor
+@property (nonatomic, strong) UIColor *navigationBarTitleTextColor;
 /// Secondary text color
 @property (nonatomic, strong) UIColor *secondaryTextColor;
 /// Color of disabled buttons
@@ -52,6 +55,7 @@
 + (void) styleLabelSecondary:(UILabel *)label;
 + (void) styleLargeLabelSecondary:(UILabel *)label;
 + (void) styleSystemLabelSecondary:(UILabel *)label;
++ (UILabel *) styledNavigationTitleLabel;
 
 + (float) horizontalFormContentPadding;
 + (float) formCellHeight;

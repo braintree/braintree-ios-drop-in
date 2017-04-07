@@ -5,7 +5,7 @@
 
 static BTUIKAppearance *sharedTheme;
 
-+ (instancetype) sharedInstance {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedTheme = [BTUIKAppearance new];
@@ -15,7 +15,7 @@ static BTUIKAppearance *sharedTheme;
     return sharedTheme;
 }
 
-+ (void) lightTheme {
++ (void)lightTheme {
     sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
     sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
     sharedTheme.barBackgroundColor = [UIColor whiteColor];
@@ -35,7 +35,7 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
 }
 
-+ (void) darkTheme {
++ (void)darkTheme {
     sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
     sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
     sharedTheme.barBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
@@ -55,27 +55,27 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
 }   
 
-+ (void) styleLabelPrimary:(UILabel *)label {
++ (void)styleLabelPrimary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
-+ (void) styleLabelBoldPrimary:(UILabel *)label {
++ (void)styleLabelBoldPrimary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
-+ (void) styleSmallLabelBoldPrimary:(UILabel *)label {
++ (void)styleSmallLabelBoldPrimary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont smallSystemFontSize]];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
-+ (void) styleSmallLabelPrimary:(UILabel *)label {
++ (void)styleSmallLabelPrimary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont smallSystemFontSize]];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
-+ (void) styleLabelSecondary:(UILabel *)label {
++ (void)styleLabelSecondary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont smallSystemFontSize]];
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
@@ -85,9 +85,20 @@ static BTUIKAppearance *sharedTheme;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
-+ (void) styleSystemLabelSecondary:(UILabel *)label {
++ (void)styleSystemLabelSecondary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]];
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
+}
+
++ (UILabel *)styledNavigationTitleLabel {
+    UILabel *tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
+    tlabel.textAlignment = NSTextAlignmentCenter;
+    tlabel.textColor = [BTUIKAppearance sharedInstance].navigationBarTitleTextColor;
+    tlabel.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]];
+    tlabel.backgroundColor = [UIColor clearColor];
+    tlabel.adjustsFontSizeToFitWidth = YES;
+    tlabel.numberOfLines = 2;
+    return tlabel;
 }
 
 + (float)horizontalFormContentPadding {
@@ -142,6 +153,10 @@ static BTUIKAppearance *sharedTheme;
     });
     
     return sharedMetrics;
+}
+
+- (UIColor *)navigationBarTitleTextColor {
+    return _navigationBarTitleTextColor != nil ? _navigationBarTitleTextColor : _primaryTextColor;
 }
 
 @end

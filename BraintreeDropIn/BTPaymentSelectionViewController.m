@@ -3,6 +3,7 @@
 #import "BTDropInController.h"
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
+#import "BTUIKBarButtonItem_Internal_Declaration.h"
 
 #if __has_include("BraintreeUIKit.h")
 #import "BraintreeUIKit.h"
@@ -59,7 +60,8 @@
     [super viewDidLoad];
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
+
     self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
     
     self.view.translatesAutoresizingMaskIntoConstraints = false;
