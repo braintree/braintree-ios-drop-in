@@ -71,6 +71,13 @@
     }
 }
 
+- (void)showLoadingScreen:(BOOL)show {
+    if (show) {
+        [self.view bringSubviewToFront:self.activityIndicatorWrapperView];
+    }
+    self.activityIndicatorWrapperView.hidden = !show;
+}
+
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(__unused NSError *)error {
     //Subclasses should override this method
 }

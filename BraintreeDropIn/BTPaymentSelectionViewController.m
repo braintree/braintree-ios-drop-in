@@ -166,7 +166,7 @@
 }
 
 - (void)loadConfiguration {
-    [self showLoadingScreen:YES animated:NO];
+    [self showLoadingScreen:YES];
     self.stackView.hidden = YES;
     [super loadConfiguration];
     
@@ -240,7 +240,7 @@
                 self.vaultedPaymentsLabelContainerStackView.hidden = NO;
                 [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
             }
-            [self showLoadingScreen:NO animated:YES];
+            [self showLoadingScreen:NO];
             self.stackView.hidden = NO;
             [self.view layoutIfNeeded];
             if (self.delegate) {
