@@ -447,6 +447,7 @@
 
 - (void)cancelTapped {
     [self hideKeyboard];
+    [self.delegate reloadDropInData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -605,7 +606,11 @@
                 options[BTTokenizationServiceNonceOption] = tokenizedCard.nonce;
 
                 [[BTTokenizationService sharedService] tokenizeType:@"ThreeDSecure" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+                    if (tokenizedCard || error) {
+                        [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+                    } else {
+                        [self cancelTapped];
+                    }
                 }];
 
             } else {

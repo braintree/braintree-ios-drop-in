@@ -40,4 +40,10 @@ typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controll
 
 @end
 
+@protocol BTDropInControllerDelegate <NSObject>
+
+- (void)reloadDropInData;
+
+@end
+
 NS_ASSUME_NONNULL_END
