@@ -61,10 +61,14 @@
         NSString *cardBrand = [cardInfo objectAtIndex:1];
         BTUIKCardType *card = [BTUIKCardType cardTypeForNumber:cardNumber];
         XCTAssertEqualObjects([card brand], cardBrand);
+        XCTAssertEqual((int)[[BTUIKCardType possibleCardTypesForNumber:cardNumber] count], 1);
+
 
         // Ensure that cards are found for short numbers
         BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:4]];
         XCTAssertEqualObjects([shortCard brand], cardBrand);
+        NSArray *possibleCardsUsingShortNumber = [BTUIKCardType possibleCardTypesForNumber:[cardNumber substringToIndex:4]];
+        XCTAssertEqual((int)[possibleCardsUsingShortNumber count], 1);
     }
 }
 

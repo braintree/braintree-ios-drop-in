@@ -76,6 +76,28 @@
     return nil;
 }
 
+// Since each card type has a list of acceptable card prefixes, we
+// can determine which card types may match a given number
++ (NSArray *)possibleCardTypesForNumber:(NSString *)number {
+    number = [BTUIKUtil stripNonDigits:number];
+    if (number.length == 0) {
+        return [[self class] allCards];
+    }
+    NSMutableSet *possibleCardTypes = [NSMutableSet set];
+    for (BTUIKCardType *cardType in [[self class] allCards]) {
+        for (NSString *pattern in cardType.validNumberPrefixes) {
+            NSError *error;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+            NSTextCheckingResult *match = [regex firstMatchInString:number options:0 range: NSMakeRange(0, [number length])];
+
+            if (match != nil) {
+                [possibleCardTypes addObject:cardType];
+            }
+        }
+    }
+    return [possibleCardTypes allObjects];
+}
+
 #pragma mark - Instance methods
 
 - (BOOL)validCvv:(NSString *)cvv {
