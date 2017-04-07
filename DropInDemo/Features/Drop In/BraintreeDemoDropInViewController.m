@@ -7,8 +7,9 @@
 #import "BraintreeDemoSettings.h"
 #import "BTPaymentSelectionViewController.h"
 #import "BraintreeApplePay.h"
+#import "Braintree3DSecure.h"
 
-@interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate>
+@interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate, BTViewControllerPresentingDelegate>
 
 @property (nonatomic, strong) BTUIKPaymentOptionCardView *paymentMethodTypeIcon;
 @property (nonatomic, strong) UILabel *paymentMethodTypeLabel;
@@ -61,7 +62,7 @@
     [self.view addSubview:self.itemLabel];
 
     self.priceLabel = [[UILabel alloc] init];
-    [self.priceLabel setText:@"$100"];
+    [self.priceLabel setText:@"$10"];
     self.priceLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.priceLabel];
 
@@ -106,10 +107,13 @@
     [self.view addSubview:self.dropinThemeSwitch];
     
     [self updatePaymentMethodConstraints];
+    [self fetchPaymentMethods];
+}
 
+- (void)fetchPaymentMethods {
     self.progressBlock(@"Fetching customer's payment methods...");
     self.useApplePay = NO;
-    
+
     [BTDropInResult fetchDropInResultForAuthorization:self.authorizationString handler:^(BTDropInResult * _Nullable result, NSError * _Nullable error) {
         if (error) {
             self.progressBlock([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
@@ -128,7 +132,7 @@
     }];
 }
 
-- (void) setupApplePay {
+- (void)setupApplePay {
     self.paymentMethodTypeLabel.hidden = NO;
     self.paymentMethodTypeIcon.hidden = NO;
     self.paymentMethodTypeIcon.paymentOptionType = BTUIKPaymentOptionTypeApplePay;
@@ -192,7 +196,7 @@
 
         PKPaymentRequest *paymentRequest = [[PKPaymentRequest alloc] init];
         paymentRequest.paymentSummaryItems = @[
-                                               [PKPaymentSummaryItem summaryItemWithLabel:@"Socks" amount:[NSDecimalNumber decimalNumberWithString:@"100"]]
+                                               [PKPaymentSummaryItem summaryItemWithLabel:@"Socks" amount:[NSDecimalNumber decimalNumberWithString:@"10"]]
                                                ];
         paymentRequest.supportedNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex, PKPaymentNetworkDiscover];
         paymentRequest.merchantCapabilities = PKMerchantCapability3DS;
@@ -216,7 +220,10 @@
         
         self.progressBlock(@"Presenting Apple Pay Sheet");
         [self presentViewController:viewController animated:YES completion:nil];
-    } else {
+    } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired && ![self.selectedNonce isKindOfClass:[BTThreeDSecureCardNonce class]]) {
+        [self performThreeDSecureVerification];
+    }
+    else {
         self.completionBlock(self.selectedNonce);
         self.transactionBlock();
     }
@@ -225,7 +232,7 @@
 - (void)tappedToShowDropIn {
     BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
     // To test 3DS
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"ThreeDSecureRequired"]) {
+    if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
         dropInRequest.amount = @"10.00";
         dropInRequest.threeDSecureVerification = YES;
     }
@@ -301,6 +308,43 @@
 
 - (void)paymentAuthorizationViewControllerWillAuthorizePayment:(__unused PKPaymentAuthorizationViewController *)controller {
     self.progressBlock(@"Apple Pay will Authorize Payment");
+}
+
+#pragma mark ThreeDSecure Verification
+
+- (void)performThreeDSecureVerification {
+    BTAPIClient* apiClient = [[BTAPIClient alloc] initWithAuthorization:self.authorizationString];
+    BTThreeDSecureDriver *threeDSecure = [[BTThreeDSecureDriver alloc] initWithAPIClient:apiClient delegate:self];
+    [threeDSecure verifyCardWithNonce:self.selectedNonce.nonce
+                               amount:[NSDecimalNumber decimalNumberWithString:@"10"]
+                           completion:^(BTThreeDSecureCardNonce * _Nullable threeDSecureCard, NSError * _Nullable error)
+     {
+         self.selectedNonce = nil;
+         if (error) {
+             // Error and nonce was consumed
+             [self updatePaymentMethod:self.selectedNonce];
+             [self fetchPaymentMethods];
+             self.progressBlock(error.localizedDescription);
+             return;
+         } else if (threeDSecureCard == nil) {
+             // User cancelled and nonce was consumed
+             [self updatePaymentMethod:self.selectedNonce];
+             [self fetchPaymentMethods];
+             return;
+         }
+         self.selectedNonce = threeDSecureCard;
+         [self updatePaymentMethod:self.selectedNonce];
+         self.completionBlock(self.selectedNonce);
+         self.transactionBlock();
+     }];
+}
+
+- (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)paymentDriver:(__unused id)driver requestsDismissalOfViewController:(__unused UIViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
