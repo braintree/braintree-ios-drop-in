@@ -71,4 +71,14 @@
     //Subclasses should override this method
 }
 
+#pragma mark - UI Preferences
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationSlide;
+}
+
 @end
