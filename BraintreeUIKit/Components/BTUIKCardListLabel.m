@@ -61,6 +61,7 @@
         [hint setNeedsLayout];
         [hint layoutIfNeeded];
         UIImage* composeImage = [self imageWithView:hint];
+        composeImage.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
         [attachments addObject:composeAttachment];
         composeAttachment.image = composeImage;
         [at appendAttributedString:[NSAttributedString attributedStringWithAttachment:composeAttachment]];
@@ -85,6 +86,7 @@
         UIGraphicsBeginImageContextWithOptions(attachment.image.size, NO, attachment.image.scale);
         [attachment.image drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:newAlpha];
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        image.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
         UIGraphicsEndImageContext();
         attachment.image = image;
     }

@@ -11,7 +11,7 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, strong) UIView *activityIndicatorWrapperView;
-
+@property (nonatomic, strong) UILabel *titleView;
 @end
 
 @implementation BTDropInBaseViewController
@@ -44,6 +44,10 @@
     [self.activityIndicatorWrapperView addSubview:self.activityIndicatorView];
     [self.activityIndicatorView.centerXAnchor constraintEqualToAnchor:self.activityIndicatorWrapperView.centerXAnchor].active = YES;
     [self.activityIndicatorView.centerYAnchor constraintEqualToAnchor:self.activityIndicatorWrapperView.centerYAnchor].active = YES;
+
+    self.titleView = [BTUIKAppearance styledNavigationTitleLabel];
+    self.titleView.text = self.title;
+    self.navigationItem.titleView = self.titleView;
 }
 
 - (void)loadConfiguration {
@@ -76,6 +80,23 @@
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(__unused NSError *)error {
     //Subclasses should override this method
+}
+
+- (void)setTitle:(NSString *)title {
+    [super setTitle:title];
+    if (self.titleView) {
+        self.titleView.text = self.title;
+    }
+}
+
+#pragma mark - UI Preferences
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationSlide;
 }
 
 @end
