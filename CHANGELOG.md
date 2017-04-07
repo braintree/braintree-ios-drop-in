@@ -1,5 +1,12 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 5.2.0 (2017-04-07)
+* Improve card BIN matching and added missing Maestro BIN
+* Fix 3DS support (Thanks @meismyles)
+* UI bug fixes
+* Improved accessibility and localization support
+* Added ability to set navigationBarTitleTextColor in BTUIKAppearance
+
 ## 5.1.0 (2017-01-18)
 * Add support for card.io
 * Remove beta warning
