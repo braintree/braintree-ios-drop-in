@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 
 /// Get a BTUIKPaymentOptionType from a string
 ///
-/// @param A string representing a payment option type (e.g `Visa` or `PayPal`)
+/// @param typeString string representing a payment option type (e.g `Visa` or `PayPal`)
 /// @return The BTUIKPaymentOptionType associated with the string if it can be found. Otherwise, BTUIKPaymentOptionTypeUnknown.
 + (BTUIKPaymentOptionType)paymentOptionTypeForPaymentInfoType:(NSString *)typeString;
 
@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 
 /// Get a localized string for a payment option.
 ///
-/// @param A BTUIKPaymentOptionType
+/// @param paymentMethodType BTUIKPaymentOptionType
 /// @return The localized string for the BTUIKPaymentOptionType if one can be found. `Card` will be returned in the case of BTUIKPaymentOptionTypeUnknown.
 + (NSString *)nameForPaymentMethodType:(BTUIKPaymentOptionType)paymentMethodType;
 
@@ -51,19 +51,19 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 
 /// Get a BTUIKVectorArtView from a string
 ///
-/// @param A string representing a payment option type (e.g `Visa` or `PayPal`)
+/// @param typeString string representing a payment option type (e.g `Visa` or `PayPal`)
 /// @return The BTUIKVectorArtView for the string if one can be found. Otherwise the art for a generic card.
 + (BTUIKVectorArtView *)vectorArtViewForPaymentInfoType:(NSString *)typeString;
 
 /// Get a BTUIKVectorArtView for a payment option of BTUIKVectorArtIconSizeRegular.
 ///
-/// @param A BTUIKPaymentOptionType
+/// @param type BTUIKPaymentOptionType
 /// @return The BTUIKVectorArtView for the BTUIKPaymentOptionType if one can be found. Otherwise the art for a generic card.
 + (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTUIKPaymentOptionType)type;
 
 /// Get a BTUIKVectorArtView for a payment option.
 ///
-/// @param A BTUIKPaymentOptionType
+/// @param type BTUIKPaymentOptionType
 /// @param size The BTUIKVectorArtSize (Regular or Large)
 /// @return The BTUIKVectorArtView for the BTUIKPaymentOptionType if one can be found. Otherwise the art for a generic card.
 + (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTUIKPaymentOptionType)type size:(BTUIKVectorArtSize)size;
