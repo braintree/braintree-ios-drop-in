@@ -212,7 +212,7 @@
 }
 
 - (BOOL)isPotentiallyValid {
-    return [BTUIKCardType possibleCardTypesForNumber:self.number].count > 0;
+    return [BTUIKCardType cardTypeForNumber:self.number] != nil;
 }
 
 - (BOOL)isValidLength {
