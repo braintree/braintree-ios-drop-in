@@ -369,7 +369,7 @@
 - (void)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView didSelectItemAtIndexPath:(__unused NSIndexPath *)indexPath {
     BTUIPaymentMethodCollectionViewCell *cell = (BTUIPaymentMethodCollectionViewCell*)[savedPaymentMethodsCollectionView cellForItemAtIndexPath:indexPath];
     if (self.delegate) {
-        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type] nonce:cell.paymentMethodNonce error:nil];
+        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type] nonce:cell.paymentMethodNonce isVaultedItem:true error:nil];
     }
 }
 
@@ -417,7 +417,7 @@
         [[BTTokenizationService sharedService] tokenizeType:@"PayPal" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
             if (self.delegate && paymentMethodNonce != nil) {
                 BTUIKPaymentOptionType type = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:paymentMethodNonce.type];
-                [self.delegate selectionCompletedWithPaymentMethodType:type nonce:paymentMethodNonce error:error];
+                [self.delegate selectionCompletedWithPaymentMethodType:type nonce:paymentMethodNonce isVaultedItem:false error:error];
             }
         }];
         
@@ -428,12 +428,12 @@
         }
         [[BTTokenizationService sharedService] tokenizeType:@"Venmo" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
             if (self.delegate && paymentMethodNonce != nil) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:paymentMethodNonce error:error];
+                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:paymentMethodNonce isVaultedItem:false error:error];
             }
         }];
     } else if(cell.type == BTUIKPaymentOptionTypeApplePay) {
         if (self.delegate) {
-            [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeApplePay nonce:nil error:nil];
+            [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeApplePay nonce:nil isVaultedItem:false error:nil];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

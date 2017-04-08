@@ -29,6 +29,9 @@ typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NS
 /// The payment method nonce
 @property (nonatomic, strong, nullable) BTPaymentMethodNonce *paymentMethod;
 
+/// True if user selected a vaulted item from the BTPaymentSelectionViewController collectionView.
+@property (nonatomic, assign, getter=isVaultedItem) BOOL vaultedItem;
+
 /// Fetch a BTDropInResult without displaying or initializing a BTDropInController. Works with client tokens that
 /// were created with a `customer_id`.
 ///
