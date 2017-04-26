@@ -58,6 +58,7 @@
 + (BOOL)canReadCardWithCamera;
 @property (nonatomic, strong) NSString *cardNumber;
 @property (nonatomic, assign, readwrite) BOOL hideCardIOLogo;
+@property (nonatomic, retain, readwrite) UIColor *navigationBarTintColor;
 @property (nonatomic, assign, readwrite) BOOL collectExpiry;
 @property (nonatomic, assign, readwrite) BOOL collectCVV;
 @end
@@ -315,6 +316,7 @@
 - (void)presentCardIO {
     Class kCardIOPaymentViewController = NSClassFromString(@"CardIOPaymentViewController");
     id scanViewController = [[kCardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    [scanViewController setNavigationBarTintColor:[[UINavigationBar appearance] barTintColor]];
     [scanViewController setHideCardIOLogo:YES];
     [scanViewController setCollectCVV:NO];
     [scanViewController setCollectExpiry:NO];
