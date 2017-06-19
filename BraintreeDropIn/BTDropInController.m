@@ -299,9 +299,11 @@
     BTCardFormViewController* vd = [[BTCardFormViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
     vd.supportedCardTypes = self.displayCardTypes;
     vd.delegate = self;
-      UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vd];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vd];
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         navController.modalPresentationStyle = UIModalPresentationPageSheet;
+    } else {
+        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     }
     [self presentViewController:navController animated:YES completion:nil];
 }

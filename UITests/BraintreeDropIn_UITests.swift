@@ -23,7 +23,7 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_dismessesWhenCancelled() {
+    func testDropIn_dismissesWhenCancelled() {
         self.waitForElementToBeHittable(app.buttons["Cancel"])
         app.buttons["Cancel"].forceTapElement()
         XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
@@ -343,33 +343,34 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
     func testDropIn_threeDSecure_returnsToPaymentSelectionView_whenCancelled() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
-        
+
         let elementsQuery = app.scrollViews.otherElements
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
-        
+
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
-        
+
         self.waitForElementToBeHittable(app.staticTexts["2019"])
         app.staticTexts["11"].forceTapElement()
         app.staticTexts["2019"].forceTapElement()
-        
+
         let securityCodeField = elementsQuery.textFields["CVV"]
         self.waitForElementToBeHittable(securityCodeField)
         securityCodeField.forceTapElement()
         securityCodeField.typeText("123")
-        
+
         let postalCodeField = elementsQuery.textFields["12345"]
         self.waitForElementToBeHittable(postalCodeField)
         postalCodeField.forceTapElement()
         postalCodeField.typeText("12345")
-        
+
         app.buttons["Add Card"].forceTapElement()
-        
+
         self.waitForElementToAppear(app.staticTexts["Added Protection"])
-        
-        self.waitForElementToBeHittable(app.buttons["Cancel"])
-        app.buttons["Cancel"].forceTapElement()
+
+        self.waitForElementToAppear(app.navigationBars["Authentication"])
+
+        app.navigationBars["Authentication"].buttons["Cancel"].forceTapElement()
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
         
