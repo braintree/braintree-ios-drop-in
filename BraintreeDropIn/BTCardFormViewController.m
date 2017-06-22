@@ -496,11 +496,13 @@
 }
 
 - (void)updateSubmitButton {
-    if (!self.collapsed && [self isFormValid]) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    } else {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!self.collapsed && [self isFormValid]) {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        } else {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+        }
+    });
 }
 
 - (void)advanceFocusFromField:(BTUIKFormField *)currentField {
