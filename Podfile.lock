@@ -42,20 +42,17 @@ PODS:
   - Braintree/UnionPay (4.8.0):
     - Braintree/Card
     - Braintree/Core
-  - BraintreeDropIn (5.1.0):
-    - BraintreeDropIn/DropIn (= 5.1.0)
-  - BraintreeDropIn/DropIn (5.1.0):
+  - BraintreeDropIn (5.2.0):
+    - BraintreeDropIn/DropIn (= 5.2.0)
+  - BraintreeDropIn/DropIn (5.2.0):
     - Braintree/Card (~> 4.0)
     - Braintree/Core (~> 4.0)
     - Braintree/UnionPay (~> 4.0)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (5.1.0)
+  - BraintreeDropIn/UIKit (5.2.0)
   - CardIO (5.4.1)
   - Expecta (1.0.5)
   - FLEX (2.4.0)
-  - HockeySDK (4.1.4):
-    - HockeySDK/DefaultLib (= 4.1.4)
-  - HockeySDK/DefaultLib (4.1.4)
   - InAppSettingsKit (2.8.1)
   - iOS-Slide-Menu (1.5)
   - NSURL+QueryDictionary (1.2.0)
@@ -85,7 +82,6 @@ DEPENDENCIES:
   - CardIO
   - Expecta
   - FLEX
-  - HockeySDK
   - InAppSettingsKit
   - iOS-Slide-Menu
   - NSURL+QueryDictionary (~> 1.0)
@@ -101,11 +97,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Braintree: 28527aed12a5904ae69af7cdf3aaf77b2717d041
-  BraintreeDropIn: 9cea50f76d0960cdaa3646369ef16ba0d9ae67d1
+  BraintreeDropIn: f4278c4eafc1395d06ce79652fa1658d2b5ab815
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
-  HockeySDK: 78a3f8bb9100277b531defc56c970369a3ca267a
   InAppSettingsKit: 94d2fba3ccd700fc4e32c6d09fabcc0af2426744
   iOS-Slide-Menu: 40b0cbd8916c42afc755f0869793cd09e7a32102
   NSURL+QueryDictionary: bae616404e2adf6409d3d5c02a093cbf44c8a236
@@ -114,6 +109,6 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
 
-PODFILE CHECKSUM: de3c00d7bccad4d2bc6c525b6e6bc4562db27c07
+PODFILE CHECKSUM: e81f98d99201c92080d1ab0f5625cd6da3b954dc
 
 COCOAPODS: 1.2.0
