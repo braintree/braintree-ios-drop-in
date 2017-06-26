@@ -1,6 +1,15 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 5.2.1 (2017-06-26)
+
+* Fix UI issues associated with iOS11
+* Update Demo to support Xcode9 (Beta 1) and iOS11
+* Use `OverCurrentContext` for the card form modal when not an iPad device
+* Update README to clarify Apple Pay integration
+* Forward UINavigationBarTintColor to Card.io
+
 ## 5.2.0 (2017-04-07)
+
 * Improve card BIN matching and added missing Maestro BIN
 * Fix 3DS support (Thanks @meismyles)
 * UI bug fixes
@@ -8,6 +17,7 @@
 * Added ability to set navigationBarTitleTextColor in BTUIKAppearance
 
 ## 5.1.0 (2017-01-18)
+
 * Add support for card.io
 * Remove beta warning
 * Fix inclusion of non-modular header inside framework module error in BTPaymentSelectionViewController. Thanks @steveholt55
