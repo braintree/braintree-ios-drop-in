@@ -286,10 +286,12 @@
     UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
     titleLabel.text = viewController.title ? viewController.title : @"";
     titleLabel.textAlignment = NSTextAlignmentCenter;
+    [titleLabel setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel forAxis:UILayoutConstraintAxisHorizontal];
     [titleLabel sizeToFit];
     UIBarButtonItem *barTitle = [[UIBarButtonItem alloc] initWithCustomView:titleLabel];
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixed.width = 1.0;
     UIBarButtonItem *leftItem = viewController.navigationItem.leftBarButtonItem ? viewController.navigationItem.leftBarButtonItem : fixed;
     UIBarButtonItem *rightItem = viewController.navigationItem.rightBarButtonItem ? viewController.navigationItem.rightBarButtonItem : fixed;
     [self.btToolbar setItems:@[leftItem, flex, barTitle, flex, rightItem] animated:YES];

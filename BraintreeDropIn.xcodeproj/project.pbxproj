@@ -161,7 +161,6 @@
 		A56C41B31D8335C7000DFFAB /* BTPaymentSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A56C41B41D8335C7000DFFAB /* BTVaultManagementViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D601D83599D009BE61A /* BraintreeDemoBaseViewController.m */; };
-		A5CE1D741D83599D009BE61A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D631D83599D009BE61A /* Main.storyboard */; };
 		A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */; };
 		A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */; };
 		A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */; };
@@ -416,7 +415,6 @@
 		A5CE1D141D835832009BE61A /* DropInDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropInDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CE1D5F1D83599D009BE61A /* BraintreeDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoBaseViewController.h; sourceTree = "<group>"; };
 		A5CE1D601D83599D009BE61A /* BraintreeDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoBaseViewController.m; sourceTree = "<group>"; };
-		A5CE1D641D83599D009BE61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5CE1D651D83599D009BE61A /* BraintreeDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoAppDelegate.h; sourceTree = "<group>"; };
 		A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoAppDelegate.m; sourceTree = "<group>"; };
 		A5CE1D671D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoDemoContainmentViewController.h; sourceTree = "<group>"; };
@@ -861,7 +859,6 @@
 			isa = PBXGroup;
 			children = (
 				A5CE1D5E1D83599D009BE61A /* Base View Controllers */,
-				A5CE1D631D83599D009BE61A /* Main.storyboard */,
 				A5CE1D651D83599D009BE61A /* BraintreeDemoAppDelegate.h */,
 				A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */,
 				A5CE1D671D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.h */,
@@ -1261,7 +1258,6 @@
 				A5CE1DFE1D835AB6009BE61A /* InfoPlist.strings in Resources */,
 				A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */,
 				A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */,
-				A5CE1D741D83599D009BE61A /* Main.storyboard in Resources */,
 				A5CE1DFF1D835AB6009BE61A /* Main.strings in Resources */,
 				A5CE1DFA1D835AB6009BE61A /* Images.xcassets in Resources */,
 				A5CE1D8B1D835A9F009BE61A /* Braintree-Demo.entitlements in Resources */,
@@ -1579,14 +1575,6 @@
 				030D98361DC9385300161899 /* zh-Hant-HK */,
 			);
 			name = BTUI.strings;
-			sourceTree = "<group>";
-		};
-		A5CE1D631D83599D009BE61A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5CE1D641D83599D009BE61A /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		A5CE1DDD1D835AB6009BE61A /* InfoPlist.strings */ = {

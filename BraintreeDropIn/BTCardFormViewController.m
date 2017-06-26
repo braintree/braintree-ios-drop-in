@@ -401,7 +401,7 @@
 - (void)resetForm {
     self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
     BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(ADD_CARD_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
-    addButton.bold = true;
+    addButton.bold = YES;
     self.navigationItem.rightBarButtonItem = addButton;
     
     self.navigationItem.rightBarButtonItem.enabled = NO;

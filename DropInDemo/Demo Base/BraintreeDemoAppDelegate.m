@@ -1,6 +1,7 @@
 #import "BraintreeDemoAppDelegate.h"
 #import "BraintreeDemoSettings.h"
-#import <HockeySDK/HockeySDK.h>
+#import "BraintreeDemoSlideNavigationController.h"
+#import "BraintreeDemoDemoContainmentViewController.h"
 #import "BraintreeCore.h"
 
 #if DEBUG
@@ -12,21 +13,16 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
 @implementation BraintreeDemoAppDelegate
 
 - (BOOL)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions {
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"7134982f3df6419a0eb52b16e7d6d175"];
-    [[BITHockeyManager sharedHockeyManager] startManager];
-    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
-    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-enableUpdateCheck"]) {
-        [[BITHockeyManager sharedHockeyManager] updateManager].checkForUpdateOnLaunch = YES;
-    } else {
-        [[BITHockeyManager sharedHockeyManager] updateManager].checkForUpdateOnLaunch = NO;
-    }
-    [[BITHockeyManager sharedHockeyManager] updateManager].updateSetting = BITUpdateCheckDaily;
-    
     [self setupAppearance];
     [self registerDefaultsFromSettings];
 
     [BTAppSwitch setReturnURLScheme:BraintreeDemoAppDelegatePaymentsURLScheme];
-
+    
+    BraintreeDemoDemoContainmentViewController *rootViewController = [[BraintreeDemoDemoContainmentViewController alloc] init];
+    BraintreeDemoSlideNavigationController *slideNav = [[BraintreeDemoSlideNavigationController alloc] initWithRootViewController:rootViewController];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = slideNav;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
