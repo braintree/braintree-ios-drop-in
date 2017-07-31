@@ -3,166 +3,271 @@
 @implementation BTUIKApplePayMarkVectorArtView
 
 - (void)drawArt {
-    //// Color Declarations
-    UIColor* fillColor2 = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1];
-    UIColor* fillColor5 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1];
-    
-    //// Rectangle Drawing
-    UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 45, 29)];
-    [fillColor5 setFill];
-    [rectanglePath fill];
-    
-    
-    //// Rectangle 2 Drawing
-    UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(0.5, 0.5, 44, 28) cornerRadius: 3.4];
-    [fillColor2 setFill];
-    [rectangle2Path fill];
-    
-    
-    //// Bezier Drawing
-    UIBezierPath* bezierPath = [UIBezierPath bezierPath];
-    [bezierPath moveToPoint: CGPointMake(13.17, 8.87)];
-    [bezierPath addCurveToPoint: CGPointMake(13.8, 7) controlPoint1: CGPointMake(13.59, 8.37) controlPoint2: CGPointMake(13.87, 7.68)];
-    [bezierPath addCurveToPoint: CGPointMake(12.02, 7.89) controlPoint1: CGPointMake(13.19, 7.02) controlPoint2: CGPointMake(12.45, 7.39)];
-    [bezierPath addCurveToPoint: CGPointMake(11.38, 9.69) controlPoint1: CGPointMake(11.63, 8.32) controlPoint2: CGPointMake(11.29, 9.02)];
-    [bezierPath addCurveToPoint: CGPointMake(13.17, 8.87) controlPoint1: CGPointMake(12.06, 9.75) controlPoint2: CGPointMake(12.75, 9.36)];
-    [bezierPath closePath];
-    [bezierPath moveToPoint: CGPointMake(14.69, 13.21)];
-    [bezierPath addCurveToPoint: CGPointMake(16.31, 15.58) controlPoint1: CGPointMake(14.71, 14.98) controlPoint2: CGPointMake(16.29, 15.57)];
-    [bezierPath addCurveToPoint: CGPointMake(15.47, 17.24) controlPoint1: CGPointMake(16.3, 15.62) controlPoint2: CGPointMake(16.06, 16.42)];
-    [bezierPath addCurveToPoint: CGPointMake(13.63, 18.68) controlPoint1: CGPointMake(14.97, 17.95) controlPoint2: CGPointMake(14.45, 18.66)];
-    [bezierPath addCurveToPoint: CGPointMake(11.63, 18.21) controlPoint1: CGPointMake(12.82, 18.69) controlPoint2: CGPointMake(12.56, 18.21)];
-    [bezierPath addCurveToPoint: CGPointMake(9.66, 18.69) controlPoint1: CGPointMake(10.71, 18.21) controlPoint2: CGPointMake(10.42, 18.66)];
-    [bezierPath addCurveToPoint: CGPointMake(7.75, 17.21) controlPoint1: CGPointMake(8.86, 18.72) controlPoint2: CGPointMake(8.26, 17.92)];
-    [bezierPath addCurveToPoint: CGPointMake(6.98, 11.32) controlPoint1: CGPointMake(6.71, 15.76) controlPoint2: CGPointMake(5.92, 13.11)];
-    [bezierPath addCurveToPoint: CGPointMake(9.48, 9.86) controlPoint1: CGPointMake(7.51, 10.43) controlPoint2: CGPointMake(8.46, 9.87)];
-    [bezierPath addCurveToPoint: CGPointMake(11.47, 10.36) controlPoint1: CGPointMake(10.26, 9.84) controlPoint2: CGPointMake(11, 10.36)];
-    [bezierPath addCurveToPoint: CGPointMake(13.79, 9.83) controlPoint1: CGPointMake(11.95, 10.36) controlPoint2: CGPointMake(12.85, 9.73)];
-    [bezierPath addCurveToPoint: CGPointMake(15.99, 10.99) controlPoint1: CGPointMake(14.18, 9.84) controlPoint2: CGPointMake(15.28, 9.98)];
-    [bezierPath addCurveToPoint: CGPointMake(14.69, 13.21) controlPoint1: CGPointMake(15.94, 11.02) controlPoint2: CGPointMake(14.67, 11.73)];
-    [bezierPath closePath];
-    [fillColor5 setFill];
-    [bezierPath fill];
-    
-    
-    //// Bezier 2 Drawing
-    UIBezierPath* bezier2Path = [UIBezierPath bezierPath];
-    [bezier2Path moveToPoint: CGPointMake(20.03, 13.32)];
-    [bezier2Path addCurveToPoint: CGPointMake(20.64, 13.43) controlPoint1: CGPointMake(20.21, 13.37) controlPoint2: CGPointMake(20.42, 13.41)];
-    [bezier2Path addCurveToPoint: CGPointMake(21.37, 13.46) controlPoint1: CGPointMake(20.87, 13.45) controlPoint2: CGPointMake(21.11, 13.46)];
-    [bezier2Path addCurveToPoint: CGPointMake(23.62, 12.8) controlPoint1: CGPointMake(22.34, 13.46) controlPoint2: CGPointMake(23.09, 13.24)];
-    [bezier2Path addCurveToPoint: CGPointMake(24.42, 10.86) controlPoint1: CGPointMake(24.16, 12.36) controlPoint2: CGPointMake(24.42, 11.71)];
-    [bezier2Path addCurveToPoint: CGPointMake(24.21, 9.79) controlPoint1: CGPointMake(24.42, 10.45) controlPoint2: CGPointMake(24.35, 10.09)];
-    [bezier2Path addCurveToPoint: CGPointMake(23.62, 9.04) controlPoint1: CGPointMake(24.07, 9.48) controlPoint2: CGPointMake(23.87, 9.23)];
-    [bezier2Path addCurveToPoint: CGPointMake(22.7, 8.6) controlPoint1: CGPointMake(23.36, 8.84) controlPoint2: CGPointMake(23.05, 8.7)];
-    [bezier2Path addCurveToPoint: CGPointMake(21.52, 8.45) controlPoint1: CGPointMake(22.34, 8.5) controlPoint2: CGPointMake(21.95, 8.45)];
-    [bezier2Path addCurveToPoint: CGPointMake(20.63, 8.49) controlPoint1: CGPointMake(21.17, 8.45) controlPoint2: CGPointMake(20.88, 8.46)];
-    [bezier2Path addCurveToPoint: CGPointMake(20.03, 8.57) controlPoint1: CGPointMake(20.38, 8.51) controlPoint2: CGPointMake(20.18, 8.54)];
-    [bezier2Path addLineToPoint: CGPointMake(20.03, 13.32)];
-    [bezier2Path closePath];
-    [bezier2Path moveToPoint: CGPointMake(19.27, 8.02)];
-    [bezier2Path addCurveToPoint: CGPointMake(20.31, 7.88) controlPoint1: CGPointMake(19.58, 7.97) controlPoint2: CGPointMake(19.93, 7.92)];
-    [bezier2Path addCurveToPoint: CGPointMake(21.55, 7.82) controlPoint1: CGPointMake(20.68, 7.84) controlPoint2: CGPointMake(21.1, 7.82)];
-    [bezier2Path addCurveToPoint: CGPointMake(23.22, 8.04) controlPoint1: CGPointMake(22.2, 7.82) controlPoint2: CGPointMake(22.75, 7.89)];
-    [bezier2Path addCurveToPoint: CGPointMake(24.38, 8.7) controlPoint1: CGPointMake(23.69, 8.2) controlPoint2: CGPointMake(24.07, 8.42)];
-    [bezier2Path addCurveToPoint: CGPointMake(24.98, 9.6) controlPoint1: CGPointMake(24.63, 8.95) controlPoint2: CGPointMake(24.84, 9.25)];
-    [bezier2Path addCurveToPoint: CGPointMake(25.2, 10.8) controlPoint1: CGPointMake(25.13, 9.95) controlPoint2: CGPointMake(25.2, 10.35)];
-    [bezier2Path addCurveToPoint: CGPointMake(24.9, 12.23) controlPoint1: CGPointMake(25.2, 11.34) controlPoint2: CGPointMake(25.1, 11.82)];
-    [bezier2Path addCurveToPoint: CGPointMake(24.08, 13.27) controlPoint1: CGPointMake(24.7, 12.64) controlPoint2: CGPointMake(24.43, 12.99)];
-    [bezier2Path addCurveToPoint: CGPointMake(22.86, 13.89) controlPoint1: CGPointMake(23.74, 13.55) controlPoint2: CGPointMake(23.33, 13.75)];
-    [bezier2Path addCurveToPoint: CGPointMake(21.31, 14.1) controlPoint1: CGPointMake(22.38, 14.03) controlPoint2: CGPointMake(21.87, 14.1)];
-    [bezier2Path addCurveToPoint: CGPointMake(20.03, 13.98) controlPoint1: CGPointMake(20.8, 14.1) controlPoint2: CGPointMake(20.37, 14.06)];
-    [bezier2Path addLineToPoint: CGPointMake(20.03, 18.53)];
-    [bezier2Path addLineToPoint: CGPointMake(19.27, 18.53)];
-    [bezier2Path addLineToPoint: CGPointMake(19.27, 8.02)];
-    [bezier2Path closePath];
-    [fillColor5 setFill];
-    [bezier2Path fill];
-    
-    
-    //// Bezier 3 Drawing
-    UIBezierPath* bezier3Path = [UIBezierPath bezierPath];
-    [bezier3Path moveToPoint: CGPointMake(30.48, 14.47)];
-    [bezier3Path addCurveToPoint: CGPointMake(29.19, 14.52) controlPoint1: CGPointMake(30.07, 14.46) controlPoint2: CGPointMake(29.64, 14.48)];
-    [bezier3Path addCurveToPoint: CGPointMake(27.96, 14.8) controlPoint1: CGPointMake(28.75, 14.56) controlPoint2: CGPointMake(28.34, 14.66)];
-    [bezier3Path addCurveToPoint: CGPointMake(27.02, 15.42) controlPoint1: CGPointMake(27.58, 14.94) controlPoint2: CGPointMake(27.27, 15.15)];
-    [bezier3Path addCurveToPoint: CGPointMake(26.65, 16.51) controlPoint1: CGPointMake(26.77, 15.69) controlPoint2: CGPointMake(26.65, 16.06)];
-    [bezier3Path addCurveToPoint: CGPointMake(27.12, 17.69) controlPoint1: CGPointMake(26.65, 17.05) controlPoint2: CGPointMake(26.81, 17.44)];
-    [bezier3Path addCurveToPoint: CGPointMake(28.17, 18.07) controlPoint1: CGPointMake(27.43, 17.95) controlPoint2: CGPointMake(27.78, 18.07)];
-    [bezier3Path addCurveToPoint: CGPointMake(29.01, 17.95) controlPoint1: CGPointMake(28.48, 18.07) controlPoint2: CGPointMake(28.76, 18.03)];
-    [bezier3Path addCurveToPoint: CGPointMake(29.65, 17.61) controlPoint1: CGPointMake(29.26, 17.86) controlPoint2: CGPointMake(29.47, 17.75)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.11, 17.13) controlPoint1: CGPointMake(29.84, 17.46) controlPoint2: CGPointMake(29.99, 17.3)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.4, 16.57) controlPoint1: CGPointMake(30.24, 16.95) controlPoint2: CGPointMake(30.33, 16.76)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.48, 16.11) controlPoint1: CGPointMake(30.45, 16.36) controlPoint2: CGPointMake(30.48, 16.21)];
-    [bezier3Path addLineToPoint: CGPointMake(30.48, 14.47)];
-    [bezier3Path closePath];
-    [bezier3Path moveToPoint: CGPointMake(31.24, 16.73)];
-    [bezier3Path addCurveToPoint: CGPointMake(31.25, 17.65) controlPoint1: CGPointMake(31.24, 17.04) controlPoint2: CGPointMake(31.24, 17.34)];
-    [bezier3Path addCurveToPoint: CGPointMake(31.35, 18.53) controlPoint1: CGPointMake(31.26, 17.95) controlPoint2: CGPointMake(31.3, 18.25)];
-    [bezier3Path addLineToPoint: CGPointMake(30.64, 18.53)];
-    [bezier3Path addLineToPoint: CGPointMake(30.53, 17.46)];
-    [bezier3Path addLineToPoint: CGPointMake(30.49, 17.46)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.12, 17.9) controlPoint1: CGPointMake(30.4, 17.6) controlPoint2: CGPointMake(30.27, 17.75)];
-    [bezier3Path addCurveToPoint: CGPointMake(29.6, 18.3) controlPoint1: CGPointMake(29.97, 18.05) controlPoint2: CGPointMake(29.8, 18.18)];
-    [bezier3Path addCurveToPoint: CGPointMake(28.92, 18.59) controlPoint1: CGPointMake(29.4, 18.42) controlPoint2: CGPointMake(29.17, 18.52)];
-    [bezier3Path addCurveToPoint: CGPointMake(28.09, 18.7) controlPoint1: CGPointMake(28.67, 18.67) controlPoint2: CGPointMake(28.39, 18.7)];
-    [bezier3Path addCurveToPoint: CGPointMake(27.09, 18.52) controlPoint1: CGPointMake(27.71, 18.7) controlPoint2: CGPointMake(27.38, 18.64)];
-    [bezier3Path addCurveToPoint: CGPointMake(26.39, 18.05) controlPoint1: CGPointMake(26.81, 18.4) controlPoint2: CGPointMake(26.57, 18.24)];
-    [bezier3Path addCurveToPoint: CGPointMake(25.98, 17.38) controlPoint1: CGPointMake(26.21, 17.85) controlPoint2: CGPointMake(26.07, 17.63)];
-    [bezier3Path addCurveToPoint: CGPointMake(25.84, 16.62) controlPoint1: CGPointMake(25.89, 17.13) controlPoint2: CGPointMake(25.84, 16.87)];
-    [bezier3Path addCurveToPoint: CGPointMake(27, 14.55) controlPoint1: CGPointMake(25.84, 15.73) controlPoint2: CGPointMake(26.23, 15.04)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.48, 13.86) controlPoint1: CGPointMake(27.77, 14.07) controlPoint2: CGPointMake(28.93, 13.84)];
-    [bezier3Path addLineToPoint: CGPointMake(30.48, 13.65)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.42, 12.97) controlPoint1: CGPointMake(30.48, 13.45) controlPoint2: CGPointMake(30.46, 13.22)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.17, 12.23) controlPoint1: CGPointMake(30.38, 12.71) controlPoint2: CGPointMake(30.3, 12.46)];
-    [bezier3Path addCurveToPoint: CGPointMake(29.59, 11.65) controlPoint1: CGPointMake(30.04, 12) controlPoint2: CGPointMake(29.85, 11.81)];
-    [bezier3Path addCurveToPoint: CGPointMake(28.54, 11.41) controlPoint1: CGPointMake(29.33, 11.49) controlPoint2: CGPointMake(28.98, 11.41)];
-    [bezier3Path addCurveToPoint: CGPointMake(27.55, 11.56) controlPoint1: CGPointMake(28.21, 11.41) controlPoint2: CGPointMake(27.88, 11.46)];
-    [bezier3Path addCurveToPoint: CGPointMake(26.65, 11.98) controlPoint1: CGPointMake(27.22, 11.66) controlPoint2: CGPointMake(26.92, 11.8)];
-    [bezier3Path addLineToPoint: CGPointMake(26.41, 11.43)];
-    [bezier3Path addCurveToPoint: CGPointMake(27.47, 10.93) controlPoint1: CGPointMake(26.75, 11.2) controlPoint2: CGPointMake(27.11, 11.03)];
-    [bezier3Path addCurveToPoint: CGPointMake(28.62, 10.78) controlPoint1: CGPointMake(27.84, 10.83) controlPoint2: CGPointMake(28.22, 10.78)];
-    [bezier3Path addCurveToPoint: CGPointMake(29.94, 11.05) controlPoint1: CGPointMake(29.16, 10.78) controlPoint2: CGPointMake(29.6, 10.87)];
-    [bezier3Path addCurveToPoint: CGPointMake(30.74, 11.74) controlPoint1: CGPointMake(30.28, 11.23) controlPoint2: CGPointMake(30.54, 11.46)];
-    [bezier3Path addCurveToPoint: CGPointMake(31.13, 12.7) controlPoint1: CGPointMake(30.93, 12.03) controlPoint2: CGPointMake(31.06, 12.35)];
-    [bezier3Path addCurveToPoint: CGPointMake(31.24, 13.75) controlPoint1: CGPointMake(31.2, 13.05) controlPoint2: CGPointMake(31.24, 13.4)];
-    [bezier3Path addLineToPoint: CGPointMake(31.24, 16.73)];
-    [bezier3Path addLineToPoint: CGPointMake(31.24, 16.73)];
-    [bezier3Path closePath];
-    [fillColor5 setFill];
-    [bezier3Path fill];
-    
-    
-    //// Bezier 4 Drawing
-    UIBezierPath* bezier4Path = [UIBezierPath bezierPath];
-    [bezier4Path moveToPoint: CGPointMake(32.72, 10.96)];
-    [bezier4Path addLineToPoint: CGPointMake(34.69, 15.88)];
-    [bezier4Path addCurveToPoint: CGPointMake(35, 16.72) controlPoint1: CGPointMake(34.8, 16.15) controlPoint2: CGPointMake(34.9, 16.43)];
-    [bezier4Path addCurveToPoint: CGPointMake(35.26, 17.52) controlPoint1: CGPointMake(35.1, 17.01) controlPoint2: CGPointMake(35.18, 17.28)];
-    [bezier4Path addLineToPoint: CGPointMake(35.29, 17.52)];
-    [bezier4Path addCurveToPoint: CGPointMake(35.55, 16.74) controlPoint1: CGPointMake(35.37, 17.29) controlPoint2: CGPointMake(35.45, 17.03)];
-    [bezier4Path addCurveToPoint: CGPointMake(35.87, 15.85) controlPoint1: CGPointMake(35.65, 16.45) controlPoint2: CGPointMake(35.75, 16.15)];
-    [bezier4Path addLineToPoint: CGPointMake(37.71, 10.96)];
-    [bezier4Path addLineToPoint: CGPointMake(38.52, 10.96)];
-    [bezier4Path addLineToPoint: CGPointMake(36.28, 16.51)];
-    [bezier4Path addCurveToPoint: CGPointMake(35.64, 18.11) controlPoint1: CGPointMake(36.05, 17.1) controlPoint2: CGPointMake(35.84, 17.63)];
-    [bezier4Path addCurveToPoint: CGPointMake(35.03, 19.4) controlPoint1: CGPointMake(35.44, 18.59) controlPoint2: CGPointMake(35.24, 19.02)];
-    [bezier4Path addCurveToPoint: CGPointMake(34.41, 20.42) controlPoint1: CGPointMake(34.83, 19.79) controlPoint2: CGPointMake(34.62, 20.13)];
-    [bezier4Path addCurveToPoint: CGPointMake(33.71, 21.2) controlPoint1: CGPointMake(34.2, 20.72) controlPoint2: CGPointMake(33.97, 20.97)];
-    [bezier4Path addCurveToPoint: CGPointMake(32.88, 21.77) controlPoint1: CGPointMake(33.41, 21.46) controlPoint2: CGPointMake(33.13, 21.65)];
-    [bezier4Path addCurveToPoint: CGPointMake(32.37, 22) controlPoint1: CGPointMake(32.62, 21.89) controlPoint2: CGPointMake(32.45, 21.97)];
-    [bezier4Path addLineToPoint: CGPointMake(32.11, 21.38)];
-    [bezier4Path addCurveToPoint: CGPointMake(32.75, 21.05) controlPoint1: CGPointMake(32.3, 21.3) controlPoint2: CGPointMake(32.52, 21.19)];
-    [bezier4Path addCurveToPoint: CGPointMake(33.45, 20.52) controlPoint1: CGPointMake(32.99, 20.92) controlPoint2: CGPointMake(33.22, 20.74)];
-    [bezier4Path addCurveToPoint: CGPointMake(34.09, 19.77) controlPoint1: CGPointMake(33.64, 20.33) controlPoint2: CGPointMake(33.86, 20.08)];
-    [bezier4Path addCurveToPoint: CGPointMake(34.71, 18.64) controlPoint1: CGPointMake(34.32, 19.46) controlPoint2: CGPointMake(34.53, 19.08)];
-    [bezier4Path addCurveToPoint: CGPointMake(34.81, 18.31) controlPoint1: CGPointMake(34.77, 18.47) controlPoint2: CGPointMake(34.81, 18.36)];
-    [bezier4Path addCurveToPoint: CGPointMake(34.71, 17.98) controlPoint1: CGPointMake(34.81, 18.23) controlPoint2: CGPointMake(34.77, 18.12)];
-    [bezier4Path addLineToPoint: CGPointMake(31.91, 10.96)];
-    [bezier4Path addLineToPoint: CGPointMake(32.72, 10.96)];
-    [bezier4Path closePath];
-    [fillColor5 setFill];
-    [bezier4Path fill];
+    //! General Declarations
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    {
+        CGContextSaveGState(context);
+
+        //! Group 3
+        {
+            CGContextSaveGState(context);
+
+            //! Clip 2
+            UIBezierPath * clip2 = [UIBezierPath bezierPath];
+            [clip2 moveToPoint:CGPointMake(0, 28.72)];
+            [clip2 addLineToPoint:CGPointZero];
+            [clip2 addLineToPoint:CGPointMake(44.85, 0)];
+            [clip2 addLineToPoint:CGPointMake(44.85, 28.72)];
+            [clip2 addLineToPoint:CGPointMake(0, 28.72)];
+            [clip2 closePath];
+            [clip2 moveToPoint:CGPointMake(0, 28.72)];
+            CGContextSaveGState(context);
+            CGContextTranslateCTM(context, 0.02, 0.01);
+            CGContextRestoreGState(context);
+
+            //! Clip 2 (Outline Mask)
+            CGContextSaveGState(context);
+            [clip2 applyTransform:CGAffineTransformMakeTranslation(0.02, 0.01)];
+            [clip2 addClip];
+
+            //! Fill 1
+            UIBezierPath * fill1 = [UIBezierPath bezierPath];
+            [fill1 moveToPoint:CGPointMake(40.85, 0)];
+            [fill1 addLineToPoint:CGPointMake(4.02, 0)];
+            [fill1 addCurveToPoint:CGPointMake(3.56, 0) controlPoint1:CGPointMake(3.86, 0) controlPoint2:CGPointMake(3.71, 0)];
+            [fill1 addCurveToPoint:CGPointMake(3.17, 0.01) controlPoint1:CGPointMake(3.43, 0) controlPoint2:CGPointMake(3.3, 0)];
+            [fill1 addCurveToPoint:CGPointMake(2.33, 0.08) controlPoint1:CGPointMake(2.89, 0.01) controlPoint2:CGPointMake(2.6, 0.03)];
+            [fill1 addCurveToPoint:CGPointMake(1.52, 0.35) controlPoint1:CGPointMake(2.04, 0.13) controlPoint2:CGPointMake(1.78, 0.21)];
+            [fill1 addCurveToPoint:CGPointMake(0.84, 0.84) controlPoint1:CGPointMake(1.27, 0.47) controlPoint2:CGPointMake(1.04, 0.64)];
+            [fill1 addCurveToPoint:CGPointMake(0.35, 1.52) controlPoint1:CGPointMake(0.64, 1.04) controlPoint2:CGPointMake(0.47, 1.27)];
+            [fill1 addCurveToPoint:CGPointMake(0.08, 2.33) controlPoint1:CGPointMake(0.21, 1.78) controlPoint2:CGPointMake(0.13, 2.04)];
+            [fill1 addCurveToPoint:CGPointMake(0.01, 3.17) controlPoint1:CGPointMake(0.03, 2.61) controlPoint2:CGPointMake(0.01, 2.89)];
+            [fill1 addCurveToPoint:CGPointMake(0, 3.56) controlPoint1:CGPointMake(0, 3.3) controlPoint2:CGPointMake(0, 3.43)];
+            [fill1 addCurveToPoint:CGPointMake(0, 4.02) controlPoint1:CGPointMake(-0, 3.71) controlPoint2:CGPointMake(0, 3.86)];
+            [fill1 addLineToPoint:CGPointMake(0, 24.71)];
+            [fill1 addCurveToPoint:CGPointMake(0, 25.17) controlPoint1:CGPointMake(0, 24.86) controlPoint2:CGPointMake(-0, 25.01)];
+            [fill1 addCurveToPoint:CGPointMake(0.01, 25.56) controlPoint1:CGPointMake(0, 25.3) controlPoint2:CGPointMake(0, 25.43)];
+            [fill1 addCurveToPoint:CGPointMake(0.08, 26.4) controlPoint1:CGPointMake(0.01, 25.84) controlPoint2:CGPointMake(0.03, 26.12)];
+            [fill1 addCurveToPoint:CGPointMake(0.35, 27.2) controlPoint1:CGPointMake(0.13, 26.68) controlPoint2:CGPointMake(0.21, 26.94)];
+            [fill1 addCurveToPoint:CGPointMake(0.84, 27.88) controlPoint1:CGPointMake(0.47, 27.45) controlPoint2:CGPointMake(0.64, 27.68)];
+            [fill1 addCurveToPoint:CGPointMake(1.52, 28.38) controlPoint1:CGPointMake(1.04, 28.08) controlPoint2:CGPointMake(1.27, 28.25)];
+            [fill1 addCurveToPoint:CGPointMake(2.33, 28.64) controlPoint1:CGPointMake(1.78, 28.51) controlPoint2:CGPointMake(2.04, 28.59)];
+            [fill1 addCurveToPoint:CGPointMake(3.17, 28.72) controlPoint1:CGPointMake(2.6, 28.69) controlPoint2:CGPointMake(2.89, 28.71)];
+            [fill1 addCurveToPoint:CGPointMake(3.56, 28.72) controlPoint1:CGPointMake(3.3, 28.72) controlPoint2:CGPointMake(3.43, 28.72)];
+            [fill1 addCurveToPoint:CGPointMake(4.02, 28.73) controlPoint1:CGPointMake(3.71, 28.73) controlPoint2:CGPointMake(3.86, 28.73)];
+            [fill1 addLineToPoint:CGPointMake(40.85, 28.73)];
+            [fill1 addCurveToPoint:CGPointMake(41.31, 28.72) controlPoint1:CGPointMake(41.01, 28.73) controlPoint2:CGPointMake(41.16, 28.73)];
+            [fill1 addCurveToPoint:CGPointMake(41.7, 28.72) controlPoint1:CGPointMake(41.44, 28.72) controlPoint2:CGPointMake(41.57, 28.72)];
+            [fill1 addCurveToPoint:CGPointMake(42.54, 28.64) controlPoint1:CGPointMake(41.98, 28.71) controlPoint2:CGPointMake(42.27, 28.69)];
+            [fill1 addCurveToPoint:CGPointMake(43.35, 28.38) controlPoint1:CGPointMake(42.83, 28.59) controlPoint2:CGPointMake(43.09, 28.51)];
+            [fill1 addCurveToPoint:CGPointMake(44.03, 27.88) controlPoint1:CGPointMake(43.6, 28.25) controlPoint2:CGPointMake(43.83, 28.08)];
+            [fill1 addCurveToPoint:CGPointMake(44.52, 27.2) controlPoint1:CGPointMake(44.23, 27.68) controlPoint2:CGPointMake(44.4, 27.45)];
+            [fill1 addCurveToPoint:CGPointMake(44.79, 26.4) controlPoint1:CGPointMake(44.66, 26.94) controlPoint2:CGPointMake(44.74, 26.68)];
+            [fill1 addCurveToPoint:CGPointMake(44.86, 25.56) controlPoint1:CGPointMake(44.84, 26.12) controlPoint2:CGPointMake(44.86, 25.84)];
+            [fill1 addCurveToPoint:CGPointMake(44.87, 25.17) controlPoint1:CGPointMake(44.87, 25.43) controlPoint2:CGPointMake(44.87, 25.3)];
+            [fill1 addCurveToPoint:CGPointMake(44.87, 24.71) controlPoint1:CGPointMake(44.87, 25.01) controlPoint2:CGPointMake(44.87, 24.86)];
+            [fill1 addLineToPoint:CGPointMake(44.87, 4.02)];
+            [fill1 addCurveToPoint:CGPointMake(44.87, 3.56) controlPoint1:CGPointMake(44.87, 3.86) controlPoint2:CGPointMake(44.87, 3.71)];
+            [fill1 addCurveToPoint:CGPointMake(44.86, 3.17) controlPoint1:CGPointMake(44.87, 3.43) controlPoint2:CGPointMake(44.87, 3.3)];
+            [fill1 addCurveToPoint:CGPointMake(44.79, 2.33) controlPoint1:CGPointMake(44.86, 2.89) controlPoint2:CGPointMake(44.84, 2.61)];
+            [fill1 addCurveToPoint:CGPointMake(44.52, 1.52) controlPoint1:CGPointMake(44.74, 2.04) controlPoint2:CGPointMake(44.66, 1.78)];
+            [fill1 addCurveToPoint:CGPointMake(44.03, 0.84) controlPoint1:CGPointMake(44.4, 1.27) controlPoint2:CGPointMake(44.23, 1.04)];
+            [fill1 addCurveToPoint:CGPointMake(43.35, 0.35) controlPoint1:CGPointMake(43.83, 0.64) controlPoint2:CGPointMake(43.6, 0.47)];
+            [fill1 addCurveToPoint:CGPointMake(42.54, 0.08) controlPoint1:CGPointMake(43.09, 0.21) controlPoint2:CGPointMake(42.83, 0.13)];
+            [fill1 addCurveToPoint:CGPointMake(41.7, 0.01) controlPoint1:CGPointMake(42.27, 0.03) controlPoint2:CGPointMake(41.98, 0.01)];
+            [fill1 addCurveToPoint:CGPointMake(41.31, 0) controlPoint1:CGPointMake(41.57, 0) controlPoint2:CGPointMake(41.44, 0)];
+            [fill1 addCurveToPoint:CGPointMake(40.85, 0) controlPoint1:CGPointMake(41.16, 0) controlPoint2:CGPointMake(41.01, 0)];
+            CGContextSaveGState(context);
+            CGContextTranslateCTM(context, -0, 0.01);
+            fill1.usesEvenOddFillRule = YES;
+            [[UIColor colorWithHue:0.045 saturation:0.059 brightness:0.104 alpha:1] setFill];
+            [fill1 fill];
+            CGContextRestoreGState(context);
+
+            CGContextRestoreGState(context);
+            // End Clip 2 (Outline Mask)
+
+            CGContextRestoreGState(context);
+        }
+
+        //! Fill 4
+        UIBezierPath * fill4 = [UIBezierPath bezierPath];
+        [fill4 moveToPoint:CGPointMake(39.89, 0)];
+        [fill4 addLineToPoint:CGPointMake(40.35, 0)];
+        [fill4 addCurveToPoint:CGPointMake(40.72, 0.01) controlPoint1:CGPointMake(40.47, 0) controlPoint2:CGPointMake(40.59, 0)];
+        [fill4 addCurveToPoint:CGPointMake(41.42, 0.07) controlPoint1:CGPointMake(40.93, 0.01) controlPoint2:CGPointMake(41.18, 0.02)];
+        [fill4 addCurveToPoint:CGPointMake(41.95, 0.24) controlPoint1:CGPointMake(41.62, 0.1) controlPoint2:CGPointMake(41.79, 0.16)];
+        [fill4 addCurveToPoint:CGPointMake(42.39, 0.56) controlPoint1:CGPointMake(42.12, 0.32) controlPoint2:CGPointMake(42.26, 0.43)];
+        [fill4 addCurveToPoint:CGPointMake(42.71, 1) controlPoint1:CGPointMake(42.52, 0.69) controlPoint2:CGPointMake(42.63, 0.84)];
+        [fill4 addCurveToPoint:CGPointMake(42.89, 1.54) controlPoint1:CGPointMake(42.8, 1.17) controlPoint2:CGPointMake(42.85, 1.33)];
+        [fill4 addCurveToPoint:CGPointMake(42.95, 2.24) controlPoint1:CGPointMake(42.93, 1.77) controlPoint2:CGPointMake(42.94, 2.02)];
+        [fill4 addCurveToPoint:CGPointMake(42.95, 2.61) controlPoint1:CGPointMake(42.95, 2.36) controlPoint2:CGPointMake(42.95, 2.48)];
+        [fill4 addCurveToPoint:CGPointMake(42.96, 3.06) controlPoint1:CGPointMake(42.96, 2.76) controlPoint2:CGPointMake(42.96, 2.91)];
+        [fill4 addLineToPoint:CGPointMake(42.96, 23.75)];
+        [fill4 addCurveToPoint:CGPointMake(42.95, 24.21) controlPoint1:CGPointMake(42.96, 23.9) controlPoint2:CGPointMake(42.96, 24.05)];
+        [fill4 addCurveToPoint:CGPointMake(42.95, 24.57) controlPoint1:CGPointMake(42.95, 24.33) controlPoint2:CGPointMake(42.95, 24.45)];
+        [fill4 addCurveToPoint:CGPointMake(42.89, 25.27) controlPoint1:CGPointMake(42.94, 24.79) controlPoint2:CGPointMake(42.93, 25.04)];
+        [fill4 addCurveToPoint:CGPointMake(42.71, 25.81) controlPoint1:CGPointMake(42.85, 25.48) controlPoint2:CGPointMake(42.8, 25.65)];
+        [fill4 addCurveToPoint:CGPointMake(42.39, 26.25) controlPoint1:CGPointMake(42.63, 25.97) controlPoint2:CGPointMake(42.52, 26.12)];
+        [fill4 addCurveToPoint:CGPointMake(41.95, 26.57) controlPoint1:CGPointMake(42.26, 26.38) controlPoint2:CGPointMake(42.12, 26.49)];
+        [fill4 addCurveToPoint:CGPointMake(41.42, 26.74) controlPoint1:CGPointMake(41.79, 26.65) controlPoint2:CGPointMake(41.62, 26.71)];
+        [fill4 addCurveToPoint:CGPointMake(40.72, 26.8) controlPoint1:CGPointMake(41.18, 26.79) controlPoint2:CGPointMake(40.92, 26.8)];
+        [fill4 addCurveToPoint:CGPointMake(40.35, 26.81) controlPoint1:CGPointMake(40.6, 26.81) controlPoint2:CGPointMake(40.47, 26.81)];
+        [fill4 addCurveToPoint:CGPointMake(39.89, 26.81) controlPoint1:CGPointMake(40.2, 26.81) controlPoint2:CGPointMake(40.05, 26.81)];
+        [fill4 addLineToPoint:CGPointMake(3.06, 26.81)];
+        [fill4 addLineToPoint:CGPointMake(3.05, 26.81)];
+        [fill4 addCurveToPoint:CGPointMake(2.61, 26.81) controlPoint1:CGPointMake(2.91, 26.81) controlPoint2:CGPointMake(2.76, 26.81)];
+        [fill4 addCurveToPoint:CGPointMake(2.24, 26.8) controlPoint1:CGPointMake(2.48, 26.81) controlPoint2:CGPointMake(2.36, 26.81)];
+        [fill4 addCurveToPoint:CGPointMake(1.54, 26.74) controlPoint1:CGPointMake(2.04, 26.8) controlPoint2:CGPointMake(1.78, 26.79)];
+        [fill4 addCurveToPoint:CGPointMake(1, 26.57) controlPoint1:CGPointMake(1.34, 26.71) controlPoint2:CGPointMake(1.16, 26.65)];
+        [fill4 addCurveToPoint:CGPointMake(0.56, 26.25) controlPoint1:CGPointMake(0.84, 26.49) controlPoint2:CGPointMake(0.69, 26.38)];
+        [fill4 addCurveToPoint:CGPointMake(0.24, 25.81) controlPoint1:CGPointMake(0.43, 26.12) controlPoint2:CGPointMake(0.32, 25.97)];
+        [fill4 addCurveToPoint:CGPointMake(0.07, 25.27) controlPoint1:CGPointMake(0.16, 25.65) controlPoint2:CGPointMake(0.1, 25.48)];
+        [fill4 addCurveToPoint:CGPointMake(0.01, 24.57) controlPoint1:CGPointMake(0.02, 25.04) controlPoint2:CGPointMake(0.01, 24.79)];
+        [fill4 addCurveToPoint:CGPointMake(0, 24.2) controlPoint1:CGPointMake(0, 24.45) controlPoint2:CGPointMake(0, 24.33)];
+        [fill4 addLineToPoint:CGPointMake(0, 23.84)];
+        [fill4 addLineToPoint:CGPointMake(0, 2.97)];
+        [fill4 addLineToPoint:CGPointMake(0, 2.61)];
+        [fill4 addCurveToPoint:CGPointMake(0.01, 2.24) controlPoint1:CGPointMake(0, 2.48) controlPoint2:CGPointMake(0, 2.36)];
+        [fill4 addCurveToPoint:CGPointMake(0.07, 1.54) controlPoint1:CGPointMake(0.01, 2.02) controlPoint2:CGPointMake(0.02, 1.77)];
+        [fill4 addCurveToPoint:CGPointMake(0.24, 1) controlPoint1:CGPointMake(0.1, 1.34) controlPoint2:CGPointMake(0.16, 1.16)];
+        [fill4 addCurveToPoint:CGPointMake(0.56, 0.56) controlPoint1:CGPointMake(0.32, 0.84) controlPoint2:CGPointMake(0.43, 0.69)];
+        [fill4 addCurveToPoint:CGPointMake(1, 0.24) controlPoint1:CGPointMake(0.69, 0.43) controlPoint2:CGPointMake(0.84, 0.32)];
+        [fill4 addCurveToPoint:CGPointMake(1.54, 0.07) controlPoint1:CGPointMake(1.16, 0.16) controlPoint2:CGPointMake(1.34, 0.1)];
+        [fill4 addCurveToPoint:CGPointMake(2.24, 0.01) controlPoint1:CGPointMake(1.77, 0.02) controlPoint2:CGPointMake(2.02, 0.01)];
+        [fill4 addCurveToPoint:CGPointMake(2.61, 0) controlPoint1:CGPointMake(2.36, 0) controlPoint2:CGPointMake(2.48, 0)];
+        [fill4 addLineToPoint:CGPointMake(3.06, 0)];
+        [fill4 addLineToPoint:CGPointMake(39.89, 0)];
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 0.96, 0.97);
+        fill4.usesEvenOddFillRule = YES;
+        [[UIColor colorWithHue:0.111 saturation:0.004 brightness:1 alpha:1] setFill];
+        [fill4 fill];
+        CGContextRestoreGState(context);
+
+        //! Fill 5
+        UIBezierPath * fill5 = [UIBezierPath bezierPath];
+        [fill5 moveToPoint:CGPointMake(1.66, 1.77)];
+        [fill5 addCurveToPoint:CGPointMake(2.23, 0) controlPoint1:CGPointMake(2.04, 1.29) controlPoint2:CGPointMake(2.3, 0.65)];
+        [fill5 addCurveToPoint:CGPointMake(0.6, 0.84) controlPoint1:CGPointMake(1.67, 0.03) controlPoint2:CGPointMake(0.99, 0.37)];
+        [fill5 addCurveToPoint:CGPointMake(0.01, 2.54) controlPoint1:CGPointMake(0.24, 1.25) controlPoint2:CGPointMake(-0.07, 1.92)];
+        [fill5 addCurveToPoint:CGPointMake(1.66, 1.77) controlPoint1:CGPointMake(0.64, 2.6) controlPoint2:CGPointMake(1.26, 2.23)];
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 10.14, 7.94);
+        fill5.usesEvenOddFillRule = YES;
+        [[UIColor colorWithHue:0.045 saturation:0.059 brightness:0.104 alpha:1] setFill];
+        [fill5 fill];
+        CGContextRestoreGState(context);
+
+        //! Fill 6
+        UIBezierPath * fill6 = [UIBezierPath bezierPath];
+        [fill6 moveToPoint:CGPointMake(6.67, 0)];
+        [fill6 addCurveToPoint:CGPointMake(4.56, 0.52) controlPoint1:CGPointMake(5.76, -0.05) controlPoint2:CGPointMake(4.99, 0.52)];
+        [fill6 addCurveToPoint:CGPointMake(2.74, 0.04) controlPoint1:CGPointMake(4.12, 0.52) controlPoint2:CGPointMake(3.46, 0.03)];
+        [fill6 addCurveToPoint:CGPointMake(0.47, 1.43) controlPoint1:CGPointMake(1.81, 0.06) controlPoint2:CGPointMake(0.94, 0.59)];
+        [fill6 addCurveToPoint:CGPointMake(1.16, 6.97) controlPoint1:CGPointMake(-0.51, 3.11) controlPoint2:CGPointMake(0.21, 5.6)];
+        [fill6 addCurveToPoint:CGPointMake(2.9, 8.37) controlPoint1:CGPointMake(1.62, 7.65) controlPoint2:CGPointMake(2.17, 8.39)];
+        [fill6 addCurveToPoint:CGPointMake(4.71, 7.92) controlPoint1:CGPointMake(3.59, 8.34) controlPoint2:CGPointMake(3.87, 7.92)];
+        [fill6 addCurveToPoint:CGPointMake(6.52, 8.35) controlPoint1:CGPointMake(5.54, 7.92) controlPoint2:CGPointMake(5.79, 8.37)];
+        [fill6 addCurveToPoint:CGPointMake(8.21, 7) controlPoint1:CGPointMake(7.28, 8.34) controlPoint2:CGPointMake(7.75, 7.68)];
+        [fill6 addCurveToPoint:CGPointMake(8.97, 5.44) controlPoint1:CGPointMake(8.74, 6.23) controlPoint2:CGPointMake(8.96, 5.48)];
+        [fill6 addCurveToPoint:CGPointMake(7.5, 3.2) controlPoint1:CGPointMake(8.96, 5.43) controlPoint2:CGPointMake(7.51, 4.87)];
+        [fill6 addCurveToPoint:CGPointMake(8.69, 1.1) controlPoint1:CGPointMake(7.48, 1.81) controlPoint2:CGPointMake(8.63, 1.14)];
+        [fill6 addCurveToPoint:CGPointMake(6.67, 0) controlPoint1:CGPointMake(8.04, 0.14) controlPoint2:CGPointMake(7.02, 0.03)];
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 5.69, 10.6);
+        fill6.usesEvenOddFillRule = YES;
+        [[UIColor colorWithHue:0.045 saturation:0.059 brightness:0.104 alpha:1] setFill];
+        [fill6 fill];
+        CGContextRestoreGState(context);
+
+        //! Fill 7
+        UIBezierPath * fill7 = [UIBezierPath bezierPath];
+        [fill7 moveToPoint:CGPointMake(1.58, 5.37)];
+        [fill7 addLineToPoint:CGPointMake(3.39, 5.37)];
+        [fill7 addCurveToPoint:CGPointMake(5.55, 3.35) controlPoint1:CGPointMake(4.76, 5.37) controlPoint2:CGPointMake(5.55, 4.63)];
+        [fill7 addCurveToPoint:CGPointMake(3.4, 1.33) controlPoint1:CGPointMake(5.55, 2.06) controlPoint2:CGPointMake(4.76, 1.33)];
+        [fill7 addLineToPoint:CGPointMake(1.58, 1.33)];
+        [fill7 addLineToPoint:CGPointMake(1.58, 5.37)];
+        [fill7 closePath];
+        [fill7 moveToPoint:CGPointMake(3.81, 0)];
+        [fill7 addCurveToPoint:CGPointMake(7.16, 3.34) controlPoint1:CGPointMake(5.78, 0) controlPoint2:CGPointMake(7.16, 1.36)];
+        [fill7 addCurveToPoint:CGPointMake(3.76, 6.69) controlPoint1:CGPointMake(7.16, 5.33) controlPoint2:CGPointMake(5.76, 6.69)];
+        [fill7 addLineToPoint:CGPointMake(1.58, 6.69)];
+        [fill7 addLineToPoint:CGPointMake(1.58, 10.17)];
+        [fill7 addLineToPoint:CGPointMake(0, 10.17)];
+        [fill7 addLineToPoint:CGPointZero];
+        [fill7 addLineToPoint:CGPointMake(3.81, 0)];
+        [fill7 addLineToPoint:CGPointMake(3.81, 0)];
+        [fill7 closePath];
+        [fill7 moveToPoint:CGPointMake(3.81, 0)];
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 17.6, 8.71);
+        fill7.usesEvenOddFillRule = YES;
+        [[UIColor colorWithHue:0.045 saturation:0.059 brightness:0.104 alpha:1] setFill];
+        [fill7 fill];
+        CGContextRestoreGState(context);
+
+        //! Fill 8
+        UIBezierPath * fill8 = [UIBezierPath bezierPath];
+        [fill8 moveToPoint:CGPointMake(4.79, 4.71)];
+        [fill8 addLineToPoint:CGPointMake(4.79, 4.14)];
+        [fill8 addLineToPoint:CGPointMake(3.04, 4.25)];
+        [fill8 addCurveToPoint:CGPointMake(1.54, 5.32) controlPoint1:CGPointMake(2.05, 4.31) controlPoint2:CGPointMake(1.54, 4.68)];
+        [fill8 addCurveToPoint:CGPointMake(2.91, 6.34) controlPoint1:CGPointMake(1.54, 5.94) controlPoint2:CGPointMake(2.07, 6.34)];
+        [fill8 addCurveToPoint:CGPointMake(4.79, 4.71) controlPoint1:CGPointMake(3.98, 6.34) controlPoint2:CGPointMake(4.79, 5.66)];
+        [fill8 closePath];
+        [fill8 moveToPoint:CGPointMake(0, 5.36)];
+        [fill8 addCurveToPoint:CGPointMake(2.83, 3.2) controlPoint1:CGPointMake(0, 4.06) controlPoint2:CGPointMake(0.99, 3.31)];
+        [fill8 addLineToPoint:CGPointMake(4.79, 3.08)];
+        [fill8 addLineToPoint:CGPointMake(4.79, 2.52)];
+        [fill8 addCurveToPoint:CGPointMake(3.28, 1.24) controlPoint1:CGPointMake(4.79, 1.69) controlPoint2:CGPointMake(4.25, 1.24)];
+        [fill8 addCurveToPoint:CGPointMake(1.79, 2.28) controlPoint1:CGPointMake(2.49, 1.24) controlPoint2:CGPointMake(1.91, 1.65)];
+        [fill8 addLineToPoint:CGPointMake(0.37, 2.28)];
+        [fill8 addCurveToPoint:CGPointMake(3.33, 0) controlPoint1:CGPointMake(0.41, 0.96) controlPoint2:CGPointMake(1.65, 0)];
+        [fill8 addCurveToPoint:CGPointMake(6.31, 2.41) controlPoint1:CGPointMake(5.13, 0) controlPoint2:CGPointMake(6.31, 0.94)];
+        [fill8 addLineToPoint:CGPointMake(6.31, 7.47)];
+        [fill8 addLineToPoint:CGPointMake(4.85, 7.47)];
+        [fill8 addLineToPoint:CGPointMake(4.85, 6.25)];
+        [fill8 addLineToPoint:CGPointMake(4.81, 6.25)];
+        [fill8 addCurveToPoint:CGPointMake(2.49, 7.55) controlPoint1:CGPointMake(4.4, 7.05) controlPoint2:CGPointMake(3.48, 7.55)];
+        [fill8 addCurveToPoint:CGPointMake(0, 5.36) controlPoint1:CGPointMake(1.02, 7.55) controlPoint2:CGPointMake(0, 6.67)];
+        [fill8 addLineToPoint:CGPointMake(0, 5.36)];
+        [fill8 closePath];
+        [fill8 moveToPoint:CGPointMake(0, 5.36)];
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 25.15, 11.41);
+        fill8.usesEvenOddFillRule = YES;
+        [[UIColor colorWithHue:0.045 saturation:0.059 brightness:0.104 alpha:1] setFill];
+        [fill8 fill];
+        CGContextRestoreGState(context);
+
+        //! Fill 9
+        UIBezierPath * fill9 = [UIBezierPath bezierPath];
+        [fill9 moveToPoint:CGPointMake(0.73, 10.1)];
+        [fill9 addLineToPoint:CGPointMake(0.73, 8.88)];
+        [fill9 addCurveToPoint:CGPointMake(1.2, 8.91) controlPoint1:CGPointMake(0.83, 8.89) controlPoint2:CGPointMake(1.07, 8.91)];
+        [fill9 addCurveToPoint:CGPointMake(2.53, 7.85) controlPoint1:CGPointMake(1.9, 8.91) controlPoint2:CGPointMake(2.29, 8.61)];
+        [fill9 addLineToPoint:CGPointMake(2.67, 7.4)];
+        [fill9 addLineToPoint:CGPointZero];
+        [fill9 addLineToPoint:CGPointMake(1.65, 0)];
+        [fill9 addLineToPoint:CGPointMake(3.51, 6)];
+        [fill9 addLineToPoint:CGPointMake(3.54, 6)];
+        [fill9 addLineToPoint:CGPointMake(5.4, 0)];
+        [fill9 addLineToPoint:CGPointMake(7.01, 0)];
+        [fill9 addLineToPoint:CGPointMake(4.24, 7.77)];
+        [fill9 addCurveToPoint:CGPointMake(1.35, 10.14) controlPoint1:CGPointMake(3.61, 9.55) controlPoint2:CGPointMake(2.88, 10.14)];
+        [fill9 addCurveToPoint:CGPointMake(0.73, 10.1) controlPoint1:CGPointMake(1.23, 10.14) controlPoint2:CGPointMake(0.84, 10.13)];
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 32.06, 11.5);
+        fill9.usesEvenOddFillRule = YES;
+        [[UIColor colorWithHue:0.045 saturation:0.059 brightness:0.104 alpha:1] setFill];
+        [fill9 fill];
+        CGContextRestoreGState(context);
+
+        CGContextRestoreGState(context);
+    }
 }
 
 @end
