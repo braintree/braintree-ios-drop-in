@@ -20,26 +20,26 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/3D-Secure (4.8.0):
+  - Braintree/3D-Secure (4.8.5):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Apple-Pay (4.8.0):
+  - Braintree/Apple-Pay (4.8.5):
     - Braintree/Core
-  - Braintree/Card (4.8.0):
+  - Braintree/Card (4.8.5):
     - Braintree/Core
-  - Braintree/Core (4.8.0)
-  - Braintree/PayPal (4.8.0):
+  - Braintree/Core (4.8.5)
+  - Braintree/PayPal (4.8.5):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.8.0):
+  - Braintree/PayPalDataCollector (4.8.5):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.8.0):
+  - Braintree/PayPalOneTouch (4.8.5):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.8.0)
-  - Braintree/UnionPay (4.8.0):
+  - Braintree/PayPalUtils (4.8.5)
+  - Braintree/UnionPay (4.8.5):
     - Braintree/Card
     - Braintree/Core
   - BraintreeDropIn (5.2.1):
@@ -51,7 +51,7 @@ PODS:
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (5.2.1)
   - CardIO (5.4.1)
-  - Expecta (1.0.5)
+  - Expecta (1.0.6)
   - FLEX (2.4.0)
   - InAppSettingsKit (2.8.1)
   - iOS-Slide-Menu (1.5)
@@ -99,7 +99,7 @@ SPEC CHECKSUMS:
   Braintree: 28527aed12a5904ae69af7cdf3aaf77b2717d041
   BraintreeDropIn: e9cecf2ec946f084476f007a7e91925016b77e91
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
-  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   InAppSettingsKit: 94d2fba3ccd700fc4e32c6d09fabcc0af2426744
   iOS-Slide-Menu: 40b0cbd8916c42afc755f0869793cd09e7a32102
