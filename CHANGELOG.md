@@ -1,5 +1,10 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 5.2.2 (2017-08-02)
+
+* Update Apple Pay mark
+* Update Demo to support Xcode9 (Beta 4)
+
 ## 5.2.1 (2017-06-26)
 
 * Fix UI issues associated with iOS11
