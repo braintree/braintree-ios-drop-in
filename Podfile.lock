@@ -20,26 +20,26 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/3D-Secure (4.9.2):
+  - Braintree/3D-Secure (4.9.3):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Apple-Pay (4.9.2):
+  - Braintree/Apple-Pay (4.9.3):
     - Braintree/Core
-  - Braintree/Card (4.9.2):
+  - Braintree/Card (4.9.3):
     - Braintree/Core
-  - Braintree/Core (4.9.2)
-  - Braintree/PayPal (4.9.2):
+  - Braintree/Core (4.9.3)
+  - Braintree/PayPal (4.9.3):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.9.2):
+  - Braintree/PayPalDataCollector (4.9.3):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.9.2):
+  - Braintree/PayPalOneTouch (4.9.3):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.9.2)
-  - Braintree/UnionPay (4.9.2):
+  - Braintree/PayPalUtils (4.9.3)
+  - Braintree/UnionPay (4.9.3):
     - Braintree/Card
     - Braintree/Core
   - BraintreeDropIn (5.2.2):
@@ -96,7 +96,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  Braintree: 12225834d0e39ffad56888756a3c0d8bda043d53
+  Braintree: 3f35df3f1e0ecfc942e067aaf40f17994924a46a
   BraintreeDropIn: 0ff4879547af66dae814911992e01324975d556d
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5

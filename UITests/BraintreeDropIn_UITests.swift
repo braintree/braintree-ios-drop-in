@@ -258,6 +258,11 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
     }
     
     func testDropIn_paypal_receivesNonce() {
+        if #available(iOS 11.0, *) {
+            // SFSafariAuthenticationSession flow cannot be fully automated, so returning early
+            return
+        }
+
         self.waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
         sleep(3)

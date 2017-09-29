@@ -1,5 +1,10 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 5.2.3 (2017-09-29)
+
+* Update MasterCard and Maestro logos
+* Xcode9 updates
+
 ## 5.2.2 (2017-08-02)
 
 * Update Apple Pay mark
