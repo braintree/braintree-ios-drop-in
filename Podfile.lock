@@ -20,26 +20,26 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/3D-Secure (4.8.5):
+  - Braintree/3D-Secure (4.9.2):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Apple-Pay (4.8.5):
+  - Braintree/Apple-Pay (4.9.2):
     - Braintree/Core
-  - Braintree/Card (4.8.5):
+  - Braintree/Card (4.9.2):
     - Braintree/Core
-  - Braintree/Core (4.8.5)
-  - Braintree/PayPal (4.8.5):
+  - Braintree/Core (4.9.2)
+  - Braintree/PayPal (4.9.2):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.8.5):
+  - Braintree/PayPalDataCollector (4.9.2):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.8.5):
+  - Braintree/PayPalOneTouch (4.9.2):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.8.5)
-  - Braintree/UnionPay (4.8.5):
+  - Braintree/PayPalUtils (4.9.2)
+  - Braintree/UnionPay (4.9.2):
     - Braintree/Card
     - Braintree/Core
   - BraintreeDropIn (5.2.2):
@@ -92,7 +92,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   BraintreeDropIn:
-    :path: "./"
+    :path: ./
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -111,4 +111,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e81f98d99201c92080d1ab0f5625cd6da3b954dc
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

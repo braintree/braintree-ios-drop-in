@@ -252,7 +252,7 @@
 
 #pragma mark - Helpers
 
-- (void)fetchPaymentMethodsOnCompletion:(void(^)())completionBlock {
+- (void)fetchPaymentMethodsOnCompletion:(void(^)(void))completionBlock {
     if (!self.apiClient.clientToken) {
         self.paymentMethodNonces = @[];
         if (completionBlock) {
