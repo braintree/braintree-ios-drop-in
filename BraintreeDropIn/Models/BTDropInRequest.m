@@ -14,6 +14,7 @@
     request.noShipping = self.noShipping;
     request.shippingAddress = self.shippingAddress;
     request.applePayDisabled = self.applePayDisabled;
+	request.paypalDisabled = self.paypalDisabled;
     request.threeDSecureVerification = self.threeDSecureVerification;
     return request;
 }
