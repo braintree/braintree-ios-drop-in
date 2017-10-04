@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "BraintreeDropIn"
-  s.version          = "5.2.3"
-  s.summary          = "Braintree v.zero: A modern foundation for accepting payments"
+  s.version          = "15.2.3"
+  s.summary          = "Braintree v.zero: A modern foundation for accepting payments (with ShareTheMeal-specific modifications)"
   s.description      = <<-DESC
                        Braintree is a full-stack payments platform for developers
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.screenshots      = "https://raw.githubusercontent.com/braintree/braintree_ios/master/screenshot.png"
   s.license          = "MIT"
   s.author           = { "Braintree" => "code@getbraintree.com" }
-  s.source           = { :git => "https://github.com/braintree/braintree-ios-drop-in.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/ShareTheMeal/braintree-ios-drop-in.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/braintree"
 
   s.platform         = :ios, "9.0"
