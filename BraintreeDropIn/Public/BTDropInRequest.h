@@ -43,6 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
 
+/// Controls if payment methods should be tokenized and stored in the user's Braintree vault. Set to false when doing transactions externally (i.e. in Safari browser - which does the vaulting), otherwise set to true
+/// Default to false.
+@property (nonatomic, assign) BOOL shouldTokenize;
+
 @end
 
 NS_ASSUME_NONNULL_END

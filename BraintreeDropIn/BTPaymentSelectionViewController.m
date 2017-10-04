@@ -228,7 +228,7 @@
             self.paymentOptionsData = [activePaymentOptions copy];
             [self.savedPaymentMethodsCollectionView reloadData];
             [self.paymentOptionsTableView reloadData];
-            if (self.paymentMethodNonces.count == 0) {
+            if (self.paymentMethodNonces.count == 0 || !self.dropInRequest.shouldTokenize) {
                 self.savedPaymentMethodsCollectionView.hidden = YES;
                 self.vaultedPaymentsHeader.hidden = YES;
                 self.paymentOptionsLabelContainerStackView.hidden = YES;
@@ -269,7 +269,15 @@
         if (error) {
             // no action
         } else {
+
+#ifdef __BT_APPLE_PAY
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (self isKindOfClass:%@)", [BTApplePayCardNonce class]];
+            NSArray *filteredArray = [[paymentMethodNonces filteredArrayUsingPredicate:predicate] copy];
+            self.paymentMethodNonces = filteredArray;
+#else
             self.paymentMethodNonces = [paymentMethodNonces copy];
+#endif
+
             if (completionBlock) {
                 completionBlock();
             }
@@ -318,7 +326,9 @@
 }
 
 - (float) sheetHeight {
-    return self.paymentMethodNonces.count == 0 ? 280 : 470;
+    return self.paymentMethodNonces.count == 0 || !self.dropInRequest.shouldTokenize ?
+        148 + 44 * self.paymentOptionsData.count :
+        382 + 44 * self.paymentOptionsData.count;
 }
 
 #pragma mark - Protocol conformance
@@ -389,10 +399,9 @@
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     BTUIKPaymentOptionType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
 
-    cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
-    if (option == BTUIKPaymentOptionTypeUnknown) {
-        cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
-    }
+    NSString *paymentName = option == BTUIKPaymentOptionTypeUnknown ? BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL) : [BTUIKViewUtil nameForPaymentMethodType:option];
+    cell.label.text = self.dropInRequest.shouldTokenize || option == BTUIKPaymentOptionTypeApplePay ? paymentName :
+        [NSString stringWithFormat:@"%@ (Safari)",paymentName];
     cell.iconView.paymentOptionType = option;
     cell.type = option;
 
@@ -401,7 +410,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BTDropInPaymentSeletionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.type == BTUIKPaymentOptionTypeUnknown) {
+    if (!self.dropInRequest.shouldTokenize) {
+        if (self.delegate ) {
+            [self.delegate selectionCompletedWithPaymentMethodType:cell.type  nonce:nil error:nil];
+        }
+        return;
+    }
+	if (cell.type == BTUIKPaymentOptionTypeUnknown) {
         if ([self.delegate respondsToSelector:@selector(showCardForm:)]){
             [self.delegate performSelector:@selector(showCardForm:) withObject:self];
         }
