@@ -27,5 +27,7 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
 + (BOOL)useModalPresentation;
 + (BOOL)customerPresent;
 + (NSString *)customerIdentifier;
++ (BOOL)paypalDisabled;
++ (BOOL)venmoDisabled;
 
 @end

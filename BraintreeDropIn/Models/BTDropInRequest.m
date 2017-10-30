@@ -13,7 +13,10 @@
     request.currencyCode = self.currencyCode;
     request.noShipping = self.noShipping;
     request.shippingAddress = self.shippingAddress;
+    request.additionalPayPalScopes = self.additionalPayPalScopes;
     request.applePayDisabled = self.applePayDisabled;
+    request.paypalDisabled = self.paypalDisabled;
+    request.venmoDisabled = self.venmoDisabled;
     request.threeDSecureVerification = self.threeDSecureVerification;
     return request;
 }

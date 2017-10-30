@@ -257,6 +257,11 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
     
+    func testDropIn_paypal_showsPayPal() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertTrue(app.staticTexts["PayPal"].exists);
+    }
+    
     func testDropIn_paypal_receivesNonce() {
         if #available(iOS 11.0, *) {
             // SFSafariAuthenticationSession flow cannot be fully automated, so returning early
@@ -276,6 +281,30 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         self.waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
         
         XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists);
+    }
+}
+
+class BraintreeDropIn_PayPal_Disabled_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-DisablePayPal")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_paypal_doesNotShowPayPal_whenDisabled() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertFalse(app.staticTexts["PayPal"].exists);
     }
 }
 
@@ -384,5 +413,54 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         self.waitForElementToAppear(app.buttons["Cancelled🎲"])
         XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
+    }
+}
+
+class BraintreeDropIn_Venmo_Disabled_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ForceVenmo")
+        app.launchArguments.append("-DisableVenmo")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_venmo_doesNotShow_whenDisabled() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertFalse(app.staticTexts["Venmo"].exists);
+    }
+}
+
+class BraintreeDropIn_Venmo_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ForceVenmo")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_venmo_doesShow() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertTrue(app.staticTexts["Venmo"].exists);
     }
 }

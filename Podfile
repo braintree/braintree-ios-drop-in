@@ -17,6 +17,7 @@ target 'DropInDemo' do
 
   pod 'Braintree/Apple-Pay'
   pod 'Braintree/PayPal'
+  pod 'Braintree/Venmo'
   pod 'Braintree/3D-Secure'
 end
 

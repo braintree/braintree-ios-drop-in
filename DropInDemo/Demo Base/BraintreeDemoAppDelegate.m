@@ -72,6 +72,21 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"BraintreeDemoCustomerIdentifier"];
     }
     
+    [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoDisablePayPal"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-DisablePayPal"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoDisablePayPal"];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoDisableVenmo"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableVenmo"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoDisableVenmo"];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeTest_ForceVenmoDisplay"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ForceVenmo"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeTest_ForceVenmoDisplay"];
+    }
+
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeDemoSettingsAuthorizationOverride"];
     for (NSString* arg in [[NSProcessInfo processInfo] arguments]) {
         if ([arg rangeOfString:@"-Integration:"].location != NSNotFound) {
