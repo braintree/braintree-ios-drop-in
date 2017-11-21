@@ -295,6 +295,7 @@
     UIBarButtonItem *leftItem = viewController.navigationItem.leftBarButtonItem ? viewController.navigationItem.leftBarButtonItem : fixed;
     UIBarButtonItem *rightItem = viewController.navigationItem.rightBarButtonItem ? viewController.navigationItem.rightBarButtonItem : fixed;
     [self.btToolbar setItems:@[leftItem, flex, barTitle, flex, rightItem] animated:YES];
+    [self.btToolbar invalidateIntrinsicContentSize];
 }
 
 - (void)showCardForm:(__unused id)sender {
