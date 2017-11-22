@@ -3,6 +3,7 @@
 #import "BTDropInController.h"
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
+#import "BTDropInOverrides.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 
 #if __has_include("BraintreeUIKit.h")
@@ -58,6 +59,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -200,11 +202,9 @@
             if ([[BTTokenizationService sharedService] isTypeAvailable:@"Venmo"] && venmoAccessToken.isString && !self.dropInRequest.venmoDisabled) {
                 NSURLComponents *components = [NSURLComponents componentsWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
                 BOOL isVenmoAppInstalled = [[UIApplication sharedApplication] canOpenURL:components.URL];
-                if (isVenmoAppInstalled) {
+                if (isVenmoAppInstalled || [BTDropInOverrides displayVenmoOption]) {
                     [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
                 }
-            } else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeTest_ForceVenmoDisplay"] && !self.dropInRequest.venmoDisabled) {
-                [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
             }
 
             NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
