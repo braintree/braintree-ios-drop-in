@@ -36,9 +36,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.
 @property (nonatomic, assign) BOOL applePayDisabled;
 
+/// Optional: Use this parameter to disable PayPal. Otherwise if PayPal is correctly configured, PayPal will appear as a selection in the Payment Method options.
+@property (nonatomic, assign) BOOL paypalDisabled;
+
 /// Optional: If true and an amount is set, ThreeDSecure will be used to verify the card. ThreeDSecure must be enabled in the control panel.
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
+
+/// Controls if payment methods should be tokenized and stored in the user's Braintree vault. Set to false when doing transactions externally (i.e. in Safari browser - which does the vaulting), otherwise set to true
+/// Default to false.
+@property (nonatomic, assign) BOOL shouldTokenize;
 
 @end
 
