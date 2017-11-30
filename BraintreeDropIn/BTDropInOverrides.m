@@ -2,13 +2,13 @@
 
 @implementation BTDropInOverrides
 
-static bool _displayVenmoOption = NO;
+static BOOL _displayVenmoOption = NO;
 
-+ (bool)displayVenmoOption {
++ (BOOL)displayVenmoOption {
     return _displayVenmoOption;
 }
 
-+ (void)setDisplayVenmoOption:(bool)newDisplayVenmoOption {
++ (void)setDisplayVenmoOption:(BOOL)newDisplayVenmoOption {
     _displayVenmoOption = newDisplayVenmoOption;
 }
 
