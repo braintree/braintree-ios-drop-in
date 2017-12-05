@@ -242,6 +242,10 @@
     } else {
         [BTUIKAppearance darkTheme];
     }
+    
+    dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
+    dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
+
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
         if (error) {
             self.progressBlock([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);

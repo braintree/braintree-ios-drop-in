@@ -62,4 +62,12 @@ NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey = @"BraintreeDemo
     return [[NSUserDefaults standardUserDefaults] stringForKey:@"BraintreeDemoCustomerIdentifier"];
 }
 
++ (BOOL)paypalDisabled {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoDisablePayPal"];
+}
+
++ (BOOL)venmoDisabled {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoDisableVenmo"];
+}
+
 @end

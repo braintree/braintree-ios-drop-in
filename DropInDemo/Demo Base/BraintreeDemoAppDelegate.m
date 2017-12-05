@@ -3,6 +3,7 @@
 #import "BraintreeDemoSlideNavigationController.h"
 #import "BraintreeDemoDemoContainmentViewController.h"
 #import "BraintreeCore.h"
+#import "BTDropInOverrides.h"
 
 #if DEBUG
 #import <FLEX/FLEXManager.h>
@@ -55,13 +56,13 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EnvironmentProduction"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceEnvironmentProductionExecutiveSampleMerchant forKey:BraintreeDemoSettingsEnvironmentDefaultsKey];
     }
-    
+
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureRequired"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
     }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureDefault"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusDefault forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
     }
-    
+
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-TokenizationKey"]) {
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoUseTokenizationKey"];
     }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ClientToken"]) {
@@ -69,7 +70,22 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
         // Use random users for testing with Client Tokens
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"BraintreeDemoCustomerIdentifier"];
     }
-    
+
+    [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoDisablePayPal"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-DisablePayPal"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoDisablePayPal"];
+    }
+
+    [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoDisableVenmo"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableVenmo"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoDisableVenmo"];
+    }
+
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeTest_ForceVenmoDisplay"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ForceVenmo"]) {
+        [BTDropInOverrides setDisplayVenmoOption:YES];
+    }
+
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeDemoSettingsAuthorizationOverride"];
     for (NSString* arg in [[NSProcessInfo processInfo] arguments]) {
         if ([arg rangeOfString:@"-Integration:"].location != NSNotFound) {
@@ -80,7 +96,7 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
             [[NSUserDefaults standardUserDefaults] setObject:testIntegration forKey:@"BraintreeDemoSettingsAuthorizationOverride"];
         }
     }
-    
+
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-BadUrlScheme"]) {
         [BTAppSwitch setReturnURLScheme:@"com.braintreepayments.bad.scheme"];
     } else {
@@ -88,13 +104,13 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     }
 
     // End checking for testing arguments
-    
+
     NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
     if(!settingsBundle) {
         NSLog(@"Could not find Settings.bundle");
         return;
     }
-    
+
     NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
     NSArray *preferences = [settings objectForKey:@"PreferenceSpecifiers"];
     
