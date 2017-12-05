@@ -42,6 +42,9 @@ PODS:
   - Braintree/UnionPay (4.9.6):
     - Braintree/Card
     - Braintree/Core
+  - Braintree/Venmo (4.9.6):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
   - BraintreeDropIn (5.2.3):
     - BraintreeDropIn/DropIn (= 5.2.3)
   - BraintreeDropIn/DropIn (5.2.3):
@@ -78,6 +81,7 @@ DEPENDENCIES:
   - Braintree/3D-Secure
   - Braintree/Apple-Pay
   - Braintree/PayPal
+  - Braintree/Venmo
   - BraintreeDropIn (from `./`)
   - CardIO
   - Expecta
@@ -109,6 +113,6 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: e81f98d99201c92080d1ab0f5625cd6da3b954dc
+PODFILE CHECKSUM: cff0214f9832eb74c492856046a4461e70eb7a86
 
 COCOAPODS: 1.3.1

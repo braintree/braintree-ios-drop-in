@@ -22,7 +22,7 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
         self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
     }
-
+    
     func testDropIn_dismissesWhenCancelled() {
         self.waitForElementToBeHittable(app.buttons["Cancel"])
         app.buttons["Cancel"].forceTapElement()
@@ -257,12 +257,17 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
     
+    func testDropIn_paypal_showsPayPal() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertTrue(app.staticTexts["PayPal"].exists);
+    }
+    
     func testDropIn_paypal_receivesNonce() {
         if #available(iOS 11.0, *) {
             // SFSafariAuthenticationSession flow cannot be fully automated, so returning early
             return
         }
-
+        
         self.waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
         sleep(3)
@@ -276,6 +281,30 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         self.waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
         
         XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists);
+    }
+}
+
+class BraintreeDropIn_PayPal_Disabled_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-DisablePayPal")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_paypal_doesNotShowPayPal_whenDisabled() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertFalse(app.staticTexts["PayPal"].exists);
     }
 }
 
@@ -296,7 +325,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
     }
-
+    
     func testDropIn_threeDSecure_showsThreeDSecureWebview_andTransacts() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
@@ -336,45 +365,45 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToAppear(app.staticTexts["ending in 11"])
         
         XCTAssertTrue(app.staticTexts["ending in 11"].exists);
-
+        
         self.waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
-
+        
         let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
-
+        
         self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
     
     func testDropIn_threeDSecure_returnsToPaymentSelectionView_whenCancelled() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
-
+        
         let elementsQuery = app.scrollViews.otherElements
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
-
+        
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
-
+        
         self.waitForElementToBeHittable(app.staticTexts["2019"])
         app.staticTexts["11"].forceTapElement()
         app.staticTexts["2019"].forceTapElement()
-
+        
         let securityCodeField = elementsQuery.textFields["CVV"]
         self.waitForElementToBeHittable(securityCodeField)
         securityCodeField.forceTapElement()
         securityCodeField.typeText("123")
-
+        
         let postalCodeField = elementsQuery.textFields["12345"]
         self.waitForElementToBeHittable(postalCodeField)
         postalCodeField.forceTapElement()
         postalCodeField.typeText("12345")
-
+        
         app.buttons["Add Card"].forceTapElement()
-
+        
         self.waitForElementToAppear(app.staticTexts["Added Protection"])
-
+        
         self.waitForElementToAppear(app.navigationBars["Authentication"])
-
+        
         app.navigationBars["Authentication"].buttons["Cancel"].forceTapElement()
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
@@ -384,5 +413,84 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         self.waitForElementToAppear(app.buttons["Cancelled🎲"])
         XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
+    }
+}
+
+
+class BraintreeDropIn_Venmo_Disabled_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ForceVenmo")
+        app.launchArguments.append("-DisableVenmo")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_venmo_doesNotShow_whenDisabled() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertFalse(app.staticTexts["Venmo"].exists);
+    }
+}
+
+class BraintreeDropIn_Venmo_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ForceVenmo")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_venmo_doesShow() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        XCTAssertTrue(app.staticTexts["Venmo"].exists);
+    }
+}
+
+class BraintreeDropIn_Error_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-BadUrlScheme")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_paypal_receivesError_whenUrlSchemeIsIncorrect() {
+        self.waitForElementToBeHittable(app.staticTexts["PayPal"])
+        app.staticTexts["PayPal"].tap()
+        sleep(3)
+        
+        let existsPredicate = NSPredicate(format: "label LIKE '*Application does not support One Touch callback*'")
+        
+        self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
 }

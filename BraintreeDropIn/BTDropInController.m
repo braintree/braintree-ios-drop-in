@@ -295,6 +295,7 @@
     UIBarButtonItem *leftItem = viewController.navigationItem.leftBarButtonItem ? viewController.navigationItem.leftBarButtonItem : fixed;
     UIBarButtonItem *rightItem = viewController.navigationItem.rightBarButtonItem ? viewController.navigationItem.rightBarButtonItem : fixed;
     [self.btToolbar setItems:@[leftItem, flex, barTitle, flex, rightItem] animated:YES];
+    [self.btToolbar invalidateIntrinsicContentSize];
 }
 
 - (void)showCardForm:(__unused id)sender {
@@ -316,6 +317,16 @@
     return [self isFormSheet] ? 0 : BT_HALF_SHEET_MARGIN;
 }
 
+- (float)sheetBottomInset {
+    int safeAreaInset = 0;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+    if (@available(iOS 11.0, *)) {
+        safeAreaInset += [self.view safeAreaInsets].bottom;
+    }
+#endif
+    return [self isFormSheet] ? 0 : BT_HALF_SHEET_MARGIN + safeAreaInset;
+}
+
 - (BOOL)isFullScreen {
     return ![self supportsHalfSheet] || [self isFormSheet] ;
 }
@@ -332,14 +343,14 @@
         int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
         int sh = [[UIScreen mainScreen] bounds].size.height;
         int sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
+        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetBottomInset] : (sh - sheetHeight - [self sheetBottomInset]);
     }
     
     [self applyContentViewConstraints];
     
     [self.view setNeedsUpdateConstraints];
 
-    self.contentHeightConstraintBottom.constant = -[self sheetInset];
+    self.contentHeightConstraintBottom.constant = -[self sheetBottomInset];
 
     if (animated) {
         [UIView animateWithDuration:BT_ANIMATION_SLIDE_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
@@ -466,6 +477,10 @@
             result.paymentMethod = nonce;
             self.handler(self, result, error);
         }
+    } else {
+        if (self.handler != nil) {
+            self.handler(self, nil, error);
+        }
     }
 }
 
@@ -478,9 +493,9 @@
         int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
         int sh = [[UIScreen mainScreen] bounds].size.height;
         int sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
+        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetBottomInset] : (sh - sheetHeight - [self sheetBottomInset]);
     }
-    self.contentHeightConstraintBottom.constant = -[self sheetInset];
+    self.contentHeightConstraintBottom.constant = -[self sheetBottomInset];
 
     [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
         [self.view layoutIfNeeded];
