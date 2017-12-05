@@ -466,6 +466,10 @@
             result.paymentMethod = nonce;
             self.handler(self, result, error);
         }
+    } else {
+        if (self.handler != nil) {
+            self.handler(self, nil, error);
+        }
     }
 }
 
