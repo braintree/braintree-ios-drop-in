@@ -386,3 +386,32 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
     }
 }
+
+class BraintreeDropIn_Error_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-BadUrlScheme")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+
+    func testDropIn_paypal_receivesError_whenUrlSchemeIsIncorrect() {
+        self.waitForElementToBeHittable(app.staticTexts["PayPal"])
+        app.staticTexts["PayPal"].tap()
+        sleep(3)
+
+        let existsPredicate = NSPredicate(format: "label LIKE '*Application does not support One Touch callback*'")
+
+        self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+    }
+}
