@@ -1,5 +1,12 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 5.3.0 (2017-12-05)
+
+* Add support for manually disabling PayPal and Venmo in Drop-in
+* Fix issue that caused errors to not be returned in the Venmo and PayPal flows
+* Update translation for scanning a card number with the camera
+* Improve iOS 11 and iPhone X support
+
 ## 5.2.3 (2017-09-29)
 
 * Update MasterCard and Maestro logos
