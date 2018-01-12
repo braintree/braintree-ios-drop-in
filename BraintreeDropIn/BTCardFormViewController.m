@@ -21,6 +21,11 @@
 #else
 #import <BraintreeUnionPay/BraintreeUnionPay.h>
 #endif
+#if __has_include("BraintreePaymentFlow.h")
+#import "BraintreePaymentFlow.h"
+#else
+#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
+#endif
 
 @interface BTCardFormViewController () <BTViewControllerPresentingDelegate>
 
@@ -600,21 +605,26 @@
             self.navigationItem.rightBarButtonItem = addCardButton;
 
             if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount != nil
-                && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && [[BTTokenizationService sharedService] isTypeAvailable:@"ThreeDSecure"]) {
+                && [self.configuration.json[@"threeDSecureEnabled"] isTrue]) {
 
-                NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-                options[BTTokenizationServiceViewPresentingDelegateOption] = self;
-                options[BTTokenizationServiceAmountOption] = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
-                options[BTTokenizationServiceNonceOption] = tokenizedCard.nonce;
+                BTPaymentFlowDriver *paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:self.apiClient];
+                paymentFlowDriver.viewControllerPresentingDelegate = self;
 
-                [[BTTokenizationService sharedService] tokenizeType:@"ThreeDSecure" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-                    if (tokenizedCard || error) {
-                        [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
-                    } else {
-                        [self cancelTapped];
+                BTThreeDSecureRequest *request = [[BTThreeDSecureRequest alloc] init];
+                request.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
+                request.nonce = tokenizedCard.nonce;
+                [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
+                    if (error) {
+                        if (error.code == BTPaymentFlowDriverErrorTypeCanceled) {
+                            [self cancelTapped];
+                        } else {
+                            [self.delegate cardTokenizationCompleted:nil error:error sender:self];
+                        }
+                    } else if (result) {
+                        BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
+                        [self.delegate cardTokenizationCompleted:threeDSecureResult.tokenizedCard error:error sender:self];
                     }
                 }];
-
             } else {
                 [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
             }

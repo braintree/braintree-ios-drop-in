@@ -8,6 +8,11 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BraintreeApplePay.h"
 #import "Braintree3DSecure.h"
+#if __has_include("BraintreePaymentFlow.h")
+#import "BraintreePaymentFlow.h"
+#else
+#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
+#endif
 
 @interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate, BTViewControllerPresentingDelegate>
 
@@ -221,7 +226,7 @@
         
         self.progressBlock(@"Presenting Apple Pay Sheet");
         [self presentViewController:viewController animated:YES completion:nil];
-    } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired && ![self.selectedNonce isKindOfClass:[BTThreeDSecureCardNonce class]]) {
+    } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
         [self performThreeDSecureVerification];
     }
     else {
@@ -336,29 +341,34 @@
 
 - (void)performThreeDSecureVerification {
     BTAPIClient* apiClient = [[BTAPIClient alloc] initWithAuthorization:self.authorizationString];
-    BTThreeDSecureDriver *threeDSecure = [[BTThreeDSecureDriver alloc] initWithAPIClient:apiClient delegate:self];
-    [threeDSecure verifyCardWithNonce:self.selectedNonce.nonce
-                               amount:[NSDecimalNumber decimalNumberWithString:@"10"]
-                           completion:^(BTThreeDSecureCardNonce * _Nullable threeDSecureCard, NSError * _Nullable error)
-     {
+
+    BTPaymentFlowDriver *paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:apiClient];
+    paymentFlowDriver.viewControllerPresentingDelegate = self;
+
+    BTThreeDSecureRequest *request = [[BTThreeDSecureRequest alloc] init];
+    request.amount = [NSDecimalNumber decimalNumberWithString:@"10"];
+    request.nonce = self.selectedNonce.nonce;
+    [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
          self.selectedNonce = nil;
          if (error) {
+             if (error.code == BTPaymentFlowDriverErrorTypeCanceled) {
+                 // User cancelled and nonce was consumed
+                 [self updatePaymentMethod:self.selectedNonce];
+                 [self fetchPaymentMethods];
+                 return;
+             }
              // Error and nonce was consumed
              [self updatePaymentMethod:self.selectedNonce];
              [self fetchPaymentMethods];
              self.progressBlock(error.localizedDescription);
              return;
-         } else if (threeDSecureCard == nil) {
-             // User cancelled and nonce was consumed
-             [self updatePaymentMethod:self.selectedNonce];
-             [self fetchPaymentMethods];
-             return;
          }
-         self.selectedNonce = threeDSecureCard;
-         [self updatePaymentMethod:self.selectedNonce];
-         self.completionBlock(self.selectedNonce);
-         self.transactionBlock();
-     }];
+        BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
+        self.selectedNonce = threeDSecureResult.tokenizedCard;
+        [self updatePaymentMethod:self.selectedNonce];
+        self.completionBlock(self.selectedNonce);
+        self.transactionBlock();
+    }];
 }
 
 - (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
