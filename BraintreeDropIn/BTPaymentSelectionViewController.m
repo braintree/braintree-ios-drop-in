@@ -417,7 +417,7 @@
         }
         
         [[BTTokenizationService sharedService] tokenizeType:@"PayPal" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
-            if (self.delegate) {
+            if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
                 [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:paymentMethodNonce error:error];
             }
         }];
@@ -428,7 +428,7 @@
             options[BTTokenizationServiceViewPresentingDelegateOption] = self.delegate;
         }
         [[BTTokenizationService sharedService] tokenizeType:@"Venmo" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
-            if (self.delegate) {
+            if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
                 [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:paymentMethodNonce error:error];
             }
         }];

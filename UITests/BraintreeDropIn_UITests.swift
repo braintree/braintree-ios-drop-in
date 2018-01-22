@@ -280,7 +280,27 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         
         self.waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
         
-        XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists);
+        XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists)
+    }
+
+    func testDropIn_paypal_cancelPopupShowsSelectPaymentMethodView() {
+        if #available(iOS 11.0, *) {
+            return
+        }
+
+        self.waitForElementToBeHittable(app.staticTexts["PayPal"])
+        app.staticTexts["PayPal"].tap()
+        sleep(3)
+
+        let webviewElementsQuery = app.webViews.element.otherElements
+
+        self.waitForElementToBeHittable(webviewElementsQuery.links["Cancel Sandbox Purchase"])
+
+        webviewElementsQuery.links["Cancel Sandbox Purchase"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
+
+        XCTAssertTrue(app.staticTexts["Select Payment Method"].exists)
     }
 }
 
