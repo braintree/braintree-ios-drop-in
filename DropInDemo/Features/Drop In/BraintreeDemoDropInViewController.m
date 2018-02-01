@@ -7,7 +7,7 @@
 #import "BraintreeDemoSettings.h"
 #import "BTPaymentSelectionViewController.h"
 #import "BraintreeApplePay.h"
-#import "Braintree3DSecure.h"
+#import "BraintreeCard.h"
 #if __has_include("BraintreePaymentFlow.h")
 #import "BraintreePaymentFlow.h"
 #else
@@ -226,7 +226,8 @@
         
         self.progressBlock(@"Presenting Apple Pay Sheet");
         [self presentViewController:viewController animated:YES completion:nil];
-    } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
+    } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired
+               && [self nonceRequiresThreeDSecureVerification:self.selectedNonce]) {
         [self performThreeDSecureVerification];
     }
     else {
@@ -369,6 +370,14 @@
         self.completionBlock(self.selectedNonce);
         self.transactionBlock();
     }];
+}
+
+- (BOOL)nonceRequiresThreeDSecureVerification:(BTPaymentMethodNonce *)nonce {
+    if ([nonce isKindOfClass:[BTCardNonce class]]) {
+        BTCardNonce *cardNonce = (BTCardNonce *)nonce;
+        return !cardNonce.threeDSecureInfo.wasVerified;
+    }
+    return false;
 }
 
 - (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
