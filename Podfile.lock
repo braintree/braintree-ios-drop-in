@@ -20,9 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/3D-Secure (4.10.1):
-    - Braintree/Card
-    - Braintree/Core
   - Braintree/Apple-Pay (4.10.1):
     - Braintree/Core
   - Braintree/Card (4.10.1):
@@ -82,7 +79,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
-  - Braintree/3D-Secure
   - Braintree/Apple-Pay
   - Braintree/PayPal
   - Braintree/Venmo
@@ -117,6 +113,6 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: cff0214f9832eb74c492856046a4461e70eb7a86
+PODFILE CHECKSUM: 47d6309af58411191105fa2af7ee0aa1448df802
 
 COCOAPODS: 1.4.0
