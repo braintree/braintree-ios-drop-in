@@ -27,10 +27,10 @@ Pod::Spec.new do |s|
     s.source_files  = "BraintreeDropIn/**/*.{h,m}"
     s.public_header_files = "BraintreeDropIn/Public/*.h"
     s.frameworks = "UIKit"
-    s.dependency "Braintree/Card", ">= 4.10.1"
-    s.dependency "Braintree/Core", ">= 4.10.1"
-    s.dependency "Braintree/UnionPay", ">= 4.10.1"
-    s.dependency "Braintree/PaymentFlow", ">= 4.10.1"
+    s.dependency "Braintree/Card", "~> 4.11"
+    s.dependency "Braintree/Core", "~> 4.11"
+    s.dependency "Braintree/UnionPay", "~> 4.11"
+    s.dependency "Braintree/PaymentFlow", "~> 4.11"
     s.dependency "BraintreeDropIn/UIKit"
   end
 
