@@ -422,9 +422,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         self.waitForElementToAppear(app.staticTexts["Added Protection"])
         
-        self.waitForElementToAppear(app.navigationBars["Authentication"])
-        
-        app.navigationBars["Authentication"].buttons["Cancel"].forceTapElement()
+        app.buttons["Done"].forceTapElement()
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
         

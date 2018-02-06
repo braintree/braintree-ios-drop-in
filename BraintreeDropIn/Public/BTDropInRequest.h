@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Defaults to false. Set to true to hide the Venmo option even if enabled for your account.
 @property (nonatomic, assign) BOOL venmoDisabled;
 
-/// Optional: If true and an amount is set, ThreeDSecure will be used to verify the card. ThreeDSecure must be enabled in the control panel.
+/// Optional: If true and an amount is set, ThreeDSecure will be used to verify new cards. ThreeDSecure must be enabled in the control panel.
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
 
