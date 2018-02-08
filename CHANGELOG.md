@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.0.1 (2018-02-08)
+
+* Fix code for implicit retain self warning
+
 ## 6.0.0 (2018-02-07)
 
 * Fix empty payment method nonce and error in result for PayPal and Venmo flows
