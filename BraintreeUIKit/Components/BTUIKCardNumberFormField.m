@@ -143,20 +143,20 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
-    self.displayAsValid = _number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) || (_cardType != nil && [_cardType validNumber:_number]);
-    self.formLabel.text = _number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
+    self.displayAsValid = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) || (_cardType != nil && [_cardType validNumber:_number]);
+    self.formLabel.text = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
     [UIView animateWithDuration:0.2 animations:^{
         if ([self isShowingValidateButton]) {
             [self setAccessoryViewHidden:NO animated:NO];
         } else {
-            if (_number.length == 0) {
+            if (self.number.length == 0) {
                 [self setAccessoryViewHidden:YES animated:YES];
             } else {
                 [self showCardHintAccessory];
             }
         }
-        if (_number.length > 7 && ([self isValidLength] || self.state != BTUIKCardNumberFormFieldStateValidate)) {
-            NSString *lastFour = [_number substringFromIndex: [_number length] - 4];
+        if (self.number.length > 7 && ([self isValidLength] || self.state != BTUIKCardNumberFormFieldStateValidate)) {
+            NSString *lastFour = [self.number substringFromIndex: [self.number length] - 4];
             self.textField.text = [NSString stringWithFormat:@"•••• %@", lastFour];
         }
         [self updateConstraints];
