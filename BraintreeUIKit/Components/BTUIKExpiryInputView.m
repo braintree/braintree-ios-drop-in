@@ -94,21 +94,36 @@
                                                                      metrics:metrics
                                                                        views:viewBindings]];
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[monthCollectionView]|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[monthCollectionView]"
                                                                      options:0
                                                                      metrics:metrics
                                                                        views:viewBindings]];
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[yearCollectionView]|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[yearCollectionView]"
                                                                      options:0
                                                                      metrics:metrics
                                                                        views:viewBindings]];
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[verticalLine]|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[verticalLine]"
                                                                      options:0
                                                                      metrics:nil
                                                                        views:viewBindings]];
         
+        id bottomReferenceView = self;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+        if (@available(iOS 11.0, *)) {
+            bottomReferenceView = self.safeAreaLayoutGuide;
+        }
+#endif
+        [self addConstraint:
+         [NSLayoutConstraint constraintWithItem:self.monthCollectionView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
+        [self addConstraint:
+         [NSLayoutConstraint constraintWithItem:self.yearCollectionView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
+        [self addConstraint:
+         [NSLayoutConstraint constraintWithItem:self.verticalLine attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
         CGSize sizeOfPageControl = [self.pageControl sizeForNumberOfPages:self.pageControl.numberOfPages];
         [self addConstraint:
          [NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeRight relatedBy:0 toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:sizeOfPageControl.width/2 - sizeOfPageControl.height/2 + 10]];
