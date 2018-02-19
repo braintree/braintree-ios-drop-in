@@ -1,7 +1,7 @@
 #import "BTUIKExpiryInputView.h"
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
-#import "UIColor+BTUIK.h"
+#import "BTUIKAppearance.h"
 #import "BTUIKLocalizedString.h"
 
 #define BT_EXPIRY_FULL_PADDING 10
@@ -69,7 +69,7 @@
         
         self.verticalLine = [[UIView alloc] init];
         self.verticalLine.translatesAutoresizingMaskIntoConstraints = NO;
-        self.verticalLine.backgroundColor = [UIColor btuik_colorFromHex:@"8D8D8D" alpha:1.0];
+        self.verticalLine.backgroundColor = [BTUIKAppearance sharedInstance].lineColor;
         [self addSubview:self.verticalLine];
         
         [self.yearCollectionView reloadData];
@@ -200,12 +200,12 @@
         cell.label.text = date;
         cell.backgroundColor = [UIColor whiteColor];
         
-        cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         
         if (self.selectedYear && self.selectedYear == self.currentYear) {
             if ([cell getInteger] < self.currentMonth) {
                 cell.userInteractionEnabled = false;
-                cell.label.textColor = [UIColor lightGrayColor];
+                cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
             }
         }
         return cell;
@@ -216,11 +216,11 @@
     cell.label.text = date;
     cell.backgroundColor = [UIColor whiteColor];
     
-    cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+    cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
     
     if (self.selectedMonth && self.selectedMonth < self.currentMonth && [cell getInteger] == self.currentYear) {
         cell.userInteractionEnabled = false;
-        cell.label.textColor = [UIColor lightGrayColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
     }
     
     return cell;
@@ -291,19 +291,19 @@
 - (void) updateVisibleCells {
     for (BTUIKExpiryInputCollectionViewCell* cell in [self.yearCollectionView visibleCells]) {
         cell.userInteractionEnabled = true;
-        cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         if (self.selectedMonth && self.selectedMonth < self.currentMonth && [cell getInteger] == self.currentYear) {
             cell.userInteractionEnabled = false;
-            cell.label.textColor = [UIColor lightGrayColor];
+            cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
         }
     }
     for (BTUIKExpiryInputCollectionViewCell* cell in [self.monthCollectionView visibleCells]) {
         cell.userInteractionEnabled = true;
-        cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         if (self.selectedYear && self.selectedYear == self.currentYear) {
             if ([cell getInteger] < self.currentMonth) {
                 cell.userInteractionEnabled = false;
-                cell.label.textColor = [UIColor lightGrayColor];
+                cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
             }
         }
     }
