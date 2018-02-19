@@ -203,10 +203,10 @@
                                                                         views:viewBindings]];
     
     
-    self.contentHeightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+    self.contentHeightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     [self.view addConstraint:self.contentHeightConstraint];
     
-    self.contentHeightConstraintBottom = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+    self.contentHeightConstraintBottom = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     [self.view addConstraint:self.contentHeightConstraintBottom];
     
     
@@ -317,16 +317,6 @@
     return [self isFormSheet] ? 0 : BT_HALF_SHEET_MARGIN;
 }
 
-- (float)sheetBottomInset {
-    int safeAreaInset = 0;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
-    if (@available(iOS 11.0, *)) {
-        safeAreaInset += [self.view safeAreaInsets].bottom;
-    }
-#endif
-    return [self isFormSheet] ? 0 : BT_HALF_SHEET_MARGIN + safeAreaInset;
-}
-
 - (BOOL)isFullScreen {
     return ![self supportsHalfSheet] || [self isFormSheet] ;
 }
@@ -341,16 +331,16 @@
     } else {
         // Flexible views
         int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-        int sh = [[UIScreen mainScreen] bounds].size.height;
+        int sh = [[UIScreen mainScreen] bounds].size.height - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
         int sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetBottomInset] : (sh - sheetHeight - [self sheetBottomInset]);
+        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
     }
     
     [self applyContentViewConstraints];
     
     [self.view setNeedsUpdateConstraints];
 
-    self.contentHeightConstraintBottom.constant = -[self sheetBottomInset];
+    self.contentHeightConstraintBottom.constant = -[self sheetInset];
 
     if (animated) {
         [UIView animateWithDuration:BT_ANIMATION_SLIDE_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
@@ -491,11 +481,11 @@
     } else {
         // Flexible views
         int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-        int sh = [[UIScreen mainScreen] bounds].size.height;
+        int sh = [[UIScreen mainScreen] bounds].size.height - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
         int sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetBottomInset] : (sh - sheetHeight - [self sheetBottomInset]);
+        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
     }
-    self.contentHeightConstraintBottom.constant = -[self sheetBottomInset];
+    self.contentHeightConstraintBottom.constant = -[self sheetInset];
 
     [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
         [self.view layoutIfNeeded];
