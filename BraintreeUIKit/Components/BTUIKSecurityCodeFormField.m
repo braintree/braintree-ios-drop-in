@@ -16,6 +16,7 @@
         self.formLabel.text = BTUIKLocalizedString(SECURITY_CODE_LABEL);
         self.textField.placeholder = BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER);
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        self.textField.secureTextEntry = YES;
     }
     return self;
 }
