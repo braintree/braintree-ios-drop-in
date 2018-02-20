@@ -11,7 +11,7 @@
 - (void)test_cardListLabel_removesDuplicates {
     BTUIKCardListLabel *cardListLabel = [[BTUIKCardListLabel alloc] init];
     cardListLabel.availablePaymentOptions = @[@"Visa", @"Visa", @"Discover", @"Visa"];
-    XCTAssertTrue([cardListLabel.availablePaymentOptions count] == 2, @"The array should contain 1 instance of Visa and Discover." );
+    XCTAssertEqual([cardListLabel.availablePaymentOptions count], (NSUInteger)2);
     XCTAssertTrue([cardListLabel.availablePaymentOptions containsObject:@"Visa"]);
     XCTAssertTrue([cardListLabel.availablePaymentOptions containsObject:@"Discover"]);
 }
