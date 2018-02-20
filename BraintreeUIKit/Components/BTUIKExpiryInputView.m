@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.needsOrientationChange = NO;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         self.months = @[@"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10", @"11", @"12"];
         
         NSDate *currentDate = [NSDate date];
@@ -198,7 +198,7 @@
         
         NSString* date = self.months[indexPath.row];
         cell.label.text = date;
-        cell.backgroundColor = [UIColor whiteColor];
+        cell.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         
         cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         
@@ -214,7 +214,7 @@
     NSString* date = self.years[indexPath.row];
     cell.userInteractionEnabled = true;
     cell.label.text = date;
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
     
     cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
     

@@ -8,7 +8,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.label = [[UILabel alloc] init];
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         self.label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:24];
         self.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
