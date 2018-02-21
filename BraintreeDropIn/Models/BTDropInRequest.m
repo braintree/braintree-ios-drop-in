@@ -18,6 +18,7 @@
     request.paypalDisabled = self.paypalDisabled;
     request.venmoDisabled = self.venmoDisabled;
     request.threeDSecureVerification = self.threeDSecureVerification;
+    request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
     return request;
 }
 

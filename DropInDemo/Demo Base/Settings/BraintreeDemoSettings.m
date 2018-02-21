@@ -53,7 +53,6 @@ NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey = @"BraintreeDemo
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoChooserViewControllerShouldUseModalPresentationDefaultsKey"];
 }
 
-
 + (BOOL)customerPresent {
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoCustomerPresent"];
 }
@@ -68,6 +67,10 @@ NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey = @"BraintreeDemo
 
 + (BOOL)venmoDisabled {
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoDisableVenmo"];
+}
+
++ (BOOL)maskSecurityCode {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoMaskSecurityCode"];
 }
 
 @end

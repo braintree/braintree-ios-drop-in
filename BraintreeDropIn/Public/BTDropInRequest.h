@@ -46,6 +46,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
 
+/// Optional: If true the security code will be masked.
+/// Defaults to false.
+@property (nonatomic, assign) BOOL shouldMaskSecurityCode;
+
 @end
 
 NS_ASSUME_NONNULL_END
