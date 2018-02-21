@@ -1,5 +1,11 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.1.0 (2018-02-21)
+
+* Add support to mask security code text field
+* Fix issue that caused supported card types to be displayed more than once
+* UI fixes and improved iPhone X support. Thanks @shpuntov
+
 ## 6.0.1 (2018-02-08)
 
 * Fix code for implicit retain self warning
