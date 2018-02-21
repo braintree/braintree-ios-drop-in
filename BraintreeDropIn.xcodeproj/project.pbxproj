@@ -10,6 +10,7 @@
 		031F576F1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */; };
 		034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */; };
 		034D319A1E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */; };
+		0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */; };
 		0367AB4D1FC510AB00F8EF56 /* BTDropInOverrides.h in Headers */ = {isa = PBXBuildFile; fileRef = 039C17691FC4F1C000D5A3B5 /* BTDropInOverrides.h */; };
 		039C176C1FC4F1C000D5A3B5 /* BTDropInOverrides.m in Sources */ = {isa = PBXBuildFile; fileRef = 039C176A1FC4F1C000D5A3B5 /* BTDropInOverrides.m */; };
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -246,6 +247,7 @@
 		031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKAppearanceTests.m; sourceTree = "<group>"; };
 		034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardListLabelTests.m; sourceTree = "<group>"; };
 		034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInBaseViewControllerTests.m; sourceTree = "<group>"; };
+		0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDropInRequestTests.m; sourceTree = "<group>"; };
 		039C17691FC4F1C000D5A3B5 /* BTDropInOverrides.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTDropInOverrides.h; sourceTree = "<group>"; };
 		039C176A1FC4F1C000D5A3B5 /* BTDropInOverrides.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDropInOverrides.m; sourceTree = "<group>"; };
 		03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVisualAssetType.h; sourceTree = "<group>"; };
@@ -727,6 +729,7 @@
 				A5411A201D8A1F090041BE92 /* Info.plist */,
 				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
 				03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */,
+				0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */,
 				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
 				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
 				031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */,
@@ -1506,6 +1509,7 @@
 				031F576F1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m in Sources */,
 				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,
+				0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

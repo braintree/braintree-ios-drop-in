@@ -81,6 +81,11 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoDisableVenmo"];
     }
 
+    [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoMaskSecurityCode"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-MaskSecurityCode"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoMaskSecurityCode"];
+    }
+
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeTest_ForceVenmoDisplay"];
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ForceVenmo"]) {
         [BTDropInOverrides setDisplayVenmoOption:YES];

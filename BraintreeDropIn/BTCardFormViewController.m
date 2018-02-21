@@ -184,6 +184,7 @@
     self.expirationDateField.delegate = self;
     self.securityCodeField = [[BTUIKSecurityCodeFormField alloc] init];
     self.securityCodeField.delegate = self;
+    self.securityCodeField.textField.secureTextEntry = self.dropInRequest.shouldMaskSecurityCode;
     self.postalCodeField = [[BTUIKPostalCodeFormField alloc] init];
     self.postalCodeField.delegate = self;
     self.mobileCountryCodeField = [[BTUIKMobileCountryCodeFormField alloc] init];
