@@ -1,5 +1,5 @@
 #import "BTUIKExpiryInputCollectionViewCell.h"
-#import "UIColor+BTUIK.h"
+#import "BTUIKAppearance.h"
 
 @implementation BTUIKExpiryInputCollectionViewCell
 
@@ -8,8 +8,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.label = [[UILabel alloc] init];
-        self.backgroundColor = [UIColor whiteColor];
-        self.label.font = [UIFont systemFontOfSize:24];
+        self.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
+        self.label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:24];
+        self.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
         self.label.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.label];
@@ -17,7 +18,7 @@
         UIView* bgView = [[UIView alloc] initWithFrame:self.frame];
         bgView.layer.cornerRadius = 4;
         self.selectedBackgroundView = bgView;
-        self.selectedBackgroundView.backgroundColor = [UIColor btuik_colorFromHex:@"D1D4D9" alpha:1.0];
+        self.selectedBackgroundView.backgroundColor = [[BTUIKAppearance sharedInstance].primaryTextColor colorWithAlphaComponent:0.1];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]|"
                                                                      options:0

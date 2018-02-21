@@ -1,5 +1,5 @@
 #import "BTUIKCollectionReusableView.h"
-#import "UIColor+BTUIK.h"
+#import "BTUIKAppearance.h"
 
 @implementation BTUIKCollectionReusableView
 
@@ -10,8 +10,8 @@
         self.label = [[UILabel alloc] init];
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
         self.label.textAlignment = NSTextAlignmentCenter;
-        self.label.font = [UIFont systemFontOfSize:12];
-        self.label.textColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
+        self.label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:12];
+        self.label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
         [self addSubview:self.label];
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]|"

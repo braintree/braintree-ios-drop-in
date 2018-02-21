@@ -1,7 +1,7 @@
 #import "BTUIKExpiryInputView.h"
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
-#import "UIColor+BTUIK.h"
+#import "BTUIKAppearance.h"
 #import "BTUIKLocalizedString.h"
 
 #define BT_EXPIRY_FULL_PADDING 10
@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.needsOrientationChange = NO;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         self.months = @[@"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10", @"11", @"12"];
         
         NSDate *currentDate = [NSDate date];
@@ -69,7 +69,7 @@
         
         self.verticalLine = [[UIView alloc] init];
         self.verticalLine.translatesAutoresizingMaskIntoConstraints = NO;
-        self.verticalLine.backgroundColor = [UIColor btuik_colorFromHex:@"8D8D8D" alpha:1.0];
+        self.verticalLine.backgroundColor = [BTUIKAppearance sharedInstance].lineColor;
         [self addSubview:self.verticalLine];
         
         [self.yearCollectionView reloadData];
@@ -94,21 +94,36 @@
                                                                      metrics:metrics
                                                                        views:viewBindings]];
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[monthCollectionView]|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[monthCollectionView]"
                                                                      options:0
                                                                      metrics:metrics
                                                                        views:viewBindings]];
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[yearCollectionView]|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(BT_EXPIRY_FULL_PADDING)-[yearCollectionView]"
                                                                      options:0
                                                                      metrics:metrics
                                                                        views:viewBindings]];
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[verticalLine]|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[verticalLine]"
                                                                      options:0
                                                                      metrics:nil
                                                                        views:viewBindings]];
         
+        id bottomReferenceView = self;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+        if (@available(iOS 11.0, *)) {
+            bottomReferenceView = self.safeAreaLayoutGuide;
+        }
+#endif
+        [self addConstraint:
+         [NSLayoutConstraint constraintWithItem:self.monthCollectionView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
+        [self addConstraint:
+         [NSLayoutConstraint constraintWithItem:self.yearCollectionView attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
+        [self addConstraint:
+         [NSLayoutConstraint constraintWithItem:self.verticalLine attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+
         CGSize sizeOfPageControl = [self.pageControl sizeForNumberOfPages:self.pageControl.numberOfPages];
         [self addConstraint:
          [NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeRight relatedBy:0 toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:sizeOfPageControl.width/2 - sizeOfPageControl.height/2 + 10]];
@@ -183,14 +198,14 @@
         
         NSString* date = self.months[indexPath.row];
         cell.label.text = date;
-        cell.backgroundColor = [UIColor whiteColor];
+        cell.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         
-        cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         
         if (self.selectedYear && self.selectedYear == self.currentYear) {
             if ([cell getInteger] < self.currentMonth) {
                 cell.userInteractionEnabled = false;
-                cell.label.textColor = [UIColor lightGrayColor];
+                cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
             }
         }
         return cell;
@@ -199,13 +214,13 @@
     NSString* date = self.years[indexPath.row];
     cell.userInteractionEnabled = true;
     cell.label.text = date;
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
     
-    cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+    cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
     
     if (self.selectedMonth && self.selectedMonth < self.currentMonth && [cell getInteger] == self.currentYear) {
         cell.userInteractionEnabled = false;
-        cell.label.textColor = [UIColor lightGrayColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
     }
     
     return cell;
@@ -276,19 +291,19 @@
 - (void) updateVisibleCells {
     for (BTUIKExpiryInputCollectionViewCell* cell in [self.yearCollectionView visibleCells]) {
         cell.userInteractionEnabled = true;
-        cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         if (self.selectedMonth && self.selectedMonth < self.currentMonth && [cell getInteger] == self.currentYear) {
             cell.userInteractionEnabled = false;
-            cell.label.textColor = [UIColor lightGrayColor];
+            cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
         }
     }
     for (BTUIKExpiryInputCollectionViewCell* cell in [self.monthCollectionView visibleCells]) {
         cell.userInteractionEnabled = true;
-        cell.label.textColor = cell.selected ? [UIColor blackColor] : [UIColor blackColor];
+        cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         if (self.selectedYear && self.selectedYear == self.currentYear) {
             if ([cell getInteger] < self.currentMonth) {
                 cell.userInteractionEnabled = false;
-                cell.label.textColor = [UIColor lightGrayColor];
+                cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
             }
         }
     }
