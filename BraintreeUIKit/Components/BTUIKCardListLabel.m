@@ -40,7 +40,7 @@
 }
 
 - (void)setAvailablePaymentOptions:(NSArray *)availablePaymentOptions {
-    _availablePaymentOptions = availablePaymentOptions;
+    _availablePaymentOptions = [[NSSet setWithArray:availablePaymentOptions] allObjects];
     if ([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft]) {
         _availablePaymentOptions = [[_availablePaymentOptions reverseObjectEnumerator] allObjects];
     }
