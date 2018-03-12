@@ -311,6 +311,19 @@
     [self presentViewController:navController animated:YES completion:nil];
 }
 
+- (void)editPaymentMethods:(__unused id)sender {
+    BTVaultManagementViewController* vd = [[BTVaultManagementViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
+    vd.delegate = self;
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vd];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        navController.modalPresentationStyle = UIModalPresentationPageSheet;
+    } else {
+        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+
 #pragma mark - UI Helpers
 
 - (float)sheetInset {

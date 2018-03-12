@@ -53,7 +53,11 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
     sharedTheme.useBlurs = YES;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
-}   
+}
+
+- (UIColor *)highlightedTintColor {
+    return [sharedTheme.tintColor colorWithAlphaComponent:0.4];
+}
 
 + (void)styleLabelPrimary:(UILabel *)label {
     label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]];

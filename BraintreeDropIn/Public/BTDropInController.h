@@ -38,6 +38,11 @@ typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controll
 /// @param sender The sender requesting the view be changed.
 - (void)showCardForm:(id)sender;
 
+/// Show the edit screen for payment methods
+///
+/// @param sender The sender requesting the view be changed.
+- (void)editPaymentMethods:(id)sender;
+
 @end
 
 @protocol BTDropInControllerDelegate <NSObject>
