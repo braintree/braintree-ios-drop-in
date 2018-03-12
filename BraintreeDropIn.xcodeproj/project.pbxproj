@@ -532,13 +532,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A519F9F61D88618200819A39 /* BraintreeDropInStaticLibrary */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BraintreeDropInStaticLibrary;
-			sourceTree = "<group>";
-		};
 		A52900CE1D8903A600032220 /* BraintreeUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,7 +755,6 @@
 			children = (
 				A56C416C1D833348000DFFAB /* BraintreeDropIn */,
 				A5CE1D151D835832009BE61A /* DropInDemo */,
-				A519F9F61D88618200819A39 /* BraintreeDropInStaticLibrary */,
 				A52900CE1D8903A600032220 /* BraintreeUIKit */,
 				A5411A1D1D8A1F090041BE92 /* UnitTests */,
 				A5411A2B1D8A20D00041BE92 /* UITests */,
@@ -2010,7 +2002,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -2070,7 +2062,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;

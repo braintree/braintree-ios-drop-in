@@ -20,40 +20,40 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/Apple-Pay (4.11.0):
+  - Braintree/Apple-Pay (4.12.0):
     - Braintree/Core
-  - Braintree/Card (4.11.0):
+  - Braintree/Card (4.12.0):
     - Braintree/Core
-  - Braintree/Core (4.11.0)
-  - Braintree/PaymentFlow (4.11.0):
+  - Braintree/Core (4.12.0)
+  - Braintree/PaymentFlow (4.12.0):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/PayPal (4.11.0):
+  - Braintree/PayPal (4.12.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.11.0):
+  - Braintree/PayPalDataCollector (4.12.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.11.0):
+  - Braintree/PayPalOneTouch (4.12.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.11.0)
-  - Braintree/UnionPay (4.11.0):
+  - Braintree/PayPalUtils (4.12.0)
+  - Braintree/UnionPay (4.12.0):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.11.0):
+  - Braintree/Venmo (4.12.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - BraintreeDropIn (6.0.1):
-    - BraintreeDropIn/DropIn (= 6.0.1)
-  - BraintreeDropIn/DropIn (6.0.1):
+  - BraintreeDropIn (6.1.0):
+    - BraintreeDropIn/DropIn (= 6.1.0)
+  - BraintreeDropIn/DropIn (6.1.0):
     - Braintree/Card (~> 4.11)
     - Braintree/Core (~> 4.11)
     - Braintree/PaymentFlow (~> 4.11)
     - Braintree/UnionPay (~> 4.11)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (6.0.1)
+  - BraintreeDropIn/UIKit (6.1.0)
   - CardIO (5.4.1)
   - Expecta (1.0.6)
   - FLEX (2.4.0)
@@ -100,8 +100,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  Braintree: f52744f38d1f5f37f8719f7acee4e1d7a3acb758
-  BraintreeDropIn: 4cb63a9a8e85e3623688fd34841733aa67faf7e2
+  Braintree: c29956dab4533fb5966fe32cda1fca56e74d9d57
+  BraintreeDropIn: bcbf2cedd71e271b970afd4dbfab51d9476fc946
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
