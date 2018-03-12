@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BTDropInControllerDelegate;
 
 /// Contains form elements for editing vaulted payment methods.
-@interface BTVaultManagementViewController : BTDropInBaseViewController
+@interface BTVaultManagementViewController : BTDropInBaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) id<BTDropInControllerDelegate> delegate;
 

@@ -22,9 +22,6 @@
         self.layoutMargins = UIEdgeInsetsZero;
         self.preservesSuperviewLayoutMargins = NO;
 
-        [self.contentView removeConstraints:self.contentView.constraints];
-        self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
-
         self.label = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelPrimary:self.label];
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -44,7 +41,6 @@
         self.selectedBackgroundView = backgroundView;
         self.backgroundView = nil;
         [self applyConstraints];
-
     }
     return self;
 }
@@ -64,19 +60,8 @@
 }
 
 - (void)applyConstraints {
-    [self removeConstraints:self.constraints];
-    [self.contentView removeConstraints:self.contentView.constraints];
     [self.label removeConstraints:self.label.constraints];
     NSDictionary* viewBindings = @{@"contentView":self.contentView, @"label":self.label, @"iconView":self.iconView, @"bottomBorder":self.bottomBorder};
-
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|"
-                                                                 options:0
-                                                                 metrics:[BTUIKAppearance metrics]
-                                                                   views:viewBindings]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|"
-                                                                 options:0
-                                                                 metrics:[BTUIKAppearance metrics]
-                                                                   views:viewBindings]];
 
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label][bottomBorder(0.5)]|"
                                                                              options:0
