@@ -5,16 +5,41 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTCardFormViewController.h"
 
-@class BTPaymentMethodNonce;
-@protocol BTAppSwitchDelegate;
-@protocol BTViewControllerPresentingDelegate;
-
 NS_ASSUME_NONNULL_BEGIN
+
+@class BTPaymentMethodNonce;
+@protocol BTAppSwitchDelegate, BTViewControllerPresentingDelegate, BTDropInControllerPaymentManagerDelegate;
+
+/**
+ @brief The action to take on a payment method.
+
+ @see BTDropInControllerPaymentManagerDelegate
+ */
+typedef NS_ENUM(NSInteger, BTPaymentManagerAction) {
+    /// Unknown action
+    BTPaymentManagerActionUnknown = 0,
+    /// Delete action
+    BTPaymentManagerActionDelete,
+};
+
+/**
+ @brief The status of the async action by the server.
+
+ @see BTDropInControllerPaymentManagerDelegate
+ */
+typedef NS_ENUM(NSInteger, BTPaymentManagerActionStatus) {
+    /// Action was successful
+    BTPaymentManagerActionStatusSuccess = 0,
+    /// Action failed, an error alert will be displayed when returning this status
+    BTPaymentManagerActionStatusFailure,
+};
 
 /// The primary UIViewController for Drop-In. BTDropInController will manage the other UIViewControllers and return a BTDropInResult.
 @interface BTDropInController : UIViewController <UIToolbarDelegate, UIViewControllerTransitioningDelegate>
 
 typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controller, BTDropInResult * _Nullable result, NSError * _Nullable error);
+
+typedef void (^BTPaymentManagerActionHandler)(BTPaymentManagerActionStatus status);
 
 /// Initialize a new Drop-in view controller.
 ///
@@ -33,6 +58,9 @@ typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controll
 /// The BTDropInRequest used to customize Drop-in
 @property (nonatomic, strong, readonly) BTDropInRequest *dropInRequest;
 
+/// The optional BTDropInControllerPaymentManagerDelegate which enabled the managment UI and callbacks.
+@property (nonatomic, weak, nullable) id<BTDropInControllerPaymentManagerDelegate> paymentManagerDelegate;
+
 /// Show the BTCardFormViewController
 ///
 /// @param sender The sender requesting the view be changed.
@@ -48,6 +76,14 @@ typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controll
 @protocol BTDropInControllerDelegate <NSObject>
 
 - (void)reloadDropInData;
+
+- (nullable id<BTDropInControllerPaymentManagerDelegate>)paymentManagerDelegate;
+
+@end
+
+@protocol BTDropInControllerPaymentManagerDelegate <NSObject>
+
+- (void)dropInController:(BTDropInController *)controller action:(BTPaymentManagerAction)action paymentMethod:(BTPaymentMethodNonce *)paymentMethod completion:(BTPaymentManagerActionHandler)completion;
 
 @end
 

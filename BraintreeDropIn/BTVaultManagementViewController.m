@@ -1,29 +1,16 @@
 #import "BTVaultManagementViewController.h"
-#import "BTDropInController.h"
 #import "BTDropInPaymentSeletionCell.h"
+#import "BTAPIClient_Internal_Category.h"
+#import "BTUIKBarButtonItem_Internal_Declaration.h"
 #if __has_include("BraintreeCore.h")
 #import "BraintreeCore.h"
 #else
 #import <BraintreeCore/BraintreeCore.h>
 #endif
-#import "BTAPIClient_Internal_Category.h"
-#import "BTUIKBarButtonItem_Internal_Declaration.h"
-#import "BTEnrollmentVerificationViewController.h"
-#import "BTDropInUIUtilities.h"
 #if __has_include("BraintreeCard.h")
 #import "BraintreeCard.h"
 #else
 #import <BraintreeCard/BraintreeCard.h>
-#endif
-#if __has_include("BraintreeUnionPay.h")
-#import "BraintreeUnionPay.h"
-#else
-#import <BraintreeUnionPay/BraintreeUnionPay.h>
-#endif
-#if __has_include("BraintreePaymentFlow.h")
-#import "BraintreePaymentFlow.h"
-#else
-#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
 #endif
 
 @interface BTVaultManagementViewController ()
@@ -42,12 +29,10 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(DONE_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
     self.title = BTUIKLocalizedString(EDIT_PAYMENT_METHOD);
 
-
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    //[self.paymentOptionsTableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
     self.paymentOptionsTableView.backgroundColor = [UIColor clearColor];
     [self.paymentOptionsTableView registerClass:[BTDropInPaymentSeletionCell class] forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
     self.paymentOptionsTableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -145,24 +130,31 @@
 
 - (void)tableView:(__unused UITableView *)tableView commitEditingStyle:(__unused UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(__unused NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //BTPaymentMethodNonce *paymentMethod = self.paymentMethodNonces[indexPath.row];
-        // Show loading while bubbling event and waiting for success/failure callback
-        // Then update UI...
-        NSMutableArray *mutablePaymentMethodNonces = [NSMutableArray arrayWithArray:self.paymentMethodNonces];
-        [mutablePaymentMethodNonces removeObjectAtIndex:indexPath.row];
-        self.paymentMethodNonces = [mutablePaymentMethodNonces copy];
-        [self.paymentOptionsTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        BTPaymentMethodNonce *paymentMethod = self.paymentMethodNonces[indexPath.row];
+        // Empty table data and show loading while waiting for success/failure callback
+        self.paymentMethodNonces = @[];
+        [self.paymentOptionsTableView reloadData];
+        [self showLoadingScreen:YES];
+        [self.delegate paymentMethodSelected:paymentMethod action:BTPaymentManagerActionDelete completion:^(BTPaymentManagerActionStatus status) {
+            if (status == BTPaymentManagerActionStatusSuccess) {
+                // no action
+            } else {
+                // Failure Alert
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTUIKLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction: alertAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                });
+            }
+            [self loadConfiguration];
+        }];
     }
 }
 
 - (BOOL)tableView:(__unused UITableView *)tableView canEditRowAtIndexPath:(__unused NSIndexPath *)indexPath {
     return YES;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    BTDropInPaymentSeletionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//}
 
 -(CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
     return 44.0;

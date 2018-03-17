@@ -1,5 +1,4 @@
 #import <UIKit/UIKit.h>
-
 #if __has_include("BTUIKPaymentOptionType.h")
 #import "BTUIKPaymentOptionType.h"
 #else

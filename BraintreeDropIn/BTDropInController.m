@@ -21,7 +21,7 @@
 #define BT_HALF_SHEET_MARGIN 5
 #define BT_HALF_SHEET_CORNER_RADIUS 12
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate>
+@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, BTVaultManagementViewControllerDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -511,6 +511,12 @@
     [self.paymentSelectionViewController loadConfiguration];
     [self flexViewAnimated:NO];
     [self.view setNeedsDisplay];
+}
+
+- (void)paymentMethodSelected:(BTPaymentMethodNonce *)nonce action:(BTPaymentManagerAction)action completion:(BTPaymentManagerActionHandler)completion {
+    if (self.paymentManagerDelegate) {
+        [self.paymentManagerDelegate dropInController:self action:action paymentMethod:nonce completion:completion];
+    }
 }
 
 @end
