@@ -68,7 +68,13 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ClientToken"]) {
         [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoUseTokenizationKey"];
         // Use random users for testing with Client Tokens
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoCustomerPresent"];
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"BraintreeDemoCustomerIdentifier"];
+    }
+
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EditModeCustomer"]) {
+        // Customer "1234" has vaulted payment methods
+        [[NSUserDefaults standardUserDefaults] setObject:@"123" forKey:@"BraintreeDemoCustomerIdentifier"];
     }
 
     [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoDisablePayPal"];

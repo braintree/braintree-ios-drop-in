@@ -268,7 +268,11 @@
         }
         [dropInController dismissViewControllerAnimated:YES completion:nil];
     }];
-    dropIn.paymentManagerDelegate = self;
+
+    if (![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"]) {
+        dropIn.paymentManagerDelegate = self;
+    }
+
     [self presentViewController:dropIn animated:YES completion:nil];
 }
 
@@ -387,9 +391,11 @@
 
 - (void)dropInController:(__unused BTDropInController *)controller action:(__unused BTPaymentManagerAction)action paymentMethod:(__unused BTPaymentMethodNonce *)paymentMethod completion:(BTPaymentManagerActionHandler)completion {
     // This is where the async server request is made to take action on the payment method (nonce)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        completion(BTPaymentManagerActionStatusSuccess);
-    });
+    if (action == BTPaymentManagerActionDelete) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            completion(BTPaymentManagerActionStatusSuccess);
+        });
+    }
 }
 
 @end
