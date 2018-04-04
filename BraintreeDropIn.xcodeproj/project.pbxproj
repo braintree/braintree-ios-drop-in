@@ -254,6 +254,7 @@
 		03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInResultTests.m; sourceTree = "<group>"; };
 		1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		36E754F12075625D00E0143B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/BTUI.strings; sourceTree = "<group>"; };
 		4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1218,6 +1219,7 @@
 				"zh-Hant",
 				ar,
 				"zh-Hant-HK",
+				cs,
 			);
 			mainGroup = A56C41601D833348000DFFAB;
 			productRefGroup = A56C416B1D833348000DFFAB /* Products */;
@@ -1604,6 +1606,7 @@
 				030D98331DC935B200161899 /* zh-Hant */,
 				030D98351DC9363500161899 /* ar */,
 				030D98361DC9385300161899 /* zh-Hant-HK */,
+				36E754F12075625D00E0143B /* cs */,
 			);
 			name = BTUI.strings;
 			sourceTree = "<group>";
