@@ -598,6 +598,7 @@
     UIBarButtonItem *addCardButton = self.navigationItem.rightBarButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     self.view.userInteractionEnabled = NO;
+    __block UINavigationController *navController = self.navigationController;
 
     [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -627,7 +628,16 @@
                     }
                 }];
             } else {
-                [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+                if (error != nil) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(CARD_DETAILS_LABEL) message:BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                        [alertController addAction: alertAction];
+                        [navController presentViewController:alertController animated:YES completion:nil];
+                    });
+                } else {
+                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+                }
             }
         });
     }];
