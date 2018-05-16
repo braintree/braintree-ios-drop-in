@@ -21,6 +21,12 @@
 #define BT_HALF_SHEET_MARGIN 5
 #define BT_HALF_SHEET_CORNER_RADIUS 12
 
+@interface BTDropInControllerPresentTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@end
+
+@interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@end
+
 @interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
@@ -36,12 +42,6 @@
 @property (nonatomic, strong) UIVisualEffectView *blurredContentBackgroundView;
 @property (nonatomic, copy, nullable) BTDropInControllerHandler handler;
 
-@end
-
-@interface BTDropInControllerPresentTransition : NSObject <UIViewControllerAnimatedTransitioning>
-@end
-
-@interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
 
 @implementation BTDropInController
