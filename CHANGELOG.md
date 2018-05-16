@@ -1,5 +1,10 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.2.0 (2018-05-16)
+
+* Add card validation error alert when validation fails
+* Fix transition animation issues with main Drop-in view
+
 ## 6.1.0 (2018-02-21)
 
 * Add support to mask security code text field
