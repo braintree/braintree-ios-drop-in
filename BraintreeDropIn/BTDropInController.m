@@ -21,7 +21,13 @@
 #define BT_HALF_SHEET_MARGIN 5
 #define BT_HALF_SHEET_CORNER_RADIUS 12
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate>
+@interface BTDropInControllerPresentTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@end
+
+@interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@end
+
+@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -58,8 +64,8 @@
             // Customize the iPad size...
             // self.preferredContentSize = CGSizeMake(600, 400);
         } else {
-            self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            self.transitioningDelegate = self;
+            self.modalPresentationStyle = UIModalPresentationCustom;
         }
         
         self.useBlur = !UIAccessibilityIsReduceTransparencyEnabled();
@@ -84,24 +90,8 @@
     
     if (self.isBeingPresented) {
         [self.paymentSelectionViewController loadConfiguration];
-        
         [self resetDropInState];
         [self loadConfiguration];
-        if ([self isFormSheet]) {
-            // Position the views in screen before appearing
-            [self flexViewAnimated:NO];
-        } else {
-            // Move content off screen so it can be animated in when it appears
-            CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]) + [UIApplication sharedApplication].statusBarFrame.size.height;
-            self.contentHeightConstraintBottom.constant = sh;
-            self.contentHeightConstraint.constant = sh;
-            [self.view setNeedsUpdateConstraints];
-            [self.view layoutIfNeeded];
-            [self flexViewAnimated:YES];
-        }
-    } else {
-        [self flexViewAnimated:NO];
-        [self.view setNeedsDisplay];
     }
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
 }
@@ -372,22 +362,6 @@
                                                                         views:viewBindings]];
 }
 
-- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        // No iPad specific dismissal animation
-    } else {
-        CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]);
-        self.contentHeightConstraintBottom.constant = sh;
-        self.contentHeightConstraint.constant = sh;
-        [self.view setNeedsUpdateConstraints];
-        [UIView animateWithDuration:BT_ANIMATION_SLIDE_SPEED animations:^{
-            [self.view layoutIfNeeded];
-        }];
-    }
-    
-    [super dismissViewControllerAnimated:flag completion:completion];
-}
-
 - (void)resetDropInState {
     self.configuration = nil;
     self.paymentSelectionViewController.view.hidden = NO;
@@ -498,6 +472,74 @@
     [self.paymentSelectionViewController loadConfiguration];
     [self flexViewAnimated:NO];
     [self.view setNeedsDisplay];
+}
+
+#pragma mark UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(__unused UIViewController *)presented
+                                                                  presentingController:(__unused UIViewController *)presenting
+                                                                      sourceController:(__unused UIViewController *)source
+{
+    return [[BTDropInControllerPresentTransition alloc] init];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(__unused UIViewController *)dismissed
+{
+    return [[BTDropInControllerDismissTransition alloc] init];
+}
+
+@end
+
+#pragma mark Private Animation Classes
+
+@implementation BTDropInControllerPresentTransition
+
+- (NSTimeInterval)transitionDuration:(__unused id<UIViewControllerContextTransitioning>)transitionContext {
+    return BT_ANIMATION_SLIDE_SPEED;
+}
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    BTDropInController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    [[transitionContext containerView] addSubview:toViewController.view];
+
+    // Move content off screen so it can be animated in when it appears
+    CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]) + [UIApplication sharedApplication].statusBarFrame.size.height;
+    toViewController.contentHeightConstraintBottom.constant = sh;
+    toViewController.contentHeightConstraint.constant = sh;
+    [toViewController.view setNeedsUpdateConstraints];
+    [toViewController.view layoutIfNeeded];
+    [toViewController flexViewAnimated:YES];
+    toViewController.view.alpha = 0;
+
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        toViewController.view.alpha = 1;
+    } completion:^(__unused BOOL finished) {
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    }];
+}
+
+@end
+
+@implementation BTDropInControllerDismissTransition
+
+- (NSTimeInterval)transitionDuration:(__unused id<UIViewControllerContextTransitioning>)transitionContext {
+    return BT_ANIMATION_SLIDE_SPEED;
+}
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    BTDropInController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+
+    CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]);
+    fromViewController.contentHeightConstraintBottom.constant = sh;
+    fromViewController.contentHeightConstraint.constant = sh;
+    [fromViewController.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        fromViewController.view.alpha = 0;
+        [fromViewController.view layoutIfNeeded];
+    } completion:^(__unused BOOL finished) {
+        [fromViewController.view removeFromSuperview];
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    }];
 }
 
 @end
