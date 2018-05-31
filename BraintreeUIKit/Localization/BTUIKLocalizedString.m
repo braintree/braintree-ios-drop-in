@@ -2,9 +2,16 @@
 
 @implementation BTUIKLocalizedString
 
-+ (NSBundle *)localizationBundle {
+static NSArray *customTranslations;
 
++ (NSBundle *)localizationBundle {
     static NSString * bundleName = @"Braintree-UIKit-Localization";
+    NSString *language = [[NSLocale preferredLanguages] firstObject];
+
+    if (customTranslations && [customTranslations containsObject:language]) {
+        return [NSBundle mainBundle];
+    }
+
     NSString *localizationBundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
     if (!localizationBundlePath) {
         localizationBundlePath = [[NSBundle bundleForClass:[self class]] pathForResource:bundleName ofType:@"bundle"];
@@ -18,6 +25,10 @@
 }
 
 #pragma mark Localization helpers
+
++ (void)customTranslations:(NSArray *)locales {
+    customTranslations = [locales copy];
+}
 
 + (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement {
     return [self insertIntoLocalizedString:string replacement:replacement token:@"%s"];
