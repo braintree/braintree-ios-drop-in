@@ -6,10 +6,15 @@ static NSArray *customTranslations;
 
 + (NSBundle *)localizationBundle {
     static NSString * bundleName = @"Braintree-UIKit-Localization";
-    NSString *language = [[NSLocale preferredLanguages] firstObject];
+    if ([[NSLocale preferredLanguages] count] > 0) {
+        NSString *language = [[NSLocale preferredLanguages] firstObject];
+        // Ignore region portion of local ID
+        language = [[language componentsSeparatedByString:@"_"] firstObject];
+        language = [[language componentsSeparatedByString:@"-"] firstObject];
 
-    if (customTranslations && [customTranslations containsObject:language]) {
-        return [NSBundle mainBundle];
+        if (customTranslations && [customTranslations containsObject:language]) {
+            return [NSBundle mainBundle];
+        }
     }
 
     NSString *localizationBundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
