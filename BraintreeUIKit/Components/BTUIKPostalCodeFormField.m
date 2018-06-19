@@ -14,7 +14,7 @@
         self.formLabel.text = BTUIKLocalizedString(POSTAL_CODE_PLACEHOLDER);
         self.textField.placeholder = @"12345";
         self.textField.keyboardType = [BTUIKAppearance sharedInstance].postalCodeFormFieldKeyboardType;
-        
+
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.textField.returnKeyType = UIReturnKeyDone;
@@ -49,6 +49,11 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     self.displayAsValid = YES;
     [super textFieldDidEndEditing:textField];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
