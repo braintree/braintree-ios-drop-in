@@ -99,6 +99,57 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_securityCodeValidation_CardForm_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        // NOTE: This sandbox client token has CVV validation enabled.
+        app.launchArguments.append("-Authorization:eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiI2ZGE5Y2VhMzVkNGNlMjkxNGI3YzBiOGRiN2M5OWU4MjVmYTQ5ZTY5OTNiYWM4YmE3MTQwYjdiZjI0ODc4NGQ0fGNyZWF0ZWRfYXQ9MjAxOC0wMy0xMlQyMTo0MzoxMS4wOTI1MzAxNDcrMDAwMCZjdXN0b21lcl9pZD01ODA3NDE3NzEmbWVyY2hhbnRfaWQ9aGg0Y3BjMzl6cTRyZ2pjZyZwdWJsaWNfa2V5PXEzanRzcTNkM3Aycmg1dnQiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvaGg0Y3BjMzl6cTRyZ2pjZy9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJncmFwaFFMVXJsIjoiaHR0cHM6Ly9wYXltZW50cy5zYW5kYm94LmJyYWludHJlZS1hcGkuY29tL2dyYXBocWwiLCJjaGFsbGVuZ2VzIjpbImN2diJdLCJlbnZpcm9ubWVudCI6InNhbmRib3giLCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvaGg0Y3BjMzl6cTRyZ2pjZy9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhbmFseXRpY3MiOnsidXJsIjoiaHR0cHM6Ly9jbGllbnQtYW5hbHl0aWNzLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb20vaGg0Y3BjMzl6cTRyZ2pjZyJ9LCJ0aHJlZURTZWN1cmVFbmFibGVkIjp0cnVlLCJwYXlwYWxFbmFibGVkIjp0cnVlLCJwYXlwYWwiOnsiZGlzcGxheU5hbWUiOiJidCIsImNsaWVudElkIjoiQVZRSmY5YS1iNmptWUZnaW9OcEkyaTU3cnNRa0hqUlpadjRkOURaTFRVMG5CU3Vma2h3QUNBWnhqMGxkdTg1amFzTTAyakZSUEthVElOQ04iLCJwcml2YWN5VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3BwIiwidXNlckFncmVlbWVudFVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS90b3MiLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjpmYWxzZSwiZW52aXJvbm1lbnQiOiJvZmZsaW5lIiwidW52ZXR0ZWRNZXJjaGFudCI6ZmFsc2UsImJyYWludHJlZUNsaWVudElkIjoibWFzdGVyY2xpZW50MyIsImJpbGxpbmdBZ3JlZW1lbnRzRW5hYmxlZCI6dHJ1ZSwibWVyY2hhbnRBY2NvdW50SWQiOiJjNXljdzJzdnlrbnp3anR6IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn0sIm1lcmNoYW50SWQiOiJoaDRjcGMzOXpxNHJnamNnIiwidmVubW8iOiJvZmYiLCJicmFpbnRyZWVfYXBpIjp7InVybCI6Imh0dHBzOi8vcGF5bWVudHMuc2FuZGJveC5icmFpbnRyZWUtYXBpLmNvbSIsImFjY2Vzc190b2tlbiI6InNhbmRib3hfNmRkdG13X3B6YjZ3cF93ZHdoY3lfOWhnNm5iX2N5NiJ9fQ==")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Change Payment Method"])
+        app.buttons["Change Payment Method"].tap()
+    }
+
+    func testDropIn_invalidSecurityCode_presentsAlert() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4000000000000002")
+
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts["2019"].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("200")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        self.waitForElementToBeHittable(app.alerts.buttons["OK"])
+        XCTAssertTrue(app.alerts.staticTexts["Please review your information and try again."].exists);
+        app.alerts.buttons["OK"].tap()
+
+        // Assert: can edit after dismissing alert
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("\u{8}1")
+    }
+}
+
 class BraintreeDropIn_CardForm_RequestOptions_UITests: XCTestCase {
 
     var app: XCUIApplication!
