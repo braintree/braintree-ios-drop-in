@@ -20,6 +20,14 @@
 
 @implementation BTVaultManagementViewController
 
+NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
+"mutation DeletePaymentMethodFromSingleUseToken($input: DeletePaymentMethodFromSingleUseTokenInput!) {"
+"  deletePaymentMethodFromSingleUseToken(input: $input) {"
+"    clientMutationId"
+"  }"
+"}";
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -135,20 +143,45 @@
         self.paymentMethodNonces = @[];
         [self.paymentOptionsTableView reloadData];
         [self showLoadingScreen:YES];
-        [self.delegate paymentMethodSelected:paymentMethod action:BTPaymentManagerActionDelete completion:^(BTPaymentManagerActionStatus status) {
-            if (status == BTPaymentManagerActionStatusSuccess) {
-                // no action
-            } else {
-                // Failure Alert
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTUIKLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction: alertAction];
-                    [self presentViewController:alertController animated:YES completion:nil];
-                });
-            }
-            [self loadConfiguration];
-        }];
+        NSDictionary *parameters = @{
+                                     @"operationName": @"DeletePaymentMethodFromSingleUseToken",
+                                     @"query": BTGraphQLDeletePaymentMethodFromSingleUseToken,
+                                     @"variables": @{
+                                             @"input": @{ @"singleUseTokenId" : paymentMethod.nonce }
+                                             }
+                                     };
+        [self.apiClient POST:@""
+                  parameters:[parameters copy]
+                    httpType:BTAPIClientHTTPTypeGraphQLAPI
+                  completion:^(__unused BTJSON * _Nullable body, __unused NSHTTPURLResponse * _Nullable response, __unused NSError * _Nullable error)
+         {
+             // add analytics for success/failure
+             [self loadConfiguration];
+             if (error) {
+                 // Failure Alert
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTUIKLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
+                     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                     [alertController addAction: alertAction];
+                     [self presentViewController:alertController animated:YES completion:nil];
+                 });
+             }
+             NSLog(@"%@", body);
+         }];
+//        [self.delegate paymentMethodSelected:paymentMethod action:BTPaymentManagerActionDelete completion:^(BTPaymentManagerActionStatus status) {
+//            if (status == BTPaymentManagerActionStatusSuccess) {
+//                // no action
+//            } else {
+//                // Failure Alert
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTUIKLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
+//                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+//                    [alertController addAction: alertAction];
+//                    [self presentViewController:alertController animated:YES completion:nil];
+//                });
+//            }
+//            [self loadConfiguration];
+//        }];
     }
 }
 
