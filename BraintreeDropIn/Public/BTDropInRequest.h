@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Optional: If true, enables the managment UI.
 /// Defaults to false.
-@property (nonatomic, assign) BOOL vaultManagmentEnabled;
+@property (nonatomic, assign) BOOL vaultManager;
 
 @end
 

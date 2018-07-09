@@ -285,7 +285,7 @@
         if (error) {
             // no action
         } else {
-            self.vaultedPaymentsEditButton.hidden = !self.dropInRequest.vaultManagmentEnabled;
+            self.vaultedPaymentsEditButton.hidden = !self.dropInRequest.vaultManager;
             self.paymentMethodNonces = [paymentMethodNonces copy];
             if (completionBlock) {
                 completionBlock();

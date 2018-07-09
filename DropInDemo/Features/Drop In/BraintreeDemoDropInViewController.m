@@ -245,7 +245,7 @@
         [BTUIKAppearance darkTheme];
     }
 
-    dropInRequest.vaultManagmentEnabled = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
+    dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
     
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
     dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];

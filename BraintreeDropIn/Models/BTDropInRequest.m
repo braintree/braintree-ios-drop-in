@@ -19,7 +19,7 @@
     request.venmoDisabled = self.venmoDisabled;
     request.threeDSecureVerification = self.threeDSecureVerification;
     request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
-    request.vaultManagmentEnabled = self.vaultManagmentEnabled;
+    request.vaultManager = self.vaultManager;
     return request;
 }
 
