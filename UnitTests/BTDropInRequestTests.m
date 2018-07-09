@@ -22,6 +22,7 @@
     originalRequest.venmoDisabled = YES;
     originalRequest.threeDSecureVerification = YES;
     originalRequest.shouldMaskSecurityCode = YES;
+    originalRequest.vaultManager = YES;
 
     BTDropInRequest *copiedRequest = [originalRequest copy];
 
@@ -35,6 +36,7 @@
     XCTAssertEqual(originalRequest.venmoDisabled, copiedRequest.venmoDisabled);
     XCTAssertEqual(originalRequest.threeDSecureVerification, copiedRequest.threeDSecureVerification);
     XCTAssertEqual(originalRequest.shouldMaskSecurityCode, copiedRequest.shouldMaskSecurityCode);
+    XCTAssertEqual(originalRequest.vaultManager, copiedRequest.vaultManager);
 }
 
 @end
