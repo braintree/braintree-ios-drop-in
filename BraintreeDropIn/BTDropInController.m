@@ -301,19 +301,6 @@
     [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (void)editPaymentMethods:(__unused id)sender {
-    BTVaultManagementViewController* vd = [[BTVaultManagementViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
-    vd.delegate = self;
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vd];
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        navController.modalPresentationStyle = UIModalPresentationPageSheet;
-    } else {
-        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    }
-    [self presentViewController:navController animated:YES completion:nil];
-}
-
-
 #pragma mark - UI Helpers
 
 - (float)sheetInset {
@@ -485,6 +472,18 @@
     [self.paymentSelectionViewController loadConfiguration];
     [self flexViewAnimated:NO];
     [self.view setNeedsDisplay];
+}
+
+- (void)editPaymentMethods:(__unused id)sender {
+    BTVaultManagementViewController* vaultManagementViewController = [[BTVaultManagementViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
+    vaultManagementViewController.delegate = self;
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vaultManagementViewController];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        navController.modalPresentationStyle = UIModalPresentationPageSheet;
+    } else {
+        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark UIViewControllerTransitioningDelegate

@@ -27,7 +27,6 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 "  }"
 "}";
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -166,22 +165,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
                      [self presentViewController:alertController animated:YES completion:nil];
                  });
              }
-             NSLog(@"%@", body);
          }];
-//        [self.delegate paymentMethodSelected:paymentMethod action:BTPaymentManagerActionDelete completion:^(BTPaymentManagerActionStatus status) {
-//            if (status == BTPaymentManagerActionStatusSuccess) {
-//                // no action
-//            } else {
-//                // Failure Alert
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTUIKLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
-//                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
-//                    [alertController addAction: alertAction];
-//                    [self presentViewController:alertController animated:YES completion:nil];
-//                });
-//            }
-//            [self loadConfiguration];
-//        }];
     }
 }
 
