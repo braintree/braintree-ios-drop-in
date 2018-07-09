@@ -36,7 +36,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(DONE_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
+    self.navigationItem.rightBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(DONE_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
     self.title = BTUIKLocalizedString(EDIT_PAYMENT_METHOD);
 
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -125,10 +125,14 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     BTPaymentMethodNonce *paymentMethod = self.paymentMethodNonces[indexPath.row];
     BTUIKPaymentOptionType option = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:paymentMethod.type];
 
-    cell.label.text = paymentMethod.localizedDescription;
+    cell.detailLabel.text = @"";
+    NSString *typeString = paymentMethod.type;
+    NSMutableAttributedString *typeWithDescription = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", paymentMethod.localizedDescription ?: @""]];
     if ([paymentMethod isKindOfClass:[BTCardNonce class]]) {
-        cell.label.attributedText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"••• ••%@", ((BTCardNonce*)paymentMethod).lastTwo ?: @""]];
+        typeWithDescription = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"••• ••%@", ((BTCardNonce*)paymentMethod).lastTwo ?: @""]];
     }
+    cell.detailLabel.attributedText = typeWithDescription;
+    cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString]];
     cell.iconView.paymentOptionType = option;
     cell.type = option;
 
@@ -174,7 +178,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 }
 
 -(CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
-    return 44.0;
+    return 54.0;
 }
 
 #pragma mark UITableViewDataSource

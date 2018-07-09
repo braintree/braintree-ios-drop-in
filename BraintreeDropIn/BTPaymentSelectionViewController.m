@@ -412,6 +412,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     BTUIKPaymentOptionType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
 
+    cell.detailLabel.text = @"";
     cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
     if (option == BTUIKPaymentOptionTypeUnknown) {
         cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
