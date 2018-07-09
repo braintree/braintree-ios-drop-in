@@ -10,7 +10,7 @@
 #import "BraintreeCard.h"
 #import "BraintreePaymentFlow.h"
 
-@interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate, BTViewControllerPresentingDelegate, BTDropInControllerPaymentManagerDelegate>
+@interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate, BTViewControllerPresentingDelegate>
 
 @property (nonatomic, strong) BTUIKPaymentOptionCardView *paymentMethodTypeIcon;
 @property (nonatomic, strong) UILabel *paymentMethodTypeLabel;
@@ -244,6 +244,8 @@
     } else {
         [BTUIKAppearance darkTheme];
     }
+
+    dropInRequest.vaultManagmentEnabled = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
     
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
     dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
@@ -268,10 +270,6 @@
         }
         [dropInController dismissViewControllerAnimated:YES completion:nil];
     }];
-
-    if (![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"]) {
-        dropIn.paymentManagerDelegate = self;
-    }
 
     [self presentViewController:dropIn animated:YES completion:nil];
 }
@@ -387,15 +385,6 @@
 
 - (void)paymentDriver:(__unused id)driver requestsDismissalOfViewController:(__unused UIViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)dropInController:(__unused BTDropInController *)controller action:(__unused BTPaymentManagerAction)action paymentMethod:(__unused BTPaymentMethodNonce *)paymentMethod completion:(BTPaymentManagerActionHandler)completion {
-    // This is where the async server request is made to take action on the payment method (nonce)
-    if (action == BTPaymentManagerActionDelete) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            completion(BTPaymentManagerActionStatusSuccess);
-        });
-    }
 }
 
 @end

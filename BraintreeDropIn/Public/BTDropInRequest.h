@@ -50,6 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// Defaults to false.
 @property (nonatomic, assign) BOOL shouldMaskSecurityCode;
 
+/// Optional: If true, enables the managment UI.
+/// Defaults to false.
+@property (nonatomic, assign) BOOL vaultManagmentEnabled;
+
 @end
 
 NS_ASSUME_NONNULL_END

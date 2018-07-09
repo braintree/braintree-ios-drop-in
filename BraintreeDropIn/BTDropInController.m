@@ -27,7 +27,7 @@
 @interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTVaultManagementViewControllerDelegate>
+@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -485,12 +485,6 @@
     [self.paymentSelectionViewController loadConfiguration];
     [self flexViewAnimated:NO];
     [self.view setNeedsDisplay];
-}
-
-- (void)paymentMethodSelected:(BTPaymentMethodNonce *)nonce action:(BTPaymentManagerAction)action completion:(BTPaymentManagerActionHandler)completion {
-    if (self.paymentManagerDelegate) {
-        [self.paymentManagerDelegate dropInController:self action:action paymentMethod:nonce completion:completion];
-    }
 }
 
 #pragma mark UIViewControllerTransitioningDelegate
