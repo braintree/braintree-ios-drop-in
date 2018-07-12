@@ -157,6 +157,15 @@ func fetchExistingPaymentMethod(clientToken: String) {
 }
 ```
 
+### Editing customer's payment methods
+
+By default, if you initialize the Drop-in with a client token generated with a customer ID, the Drop-in will add payment methods to that customer ID within the Braintree Vault.  You can optionally allow the deletion of payment methods for that customer ID.
+
+```swift
+let request =  BTDropInRequest()
+request.vaultManager = true
+```
+
 ### Localization
 
 Drop-In is currently localized for [23 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/BraintreeUIKit/Localization).
