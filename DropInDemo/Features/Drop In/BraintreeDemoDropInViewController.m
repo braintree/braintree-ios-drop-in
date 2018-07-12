@@ -244,7 +244,8 @@
     } else {
         [BTUIKAppearance darkTheme];
     }
-    
+    [BTUIKLocalizedString setCustomTranslations:@[@"cs"]];
+
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
     dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
     dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
