@@ -9,8 +9,7 @@ static NSArray *customTranslations;
     if ([[NSLocale preferredLanguages] count] > 0) {
         NSString *language = [[NSLocale preferredLanguages] firstObject];
         // Ignore region portion of local ID
-        language = [[language componentsSeparatedByString:@"_"] firstObject];
-        language = [[language componentsSeparatedByString:@"-"] firstObject];
+        language = [[[[language componentsSeparatedByString:@"_"] firstObject] componentsSeparatedByString:@"-"] firstObject];
 
         if (customTranslations && [customTranslations containsObject:language]) {
             return [NSBundle mainBundle];
@@ -31,7 +30,7 @@ static NSArray *customTranslations;
 
 #pragma mark Localization helpers
 
-+ (void)customTranslations:(NSArray *)locales {
++ (void)setCustomTranslations:(NSArray *)locales {
     customTranslations = [locales copy];
 }
 
