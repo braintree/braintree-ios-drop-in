@@ -66,6 +66,11 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     [self loadConfiguration];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.appeared"];
+}
+
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(NSError *)error {
     if (!error) {
         [self fetchPaymentMethodsOnCompletion:^{
@@ -158,16 +163,17 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
                     httpType:BTAPIClientHTTPTypeGraphQLAPI
                   completion:^(__unused BTJSON * _Nullable body, __unused NSHTTPURLResponse * _Nullable response, __unused NSError * _Nullable error)
          {
-             // add analytics for success/failure
              [self loadConfiguration];
              if (error) {
-                 // Failure Alert
+                 [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.failed"];
                  dispatch_async(dispatch_get_main_queue(), ^{
                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTUIKLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
                      UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
                      [alertController addAction: alertAction];
                      [self presentViewController:alertController animated:YES completion:nil];
                  });
+             } else {
+                 [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.succeeded"];
              }
          }];
     }
