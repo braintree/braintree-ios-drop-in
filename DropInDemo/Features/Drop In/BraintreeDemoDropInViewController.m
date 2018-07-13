@@ -251,6 +251,8 @@
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
     dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
     dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
+    
+    dropInRequest.currencyCode = @"USD";
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
         if (error) {

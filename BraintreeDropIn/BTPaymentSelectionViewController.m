@@ -18,6 +18,12 @@
 #import <BraintreeCard/BraintreeCard.h>
 #endif
 
+#if __has_include("BraintreePayPal.h")
+#import "BraintreePayPal.h"
+#else
+#import <BraintreePayPal/BraintreePayPal.h>
+#endif
+
 #if __has_include("BraintreeApplePay.h")
 #define __BT_APPLE_PAY
 #import "BraintreeApplePay.h"
@@ -438,9 +444,19 @@
             options[BTTokenizationServicePayPalScopesOption] = self.dropInRequest.additionalPayPalScopes;
         }
         
-        [[BTTokenizationService sharedService] tokenizeType:@"PayPal" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
-            if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:paymentMethodNonce error:error];
+//        [[BTTokenizationService sharedService] tokenizeType:@"PayPal" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
+//            if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
+//                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:paymentMethodNonce error:error];
+//            }
+//        }];
+        
+        BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
+        driver.viewControllerPresentingDelegate = options[BTTokenizationServiceViewPresentingDelegateOption];
+        driver.appSwitchDelegate = options[BTTokenizationServiceViewPresentingDelegateOption];
+        BTPayPalRequest *request = [[BTPayPalRequest alloc] initWithAmount:@"4.25"];
+        [driver requestOneTimePayment:request completion:^(BTPayPalAccountNonce * _Nullable payPalAccount, NSError * _Nullable error) {
+            if (self.delegate && (payPalAccount != nil || error != nil)) {
+                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:payPalAccount error:error];
             }
         }];
         

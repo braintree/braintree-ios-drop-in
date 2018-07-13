@@ -32,6 +32,7 @@ Pod::Spec.new do |s|
     s.dependency "Braintree/UnionPay", "~> 4.11"
     s.dependency "Braintree/PaymentFlow", "~> 4.11"
     s.dependency "BraintreeDropIn/UIKit"
+    s.dependency "Braintree/PayPal", "~> 4.11"
   end
 
   s.subspec "UIKit" do |s|
