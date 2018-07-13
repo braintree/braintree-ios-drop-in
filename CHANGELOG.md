@@ -1,5 +1,12 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.3.0 (2018-07-13)
+
+* Add `vaultManager` option
+  * Allows for the deletion of vaulted payment methods
+* Alpha-numeric keyboard will dismiss when Done button is pressed
+* Add support for custom translations
+
 ## 6.2.0 (2018-05-16)
 
 * Add card validation error alert when validation fails
