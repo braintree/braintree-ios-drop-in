@@ -5,9 +5,9 @@
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
-@class BTCardRequest, BTCardCapabilities, BTPaymentMethodNonce;
-
 NS_ASSUME_NONNULL_BEGIN
+
+@class BTCardRequest, BTCardCapabilities, BTPaymentMethodNonce;
 @protocol BTCardFormViewControllerDelegate, BTDropInControllerDelegate;
 
 /// Contains form elements for entering card information.

@@ -45,6 +45,8 @@
 @property (nonatomic) BOOL useBlurs;
 /// The keyboard the postal code field should use
 @property (nonatomic) UIKeyboardType postalCodeFormFieldKeyboardType;
+/// The highlighted version of the `tintColor`
+@property (nonatomic, readonly, getter = highlightedTintColor) UIColor *highlightedTintColor;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]

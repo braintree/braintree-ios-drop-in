@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0305FE7B205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */; };
 		031F576F1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */; };
 		032C90FD20C064E500FD5B59 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 032C90FB20C064E500FD5B59 /* BTUI.strings */; };
 		034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */; };
@@ -223,6 +224,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropinEditMode_UITests.swift; sourceTree = "<group>"; };
 		030D981E1DC933EF00161899 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D981F1DC9340500161899 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D98221DC9347C00161899 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BTUI.strings; sourceTree = "<group>"; };
@@ -738,6 +740,7 @@
 			isa = PBXGroup;
 			children = (
 				A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */,
+				0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */,
 				A5411A361D8A23580041BE92 /* Helpers */,
 				A5411A2E1D8A20D00041BE92 /* Info.plist */,
 			);
@@ -1508,6 +1511,7 @@
 			files = (
 				A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */,
 				A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */,
+				0305FE7B205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1632,6 +1636,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1687,6 +1692,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1910,7 +1916,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1958,7 +1964,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2007,7 +2013,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -2067,7 +2073,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;

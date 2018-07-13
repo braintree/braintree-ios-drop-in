@@ -1,5 +1,5 @@
-#import <UIKit/UIKit.h>
 #import "BTDropInBaseViewController.h"
+#import "BTDropInController.h"
 #if __has_include("BraintreeUIKit.h")
 #import "BraintreeUIKit.h"
 #else
@@ -7,8 +7,7 @@
 #endif
 
 @class BTPaymentMethodNonce;
-
-@protocol BTPaymentSelectionViewControllerDelegate;
+@protocol BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate;
 
 /// @class A UIViewController that displays vaulted payment methods for a customer and available payment options
 @interface BTPaymentSelectionViewController : BTDropInBaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate>
@@ -18,7 +17,7 @@
 @property (nonatomic, strong) NSArray *paymentMethodNonces;
 
 /// The delegate
-@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate> delegate;
 
 /// The desired height when rendering the view in a sheet.
 - (float)sheetHeight;

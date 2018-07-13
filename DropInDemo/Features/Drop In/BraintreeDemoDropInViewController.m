@@ -244,6 +244,8 @@
     } else {
         [BTUIKAppearance darkTheme];
     }
+
+    dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
     [BTUIKLocalizedString setCustomTranslations:@[@"cs"]];
 
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
@@ -269,7 +271,7 @@
         }
         [dropInController dismissViewControllerAnimated:YES completion:nil];
     }];
-    
+
     [self presentViewController:dropIn animated:YES completion:nil];
 }
 

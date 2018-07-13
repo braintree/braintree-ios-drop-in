@@ -41,6 +41,7 @@
 @property (nonatomic, strong) NSLayoutConstraint *savedPaymentMethodsCollectionViewConstraint;
 @property (nonatomic, strong) UILabel *paymentOptionsHeader;
 @property (nonatomic, strong) UILabel *vaultedPaymentsHeader;
+@property (nonatomic, strong) UIButton *vaultedPaymentsEditButton;
 @property (nonatomic, strong) UICollectionView *savedPaymentMethodsCollectionView;
 @end
 
@@ -119,10 +120,25 @@
     self.vaultedPaymentsHeader.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.vaultedPaymentsLabelContainerStackView = [self newStackView];
+    self.vaultedPaymentsLabelContainerStackView.axis  = UILayoutConstraintAxisHorizontal;
     self.vaultedPaymentsLabelContainerStackView.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
     self.vaultedPaymentsLabelContainerStackView.layoutMarginsRelativeArrangement = true;
 
     [self.vaultedPaymentsLabelContainerStackView addArrangedSubview:self.vaultedPaymentsHeader];
+
+    self.vaultedPaymentsEditButton = [UIButton new];
+    self.vaultedPaymentsEditButton.hidden = YES;
+    NSAttributedString *normalVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]]}];
+    [self.vaultedPaymentsEditButton setAttributedTitle:normalVaultedPaymentsEditButton forState:UIControlStateNormal];
+    NSAttributedString *highlightVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].highlightedTintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]]}];
+    [self.vaultedPaymentsEditButton setAttributedTitle:highlightVaultedPaymentsEditButton forState:UIControlStateHighlighted];
+    NSAttributedString *disabledVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]]}];
+    [self.vaultedPaymentsEditButton setAttributedTitle:disabledVaultedPaymentsEditButton forState:UIControlStateDisabled];
+    [self.vaultedPaymentsEditButton sizeToFit];
+    [self.vaultedPaymentsEditButton layoutIfNeeded];
+    [self.vaultedPaymentsEditButton addTarget:self action:@selector(vaultedPaymentsEditButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.vaultedPaymentsLabelContainerStackView addArrangedSubview:self.vaultedPaymentsEditButton];
+
     [self.stackView addArrangedSubview:self.vaultedPaymentsLabelContainerStackView];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -232,12 +248,10 @@
             [self.paymentOptionsTableView reloadData];
             if (self.paymentMethodNonces.count == 0) {
                 self.savedPaymentMethodsCollectionView.hidden = YES;
-                self.vaultedPaymentsHeader.hidden = YES;
                 self.paymentOptionsLabelContainerStackView.hidden = YES;
                 self.vaultedPaymentsLabelContainerStackView.hidden = YES;
             } else {
                 self.savedPaymentMethodsCollectionView.hidden = NO;
-                self.vaultedPaymentsHeader.hidden = NO;
                 self.paymentOptionsLabelContainerStackView.hidden = NO;
                 self.vaultedPaymentsLabelContainerStackView.hidden = NO;
                 [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
@@ -271,6 +285,7 @@
         if (error) {
             // no action
         } else {
+            self.vaultedPaymentsEditButton.hidden = !self.dropInRequest.vaultManager;
             self.paymentMethodNonces = [paymentMethodNonces copy];
             if (completionBlock) {
                 completionBlock();
@@ -321,6 +336,12 @@
 
 - (float) sheetHeight {
     return self.paymentMethodNonces.count == 0 ? 280 : 470;
+}
+
+- (void)vaultedPaymentsEditButtonPressed {
+    if ([self.delegate respondsToSelector:@selector(editPaymentMethods:)]){
+        [self.delegate performSelector:@selector(editPaymentMethods:) withObject:self];
+    }
 }
 
 #pragma mark - Protocol conformance
@@ -391,6 +412,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     BTUIKPaymentOptionType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
 
+    cell.detailLabel.text = @"";
     cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
     if (option == BTUIKPaymentOptionTypeUnknown) {
         cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);

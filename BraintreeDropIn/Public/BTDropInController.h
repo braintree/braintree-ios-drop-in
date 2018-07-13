@@ -5,11 +5,10 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTCardFormViewController.h"
 
-@class BTPaymentMethodNonce;
-@protocol BTAppSwitchDelegate;
-@protocol BTViewControllerPresentingDelegate;
-
 NS_ASSUME_NONNULL_BEGIN
+
+@class BTPaymentMethodNonce;
+@protocol BTAppSwitchDelegate, BTViewControllerPresentingDelegate;
 
 /// The primary UIViewController for Drop-In. BTDropInController will manage the other UIViewControllers and return a BTDropInResult.
 @interface BTDropInController : UIViewController <UIToolbarDelegate, UIViewControllerTransitioningDelegate>
@@ -43,6 +42,11 @@ typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controll
 @protocol BTDropInControllerDelegate <NSObject>
 
 - (void)reloadDropInData;
+
+/// Show the edit screen for payment methods.
+///
+/// @param sender The sender requesting the view be changed.
+- (void)editPaymentMethods:(id)sender;
 
 @end
 

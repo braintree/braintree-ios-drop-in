@@ -135,6 +135,15 @@ request.threeDSecureVerification = true
 request.amount = "1.00"
 ```
 
+### Managing payment methods
+
+By default, if you initialize the Drop-in with a client token generated with a customer ID, Drop-in will add payment methods to that customer within the Braintree Vault.  You can optionally allow the deletion of payment methods for that customer by enabling `vaultManager`.
+
+```swift
+let request =  BTDropInRequest()
+request.vaultManager = true
+```
+
 ### Fetch last used payment method
 
 If your user already has an existing payment method, you may not need to show the Drop-In payment picker. You can check if they have an existing payment method using `BTDropInResult:fetchDropInResultForAuthorization`. Note that the handler will only return a result when using a client token that was created with a `customer_id`. `BTDropInResult` makes it easy to get a description and icon of the payment method.

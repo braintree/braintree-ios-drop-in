@@ -474,6 +474,18 @@
     [self.view setNeedsDisplay];
 }
 
+- (void)editPaymentMethods:(__unused id)sender {
+    BTVaultManagementViewController* vaultManagementViewController = [[BTVaultManagementViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
+    vaultManagementViewController.delegate = self;
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vaultManagementViewController];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        navController.modalPresentationStyle = UIModalPresentationPageSheet;
+    } else {
+        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
 #pragma mark UIViewControllerTransitioningDelegate
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(__unused UIViewController *)presented
