@@ -6,6 +6,8 @@
 
 #pragma mark Localization helpers
 
++ (void)setCustomTranslations:(NSArray *)locales;
+
 + (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement;
 
 + (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token;
