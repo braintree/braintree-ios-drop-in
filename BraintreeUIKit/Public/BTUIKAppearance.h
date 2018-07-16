@@ -43,8 +43,6 @@
 @property (nonatomic) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
 /// Toggle blur effects
 @property (nonatomic) BOOL useBlurs;
-/// The keyboard the postal code field should use
-@property (nonatomic) UIKeyboardType postalCodeFormFieldKeyboardType;
 /// The highlighted version of the `tintColor`
 @property (nonatomic, readonly, getter = highlightedTintColor) UIColor *highlightedTintColor;
 
