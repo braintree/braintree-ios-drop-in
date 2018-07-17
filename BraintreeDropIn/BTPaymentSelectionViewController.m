@@ -226,7 +226,7 @@
             NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
             for (NSString *supportedCardType in supportedCardTypes) {
                 BTUIKPaymentOptionType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
-                if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:paymentOptionType]) {
+                if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:paymentOptionType] && !self.dropInRequest.cardDisabled) {
                     // Add credit cards if they are supported
                     [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeUnknown)];
                     break;

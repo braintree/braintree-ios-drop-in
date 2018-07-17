@@ -250,6 +250,7 @@
 
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
     dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
+    dropInRequest.cardDisabled = [[[NSProcessInfo processInfo] arguments] containsObject:@"-CardDisabled"];
     dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
