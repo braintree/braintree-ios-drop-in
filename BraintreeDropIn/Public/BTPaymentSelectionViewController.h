@@ -1,9 +1,16 @@
 #import "BTDropInBaseViewController.h"
 #import "BTDropInController.h"
+
 #if __has_include("BraintreeUIKit.h")
 #import "BraintreeUIKit.h"
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
+#endif
+
+#if __has_include("BraintreeCore.h")
+#import "BraintreeCore.h"
+#else
+#import <BraintreeCore/BraintreeCore.h>
 #endif
 
 @class BTPaymentMethodNonce;
@@ -17,7 +24,7 @@
 @property (nonatomic, strong) NSArray *paymentMethodNonces;
 
 /// The delegate
-@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate> delegate;
+@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTAppSwitchDelegate, BTViewControllerPresentingDelegate> delegate;
 
 /// The desired height when rendering the view in a sheet.
 - (float)sheetHeight;

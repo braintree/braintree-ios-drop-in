@@ -436,14 +436,9 @@
             [self.delegate performSelector:@selector(showCardForm:) withObject:self];
         }
     } else if (cell.type == BTUIKPaymentOptionTypePayPal) {
-        NSMutableDictionary *options = [NSMutableDictionary dictionary];
-        if (self.delegate != nil) {
-            options[BTTokenizationServiceViewPresentingDelegateOption] = self.delegate;
-        }
-
         BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
-        driver.viewControllerPresentingDelegate = options[BTTokenizationServiceViewPresentingDelegateOption];
-        driver.appSwitchDelegate = options[BTTokenizationServiceViewPresentingDelegateOption];
+        driver.viewControllerPresentingDelegate = self.delegate;
+        driver.appSwitchDelegate = self.delegate;
 
         BTPayPalRequest *payPalRequest = self.dropInRequest.payPalRequest;
         if (payPalRequest == nil) {
