@@ -391,6 +391,48 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-PayPalOneTime")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+
+    func testDropIn_paypal_showAmount_receivesNonce() {
+        if #available(iOS 11.0, *) {
+            // SFSafariAuthenticationSession flow cannot be fully automated, so returning early
+            return
+        }
+
+        self.waitForElementToBeHittable(app.staticTexts["PayPal"])
+        app.staticTexts["PayPal"].tap()
+        sleep(3)
+
+        let webviewElementsQuery = app.webViews.element.otherElements
+
+        self.waitForElementToAppear(webviewElementsQuery.staticTexts["4.77"])
+
+        self.waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
+
+        webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
+
+        XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists)
+    }
+}
+
 class BraintreeDropIn_PayPal_Disabled_UITests: XCTestCase {
     
     var app: XCUIApplication!

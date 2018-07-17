@@ -251,8 +251,11 @@
     dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
     dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
     dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
-    
-    dropInRequest.currencyCode = @"USD";
+
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-PayPalOneTime"]) {
+        dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
+    }
+    dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
         if (error) {

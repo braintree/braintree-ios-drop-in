@@ -440,26 +440,30 @@
         if (self.delegate != nil) {
             options[BTTokenizationServiceViewPresentingDelegateOption] = self.delegate;
         }
-        if (self.dropInRequest.additionalPayPalScopes != nil) {
-            options[BTTokenizationServicePayPalScopesOption] = self.dropInRequest.additionalPayPalScopes;
-        }
-        
-//        [[BTTokenizationService sharedService] tokenizeType:@"PayPal" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
-//            if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
-//                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:paymentMethodNonce error:error];
-//            }
-//        }];
-        
+
         BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
         driver.viewControllerPresentingDelegate = options[BTTokenizationServiceViewPresentingDelegateOption];
         driver.appSwitchDelegate = options[BTTokenizationServiceViewPresentingDelegateOption];
-        BTPayPalRequest *request = [[BTPayPalRequest alloc] initWithAmount:@"4.25"];
-        [driver requestOneTimePayment:request completion:^(BTPayPalAccountNonce * _Nullable payPalAccount, NSError * _Nullable error) {
-            if (self.delegate && (payPalAccount != nil || error != nil)) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:payPalAccount error:error];
-            }
-        }];
-        
+
+        BTPayPalRequest *payPalRequest = self.dropInRequest.payPalRequest;
+        if (payPalRequest == nil) {
+            payPalRequest = [[BTPayPalRequest alloc] init];
+        }
+
+        // One time payment if an amount is present
+        if (payPalRequest.amount) {
+            [driver requestOneTimePayment:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable payPalAccount, NSError * _Nullable error) {
+                if (self.delegate && (payPalAccount != nil || error != nil)) {
+                    [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:payPalAccount error:error];
+                }
+            }];
+        } else {
+            [driver requestBillingAgreement:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable payPalAccount, NSError * _Nullable error) {
+                if (self.delegate && (payPalAccount != nil || error != nil)) {
+                    [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:payPalAccount error:error];
+                }
+            }];
+        }
     } else if (cell.type == BTUIKPaymentOptionTypeVenmo) {
         NSMutableDictionary *options = [NSMutableDictionary dictionary];
         if (self.delegate != nil) {
