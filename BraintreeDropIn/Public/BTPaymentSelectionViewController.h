@@ -7,14 +7,8 @@
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
-#else
-#import <BraintreeCore/BraintreeCore.h>
-#endif
-
 @class BTPaymentMethodNonce;
-@protocol BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate;
+@protocol BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTAppSwitchDelegate, BTViewControllerPresentingDelegate;
 
 /// @class A UIViewController that displays vaulted payment methods for a customer and available payment options
 @interface BTPaymentSelectionViewController : BTDropInBaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate>

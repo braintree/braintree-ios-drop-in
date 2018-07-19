@@ -1,14 +1,8 @@
 #import <Foundation/Foundation.h>
 
-#if __has_include("BraintreePayPal.h")
-#import "BraintreePayPal.h"
-#else
-#import <BraintreePayPal/BraintreePayPal.h>
-#endif
-
 NS_ASSUME_NONNULL_BEGIN
 
-@class BTPostalAddress;
+@class BTPostalAddress, BTPayPalRequest;
 
 @interface BTDropInRequest : NSObject <NSCopying>
 

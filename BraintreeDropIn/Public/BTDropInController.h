@@ -5,19 +5,13 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTCardFormViewController.h"
 
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
-#else
-#import <BraintreeCore/BraintreeCore.h>
-#endif
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class BTPaymentMethodNonce;
 @protocol BTAppSwitchDelegate, BTViewControllerPresentingDelegate;
 
 /// The primary UIViewController for Drop-In. BTDropInController will manage the other UIViewControllers and return a BTDropInResult.
-@interface BTDropInController : UIViewController <UIToolbarDelegate, UIViewControllerTransitioningDelegate, BTAppSwitchDelegate, BTViewControllerPresentingDelegate>
+@interface BTDropInController : UIViewController <UIToolbarDelegate, UIViewControllerTransitioningDelegate>
 
 typedef void (^BTDropInControllerHandler)(BTDropInController * _Nonnull controller, BTDropInResult * _Nullable result, NSError * _Nullable error);
 

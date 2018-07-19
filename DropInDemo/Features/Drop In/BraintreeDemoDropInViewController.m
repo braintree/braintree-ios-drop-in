@@ -9,6 +9,7 @@
 #import "BraintreeApplePay.h"
 #import "BraintreeCard.h"
 #import "BraintreePaymentFlow.h"
+#import "BraintreePayPal.h"
 
 @interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate, BTViewControllerPresentingDelegate>
 
