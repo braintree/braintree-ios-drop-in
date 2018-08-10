@@ -20,6 +20,7 @@
     return [self initWithBrand:brand
               securityCodeName:securityCodeName
                       prefixes:prefixes
+               relaxedPrefixes:nil
             validNumberLengths:kDefaultValidNumberLengths
                 validCvvLength:kDefaultCvvLength
                   formatSpaces:kDefaultFormatSpaceIndices];
@@ -28,6 +29,7 @@
 - (instancetype)initWithBrand:(NSString *)brand
              securityCodeName:(NSString *)securityCodeName
                      prefixes:(NSArray *)prefixes
+              relaxedPrefixes:(NSArray *)relaxedPrefixes
            validNumberLengths:(NSIndexSet *)validLengths
                validCvvLength:(NSUInteger)cvvLength
                  formatSpaces:(NSArray *)formatSpaces
@@ -38,6 +40,7 @@
         NSError *error;
 
         _validNumberPrefixes = prefixes;
+        _relaxedPrefixes = relaxedPrefixes;
         if (error != nil) {
             NSLog(@"Braintree-Payments-UIKit: %@", error);
         }
@@ -73,6 +76,17 @@
             }
         }
     }
+    for (BTUIKCardType *cardType in [[self class] allCards]) {
+        for (NSString *pattern in cardType.relaxedPrefixes) {
+            NSError *error;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+            NSTextCheckingResult *match = [regex firstMatchInString:number options:0 range: NSMakeRange(0, [number length])];
+
+            if (match != nil) {
+                return cardType;
+            }
+        }
+    }
     return nil;
 }
 
@@ -91,6 +105,17 @@
             NSTextCheckingResult *match = [regex firstMatchInString:number options:0 range: NSMakeRange(0, [number length])];
 
             if (match != nil) {
+                [possibleCardTypes addObject:cardType];
+            }
+        }
+    }
+    for (BTUIKCardType *cardType in [[self class] allCards]) {
+        for (NSString *pattern in cardType.relaxedPrefixes) {
+            NSError *error;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+            NSTextCheckingResult *match = [regex firstMatchInString:number options:0 range: NSMakeRange(0, [number length])];
+
+            if (match != nil && ![possibleCardTypes containsObject:cardType]) {
                 [possibleCardTypes addObject:cardType];
             }
         }
@@ -136,7 +161,7 @@
                                                           prefixes:@[@"^4\\d*"]];
         BTUIKCardType *mastercard = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MASTER_CARD)
                                                         securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
-                                                              prefixes:@[@"^(5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[0-1]|2720)\\d*"]];
+                                                                prefixes:@[@"^(5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[0-1]|2720)\\d*"]];
         BTUIKCardType *discover = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_DISCOVER)
                                                       securityCodeName:BTUIKLocalizedString(CID_FIELD_PLACEHOLDER)
                                                               prefixes:@[@"^(6011|65|64[4-9]|622)\\d*"]];
@@ -145,28 +170,32 @@
                                                          prefixes:@[@"^35\\d*"]];
         BTUIKCardType *amex = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS)
                                                   securityCodeName:BTUIKLocalizedString(CID_FIELD_PLACEHOLDER)
-                                                        prefixes:@[@"^3[47]\\d*"]
-                                              validNumberLengths:[NSIndexSet indexSetWithIndex:15]
-                                                  validCvvLength:4
-                                                    formatSpaces:@[@4, @10]];
+                                                          prefixes:@[@"^3[47]\\d*"]
+                                                   relaxedPrefixes:nil
+                                                validNumberLengths:[NSIndexSet indexSetWithIndex:15]
+                                                    validCvvLength:4
+                                                      formatSpaces:@[@4, @10]];
         BTUIKCardType *dinersClub = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB)
                                                         securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
-                                                              prefixes:@[@"^(36|38|30[0-5])\\d*"]
-                                                    validNumberLengths:[NSIndexSet indexSetWithIndex:14]
-                                                        validCvvLength:3
-                                                          formatSpaces:nil];
+                                                                prefixes:@[@"^(36|38|30[0-5])\\d*"]
+                                                         relaxedPrefixes:nil
+                                                      validNumberLengths:[NSIndexSet indexSetWithIndex:14]
+                                                          validCvvLength:3
+                                                            formatSpaces:nil];
         BTUIKCardType *maestro = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MAESTRO)
                                                      securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
-                                                           prefixes:@[@"^(5018|5020|5038|6020|6304|6703|6759|676[1-3])\\d*"]
-                                                 validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(12, 8)]
-                                                     validCvvLength:3
-                                                       formatSpaces:nil];
+                                                             prefixes:@[@"^(5018|5020|5038|6020|6304|6703|6759|676[1-3])\\d*"]
+                                                      relaxedPrefixes:@[@"^6\\d*"]
+                                                   validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(12, 8)]
+                                                       validCvvLength:3
+                                                         formatSpaces:nil];
         BTUIKCardType *unionPay = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)
                                                       securityCodeName:BTUIKLocalizedString(CVN_FIELD_PLACEHOLDER)
-                                                            prefixes:@[@"^62\\d*"]
-                                                  validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 4)]
-                                                      validCvvLength:3
-                                                        formatSpaces:nil];
+                                                              prefixes:@[@"^62\\d*"]
+                                                       relaxedPrefixes:nil
+                                                    validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 4)]
+                                                        validCvvLength:3
+                                                          formatSpaces:nil];
 
         _allCards = @[visa, mastercard, discover, amex, dinersClub, jcb, mastercard, maestro, unionPay];
     });
@@ -229,7 +258,5 @@
 - (BOOL)completeNumber:(NSString *)number {
     return [self.validNumberLengths containsIndex:number.length];
 }
-
-
 
 @end
