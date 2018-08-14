@@ -1,5 +1,12 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.4.0 (2018-07-17)
+
+* Require Braintree ~> 4.17.0
+  * Ensures GraphQL is available for `vaultManager`
+* Add `cardDisabled` option
+* Fix issue where Carthage integrations were failing
+
 ## 6.3.0 (2018-07-13)
 
 * Add `vaultManager` option

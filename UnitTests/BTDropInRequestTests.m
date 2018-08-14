@@ -16,6 +16,7 @@
     originalRequest.applePayDisabled = YES;
     originalRequest.paypalDisabled = YES;
     originalRequest.venmoDisabled = YES;
+    originalRequest.cardDisabled = YES;
     originalRequest.threeDSecureVerification = YES;
     originalRequest.shouldMaskSecurityCode = YES;
     originalRequest.vaultManager = YES;

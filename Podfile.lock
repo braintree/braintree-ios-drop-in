@@ -45,16 +45,16 @@ PODS:
   - Braintree/Venmo (4.17.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - BraintreeDropIn (6.2.0):
-    - BraintreeDropIn/DropIn (= 6.2.0)
-  - BraintreeDropIn/DropIn (6.2.0):
-    - Braintree/Card (~> 4.11)
-    - Braintree/Core (~> 4.11)
-    - Braintree/PaymentFlow (~> 4.11)
-    - Braintree/PayPal (~> 4.11)
-    - Braintree/UnionPay (~> 4.11)
+  - BraintreeDropIn (6.4.0):
+    - BraintreeDropIn/DropIn (= 6.4.0)
+  - BraintreeDropIn/DropIn (6.4.0):
+    - Braintree/Card (~> 4.17)
+    - Braintree/Core (~> 4.17)
+    - Braintree/PaymentFlow (~> 4.17)
+    - Braintree/PayPal (~> 4.17)
+    - Braintree/UnionPay (~> 4.17)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (6.2.0)
+  - BraintreeDropIn/UIKit (6.4.0)
   - CardIO (5.4.1)
   - Expecta (1.0.6)
   - FLEX (2.4.0)
@@ -102,7 +102,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Braintree: 9681cef8240c8ad9e67493d5c19418041e6c259a
-  BraintreeDropIn: dea906c9e4be27247406d9a8a5f22f5ab3cebd1f
+  BraintreeDropIn: 74e69f65a6f56e7b4b36c3447aed89e41d21ee7d
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079

@@ -150,6 +150,30 @@ class BraintreeDropIn_securityCodeValidation_CardForm_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_CardDisabled_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-CardDisabled")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+
+    func testDropIn_maskSecurityCodeOption_enablesSecureTextEntry() {
+        XCTAssertTrue(app.staticTexts["PayPal"].exists);
+        XCTAssertFalse(app.staticTexts["Credit or Debit Card"].exists);
+    }
+}
+
 class BraintreeDropIn_CardForm_RequestOptions_UITests: XCTestCase {
 
     var app: XCUIApplication!
