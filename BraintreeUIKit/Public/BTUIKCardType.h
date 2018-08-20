@@ -41,6 +41,9 @@
 /// An array of valid number prefixes
 @property (nonatomic, strong, readonly) NSArray *validNumberPrefixes;
 
+/// An array of relaxed valid number prefixes
+@property (nonatomic, strong, readonly) NSArray *relaxedPrefixes;
+
 /// The valid card number lengths
 @property (nonatomic, strong, readonly) NSIndexSet  *validNumberLengths;
 

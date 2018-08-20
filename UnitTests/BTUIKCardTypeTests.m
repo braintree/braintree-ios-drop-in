@@ -51,6 +51,7 @@
     [sampleCards addObject:@[@"5018000000000000122", @"Maestro"]];
     [sampleCards addObject:@[@"6703000000000007", @"Maestro"]];
     [sampleCards addObject:@[@"6020111111111116", @"Maestro"]];
+    [sampleCards addObject:@[@"6764111111111116", @"Maestro"]];
 
     // Union Pay
     [sampleCards addObject:@[@"6240888888888885", @"UnionPay"]];
@@ -61,14 +62,13 @@
         NSString *cardBrand = [cardInfo objectAtIndex:1];
         BTUIKCardType *card = [BTUIKCardType cardTypeForNumber:cardNumber];
         XCTAssertEqualObjects([card brand], cardBrand);
-        XCTAssertEqual((int)[[BTUIKCardType possibleCardTypesForNumber:cardNumber] count], 1);
-
+        XCTAssertGreaterThanOrEqual((int)[[BTUIKCardType possibleCardTypesForNumber:cardNumber] count], 1);
 
         // Ensure that cards are found for short numbers
         BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:4]];
         XCTAssertEqualObjects([shortCard brand], cardBrand);
         NSArray *possibleCardsUsingShortNumber = [BTUIKCardType possibleCardTypesForNumber:[cardNumber substringToIndex:4]];
-        XCTAssertEqual((int)[possibleCardsUsingShortNumber count], 1);
+        XCTAssertGreaterThanOrEqual((int)[possibleCardsUsingShortNumber count], 1);
     }
 }
 
