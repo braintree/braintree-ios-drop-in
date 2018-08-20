@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.4.1 (2018-08-20)
+
+* Improve detection of Maestro card numbers
+
 ## 6.4.0 (2018-07-17)
 
 * Require Braintree ~> 4.17.0
