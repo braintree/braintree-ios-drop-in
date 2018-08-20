@@ -14,9 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Note: You must still set the amount on the `payPalRequest` for PayPal One Time flows.
 @property (nonatomic, copy, nullable) NSString *amount;
 
-/// Optional: Specify the options for the PayPal flow. If not present, a default Billing Agreement flow will be used.
+/// Optional: Specify the options for the PayPal flow. If not present, a default vault flow will be used.
 ///
-/// Note: The One Time flow is used when an amount is set on the `payPalRequest`.
+/// Note: The checkout flow is used when an amount is set on the `payPalRequest`.
 @property (nonatomic, strong, nullable) BTPayPalRequest *payPalRequest;
 
 /// Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.
