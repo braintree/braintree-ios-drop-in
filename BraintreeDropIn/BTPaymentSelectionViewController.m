@@ -235,7 +235,7 @@
 
 #ifdef __BT_APPLE_PAY
             BTJSON *applePayConfiguration = self.configuration.json[@"applePay"];
-            if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled) {
+            if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled && self.configuration.canMakeApplePayPayments) {
                 // Short-circuits if BraintreeApplePay is not available at runtime
                 if (__BT_AVAILABLE(@"BTApplePayClient")) {
                     [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
