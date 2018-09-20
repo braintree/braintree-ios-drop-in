@@ -246,13 +246,11 @@
 #pragma mark - Validation
 
 - (BOOL)validAndNecessarilyCompleteNumber:(NSString *)number {
-    return (number.length == self.validNumberLengths.lastIndex &&
-            ([BTUIKUtil luhnValid:number] || [self.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)]));
+    return (number.length == self.validNumberLengths.lastIndex && [BTUIKUtil luhnValid:number]);
 }
 
 - (BOOL)validNumber:(NSString *)number {
-    return ([self completeNumber:number] &&
-            ([BTUIKUtil luhnValid:number] || [self.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)]));
+    return ([self completeNumber:number] && [BTUIKUtil luhnValid:number]);
 }
 
 - (BOOL)completeNumber:(NSString *)number {
