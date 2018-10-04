@@ -18,6 +18,8 @@
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
 		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
+		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
 		A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */; };
 		A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */; };
@@ -262,6 +264,8 @@
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKCardholderNameFormField.h; sourceTree = "<group>"; };
+		A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardholderNameFormField.m; sourceTree = "<group>"; };
 		A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionViewControllerTests.m; sourceTree = "<group>"; };
 		A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKViewUtilTests.m; sourceTree = "<group>"; };
 		A52900361D88FB5100032220 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -555,6 +559,7 @@
 			children = (
 				A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */,
 				A52900D11D8903A600032220 /* BTUIKBarButtonItem.m */,
+				A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */,
 				A52900D21D8903A600032220 /* BTUIKCardListLabel.m */,
 				A52900D31D8903A600032220 /* BTUIKCardNumberFormField.m */,
 				A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */,
@@ -612,6 +617,7 @@
 				A52901051D8903A600032220 /* BTUIKAppearance.h */,
 				A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */,
 				A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */,
+				A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */,
 				A52901081D8903A600032220 /* BTUIKCardListLabel.h */,
 				A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */,
 				A529010A1D8903A600032220 /* BTUIKCardType.h */,
@@ -624,13 +630,13 @@
 				A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */,
 				A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */,
 				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
-				03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */,
 				A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */,
 				A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */,
 				A52901161D8903A600032220 /* BTUIKTextField.h */,
 				A52901171D8903A600032220 /* BTUIKUtil.h */,
 				A52901181D8903A600032220 /* BTUIKVectorArtView.h */,
 				A52901191D8903A600032220 /* BTUIKViewUtil.h */,
+				03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */,
 				A529011A1D8903A600032220 /* UIColor+BTUIK.h */,
 			);
 			path = Public;
@@ -995,6 +1001,7 @@
 				A52901A11D8903A600032220 /* BTUIKMobileNumberFormField.h in Headers */,
 				A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */,
 				A529019A1D8903A600032220 /* BTUIKCardType.h in Headers */,
+				A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */,
 				A52901FB1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.h in Headers */,
 				A52901CC1D8903A700032220 /* BTUIKMasterCardVectorArtView.h in Headers */,
 				A52901D21D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h in Headers */,
@@ -1429,6 +1436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */,
 				A52901DD1D8903A700032220 /* BTUIKUnknownCardVectorArtView.m in Sources */,
 				A52901C81D8903A700032220 /* BTUIKJCBVectorArtView.m in Sources */,
 				A52901781D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */,

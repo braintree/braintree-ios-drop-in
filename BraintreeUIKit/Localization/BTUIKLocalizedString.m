@@ -247,6 +247,10 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR", [self localizationTable], [self localizationBundle], @"MM / YY", @"EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR");
 }
 
++ (NSString *)CARDHOLDER_NAME_LABEL {
+    return NSLocalizedStringWithDefaultValue(@"CARDHOLDER_NAME_LABEL", [self localizationTable], [self localizationBundle], @"Cardholder Name", @"CARDHOLDER_NAME_LABEL");
+}
+
 
 + (NSString *)PAYPAL {
     return NSLocalizedStringWithDefaultValue(@"PAYPAL", [self localizationTable], [self localizationBundle], @"PayPal", @"PAYPAL");

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <BraintreeDropIn/BTDropInRequest.h>
 
 extern NSString *BraintreeDemoSettingsEnvironmentDefaultsKey;
 extern NSString *BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey;
@@ -30,5 +31,6 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
 + (BOOL)paypalDisabled;
 + (BOOL)venmoDisabled;
 + (BOOL)maskSecurityCode;
++ (BTFormFieldSetting)cardholderNameSetting;
 
 @end
