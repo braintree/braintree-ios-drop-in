@@ -93,9 +93,9 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoMaskSecurityCode"];
     }
     
-    [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldNotAccepted forKey:@"BraintreeDemoCardholderNameSetting"];
+    [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldDisabled forKey:@"BraintreeDemoCardholderNameSetting"];
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-CardholderNameAccepted"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldAccepted forKey:@"BraintreeDemoCardholderNameSetting"];
+        [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldOptional forKey:@"BraintreeDemoCardholderNameSetting"];
     }
     else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-CardholderNameRequired"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldRequired forKey:@"BraintreeDemoCardholderNameSetting"];

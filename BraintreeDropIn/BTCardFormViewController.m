@@ -290,7 +290,7 @@
 - (void)updateRequiredFields {
     NSArray <NSString *> *challenges = [self.configuration.json[@"challenges"] asStringArray];
     self.requiredFields = [NSMutableArray arrayWithObject:self.cardNumberField];
-    if (self.dropInRequest.cardholderNameSetting >= BTFormFieldAccepted) {
+    if (self.dropInRequest.cardholderNameSetting >= BTFormFieldOptional) {
         [self.requiredFields addObject:self.cardholderNameField];
     }
     [self.requiredFields addObject:self.expirationDateField];
@@ -390,7 +390,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.15 delay:0.0 options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.cardNumberHeader.hidden = !collapsed;
-            self.cardholderNameField.hidden = (self.dropInRequest.cardholderNameSetting == BTFormFieldNotAccepted) || collapsed;
+            self.cardholderNameField.hidden = (self.dropInRequest.cardholderNameSetting == BTFormFieldDisabled) || collapsed;
             self.expirationDateField.hidden = collapsed;
             self.securityCodeField.hidden = ![self.requiredFields containsObject:self.securityCodeField] || collapsed;
             self.postalCodeField.hidden = ![self.requiredFields containsObject:self.postalCodeField] || collapsed;
@@ -401,7 +401,7 @@
         } completion:^(__unused BOOL finished) {
             self.cardNumberFooter.hidden = !collapsed;
             self.cardNumberHeader.hidden = !collapsed;
-            self.cardholderNameField.hidden = (self.dropInRequest.cardholderNameSetting == BTFormFieldNotAccepted) || collapsed;
+            self.cardholderNameField.hidden = (self.dropInRequest.cardholderNameSetting == BTFormFieldDisabled) || collapsed;
             self.expirationDateField.hidden = collapsed;
             self.securityCodeField.hidden = ![self.requiredFields containsObject:self.securityCodeField] || collapsed;
             self.postalCodeField.hidden = ![self.requiredFields containsObject:self.postalCodeField] || collapsed;
