@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## Unreleased
+
+* Luhn validate UnionPay cards
+
 ## 6.4.1 (2018-08-20)
 
 * Improve detection of Maestro card numbers
