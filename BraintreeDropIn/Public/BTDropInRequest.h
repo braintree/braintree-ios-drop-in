@@ -4,6 +4,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class BTPostalAddress;
 
+typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
+    BTFormFieldDisabled = 0,
+    BTFormFieldOptional,
+    BTFormFieldRequired
+};
+
 @interface BTDropInRequest : NSObject <NSCopying>
 
 /// Optional: Amount of the transaction.
@@ -48,6 +54,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// Optional: If true and an amount is set, ThreeDSecure will be used to verify new cards. ThreeDSecure must be enabled in the control panel.
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
+
+/// Optional: Determines the visibility and input requirements of the cardholder name field.
+///
+/// When set to BTFormFieldDisabled, the cardholder name field will not be displayed.
+/// When set to BTFormFieldOptional, the cardholder name field will be displayed but not required.
+/// When set to BTFormFieldRequired, the cardholder name field will be displayed and required.
+///
+/// Defaults to BTFormFieldDisabled.
+@property (nonatomic, assign) BTFormFieldSetting cardholderNameSetting;
 
 /// Optional: If true the security code will be masked.
 /// Defaults to false.

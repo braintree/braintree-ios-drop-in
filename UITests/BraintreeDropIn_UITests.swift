@@ -210,6 +210,205 @@ class BraintreeDropIn_CardForm_RequestOptions_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_CardholderNameNotAvailable_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+    
+    func testDropIn_cardholderNameNotAvailable_fieldDoesntExist() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+        
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+        
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        
+        let cardholderNameField = elementsQuery.textFields["Cardholder Name"]
+        XCTAssertFalse(cardholderNameField.exists)
+    }
+}
+
+class BraintreeDropIn_CardholderNameAvailable_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launchArguments.append("-CardholderNameAccepted")
+        app.launch()
+        sleep(1)
+        
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+        
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+    
+    func testDropIn_cardholderNameAvailable_fieldExists() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+        
+        let cardholderNameField = elementsQuery.textFields["Cardholder Name"]
+        self.waitForElementToAppear(cardholderNameField)
+        XCTAssertTrue(cardholderNameField.exists)
+    }
+    
+    func testDropIn_cardholderNameAvailable_canAddCardWithoutName() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+        
+        let cardholderNameTextField = elementsQuery.textFields["Cardholder Name"]
+        cardholderNameTextField.typeText("\n")
+        
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts["2019"].forceTapElement()
+        
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+        
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+        
+        app.buttons["Add Card"].forceTapElement()
+        
+        self.waitForElementToAppear(app.staticTexts["ending in 11"])
+        
+        XCTAssertTrue(app.staticTexts["ending in 11"].exists);
+        
+    }
+}
+
+class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-Integration:BraintreeDemoDropInViewController")
+        app.launchArguments.append("-CardholderNameRequired")
+        app.launch()
+        sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+    
+    func testDropIn_cardholderNameRequired_fieldExists() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        let cardholderNameField = elementsQuery.textFields["Cardholder Name"]
+        self.waitForElementToAppear(cardholderNameField)
+
+        XCTAssertTrue(cardholderNameField.exists)
+    }
+    
+    func testDropIn_cardholderNameRequired_cannotAddCardWithoutName() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        let cardholderNameTextField = elementsQuery.textFields["Cardholder Name"]
+        cardholderNameTextField.typeText("\n")
+
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts["2019"].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
+        XCTAssertFalse(app.buttons["Add Card"].isEnabled)
+    }
+    
+    func testDropIn_cardholderNameRequired_canAddCardWithName() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        let cardholderNameField = elementsQuery.textFields["Cardholder Name"]
+        self.waitForElementToBeHittable(cardholderNameField)
+        cardholderNameField.typeText("First Last\n")
+
+        self.waitForElementToBeHittable(app.staticTexts["2019"])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts["2019"].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["ending in 11"])
+
+        XCTAssertTrue(app.staticTexts["ending in 11"].exists);
+    }
+}
+
 class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
     
     var app: XCUIApplication!

@@ -22,6 +22,7 @@
     originalRequest.venmoDisabled = YES;
     originalRequest.cardDisabled = YES;
     originalRequest.threeDSecureVerification = YES;
+    originalRequest.cardholderNameSetting = BTFormFieldOptional;
     originalRequest.shouldMaskSecurityCode = YES;
     originalRequest.vaultManager = YES;
 
@@ -37,6 +38,7 @@
     XCTAssertEqual(originalRequest.venmoDisabled, copiedRequest.venmoDisabled);
     XCTAssertEqual(originalRequest.cardDisabled, copiedRequest.cardDisabled);
     XCTAssertEqual(originalRequest.threeDSecureVerification, copiedRequest.threeDSecureVerification);
+    XCTAssertEqual(originalRequest.cardholderNameSetting, copiedRequest.cardholderNameSetting);
     XCTAssertEqual(originalRequest.shouldMaskSecurityCode, copiedRequest.shouldMaskSecurityCode);
     XCTAssertEqual(originalRequest.vaultManager, copiedRequest.vaultManager);
 }

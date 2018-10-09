@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// The card number form field.
 @property (nonatomic, strong, readonly) BTUIKCardNumberFormField *cardNumberField;
 
+/// The cardholder name form field
+@property (nonatomic, strong, readonly) BTUIKCardholderNameFormField *cardholderNameField;
+
 /// The expiration date form field.
 @property (nonatomic, strong, readonly) BTUIKExpiryFormField *expirationDateField;
 
