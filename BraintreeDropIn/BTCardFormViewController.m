@@ -290,7 +290,7 @@
 - (void)updateRequiredFields {
     NSArray <NSString *> *challenges = [self.configuration.json[@"challenges"] asStringArray];
     self.requiredFields = [NSMutableArray arrayWithObject:self.cardNumberField];
-    if (self.dropInRequest.cardholderNameSetting >= BTFormFieldOptional) {
+    if (self.dropInRequest.cardholderNameSetting != BTFormFieldDisabled) {
         [self.requiredFields addObject:self.cardholderNameField];
     }
     [self.requiredFields addObject:self.expirationDateField];
@@ -842,9 +842,8 @@
         [self advanceFocusFromField:formField];
         return NO;
     }
-    else {
-        return YES;
-    }
+
+    return YES;
 }
 
 #pragma mark UITextFieldDelegate
