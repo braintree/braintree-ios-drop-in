@@ -1,8 +1,11 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## Unreleased
+## 6.5.0 (2018-10-09)
 
+* Added the option to accept or require a cardholder name when entering credit card information
 * Luhn validate UnionPay cards
+* Check for ApplePay capability before displaying it as a payment method (Thanks @Nonepse)
+* Increase the payment selection title labels resistance priority to prevent compression on iOS 12
 
 ## 6.4.1 (2018-08-20)
 
