@@ -30,7 +30,7 @@
         self.months = @[@"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10", @"11", @"12"];
         
         NSDate *currentDate = [NSDate date];
-        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSCalendar* calendar = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
         NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:currentDate];
         
         self.currentYear = [components year];
