@@ -52,6 +52,14 @@
     [sampleCards addObject:@[@"6703000000000007", @"Maestro"]];
     [sampleCards addObject:@[@"6020111111111116", @"Maestro"]];
     [sampleCards addObject:@[@"6764111111111116", @"Maestro"]];
+    [sampleCards addObject:@[@"560000000003", @"Maestro"]];
+    [sampleCards addObject:@[@"5600000000000000002", @"Maestro"]];
+    [sampleCards addObject:@[@"570000000002", @"Maestro"]];
+    [sampleCards addObject:@[@"5700000000000000018", @"Maestro"]];
+    [sampleCards addObject:@[@"580000000001", @"Maestro"]];
+    [sampleCards addObject:@[@"5800000000000000008", @"Maestro"]];
+    [sampleCards addObject:@[@"590000000000", @"Maestro"]];
+    [sampleCards addObject:@[@"5900000000000000006", @"Maestro"]];
 
     // Union Pay
     [sampleCards addObject:@[@"6240888888888885", @"UnionPay"]];
