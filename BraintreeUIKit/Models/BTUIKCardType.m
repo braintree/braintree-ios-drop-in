@@ -184,7 +184,7 @@
                                                             formatSpaces:nil];
         BTUIKCardType *maestro = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MAESTRO)
                                                      securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
-                                                             prefixes:@[@"^(5018|5020|5038|6020|6304|6703|6759|676[1-3])\\d*"]
+                                                             prefixes:@[@"^(5018|5020|5038|5[6-9]|6020|6304|6703|6759|676[1-3])\\d*"]
                                                       relaxedPrefixes:@[@"^6\\d*"]
                                                    validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(12, 8)]
                                                        validCvvLength:3
