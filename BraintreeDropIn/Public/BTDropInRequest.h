@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Amount must be a non-negative number, may optionally contain exactly 2 decimal places
 /// separated by '.', optional thousands separator ',', limited to 7 digits before the decimal point.
 ///
-/// Note: You must still set the amount on the `payPalRequest` for PayPal One Time flows.
+/// Note: You must still set the amount on the `payPalRequest` for PayPal checkout flows.
 @property (nonatomic, copy, nullable) NSString *amount;
 
 /// Optional: Specify the options for the PayPal flow. If not present, a default vault flow will be used.
