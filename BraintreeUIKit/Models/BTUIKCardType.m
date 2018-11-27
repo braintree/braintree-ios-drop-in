@@ -184,7 +184,7 @@
                                                             formatSpaces:nil];
         BTUIKCardType *maestro = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MAESTRO)
                                                      securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
-                                                             prefixes:@[@"^(5018|5020|5038|6020|6304|6703|6759|676[1-3])\\d*"]
+                                                             prefixes:@[@"^(5018|5020|5038|5[6-9]|6020|6304|6703|6759|676[1-3])\\d*"]
                                                       relaxedPrefixes:@[@"^6\\d*"]
                                                    validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(12, 8)]
                                                        validCvvLength:3
@@ -246,13 +246,11 @@
 #pragma mark - Validation
 
 - (BOOL)validAndNecessarilyCompleteNumber:(NSString *)number {
-    return (number.length == self.validNumberLengths.lastIndex &&
-            ([BTUIKUtil luhnValid:number] || [self.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)]));
+    return (number.length == self.validNumberLengths.lastIndex && [BTUIKUtil luhnValid:number]);
 }
 
 - (BOOL)validNumber:(NSString *)number {
-    return ([self completeNumber:number] &&
-            ([BTUIKUtil luhnValid:number] || [self.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)]));
+    return ([self completeNumber:number] && [BTUIKUtil luhnValid:number]);
 }
 
 - (BOOL)completeNumber:(NSString *)number {

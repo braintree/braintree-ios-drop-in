@@ -33,6 +33,7 @@
 @property (nonatomic, strong) UIView *scrollViewContentWrapper;
 @property (nonatomic, strong) UIStackView *stackView;
 @property (nonatomic, strong, readwrite) BTUIKCardNumberFormField *cardNumberField;
+@property (nonatomic, strong, readwrite) BTUIKCardholderNameFormField *cardholderNameField;
 @property (nonatomic, strong, readwrite) BTUIKExpiryFormField *expirationDateField;
 @property (nonatomic, strong, readwrite) BTUIKSecurityCodeFormField *securityCodeField;
 @property (nonatomic, strong, readwrite) BTUIKPostalCodeFormField *postalCodeField;
@@ -94,7 +95,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
-    
+
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.scrollView setAlwaysBounceVertical:NO];
@@ -180,6 +181,9 @@
     self.cardNumberField = [[BTUIKCardNumberFormField alloc] init];
     self.cardNumberField.delegate = self;
     self.cardNumberField.cardNumberDelegate = self;
+    self.cardholderNameField = [[BTUIKCardholderNameFormField alloc] init];
+    self.cardholderNameField.delegate = self;
+    self.cardholderNameField.isRequired = (self.dropInRequest.cardholderNameSetting == BTFormFieldRequired);
     self.expirationDateField = [[BTUIKExpiryFormField alloc] init];
     self.expirationDateField.delegate = self;
     self.securityCodeField = [[BTUIKSecurityCodeFormField alloc] init];
@@ -203,9 +207,9 @@
     [self.cardNumberHeader addArrangedSubview:cardNumberHeaderLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.cardNumberHeader beforeView:cardNumberHeaderLabel size: [BTUIKAppearance verticalFormSpace]];
     [self.stackView addArrangedSubview:self.cardNumberHeader];
-    
-    self.formFields = @[self.cardNumberField, self.expirationDateField, self.securityCodeField, self.postalCodeField, self.mobileCountryCodeField, self.mobilePhoneField];
-    
+
+    self.formFields = @[self.cardNumberField, self.cardholderNameField, self.expirationDateField, self.securityCodeField, self.postalCodeField, self.mobileCountryCodeField, self.mobilePhoneField];
+
     for (NSUInteger i = 0; i < self.formFields.count; i++) {
         BTUIKFormField *formField = self.formFields[i];
         [self.stackView addArrangedSubview:formField];
@@ -221,16 +225,17 @@
     self.cardNumberField.formLabel.text = @"";
     [self.cardNumberField updateConstraints];
     
+    self.cardholderNameField.hidden = YES;
     self.expirationDateField.hidden = YES;
     self.securityCodeField.hidden = YES;
     self.postalCodeField.hidden = YES;
     self.mobileCountryCodeField.hidden = YES;
     self.mobilePhoneField.hidden = YES;
-    
+
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardNumberField size: [BTUIKAppearance verticalFormSpace]];
-    [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.expirationDateField size: [BTUIKAppearance verticalFormSpace]];
+    [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardholderNameField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.mobileCountryCodeField size: [BTUIKAppearance verticalFormSpace]];
-    
+
     self.cardNumberFooter = [BTDropInUIUtilities newStackView];
     self.cardNumberFooter.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
     self.cardNumberFooter.layoutMarginsRelativeArrangement = true;
@@ -284,7 +289,11 @@
 
 - (void)updateRequiredFields {
     NSArray <NSString *> *challenges = [self.configuration.json[@"challenges"] asStringArray];
-    self.requiredFields = [NSMutableArray arrayWithArray:@[self.cardNumberField, self.expirationDateField]];
+    self.requiredFields = [NSMutableArray arrayWithObject:self.cardNumberField];
+    if (self.dropInRequest.cardholderNameSetting != BTFormFieldDisabled) {
+        [self.requiredFields addObject:self.cardholderNameField];
+    }
+    [self.requiredFields addObject:self.expirationDateField];
     if ([challenges containsObject:@"cvv"]) {
         [self.requiredFields addObject:self.securityCodeField];
     }
@@ -357,6 +366,9 @@
     if ([self.requiredFields containsObject:self.postalCodeField]) {
         card.postalCode = self.postalCodeField.postalCode;
     }
+    if (self.cardholderNameField.cardholderName.length) {
+        card.cardholderName = self.cardholderNameField.cardholderName;
+    }
     
     card.shouldValidate = self.apiClient.tokenizationKey ? NO : YES;
     BTCardRequest *cardRequest = [[BTCardRequest alloc] initWithCard:card];
@@ -377,8 +389,8 @@
     _collapsed = collapsed;
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.15 delay:0.0 options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.cardNumberFooter.hidden = !collapsed;
             self.cardNumberHeader.hidden = !collapsed;
+            self.cardholderNameField.hidden = (self.dropInRequest.cardholderNameSetting == BTFormFieldDisabled) || collapsed;
             self.expirationDateField.hidden = collapsed;
             self.securityCodeField.hidden = ![self.requiredFields containsObject:self.securityCodeField] || collapsed;
             self.postalCodeField.hidden = ![self.requiredFields containsObject:self.postalCodeField] || collapsed;
@@ -389,6 +401,7 @@
         } completion:^(__unused BOOL finished) {
             self.cardNumberFooter.hidden = !collapsed;
             self.cardNumberHeader.hidden = !collapsed;
+            self.cardholderNameField.hidden = (self.dropInRequest.cardholderNameSetting == BTFormFieldDisabled) || collapsed;
             self.expirationDateField.hidden = collapsed;
             self.securityCodeField.hidden = ![self.requiredFields containsObject:self.securityCodeField] || collapsed;
             self.postalCodeField.hidden = ![self.requiredFields containsObject:self.postalCodeField] || collapsed;
@@ -429,12 +442,11 @@
 
 #pragma mark - Keyboard management
 
--(void)hideKeyboard {
+- (void)hideKeyboard {
     [self.view endEditing:YES];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification
-{
+- (void)keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardRectInWindow = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGSize keyboardSize = [self.view convertRect:keyboardRectInWindow fromView:nil].size;
     UIEdgeInsets scrollInsets = self.scrollView.contentInset;
@@ -443,8 +455,7 @@
     self.scrollView.scrollIndicatorInsets = scrollInsets;
 }
 
-- (void)keyboardWillHide:(__unused NSNotification *)notification
-{
+- (void)keyboardWillHide:(__unused NSNotification *)notification {
     UIEdgeInsets scrollInsets = self.scrollView.contentInset;
     scrollInsets.bottom = 0.0;
     self.scrollView.contentInset = scrollInsets;
@@ -466,8 +477,8 @@
     self.mobileCountryCodeField.topBorder = YES;
     self.mobileCountryCodeField.interFieldBorder = YES;
     self.mobilePhoneField.bottomBorder = YES;
-    
-    NSArray *groupedFormFields = @[self.expirationDateField, self.securityCodeField, self.postalCodeField];
+
+    NSArray *groupedFormFields = @[self.cardholderNameField, self.expirationDateField, self.securityCodeField, self.postalCodeField];
     BOOL topBorderAdded = NO;
     BTUIKFormField* lastVisibleFormField;
     for (NSUInteger i = 0; i < groupedFormFields.count; i++) {
@@ -795,7 +806,7 @@
         [self cardNumberErrorHidden:self.cardNumberField.displayAsValid];
     }
     
-    // Analytics event - fires when a customer begins enterinf card information
+    // Analytics event - fires when a customer begins entering card information
     if (!self.cardEntryDidBegin && formField.text.length > 0) {
         [self.apiClient sendAnalyticsEvent:@"ios.dropin2.add-card.start"];
         self.cardEntryDidBegin = YES;
@@ -824,6 +835,15 @@
             [self advanceFocusFromField:formField];
         }
     }
+}
+
+- (BOOL)formFieldShouldReturn:(BTUIKFormField *)formField {
+    if (formField == self.cardholderNameField) {
+        [self advanceFocusFromField:formField];
+        return NO;
+    }
+
+    return YES;
 }
 
 #pragma mark UITextFieldDelegate

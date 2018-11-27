@@ -9,14 +9,14 @@
 
 @interface BTUIKExpiryInputView ()
 
-@property (nonatomic, strong) NSArray* months;
-@property (nonatomic, strong) NSArray* years;
-@property (nonatomic, strong) UICollectionView* monthCollectionView;
-@property (nonatomic, strong) UICollectionView* yearCollectionView;
-@property (nonatomic, strong) UIView* verticalLine;
+@property (nonatomic, strong) NSArray *months;
+@property (nonatomic, strong) NSArray *years;
+@property (nonatomic, strong) UICollectionView *monthCollectionView;
+@property (nonatomic, strong) UICollectionView *yearCollectionView;
+@property (nonatomic, strong) UIView *verticalLine;
 @property (nonatomic) NSInteger currentYear;
 @property (nonatomic) NSInteger currentMonth;
-@property (nonatomic, strong) UIPageControl* pageControl;
+@property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic) BOOL needsOrientationChange;
 @end
 
@@ -30,12 +30,12 @@
         self.months = @[@"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10", @"11", @"12"];
         
         NSDate *currentDate = [NSDate date];
-        NSCalendar* calendar = [NSCalendar currentCalendar];
-        NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:currentDate];
+        NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:currentDate];
         
         self.currentYear = [components year];
         self.currentMonth = [components month];
-        NSMutableArray* mutableYears = [@[] mutableCopy];
+        NSMutableArray *mutableYears = [@[] mutableCopy];
         
         NSInteger yearCounter = self.currentYear;
         while (yearCounter < self.currentYear + 20) {
@@ -84,9 +84,9 @@
         self.pageControl.currentPageIndicatorTintColor = self.tintColor;
         self.pageControl.hidden = true;
         
-        NSDictionary* viewBindings = @{@"view":self, @"monthCollectionView":self.monthCollectionView, @"yearCollectionView": self.yearCollectionView, @"verticalLine":self.verticalLine, @"pageControl": self.pageControl};
+        NSDictionary *viewBindings = @{@"view":self, @"monthCollectionView":self.monthCollectionView, @"yearCollectionView": self.yearCollectionView, @"verticalLine":self.verticalLine, @"pageControl": self.pageControl};
         
-        NSDictionary* metrics = @{@"BT_EXPIRY_FULL_PADDING":@BT_EXPIRY_FULL_PADDING, @"BT_EXPIRY_FULL_PADDING_HALF": @(BT_EXPIRY_FULL_PADDING/2.0)};
+        NSDictionary *metrics = @{@"BT_EXPIRY_FULL_PADDING":@BT_EXPIRY_FULL_PADDING, @"BT_EXPIRY_FULL_PADDING_HALF": @(BT_EXPIRY_FULL_PADDING/2.0)};
         
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(BT_EXPIRY_FULL_PADDING_HALF)-[monthCollectionView][verticalLine(0.5)][yearCollectionView]-(BT_EXPIRY_FULL_PADDING_HALF)-|"
@@ -196,7 +196,7 @@
         
         cell.userInteractionEnabled = true;
         
-        NSString* date = self.months[indexPath.row];
+        NSString *date = self.months[indexPath.row];
         cell.label.text = date;
         cell.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         
@@ -211,7 +211,7 @@
         return cell;
     }
     BTUIKExpiryInputCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BTYearCell" forIndexPath:indexPath];
-    NSString* date = self.years[indexPath.row];
+    NSString *date = self.years[indexPath.row];
     cell.userInteractionEnabled = true;
     cell.label.text = date;
     cell.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
@@ -229,7 +229,7 @@
 - (UICollectionReusableView *)collectionView:
 (__unused UICollectionView *)collectionView viewForSupplementaryElementOfKind:(__unused NSString *)kind atIndexPath:(__unused NSIndexPath *)indexPath
 {
-    BTUIKCollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    BTUIKCollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     view.label.text = collectionView == self.yearCollectionView ? BTUIKLocalizedString(YEAR_LABEL) : BTUIKLocalizedString(MONTH_LABEL);
     return view;
 }
@@ -289,7 +289,7 @@
 }
 
 - (void) updateVisibleCells {
-    for (BTUIKExpiryInputCollectionViewCell* cell in [self.yearCollectionView visibleCells]) {
+    for (BTUIKExpiryInputCollectionViewCell *cell in [self.yearCollectionView visibleCells]) {
         cell.userInteractionEnabled = true;
         cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         if (self.selectedMonth && self.selectedMonth < self.currentMonth && [cell getInteger] == self.currentYear) {
@@ -297,7 +297,7 @@
             cell.label.textColor = [BTUIKAppearance sharedInstance].disabledColor;
         }
     }
-    for (BTUIKExpiryInputCollectionViewCell* cell in [self.monthCollectionView visibleCells]) {
+    for (BTUIKExpiryInputCollectionViewCell *cell in [self.monthCollectionView visibleCells]) {
         cell.userInteractionEnabled = true;
         cell.label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
         if (self.selectedYear && self.selectedYear == self.currentYear) {

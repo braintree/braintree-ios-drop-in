@@ -276,7 +276,7 @@
     UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
     titleLabel.text = viewController.title ? viewController.title : @"";
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    [titleLabel setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel forAxis:UILayoutConstraintAxisHorizontal];
+    [titleLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
     [titleLabel sizeToFit];
     UIBarButtonItem *barTitle = [[UIBarButtonItem alloc] initWithCustomView:titleLabel];
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];

@@ -18,20 +18,22 @@
     originalRequest.venmoDisabled = YES;
     originalRequest.cardDisabled = YES;
     originalRequest.threeDSecureVerification = YES;
+    originalRequest.cardholderNameSetting = BTFormFieldOptional;
     originalRequest.shouldMaskSecurityCode = YES;
     originalRequest.vaultManager = YES;
 
     BTDropInRequest *copiedRequest = [originalRequest copy];
 
-    XCTAssertEqual(@"10.02", copiedRequest.amount);
+    XCTAssertEqual(originalRequest.amount, copiedRequest.amount);
     XCTAssertEqual(originalRequest.payPalRequest, copiedRequest.payPalRequest);
-    XCTAssertEqual(@"10.01", copiedRequest.payPalRequest.amount);
-    XCTAssertEqual(YES, copiedRequest.applePayDisabled);
-    XCTAssertEqual(YES, copiedRequest.paypalDisabled);
-    XCTAssertEqual(YES, copiedRequest.venmoDisabled);
-    XCTAssertEqual(YES, copiedRequest.threeDSecureVerification);
-    XCTAssertEqual(YES, copiedRequest.shouldMaskSecurityCode);
-    XCTAssertEqual(YES, copiedRequest.vaultManager);
+    XCTAssertEqual(originalRequest.applePayDisabled, copiedRequest.applePayDisabled);
+    XCTAssertEqual(originalRequest.paypalDisabled, copiedRequest.paypalDisabled);
+    XCTAssertEqual(originalRequest.venmoDisabled, copiedRequest.venmoDisabled);
+    XCTAssertEqual(originalRequest.cardDisabled, copiedRequest.cardDisabled);
+    XCTAssertEqual(originalRequest.threeDSecureVerification, copiedRequest.threeDSecureVerification);
+    XCTAssertEqual(originalRequest.cardholderNameSetting, copiedRequest.cardholderNameSetting);
+    XCTAssertEqual(originalRequest.shouldMaskSecurityCode, copiedRequest.shouldMaskSecurityCode);
+    XCTAssertEqual(originalRequest.vaultManager, copiedRequest.vaultManager);
 }
 
 @end

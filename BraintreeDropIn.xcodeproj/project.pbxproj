@@ -18,6 +18,8 @@
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
 		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
+		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
 		A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */; };
 		A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */; };
@@ -182,8 +184,8 @@
 		A5CE1DFF1D835AB6009BE61A /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DDF1D835AB6009BE61A /* Main.strings */; };
 		A5CE1E001D835AB6009BE61A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DE11D835AB6009BE61A /* main.m */; };
 		A5CE1E081D835CC0009BE61A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE1E071D835CC0009BE61A /* PassKit.framework */; };
+		D5625143588830D2F8674700 /* libPods-DropInDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */; };
 		D9125B16377B9423DD5DF709 /* libPods-Tests-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */; };
-		EC90D2D27A8B2F09C81EED7B /* libPods-DropInDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +264,8 @@
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKCardholderNameFormField.h; sourceTree = "<group>"; };
+		A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardholderNameFormField.m; sourceTree = "<group>"; };
 		A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionViewControllerTests.m; sourceTree = "<group>"; };
 		A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKViewUtilTests.m; sourceTree = "<group>"; };
 		A52900361D88FB5100032220 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -497,7 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5CE1E081D835CC0009BE61A /* PassKit.framework in Frameworks */,
-				EC90D2D27A8B2F09C81EED7B /* libPods-DropInDemo.a in Frameworks */,
+				D5625143588830D2F8674700 /* libPods-DropInDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +559,7 @@
 			children = (
 				A52900D01D8903A600032220 /* BTUIKBarButtonItem.h */,
 				A52900D11D8903A600032220 /* BTUIKBarButtonItem.m */,
+				A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */,
 				A52900D21D8903A600032220 /* BTUIKCardListLabel.m */,
 				A52900D31D8903A600032220 /* BTUIKCardNumberFormField.m */,
 				A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */,
@@ -612,6 +617,7 @@
 				A52901051D8903A600032220 /* BTUIKAppearance.h */,
 				A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */,
 				A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */,
+				A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */,
 				A52901081D8903A600032220 /* BTUIKCardListLabel.h */,
 				A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */,
 				A529010A1D8903A600032220 /* BTUIKCardType.h */,
@@ -624,13 +630,13 @@
 				A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */,
 				A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */,
 				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
-				03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */,
 				A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */,
 				A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */,
 				A52901161D8903A600032220 /* BTUIKTextField.h */,
 				A52901171D8903A600032220 /* BTUIKUtil.h */,
 				A52901181D8903A600032220 /* BTUIKVectorArtView.h */,
 				A52901191D8903A600032220 /* BTUIKViewUtil.h */,
+				03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */,
 				A529011A1D8903A600032220 /* UIColor+BTUIK.h */,
 			);
 			path = Public;
@@ -995,6 +1001,7 @@
 				A52901A11D8903A600032220 /* BTUIKMobileNumberFormField.h in Headers */,
 				A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */,
 				A529019A1D8903A600032220 /* BTUIKCardType.h in Headers */,
+				A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */,
 				A52901FB1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.h in Headers */,
 				A52901CC1D8903A700032220 /* BTUIKMasterCardVectorArtView.h in Headers */,
 				A52901D21D8903A700032220 /* BTUIKPayPalWordmarkCompactVectorArtView.h in Headers */,
@@ -1062,8 +1069,6 @@
 				A5411A181D8A1F090041BE92 /* Sources */,
 				A5411A191D8A1F090041BE92 /* Frameworks */,
 				A5411A1A1D8A1F090041BE92 /* Resources */,
-				5BF6CC06AA2A3575137B429B /* [CP] Embed Pods Frameworks */,
-				DF907D108E2E946308AD26AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1117,14 +1122,10 @@
 			buildConfigurationList = A5CE1D441D835832009BE61A /* Build configuration list for PBXNativeTarget "DropInDemo" */;
 			buildPhases = (
 				3C129A7138F4E46974B60D7A /* [CP] Check Pods Manifest.lock */,
-				89EEA5B9FE670B3862CAF54A /* [CP] Check Pods Manifest.lock */,
 				A5CE1D101D835832009BE61A /* Sources */,
 				A5CE1D111D835832009BE61A /* Frameworks */,
 				A5CE1D121D835832009BE61A /* Resources */,
-				B28F6D7E9D568DAC87F0F5A9 /* [CP] Embed Pods Frameworks */,
 				DA34FBA9A87C5DA5B91041E0 /* [CP] Copy Pods Resources */,
-				A9DF8362AF6163316B56758A /* 📦 Embed Pods Frameworks */,
-				402EE4E859AE66292B81C73A /* 📦 Copy Pods Resources */,
 				A52900501D88FB5200032220 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1308,81 +1309,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		402EE4E859AE66292B81C73A /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5BF6CC06AA2A3575137B429B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89EEA5B9FE670B3862CAF54A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A9DF8362AF6163316B56758A /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B28F6D7E9D568DAC87F0F5A9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DA34FBA9A87C5DA5B91041E0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1407,21 +1333,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF907D108E2E946308AD26AB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1429,6 +1340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */,
 				A52901DD1D8903A700032220 /* BTUIKUnknownCardVectorArtView.m in Sources */,
 				A52901C81D8903A700032220 /* BTUIKJCBVectorArtView.m in Sources */,
 				A52901781D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */,

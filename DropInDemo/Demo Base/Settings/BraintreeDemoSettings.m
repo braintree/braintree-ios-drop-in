@@ -73,4 +73,8 @@ NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey = @"BraintreeDemo
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"BraintreeDemoMaskSecurityCode"];
 }
 
++ (BTFormFieldSetting)cardholderNameSetting {
+    return [NSUserDefaults.standardUserDefaults integerForKey:@"BraintreeDemoCardholderNameSetting"];
+}
+
 @end
