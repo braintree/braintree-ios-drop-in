@@ -10,13 +10,9 @@
 @implementation BTDropInRequestTests
 
 - (void)test_copyProperties {
-    BTPostalAddress *address = [BTPostalAddress new];
     BTDropInRequest *originalRequest = [BTDropInRequest new];
-    originalRequest.amount = @"10.01";
-    originalRequest.currencyCode = @"USD";
-    originalRequest.noShipping = YES;
-    originalRequest.shippingAddress = address;
-    originalRequest.additionalPayPalScopes = [NSSet setWithObjects:@"email", nil];
+    originalRequest.amount = @"10.02";
+    originalRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"10.01"];
     originalRequest.applePayDisabled = YES;
     originalRequest.paypalDisabled = YES;
     originalRequest.venmoDisabled = YES;
@@ -29,10 +25,7 @@
     BTDropInRequest *copiedRequest = [originalRequest copy];
 
     XCTAssertEqual(originalRequest.amount, copiedRequest.amount);
-    XCTAssertEqual(originalRequest.currencyCode, copiedRequest.currencyCode);
-    XCTAssertEqual(originalRequest.noShipping, copiedRequest.noShipping);
-    XCTAssertEqual(originalRequest.shippingAddress, copiedRequest.shippingAddress);
-    XCTAssertEqual(originalRequest.additionalPayPalScopes, copiedRequest.additionalPayPalScopes);
+    XCTAssertEqual(originalRequest.payPalRequest, copiedRequest.payPalRequest);
     XCTAssertEqual(originalRequest.applePayDisabled, copiedRequest.applePayDisabled);
     XCTAssertEqual(originalRequest.paypalDisabled, copiedRequest.paypalDisabled);
     XCTAssertEqual(originalRequest.venmoDisabled, copiedRequest.venmoDisabled);

@@ -51,6 +51,7 @@ PODS:
     - Braintree/Card (~> 4.17)
     - Braintree/Core (~> 4.17)
     - Braintree/PaymentFlow (~> 4.17)
+    - Braintree/PayPal (~> 4.17)
     - Braintree/UnionPay (~> 4.17)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (6.5.0)

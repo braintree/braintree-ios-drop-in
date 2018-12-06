@@ -10,10 +10,7 @@
 - (id)copyWithZone:(__unused NSZone *)zone {
     BTDropInRequest *request = [BTDropInRequest new];
     request.amount = self.amount;
-    request.currencyCode = self.currencyCode;
-    request.noShipping = self.noShipping;
-    request.shippingAddress = self.shippingAddress;
-    request.additionalPayPalScopes = self.additionalPayPalScopes;
+    request.payPalRequest = self.payPalRequest;
     request.applePayDisabled = self.applePayDisabled;
     request.paypalDisabled = self.paypalDisabled;
     request.venmoDisabled = self.venmoDisabled;
