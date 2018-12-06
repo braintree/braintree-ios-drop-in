@@ -11,13 +11,10 @@ desc "Run default set of tasks"
 task :spec => %w[spec:all]
 
 desc "Run internal release process, pushing to internal GitHub Enterprise only"
-task :release => %w[release:assumptions release:test sanity_checks release:check_working_directory release:bump_version release:lint_podspec release:tag]
+task :release => %w[release:assumptions sanity_checks release:check_working_directory release:bump_version release:lint_podspec release:tag]
 
 desc "Publish code and pod to public github.com"
-task :publish => %w[publish:push publish:push_pod publish:cocoadocs]
-
-desc "Distribute app, in its current state, to HockeyApp"
-task :distribute => %w[distribute:build distribute:hockeyapp]
+task :publish => %w[publish:push publish:push_pod]
 
 SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
@@ -140,84 +137,6 @@ namespace :sanity_checks do
   task :carthage_test => %w[carthage:test carthage:clean]
 end
 
-
-
-def apple_doc_command
-  %W[/usr/local/bin/appledoc
-      -o appledocs
-      --project-name 'Braintree Drop-In'
-      --project-version '#{current_version_with_sha}'
-      --project-company Braintree
-      --docset-bundle-id '%COMPANYID'
-      --docset-bundle-name BraintreeDropIn
-      --docset-desc 'Braintree Drop-In iOS SDK (%VERSION)'
-      --index-desc README.md
-      --include LICENSE
-      --include CHANGELOG.md
-      --print-information-block-titles
-      --company-id com.braintreepayments
-      --prefix-merged-sections
-      --no-merge-categories
-      --warn-missing-company-id
-      --warn-undocumented-object
-      --warn-undocumented-member
-      --warn-empty-description
-      --warn-unknown-directive
-      --warn-invalid-crossref
-      --warn-missing-arg
-      --no-repeat-first-par
-  ].join(' ')
-end
-
-def apple_doc_files
-  %x{find Braintree -name "*.h"}.split("\n").reject { |name| name =~ /mSDK/}.map { |name| name.gsub(' ', '\\ ')}.join(' ')
-end
-
-desc "Generate documentation via appledoc"
-task :docs => 'docs:generate'
-
-namespace :appledoc do
-  task :check do
-    unless File.exists?('/usr/local/bin/appledoc')
-      puts "appledoc not found at /usr/local/bin/appledoc: Install via homebrew and try again: `brew install --HEAD appledoc`"
-      exit 1
-    end
-  end
-end
-
-namespace :docs do
-  desc "Generate apple docs as html"
-  task :generate => 'appledoc:check' do
-    command = apple_doc_command << " --no-create-docset --keep-intermediate-files --create-html #{apple_doc_files}"
-    run(command)
-    puts "Generated HTML documentationa at appledocs/html"
-  end
-
-  desc "Check that documentation can be built from the source code via appledoc successfully."
-  task :check => 'appledoc:check' do
-    command = apple_doc_command << " --no-create-html --verbose 5 #{apple_doc_files}"
-    exitstatus = run(command)
-    if exitstatus == 0
-      puts "appledoc generation completed successfully!"
-    elsif exitstatus == 1
-      puts "appledoc generation produced warnings"
-    elsif exitstatus == 2
-      puts "! appledoc generation encountered an error"
-      exit(exitstatus)
-    else
-      puts "!! appledoc generation failed with a fatal error"
-    end
-    exit(exitstatus)
-  end
-
-  desc "Generate & install a docset into Xcode from the current sources"
-  task :install => 'appledoc:check' do
-    command = apple_doc_command << " --install-docset #{apple_doc_files}"
-    run(command)
-  end
-end
-
-
 namespace :release do
   desc "Print out pre-release checklist"
   task :assumptions do
@@ -226,8 +145,7 @@ namespace :release do
     say "* [ ] You are on the branch and commit you want to release."
     say "* [ ] You have already merged hotfixes and pulled changes."
     say "* [ ] You have already reviewed the diff between the current release and the last tag, noting breaking changes in the semver and CHANGELOG."
-    say "* [ ] Tests are passing, manual verifications complete."
-    say "* [ ] iOS Simulator has hardware keyboard disabled"
+    say "* [ ] Tests (rake spec) are passing, manual verifications complete."
     say "* [ ] Email is composed and ready to send to braintree-sdk-announce@googlegroups.com"
 
     abort(1) unless ask "Ready to release? "
@@ -257,9 +175,6 @@ namespace :release do
     run "git commit -m 'Bump pod version to #{version}' -- #{PODSPEC} Podfile.lock '#{DEMO_PLIST}' '#{DROPIN_FRAMEWORKS_PLIST}' '#{UIKIT_FRAMEWORKS_PLIST}'"
   end
 
-  desc  "Test."
-  task :test => 'spec:all'
-
   desc  "Lint podspec."
   task :lint_podspec do
     run! "pod lib lint --allow-warnings"
@@ -284,35 +199,4 @@ namespace :publish do
     run! "pod trunk push --allow-warnings BraintreeDropIn.podspec"
   end
 
-  desc "Force CocoaDocs reparse"
-  task :cocoadocs do
-    run! "curl --silent --show-error http://api.cocoadocs.org:4567/redeploy/BraintreeDropIn/latest"
-  end
-
 end
-
-namespace :distribute do
-  task :build do
-    destination = File.expand_path("~/Desktop/Braintree-Demo-#{current_version_with_sha}")
-    run! "ipa build --scheme Demo --destination '#{destination}' --embed EverybodyVenmo.mobileprovision --identity 'iPhone Distribution: Venmo Inc.'"
-    say "Archived Demo (#{current_version}) to: #{destination}"
-  end
-
-  task :hockeyapp do
-    destination = File.expand_path("~/Desktop/Braintree-Demo-#{current_version_with_sha}")
-    changes = File.read("CHANGELOG.md")[/(## #{current_version}.*?)^## /m, 1].strip
-    run! "ipa distribute:hockeyapp --token '#{File.read(".hockeyapp").strip}' --identifier '7134982f3df6419a0eb52b16e7d6d175' --file '#{destination}/Braintree-Demo.ipa' --dsym '#{destination}/Braintree-Demo.app.dSYM.zip' --markdown --notes #{Shellwords.shellescape("#{changes}\n\n#{current_version_with_sha}")}"
-    say "Uploaded Demo (#{current_version_with_sha}) to HockeyApp!"
-  end
-end
-
-namespace :gen do
-  task :strings do
-    ["Drop-In", "UI"].each do |subspec|
-      run! "genstrings -o Braintree/#{subspec}/Localization/en.lproj Braintree/#{subspec}/**/*.m && " +
-           "iconv -f utf-16 -t utf-8 Braintree/#{subspec}/Localization/en.lproj/Localizable.strings > Braintree/#{subspec}/Localization/en.lproj/#{subspec}.strings && " +
-           "rm -f Braintree/#{subspec}/Localization/en.lproj/Localizable.strings"
-    end
-  end
-end
-
