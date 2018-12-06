@@ -2,6 +2,7 @@
 
 #import "BTDropInRequest.h"
 #import "BTPostalAddress.h"
+#import "BraintreePayPal.h"
 
 @interface BTDropInRequestTests : XCTestCase
 

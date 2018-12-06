@@ -20,29 +20,30 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree/Apple-Pay (4.17.0):
+  - Braintree/Apple-Pay (4.20.2):
     - Braintree/Core
-  - Braintree/Card (4.17.0):
+  - Braintree/Card (4.20.2):
     - Braintree/Core
-  - Braintree/Core (4.17.0)
-  - Braintree/PaymentFlow (4.17.0):
+  - Braintree/Core (4.20.2)
+  - Braintree/PaymentFlow (4.20.2):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/PayPal (4.17.0):
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPal (4.20.2):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.17.0):
+  - Braintree/PayPalDataCollector (4.20.2):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.17.0):
+  - Braintree/PayPalOneTouch (4.20.2):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.17.0)
-  - Braintree/UnionPay (4.17.0):
+  - Braintree/PayPalUtils (4.20.2)
+  - Braintree/UnionPay (4.20.2):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.17.0):
+  - Braintree/Venmo (4.20.2):
     - Braintree/Core
     - Braintree/PayPalDataCollector
   - BraintreeDropIn (6.5.0):
@@ -58,10 +59,10 @@ PODS:
   - CardIO (5.4.1)
   - Expecta (1.0.6)
   - FLEX (2.4.0)
-  - InAppSettingsKit (2.9)
+  - InAppSettingsKit (2.10)
   - iOS-Slide-Menu (1.5)
   - "NSURL+QueryDictionary (1.2.0)"
-  - OCMock (3.4.2)
+  - OCMock (3.4.3)
   - OHHTTPStubs (6.1.0):
     - OHHTTPStubs/Default (= 6.1.0)
   - OHHTTPStubs/Core (6.1.0)
@@ -75,7 +76,7 @@ PODS:
   - OHHTTPStubs/NSURLSession (6.1.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - PureLayout (3.0.2)
+  - PureLayout (3.1.4)
   - Specta (1.0.7)
 
 DEPENDENCIES:
@@ -116,17 +117,17 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  Braintree: 9681cef8240c8ad9e67493d5c19418041e6c259a
-  BraintreeDropIn: ddcfcff4aae0c3ce31b93fc1340d80a2e3e88f00
+  Braintree: 49cd0ea2ee8a87649fbc0b1e959963bc77464bf8
+  BraintreeDropIn: f3b5a9ed6c10ead8bb6bc40130f238e00470c20f
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
-  InAppSettingsKit: fc3dea21846535b76b8289b119dbfdbe2505b2b2
+  InAppSettingsKit: d965e29be941eb19857271e4625de3fba6e23c9f
   iOS-Slide-Menu: 40b0cbd8916c42afc755f0869793cd09e7a32102
   "NSURL+QueryDictionary": bae616404e2adf6409d3d5c02a093cbf44c8a236
-  OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
+  OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
-  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
 PODFILE CHECKSUM: 47d6309af58411191105fa2af7ee0aa1448df802
