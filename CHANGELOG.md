@@ -1,5 +1,10 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 7.0.0 (2018-12-06)
+* Add support for setting a BTPayPalRequest on the BTDropInRequest
+* Set calendar type as Gregorian and syntax for pointers
+* Added support for Maestro 56-59 card prefixes
+
 ## 6.5.0 (2018-10-09)
 
 * Added the option to accept or require a cardholder name when entering credit card information
