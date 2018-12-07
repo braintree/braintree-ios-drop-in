@@ -6,7 +6,7 @@ inhibit_all_warnings!
 workspace 'BraintreeDropIn.xcworkspace'
 
 target 'DropInDemo' do
-  pod 'AFNetworking', '~> 2.6.0'
+  pod 'AFNetworking'
   pod 'CardIO'
   pod 'NSURL+QueryDictionary', '~> 1.0'
   pod 'PureLayout'
