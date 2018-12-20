@@ -6,7 +6,7 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 ![Drop-in light theme](Docs/client-sdk-ios-series-light.png "Drop-in light theme")
 
-**The Braintree iOS Drop-In SDK requires Xcode 7+ and a Base SDK of iOS 9+**. It permits a Deployment Target of iOS 9.0 or higher.
+**The Braintree iOS Drop-In SDK requires Xcode 10+ and a Base SDK of iOS 9+**. It permits a Deployment Target of iOS 9.0 or higher.
 
 # What's new
 - All new UI and integration for Drop-In
