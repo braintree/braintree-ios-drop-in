@@ -1,7 +1,7 @@
 import XCTest
 
 extension XCTestCase {
-    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 10,  file: String = #file, line: UInt = #line) {
+    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 10,  file: String = #file, line: Int = #line) {
         let existsPredicate = NSPredicate(format: "exists == true")
         
         expectation(for: existsPredicate,
@@ -15,7 +15,7 @@ extension XCTestCase {
         }
     }
     
-    func waitForElementToBeHittable(_ element: XCUIElement, timeout: TimeInterval = 10,  file: String = #file, line: UInt = #line) {
+    func waitForElementToBeHittable(_ element: XCUIElement, timeout: TimeInterval = 10,  file: String = #file, line: Int = #line) {
         let existsPredicate = NSPredicate(format: "exists == true && hittable == true")
         
         expectation(for: existsPredicate,
