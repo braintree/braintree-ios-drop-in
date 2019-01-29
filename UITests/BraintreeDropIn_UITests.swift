@@ -168,7 +168,7 @@ class BraintreeDropIn_CardDisabled_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_maskSecurityCodeOption_enablesSecureTextEntry() {
+    func testDropIn_cardDisabledOption_disablesCreditCard() {
         XCTAssertTrue(app.staticTexts["PayPal"].exists);
         XCTAssertFalse(app.staticTexts["Credit or Debit Card"].exists);
     }
