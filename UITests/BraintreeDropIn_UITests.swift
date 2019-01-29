@@ -784,6 +784,42 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToAppear(app.buttons["Cancelled🎲"])
         XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
     }
+    
+    func testDropIn_threeDSecure_tokenizationError_showsAlert() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+        
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4285860012592171")
+        
+        self.waitForElementToBeHittable(app.staticTexts["2020"])
+        app.staticTexts["01"].forceTapElement()
+        app.staticTexts["2022"].forceTapElement()
+        
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("200")
+        
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+        
+        app.buttons["Add Card"].forceTapElement()
+        
+        self.waitForElementToBeHittable(app.alerts.buttons["OK"])
+        XCTAssertTrue(app.alerts.staticTexts["Please review your information and try again."].exists);
+        app.alerts.buttons["OK"].tap()
+        
+        // Assert: can edit after dismissing alert
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("\u{8}1")
+    }
 }
 
 
