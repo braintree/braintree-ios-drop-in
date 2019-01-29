@@ -617,35 +617,35 @@
 
             self.navigationItem.rightBarButtonItem = addCardButton;
 
-            if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount != nil
-                && [self.configuration.json[@"threeDSecureEnabled"] isTrue]) {
-
-                BTPaymentFlowDriver *paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:self.apiClient];
-                paymentFlowDriver.viewControllerPresentingDelegate = self;
-
-                BTThreeDSecureRequest *request = [[BTThreeDSecureRequest alloc] init];
-                request.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
-                request.nonce = tokenizedCard.nonce;
-                [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
-                    if (error) {
-                        if (error.code == BTPaymentFlowDriverErrorTypeCanceled) {
-                            [self cancelTapped];
-                        } else {
-                            [self.delegate cardTokenizationCompleted:nil error:error sender:self];
-                        }
-                    } else if (result) {
-                        BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
-                        [self.delegate cardTokenizationCompleted:threeDSecureResult.tokenizedCard error:error sender:self];
-                    }
-                }];
+            if (error != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(CARD_DETAILS_LABEL) message:BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction: alertAction];
+                    [navController presentViewController:alertController animated:YES completion:nil];
+                });
             } else {
-                if (error != nil) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(CARD_DETAILS_LABEL) message:BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
-                        [alertController addAction: alertAction];
-                        [navController presentViewController:alertController animated:YES completion:nil];
-                    });
+                if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount != nil
+                    && [self.configuration.json[@"threeDSecureEnabled"] isTrue]) {
+
+                    BTPaymentFlowDriver *paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:self.apiClient];
+                    paymentFlowDriver.viewControllerPresentingDelegate = self;
+
+                    BTThreeDSecureRequest *request = [[BTThreeDSecureRequest alloc] init];
+                    request.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
+                    request.nonce = tokenizedCard.nonce;
+                    [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
+                        if (error) {
+                            if (error.code == BTPaymentFlowDriverErrorTypeCanceled) {
+                                [self cancelTapped];
+                            } else {
+                                [self.delegate cardTokenizationCompleted:nil error:error sender:self];
+                            }
+                        } else if (result) {
+                            BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
+                            [self.delegate cardTokenizationCompleted:threeDSecureResult.tokenizedCard error:error sender:self];
+                        }
+                    }];
                 } else {
                     [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
                 }
