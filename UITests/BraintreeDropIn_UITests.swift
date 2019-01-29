@@ -793,7 +793,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
         
         self.waitForElementToBeHittable(cardNumberTextField)
-        cardNumberTextField.typeText("4285860012592171")
+        cardNumberTextField.typeText("4687380000000008")
         
         self.waitForElementToBeHittable(app.staticTexts["2020"])
         app.staticTexts["01"].forceTapElement()
