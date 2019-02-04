@@ -6,10 +6,10 @@
 #import "BraintreeCore.h"
 
 #import "BraintreeDemoMerchantAPI.h"
-#import "BraintreeDemoBaseViewController.h"
 #import "BraintreeDemoIntegrationViewController.h"
 #import "BraintreeDemoSlideNavigationController.h"
 #import "BraintreeDemoSettings.h"
+#import "BraintreeDemoDropInViewController.h"
 
 @interface BraintreeDemoDemoContainmentViewController () <IASKSettingsDelegate, SlideNavigationControllerDelegate, IntegrationViewControllerDelegate>
 @property (nonatomic, strong) UIBarButtonItem *statusItem;
@@ -204,16 +204,7 @@
 }
 
 - (BraintreeDemoBaseViewController *)instantiateCurrentIntegrationViewControllerWithAuthorization:(NSString *)authorization {
-    NSString *integrationName = [[NSUserDefaults standardUserDefaults] stringForKey:@"BraintreeDemoSettingsIntegration"];
-    NSLog(@"Loading integration: %@", integrationName);
-
-    Class integrationClass = NSClassFromString(integrationName);
-    if (![integrationClass isSubclassOfClass:[BraintreeDemoBaseViewController class]]) {
-        NSLog(@"%@ is not a valid BraintreeDemoBaseViewController", integrationName);
-        return nil;
-    }
-
-    return [(BraintreeDemoBaseViewController *)[integrationClass alloc] initWithAuthorization:authorization];
+    return [[BraintreeDemoDropInViewController alloc] initWithAuthorization:authorization];
 }
 
 - (void)containIntegrationViewController:(UIViewController *)viewController {
