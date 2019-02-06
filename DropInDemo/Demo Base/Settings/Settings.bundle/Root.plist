@@ -7,28 +7,6 @@
 		<dict>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
-			<key>DisplaySortedByTitle</key>
-			<true/>
-			<key>Title</key>
-			<string>Integration</string>
-			<key>Key</key>
-			<string>BraintreeDemoSettingsIntegration</string>
-			<key>DefaultValue</key>
-			<string>BraintreeDemoDropInViewController</string>
-			<key>Titles</key>
-			<array>
-				<string>Drop In (Legacy)</string>
-				<string>Drop In</string>
-			</array>
-			<key>Values</key>
-			<array>
-				<string>BraintreeDemoDropInLegacyViewController</string>
-				<string>BraintreeDemoDropInViewController</string>
-			</array>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
 			<key>Title</key>
 			<string>Environment</string>
 			<key>Key</key>

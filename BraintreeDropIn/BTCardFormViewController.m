@@ -618,12 +618,10 @@
             self.navigationItem.rightBarButtonItem = addCardButton;
 
             if (error != nil) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(CARD_DETAILS_LABEL) message:BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction: alertAction];
-                    [navController presentViewController:alertController animated:YES completion:nil];
-                });
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(CARD_DETAILS_LABEL) message:BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction: alertAction];
+                [navController presentViewController:alertController animated:YES completion:nil];
             } else {
                 if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount != nil
                     && [self.configuration.json[@"threeDSecureEnabled"] isTrue]) {

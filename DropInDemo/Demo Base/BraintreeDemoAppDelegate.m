@@ -111,10 +111,7 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeDemoSettingsAuthorizationOverride"];
     for (NSString* arg in [[NSProcessInfo processInfo] arguments]) {
-        if ([arg rangeOfString:@"-Integration:"].location != NSNotFound) {
-            NSString* testIntegration = [arg stringByReplacingOccurrencesOfString:@"-Integration:" withString:@""];
-            [[NSUserDefaults standardUserDefaults] setObject:testIntegration forKey:@"BraintreeDemoSettingsIntegration"];
-        } else if ([arg rangeOfString:@"-Authorization:"].location != NSNotFound) {
+        if ([arg rangeOfString:@"-Authorization:"].location != NSNotFound) {
             NSString* testIntegration = [arg stringByReplacingOccurrencesOfString:@"-Authorization:" withString:@""];
             [[NSUserDefaults standardUserDefaults] setObject:testIntegration forKey:@"BraintreeDemoSettingsAuthorizationOverride"];
         }

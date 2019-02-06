@@ -40,3 +40,11 @@ extension XCUIElement {
         }
     }
 }
+
+extension Date {
+    static func getNextYear() -> String {
+        let date = Date()
+        let calendar = Calendar.init(identifier: .gregorian)
+        return String(calendar.component(.year, from: date) + 1)
+    }
+}
