@@ -5,7 +5,7 @@
 #if __has_include("BraintreeCore.h")
 #import "BraintreeCore.h"
 #else
-#import <BraintreeCore/BraintreeCore.h>
+#import <Braintree/BraintreeCore.h>
 #endif
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
@@ -14,17 +14,17 @@
 #if __has_include("BraintreeCard.h")
 #import "BraintreeCard.h"
 #else
-#import <BraintreeCard/BraintreeCard.h>
+#import <Braintree/BraintreeCard.h>
 #endif
 #if __has_include("BraintreeUnionPay.h")
 #import "BraintreeUnionPay.h"
 #else
-#import <BraintreeUnionPay/BraintreeUnionPay.h>
+#import <Braintree/BraintreeUnionPay.h>
 #endif
 #if __has_include("BraintreePaymentFlow.h")
 #import "BraintreePaymentFlow.h"
 #else
-#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
+#import <Braintree/BraintreePaymentFlow.h>
 #endif
 
 @interface BTCardFormViewController () <BTViewControllerPresentingDelegate>

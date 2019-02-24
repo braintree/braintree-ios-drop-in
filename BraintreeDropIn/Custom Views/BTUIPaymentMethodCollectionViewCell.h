@@ -3,7 +3,7 @@
 #if __has_include("BTPaymentMethodNonce.h")
 #import "BTPaymentMethodNonce.h"
 #else
-#import <BraintreeCore/BTPaymentMethodNonce.h>
+#import <Braintree/BTPaymentMethodNonce.h>
 #endif
 
 @class BTUIKPaymentOptionCardView;

@@ -15,21 +15,21 @@
 #if __has_include("BraintreeCard.h")
 #import "BraintreeCard.h"
 #else
-#import <BraintreeCard/BraintreeCard.h>
+#import <Braintree/BraintreeCard.h>
 #endif
 
 #if __has_include("BraintreePayPal.h")
 #import "BraintreePayPal.h"
 #else
-#import <BraintreePayPal/BraintreePayPal.h>
+#import <Braintree/BraintreePayPal.h>
 #endif
 
 #if __has_include("BraintreeApplePay.h")
 #define __BT_APPLE_PAY
 #import "BraintreeApplePay.h"
-#elif __has_include(<BraintreeApplePay/BraintreeApplePay.h>)
+#elif __has_include(<Braintree/BraintreeApplePay.h>)
 #define __BT_APPLE_PAY
-#import <BraintreeApplePay/BraintreeApplePay.h>
+#import <Braintree/BraintreeApplePay.h>
 #endif
 
 #define SAVED_PAYMENT_METHODS_COLLECTION_SPACING 6
