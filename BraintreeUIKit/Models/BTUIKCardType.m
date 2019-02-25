@@ -196,8 +196,14 @@
                                                     validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 4)]
                                                         validCvvLength:3
                                                           formatSpaces:nil];
+        BTUIKCardType *hiper = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_HIPER)
+                                                   securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
+                                                           prefixes:@[@"^637(095|568|599|609|612)\\d*"]];
+        BTUIKCardType *hipercard = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_HIPERCARD)
+                                                       securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
+                                                               prefixes:@[@"^606282\\d*"]];
 
-        _allCards = @[visa, mastercard, discover, amex, dinersClub, jcb, mastercard, maestro, unionPay];
+        _allCards = @[visa, mastercard, discover, amex, dinersClub, jcb, mastercard, maestro, unionPay, hiper, hipercard];
     });
 
     // returns the same object each time

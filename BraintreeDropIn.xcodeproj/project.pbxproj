@@ -18,6 +18,14 @@
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
 		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
+		53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */; };
+		53E78BE322248A29000388D3 /* BTUIKHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */; };
+		53E78BE622248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */; };
+		53E78BE722248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE522248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m */; };
+		53E78BEA22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BE822248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h */; };
+		53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */; };
+		53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */; };
+		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
@@ -261,6 +269,14 @@
 		1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKHipercardVectorArtView.h; sourceTree = "<group>"; };
+		53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKHipercardVectorArtView.m; sourceTree = "<group>"; };
+		53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeHiperVectorArtView.h; sourceTree = "<group>"; };
+		53E78BE522248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeHiperVectorArtView.m; sourceTree = "<group>"; };
+		53E78BE822248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeHipercardVectorArtView.h; sourceTree = "<group>"; };
+		53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeHipercardVectorArtView.m; sourceTree = "<group>"; };
+		53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKHiperVectorArtView.h; sourceTree = "<group>"; };
+		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -663,6 +679,8 @@
 				A529012B1D8903A600032220 /* BTUIKDinersClubVectorArtView.m */,
 				A529012C1D8903A600032220 /* BTUIKDiscoverVectorArtView.h */,
 				A529012D1D8903A600032220 /* BTUIKDiscoverVectorArtView.m */,
+				53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */,
+				53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */,
 				A529012E1D8903A600032220 /* BTUIKJCBVectorArtView.h */,
 				A529012F1D8903A600032220 /* BTUIKJCBVectorArtView.m */,
 				A52901301D8903A600032220 /* BTUIKMaestroVectorArtView.h */,
@@ -687,6 +705,8 @@
 				A52901431D8903A600032220 /* BTUIKVisaVectorArtView.h */,
 				A52901441D8903A600032220 /* BTUIKVisaVectorArtView.m */,
 				A52901451D8903A600032220 /* Large */,
+				53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */,
+				53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */,
 			);
 			path = "Vector Art";
 			sourceTree = "<group>";
@@ -722,6 +742,10 @@
 				A529015F1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.m */,
 				A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */,
 				A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */,
+				53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */,
+				53E78BE522248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m */,
+				53E78BE822248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h */,
+				53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */,
 			);
 			path = Large;
 			sourceTree = "<group>";
@@ -978,12 +1002,15 @@
 				A52901A91D8903A700032220 /* BTUIKViewUtil.h in Headers */,
 				A52901EC1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.h in Headers */,
 				03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */,
+				53E78BEA22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h in Headers */,
 				A52901B11D8903A700032220 /* BTUIKCardVectorArtView.h in Headers */,
 				A52902011D8903A700032220 /* BTUIKLargePayPalMonogramCardView.h in Headers */,
 				A52901F21D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.h in Headers */,
+				53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */,
 				A52901AE1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.h in Headers */,
 				A52901FE1D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.h in Headers */,
 				A52901A21D8903A600032220 /* BTUIKPaymentOptionCardView.h in Headers */,
+				53E78BE622248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h in Headers */,
 				A529019E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h in Headers */,
 				A52901EF1D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.h in Headers */,
 				A529019D1D8903A600032220 /* BTUIKFormField.h in Headers */,
@@ -995,6 +1022,7 @@
 				A52901961D8903A600032220 /* BTUIKCardExpirationValidator.h in Headers */,
 				A52901E01D8903A700032220 /* BTUIKVenmoMonogramCardView.h in Headers */,
 				A52901C61D8903A700032220 /* BTUIKJCBVectorArtView.h in Headers */,
+				53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */,
 				A529019C1D8903A600032220 /* BTUIKExpiryInputView.h in Headers */,
 				A52901E91D8903A700032220 /* BTUIKLargeAmExVectorArtView.h in Headers */,
 				A52901F51D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.h in Headers */,
@@ -1369,13 +1397,16 @@
 				A529020F1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.m in Sources */,
 				A529017A1D8903A600032220 /* BTUIKMobileNumberFormField.m in Sources */,
 				A52901DF1D8903A700032220 /* BTUIKVectorArtView.m in Sources */,
+				53E78BE322248A29000388D3 /* BTUIKHipercardVectorArtView.m in Sources */,
 				A52901F41D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.m in Sources */,
 				A529017C1D8903A600032220 /* BTUIKPaymentOptionCardView.m in Sources */,
 				A52901701D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */,
+				53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */,
 				A529016D1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */,
 				A52901CE1D8903A700032220 /* BTUIKMasterCardVectorArtView.m in Sources */,
 				A52901CB1D8903A700032220 /* BTUIKMaestroVectorArtView.m in Sources */,
 				A52902001D8903A700032220 /* BTUIKLargeMasterCardVectorArtView.m in Sources */,
+				53E78BE722248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m in Sources */,
 				A52901F11D8903A700032220 /* BTUIKLargeCoinbaseMonogramCardView.m in Sources */,
 				A52901861D8903A600032220 /* BTUIKViewUtil.m in Sources */,
 				A52901661D8903A600032220 /* BTUIKCardListLabel.m in Sources */,
@@ -1391,6 +1422,7 @@
 				A52901E51D8903A700032220 /* BTUIKVenmoWordmarkVectorArtView.m in Sources */,
 				A52901DA1D8903A700032220 /* BTUIKUnionPayVectorArtView.m in Sources */,
 				A52901EE1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */,
+				53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */,
 				A52901B01D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */,
 				A52901911D8903A600032220 /* BTUIKCardType.m in Sources */,
 				A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */,

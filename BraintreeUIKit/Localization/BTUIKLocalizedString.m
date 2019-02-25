@@ -288,6 +288,14 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"CARD_TYPE_UNION_PAY", [self localizationTable], [self localizationBundle], @"UnionPay", @"CARD_TYPE_UNION_PAY");
 }
 
++ (NSString *)CARD_TYPE_HIPER {
+    return NSLocalizedStringWithDefaultValue(@"CARD_TYPE_HIPER", [self localizationTable], [self localizationBundle], @"Hiper", @"CARD_TYPE_HIPER");
+}
+
++ (NSString *)CARD_TYPE_HIPERCARD {
+    return NSLocalizedStringWithDefaultValue(@"CARD_TYPE_HIPERCARD", [self localizationTable], [self localizationBundle], @"Hipercard", @"CARD_TYPE_HIPERCARD");
+}
+
 + (NSString *)BRANDING_COINBASE {
     return NSLocalizedStringWithDefaultValue(@"BRANDING_COINBASE", [self localizationTable], [self localizationBundle], @"Coinbase", @"BRANDING_COINBASE");
 }

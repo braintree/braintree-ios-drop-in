@@ -23,6 +23,8 @@
                                   @(BTUIKPaymentOptionTypeLaser),
                                   @(BTUIKPaymentOptionTypeMaestro),
                                   @(BTUIKPaymentOptionTypeUnionPay),
+                                  @(BTUIKPaymentOptionTypeHiper),
+                                  @(BTUIKPaymentOptionTypeHipercard),
                                   @(BTUIKPaymentOptionTypeSolo),
                                   @(BTUIKPaymentOptionTypeSwitch),
                                   @(BTUIKPaymentOptionTypeUKMaestro),
