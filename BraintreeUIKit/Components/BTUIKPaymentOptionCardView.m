@@ -4,14 +4,13 @@
 
 @interface BTUIKPaymentOptionCardView()
 
-@property (nonatomic, strong) BTUIKVectorArtView* imageView;
+@property (nonatomic, strong) BTUIKVectorArtView *imageView;
 
 @end
 
 @implementation BTUIKPaymentOptionCardView
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.vectorArtSize = BTUIKVectorArtSizeRegular;
@@ -26,27 +25,33 @@
 }
 
 - (void)setImageView:(BTUIKVectorArtView *)imageView {
-    if (self.imageView) {
-        [self.imageView removeFromSuperview];
+    if (_imageView) {
+        [_imageView removeFromSuperview];
     }
     _imageView = imageView;
-    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:self.imageView];
+    _imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:_imageView];
     [self updateAppearance];
 }
 
 - (void)updateAppearance {
-    NSDictionary* viewBindings = @{@"imageView":self.imageView};
-    
-    NSDictionary* metrics = @{@"PADDING": @(self.innerPadding)};
-    
+    NSDictionary *viewBindings = @{@"imageView": self.imageView};
+
+    NSDictionary *metrics = @{@"PADDING": @(self.innerPadding)};
+
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(PADDING)-[imageView]-(PADDING)-|"
                                                                  options:0
                                                                  metrics:metrics
                                                                    views:viewBindings]];
-    
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
-    
+
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0
+                                                      constant:0]];
+
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
                                                      attribute:NSLayoutAttributeHeight
                                                      relatedBy:NSLayoutRelationEqual

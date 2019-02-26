@@ -53,11 +53,9 @@
 
 @implementation BTPaymentSelectionViewController
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         self.paymentMethodNonces = @[];
         self.paymentOptionsData = @[@(BTUIKPaymentOptionTypePayPal), @(BTUIKPaymentOptionTypeUnknown)];
     }
@@ -193,7 +191,6 @@
     [self showLoadingScreen:YES];
     self.stackView.hidden = YES;
     [super loadConfiguration];
-    
 }
 
 - (void)dealloc {
@@ -219,7 +216,7 @@
             if ([[BTTokenizationService sharedService] isTypeAvailable:@"PayPal"] && [self.configuration.json[@"paypalEnabled"] isTrue] && !self.dropInRequest.paypalDisabled) {
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypePayPal)];
             }
-            
+
             BTJSON *venmoAccessToken = self.configuration.json[@"payWithVenmo"][@"accessToken"];
             if ([[BTTokenizationService sharedService] isTypeAvailable:@"Venmo"] && venmoAccessToken.isString && !self.dropInRequest.venmoDisabled) {
                 NSURLComponents *components = [NSURLComponents componentsWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
@@ -248,7 +245,7 @@
                 }
             }
 #endif
-            
+
             self.paymentOptionsData = [activePaymentOptions copy];
             [self.savedPaymentMethodsCollectionView reloadData];
             [self.paymentOptionsTableView reloadData];
@@ -340,7 +337,7 @@
     return spacer;
 }
 
-- (float) sheetHeight {
+- (float)sheetHeight {
     return self.paymentMethodNonces.count == 0 ? 280 : 470;
 }
 
@@ -353,7 +350,7 @@
 #pragma mark - Protocol conformance
 #pragma mark UICollectionViewDelegate
 
--(NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView {
     return 1;
 }
 
@@ -408,8 +405,7 @@
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"BTDropInPaymentSeletionCell";
 
     BTDropInPaymentSeletionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
@@ -477,7 +473,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
--(CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
+- (CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
     return 44.0;
 }
 
