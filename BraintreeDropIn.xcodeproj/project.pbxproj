@@ -681,6 +681,8 @@
 				A529012D1D8903A600032220 /* BTUIKDiscoverVectorArtView.m */,
 				53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */,
 				53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */,
+				53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */,
+				53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */,
 				A529012E1D8903A600032220 /* BTUIKJCBVectorArtView.h */,
 				A529012F1D8903A600032220 /* BTUIKJCBVectorArtView.m */,
 				A52901301D8903A600032220 /* BTUIKMaestroVectorArtView.h */,
@@ -705,8 +707,6 @@
 				A52901431D8903A600032220 /* BTUIKVisaVectorArtView.h */,
 				A52901441D8903A600032220 /* BTUIKVisaVectorArtView.m */,
 				A52901451D8903A600032220 /* Large */,
-				53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */,
-				53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */,
 			);
 			path = "Vector Art";
 			sourceTree = "<group>";
@@ -724,6 +724,10 @@
 				A529014D1D8903A600032220 /* BTUIKLargeDinersClubVectorArtView.m */,
 				A529014E1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.h */,
 				A529014F1D8903A600032220 /* BTUIKLargeDiscoverVectorArtView.m */,
+				53E78BE822248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h */,
+				53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */,
+				53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */,
+				53E78BE522248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m */,
 				A52901501D8903A600032220 /* BTUIKLargeJCBVectorArtView.h */,
 				A52901511D8903A600032220 /* BTUIKLargeJCBVectorArtView.m */,
 				A52901521D8903A600032220 /* BTUIKLargeMaestroVectorArtView.h */,
@@ -742,10 +746,6 @@
 				A529015F1D8903A600032220 /* BTUIKLargeVenmoMonogramCardView.m */,
 				A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */,
 				A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */,
-				53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */,
-				53E78BE522248BC3000388D3 /* BTUIKLargeHiperVectorArtView.m */,
-				53E78BE822248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h */,
-				53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */,
 			);
 			path = Large;
 			sourceTree = "<group>";
