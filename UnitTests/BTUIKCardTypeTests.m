@@ -85,7 +85,7 @@
         XCTAssertGreaterThanOrEqual((int)[[BTUIKCardType possibleCardTypesForNumber:cardNumber] count], 1);
 
         // Ensure that cards are found for short numbers
-        BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:4]];
+        BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:6]];
         XCTAssertEqualObjects([shortCard brand], cardBrand);
         NSArray *possibleCardsUsingShortNumber = [BTUIKCardType possibleCardTypesForNumber:[cardNumber substringToIndex:4]];
         XCTAssertGreaterThanOrEqual((int)[possibleCardsUsingShortNumber count], 1);
