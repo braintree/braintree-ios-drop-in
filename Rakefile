@@ -10,7 +10,7 @@ task :default => %w[sanity_checks spec]
 desc "Run default set of tasks"
 task :spec => %w[spec:all]
 
-desc "Run internal release process, pushing to internal GitHub Enterprise only"
+desc "Run internal release process"
 task :release => %w[release:assumptions sanity_checks release:check_working_directory release:bump_version release:lint_podspec release:tag]
 
 desc "Publish code and pod to public github.com"
