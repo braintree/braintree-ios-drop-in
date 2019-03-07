@@ -5,7 +5,7 @@
 @interface BTUIKCardListLabel : UILabel
 
 /// The array of BTUIKPaymentOptionType's to display
-@property (nonatomic, copy) NSArray* availablePaymentOptions;
+@property (nonatomic, copy) NSArray *availablePaymentOptions;
 
 /// The BTUIKPaymentOptionType to emphasize by fading all other payment methods included in availablePaymentOptions
 - (void)emphasizePaymentOption:(BTUIKPaymentOptionType)paymentOption;

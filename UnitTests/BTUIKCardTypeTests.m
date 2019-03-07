@@ -65,6 +65,18 @@
     [sampleCards addObject:@[@"6240888888888885", @"UnionPay"]];
     [sampleCards addObject:@[@"6240888888888885127", @"UnionPay"]];
 
+    // Hiper
+    // Testing partial card number due to lack of complete test card numbers
+    [sampleCards addObject:@[@"6370950000000005", @"Hiper"]];
+    [sampleCards addObject:@[@"637568", @"Hiper"]];
+    [sampleCards addObject:@[@"637599", @"Hiper"]];
+    [sampleCards addObject:@[@"637609", @"Hiper"]];
+    [sampleCards addObject:@[@"637612", @"Hiper"]];
+
+
+    // Hipercard
+    [sampleCards addObject:@[@"6062820524845321", @"Hipercard"]];
+
     for (NSArray *cardInfo in sampleCards) {
         NSString *cardNumber = [cardInfo objectAtIndex:0];
         NSString *cardBrand = [cardInfo objectAtIndex:1];
@@ -73,7 +85,7 @@
         XCTAssertGreaterThanOrEqual((int)[[BTUIKCardType possibleCardTypesForNumber:cardNumber] count], 1);
 
         // Ensure that cards are found for short numbers
-        BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:4]];
+        BTUIKCardType *shortCard = [BTUIKCardType cardTypeForNumber:[cardNumber substringToIndex:6]];
         XCTAssertEqualObjects([shortCard brand], cardBrand);
         NSArray *possibleCardsUsingShortNumber = [BTUIKCardType possibleCardTypesForNumber:[cardNumber substringToIndex:4]];
         XCTAssertGreaterThanOrEqual((int)[possibleCardsUsingShortNumber count], 1);

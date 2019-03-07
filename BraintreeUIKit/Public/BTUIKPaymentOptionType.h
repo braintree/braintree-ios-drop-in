@@ -10,6 +10,8 @@ typedef NS_ENUM(NSInteger, BTUIKPaymentOptionType) {
     BTUIKPaymentOptionTypeLaser,
     BTUIKPaymentOptionTypeMaestro,
     BTUIKPaymentOptionTypeUnionPay,
+    BTUIKPaymentOptionTypeHiper,
+    BTUIKPaymentOptionTypeHipercard,
     BTUIKPaymentOptionTypeSolo,
     BTUIKPaymentOptionTypeSwitch,
     BTUIKPaymentOptionTypeUKMaestro,

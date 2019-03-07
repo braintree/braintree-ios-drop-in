@@ -1,6 +1,11 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 7.1.0 (2019-03-07)
+
+* Add Hiper and Hipercard support
+
 ## 7.0.0 (2018-12-06)
+
 * Add support for setting a BTPayPalRequest on the BTDropInRequest
 * Set calendar type as Gregorian and syntax for pointers
 * Added support for Maestro 56-59 card prefixes

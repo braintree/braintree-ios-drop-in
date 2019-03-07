@@ -11,8 +11,9 @@
 #import "BTUIKCoinbaseMonogramCardView.h"
 #import "BTUIKVenmoMonogramCardView.h"
 #import "BTUIKUnionPayVectorArtView.h"
+#import "BTUIKHipercardVectorArtView.h"
+#import "BTUIKHiperVectorArtView.h"
 #import "BTUIKApplePayMarkVectorArtView.h"
-
 #import "BTUIKLargeMasterCardVectorArtView.h"
 #import "BTUIKLargeJCBVectorArtView.h"
 #import "BTUIKLargeMaestroVectorArtView.h"
@@ -25,6 +26,8 @@
 #import "BTUIKLargeCoinbaseMonogramCardView.h"
 #import "BTUIKLargeVenmoMonogramCardView.h"
 #import "BTUIKLargeUnionPayVectorArtView.h"
+#import "BTUIKLargeHiperVectorArtView.h"
+#import "BTUIKLargeHipercardVectorArtView.h"
 #import "BTUIKLargeApplePayMarkVectorArtView.h"
 
 #import "BTUIKCVVBackVectorArtView.h"
@@ -56,47 +59,55 @@
         return BTUIKPaymentOptionTypeDinersClub;
     } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)]) {
         return BTUIKPaymentOptionTypeUnionPay;
+    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_HIPER)]) {
+        return BTUIKPaymentOptionTypeHiper;
+    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_HIPERCARD)]) {
+        return BTUIKPaymentOptionTypeHipercard;
     } else {
         return BTUIKPaymentOptionTypeUnknown;
     }
 }
 
 + (NSString *)nameForPaymentMethodType:(BTUIKPaymentOptionType)paymentMethodType {
-  switch (paymentMethodType) {
-    case BTUIKPaymentOptionTypeUnknown:
-      return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
-    case BTUIKPaymentOptionTypeAMEX:
-          return BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS);
-    case BTUIKPaymentOptionTypeDinersClub:
-          return BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB);
-    case BTUIKPaymentOptionTypeDiscover:
-      return BTUIKLocalizedString(CARD_TYPE_DISCOVER);
-    case BTUIKPaymentOptionTypeMasterCard:
-        return BTUIKLocalizedString(CARD_TYPE_MASTER_CARD);
-    case BTUIKPaymentOptionTypeVisa:
-          return BTUIKLocalizedString(CARD_TYPE_VISA);
-    case BTUIKPaymentOptionTypeJCB:
-          return BTUIKLocalizedString(CARD_TYPE_JCB);
-    case BTUIKPaymentOptionTypeLaser:
-          return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
-    case BTUIKPaymentOptionTypeMaestro:
-          return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
-    case BTUIKPaymentOptionTypeUnionPay:
-          return BTUIKLocalizedString(CARD_TYPE_UNION_PAY);
-    case BTUIKPaymentOptionTypeSolo:
-          return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
-    case BTUIKPaymentOptionTypeSwitch:
-          return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
-    case BTUIKPaymentOptionTypeUKMaestro:
-          return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
-    case BTUIKPaymentOptionTypePayPal:
-          return BTUIKLocalizedString(PAYPAL);
-    case BTUIKPaymentOptionTypeCoinbase:
-          return BTUIKLocalizedString(BRANDING_COINBASE);
-    case BTUIKPaymentOptionTypeVenmo:
-          return BTUIKLocalizedString(BRANDING_VENMO);
-    case BTUIKPaymentOptionTypeApplePay:
-        return BTUIKLocalizedString(BRANDING_APPLE_PAY);
+    switch (paymentMethodType) {
+        case BTUIKPaymentOptionTypeUnknown:
+            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+        case BTUIKPaymentOptionTypeAMEX:
+            return BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS);
+        case BTUIKPaymentOptionTypeDinersClub:
+            return BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB);
+        case BTUIKPaymentOptionTypeDiscover:
+            return BTUIKLocalizedString(CARD_TYPE_DISCOVER);
+        case BTUIKPaymentOptionTypeMasterCard:
+            return BTUIKLocalizedString(CARD_TYPE_MASTER_CARD);
+        case BTUIKPaymentOptionTypeVisa:
+            return BTUIKLocalizedString(CARD_TYPE_VISA);
+        case BTUIKPaymentOptionTypeJCB:
+            return BTUIKLocalizedString(CARD_TYPE_JCB);
+        case BTUIKPaymentOptionTypeLaser:
+            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+        case BTUIKPaymentOptionTypeMaestro:
+            return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
+        case BTUIKPaymentOptionTypeUnionPay:
+            return BTUIKLocalizedString(CARD_TYPE_UNION_PAY);
+        case BTUIKPaymentOptionTypeHiper:
+            return BTUIKLocalizedString(CARD_TYPE_HIPER);
+        case BTUIKPaymentOptionTypeHipercard:
+            return BTUIKLocalizedString(CARD_TYPE_HIPERCARD);
+        case BTUIKPaymentOptionTypeSolo:
+            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+        case BTUIKPaymentOptionTypeSwitch:
+            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+        case BTUIKPaymentOptionTypeUKMaestro:
+            return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
+        case BTUIKPaymentOptionTypePayPal:
+            return BTUIKLocalizedString(PAYPAL);
+        case BTUIKPaymentOptionTypeCoinbase:
+            return BTUIKLocalizedString(BRANDING_COINBASE);
+        case BTUIKPaymentOptionTypeVenmo:
+            return BTUIKLocalizedString(BRANDING_VENMO);
+        case BTUIKPaymentOptionTypeApplePay:
+            return BTUIKLocalizedString(BRANDING_APPLE_PAY);
     }
 }
 
@@ -135,6 +146,10 @@
         return BTUIKPaymentOptionTypeSwitch;
     } else if ([typeString isEqualToString:@"UnionPay"]) {
         return BTUIKPaymentOptionTypeUnionPay;
+    } else if ([typeString isEqualToString:@"Hiper"]) {
+        return BTUIKPaymentOptionTypeHiper;
+    } else if ([typeString isEqualToString:@"Hipercard"]) {
+        return BTUIKPaymentOptionTypeHipercard;
     } else if ([typeString isEqualToString:@"Venmo"]) {
         return BTUIKPaymentOptionTypeVenmo;
     } else if ([typeString isEqualToString:@"ApplePay"]) {
@@ -158,6 +173,8 @@
         case BTUIKPaymentOptionTypeLaser:
         case BTUIKPaymentOptionTypeSwitch:
         case BTUIKPaymentOptionTypeUnionPay:
+        case BTUIKPaymentOptionTypeHiper:
+        case BTUIKPaymentOptionTypeHipercard:
             return YES;
         default:
             return NO;
@@ -198,6 +215,10 @@
             return size == BTUIKVectorArtSizeRegular ? [BTUIKVenmoMonogramCardView new] : [BTUIKLargeVenmoMonogramCardView new];
         case BTUIKPaymentOptionTypeUnionPay:
             return size == BTUIKVectorArtSizeRegular ? [BTUIKUnionPayVectorArtView new] : [BTUIKLargeUnionPayVectorArtView new];
+        case BTUIKPaymentOptionTypeHiper:
+            return size == BTUIKVectorArtSizeRegular ? [BTUIKHiperVectorArtView new] : [BTUIKLargeHiperVectorArtView new];
+        case BTUIKPaymentOptionTypeHipercard:
+            return size == BTUIKVectorArtSizeRegular ? [BTUIKHipercardVectorArtView new] : [BTUIKLargeHipercardVectorArtView new];
         case BTUIKPaymentOptionTypeApplePay:
             // No large apple pay
             return [BTUIKApplePayMarkVectorArtView new];
