@@ -4,9 +4,8 @@
 
 - (void)drawArt {
     //// Color Declarations
-    UIColor *fillColor = [UIColor colorWithRed: 0.894 green: 0.424 blue: 0.165 alpha: 1];
-    UIColor *fillColor2 = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1];
-    UIColor *fillColor3 = [UIColor colorWithRed: 1 green: 0.91 blue: 0.059 alpha: 1];
+    UIColor *fillColor1 = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1];
+    UIColor *fillColor2 = [UIColor colorWithRed: 1 green: 0.91 blue: 0.059 alpha: 1];
 
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetRGBFillColor(ctx, 0.894, .424, .165, 1);
@@ -28,7 +27,7 @@
     [bezierPath1 addLineToPoint: CGPointMake(8.81, 9.3)];
     [bezierPath1 closePath];
     bezierPath1.usesEvenOddFillRule = YES;
-    [fillColor2 setFill];
+    [fillColor1 setFill];
     [bezierPath1 fill];
 
     UIBezierPath *bezierPath2 = [UIBezierPath bezierPath];
@@ -49,7 +48,7 @@
     [bezierPath2 addLineToPoint: CGPointMake(28.56, 14.24)];
     [bezierPath2 closePath];
     bezierPath2.usesEvenOddFillRule = YES;
-    [fillColor2 setFill];
+    [fillColor1 setFill];
     [bezierPath2 fill];
 
     UIBezierPath *bezierPath3 = [UIBezierPath bezierPath];
@@ -69,11 +68,11 @@
     [bezierPath3 addLineToPoint: CGPointMake(33.25, 18.2)];
     [bezierPath3 closePath];
     bezierPath3.usesEvenOddFillRule = YES;
-    [fillColor2 setFill];
+    [fillColor1 setFill];
     [bezierPath3 fill];
 
     UIBezierPath *bezierPath4 = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(16.6, 8.94, 2.2, 2.2)];
-    [fillColor3 setFill];
+    [fillColor2 setFill];
     [bezierPath4 fill];
 
     UIBezierPath *bezierPath5 = [UIBezierPath bezierPath];
@@ -101,7 +100,7 @@
     [bezierPath5 addLineToPoint: CGPointMake(16.83, 11.73)];
     [bezierPath5 closePath];
     bezierPath5.usesEvenOddFillRule = YES;
-    [fillColor2 setFill];
+    [fillColor1 setFill];
     [bezierPath5 fill];
 }
 
