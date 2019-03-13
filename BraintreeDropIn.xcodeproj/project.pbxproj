@@ -193,6 +193,8 @@
 		A5CE1E001D835AB6009BE61A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DE11D835AB6009BE61A /* main.m */; };
 		A5CE1E081D835CC0009BE61A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE1E071D835CC0009BE61A /* PassKit.framework */; };
 		D5625143588830D2F8674700 /* libPods-DropInDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */; };
+		D6C2F3342239917F00DFF7E5 /* BTUIKSwitchFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */; };
+		D6C2F3352239917F00DFF7E5 /* BTUIKSwitchFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */; };
 		D9125B16377B9423DD5DF709 /* libPods-Tests-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -479,6 +481,8 @@
 		A5CEBB211D8885C00064FD29 /* libBraintree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBraintree.a; path = "../../../Library/Developer/Xcode/DerivedData/BraintreeDropInSampleStaticLib-czvlfzajgufrbydxfsjtvqriemso/Build/Products/Debug-iphoneos/libBraintree.a"; sourceTree = "<group>"; };
 		A5CEBBFA1D8898490064FD29 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = Vendor/BraintreeUIKit.framework; sourceTree = "<group>"; };
 		CB5342685A05987416D3E9FD /* libPods-BraintreeDropIn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BraintreeDropIn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKSwitchFormField.h; sourceTree = "<group>"; };
+		D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKSwitchFormField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -591,6 +595,7 @@
 				A52900DE1D8903A600032220 /* BTUIKPaymentOptionCardView.m */,
 				A52900DF1D8903A600032220 /* BTUIKPostalCodeFormField.m */,
 				A52900E01D8903A600032220 /* BTUIKSecurityCodeFormField.m */,
+				D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */,
 				A52900E11D8903A600032220 /* BTUIKTextField.m */,
 			);
 			path = Components;
@@ -648,6 +653,7 @@
 				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
 				A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */,
 				A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */,
+				D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */,
 				A52901161D8903A600032220 /* BTUIKTextField.h */,
 				A52901171D8903A600032220 /* BTUIKUtil.h */,
 				A52901181D8903A600032220 /* BTUIKVectorArtView.h */,
@@ -1029,6 +1035,7 @@
 				A52901A11D8903A600032220 /* BTUIKMobileNumberFormField.h in Headers */,
 				A52901621D8903A600032220 /* BTUIKBarButtonItem.h in Headers */,
 				A529019A1D8903A600032220 /* BTUIKCardType.h in Headers */,
+				D6C2F3342239917F00DFF7E5 /* BTUIKSwitchFormField.h in Headers */,
 				A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */,
 				A52901FB1D8903A700032220 /* BTUIKLargeMaestroVectorArtView.h in Headers */,
 				A52901CC1D8903A700032220 /* BTUIKMasterCardVectorArtView.h in Headers */,
@@ -1394,6 +1401,7 @@
 				A52902031D8903A700032220 /* BTUIKLargePayPalMonogramCardView.m in Sources */,
 				A52901801D8903A600032220 /* BTUIKSecurityCodeFormField.m in Sources */,
 				A52901E21D8903A700032220 /* BTUIKVenmoMonogramCardView.m in Sources */,
+				D6C2F3352239917F00DFF7E5 /* BTUIKSwitchFormField.m in Sources */,
 				A529020F1D8903A700032220 /* BTUIKLargeVenmoMonogramCardView.m in Sources */,
 				A529017A1D8903A600032220 /* BTUIKMobileNumberFormField.m in Sources */,
 				A52901DF1D8903A700032220 /* BTUIKVectorArtView.m in Sources */,

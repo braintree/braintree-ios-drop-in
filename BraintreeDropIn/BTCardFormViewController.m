@@ -39,6 +39,7 @@
 @property (nonatomic, strong, readwrite) BTUIKPostalCodeFormField *postalCodeField;
 @property (nonatomic, strong, readwrite) BTUIKMobileCountryCodeFormField *mobileCountryCodeField;
 @property (nonatomic, strong, readwrite) BTUIKMobileNumberFormField *mobilePhoneField;
+@property (nonatomic, strong, readwrite) UISwitch *shouldVaultCardSwitch;
 @property (nonatomic, strong) UIStackView *cardNumberErrorView;
 @property (nonatomic, strong) UIStackView *cardNumberHeader;
 @property (nonatomic, strong) UIStackView *enrollmentFooter;
@@ -196,6 +197,8 @@
     self.mobilePhoneField = [[BTUIKMobileNumberFormField alloc] init];
     self.mobilePhoneField.delegate = self;
     
+    self.shouldVaultCardSwitch = [[UISwitch alloc] init];
+    
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
     self.cardNumberHeader.layoutMarginsRelativeArrangement = true;
@@ -215,12 +218,13 @@
         [self.stackView addArrangedSubview:formField];
         
         NSLayoutConstraint* heightConstraint = [formField.heightAnchor constraintEqualToConstant:[BTUIKAppearance formCellHeight]];
-        // Setting the prioprity is necessary to avoid autolayout errors when UIStackView rotates
+        // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
         heightConstraint.priority = UILayoutPriorityDefaultHigh;
         heightConstraint.active = YES;
         
         [formField updateConstraints];
     }
+    [self.stackView addArrangedSubview:self.shouldVaultCardSwitch];
     
     self.cardNumberField.formLabel.text = @"";
     [self.cardNumberField updateConstraints];
@@ -231,6 +235,7 @@
     self.postalCodeField.hidden = YES;
     self.mobileCountryCodeField.hidden = YES;
     self.mobilePhoneField.hidden = YES;
+    self.shouldVaultCardSwitch.hidden = YES;
 
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardNumberField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardholderNameField size: [BTUIKAppearance verticalFormSpace]];
@@ -397,6 +402,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
+            self.shouldVaultCardSwitch.hidden = collapsed;
             [self updateFormBorders];
         } completion:^(__unused BOOL finished) {
             self.cardNumberFooter.hidden = !collapsed;
@@ -408,6 +414,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
+            self.shouldVaultCardSwitch.hidden = collapsed;
             
             [self updateFormBorders];
             [self updateSubmitButton];
@@ -433,6 +440,7 @@
     _collapsed = YES;
     self.unionPayEnabledMerchant = NO;
     self.cardNumberField.hidden = NO;
+    // TODO: reset vault switch
     [self.cardNumberField resetFormField];
     self.cardNumberFooter.hidden = NO;
     self.cardNumberHeader.hidden = NO;
