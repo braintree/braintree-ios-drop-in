@@ -39,7 +39,7 @@
 @property (nonatomic, strong, readwrite) BTUIKPostalCodeFormField *postalCodeField;
 @property (nonatomic, strong, readwrite) BTUIKMobileCountryCodeFormField *mobileCountryCodeField;
 @property (nonatomic, strong, readwrite) BTUIKMobileNumberFormField *mobilePhoneField;
-@property (nonatomic, strong, readwrite) UISwitch *shouldVaultCardSwitch;
+@property (nonatomic, strong, readwrite) BTUIKSwitchFormField *shouldVaultCardSwitchField;
 @property (nonatomic, strong) UIStackView *cardNumberErrorView;
 @property (nonatomic, strong) UIStackView *cardNumberHeader;
 @property (nonatomic, strong) UIStackView *enrollmentFooter;
@@ -197,7 +197,8 @@
     self.mobilePhoneField = [[BTUIKMobileNumberFormField alloc] init];
     self.mobilePhoneField.delegate = self;
     
-    self.shouldVaultCardSwitch = [[UISwitch alloc] init];
+    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] init];
+    self.shouldVaultCardSwitchField.formLabel.text = @"Save credit card";
     
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
@@ -224,7 +225,7 @@
         
         [formField updateConstraints];
     }
-    [self.stackView addArrangedSubview:self.shouldVaultCardSwitch];
+    [self.stackView addArrangedSubview:self.shouldVaultCardSwitchField];
     
     self.cardNumberField.formLabel.text = @"";
     [self.cardNumberField updateConstraints];
@@ -235,7 +236,7 @@
     self.postalCodeField.hidden = YES;
     self.mobileCountryCodeField.hidden = YES;
     self.mobilePhoneField.hidden = YES;
-    self.shouldVaultCardSwitch.hidden = YES;
+    self.shouldVaultCardSwitchField.hidden = YES;
 
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardNumberField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardholderNameField size: [BTUIKAppearance verticalFormSpace]];
@@ -402,7 +403,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
-            self.shouldVaultCardSwitch.hidden = collapsed;
+            self.shouldVaultCardSwitchField.hidden = collapsed;
             [self updateFormBorders];
         } completion:^(__unused BOOL finished) {
             self.cardNumberFooter.hidden = !collapsed;
@@ -414,7 +415,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
-            self.shouldVaultCardSwitch.hidden = collapsed;
+            self.shouldVaultCardSwitchField.hidden = collapsed;
             
             [self updateFormBorders];
             [self updateSubmitButton];

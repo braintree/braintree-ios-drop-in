@@ -1350,7 +1350,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/BraintreeDropIn/Braintree-UIKit-Localization.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/InAppSettingsKit/InAppSettingsKit.bundle",
 				"${PODS_ROOT}/iOS-Slide-Menu/SlideMenu/Source/Assets/menu-button.png",
@@ -1365,7 +1365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
