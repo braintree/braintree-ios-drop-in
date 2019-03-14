@@ -914,7 +914,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
 
-        let saveCardSwitch = elementsQuery.switches["Test Switch"]
+        let saveCardSwitch = elementsQuery.switches["Save Credit Card"]
         self.waitForElementToBeHittable(saveCardSwitch)
 
         XCTAssertTrue(saveCardSwitch.exists)
@@ -959,7 +959,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
 
-        let saveCardSwitch = elementsQuery.switches["Test Switch"]
+        let saveCardSwitch = elementsQuery.switches["Save Credit Card"]
         self.waitForElementToBeHittable(saveCardSwitch)
 
         guard let switchValue = saveCardSwitch.value else {
@@ -1001,7 +1001,7 @@ class BraintreeDropIn_SaveCardToggleHidden_UITests: XCTestCase {
 
         self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
 
-        let saveCardSwitch = elementsQuery.switches["Test Switch"]
+        let saveCardSwitch = elementsQuery.switches["Save Credit Card"]
         XCTAssertFalse(saveCardSwitch.exists)
     }
 }

@@ -198,11 +198,9 @@
     self.mobilePhoneField.delegate = self;
     
     self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] init];
-    // TODO: Add localizations
-    self.shouldVaultCardSwitchField.formLabel.text = @"Save credit card";
+    self.shouldVaultCardSwitchField.formLabel.text =  BTUIKLocalizedString(SAVE_CARD_LABEL);
+    self.shouldVaultCardSwitchField.switchControl.accessibilityLabel = BTUIKLocalizedString(SAVE_CARD_LABEL);
     self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.defaultValueForVaulting;
-    // TODO: Add real accessiblity label
-    self.shouldVaultCardSwitchField.switchControl.accessibilityLabel = @"Test Switch";
     
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);

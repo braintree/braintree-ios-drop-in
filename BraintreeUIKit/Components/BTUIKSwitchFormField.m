@@ -25,7 +25,6 @@
         _formLabel = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelBoldPrimary:_formLabel];
         _formLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        _formLabel.text = @"Hi";
         [self addSubview:_formLabel];
         
         [_formLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
