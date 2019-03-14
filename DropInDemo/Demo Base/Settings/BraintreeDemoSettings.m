@@ -77,4 +77,12 @@ NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey = @"BraintreeDemo
     return [NSUserDefaults.standardUserDefaults integerForKey:@"BraintreeDemoCardholderNameSetting"];
 }
 
++ (BOOL)saveCardToggleSetting {
+    return [NSUserDefaults.standardUserDefaults boolForKey:@"BraintreeDemoSaveCardToggleSetting"];
+}
+
++ (BOOL)defaultValueForVaultingSetting {
+    return [NSUserDefaults.standardUserDefaults boolForKey:@"BraintreeDemoDefaultValueForVaultingSetting"];
+}
+
 @end
