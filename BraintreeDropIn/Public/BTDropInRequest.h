@@ -58,6 +58,14 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false.
 @property (nonatomic, assign) BOOL vaultManager;
 
+/// Optional:
+/// Defaults to false
+@property (nonatomic, assign) BOOL showSaveCardToggle;
+
+/// Optional:
+/// Defaults to true
+@property (nonatomic, assign) BOOL defaultValueForVaulting;
+
 @end
 
 NS_ASSUME_NONNULL_END
