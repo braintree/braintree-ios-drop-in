@@ -198,7 +198,9 @@
     self.mobilePhoneField.delegate = self;
     
     self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] init];
+    // TODO: Add localizations
     self.shouldVaultCardSwitchField.formLabel.text = @"Save credit card";
+    self.shouldVaultCardSwitchField.switchControl.on = YES;
     
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
@@ -403,7 +405,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
-            self.shouldVaultCardSwitchField.hidden = collapsed;
+            self.shouldVaultCardSwitchField.hidden = !self.dropInRequest.showSaveCardToggle || collapsed;
             [self updateFormBorders];
         } completion:^(__unused BOOL finished) {
             self.cardNumberFooter.hidden = !collapsed;
@@ -415,7 +417,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
-            self.shouldVaultCardSwitchField.hidden = collapsed;
+            self.shouldVaultCardSwitchField.hidden = !self.dropInRequest.showSaveCardToggle || collapsed;
             
             [self updateFormBorders];
             [self updateSubmitButton];

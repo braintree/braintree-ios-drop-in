@@ -58,11 +58,11 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false.
 @property (nonatomic, assign) BOOL vaultManager;
 
-/// Optional:
+/// Optional: When true, the card form will include an option to let the customer decide not to vault the credit card they enter.
 /// Defaults to false
 @property (nonatomic, assign) BOOL showSaveCardToggle;
 
-/// Optional:
+/// Optional: Whether or not to have the save card input pre-selected. When set to `false` with `showSaveCardToggle` set to `false`, then cards will not be vaulted upon tokenization.
 /// Defaults to true
 @property (nonatomic, assign) BOOL defaultValueForVaulting;
 
