@@ -376,7 +376,7 @@
         card.cardholderName = self.cardholderNameField.cardholderName;
     }
     
-    card.shouldValidate = self.apiClient.tokenizationKey ? NO : YES;
+    card.shouldValidate = self.shouldVaultCardSwitchField.switchControl.isOn;
     BTCardRequest *cardRequest = [[BTCardRequest alloc] initWithCard:card];
     
     if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
