@@ -405,7 +405,7 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
-            self.shouldVaultCardSwitchField.hidden = !self.dropInRequest.showSaveCardToggle || collapsed;
+            self.shouldVaultCardSwitchField.hidden = ![self shouldDisplaySaveCardToggle] || collapsed;
             [self updateFormBorders];
         } completion:^(__unused BOOL finished) {
             self.cardNumberFooter.hidden = !collapsed;
@@ -417,12 +417,16 @@
             self.mobileCountryCodeField.hidden = ![self.requiredFields containsObject:self.mobileCountryCodeField] || collapsed;
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
-            self.shouldVaultCardSwitchField.hidden = !self.dropInRequest.showSaveCardToggle || collapsed;
+            self.shouldVaultCardSwitchField.hidden = ![self shouldDisplaySaveCardToggle] || collapsed;
             
             [self updateFormBorders];
             [self updateSubmitButton];
         }];
     });
+}
+
+- (BOOL)shouldDisplaySaveCardToggle {
+    return self.dropInRequest.showSaveCardToggle && self.apiClient.tokenizationKey == nil;
 }
 
 #pragma mark - Public methods

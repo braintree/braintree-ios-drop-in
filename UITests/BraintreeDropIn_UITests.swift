@@ -1005,3 +1005,39 @@ class BraintreeDropIn_SaveCardToggleHidden_UITests: XCTestCase {
         XCTAssertFalse(saveCardSwitch.exists)
     }
 }
+
+class BraintreeDropIn_SaveCardToggleHiddenForTokenizationKey_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-SaveCardToggleVisible")
+        app.launch()
+        sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+
+    func testDropIn_saveCardSwitch_isHiddenForTokenizationKey() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+
+        let saveCardSwitch = elementsQuery.switches["Save Credit Card"]
+        XCTAssertFalse(saveCardSwitch.exists)
+    }
+}
