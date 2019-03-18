@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## Unreleased
+
+* Add ability to opt out of client side vaulting
+
 ## 7.1.0 (2019-03-07)
 
 * Add Hiper and Hipercard support
