@@ -4,32 +4,34 @@
 
 @interface BTUIKSwitchFormField ()
 
+@property (nonatomic, strong) UILabel *formLabel;
 @property (nonatomic, strong) NSMutableArray *layoutConstraints;
 
 @end
 
 @implementation BTUIKSwitchFormField
 
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)initWithTitle:(NSString *)title {
+    self = [super initWithFrame:CGRectZero];
     if (self) {
         self.opaque = NO;
         self.backgroundColor = UIColor.clearColor;
         self.translatesAutoresizingMaskIntoConstraints = NO;
-        
+
         _switchControl = [[UISwitch alloc] init];
         _switchControl.translatesAutoresizingMaskIntoConstraints = NO;
+        _switchControl.accessibilityLabel = title;
         [self addSubview:_switchControl];
-        
+
         _formLabel = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelBoldPrimary:_formLabel];
         _formLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _formLabel.text = title;
         [self addSubview:_formLabel];
-        
+
         [_formLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [_formLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-        
+
         [self setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
         [self updateConstraints];
     }

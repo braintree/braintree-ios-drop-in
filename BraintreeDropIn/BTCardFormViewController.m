@@ -197,9 +197,7 @@
     self.mobilePhoneField = [[BTUIKMobileNumberFormField alloc] init];
     self.mobilePhoneField.delegate = self;
     
-    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] init];
-    self.shouldVaultCardSwitchField.formLabel.text =  BTUIKLocalizedString(SAVE_CARD_LABEL);
-    self.shouldVaultCardSwitchField.switchControl.accessibilityLabel = BTUIKLocalizedString(SAVE_CARD_LABEL);
+    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] initWithTitle:BTUIKLocalizedString(SAVE_CARD_LABEL)];
     self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.defaultValueForVaulting;
     
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
