@@ -21,6 +21,9 @@
         _switchControl = [[UISwitch alloc] init];
         _switchControl.translatesAutoresizingMaskIntoConstraints = NO;
         _switchControl.accessibilityLabel = title;
+        _switchControl.tintColor = [BTUIKAppearance sharedInstance].tintColor;
+        _switchControl.onTintColor = [BTUIKAppearance sharedInstance].switchOnTintColor;
+        _switchControl.thumbTintColor = [BTUIKAppearance sharedInstance].switchThumbTintColor;
         [self addSubview:_switchControl];
 
         _formLabel = [[UILabel alloc] init];

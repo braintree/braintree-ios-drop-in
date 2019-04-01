@@ -47,6 +47,10 @@
 @property (nonatomic) UIKeyboardType postalCodeFormFieldKeyboardType;
 /// The highlighted version of the `tintColor`
 @property (nonatomic, readonly, getter = highlightedTintColor) UIColor *highlightedTintColor;
+/// Tint color for UISwitch when in the on position
+@property (nonatomic, strong) UIColor *switchOnTintColor;
+/// Tint color for UISwitch thumb
+@property (nonatomic, strong) UIColor *switchThumbTintColor;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
