@@ -253,7 +253,7 @@ static NSArray *customTranslations;
 
 //TODO: Add localizations
 + (NSString *)SAVE_CARD_LABEL {
-    return NSLocalizedStringWithDefaultValue(@"SAVE_CARD_LABEL", [self localizationTable], [self localizationBundle], @"Save Credit Card", @"SAVE_CARD_LABEL");
+    return NSLocalizedStringWithDefaultValue(@"SAVE_CARD_LABEL", [self localizationTable], [self localizationBundle], @"Save card", @"SAVE_CARD_LABEL");
 }
 
 
