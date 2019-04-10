@@ -941,7 +941,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         app.launchArguments.append("-ClientToken")
         app.launchArguments.append("-ThreeDSecureDefault")
         app.launchArguments.append("-SaveCardToggleVisible")
-        app.launchArguments.append("-DefaultValueForVaultingIsFalse")
+        app.launchArguments.append("-VaultCardIsFalse")
         app.launch()
         sleep(1)
 

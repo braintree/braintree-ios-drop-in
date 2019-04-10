@@ -22,8 +22,8 @@
     originalRequest.cardholderNameSetting = BTFormFieldOptional;
     originalRequest.shouldMaskSecurityCode = YES;
     originalRequest.vaultManager = YES;
-    originalRequest.showSaveCardToggle = YES;
-    originalRequest.defaultValueForVaulting = NO;
+    originalRequest.vaultCard = NO;
+    originalRequest.allowVaultCardOverride = YES;
 
     BTDropInRequest *copiedRequest = [originalRequest copy];
 
@@ -37,8 +37,8 @@
     XCTAssertEqual(originalRequest.cardholderNameSetting, copiedRequest.cardholderNameSetting);
     XCTAssertEqual(originalRequest.shouldMaskSecurityCode, copiedRequest.shouldMaskSecurityCode);
     XCTAssertEqual(originalRequest.vaultManager, copiedRequest.vaultManager);
-    XCTAssertEqual(originalRequest.showSaveCardToggle, copiedRequest.vaultManager);
-    XCTAssertEqual(originalRequest.defaultValueForVaulting, copiedRequest.defaultValueForVaulting);
+    XCTAssertEqual(originalRequest.vaultCard, copiedRequest.vaultCard);
+    XCTAssertEqual(originalRequest.allowVaultCardOverride, copiedRequest.allowVaultCardOverride);
 }
 
 @end

@@ -104,14 +104,14 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
         [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldRequired forKey:@"BraintreeDemoCardholderNameSetting"];
     }
 
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"BraintreeDemoSaveCardToggleSetting"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"BraintreeDemoAllowVaultCardOverrideSetting"];
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-SaveCardToggleVisible"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"BraintreeDemoSaveCardToggleSetting"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"BraintreeDemoAllowVaultCardOverrideSetting"];
     }
 
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"BraintreeDemoDefaultValueForVaultingSetting"];
-    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-DefaultValueForVaultingIsFalse"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"BraintreeDemoDefaultValueForVaultingSetting"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"BraintreeDemoVaultCardSetting"];
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-VaultCardIsFalse"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"BraintreeDemoVaultCardSetting"];
     }
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BraintreeTest_ForceVenmoDisplay"];

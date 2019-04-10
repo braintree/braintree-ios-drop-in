@@ -254,8 +254,8 @@
     dropInRequest.cardDisabled = [[[NSProcessInfo processInfo] arguments] containsObject:@"-CardDisabled"];
     dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
     dropInRequest.cardholderNameSetting = [BraintreeDemoSettings cardholderNameSetting];
-    dropInRequest.showSaveCardToggle = [BraintreeDemoSettings saveCardToggleSetting];
-    dropInRequest.defaultValueForVaulting = [BraintreeDemoSettings defaultValueForVaultingSetting];
+    dropInRequest.vaultCard = [BraintreeDemoSettings vaultCardSetting];
+    dropInRequest.allowVaultCardOverride = [BraintreeDemoSettings allowVaultCardOverrideSetting];
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-PayPalOneTime"]) {
         dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];

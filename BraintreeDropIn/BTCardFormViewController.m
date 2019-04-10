@@ -198,7 +198,7 @@
     self.mobilePhoneField.delegate = self;
     
     self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] initWithTitle:BTUIKLocalizedString(SAVE_CARD_LABEL)];
-    self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.defaultValueForVaulting;
+    self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.vaultCard;
     
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
@@ -424,7 +424,7 @@
 }
 
 - (BOOL)shouldDisplaySaveCardToggle {
-    return self.dropInRequest.showSaveCardToggle && self.apiClient.tokenizationKey == nil;
+    return self.dropInRequest.allowVaultCardOverride && self.apiClient.tokenizationKey == nil;
 }
 
 #pragma mark - Public methods

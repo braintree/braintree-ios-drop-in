@@ -10,7 +10,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _defaultValueForVaulting = YES;
+        _vaultCard = YES;
     }
 
     return self;
@@ -28,8 +28,8 @@
     request.cardholderNameSetting = self.cardholderNameSetting;
     request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
     request.vaultManager = self.vaultManager;
-    request.showSaveCardToggle = self.showSaveCardToggle;
-    request.defaultValueForVaulting = self.defaultValueForVaulting;
+    request.vaultCard = self.vaultCard;
+    request.allowVaultCardOverride = self.allowVaultCardOverride;
     return request;
 }
 
