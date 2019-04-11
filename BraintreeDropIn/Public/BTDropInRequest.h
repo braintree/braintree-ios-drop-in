@@ -58,6 +58,9 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false.
 @property (nonatomic, assign) BOOL vaultManager;
 
+/// Optional: When populated, filters out the list of cards from the supportedCardTypes to only display specified cards on the BTCardFormViewController
+@property (nonatomic, readwrite, strong, nullable) NSMutableArray<NSNumber *> *supportedCardsDisplayed;
+
 @end
 
 NS_ASSUME_NONNULL_END
