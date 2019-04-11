@@ -228,10 +228,20 @@
                 [self updateToolbarForViewController:self.paymentSelectionViewController];
                 
                 NSArray *supportedCardTypes = [configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
+              
+                // Optionally configure the supported cards to display
+                NSMutableArray *displayCardTypes = [NSMutableArray new];
+                for (NSNumber *cardTypeToDisplay in [_dropInRequest supportedCardsDisplayed]) {
+                    BTUIKPaymentOptionType displayType = (BTUIKPaymentOptionType) [cardTypeToDisplay integerValue];
+                    if (![displayCardTypes containsObject:@(displayType)] && displayType != BTUIKPaymentOptionTypeUnknown) {
+                        [displayCardTypes addObject:@(displayType)];
+                    }
+                }
+              
                 NSMutableArray *paymentOptionTypes = [NSMutableArray new];
                 for (NSString *supportedCardType in supportedCardTypes) {
                     BTUIKPaymentOptionType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
-                    if (paymentOptionType != BTUIKPaymentOptionTypeUnknown) {
+                    if (paymentOptionType != BTUIKPaymentOptionTypeUnknown && ([displayCardTypes count] == 0 || [displayCardTypes containsObject:@(paymentOptionType)])) {
                         [paymentOptionTypes addObject: @(paymentOptionType)];
                     }
                 }
