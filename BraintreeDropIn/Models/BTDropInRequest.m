@@ -19,6 +19,7 @@
     request.cardholderNameSetting = self.cardholderNameSetting;
     request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
     request.vaultManager = self.vaultManager;
+    request.supportedCardsDisplayed = self.supportedCardsDisplayed;
     return request;
 }
 
