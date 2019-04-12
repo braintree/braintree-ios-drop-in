@@ -6,6 +6,8 @@ Thanks for considering contributing to this project. Ways you can help:
 * [Add an issue](https://github.com/braintree/braintree_ios/issues)
 * [Contact us](README.md#feedback) with feedback
 
+__Note on Translations:__ We cannot accept language translation requests. We only support language translations provided to us via PayPal.
+
 ## Development
 
 Clone this repo, then install the project's development dependencies:
