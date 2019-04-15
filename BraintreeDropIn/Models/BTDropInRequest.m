@@ -22,4 +22,14 @@
     return request;
 }
 
+- (BOOL)onlyOnePaymentMethodEnabled {
+    NSArray *paymentMethods = @[[NSNumber numberWithBool:self.paypalDisabled], [NSNumber numberWithBool:self.applePayDisabled], [NSNumber numberWithBool:self.venmoDisabled], [NSNumber numberWithBool:self.cardDisabled]];
+    NSCountedSet *counts = [[NSCountedSet alloc] initWithArray:paymentMethods];
+    return [counts countForObject:@NO] == 1;
+}
+
+- (BOOL)onlyCardEnabled {
+    return self.onlyOnePaymentMethodEnabled && !self.cardDisabled;
+}
+
 @end

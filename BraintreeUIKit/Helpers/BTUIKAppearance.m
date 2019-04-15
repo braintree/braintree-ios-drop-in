@@ -33,6 +33,7 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     sharedTheme.useBlurs = YES;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
+    sharedTheme.shouldSkipPaymentSelectionScreen = NO;
 }
 
 + (void)darkTheme {
@@ -53,6 +54,7 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
     sharedTheme.useBlurs = YES;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
+    sharedTheme.shouldSkipPaymentSelectionScreen = NO;
 }
 
 - (UIColor *)highlightedTintColor {

@@ -467,6 +467,7 @@
 - (void)cancelTapped {
     [self hideKeyboard];
     [self.delegate reloadDropInData];
+    [self.delegate dismissDropInController];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

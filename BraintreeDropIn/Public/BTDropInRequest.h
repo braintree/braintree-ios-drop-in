@@ -58,6 +58,13 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false.
 @property (nonatomic, assign) BOOL vaultManager;
 
+/// Checks for whether or not only one payment type is enabled on the request object.
+/// Returns YES if all but one payment method is disabled.
+-(BOOL) onlyOnePaymentMethodEnabled;
+
+/// Returns YES if the only payment method enabled is card.
+-(BOOL) onlyCardEnabled;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -47,6 +47,8 @@
 @property (nonatomic) UIKeyboardType postalCodeFormFieldKeyboardType;
 /// The highlighted version of the `tintColor`
 @property (nonatomic, readonly, getter = highlightedTintColor) UIColor *highlightedTintColor;
+/// Whether or not the BTDropInController should be able to skip the BTPaymentSelectionViewController and navigate directly to the appropriate form
+@property (nonatomic) BOOL shouldSkipPaymentSelectionScreen;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
