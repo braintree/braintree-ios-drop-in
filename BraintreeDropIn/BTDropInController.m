@@ -231,7 +231,7 @@
               
                 // Optionally configure the supported cards to display
                 NSMutableArray *displayCardTypes = [NSMutableArray new];
-                for (NSNumber *cardTypeToDisplay in [_dropInRequest supportedCardsDisplayed]) {
+                for (NSNumber *cardTypeToDisplay in [self.dropInRequest supportedCardsDisplayed]) {
                     BTUIKPaymentOptionType displayType = (BTUIKPaymentOptionType) [cardTypeToDisplay integerValue];
                     if (![displayCardTypes containsObject:@(displayType)] && displayType != BTUIKPaymentOptionTypeUnknown) {
                         [displayCardTypes addObject:@(displayType)];
