@@ -282,7 +282,7 @@
                 }
                 self.displayCardTypes = paymentOptionTypes;
                 
-                if (self.canSkipSelectionController && [_dropInRequest onlyCardEnabled] && [BTUIKAppearance sharedInstance].shouldSkipPaymentSelectionScreen) {
+                if (self.canSkipSelectionController && [self._dropInRequest onlyCardEnabled] && [BTUIKAppearance sharedInstance].shouldSkipPaymentSelectionScreen) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self showLoadingScreen:NO];
                         [self performSelector:@selector(showCardForm:) withObject:self];
