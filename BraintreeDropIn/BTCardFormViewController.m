@@ -225,7 +225,6 @@
         
         [formField updateConstraints];
     }
-    [self.stackView addArrangedSubview:self.shouldVaultCardSwitchField];
     
     self.cardNumberField.formLabel.text = @"";
     [self.cardNumberField updateConstraints];
@@ -274,6 +273,8 @@
     [BTDropInUIUtilities addSpacerToStackView:self.enrollmentFooter beforeView:enrollmentFooterLabel size: [BTUIKAppearance verticalFormSpaceTight]];
     self.enrollmentFooter.hidden = YES;
     [self.stackView addArrangedSubview:self.enrollmentFooter];
+
+    [self.stackView addArrangedSubview:self.shouldVaultCardSwitchField];
 
     [self setupCardIO];
 }
