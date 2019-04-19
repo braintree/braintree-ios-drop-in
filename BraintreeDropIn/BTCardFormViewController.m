@@ -197,9 +197,6 @@
     self.mobilePhoneField = [[BTUIKMobileNumberFormField alloc] init];
     self.mobilePhoneField.delegate = self;
     
-    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] initWithTitle:BTUIKLocalizedString(SAVE_CARD_LABEL)];
-    self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.vaultCard;
-    
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
     self.cardNumberHeader.layoutMarginsRelativeArrangement = true;
@@ -235,7 +232,6 @@
     self.postalCodeField.hidden = YES;
     self.mobileCountryCodeField.hidden = YES;
     self.mobilePhoneField.hidden = YES;
-    self.shouldVaultCardSwitchField.hidden = YES;
 
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardNumberField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardholderNameField size: [BTUIKAppearance verticalFormSpace]];
@@ -274,6 +270,8 @@
     self.enrollmentFooter.hidden = YES;
     [self.stackView addArrangedSubview:self.enrollmentFooter];
 
+    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] initWithTitle:BTUIKLocalizedString(SAVE_CARD_LABEL)];
+    self.shouldVaultCardSwitchField.hidden = YES;
     [self.stackView addArrangedSubview:self.shouldVaultCardSwitchField];
 
     [self setupCardIO];
@@ -446,11 +444,11 @@
     _collapsed = YES;
     self.unionPayEnabledMerchant = NO;
     self.cardNumberField.hidden = NO;
-    // TODO: reset vault switch
     [self.cardNumberField resetFormField];
     self.cardNumberFooter.hidden = NO;
     self.cardNumberHeader.hidden = NO;
     [self.cardList emphasizePaymentOption:BTUIKPaymentOptionTypeUnknown];
+    self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.vaultCard && self.apiClient.tokenizationKey == nil;
     [self updateFormBorders];
 }
 
