@@ -53,6 +53,8 @@
 
 @implementation BTPaymentSelectionViewController
 
+static BOOL _vaultedCardAppearAnalyticSent = NO;
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -144,7 +146,8 @@
     [self.vaultedPaymentsLabelContainerStackView addArrangedSubview:self.vaultedPaymentsEditButton];
 
     [self.stackView addArrangedSubview:self.vaultedPaymentsLabelContainerStackView];
-    
+    _vaultedCardAppearAnalyticSent = NO;
+
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
     self.savedPaymentMethodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
@@ -258,6 +261,8 @@
                 self.paymentOptionsLabelContainerStackView.hidden = NO;
                 self.vaultedPaymentsLabelContainerStackView.hidden = NO;
                 [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
+
+                [self sendVaultedCardAppearAnalytic];
             }
             [self showLoadingScreen:NO];
             self.stackView.hidden = NO;
@@ -347,6 +352,16 @@
     }
 }
 
+- (void)sendVaultedCardAppearAnalytic {
+    for (BTPaymentMethodNonce *nonce in self.paymentMethodNonces) {
+        if ([nonce isKindOfClass: [BTCardNonce class]] && !_vaultedCardAppearAnalyticSent){
+            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.appear"];
+            _vaultedCardAppearAnalyticSent = YES;
+            break;
+        }
+    }
+}
+
 #pragma mark - Protocol conformance
 #pragma mark UICollectionViewDelegate
 
@@ -396,6 +411,10 @@
     BTUIPaymentMethodCollectionViewCell *cell = (BTUIPaymentMethodCollectionViewCell*)[savedPaymentMethodsCollectionView cellForItemAtIndexPath:indexPath];
     if (self.delegate) {
         [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type] nonce:cell.paymentMethodNonce error:nil];
+
+        if ([cell.paymentMethodNonce isKindOfClass: [BTCardNonce class]]){
+            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
+        }
     }
 }
 
