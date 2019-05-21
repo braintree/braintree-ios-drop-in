@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false.
 @property (nonatomic, assign) BOOL vaultManager;
 
-/// Optional: Whether or not to vault the card upon tokenization. When set to `false` with `allowVaultCardOverride` set to `false`, then cards will not be vaulted.
+/// Optional: Whether or not to vault the card upon tokenization, can only be applied when initializing the Braintree client with a client token that was generated with a customer ID. When set to `false` with `allowVaultCardOverride` set to `false`, then cards will not be vaulted.
 /// Defaults to true
 @property (nonatomic, assign) BOOL vaultCard;
 
