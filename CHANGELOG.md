@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-* Add ability to opt out of client side vaulting
+* Add ability for merchant and/or customer to opt in/out of client side vaulting (card).
 
 ## 7.1.0 (2019-03-07)
 
