@@ -33,6 +33,8 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     sharedTheme.useBlurs = YES;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
+    sharedTheme.switchThumbTintColor = [UIColor whiteColor];
+    sharedTheme.switchOnTintColor = [UIColor greenColor];
 }
 
 + (void)darkTheme {
@@ -53,6 +55,8 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
     sharedTheme.useBlurs = YES;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
+    sharedTheme.switchThumbTintColor = [UIColor whiteColor];
+    sharedTheme.switchOnTintColor = [UIColor greenColor];
 }
 
 - (UIColor *)highlightedTintColor {
