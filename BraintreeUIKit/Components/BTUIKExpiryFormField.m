@@ -57,7 +57,6 @@
 - (void)updatePlaceholder {
     NSString *placeholder = BTUIKLocalizedString(EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR);
     [self setThemedPlaceholder:placeholder];
-    self.textField.accessibilityLabel = placeholder;
 }
 
 - (void)kernExpiration:(NSMutableAttributedString *)input {

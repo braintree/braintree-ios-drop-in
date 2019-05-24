@@ -23,6 +23,8 @@
         self.availablePaymentOptionAttachments = @[];
 
         self.availablePaymentOptions = @[];
+
+        self.accessibilityElementsHidden = YES;
     }
     return self;
 }
