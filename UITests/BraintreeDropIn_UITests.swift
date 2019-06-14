@@ -919,12 +919,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
 
         XCTAssertTrue(saveCardSwitch.exists)
 
-        guard let switchValue = saveCardSwitch.value else {
-            XCTFail()
-            return
-        }
-
-        XCTAssertEqual("1", switchValue as! String)
+        XCTAssertEqual("1", saveCardSwitch.value as? String)
 
     }
 }
@@ -962,12 +957,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         let saveCardSwitch = elementsQuery.switches["Save card"]
         self.waitForElementToBeHittable(saveCardSwitch)
 
-        guard let switchValue = saveCardSwitch.value else {
-            XCTFail()
-            return
-        }
-
-        XCTAssertEqual("0", switchValue as! String)
+        XCTAssertEqual("0", saveCardSwitch.value as? String)
     }
 }
 
