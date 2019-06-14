@@ -14,42 +14,42 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - Braintree/Apple-Pay (4.20.2):
+  - Braintree/Apple-Pay (4.23.0):
     - Braintree/Core
-  - Braintree/Card (4.20.2):
+  - Braintree/Card (4.23.0):
     - Braintree/Core
-  - Braintree/Core (4.20.2)
-  - Braintree/PaymentFlow (4.20.2):
+  - Braintree/Core (4.23.0)
+  - Braintree/PaymentFlow (4.23.0):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.20.2):
+  - Braintree/PayPal (4.23.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.20.2):
+  - Braintree/PayPalDataCollector (4.23.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.20.2):
+  - Braintree/PayPalOneTouch (4.23.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.20.2)
-  - Braintree/UnionPay (4.20.2):
+  - Braintree/PayPalUtils (4.23.0)
+  - Braintree/UnionPay (4.23.0):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.20.2):
+  - Braintree/Venmo (4.23.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - BraintreeDropIn (7.0.0):
-    - BraintreeDropIn/DropIn (= 7.0.0)
-  - BraintreeDropIn/DropIn (7.0.0):
-    - Braintree/Card (~> 4.17)
-    - Braintree/Core (~> 4.17)
-    - Braintree/PaymentFlow (~> 4.17)
-    - Braintree/PayPal (~> 4.17)
-    - Braintree/UnionPay (~> 4.17)
+  - BraintreeDropIn (7.1.0):
+    - BraintreeDropIn/DropIn (= 7.1.0)
+  - BraintreeDropIn/DropIn (7.1.0):
+    - Braintree/Card (~> 4.23)
+    - Braintree/Core (~> 4.23)
+    - Braintree/PaymentFlow (~> 4.23)
+    - Braintree/PayPal (~> 4.23)
+    - Braintree/UnionPay (~> 4.23)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (7.0.0)
+  - BraintreeDropIn/UIKit (7.1.0)
   - CardIO (5.4.1)
   - Expecta (1.0.6)
   - FLEX (2.4.0)
@@ -111,8 +111,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Braintree: 49cd0ea2ee8a87649fbc0b1e959963bc77464bf8
-  BraintreeDropIn: 5d253baf897961c4d8438ca1f5d670e0d3440d4f
+  Braintree: b5841b9b1c1dadc86959db3e29d36099b67f91bf
+  BraintreeDropIn: a019fcbf4edb87c55780ec01d5db3998b19164ce
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
@@ -126,4 +126,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4e0aed3571b1a2048ce7f0851c337ee6acf49556
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

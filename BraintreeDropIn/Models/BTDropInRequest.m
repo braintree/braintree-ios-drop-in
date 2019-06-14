@@ -7,6 +7,15 @@
 
 @implementation BTDropInRequest
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _vaultCard = YES;
+    }
+
+    return self;
+}
+
 - (id)copyWithZone:(__unused NSZone *)zone {
     BTDropInRequest *request = [BTDropInRequest new];
     request.amount = self.amount;
@@ -19,6 +28,8 @@
     request.cardholderNameSetting = self.cardholderNameSetting;
     request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
     request.vaultManager = self.vaultManager;
+    request.vaultCard = self.vaultCard;
+    request.allowVaultCardOverride = self.allowVaultCardOverride;
     return request;
 }
 

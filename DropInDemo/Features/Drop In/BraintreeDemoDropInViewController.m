@@ -38,7 +38,7 @@
     return self;
 }
 
-- (void) updatePaymentMethod:(BTPaymentMethodNonce*)paymentMethodNonce {
+- (void)updatePaymentMethod:(BTPaymentMethodNonce*)paymentMethodNonce {
     self.paymentMethodTypeLabel.hidden = paymentMethodNonce == nil;
     self.paymentMethodTypeIcon.hidden = paymentMethodNonce == nil;
     if (paymentMethodNonce != nil) {
@@ -254,6 +254,8 @@
     dropInRequest.cardDisabled = [[[NSProcessInfo processInfo] arguments] containsObject:@"-CardDisabled"];
     dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
     dropInRequest.cardholderNameSetting = [BraintreeDemoSettings cardholderNameSetting];
+    dropInRequest.vaultCard = [BraintreeDemoSettings vaultCardSetting];
+    dropInRequest.allowVaultCardOverride = [BraintreeDemoSettings allowVaultCardOverrideSetting];
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-PayPalOneTime"]) {
         dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];

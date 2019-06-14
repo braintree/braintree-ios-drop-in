@@ -711,7 +711,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         app.buttons["Add Card"].forceTapElement()
         
-        self.waitForElementToAppear(app.staticTexts["Added Protection"])
+        self.waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
         
         let textField = app.secureTextFields.element(boundBy: 0)
         self.waitForElementToBeHittable(textField)
@@ -759,7 +759,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         app.buttons["Add Card"].forceTapElement()
         
-        self.waitForElementToAppear(app.staticTexts["Added Protection"])
+        self.waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
         
         app.buttons["Done"].forceTapElement()
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
@@ -882,5 +882,152 @@ class BraintreeDropIn_Error_UITests: XCTestCase {
         let existsPredicate = NSPredicate(format: "label LIKE '*Application does not support One Touch callback*'")
         
         self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+    }
+}
+
+class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-SaveCardToggleVisible")
+        app.launch()
+        sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+
+    func testDropIn_saveCardSwitch_isVisible() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        let saveCardSwitch = elementsQuery.switches["Save card"]
+        self.waitForElementToBeHittable(saveCardSwitch)
+
+        XCTAssertTrue(saveCardSwitch.exists)
+
+        XCTAssertEqual("1", saveCardSwitch.value as? String)
+
+    }
+}
+
+class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-SaveCardToggleVisible")
+        app.launchArguments.append("-VaultCardIsFalse")
+        app.launch()
+        sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+
+    func testDropIn_saveCardSwitch_isVisibleAndOff() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        let saveCardSwitch = elementsQuery.switches["Save card"]
+        self.waitForElementToBeHittable(saveCardSwitch)
+
+        XCTAssertEqual("0", saveCardSwitch.value as? String)
+    }
+}
+
+class BraintreeDropIn_SaveCardToggleHidden_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launch()
+        sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+
+    func testDropIn_saveCardSwitch_isHidden() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+
+        let saveCardSwitch = elementsQuery.switches["Save card"]
+        XCTAssertFalse(saveCardSwitch.exists)
+    }
+}
+
+class BraintreeDropIn_SaveCardToggleHiddenForTokenizationKey_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-ThreeDSecureDefault")
+        app.launchArguments.append("-SaveCardToggleVisible")
+        app.launch()
+        sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+    }
+
+    func testDropIn_saveCardSwitch_isHiddenForTokenizationKey() {
+        let elementsQuery = app.scrollViews.otherElements
+
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+
+        let saveCardSwitch = elementsQuery.switches["Save card"]
+        XCTAssertFalse(saveCardSwitch.exists)
     }
 }

@@ -32,5 +32,7 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
 + (BOOL)venmoDisabled;
 + (BOOL)maskSecurityCode;
 + (BTFormFieldSetting)cardholderNameSetting;
++ (BOOL)vaultCardSetting;
++ (BOOL)allowVaultCardOverrideSetting;
 
 @end
