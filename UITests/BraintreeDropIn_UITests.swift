@@ -711,7 +711,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         app.buttons["Add Card"].forceTapElement()
         
-        self.waitForElementToAppear(app.staticTexts["Added Protection"])
+        self.waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
         
         let textField = app.secureTextFields.element(boundBy: 0)
         self.waitForElementToBeHittable(textField)
@@ -759,7 +759,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         app.buttons["Add Card"].forceTapElement()
         
-        self.waitForElementToAppear(app.staticTexts["Added Protection"])
+        self.waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
         
         app.buttons["Done"].forceTapElement()
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
