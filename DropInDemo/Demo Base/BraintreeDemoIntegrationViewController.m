@@ -3,7 +3,7 @@
 #import <InAppSettingsKit/IASKSpecifierValuesViewController.h>
 #import <InAppSettingsKit/IASKViewController.h>
 #import <InAppSettingsKit/IASKSettingsReader.h>
-#import <iOS-Slide-Menu/SlideNavigationController.h>
+#import <iOS_Slide_Menu/SlideNavigationController.h>
 
 @interface BraintreeDemoIntegrationViewController ()
 @property (nonatomic, strong) IASKSpecifierValuesViewController *targetViewController;
