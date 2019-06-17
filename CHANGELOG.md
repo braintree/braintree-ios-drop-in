@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## Unreleased
+## 7.2.0 (2019-06-17)
 
 * Add ability for merchant and/or customer to opt in/out of client side vaulting (card).
 
