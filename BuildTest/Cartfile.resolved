@@ -1,0 +1,2 @@
+git "file:///Users/sestevens/bt/braintree-ios-drop-in" "f2e2f7b7af256b4a35ad605c5e968265e15a30d1"
+github "braintree/braintree_ios" "4.23.1"
