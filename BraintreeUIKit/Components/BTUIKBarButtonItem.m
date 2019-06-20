@@ -16,10 +16,24 @@
 }
 
 - (void)updateTitleTextAttributes {
-    NSString *fontName = self.bold ? [BTUIKAppearance sharedInstance].boldFontFamily : [BTUIKAppearance sharedInstance].fontFamily;
-    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:fontName size:[UIFont labelFontSize]]} forState:UIControlStateNormal];
-    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:fontName size:[UIFont labelFontSize]]} forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:fontName size:[UIFont labelFontSize]]} forState:UIControlStateDisabled];
+    UIFont *font;
+    if (self.bold) {
+        font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize];
+    } else {
+        font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize];
+    }
+
+    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor,
+                                   NSFontAttributeName:font}
+                        forState:UIControlStateNormal];
+
+    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor,
+                                   NSFontAttributeName:font}
+                        forState:UIControlStateNormal | UIControlStateHighlighted];
+
+    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].disabledColor,
+                                   NSFontAttributeName:font}
+                        forState:UIControlStateDisabled];
 }
 
 @end

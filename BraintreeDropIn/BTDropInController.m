@@ -124,7 +124,10 @@
 #pragma mark - Setup
 
 - (void)setUpViews {
-    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[BTDropInController.self]] setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]]} forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[BTDropInController.self]]
+     setTitleTextAttributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
+                              NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
+     forState:UIControlStateNormal];
     if ([BTUIKAppearance sharedInstance].tintColor != nil) {
         self.view.tintColor = [BTUIKAppearance sharedInstance].tintColor;
     }

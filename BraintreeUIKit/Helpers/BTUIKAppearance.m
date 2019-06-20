@@ -19,8 +19,8 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
     sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
     sharedTheme.barBackgroundColor = UIColor.whiteColor;
-    sharedTheme.fontFamily = [UIFont systemFontOfSize:10].fontName;
-    sharedTheme.boldFontFamily = [UIFont boldSystemFontOfSize:10].fontName;
+    sharedTheme.font = [UIFont systemFontOfSize:10];
+    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
     sharedTheme.formBackgroundColor = UIColor.groupTableViewBackgroundColor;
     sharedTheme.formFieldBackgroundColor =  UIColor.whiteColor;
     sharedTheme.primaryTextColor = UIColor.blackColor;
@@ -41,8 +41,8 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
     sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
     sharedTheme.barBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
-    sharedTheme.fontFamily = [UIFont systemFontOfSize:10].fontName;
-    sharedTheme.boldFontFamily = [UIFont boldSystemFontOfSize:10].fontName;
+    sharedTheme.font = [UIFont systemFontOfSize:10];
+    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
     sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
     sharedTheme.formFieldBackgroundColor = [UIColor btuik_colorFromHex:@"333333" alpha:1.0];
     sharedTheme.primaryTextColor =  UIColor.whiteColor;
@@ -59,42 +59,58 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.switchOnTintColor = UIColor.greenColor;
 }
 
+- (UIFont *)font {
+    if (_fontFamily) {
+        return [UIFont fontWithName:_fontFamily size:10.0];
+    } else {
+        return _font;
+    }
+}
+
+- (UIFont *)boldFont {
+    if (_boldFontFamily) {
+        return [UIFont fontWithName:_boldFontFamily size:10.0];
+    } else {
+        return _boldFont;
+    }
+}
+
 - (UIColor *)highlightedTintColor {
     return [sharedTheme.tintColor colorWithAlphaComponent:0.4];
 }
 
 + (void)styleLabelPrimary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]];
+    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleLabelBoldPrimary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]];
+    label.font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleSmallLabelBoldPrimary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont smallSystemFontSize]];
+    label.font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.smallSystemFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleSmallLabelPrimary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont smallSystemFontSize]];
+    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.smallSystemFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleLabelSecondary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont smallSystemFontSize]];
+    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.smallSystemFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
-+ (void) styleLargeLabelSecondary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]];
++ (void)styleLargeLabelSecondary:(UILabel *)label {
+    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
 + (void)styleSystemLabelSecondary:(UILabel *)label {
-    label.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]];
+    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.systemFontSize];
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
@@ -102,7 +118,7 @@ static BTUIKAppearance *sharedTheme;
     UILabel *tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
     tlabel.textAlignment = NSTextAlignmentCenter;
     tlabel.textColor = [BTUIKAppearance sharedInstance].navigationBarTitleTextColor;
-    tlabel.font = [UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]];
+    tlabel.font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize];
     tlabel.backgroundColor = UIColor.clearColor;
     tlabel.adjustsFontSizeToFitWidth = YES;
     tlabel.numberOfLines = 2;

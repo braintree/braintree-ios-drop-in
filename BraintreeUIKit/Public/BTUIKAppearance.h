@@ -3,10 +3,10 @@
 @interface BTUIKAppearance : NSObject
 
 /// Shared instance used by Form elements
-+ (instancetype) sharedInstance;
++ (instancetype)sharedInstance;
 
-+ (void) darkTheme;
-+ (void) lightTheme;
++ (void)darkTheme;
++ (void)lightTheme;
 
 /// Fallback color for the overlay if blur is disabled
 @property (nonatomic, strong) UIColor *overlayColor;
@@ -14,10 +14,10 @@
 @property (nonatomic, strong) UIColor *tintColor;
 /// Bar color
 @property (nonatomic, strong) UIColor *barBackgroundColor;
-/// Font family
-@property (nonatomic, strong) NSString *fontFamily;
-/// Bold font family
-@property (nonatomic, strong) NSString *boldFontFamily;
+/// Font, size of font will be ignored
+@property (nonatomic, strong) UIFont *font;
+/// Bold font, size of font will be ignored
+@property (nonatomic, strong) UIFont *boldFont;
 /// Sheet background color
 @property (nonatomic, strong) UIColor *formBackgroundColor;
 /// Form field background color
@@ -52,26 +52,31 @@
 /// Tint color for UISwitch thumb
 @property (nonatomic, strong) UIColor *switchThumbTintColor;
 
+/// Font family
+@property (nonatomic, strong) NSString *fontFamily DEPRECATED_MSG_ATTRIBUTE("Use font instead.");
+/// Bold font family
+@property (nonatomic, strong) NSString *boldFontFamily DEPRECATED_MSG_ATTRIBUTE("Use boldFont instead.");
+
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
-+ (void) styleLabelPrimary:(UILabel *) label;
-+ (void) styleLabelBoldPrimary:(UILabel *) label;
-+ (void) styleSmallLabelBoldPrimary:(UILabel *)label;
-+ (void) styleSmallLabelPrimary:(UILabel *)label;
-+ (void) styleLabelSecondary:(UILabel *)label;
-+ (void) styleLargeLabelSecondary:(UILabel *)label;
-+ (void) styleSystemLabelSecondary:(UILabel *)label;
-+ (UILabel *) styledNavigationTitleLabel;
++ (void)styleLabelPrimary:(UILabel *)label;
++ (void)styleLabelBoldPrimary:(UILabel *)label;
++ (void)styleSmallLabelBoldPrimary:(UILabel *)label;
++ (void)styleSmallLabelPrimary:(UILabel *)label;
++ (void)styleLabelSecondary:(UILabel *)label;
++ (void)styleLargeLabelSecondary:(UILabel *)label;
++ (void)styleSystemLabelSecondary:(UILabel *)label;
++ (UILabel *)styledNavigationTitleLabel;
 
-+ (float) horizontalFormContentPadding;
-+ (float) formCellHeight;
-+ (float) verticalFormSpace;
-+ (float) verticalFormSpaceTight;
-+ (float) verticalSectionSpace;
-+ (float) smallIconWidth;
-+ (float) smallIconHeight;
-+ (float) largeIconWidth;
-+ (float) largeIconHeight;
++ (float)horizontalFormContentPadding;
++ (float)formCellHeight;
++ (float)verticalFormSpace;
++ (float)verticalFormSpaceTight;
++ (float)verticalSectionSpace;
++ (float)smallIconWidth;
++ (float)smallIconHeight;
++ (float)largeIconWidth;
++ (float)largeIconHeight;
 + (NSDictionary*)metrics;
 
 @end
