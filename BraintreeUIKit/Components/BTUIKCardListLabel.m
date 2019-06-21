@@ -53,9 +53,9 @@
     BTUIKPaymentOptionCardView *hint = [BTUIKPaymentOptionCardView new];
     hint.frame = CGRectMake(0, 0, [BTUIKAppearance smallIconWidth], [BTUIKAppearance smallIconHeight]);
 
-    for(NSNumber *paymentType in self.availablePaymentOptions) {
+    for (NSUInteger i = 0; i < self.availablePaymentOptions.count; i++) {
         NSTextAttachment *composeAttachment = [NSTextAttachment new];
-        BTUIKPaymentOptionType paymentOption = ((NSNumber*)paymentType).intValue;
+        BTUIKPaymentOptionType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
         hint.paymentOptionType = paymentOption;
         [hint setNeedsLayout];
         [hint layoutIfNeeded];
@@ -64,7 +64,8 @@
         [attachments addObject:composeAttachment];
         composeAttachment.image = composeImage;
         [at appendAttributedString:[NSAttributedString attributedStringWithAttachment:composeAttachment]];
-        [at appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" "]];
+        [at appendAttributedString:[[NSMutableAttributedString alloc]
+                                    initWithString: i < self.availablePaymentOptions.count - 1? @" " : @""]];
     }
     self.attributedText = at;
     self.availablePaymentOptionAttachments = attachments;
@@ -83,9 +84,15 @@
         UIGraphicsBeginImageContextWithOptions(attachment.image.size, NO, attachment.image.scale);
         [attachment.image drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:newAlpha];
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        image.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
         UIGraphicsEndImageContext();
         attachment.image = image;
+
+        // Update accessibility label for highlighted cards
+        if (paymentOption == option) {
+            image.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
+        } else if (paymentOption == BTUIKPaymentOptionTypeUnknown) {
+            image.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:((NSNumber*)self.availablePaymentOptions[i]).intValue];
+        }
     }
     self.emphasisedPaymentOption = paymentOption;
     [self setNeedsDisplay];

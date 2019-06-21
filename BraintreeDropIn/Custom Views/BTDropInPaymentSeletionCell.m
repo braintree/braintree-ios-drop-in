@@ -51,6 +51,8 @@
         self.selectedBackgroundView = backgroundView;
         self.backgroundView = nil;
         [self applyConstraints];
+
+        self.accessibilityTraits = UIAccessibilityTraitButton;
     }
     return self;
 }

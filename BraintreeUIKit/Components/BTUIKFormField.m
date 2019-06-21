@@ -37,6 +37,7 @@
         [BTUIKAppearance styleLabelBoldPrimary:self.formLabel];
         self.formLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.formLabel.text = @"";
+        self.formLabel.accessibilityElementsHidden = YES;
         [self addSubview:self.formLabel];
 
         [self.formLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
