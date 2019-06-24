@@ -26,4 +26,22 @@
     XCTAssertEqual([BTUIKAppearance styledNavigationTitleLabel].textColor, [UIColor greenColor]);
 }
 
+- (void)test_settingFontFamily_returnsCorrectFont {
+    [BTUIKAppearance sharedInstance].fontFamily = @"Verdana";
+    XCTAssert([[BTUIKAppearance sharedInstance].font.fontName isEqualToString:@"Verdana"]);
+}
+
+- (void)test_settingBoldFontFamily_returnsCorrectBoldFont {
+    [BTUIKAppearance sharedInstance].boldFontFamily = @"Courier-Bold";
+    XCTAssert([[BTUIKAppearance sharedInstance].boldFont.fontName isEqualToString:@"Courier-Bold"]);
+}
+
+- (void)test_defaultFontFamily_returnsSystemFont {
+    XCTAssertEqual([BTUIKAppearance sharedInstance].font, [UIFont systemFontOfSize:10.0]);
+}
+
+- (void)test_defaultBoldFontFamily_returnsBoldSystemFont {
+    XCTAssertEqual([BTUIKAppearance sharedInstance].boldFont, [UIFont boldSystemFontOfSize:10.0]);
+}
+
 @end

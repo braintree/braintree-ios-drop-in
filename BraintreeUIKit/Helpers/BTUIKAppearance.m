@@ -1,6 +1,13 @@
 #import "BTUIKAppearance.h"
 #import "UIColor+BTUIK.h"
 
+@interface BTUIKAppearance ()
+
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIFont *boldFont;
+
+@end
+
 @implementation BTUIKAppearance
 
 static BTUIKAppearance *sharedTheme;
@@ -59,19 +66,21 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.switchOnTintColor = UIColor.greenColor;
 }
 
-- (UIFont *)font {
-    if (_fontFamily) {
-        return [UIFont fontWithName:_fontFamily size:10.0];
+- (void)setFontFamily:(NSString *)fontFamily {
+    _fontFamily = fontFamily;
+    if (fontFamily != nil) {
+        _font = [UIFont fontWithName:fontFamily size:10.0];
     } else {
-        return _font;
+        _font = [UIFont systemFontOfSize:10.0];
     }
 }
 
-- (UIFont *)boldFont {
-    if (_boldFontFamily) {
-        return [UIFont fontWithName:_boldFontFamily size:10.0];
+- (void)setBoldFontFamily:(NSString *)boldFontFamily {
+    _boldFontFamily = boldFontFamily;
+    if (boldFontFamily != nil) {
+        _boldFont = [UIFont fontWithName:boldFontFamily size:10.0];
     } else {
-        return _boldFont;
+        _boldFont = [UIFont boldSystemFontOfSize:10.0];
     }
 }
 

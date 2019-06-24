@@ -14,10 +14,14 @@
 @property (nonatomic, strong) UIColor *tintColor;
 /// Bar color
 @property (nonatomic, strong) UIColor *barBackgroundColor;
-/// Font, size of font will be ignored
-@property (nonatomic, strong) UIFont *font;
-/// Bold font, size of font will be ignored
-@property (nonatomic, strong) UIFont *boldFont;
+/// Font family
+@property (nonatomic, strong) NSString *fontFamily;
+/// Bold font family
+@property (nonatomic, strong) NSString *boldFontFamily;
+// Font
+@property (nonatomic, readonly, strong) UIFont *font;
+// Bold font
+@property (nonatomic, readonly, strong) UIFont *boldFont;
 /// Sheet background color
 @property (nonatomic, strong) UIColor *formBackgroundColor;
 /// Form field background color
@@ -51,11 +55,6 @@
 @property (nonatomic, strong) UIColor *switchOnTintColor;
 /// Tint color for UISwitch thumb
 @property (nonatomic, strong) UIColor *switchThumbTintColor;
-
-/// Font family
-@property (nonatomic, strong) NSString *fontFamily DEPRECATED_MSG_ATTRIBUTE("Use font instead.");
-/// Bold font family
-@property (nonatomic, strong) NSString *boldFontFamily DEPRECATED_MSG_ATTRIBUTE("Use boldFont instead.");
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
