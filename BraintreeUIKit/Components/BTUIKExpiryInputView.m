@@ -17,7 +17,7 @@
 @property (nonatomic) NSInteger currentYear;
 @property (nonatomic) NSInteger currentMonth;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic) BOOL needsOrientationChange;
+
 @end
 
 @implementation BTUIKExpiryInputView
@@ -25,7 +25,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.needsOrientationChange = NO;
         self.backgroundColor = [BTUIKAppearance sharedInstance].formFieldBackgroundColor;
         self.months = @[@"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10", @"11", @"12"];
         
@@ -132,12 +131,6 @@
         
         [self addConstraint:
          [NSLayoutConstraint constraintWithItem:self.yearCollectionView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:self attribute:NSLayoutAttributeWidth multiplier:0.33 constant:0]];
-        
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(orientationChange)
-                                                     name:UIDeviceOrientationDidChangeNotification
-                                                   object:nil];
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     }
@@ -337,31 +330,15 @@
     return UIEdgeInsetsMake(BT_EXPIRY_FULL_PADDING, BT_EXPIRY_FULL_PADDING, BT_EXPIRY_FULL_PADDING, BT_EXPIRY_FULL_PADDING);
 }
 
-#pragma mark - Orientation
-
-- (void)orientationChange {
-    if (self.window != nil) {
-        [self.monthCollectionView.collectionViewLayout invalidateLayout];
-        [self.yearCollectionView.collectionViewLayout invalidateLayout];
-        [self.monthCollectionView performBatchUpdates:nil completion:nil];
-        [self.yearCollectionView performBatchUpdates:nil completion:nil];
-        [self.yearCollectionView flashScrollIndicators];
-        [self setNeedsDisplay];
-    } else {
-        self.needsOrientationChange = YES;
-    }
-}
+#pragma mark - Layout
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (self.needsOrientationChange) {
-        self.needsOrientationChange = NO;
-        [self orientationChange];
+    if (self.window != nil) {
+        [self.monthCollectionView.collectionViewLayout invalidateLayout];
+        [self.yearCollectionView.collectionViewLayout invalidateLayout];
+        [self.yearCollectionView flashScrollIndicators];
     }
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
