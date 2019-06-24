@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIView *verticalLine;
 @property (nonatomic) NSInteger currentYear;
 @property (nonatomic) NSInteger currentMonth;
-@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -72,18 +71,8 @@
         [self addSubview:self.verticalLine];
         
         [self.yearCollectionView reloadData];
-
-        self.pageControl = [[UIPageControl alloc] init];
-        self.pageControl.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:self.pageControl];
-        self.pageControl.transform = CGAffineTransformMakeRotation(M_PI_2);
-        self.pageControl.numberOfPages = 6;
-        self.pageControl.currentPage = 1;
-        self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-        self.pageControl.currentPageIndicatorTintColor = self.tintColor;
-        self.pageControl.hidden = true;
         
-        NSDictionary *viewBindings = @{@"view":self, @"monthCollectionView":self.monthCollectionView, @"yearCollectionView": self.yearCollectionView, @"verticalLine":self.verticalLine, @"pageControl": self.pageControl};
+        NSDictionary *viewBindings = @{@"view":self, @"monthCollectionView":self.monthCollectionView, @"yearCollectionView": self.yearCollectionView, @"verticalLine":self.verticalLine};
         
         NSDictionary *metrics = @{@"BT_EXPIRY_FULL_PADDING":@BT_EXPIRY_FULL_PADDING, @"BT_EXPIRY_FULL_PADDING_HALF": @(BT_EXPIRY_FULL_PADDING/2.0)};
         
@@ -122,12 +111,6 @@
 
         [self addConstraint:
          [NSLayoutConstraint constraintWithItem:self.verticalLine attribute:NSLayoutAttributeBottom relatedBy:0 toItem:bottomReferenceView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-
-        CGSize sizeOfPageControl = [self.pageControl sizeForNumberOfPages:self.pageControl.numberOfPages];
-        [self addConstraint:
-         [NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeRight relatedBy:0 toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:sizeOfPageControl.width/2 - sizeOfPageControl.height/2 + 10]];
-        [self addConstraint:
-         [NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
         
         [self addConstraint:
          [NSLayoutConstraint constraintWithItem:self.yearCollectionView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:self attribute:NSLayoutAttributeWidth multiplier:0.33 constant:0]];
