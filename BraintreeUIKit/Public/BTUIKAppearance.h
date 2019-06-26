@@ -10,7 +10,7 @@
 
 /// Fallback color for the overlay if blur is disabled
 @property (nonatomic, strong) UIColor *overlayColor;
-/// Tint color, defaults to 007aff
+/// Tint color
 @property (nonatomic, strong) UIColor *tintColor;
 /// Bar color
 @property (nonatomic, strong) UIColor *barBackgroundColor;
@@ -18,10 +18,10 @@
 @property (nonatomic, strong) NSString *fontFamily;
 /// Bold font family
 @property (nonatomic, strong) NSString *boldFontFamily;
-// Font
-@property (nonatomic, readonly, strong) UIFont *font;
-// Bold font
-@property (nonatomic, readonly, strong) UIFont *boldFont;
+// Font, defaults to system font
+@property (nonatomic, strong, readonly) UIFont *font;
+// Bold font, defaults to system bold font
+@property (nonatomic, strong, readonly) UIFont *boldFont;
 /// Sheet background color
 @property (nonatomic, strong) UIColor *formBackgroundColor;
 /// Form field background color
