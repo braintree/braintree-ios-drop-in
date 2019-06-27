@@ -3,14 +3,14 @@
 @interface BTUIKAppearance : NSObject
 
 /// Shared instance used by Form elements
-+ (instancetype) sharedInstance;
++ (instancetype)sharedInstance;
 
-+ (void) darkTheme;
-+ (void) lightTheme;
++ (void)darkTheme;
++ (void)lightTheme;
 
 /// Fallback color for the overlay if blur is disabled
 @property (nonatomic, strong) UIColor *overlayColor;
-/// Tint color, defaults to 007aff
+/// Tint color
 @property (nonatomic, strong) UIColor *tintColor;
 /// Bar color
 @property (nonatomic, strong) UIColor *barBackgroundColor;
@@ -18,6 +18,10 @@
 @property (nonatomic, strong) NSString *fontFamily;
 /// Bold font family
 @property (nonatomic, strong) NSString *boldFontFamily;
+// Font, defaults to system font
+@property (nonatomic, strong, readonly) UIFont *font;
+// Bold font, defaults to system bold font
+@property (nonatomic, strong, readonly) UIFont *boldFont;
 /// Sheet background color
 @property (nonatomic, strong) UIColor *formBackgroundColor;
 /// Form field background color
@@ -54,24 +58,24 @@
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
-+ (void) styleLabelPrimary:(UILabel *) label;
-+ (void) styleLabelBoldPrimary:(UILabel *) label;
-+ (void) styleSmallLabelBoldPrimary:(UILabel *)label;
-+ (void) styleSmallLabelPrimary:(UILabel *)label;
-+ (void) styleLabelSecondary:(UILabel *)label;
-+ (void) styleLargeLabelSecondary:(UILabel *)label;
-+ (void) styleSystemLabelSecondary:(UILabel *)label;
-+ (UILabel *) styledNavigationTitleLabel;
++ (void)styleLabelPrimary:(UILabel *)label;
++ (void)styleLabelBoldPrimary:(UILabel *)label;
++ (void)styleSmallLabelBoldPrimary:(UILabel *)label;
++ (void)styleSmallLabelPrimary:(UILabel *)label;
++ (void)styleLabelSecondary:(UILabel *)label;
++ (void)styleLargeLabelSecondary:(UILabel *)label;
++ (void)styleSystemLabelSecondary:(UILabel *)label;
++ (UILabel *)styledNavigationTitleLabel;
 
-+ (float) horizontalFormContentPadding;
-+ (float) formCellHeight;
-+ (float) verticalFormSpace;
-+ (float) verticalFormSpaceTight;
-+ (float) verticalSectionSpace;
-+ (float) smallIconWidth;
-+ (float) smallIconHeight;
-+ (float) largeIconWidth;
-+ (float) largeIconHeight;
++ (float)horizontalFormContentPadding;
++ (float)formCellHeight;
++ (float)verticalFormSpace;
++ (float)verticalFormSpaceTight;
++ (float)verticalSectionSpace;
++ (float)smallIconWidth;
++ (float)smallIconHeight;
++ (float)largeIconWidth;
++ (float)largeIconHeight;
 + (NSDictionary*)metrics;
 
 @end

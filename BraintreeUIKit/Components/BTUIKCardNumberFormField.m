@@ -41,9 +41,14 @@
         self.validateButton = [UIButton new];
         [self.validateButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
         
-        NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]]}];
-        [self.validateButton setAttributedTitle:normalValidateButtonString forState:UIControlStateNormal];
-        NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].boldFontFamily size:[UIFont labelFontSize]]}];
+        NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION)
+                                                                                         attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
+                                                                                                      NSFontAttributeName:[[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize]}];
+        [self.validateButton setAttributedTitle:normalValidateButtonString
+                                       forState:UIControlStateNormal];
+        NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION)
+                                                                                           attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
+                                                                                                        NSFontAttributeName:[[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize]}];
         [self.validateButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
 
         [self.validateButton sizeToFit];

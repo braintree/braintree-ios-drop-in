@@ -23,7 +23,9 @@
 - (void)setPlaceholder:(NSString *)placeholder {
     NSMutableAttributedString *mutablePlaceholder = [[NSMutableAttributedString alloc] initWithString:placeholder];
     [mutablePlaceholder beginEditing];
-    [mutablePlaceholder addAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].placeholderTextColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]]} range:NSMakeRange(0, [mutablePlaceholder length])];
+    [mutablePlaceholder addAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].placeholderTextColor,
+                                        NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
+                                range:NSMakeRange(0, [mutablePlaceholder length])];
     [mutablePlaceholder endEditing];
     
     self.attributedPlaceholder = mutablePlaceholder;

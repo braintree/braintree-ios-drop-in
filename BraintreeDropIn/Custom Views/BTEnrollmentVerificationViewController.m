@@ -66,9 +66,13 @@
     self.resendSmsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.resendSmsButton setTitle:smsButtonText forState:UIControlStateNormal];
     
-    NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]]}];
+    NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText
+                                                                                     attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
+                                                                                                  NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}];
     [self.resendSmsButton setAttributedTitle:normalValidateButtonString forState:UIControlStateNormal];
-    NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont labelFontSize]]}];
+    NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText
+                                                                                       attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
+                                                                                                    NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}];
     [self.resendSmsButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
     
     [self.resendSmsButton sizeToFit];

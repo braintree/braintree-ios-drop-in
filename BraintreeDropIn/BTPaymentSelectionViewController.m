@@ -134,11 +134,17 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     self.vaultedPaymentsEditButton = [UIButton new];
     self.vaultedPaymentsEditButton.hidden = YES;
-    NSAttributedString *normalVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]]}];
+    NSAttributedString *normalVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION)
+                                                                                          attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
+                                                                                                       NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.systemFontSize]}];
     [self.vaultedPaymentsEditButton setAttributedTitle:normalVaultedPaymentsEditButton forState:UIControlStateNormal];
-    NSAttributedString *highlightVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].highlightedTintColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]]}];
+    NSAttributedString *highlightVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION)
+                                                                                             attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].highlightedTintColor,
+                                                                                                          NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.systemFontSize]}];
     [self.vaultedPaymentsEditButton setAttributedTitle:highlightVaultedPaymentsEditButton forState:UIControlStateHighlighted];
-    NSAttributedString *disabledVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION) attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor, NSFontAttributeName:[UIFont fontWithName:[BTUIKAppearance sharedInstance].fontFamily size:[UIFont systemFontSize]]}];
+    NSAttributedString *disabledVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION)
+                                                                                            attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
+                                                                                                         NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.systemFontSize]}];
     [self.vaultedPaymentsEditButton setAttributedTitle:disabledVaultedPaymentsEditButton forState:UIControlStateDisabled];
     [self.vaultedPaymentsEditButton sizeToFit];
     [self.vaultedPaymentsEditButton layoutIfNeeded];
