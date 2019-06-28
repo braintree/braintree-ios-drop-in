@@ -79,6 +79,27 @@ static BTUIKAppearance *sharedTheme;
     }
 }
 
+- (void)setUseSystemAppearance:(BOOL)useSystemAppearance {
+    _useSystemAppearance = useSystemAppearance;
+    
+    if (@available(iOS 13, *)) {
+        sharedTheme.overlayColor = [UIColor.systemBackgroundColor colorWithAlphaComponent:0.5];
+        sharedTheme.tintColor = UIColor.systemBlueColor;
+        sharedTheme.disabledColor = UIColor.systemGrayColor;
+        sharedTheme.errorForegroundColor = UIColor.systemRedColor;
+        sharedTheme.switchThumbTintColor = UIColor.systemGray6Color;
+        sharedTheme.switchOnTintColor = UIColor.systemGreenColor;
+        
+        sharedTheme.barBackgroundColor = UIColor.secondarySystemBackgroundColor;
+        sharedTheme.formBackgroundColor = UIColor.systemBackgroundColor;
+        sharedTheme.formFieldBackgroundColor = UIColor.secondarySystemBackgroundColor;
+        sharedTheme.primaryTextColor = UIColor.labelColor;
+        sharedTheme.secondaryTextColor = UIColor.secondaryLabelColor;
+        sharedTheme.placeholderTextColor = UIColor.placeholderTextColor;
+        sharedTheme.lineColor = UIColor.opaqueSeparatorColor;
+    }
+}
+
 - (UIColor *)highlightedTintColor {
     return [sharedTheme.tintColor colorWithAlphaComponent:0.4];
 }

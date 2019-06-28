@@ -61,6 +61,28 @@
     XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleWhite);
 }
 
+- (void)test_useSystemAppearance_setsCorrectColors {
+    if (@available(iOS 13, *)) {
+        BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
+        appearance.useSystemAppearance = YES;
+        
+        XCTAssert([appearance.overlayColor isEqual:[UIColor.systemBackgroundColor colorWithAlphaComponent:0.5]]);
+        XCTAssertEqual(appearance.tintColor, UIColor.systemBlueColor);
+        XCTAssertEqual(appearance.disabledColor, UIColor.systemGrayColor);
+        XCTAssertEqual(appearance.errorForegroundColor, UIColor.systemRedColor);
+        XCTAssertEqual(appearance.switchThumbTintColor, UIColor.systemGray6Color);
+        XCTAssertEqual(appearance.switchOnTintColor, UIColor.systemGreenColor);
+        
+        XCTAssertEqual(appearance.barBackgroundColor, UIColor.secondarySystemBackgroundColor);
+        XCTAssertEqual(appearance.formBackgroundColor, UIColor.systemBackgroundColor);
+        XCTAssertEqual(appearance.formFieldBackgroundColor, UIColor.secondarySystemBackgroundColor);
+        XCTAssertEqual(appearance.primaryTextColor, UIColor.labelColor);
+        XCTAssertEqual(appearance.secondaryTextColor, UIColor.secondaryLabelColor);
+        XCTAssertEqual(appearance.placeholderTextColor, UIColor.placeholderTextColor);
+        XCTAssertEqual(appearance.lineColor, UIColor.opaqueSeparatorColor);
+    }
+}
+
 - (void)test_navigationTitleTextColor_defaultsToPrimaryTextColor_whenNotSet {
     [BTUIKAppearance sharedInstance].primaryTextColor = [UIColor purpleColor];
     [BTUIKAppearance sharedInstance].navigationBarTitleTextColor = nil;

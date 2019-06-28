@@ -55,6 +55,8 @@
 @property (nonatomic, strong) UIColor *switchOnTintColor;
 /// Tint color for UISwitch thumb
 @property (nonatomic, strong) UIColor *switchThumbTintColor;
+/// Set to true to use system light and dark modes if available, defaults to false
+@property (nonatomic) BOOL useSystemAppearance;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
