@@ -1,12 +1,65 @@
 #import <XCTest/XCTest.h>
 
 #import "BTUIKAppearance.h"
+#import "UIColor+BTUIK.h"
 
 @interface BTUIKAppearanceTests : XCTestCase
 
 @end
 
 @implementation BTUIKAppearanceTests
+
+- (void)test_lightTheme_setsCorrectValues {
+    BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
+    [BTUIKAppearance lightTheme];
+    
+    XCTAssert([appearance.overlayColor isEqual:[UIColor btuik_colorFromHex:@"000000" alpha:0.5]]);
+    XCTAssert([appearance.tintColor isEqual:[UIColor btuik_colorFromHex:@"2489F6" alpha:1.0]]);
+    XCTAssert([appearance.disabledColor isEqual:UIColor.lightGrayColor]);
+    XCTAssert([appearance.errorForegroundColor isEqual:[UIColor btuik_colorFromHex:@"ff3b30" alpha:1.0]]);
+    XCTAssert([appearance.switchThumbTintColor isEqual:UIColor.whiteColor]);
+    XCTAssert([appearance.switchOnTintColor isEqual:UIColor.greenColor]);
+    XCTAssertEqual(appearance.font, [UIFont systemFontOfSize:10]);
+    XCTAssertEqual(appearance.boldFont, [UIFont boldSystemFontOfSize:10]);
+    XCTAssertEqual(appearance.useBlurs, YES);
+    XCTAssertEqual(appearance.postalCodeFormFieldKeyboardType, UIKeyboardTypeNumberPad);
+    
+    XCTAssert([appearance.barBackgroundColor isEqual:UIColor.whiteColor]);
+    XCTAssert([appearance.formBackgroundColor isEqual:UIColor.groupTableViewBackgroundColor]);
+    XCTAssert([appearance.formFieldBackgroundColor isEqual: UIColor.whiteColor]);
+    XCTAssert([appearance.primaryTextColor isEqual:UIColor.blackColor]);
+    XCTAssert([appearance.secondaryTextColor isEqual:[UIColor btuik_colorFromHex:@"666666" alpha:1.0]]);
+    XCTAssert([appearance.placeholderTextColor isEqual:UIColor.lightGrayColor]);
+    XCTAssert([appearance.lineColor isEqual:[UIColor btuik_colorFromHex:@"BFBFBF" alpha:1.0]]);
+    XCTAssertEqual(appearance.blurStyle, UIBlurEffectStyleExtraLight);
+    XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleGray);
+}
+
+- (void)test_darkTheme_setsCorrectValues {
+    BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
+    [BTUIKAppearance darkTheme];
+    
+    XCTAssert([appearance.overlayColor isEqual:[UIColor btuik_colorFromHex:@"000000" alpha:0.5]]);
+    XCTAssert([appearance.tintColor isEqual:[UIColor btuik_colorFromHex:@"2489F6" alpha:1.0]]);
+    XCTAssert([appearance.disabledColor isEqual:UIColor.lightGrayColor]);
+    XCTAssert([appearance.errorForegroundColor isEqual:[UIColor btuik_colorFromHex:@"ff3b30" alpha:1.0]]);
+    XCTAssert([appearance.switchThumbTintColor isEqual:UIColor.whiteColor]);
+    XCTAssert([appearance.switchOnTintColor isEqual:UIColor.greenColor]);
+    XCTAssertEqual(appearance.font, [UIFont systemFontOfSize:10]);
+    XCTAssertEqual(appearance.boldFont, [UIFont boldSystemFontOfSize:10]);
+    XCTAssertEqual(appearance.useBlurs, YES);
+    XCTAssertEqual(appearance.postalCodeFormFieldKeyboardType, UIKeyboardTypeNumberPad);
+    
+    XCTAssert([appearance.barBackgroundColor isEqual:[UIColor btuik_colorFromHex:@"222222" alpha:1.0]]);
+    XCTAssert([appearance.formBackgroundColor isEqual:[UIColor btuik_colorFromHex:@"222222" alpha:1.0]]);
+    XCTAssert([appearance.formFieldBackgroundColor isEqual:[UIColor btuik_colorFromHex:@"333333" alpha:1.0]]);
+    XCTAssert([appearance.primaryTextColor isEqual:UIColor.whiteColor]);
+    XCTAssert([appearance.secondaryTextColor isEqual:[UIColor btuik_colorFromHex:@"999999" alpha:1.0]]);
+    XCTAssert([appearance.placeholderTextColor isEqual:[UIColor btuik_colorFromHex:@"8E8E8E" alpha:1.0]]);
+    XCTAssert([appearance.lineColor isEqual:[UIColor btuik_colorFromHex:@"666666" alpha:1.0]]);
+    XCTAssertEqual(appearance.blurStyle, UIBlurEffectStyleDark);
+    XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleWhite);
+}
 
 - (void)test_navigationTitleTextColor_defaultsToPrimaryTextColor_whenNotSet {
     [BTUIKAppearance sharedInstance].primaryTextColor = [UIColor purpleColor];
