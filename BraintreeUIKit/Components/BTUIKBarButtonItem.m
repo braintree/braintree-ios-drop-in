@@ -25,6 +25,10 @@
 
     [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor,
                                    NSFontAttributeName:font}
+                        forState:UIControlStateNormal];
+
+    [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor,
+                                   NSFontAttributeName:font}
                         forState:UIControlStateNormal | UIControlStateHighlighted];
 
     [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].disabledColor,
