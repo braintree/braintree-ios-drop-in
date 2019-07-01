@@ -28,7 +28,7 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.barBackgroundColor = UIColor.whiteColor;
     sharedTheme.font = [UIFont systemFontOfSize:10];
     sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
-    sharedTheme.formBackgroundColor = UIColor.groupTableViewBackgroundColor;
+    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"efeff4" alpha:1.0];
     sharedTheme.formFieldBackgroundColor =  UIColor.whiteColor;
     sharedTheme.primaryTextColor = UIColor.blackColor;
     sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
