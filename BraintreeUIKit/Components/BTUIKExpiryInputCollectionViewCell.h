@@ -2,7 +2,7 @@
 
 @interface BTUIKExpiryInputCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UILabel* label;
+@property (nonatomic, strong) UILabel *label;
 
 - (NSInteger)getInteger;
 
