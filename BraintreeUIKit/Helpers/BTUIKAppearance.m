@@ -25,7 +25,7 @@ static BTUIKAppearance *sharedTheme;
 + (void)lightTheme {
     [sharedTheme setDefaultValues];
     sharedTheme.barBackgroundColor = UIColor.whiteColor;
-    sharedTheme.formBackgroundColor = UIColor.groupTableViewBackgroundColor;
+    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"EFEFF4" alpha:1.0];
     sharedTheme.formFieldBackgroundColor =  UIColor.whiteColor;
     sharedTheme.primaryTextColor = UIColor.blackColor;
     sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
@@ -76,27 +76,6 @@ static BTUIKAppearance *sharedTheme;
         _boldFont = [UIFont fontWithName:boldFontFamily size:10.0];
     } else {
         _boldFont = [UIFont boldSystemFontOfSize:10.0];
-    }
-}
-
-- (void)setUseSystemAppearance:(BOOL)useSystemAppearance {
-    _useSystemAppearance = useSystemAppearance;
-    
-    if (@available(iOS 13, *)) {
-        sharedTheme.overlayColor = [UIColor.systemBackgroundColor colorWithAlphaComponent:0.5];
-        sharedTheme.tintColor = UIColor.systemBlueColor;
-        sharedTheme.disabledColor = UIColor.systemGrayColor;
-        sharedTheme.errorForegroundColor = UIColor.systemRedColor;
-        sharedTheme.switchThumbTintColor = UIColor.systemGray6Color;
-        sharedTheme.switchOnTintColor = UIColor.systemGreenColor;
-        
-        sharedTheme.barBackgroundColor = UIColor.secondarySystemBackgroundColor;
-        sharedTheme.formBackgroundColor = UIColor.systemBackgroundColor;
-        sharedTheme.formFieldBackgroundColor = UIColor.secondarySystemBackgroundColor;
-        sharedTheme.primaryTextColor = UIColor.labelColor;
-        sharedTheme.secondaryTextColor = UIColor.secondaryLabelColor;
-        sharedTheme.placeholderTextColor = UIColor.placeholderTextColor;
-        sharedTheme.lineColor = UIColor.opaqueSeparatorColor;
     }
 }
 
