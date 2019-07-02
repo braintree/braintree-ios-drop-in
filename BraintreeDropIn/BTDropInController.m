@@ -124,6 +124,7 @@
 #pragma mark - Setup
 
 - (void)setUpViews {
+    [self determineDropInColorTheme];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[BTDropInController.self]]
      setTitleTextAttributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
                               NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
@@ -167,7 +168,18 @@
     self.blurredContentBackgroundView.hidden = !self.useBlur;
     [self.contentView addSubview:self.blurredContentBackgroundView];
     [self.contentView sendSubviewToBack:self.blurredContentBackgroundView];
-    
+}
+
+- (void)determineDropInColorTheme {
+    if ([BTUIKAppearance sharedInstance].useSystemAppearance) {
+        if (@available(iOS 13, *)) {
+            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                [BTUIKAppearance darkTheme];
+            } else {
+                [BTUIKAppearance lightTheme];
+            }
+        }
+    }
 }
 
 - (void)setUpChildViewControllers {
