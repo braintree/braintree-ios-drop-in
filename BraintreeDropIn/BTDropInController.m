@@ -170,18 +170,6 @@
     [self.contentView sendSubviewToBack:self.blurredContentBackgroundView];
 }
 
-- (void)determineDropInColorTheme {
-    if ([BTUIKAppearance sharedInstance].useSystemAppearance) {
-        if (@available(iOS 13, *)) {
-            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                [BTUIKAppearance darkTheme];
-            } else {
-                [BTUIKAppearance lightTheme];
-            }
-        }
-    }
-}
-
 - (void)setUpChildViewControllers {
     self.paymentSelectionViewController = [[BTPaymentSelectionViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
     self.paymentSelectionViewController.delegate = self;
@@ -394,6 +382,18 @@
 
 - (BOOL)isFormSheet {
     return self.modalPresentationStyle == UIModalPresentationFormSheet;
+}
+
+- (void)determineDropInColorTheme {
+    if ([BTUIKAppearance sharedInstance].useSystemAppearance) {
+        if (@available(iOS 13, *)) {
+            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                [BTUIKAppearance darkTheme];
+            } else {
+                [BTUIKAppearance lightTheme];
+            }
+        }
+    }
 }
 
 #pragma mark - UI Preferences
