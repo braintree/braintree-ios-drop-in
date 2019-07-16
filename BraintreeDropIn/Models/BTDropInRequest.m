@@ -25,6 +25,7 @@
     request.venmoDisabled = self.venmoDisabled;
     request.cardDisabled = self.cardDisabled;
     request.threeDSecureVerification = self.threeDSecureVerification;
+    request.threeDSecureRequest = self.threeDSecureRequest;
     request.cardholderNameSetting = self.cardholderNameSetting;
     request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
     request.vaultManager = self.vaultManager;

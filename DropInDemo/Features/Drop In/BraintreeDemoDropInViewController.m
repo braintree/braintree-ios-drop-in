@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIButton *dropInButton;
 @property (nonatomic, strong) UIButton *purchaseButton;
 @property (nonatomic, strong) UISegmentedControl *dropinThemeSwitch;
+@property (nonatomic, strong) UISegmentedControl *threeDSecureSwitch;
 @property (nonatomic, strong) NSString *authorizationString;
 @property (nonatomic) BOOL useApplePay;
 @property (nonatomic, strong) BTPaymentMethodNonce *selectedNonce;
@@ -108,6 +109,11 @@
     self.dropinThemeSwitch.translatesAutoresizingMaskIntoConstraints = NO;
     self.dropinThemeSwitch.selectedSegmentIndex = 0;
     [self.view addSubview:self.dropinThemeSwitch];
+
+    self.threeDSecureSwitch = [[UISegmentedControl alloc] initWithItems:@[@"3DS Off", @"3DS Legacy", @"3DS 2"]];
+    self.threeDSecureSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+    self.threeDSecureSwitch.selectedSegmentIndex = 0;
+    [self.view addSubview:self.threeDSecureSwitch];
     
     [self updatePaymentMethodConstraints];
     [self fetchPaymentMethods];
@@ -161,7 +167,8 @@
                                    @"paymentMethodTypeIcon": self.paymentMethodTypeIcon,
                                    @"paymentMethodTypeLabel": self.paymentMethodTypeLabel,
                                    @"purchaseButton":self.purchaseButton,
-                                   @"dropinThemeSwitch":self.dropinThemeSwitch
+                                   @"dropinThemeSwitch":self.dropinThemeSwitch,
+                                   @"threeDSecureSwitch":self.threeDSecureSwitch
                                    };
     
     NSMutableArray *newConstraints = [NSMutableArray new];
@@ -185,9 +192,11 @@
         self.purchaseButton.backgroundColor = [UIColor lightGrayColor];
         self.purchaseButton.enabled = NO;
     }
-    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[dropinThemeSwitch]" options:0 metrics:nil views:viewBindings]];
+    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[dropinThemeSwitch]-(20)-[threeDSecureSwitch]" options:0 metrics:nil views:viewBindings]];
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[dropinThemeSwitch]-|" options:0 metrics:nil views:viewBindings]];
-    
+    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[threeDSecureSwitch]-|" options:0 metrics:nil views:viewBindings]];
+
+
     self.checkoutConstraints = newConstraints;
     [self.view addConstraints:self.checkoutConstraints];
 }
@@ -244,6 +253,30 @@
         [BTUIKAppearance lightTheme];
     } else {
         [BTUIKAppearance darkTheme];
+    }
+
+    if (self.threeDSecureSwitch.selectedSegmentIndex == 1) {
+        dropInRequest.amount = @"10.00";
+        dropInRequest.threeDSecureVerification = YES;
+    } else if (self.threeDSecureSwitch.selectedSegmentIndex == 2) {
+        BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
+        threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
+        threeDSecureRequest.versionRequested = BTThreeDSecureVersion2;
+
+        BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
+        billingAddress.givenName = @"Jill";
+        billingAddress.surname = @"Doe";
+        billingAddress.streetAddress = @"555 Smith St.";
+        billingAddress.extendedAddress = @"#5";
+        billingAddress.locality = @"Oakland";
+        billingAddress.region = @"CA";
+        billingAddress.countryCodeAlpha2 = @"US";
+        billingAddress.postalCode = @"12345";
+        billingAddress.phoneNumber = @"8101234567";
+        threeDSecureRequest.billingAddress = billingAddress;
+        threeDSecureRequest.email = @"test@example.com";
+        threeDSecureRequest.shippingMethod = @"01";
+        dropInRequest.threeDSecureRequest = threeDSecureRequest;
     }
 
     dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];

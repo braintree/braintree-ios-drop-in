@@ -732,8 +732,8 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         
         self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
-    
-    func testDropIn_threeDSecure_returnsToPaymentSelectionView_whenCancelled() {
+
+    func testDropIn_threeDSecure_returnsLookupNonce_whenCanceled() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
         
@@ -762,14 +762,9 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
         
         app.buttons["Done"].forceTapElement()
-        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
-        
-        self.waitForElementToBeHittable(app.buttons["Cancel"])
-        app.buttons["Cancel"].forceTapElement()
-        
-        self.waitForElementToAppear(app.buttons["Cancelled🎲"])
-        XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
+
+        self.waitForElementToAppear(app.buttons["Error: Payment flow was canceled by the user."])
+        XCTAssertTrue(app.buttons["Error: Payment flow was canceled by the user."].exists);
     }
     
     func testDropIn_threeDSecure_tokenizationError_showsAlert() {
@@ -809,6 +804,109 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ClientToken")
+        app.launch()
+        sleep(1)
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["3DS 2"].tap()
+        app.buttons["Add Payment Method"].tap()
+    }
+
+    func testDropIn_threeDSecure_2_frictionlessFlow_andTransacts() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4000000000001000")
+
+        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts[Date.getNextYear()].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["ending in 00"])
+
+        XCTAssertTrue(app.staticTexts["ending in 00"].exists);
+
+        self.waitForElementToBeHittable(app.buttons["Complete Purchase"])
+        app.buttons["Complete Purchase"].forceTapElement()
+
+        let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
+
+        self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+    }
+
+    func testDropIn_threeDSecure_2_challengeFlow_andTransacts() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4000000000001091")
+
+        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+        app.staticTexts["11"].forceTapElement()
+        app.staticTexts[Date.getNextYear()].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["Purchase Authentication"], timeout: 20)
+
+        let textField = app.textFields.element(boundBy: 0)
+        self.waitForElementToBeHittable(textField)
+        textField.forceTapElement()
+        sleep(2)
+        textField.typeText("1234")
+
+        app.buttons["SUBMIT"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["ending in 91"])
+
+        XCTAssertTrue(app.staticTexts["ending in 91"].exists);
+
+        self.waitForElementToBeHittable(app.buttons["Complete Purchase"])
+        app.buttons["Complete Purchase"].forceTapElement()
+
+        let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
+
+        self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+    }
+}
 
 class BraintreeDropIn_Venmo_Disabled_UITests: XCTestCase {
     

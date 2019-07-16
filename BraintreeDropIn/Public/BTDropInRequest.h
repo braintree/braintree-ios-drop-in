@@ -2,7 +2,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BTPostalAddress, BTPayPalRequest;
+@class BTPostalAddress, BTPayPalRequest, BTThreeDSecureRequest;
 
 typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
     BTFormFieldDisabled = 0,
@@ -40,6 +40,11 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Optional: If true and an amount is set, ThreeDSecure will be used to verify new cards. ThreeDSecure must be enabled in the control panel.
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
+
+/// Optional: Enable 3DS verification and specify options and additional information. If no amount is set, the `BTDropInRequest` `amount` will be used.
+///
+/// Note: For 3DS 2 options, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
+@property (nonatomic, strong, nullable) BTThreeDSecureRequest *threeDSecureRequest;
 
 /// Optional: Determines the visibility and input requirements of the cardholder name field.
 ///
