@@ -313,14 +313,16 @@
         BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
 
         if (self.handler) {
-            BTDropInResult *result = [[BTDropInResult alloc] init];
+            BTDropInResult *dropInResult = [[BTDropInResult alloc] init];
             if (threeDSecureResult.tokenizedCard != nil) {
-                result.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
-                result.paymentMethod = threeDSecureResult.tokenizedCard;
+                dropInResult.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
+                dropInResult.paymentMethod = threeDSecureResult.tokenizedCard;
             } else if (error != nil && error.code == BTPaymentFlowDriverErrorTypeCanceled) {
-                result.cancelled = YES;
+                // Show the updated payment selection screen if the user canceled out of the 3DS challenge
+                [self reloadDropInData];
+                return;
             }
-            self.handler(self, result, error);
+            self.handler(self, dropInResult, error);
         }
     }];
 }

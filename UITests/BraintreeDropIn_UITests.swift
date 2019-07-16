@@ -733,7 +733,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
 
-    func testDropIn_threeDSecure_returnsLookupNonce_whenCanceled() {
+    func testDropIn_threeDSecure_returnsToPaymentSelectionView_whenCanceled() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
         
@@ -762,9 +762,14 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         self.waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
         
         app.buttons["Done"].forceTapElement()
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
 
-        self.waitForElementToAppear(app.buttons["Error: Payment flow was canceled by the user."])
-        XCTAssertTrue(app.buttons["Error: Payment flow was canceled by the user."].exists);
+        self.waitForElementToBeHittable(app.buttons["Cancel"])
+        app.buttons["Cancel"].forceTapElement()
+
+        self.waitForElementToAppear(app.buttons["Cancelled🎲"])
+        XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
     }
     
     func testDropIn_threeDSecure_tokenizationError_showsAlert() {
@@ -832,8 +837,8 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         cardNumberTextField.typeText("4000000000001000")
 
         self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
-        app.staticTexts["11"].forceTapElement()
-        app.staticTexts[Date.getNextYear()].forceTapElement()
+        app.staticTexts["01"].forceTapElement()
+        app.staticTexts[Date.getThreeYearsFromNow()].forceTapElement()
 
         let securityCodeField = elementsQuery.textFields["CVV"]
         self.waitForElementToBeHittable(securityCodeField)
@@ -870,8 +875,8 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         cardNumberTextField.typeText("4000000000001091")
 
         self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
-        app.staticTexts["11"].forceTapElement()
-        app.staticTexts[Date.getNextYear()].forceTapElement()
+        app.staticTexts["01"].forceTapElement()
+        app.staticTexts[Date.getThreeYearsFromNow()].forceTapElement()
 
         let securityCodeField = elementsQuery.textFields["CVV"]
         self.waitForElementToBeHittable(securityCodeField)
@@ -905,6 +910,45 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
 
         self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+    }
+
+    func testDropIn_threeDSecure_2_returnsToPaymentSelectionView_whenCanceled() {
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        self.waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4000000000001091")
+
+        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+        app.staticTexts["01"].forceTapElement()
+        app.staticTexts[Date.getThreeYearsFromNow()].forceTapElement()
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        self.waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("123")
+
+        let postalCodeField = elementsQuery.textFields["12345"]
+        self.waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        self.waitForElementToAppear(app.staticTexts["Purchase Authentication"], timeout: 20)
+
+        app.buttons["Cancel"].forceTapElement()
+        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        self.waitForElementToAppear(app.staticTexts["Select Payment Method"])
+
+        self.waitForElementToBeHittable(app.buttons["Cancel"])
+        app.buttons["Cancel"].forceTapElement()
+
+        self.waitForElementToAppear(app.buttons["Cancelled🎲"])
+        XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
     }
 }
 

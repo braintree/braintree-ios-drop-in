@@ -47,4 +47,10 @@ extension Date {
         let calendar = Calendar.init(identifier: .gregorian)
         return String(calendar.component(.year, from: date) + 1)
     }
+
+    static func getThreeYearsFromNow() -> String {
+        let date = Date()
+        let calendar = Calendar.init(identifier: .gregorian)
+        return String(calendar.component(.year, from: date) + 3)
+    }
 }
