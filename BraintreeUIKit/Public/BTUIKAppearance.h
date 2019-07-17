@@ -11,8 +11,8 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 /// Shared instance used by Form elements
 + (instancetype)sharedInstance;
 
-+ (void)darkTheme;
-+ (void)lightTheme;
++ (void)darkTheme DEPRECATED_MSG_ATTRIBUTE("Use colorScheme property instead");
++ (void)lightTheme DEPRECATED_MSG_ATTRIBUTE("Use colorScheme property instead");
 
 /// Fallback color for the overlay if blur is disabled
 @property (nonatomic, strong) UIColor *overlayColor;
