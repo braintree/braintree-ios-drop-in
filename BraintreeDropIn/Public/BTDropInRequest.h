@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 /// Optional: Enable 3DS verification and specify options and additional information. If no amount is set, the `BTDropInRequest` `amount` will be used.
 ///
-/// Note: For 3DS 2 options, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
+/// Note: To encourage 3DS 2.0 flows, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
 @property (nonatomic, strong, nullable) BTThreeDSecureRequest *threeDSecureRequest;
 
 /// Optional: Determines the visibility and input requirements of the cardholder name field.

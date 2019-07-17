@@ -255,6 +255,21 @@
         [BTUIKAppearance darkTheme];
     }
 
+    dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
+    [BTUIKLocalizedString setCustomTranslations:@[@"cs"]];
+
+    dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
+    dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
+    dropInRequest.cardDisabled = [[[NSProcessInfo processInfo] arguments] containsObject:@"-CardDisabled"];
+    dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
+    dropInRequest.cardholderNameSetting = [BraintreeDemoSettings cardholderNameSetting];
+    dropInRequest.vaultCard = [BraintreeDemoSettings vaultCardSetting];
+    dropInRequest.allowVaultCardOverride = [BraintreeDemoSettings allowVaultCardOverrideSetting];
+
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-PayPalOneTime"]) {
+        dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
+    }
+
     if (self.threeDSecureSwitch.selectedSegmentIndex == 1) {
         dropInRequest.amount = @"10.00";
         dropInRequest.threeDSecureVerification = YES;
@@ -277,21 +292,6 @@
         threeDSecureRequest.email = @"test@example.com";
         threeDSecureRequest.shippingMethod = @"01";
         dropInRequest.threeDSecureRequest = threeDSecureRequest;
-    }
-
-    dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
-    [BTUIKLocalizedString setCustomTranslations:@[@"cs"]];
-
-    dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
-    dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
-    dropInRequest.cardDisabled = [[[NSProcessInfo processInfo] arguments] containsObject:@"-CardDisabled"];
-    dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
-    dropInRequest.cardholderNameSetting = [BraintreeDemoSettings cardholderNameSetting];
-    dropInRequest.vaultCard = [BraintreeDemoSettings vaultCardSetting];
-    dropInRequest.allowVaultCardOverride = [BraintreeDemoSettings allowVaultCardOverrideSetting];
-
-    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-PayPalOneTime"]) {
-        dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
     }
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
