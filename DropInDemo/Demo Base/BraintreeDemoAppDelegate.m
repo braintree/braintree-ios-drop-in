@@ -1,13 +1,8 @@
 #import "BraintreeDemoAppDelegate.h"
 #import "BraintreeDemoSettings.h"
-#import "BraintreeDemoSlideNavigationController.h"
 #import "BraintreeDemoDemoContainmentViewController.h"
 #import "BraintreeCore.h"
 #import "BTDropInOverrides.h"
-
-#if DEBUG
-#import <FLEX/FLEXManager.h>
-#endif
 
 NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.DropInDemo.payments";
 
@@ -18,9 +13,9 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     [self registerDefaultsFromSettings];
     
     BraintreeDemoDemoContainmentViewController *rootViewController = [[BraintreeDemoDemoContainmentViewController alloc] init];
-    BraintreeDemoSlideNavigationController *slideNav = [[BraintreeDemoSlideNavigationController alloc] initWithRootViewController:rootViewController];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = slideNav;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -154,16 +149,5 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
 }
-
-
-#if DEBUG
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
-    CGPoint location = [[[event allTouches] anyObject] locationInView:[self window]];
-    if(location.y > 0 && location.y < [[UIApplication sharedApplication] statusBarFrame].size.height) {
-        [[FLEXManager sharedManager] showExplorer];
-    }
-}
-#endif
 
 @end

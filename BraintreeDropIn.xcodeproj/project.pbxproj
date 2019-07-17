@@ -182,7 +182,6 @@
 		A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */; };
 		A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */; };
 		A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */; };
-		A5CE1D781D83599D009BE61A /* BraintreeDemoSlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6C1D83599D009BE61A /* BraintreeDemoSlideNavigationController.m */; };
 		A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */; };
 		A5CE1D7A1D83599D009BE61A /* BraintreeDemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */; };
 		A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D711D83599D009BE61A /* Settings.bundle */; };
@@ -459,8 +458,6 @@
 		A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoDemoContainmentViewController.m; sourceTree = "<group>"; };
 		A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoIntegrationViewController.h; sourceTree = "<group>"; };
 		A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoIntegrationViewController.m; sourceTree = "<group>"; };
-		A5CE1D6B1D83599D009BE61A /* BraintreeDemoSlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoSlideNavigationController.h; sourceTree = "<group>"; };
-		A5CE1D6C1D83599D009BE61A /* BraintreeDemoSlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoSlideNavigationController.m; sourceTree = "<group>"; };
 		A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A5CE1D6F1D83599D009BE61A /* BraintreeDemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoSettings.h; sourceTree = "<group>"; };
 		A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoSettings.m; sourceTree = "<group>"; };
@@ -915,8 +912,6 @@
 				A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */,
 				A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */,
 				A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */,
-				A5CE1D6B1D83599D009BE61A /* BraintreeDemoSlideNavigationController.h */,
-				A5CE1D6C1D83599D009BE61A /* BraintreeDemoSlideNavigationController.m */,
 				A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */,
 				A5CE1D6E1D83599D009BE61A /* Settings */,
 			);
@@ -1169,6 +1164,7 @@
 				A5CE1D121D835832009BE61A /* Resources */,
 				DA34FBA9A87C5DA5B91041E0 /* [CP] Copy Pods Resources */,
 				A52900501D88FB5200032220 /* Embed Frameworks */,
+				8B0DF682174397D402115420 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1352,6 +1348,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B0DF682174397D402115420 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-frameworks.sh",
+				"${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DA34FBA9A87C5DA5B91041E0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1361,15 +1375,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/BraintreeDropIn/Braintree-UIKit-Localization.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/InAppSettingsKit/InAppSettingsKit.bundle",
-				"${PODS_ROOT}/iOS-Slide-Menu/SlideMenu/Source/Assets/menu-button.png",
-				"${PODS_ROOT}/iOS-Slide-Menu/SlideMenu/Source/Assets/menu-button@2x.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-UIKit-Localization.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InAppSettingsKit.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/menu-button.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/menu-button@2x.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1502,7 +1512,6 @@
 				A5CE1D7A1D83599D009BE61A /* BraintreeDemoSettings.m in Sources */,
 				A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */,
 				A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */,
-				A5CE1D781D83599D009BE61A /* BraintreeDemoSlideNavigationController.m in Sources */,
 				A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */,
 				A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */,
 				A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */,
