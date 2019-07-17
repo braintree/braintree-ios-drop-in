@@ -124,7 +124,6 @@
 #pragma mark - Setup
 
 - (void)setUpViews {
-    [self determineDropInColorTheme];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[BTDropInController.self]]
      setTitleTextAttributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
                               NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
@@ -382,18 +381,6 @@
 
 - (BOOL)isFormSheet {
     return self.modalPresentationStyle == UIModalPresentationFormSheet;
-}
-
-- (void)determineDropInColorTheme {
-    if ([BTUIKAppearance sharedInstance].useSystemAppearance) {
-        if (@available(iOS 13, *)) {
-            if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                [BTUIKAppearance darkTheme];
-            } else {
-                [BTUIKAppearance lightTheme];
-            }
-        }
-    }
 }
 
 #pragma mark - UI Preferences
