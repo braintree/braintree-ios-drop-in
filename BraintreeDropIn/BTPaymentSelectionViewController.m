@@ -451,6 +451,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     cell.iconView.paymentOptionType = option;
     cell.type = option;
 
+    cell.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    cell.label.numberOfLines = 0;
+
     return cell;
 }
 
@@ -503,7 +506,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
-    return 44.0;
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark UITableViewDataSource
