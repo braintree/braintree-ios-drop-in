@@ -17,6 +17,12 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
     BraintreeDemoTransactionServiceThreeDSecureRequiredStatusNotRequired = 2,
 };
 
+typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequestedVersion) {
+    BraintreeDemoTransactionServiceThreeDSecureRequestedVersionOff = 0,
+    BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy = 1,
+    BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2 = 2,
+};
+
 @interface BraintreeDemoSettings : NSObject
 
 + (BraintreeDemoTransactionServiceEnvironment)currentEnvironment;
@@ -25,6 +31,7 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
 + (NSString *)authorizationOverride;
 + (BOOL)useTokenizationKey;
 + (BraintreeDemoTransactionServiceThreeDSecureRequiredStatus)threeDSecureRequiredStatus;
++ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequiredVersion;
 + (BOOL)useModalPresentation;
 + (BOOL)customerPresent;
 + (NSString *)customerIdentifier;
