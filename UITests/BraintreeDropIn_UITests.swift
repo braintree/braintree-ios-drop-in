@@ -821,8 +821,23 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         app.launchArguments.append("-ClientToken")
         app.launch()
         sleep(1)
+
+        self.waitForElementToBeHittable(app.buttons["Settings"])
+        app.navigationBars.buttons["Settings"].tap()
+        if (app.switches["Use Tokenization Key"].isSelected) {
+            app.switches["Use Tokenization Key"].tap()
+        }
+
+        app.tables.cells.staticTexts["Required (3DS Transaction Option)"].tap()
+        app.tables.cells.staticTexts["Required"].tap()
+        app.navigationBars.buttons["Settings"].tap()
+
+        app.tables.cells.staticTexts["3DS Requested Version"].tap()
+        app.tables.cells.staticTexts["2.0"].tap()
+        app.navigationBars.buttons["Settings"].tap()
+        app.navigationBars.buttons["Done"].tap()
+
         self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
-        app.buttons["3DS 2"].tap()
         app.buttons["Add Payment Method"].tap()
     }
 
