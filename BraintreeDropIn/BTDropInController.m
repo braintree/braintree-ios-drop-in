@@ -281,7 +281,7 @@
                 result.cancelled = YES;
             }
             [sender dismissViewControllerAnimated:YES completion:^{
-                if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
+                if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureVerification) {
                     [self threeDSecureVerification:tokenizedCard];
                 } else {
                     self.handler(self, result, error);

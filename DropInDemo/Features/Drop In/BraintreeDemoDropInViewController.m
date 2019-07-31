@@ -236,11 +236,7 @@
 
 - (void)tappedToShowDropIn {
     BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
-    // To test 3DS
-    if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
-        dropInRequest.amount = @"10.00";
-        dropInRequest.threeDSecureVerification = YES;
-    }
+
     if (self.dropinThemeSwitch.selectedSegmentIndex == 0) {
         [BTUIKAppearance lightTheme];
     } else {
@@ -262,28 +258,29 @@
         dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
     }
 
-    if ([BraintreeDemoSettings threeDSecureRequiredVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy) {
+    if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
         dropInRequest.amount = @"10.00";
         dropInRequest.threeDSecureVerification = YES;
-    } else if ([BraintreeDemoSettings threeDSecureRequiredVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2) {
-        BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
-        threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
-        threeDSecureRequest.versionRequested = BTThreeDSecureVersion2;
+        if ([BraintreeDemoSettings threeDSecureRequiredVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2) {
+            BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
+            threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
+            threeDSecureRequest.versionRequested = BTThreeDSecureVersion2;
 
-        BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
-        billingAddress.givenName = @"Jill";
-        billingAddress.surname = @"Doe";
-        billingAddress.streetAddress = @"555 Smith St.";
-        billingAddress.extendedAddress = @"#5";
-        billingAddress.locality = @"Oakland";
-        billingAddress.region = @"CA";
-        billingAddress.countryCodeAlpha2 = @"US";
-        billingAddress.postalCode = @"12345";
-        billingAddress.phoneNumber = @"8101234567";
-        threeDSecureRequest.billingAddress = billingAddress;
-        threeDSecureRequest.email = @"test@example.com";
-        threeDSecureRequest.shippingMethod = @"01";
-        dropInRequest.threeDSecureRequest = threeDSecureRequest;
+            BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
+            billingAddress.givenName = @"Jill";
+            billingAddress.surname = @"Doe";
+            billingAddress.streetAddress = @"555 Smith St.";
+            billingAddress.extendedAddress = @"#5";
+            billingAddress.locality = @"Oakland";
+            billingAddress.region = @"CA";
+            billingAddress.countryCodeAlpha2 = @"US";
+            billingAddress.postalCode = @"12345";
+            billingAddress.phoneNumber = @"8101234567";
+            threeDSecureRequest.billingAddress = billingAddress;
+            threeDSecureRequest.email = @"test@example.com";
+            threeDSecureRequest.shippingMethod = @"01";
+            dropInRequest.threeDSecureRequest = threeDSecureRequest;
+        }
     }
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
