@@ -121,19 +121,16 @@
             <array>
                 <integer>0</integer>
                 <integer>1</integer>
-                <integer>2</integer>
             </array>
             <key>DefaultValue</key>
             <integer>0</integer>
             <key>Titles</key>
             <array>
-                <string>Off</string>
                 <string>Legacy</string>
                 <string>2.0</string>
             </array>
             <key>ShortTitles</key>
             <array>
-                <string>Off</string>
                 <string>Legacy</string>
                 <string>2.0</string>
             </array>

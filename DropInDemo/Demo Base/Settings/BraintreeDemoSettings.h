@@ -18,9 +18,8 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
 };
 
 typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequestedVersion) {
-    BraintreeDemoTransactionServiceThreeDSecureRequestedVersionOff = 0,
-    BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy = 1,
-    BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2 = 2,
+    BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy = 0,
+    BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2 = 1,
 };
 
 @interface BraintreeDemoSettings : NSObject
