@@ -31,6 +31,7 @@ NSString *BraintreeDemoMerchantAPIEnvironmentDidChangeNotification = @"Braintree
         // Use KVO because we don't want to be notified while the user types each character of a Custom URL
         [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:BraintreeDemoSettingsEnvironmentDefaultsKey options:NSKeyValueObservingOptionNew context:NULL];
         [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey options:NSKeyValueObservingOptionNew context:NULL];
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey options:NSKeyValueObservingOptionNew context:NULL];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupSessionManager:) name:UITextFieldTextDidEndEditingNotification object:nil];
     }
     return self;
@@ -39,6 +40,7 @@ NSString *BraintreeDemoMerchantAPIEnvironmentDidChangeNotification = @"Braintree
 - (void)dealloc {
     [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:BraintreeDemoSettingsEnvironmentDefaultsKey];
     [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:nil];
 }
 

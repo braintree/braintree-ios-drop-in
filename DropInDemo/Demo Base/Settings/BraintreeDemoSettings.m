@@ -3,8 +3,7 @@
 NSString *BraintreeDemoSettingsEnvironmentDefaultsKey = @"BraintreeDemoSettingsEnvironmentDefaultsKey";
 NSString *BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey = @"BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey";
 NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey = @"BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey";
-NSString *BraintreeDemoSettingsThreeDSecureVersionDefaultsKey =
-    @"BraintreeDemoSettingsThreeDSecureVersionDefaultsKey";
+NSString *BraintreeDemoSettingsThreeDSecureVersionDefaultsKey = @"BraintreeDemoSettingsThreeDSecureVersionDefaultsKey";
 
 @implementation BraintreeDemoSettings
 
@@ -51,7 +50,7 @@ NSString *BraintreeDemoSettingsThreeDSecureVersionDefaultsKey =
     return [[NSUserDefaults standardUserDefaults] integerForKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
 }
 
-+ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequiredVersion {
++ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequestedVersion {
     return [[NSUserDefaults standardUserDefaults]
         integerForKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
 }

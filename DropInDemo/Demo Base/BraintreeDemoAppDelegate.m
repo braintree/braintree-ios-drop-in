@@ -11,7 +11,7 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
 - (BOOL)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions {
     [self setupAppearance];
     [self registerDefaultsFromSettings];
-    
+
     BraintreeDemoDemoContainmentViewController *rootViewController = [[BraintreeDemoDemoContainmentViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -38,19 +38,25 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     // Check for testing arguments
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EnvironmentSandbox"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceEnvironmentSandboxBraintreeSampleMerchant forKey:BraintreeDemoSettingsEnvironmentDefaultsKey];
-    }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EnvironmentProduction"]) {
+    } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EnvironmentProduction"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceEnvironmentProductionExecutiveSampleMerchant forKey:BraintreeDemoSettingsEnvironmentDefaultsKey];
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureRequired"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
-    }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureDefault"]) {
+    } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureDefault"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusDefault forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
+    }
+
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureVersion2"]) {
+        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2 forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
+    } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureVersionLegacy"]) {
+        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-TokenizationKey"]) {
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoUseTokenizationKey"];
-    }else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ClientToken"]) {
+    } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ClientToken"]) {
         [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"BraintreeDemoUseTokenizationKey"];
         // Use random users for testing with Client Tokens
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"BraintreeDemoCustomerPresent"];
@@ -81,8 +87,7 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldDisabled forKey:@"BraintreeDemoCardholderNameSetting"];
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-CardholderNameAccepted"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldOptional forKey:@"BraintreeDemoCardholderNameSetting"];
-    }
-    else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-CardholderNameRequired"]) {
+    } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-CardholderNameRequired"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:BTFormFieldRequired forKey:@"BraintreeDemoCardholderNameSetting"];
     }
 

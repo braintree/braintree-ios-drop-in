@@ -188,7 +188,6 @@
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[dropinThemeSwitch]" options:0 metrics:nil views:viewBindings]];
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[dropinThemeSwitch]-|" options:0 metrics:nil views:viewBindings]];
 
-
     self.checkoutConstraints = newConstraints;
     [self.view addConstraints:self.checkoutConstraints];
 }
@@ -261,7 +260,7 @@
     if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
         dropInRequest.amount = @"10.00";
         dropInRequest.threeDSecureVerification = YES;
-        if ([BraintreeDemoSettings threeDSecureRequiredVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2) {
+        if ([BraintreeDemoSettings threeDSecureRequestedVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2) {
             BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
             threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
             threeDSecureRequest.versionRequested = BTThreeDSecureVersion2;

@@ -4,6 +4,7 @@
 extern NSString *BraintreeDemoSettingsEnvironmentDefaultsKey;
 extern NSString *BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey;
 extern NSString *BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey;
+extern NSString *BraintreeDemoSettingsThreeDSecureVersionDefaultsKey;
 
 typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceEnvironment) {
     BraintreeDemoTransactionServiceEnvironmentSandboxBraintreeSampleMerchant = 0,
@@ -30,7 +31,7 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequestedV
 + (NSString *)authorizationOverride;
 + (BOOL)useTokenizationKey;
 + (BraintreeDemoTransactionServiceThreeDSecureRequiredStatus)threeDSecureRequiredStatus;
-+ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequiredVersion;
++ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequestedVersion;
 + (BOOL)useModalPresentation;
 + (BOOL)customerPresent;
 + (NSString *)customerIdentifier;

@@ -679,6 +679,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         app.launchArguments.append("-EnvironmentSandbox")
         app.launchArguments.append("-ClientToken")
         app.launchArguments.append("-ThreeDSecureRequired")
+        app.launchArguments.append("-ThreeDSecureVersionLegacy")
         app.launch()
         sleep(1)
         self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
@@ -799,7 +800,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         app.buttons["Add Card"].forceTapElement()
         
         self.waitForElementToBeHittable(app.alerts.buttons["OK"])
-        XCTAssertTrue(app.alerts.staticTexts["Please review your information and try again."].exists);
+        XCTAssertTrue(app.alerts.staticTexts["Please review your information and try again."].exists)
         app.alerts.buttons["OK"].tap()
         
         // Assert: can edit after dismissing alert
@@ -819,23 +820,10 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
         app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureRequired")
+        app.launchArguments.append("-ThreeDSecureVersion2")
         app.launch()
         sleep(1)
-
-        self.waitForElementToBeHittable(app.buttons["Settings"])
-        app.navigationBars.buttons["Settings"].tap()
-        if (app.switches["Use Tokenization Key"].isSelected) {
-            app.switches["Use Tokenization Key"].tap()
-        }
-
-        app.tables.cells.staticTexts["Required (3DS Transaction Option)"].tap()
-        app.tables.cells.staticTexts["Required"].tap()
-        app.navigationBars.buttons["Settings"].tap()
-
-        app.tables.cells.staticTexts["3DS Requested Version"].tap()
-        app.tables.cells.staticTexts["2.0"].tap()
-        app.navigationBars.buttons["Settings"].tap()
-        app.navigationBars.buttons["Done"].tap()
 
         self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
