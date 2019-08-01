@@ -15,6 +15,11 @@
 #import <BraintreeCard/BraintreeCard.h>
 #import <BraintreeUnionPay/BraintreeUnionPay.h>
 #endif
+#if __has_include("BraintreePaymentFlow.h")
+#import "BraintreePaymentFlow.h"
+#else
+#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
+#endif
 
 #define BT_ANIMATION_SLIDE_SPEED 0.35
 #define BT_ANIMATION_TRANSITION_SPEED 0.1
@@ -27,7 +32,7 @@
 @interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -74,6 +79,13 @@
         }
         self.handler = handler;
         self.displayCardTypes = @[];
+
+        // For backwards compatibility, create a BTThreeDSecureRequest if threeDSecureVerification is enabled and an amount is present
+        if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount && !self.dropInRequest.threeDSecureRequest) {
+            BTThreeDSecureRequest *threeDSecureRequest = [[BTThreeDSecureRequest alloc] init];
+            threeDSecureRequest.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
+            self.dropInRequest.threeDSecureRequest = threeDSecureRequest;
+        }
     }
     return self;
 }
@@ -87,7 +99,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     if (self.isBeingPresented) {
         [self.paymentSelectionViewController loadConfiguration];
         [self resetDropInState];
@@ -269,10 +281,54 @@
                 result.cancelled = YES;
             }
             [sender dismissViewControllerAnimated:YES completion:^{
-                self.handler(self, result, error);
+                if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureVerification) {
+                    [self threeDSecureVerification:tokenizedCard];
+                } else {
+                    self.handler(self, result, error);
+                }
             }];
         }
     });
+}
+
+- (void)threeDSecureVerification:(BTPaymentMethodNonce *)tokenizedCard {
+    BTPaymentFlowDriver *paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:self.apiClient];
+    paymentFlowDriver.viewControllerPresentingDelegate = self;
+
+    BTThreeDSecureRequest *request = self.dropInRequest.threeDSecureRequest;
+    if (!request) {
+        request = [[BTThreeDSecureRequest alloc] init];
+    }
+    request.nonce = tokenizedCard.nonce;
+
+    if (!request.amount && self.dropInRequest.amount) {
+        request.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
+    }
+
+    if (request.versionRequested == BTThreeDSecureVersion2) {
+        request.threeDSecureRequestDelegate = self;
+    }
+
+    [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
+        BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
+
+        if (self.handler) {
+            BTDropInResult *dropInResult = [[BTDropInResult alloc] init];
+            if (threeDSecureResult.tokenizedCard != nil) {
+                dropInResult.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
+                dropInResult.paymentMethod = threeDSecureResult.tokenizedCard;
+            } else if (error != nil && error.code == BTPaymentFlowDriverErrorTypeCanceled) {
+                // Show the updated payment selection screen if the user canceled out of the 3DS challenge
+                [self reloadDropInData];
+                return;
+            }
+            self.handler(self, dropInResult, error);
+        }
+    }];
+}
+
+- (void)onLookupComplete:(__unused BTThreeDSecureRequest *)request result:(__unused BTThreeDSecureLookup *)result next:(void (^)(void))next {
+    next();
 }
 
 - (void)updateToolbarForViewController:(UIViewController*)viewController {
@@ -442,7 +498,11 @@
             BTDropInResult *result = [BTDropInResult new];
             result.paymentOptionType = type;
             result.paymentMethod = nonce;
-            self.handler(self, result, error);
+            if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:result.paymentOptionType] && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
+                [self threeDSecureVerification:nonce];
+            } else {
+                self.handler(self, result, error);
+            }
         }
     } else {
         if (self.handler != nil) {

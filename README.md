@@ -31,11 +31,10 @@ pod 'BraintreeDropIn'
 ```
 Then run `pod install`.
 
-Customize your integration by specifying additional components. For example, add Apple Pay and PayPal support:
+Customize your integration by specifying additional components. For example, to add Apple Pay support:
 ```
 pod 'BraintreeDropIn'
 pod 'Braintree/Apple-Pay'
-pod 'Braintree/PayPal'
 ```
 
 See our [`Podspec`](BraintreeDropIn.podspec) for more information.
@@ -51,11 +50,7 @@ BraintreeDropIn.framework
 BraintreeUIKit.framework
 BraintreeCard.framework
 BraintreeCore.framework
-```
-
-For PayPal, you must add the following frameworks:
-
-```
+BraintreePaymentFlow.framework
 BraintreePayPal.framework
 PayPalDataCollector.framework
 PayPalOneTouch.framework
@@ -66,6 +61,12 @@ For Apple Pay, you must add the following framework in addition to PassKit:
 
 ```
 BraintreeApplePay.framework
+```
+
+For 3DS 2.0, you must add the following framework:
+
+```
+CardinalMobile.framework
 ```
 
 ## Documentation
@@ -123,10 +124,6 @@ request.applePayDisabled = !canMakePayments
 
 ### 3D-Secure + Drop-In
 
-Make sure the following is included in your Podfile:
-```
-pod 'Braintree/3D-Secure'
-```
 The new Drop-In supports 3D-Secure verification. If you have enabled 3D-Secure in the control panel, then just enable it in the BTDropInRequest and set an amount.
 
 ```swift
