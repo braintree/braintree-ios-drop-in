@@ -32,7 +32,7 @@
 @interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate>
+@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -147,6 +147,9 @@
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].overlayColor;
     self.view.userInteractionEnabled = YES;
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeDropIn)];
+    tapRecognizer.delegate = self;
+    [self.view addGestureRecognizer:tapRecognizer];
     
     self.contentView = [[UIView alloc] init];
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -438,6 +441,12 @@
 
 - (BOOL)isFormSheet {
     return self.modalPresentationStyle == UIModalPresentationFormSheet;
+}
+
+- (void)closeDropIn {
+    if (self.paymentSelectionViewController != NULL) {
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
 }
 
 #pragma mark - UI Preferences
