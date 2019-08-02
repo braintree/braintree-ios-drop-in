@@ -28,7 +28,10 @@
         self.textField.placeholder = BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
         self.formLabel.text = @"";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
-        
+
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
+
         self.hint = [BTUIKPaymentOptionCardView new];
         self.hint.paymentOptionType = BTUIKPaymentOptionTypeUnknown;
         self.hint.translatesAutoresizingMaskIntoConstraints = NO;

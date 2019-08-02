@@ -1,3 +1,4 @@
+#import "BTUIKAppearance.h"
 #import "BTUIKMobileNumberFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
@@ -12,6 +13,9 @@
         self.formLabel.text = BTUIKLocalizedString(MOBILE_NUMBER_LABEL);
         self.textField.placeholder = @"00 0000 0000";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
     }
     return self;
 }

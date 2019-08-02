@@ -1,3 +1,4 @@
+#import "BTUIKAppearance.h"
 #import "BTUIKMobileCountryCodeFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
@@ -12,6 +13,9 @@
         self.formLabel.text = BTUIKLocalizedString(MOBILE_COUNTRY_CODE_LABEL);
         self.textField.placeholder = @"+65";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
     }
     return self;
 }

@@ -1,3 +1,4 @@
+#import "BTUIKAppearance.h"
 #import "BTUIKPostalCodeFormField.h"
 #import "BTUIKUtil.h"
 #import "BTUIKTextField.h"
@@ -18,6 +19,9 @@
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.textField.returnKeyType = UIReturnKeyDone;
+        
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
     }
     return self;
 }

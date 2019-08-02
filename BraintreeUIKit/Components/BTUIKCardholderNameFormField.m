@@ -1,3 +1,4 @@
+#import "BTUIKAppearance.h"
 #import "BTUIKCardholderNameFormField.h"
 #import "BTUIKLocalizedString.h"
 
@@ -12,6 +13,9 @@
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
         self.textField.returnKeyType = UIReturnKeyNext;
+        
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
     }
 
     return self;

@@ -1,3 +1,4 @@
+#import "BTUIKAppearance.h"
 #import "BTUIKCardExpiryFormat.h"
 #import "BTUIKCardExpirationValidator.h"
 #import "BTUIKExpiryFormField.h"
@@ -29,6 +30,9 @@
         // Use custom date picker, but fall back to number pad keyboard if inputView is set to nil
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
         self.textField.inputView = self.expiryInputView;
+        
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
     }
     return self;
 }

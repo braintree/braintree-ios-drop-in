@@ -204,7 +204,8 @@
     cardNumberHeaderLabel.numberOfLines = 0;
     cardNumberHeaderLabel.textAlignment = NSTextAlignmentCenter;
     cardNumberHeaderLabel.text = BTUIKLocalizedString(ENTER_CARD_DETAILS_HELP_LABEL);
-    [BTUIKAppearance styleLargeLabelSecondary:cardNumberHeaderLabel];
+    [BTUIKAppearance styleAdjustsToSystemFontSize:cardNumberHeaderLabel];
+    cardNumberHeaderLabel.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
     [self.cardNumberHeader addArrangedSubview:cardNumberHeaderLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.cardNumberHeader beforeView:cardNumberHeaderLabel size: [BTUIKAppearance verticalFormSpace]];
     [self.stackView addArrangedSubview:self.cardNumberHeader];

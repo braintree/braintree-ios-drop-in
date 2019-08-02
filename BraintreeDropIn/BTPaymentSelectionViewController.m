@@ -451,7 +451,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     cell.iconView.paymentOptionType = option;
     cell.type = option;
 
-    cell.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    [BTUIKAppearance styleAdjustsToSystemFontSize:cell.label];
     cell.label.numberOfLines = 0;
 
     return cell;

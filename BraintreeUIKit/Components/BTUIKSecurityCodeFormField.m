@@ -1,3 +1,4 @@
+#import "BTUIKAppearance.h"
 #import "BTUIKSecurityCodeFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
@@ -16,6 +17,9 @@
         self.formLabel.text = BTUIKLocalizedString(SECURITY_CODE_LABEL);
         self.textField.placeholder = BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER);
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.textField];
+        [BTUIKAppearance styleAdjustsToSystemFontSize:self.formLabel];
     }
     return self;
 }
