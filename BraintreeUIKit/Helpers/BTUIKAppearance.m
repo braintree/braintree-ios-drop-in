@@ -123,6 +123,11 @@ static BTUIKAppearance *sharedTheme;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
++ (void)styleAdjustsToSystemFontSize:(UILabel *)label {
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    label.adjustsFontForContentSizeCategory = YES;
+}
+
 + (UILabel *)styledNavigationTitleLabel {
     UILabel *tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
     tlabel.textAlignment = NSTextAlignmentCenter;
