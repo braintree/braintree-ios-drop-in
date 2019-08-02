@@ -1176,3 +1176,31 @@ class BraintreeDropIn_SaveCardToggleHiddenForTokenizationKey_UITests: XCTestCase
         XCTAssertFalse(saveCardSwitch.exists)
     }
 }
+
+class BraintreeDropIn_DropInClosesOnTouchOutside_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launch()
+        sleep(1)
+    }
+
+    func testDropIn_dropInCloses_onTouchOutside() {
+        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+
+        let paymentMethodLabel = app.staticTexts["Select Payment Method"]
+        let tapCoordinate = paymentMethodLabel.coordinate(withNormalizedOffset: CGVector(dx: 0.0, dy: 50.0))
+        tapCoordinate.tap()
+
+        let closedLabel = app.staticTexts["Select Payment Method"]
+        XCTAssertFalse(closedLabel.exists)
+    }
+
+}
