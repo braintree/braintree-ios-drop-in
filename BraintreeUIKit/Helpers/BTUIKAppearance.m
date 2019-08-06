@@ -125,7 +125,9 @@ static BTUIKAppearance *sharedTheme;
 
 + (void)styleAdjustsToSystemFontSize:(UILabel *)label {
     label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    label.adjustsFontForContentSizeCategory = YES;
+    if (@available(iOS 10.0, *)) {
+        label.adjustsFontForContentSizeCategory = YES;
+    }
 }
 
 + (UILabel *)styledNavigationTitleLabel {
