@@ -4,6 +4,7 @@
 * UI changes to support iOS 13
 * Demo app maintenance
 * Remove unneeded pre-processor directives
+* Support for 3DS 2 verification
 
 ## 7.2.0 (2019-06-17)
 
