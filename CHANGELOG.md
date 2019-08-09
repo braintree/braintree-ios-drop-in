@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 7.3.0 (2019-08-09)
 * UI changes to support iOS 13
 * Demo app maintenance
 * Remove unneeded pre-processor directives
