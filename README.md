@@ -154,7 +154,7 @@ request.billingAddress = address
 // For best results, provide as many of these elements as possible.
 let additionalInformation = BTThreeDSecureAdditionalInformation()
 additionalInformation.shippingAddress = address
-request.additionalInformation = additionalInformation
+threeDSecureRequest.additionalInformation = additionalInformation
 
 request.threeDSecureRequest = threeDSecureRequest
 ```
