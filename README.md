@@ -134,7 +134,7 @@ request.amount = "1.00"
 let threeDSecureRequest = BTThreeDSecureRequest()
 threeDSecureRequest.threeDSecureRequestDelegate = self
 
-threeDSecureRequest.amount = 1.0
+threeDSecureRequest.amount = 1.00
 threeDSecureRequest.email = "test@example.com"
 threeDSecureRequest.requested = .version2
 
