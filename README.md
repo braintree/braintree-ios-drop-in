@@ -129,7 +129,6 @@ The new Drop-In supports 3D-Secure verification. If you have enabled 3D-Secure i
 ```swift
 let request = BTDropInRequest()
 request.threeDSecureVerification = true
-request.amount = "1.00"
 
 let threeDSecureRequest = BTThreeDSecureRequest()
 threeDSecureRequest.threeDSecureRequestDelegate = self
