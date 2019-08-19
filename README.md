@@ -148,7 +148,7 @@ address.locality = "Chicago"
 address.region = "IL"
 address.postalCode = "12345"
 address.countryCodeAlpha2 = "US"
-request.billingAddress = address
+threeDSecureRequest.billingAddress = address
 
 // Optional additional information.
 // For best results, provide as many of these elements as possible.
