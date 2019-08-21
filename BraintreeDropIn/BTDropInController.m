@@ -108,17 +108,12 @@
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.disappear"];
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     // before rotating
     [coordinator animateAlongsideTransition:^(__unused id<UIViewControllerTransitionCoordinatorContext> context) {
@@ -311,7 +306,7 @@
 
     [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
         BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
-
+        [self.paymentSelectionViewController showLoadingScreen:NO];
         if (self.handler) {
             BTDropInResult *dropInResult = [[BTDropInResult alloc] init];
             if (threeDSecureResult.tokenizedCard != nil) {
@@ -328,6 +323,7 @@
 }
 
 - (void)onLookupComplete:(__unused BTThreeDSecureRequest *)request result:(__unused BTThreeDSecureLookup *)result next:(void (^)(void))next {
+    [self.paymentSelectionViewController showLoadingScreen:NO];
     next();
 }
 
@@ -499,6 +495,7 @@
             result.paymentOptionType = type;
             result.paymentMethod = nonce;
             if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:result.paymentOptionType] && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
+                [self.paymentSelectionViewController showLoadingScreen:YES];
                 [self threeDSecureVerification:nonce];
             } else {
                 self.handler(self, result, error);

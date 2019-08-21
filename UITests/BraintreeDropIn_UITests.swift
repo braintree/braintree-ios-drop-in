@@ -839,17 +839,17 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         self.waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4000000000001000")
 
-        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+        waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
         app.staticTexts["01"].forceTapElement()
         app.staticTexts[Date.getThreeYearsFromNow()].forceTapElement()
 
         let securityCodeField = elementsQuery.textFields["CVV"]
-        self.waitForElementToBeHittable(securityCodeField)
+        waitForElementToBeHittable(securityCodeField)
         securityCodeField.forceTapElement()
         securityCodeField.typeText("123")
 
         let postalCodeField = elementsQuery.textFields["12345"]
-        self.waitForElementToBeHittable(postalCodeField)
+        waitForElementToBeHittable(postalCodeField)
         postalCodeField.forceTapElement()
         postalCodeField.typeText("12345")
 
@@ -903,11 +903,11 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         app.buttons["SUBMIT"].forceTapElement()
 
-        self.waitForElementToAppear(app.staticTexts["ending in 91"])
+        waitForElementToAppear(app.staticTexts["ending in 91"])
 
-        XCTAssertTrue(app.staticTexts["ending in 91"].exists);
+        XCTAssertTrue(app.staticTexts["ending in 91"].exists)
 
-        self.waitForElementToBeHittable(app.buttons["Complete Purchase"])
+        waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
 
         let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
@@ -952,6 +952,49 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         self.waitForElementToAppear(app.buttons["Cancelled🎲"])
         XCTAssertTrue(app.buttons["Cancelled🎲"].exists);
+    }
+}
+
+class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-ClientToken")
+        app.launchArguments.append("-ThreeDSecureRequired")
+        app.launchArguments.append("-ThreeDSecureVersion2")
+        app.launchArguments.append("-EditModeCustomer")
+        app.launch()
+        sleep(1)
+        
+        waitForElementToBeHittable(app.buttons["Change Payment Method"])
+        app.buttons["Change Payment Method"].tap()
+    }
+    
+    func testDropIn_threeDSecure_2_challengeFlow_withVaultedPaymentMethod() {
+        waitForElementToBeHittable(app.collectionViews.cells.firstMatch)
+        app.collectionViews.cells.firstMatch.tap()
+        
+        XCTAssertTrue(app.activityIndicators.firstMatch.exists)
+        XCTAssertEqual(0, app.cells.count)
+        
+        waitForElementToAppear(app.staticTexts["Purchase Authentication"], timeout: 20)
+        
+        let textField = app.textFields.element(boundBy: 0)
+        waitForElementToBeHittable(textField)
+        textField.forceTapElement()
+        sleep(2)
+        textField.typeText("1234")
+        
+        app.buttons["SUBMIT"].forceTapElement()
+        
+        waitForElementToAppear(app.staticTexts["ending in 91"])
+        
+        XCTAssertTrue(app.staticTexts["ending in 91"].exists)
     }
 }
 
@@ -1026,7 +1069,7 @@ class BraintreeDropIn_Error_UITests: XCTestCase {
         
         let existsPredicate = NSPredicate(format: "label LIKE '*Application does not support One Touch callback*'")
         
-        self.waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+        waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
 }
 
@@ -1045,10 +1088,10 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
         app.launch()
         sleep(1)
 
-        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
 
-        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
     }
 
@@ -1056,11 +1099,11 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
         let elementsQuery = app.scrollViews.otherElements
 
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
-        self.waitForElementToBeHittable(cardNumberTextField)
+        waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
-        self.waitForElementToBeHittable(saveCardSwitch)
+        waitForElementToBeHittable(saveCardSwitch)
 
         XCTAssertTrue(saveCardSwitch.exists)
 
@@ -1085,10 +1128,10 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         app.launch()
         sleep(1)
 
-        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
 
-        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
     }
 
@@ -1096,11 +1139,11 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         let elementsQuery = app.scrollViews.otherElements
 
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
-        self.waitForElementToBeHittable(cardNumberTextField)
+        waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
-        self.waitForElementToBeHittable(saveCardSwitch)
+        waitForElementToBeHittable(saveCardSwitch)
 
         XCTAssertEqual("0", saveCardSwitch.value as? String)
     }
@@ -1120,10 +1163,10 @@ class BraintreeDropIn_SaveCardToggleHidden_UITests: XCTestCase {
         app.launch()
         sleep(1)
 
-        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
 
-        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
     }
 
@@ -1131,10 +1174,10 @@ class BraintreeDropIn_SaveCardToggleHidden_UITests: XCTestCase {
         let elementsQuery = app.scrollViews.otherElements
 
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
-        self.waitForElementToBeHittable(cardNumberTextField)
+        waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
 
-        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+        waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
         XCTAssertFalse(saveCardSwitch.exists)
@@ -1156,10 +1199,10 @@ class BraintreeDropIn_SaveCardToggleHiddenForTokenizationKey_UITests: XCTestCase
         app.launch()
         sleep(1)
 
-        self.waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
 
-        self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
     }
 
@@ -1167,10 +1210,10 @@ class BraintreeDropIn_SaveCardToggleHiddenForTokenizationKey_UITests: XCTestCase
         let elementsQuery = app.scrollViews.otherElements
 
         let cardNumberTextField = elementsQuery.textFields["Card Number"]
-        self.waitForElementToBeHittable(cardNumberTextField)
+        waitForElementToBeHittable(cardNumberTextField)
         cardNumberTextField.typeText("4111111111111111")
 
-        self.waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
+        waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
         XCTAssertFalse(saveCardSwitch.exists)
