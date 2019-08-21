@@ -424,7 +424,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     BTUIPaymentMethodCollectionViewCell *cell = (BTUIPaymentMethodCollectionViewCell*)[savedPaymentMethodsCollectionView cellForItemAtIndexPath:indexPath];
     if (self.delegate) {
         [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type]
-                                                         nonce:cell.paymentMethodNonce error:nil];
+                                                         nonce:cell.paymentMethodNonce
+                                                         error:nil];
 
         if ([cell.paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
             [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
