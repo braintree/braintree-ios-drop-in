@@ -198,8 +198,12 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)loadConfiguration {
     [self showLoadingScreen:YES];
-    self.stackView.hidden = YES;
     [super loadConfiguration];
+}
+
+- (void)showLoadingScreen:(BOOL)show {
+    [super showLoadingScreen:show];
+    self.stackView.hidden = show;
 }
 
 - (void)dealloc {
@@ -271,7 +275,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [self sendVaultedCardAppearAnalytic];
             }
             [self showLoadingScreen:NO];
-            self.stackView.hidden = NO;
             [self.view layoutIfNeeded];
             if (self.delegate) {
                 [self.delegate sheetHeightDidChange:self];
@@ -420,9 +423,11 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 - (void)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView didSelectItemAtIndexPath:(__unused NSIndexPath *)indexPath {
     BTUIPaymentMethodCollectionViewCell *cell = (BTUIPaymentMethodCollectionViewCell*)[savedPaymentMethodsCollectionView cellForItemAtIndexPath:indexPath];
     if (self.delegate) {
-        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type] nonce:cell.paymentMethodNonce error:nil];
+        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type]
+                                                         nonce:cell.paymentMethodNonce
+                                                         error:nil];
 
-        if ([cell.paymentMethodNonce isKindOfClass: [BTCardNonce class]]){
+        if ([cell.paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
             [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
         }
     }
