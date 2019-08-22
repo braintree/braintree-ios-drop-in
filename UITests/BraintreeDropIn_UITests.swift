@@ -967,7 +967,7 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
         app.launchArguments.append("-ClientToken")
         app.launchArguments.append("-ThreeDSecureRequired")
         app.launchArguments.append("-ThreeDSecureVersion2")
-        app.launchArguments.append("-EditModeCustomer")
+        app.launchArguments.append("-CustomerIDWithVaultedPaymentMethods")
         app.launch()
         sleep(1)
         
