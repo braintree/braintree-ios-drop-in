@@ -323,7 +323,6 @@
 }
 
 - (void)onLookupComplete:(__unused BTThreeDSecureRequest *)request result:(__unused BTThreeDSecureLookup *)result next:(void (^)(void))next {
-    [self.paymentSelectionViewController showLoadingScreen:NO];
     next();
 }
 
