@@ -258,7 +258,6 @@
     }
 
     if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
-        dropInRequest.amount = @"10.00";
         dropInRequest.threeDSecureVerification = YES;
         if ([BraintreeDemoSettings threeDSecureRequestedVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2) {
             BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
@@ -279,6 +278,11 @@
             threeDSecureRequest.email = @"test@example.com";
             threeDSecureRequest.shippingMethod = @"01";
             dropInRequest.threeDSecureRequest = threeDSecureRequest;
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            dropInRequest.amount = @"10.00";
+#pragma clang diagnostic pop
         }
     }
 
