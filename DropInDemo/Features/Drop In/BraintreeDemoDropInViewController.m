@@ -226,8 +226,7 @@
     } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired
                && [self nonceRequiresThreeDSecureVerification:self.selectedNonce]) {
         [self performThreeDSecureVerification];
-    }
-    else {
+    } else {
         self.completionBlock(self.selectedNonce);
         self.transactionBlock();
     }
@@ -279,25 +278,29 @@
         dropInRequest.threeDSecureRequest = threeDSecureRequest;
     }
 
-    BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
-        if (error) {
-            self.progressBlock([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
-            NSLog(@"Error: %@", error);
-        } else if (result.isCancelled) {
-            self.progressBlock(@"Cancelled🎲");
-        } else {
-            if (result.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
-                self.progressBlock(@"Ready for checkout...");
-                [self setupApplePay];
-            } else {
-                self.useApplePay = NO;
-                self.selectedNonce = result.paymentMethod;
-                self.progressBlock(@"Ready for checkout...");
-                [self updatePaymentMethod:self.selectedNonce];
-            }
-        }
-        [dropInController dismissViewControllerAnimated:YES completion:nil];
-    }];
+    BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString
+                                                                           request:dropInRequest
+                                                                           handler:^(BTDropInController * _Nonnull dropInController,
+                                                                                     BTDropInResult * _Nullable result,
+                                                                                     NSError * _Nullable error) {
+                                                                               
+                                                                               if (error) {
+                                                                                   self.progressBlock([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
+                                                                                   NSLog(@"Error: %@", error);
+                                                                               } else if (result.isCancelled) {
+                                                                                   self.progressBlock(@"Cancelled🎲");
+                                                                               } else if (result.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
+                                                                                   self.progressBlock(@"Ready for checkout...");
+                                                                                   [self setupApplePay];
+                                                                               } else {
+                                                                                   self.useApplePay = NO;
+                                                                                   self.selectedNonce = result.paymentMethod;
+                                                                                   self.progressBlock(@"Ready for checkout...");
+                                                                                   [self updatePaymentMethod:self.selectedNonce];
+                                                                               }
+                                                                               NSLog(@"%@", dropInController);
+                                                                               [dropInController dismissViewControllerAnimated:YES completion:nil];
+                                                                           }];
 
     [self presentViewController:dropIn animated:YES completion:nil];
 }

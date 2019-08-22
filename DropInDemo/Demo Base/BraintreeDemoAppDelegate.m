@@ -64,9 +64,8 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"BraintreeDemoCustomerIdentifier"];
     }
 
-    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EditModeCustomer"]) {
-        // Customer "123-edit-test" has vaulted payment methods
-        // If customer "123-edit-test" doesn't
+    if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-CustomerIDWithVaultedPaymentMethods"]) {
+        // Customer ID "123-edit-test" has vaulted payment methods
         [[NSUserDefaults standardUserDefaults] setObject:@"123-edit-test" forKey:@"BraintreeDemoCustomerIdentifier"];
     }
 
