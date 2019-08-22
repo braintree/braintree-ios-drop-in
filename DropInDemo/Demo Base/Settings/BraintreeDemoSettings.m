@@ -50,7 +50,7 @@ NSString *BraintreeDemoSettingsThreeDSecureVersionDefaultsKey = @"BraintreeDemoS
     return [[NSUserDefaults standardUserDefaults] integerForKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
 }
 
-+ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequestedVersion {
++ (BTThreeDSecureVersion)threeDSecureRequestedVersion {
     return [[NSUserDefaults standardUserDefaults]
         integerForKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
 }

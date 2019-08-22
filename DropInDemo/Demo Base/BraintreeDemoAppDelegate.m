@@ -3,6 +3,7 @@
 #import "BraintreeDemoDemoContainmentViewController.h"
 #import "BraintreeCore.h"
 #import "BTDropInOverrides.h"
+#import "BraintreePaymentFlow.h"
 
 NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.DropInDemo.payments";
 
@@ -49,9 +50,9 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureVersion2"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2 forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:BTThreeDSecureVersion2 forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
     } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureVersionLegacy"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:BTThreeDSecureVersion1 forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-TokenizationKey"]) {
