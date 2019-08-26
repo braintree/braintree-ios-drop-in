@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <BraintreeDropIn/BTDropInRequest.h>
-#import <BraintreePaymentFlow.h>
+#import <Braintree/BraintreePaymentFlow.h>
 
 extern NSString *BraintreeDemoSettingsEnvironmentDefaultsKey;
 extern NSString *BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey;
