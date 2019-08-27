@@ -14,42 +14,42 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - Braintree/Apple-Pay (4.26.3):
+  - Braintree/Apple-Pay (4.27.0):
     - Braintree/Core
-  - Braintree/Card (4.26.3):
+  - Braintree/Card (4.27.0):
     - Braintree/Core
-  - Braintree/Core (4.26.3)
-  - Braintree/PaymentFlow (4.26.3):
+  - Braintree/Core (4.27.0)
+  - Braintree/PaymentFlow (4.27.0):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.26.3):
+  - Braintree/PayPal (4.27.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.26.3):
+  - Braintree/PayPalDataCollector (4.27.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.26.3):
+  - Braintree/PayPalOneTouch (4.27.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.26.3)
-  - Braintree/UnionPay (4.26.3):
+  - Braintree/PayPalUtils (4.27.0)
+  - Braintree/UnionPay (4.27.0):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.26.3):
+  - Braintree/Venmo (4.27.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - BraintreeDropIn (7.2.0):
-    - BraintreeDropIn/DropIn (= 7.2.0)
-  - BraintreeDropIn/DropIn (7.2.0):
-    - Braintree/Card (~> 4.26.1)
-    - Braintree/Core (~> 4.26.1)
-    - Braintree/PaymentFlow (~> 4.26.1)
-    - Braintree/PayPal (~> 4.26.1)
-    - Braintree/UnionPay (~> 4.26.1)
+  - BraintreeDropIn (7.3.0):
+    - BraintreeDropIn/DropIn (= 7.3.0)
+  - BraintreeDropIn/DropIn (7.3.0):
+    - Braintree/Card (>= 4.26.1)
+    - Braintree/Core (>= 4.26.1)
+    - Braintree/PaymentFlow (>= 4.26.1)
+    - Braintree/PayPal (>= 4.26.1)
+    - Braintree/UnionPay (>= 4.26.1)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (7.2.0)
+  - BraintreeDropIn/UIKit (7.3.0)
   - CardIO (5.4.1)
   - Expecta (1.0.6)
   - InAppSettingsKit (2.12)
@@ -103,8 +103,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Braintree: b90c685c851aea899eeae22f8cf708e906c384ff
-  BraintreeDropIn: 6e192775856433c0acaeba84e3bf19c6924f2e15
+  Braintree: 981b1e669af6862e1d5b2dbb5c4a6d8d33a11907
+  BraintreeDropIn: c80b9e6d51b44df1da281bca1323fd5eb03b6e38
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
