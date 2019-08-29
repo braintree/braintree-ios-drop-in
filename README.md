@@ -124,12 +124,38 @@ request.applePayDisabled = !canMakePayments
 
 ### 3D-Secure + Drop-In
 
-The new Drop-In supports 3D-Secure verification. If you have enabled 3D-Secure in the control panel, then just enable it in the BTDropInRequest and set an amount.
+The new Drop-In supports 3D-Secure verification. If you have enabled 3D-Secure in the control panel, enable it in the `BTDropInRequest` and set an amount. Then, create a `BTThreeDSecureRequest` object, setting as many fields on it as possible; the more fields that are set, the less likely it is that a user will be be presented with a challenge. Make sure to attach this object to the `BTDropInRequest` before use.
 
 ```swift
-let request =  BTDropInRequest()
+let request = BTDropInRequest()
 request.threeDSecureVerification = true
-request.amount = "1.00"
+
+let threeDSecureRequest = BTThreeDSecureRequest()
+threeDSecureRequest.threeDSecureRequestDelegate = self
+
+threeDSecureRequest.amount = 1.00
+threeDSecureRequest.email = "test@example.com"
+threeDSecureRequest.requested = .version2
+
+let address = BTThreeDSecurePostalAddress()
+address.givenName = "Jill"
+address.surname = "Doe"
+address.phoneNumber = "5551234567"
+address.streetAddress = "555 Smith St"
+address.extendedAddress = "#2"
+address.locality = "Chicago"
+address.region = "IL"
+address.postalCode = "12345"
+address.countryCodeAlpha2 = "US"
+threeDSecureRequest.billingAddress = address
+
+// Optional additional information.
+// For best results, provide as many of these elements as possible.
+let additionalInformation = BTThreeDSecureAdditionalInformation()
+additionalInformation.shippingAddress = address
+threeDSecureRequest.additionalInformation = additionalInformation
+
+request.threeDSecureRequest = threeDSecureRequest
 ```
 
 ### Managing payment methods

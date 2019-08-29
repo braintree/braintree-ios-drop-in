@@ -37,7 +37,12 @@
     threeDSecureRequest.additionalInformation = info;
 
     BTDropInRequest *originalRequest = [BTDropInRequest new];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     originalRequest.amount = @"10.02";
+#pragma clang diagnostic pop
+    
     originalRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"10.01"];
     originalRequest.applePayDisabled = YES;
     originalRequest.paypalDisabled = YES;
@@ -53,7 +58,11 @@
 
     BTDropInRequest *copiedRequest = [originalRequest copy];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     XCTAssertEqual(originalRequest.amount, copiedRequest.amount);
+#pragma clang diagnostic pop
+    
     XCTAssertEqual(originalRequest.payPalRequest, copiedRequest.payPalRequest);
     XCTAssertEqual(originalRequest.applePayDisabled, copiedRequest.applePayDisabled);
     XCTAssertEqual(originalRequest.paypalDisabled, copiedRequest.paypalDisabled);

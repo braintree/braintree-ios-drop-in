@@ -2,6 +2,7 @@
 
 ## unreleased
 
+* Deprecate `amount` property on `BTDropInRequest`
 * Show activity indicator when 3D Secure flow is triggered for a vaulted payment method
 
 ## 7.3.0 (2019-08-09)

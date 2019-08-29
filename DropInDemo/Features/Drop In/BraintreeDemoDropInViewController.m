@@ -256,29 +256,26 @@
         dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
     }
 
-    if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
-        dropInRequest.amount = @"10.00";
+    if (BraintreeDemoSettings.threeDSecureRequiredStatus == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
         dropInRequest.threeDSecureVerification = YES;
-        if ([BraintreeDemoSettings threeDSecureRequestedVersion] == BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2) {
-            BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
-            threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
-            threeDSecureRequest.versionRequested = BTThreeDSecureVersion2;
-
-            BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
-            billingAddress.givenName = @"Jill";
-            billingAddress.surname = @"Doe";
-            billingAddress.streetAddress = @"555 Smith St.";
-            billingAddress.extendedAddress = @"#5";
-            billingAddress.locality = @"Oakland";
-            billingAddress.region = @"CA";
-            billingAddress.countryCodeAlpha2 = @"US";
-            billingAddress.postalCode = @"12345";
-            billingAddress.phoneNumber = @"8101234567";
-            threeDSecureRequest.billingAddress = billingAddress;
-            threeDSecureRequest.email = @"test@example.com";
-            threeDSecureRequest.shippingMethod = @"01";
-            dropInRequest.threeDSecureRequest = threeDSecureRequest;
-        }
+        BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
+        threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
+        threeDSecureRequest.versionRequested = BraintreeDemoSettings.threeDSecureRequestedVersion;
+        
+        BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
+        billingAddress.givenName = @"Jill";
+        billingAddress.surname = @"Doe";
+        billingAddress.streetAddress = @"555 Smith St.";
+        billingAddress.extendedAddress = @"#5";
+        billingAddress.locality = @"Oakland";
+        billingAddress.region = @"CA";
+        billingAddress.countryCodeAlpha2 = @"US";
+        billingAddress.postalCode = @"12345";
+        billingAddress.phoneNumber = @"8101234567";
+        threeDSecureRequest.billingAddress = billingAddress;
+        threeDSecureRequest.email = @"test@example.com";
+        threeDSecureRequest.shippingMethod = @"01";
+        dropInRequest.threeDSecureRequest = threeDSecureRequest;
     }
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <BraintreeDropIn/BTDropInRequest.h>
+#import <Braintree/BraintreePaymentFlow.h>
 
 extern NSString *BraintreeDemoSettingsEnvironmentDefaultsKey;
 extern NSString *BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey;
@@ -18,11 +19,6 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequiredSt
     BraintreeDemoTransactionServiceThreeDSecureRequiredStatusNotRequired = 2,
 };
 
-typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequestedVersion) {
-    BraintreeDemoTransactionServiceThreeDSecureRequestedVersionLegacy = 0,
-    BraintreeDemoTransactionServiceThreeDSecureRequestedVersion2 = 1,
-};
-
 @interface BraintreeDemoSettings : NSObject
 
 + (BraintreeDemoTransactionServiceEnvironment)currentEnvironment;
@@ -31,7 +27,7 @@ typedef NS_ENUM(NSInteger, BraintreeDemoTransactionServiceThreeDSecureRequestedV
 + (NSString *)authorizationOverride;
 + (BOOL)useTokenizationKey;
 + (BraintreeDemoTransactionServiceThreeDSecureRequiredStatus)threeDSecureRequiredStatus;
-+ (BraintreeDemoTransactionServiceThreeDSecureRequestedVersion)threeDSecureRequestedVersion;
++ (BTThreeDSecureVersion)threeDSecureRequestedVersion;
 + (BOOL)useModalPresentation;
 + (BOOL)customerPresent;
 + (NSString *)customerIdentifier;
