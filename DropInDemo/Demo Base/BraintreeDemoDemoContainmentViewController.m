@@ -5,7 +5,7 @@
 #import <PureLayout/PureLayout.h>
 #import "BraintreeCore.h"
 
-#import "BraintreeDemoMerchantAPI.h"
+#import "DropInDemo-Swift.h"
 #import "BraintreeDemoIntegrationViewController.h"
 #import "BraintreeDemoSettings.h"
 #import "BraintreeDemoDropInViewController.h"
@@ -76,30 +76,23 @@
         NSString *nonce = self.latestTokenizedPayment.nonce;
         [self updateStatus:@"Creating Transaction…"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        if ([self.latestTokenizedPayment.type isEqualToString:@"UnionPay"]){
-            [[BraintreeDemoMerchantAPI sharedService] makeTransactionWithPaymentMethodNonce:nonce
-                                                                          merchantAccountId:@"fake_switch_usd"
-                                                                                 completion:^(NSString *transactionId, NSError *error){
-                                                                                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                                                                     self.latestTokenizedPayment = nil;
-                                                                                     if (error) {
-                                                                                         [self updateStatus:error.localizedDescription];
-                                                                                     } else {
-                                                                                         [self updateStatus:transactionId];
-                                                                                     }
-                                                                                 }];
-        } else {
-        [[BraintreeDemoMerchantAPI sharedService] makeTransactionWithPaymentMethodNonce:nonce
-                                                                             completion:^(NSString *transactionId, NSError *error){
-                                                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                                                                 self.latestTokenizedPayment = nil;
-                                                                                 if (error) {
-                                                                                     [self updateStatus:error.localizedDescription];
-                                                                                 } else {
-                                                                                     [self updateStatus:transactionId];
-                                                                                 }
-                                                                             }];
+        
+        NSString *merchantAccountId;
+        if ([self.latestTokenizedPayment.type isEqualToString:@"UnionPay"]) {
+            merchantAccountId = @"fake_switch_usd";
         }
+        
+        [DemoMerchantAPIClient.shared makeTransactionWithPaymentMethodNonce:nonce
+                                                             merchantAccountId:merchantAccountId
+                                                                    completion:^(NSString *transactionId, NSError *error) {
+                                                                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                                                        self.latestTokenizedPayment = nil;
+                                                                        if (error) {
+                                                                            [self updateStatus:error.localizedDescription];
+                                                                        } else {
+                                                                            [self updateStatus:transactionId];
+                                                                        }
+                                                                    }];
     }
 }
 
@@ -158,7 +151,7 @@
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    [[BraintreeDemoMerchantAPI sharedService] createCustomerAndFetchClientTokenWithCompletion:^(NSString *clientToken, NSError *error) {
+    [DemoMerchantAPIClient.shared createCustomerAndFetchClientTokenWithCompletion:^(NSString *clientToken, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         if (error) {
             [self updateStatus:error.localizedDescription];

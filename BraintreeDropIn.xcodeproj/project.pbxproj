@@ -19,6 +19,7 @@
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
 		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
 		42A10ADA230EE4D700892302 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */; };
+		42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */; };
 		53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */; };
 		53E78BE322248A29000388D3 /* BTUIKHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */; };
 		53E78BE622248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */; };
@@ -187,7 +188,6 @@
 		A5CE1D8B1D835A9F009BE61A /* Braintree-Demo.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */; };
 		A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */; };
 		A5CE1DFA1D835AB6009BE61A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DD51D835AB6009BE61A /* Images.xcassets */; };
-		A5CE1DFB1D835AB6009BE61A /* BraintreeDemoMerchantAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DD81D835AB6009BE61A /* BraintreeDemoMerchantAPI.m */; };
 		A5CE1DFE1D835AB6009BE61A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DDD1D835AB6009BE61A /* InfoPlist.strings */; };
 		A5CE1DFF1D835AB6009BE61A /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1DDF1D835AB6009BE61A /* Main.strings */; };
 		A5CE1E001D835AB6009BE61A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DE11D835AB6009BE61A /* main.m */; };
@@ -272,6 +272,8 @@
 		273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInControllerTests.swift; sourceTree = "<group>"; };
+		42A48B4F2319D02A002349B5 /* DropInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DropInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPIClient.swift; sourceTree = "<group>"; };
 		4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKHipercardVectorArtView.h; sourceTree = "<group>"; };
 		53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKHipercardVectorArtView.m; sourceTree = "<group>"; };
@@ -465,8 +467,6 @@
 		A5CE1DA71D835AB6009BE61A /* BraintreeDemoDropInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoDropInViewController.h; sourceTree = "<group>"; };
 		A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoDropInViewController.m; sourceTree = "<group>"; };
 		A5CE1DD51D835AB6009BE61A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DropInDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		A5CE1DD71D835AB6009BE61A /* BraintreeDemoMerchantAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoMerchantAPI.h; sourceTree = "<group>"; };
-		A5CE1DD81D835AB6009BE61A /* BraintreeDemoMerchantAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoMerchantAPI.m; sourceTree = "<group>"; };
 		A5CE1DD91D835AB6009BE61A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = DropInDemo/README.md; sourceTree = SOURCE_ROOT; };
 		A5CE1DDB1D835AB6009BE61A /* Braintree-Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Braintree-Demo-Info.plist"; sourceTree = "<group>"; };
 		A5CE1DDC1D835AB6009BE61A /* Braintree-Demo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Braintree-Demo-Prefix.pch"; sourceTree = "<group>"; };
@@ -889,14 +889,15 @@
 		A5CE1D151D835832009BE61A /* DropInDemo */ = {
 			isa = PBXGroup;
 			children = (
-				A5CE1E091D835CD1009BE61A /* DropInDemo.entitlements */,
 				A5CE1D951D835AB6009BE61A /* Features */,
-				A5CE1DD51D835AB6009BE61A /* Images.xcassets */,
 				A5CE1DD61D835AB6009BE61A /* Merchant API Client */,
-				A5CE1DD91D835AB6009BE61A /* README.md */,
-				A5CE1DDA1D835AB6009BE61A /* Supporting Files */,
-				A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */,
 				A5CE1D5D1D83599D009BE61A /* Demo Base */,
+				A5CE1DDA1D835AB6009BE61A /* Supporting Files */,
+				42A48B4F2319D02A002349B5 /* DropInDemo-Bridging-Header.h */,
+				A5CE1E091D835CD1009BE61A /* DropInDemo.entitlements */,
+				A5CE1DD51D835AB6009BE61A /* Images.xcassets */,
+				A5CE1DD91D835AB6009BE61A /* README.md */,
+				A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */,
 			);
 			path = DropInDemo;
 			sourceTree = "<group>";
@@ -957,8 +958,7 @@
 		A5CE1DD61D835AB6009BE61A /* Merchant API Client */ = {
 			isa = PBXGroup;
 			children = (
-				A5CE1DD71D835AB6009BE61A /* BraintreeDemoMerchantAPI.h */,
-				A5CE1DD81D835AB6009BE61A /* BraintreeDemoMerchantAPI.m */,
+				42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */,
 			);
 			name = "Merchant API Client";
 			path = "DropInDemo/Merchant API Client";
@@ -1203,6 +1203,7 @@
 					A5CE1D131D835832009BE61A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 43253H4X22;
+						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.OMC = {
 								enabled = 1;
@@ -1512,10 +1513,10 @@
 				A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */,
 				A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */,
 				A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */,
+				42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */,
 				A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */,
 				A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */,
 				A5CE1E001D835AB6009BE61A /* main.m in Sources */,
-				A5CE1DFB1D835AB6009BE61A /* BraintreeDemoMerchantAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1709,6 +1710,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1759,6 +1761,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1803,6 +1806,7 @@
 		A5411A321D8A20D00041BE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1849,6 +1853,7 @@
 		A5411A331D8A20D00041BE92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2109,6 +2114,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -2145,6 +2151,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.DropInDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DropInDemo/DropInDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2159,6 +2168,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -2190,6 +2200,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.DropInDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DropInDemo/DropInDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
