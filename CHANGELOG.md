@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 7.4.0 (2019-08-29)
 
 * Deprecate `amount` property on `BTDropInRequest`
 * Show activity indicator when 3D Secure flow is triggered for a vaulted payment method
