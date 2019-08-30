@@ -18,7 +18,11 @@
 
 - (id)copyWithZone:(__unused NSZone *)zone {
     BTDropInRequest *request = [BTDropInRequest new];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     request.amount = self.amount;
+#pragma clang diagnostic pop
     request.payPalRequest = self.payPalRequest;
     request.applePayDisabled = self.applePayDisabled;
     request.paypalDisabled = self.paypalDisabled;
