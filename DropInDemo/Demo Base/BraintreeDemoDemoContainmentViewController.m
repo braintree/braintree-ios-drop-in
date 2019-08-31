@@ -7,7 +7,6 @@
 
 #import "DropInDemo-Swift.h"
 #import "BraintreeDemoIntegrationViewController.h"
-#import "BraintreeDemoSettings.h"
 #import "BraintreeDemoDropInViewController.h"
 
 @interface BraintreeDemoDemoContainmentViewController () <IASKSettingsDelegate, IntegrationViewControllerDelegate>
@@ -120,24 +119,24 @@
 
     self.title = NSLocalizedString(@"Braintree", nil);
     
-    if ([BraintreeDemoSettings authorizationOverride]) {
-        self.currentDemoViewController = [self instantiateCurrentIntegrationViewControllerWithAuthorization:[BraintreeDemoSettings authorizationOverride]];
+    if (DemoSettings.authorizationOverride) {
+        self.currentDemoViewController = [self instantiateCurrentIntegrationViewControllerWithAuthorization:DemoSettings.authorizationOverride];
         return;
     }
 
-    if ([BraintreeDemoSettings useTokenizationKey]) {
+    if (DemoSettings.useTokenizationKey) {
         [self updateStatus:@"Using Tokenization Key"];
 
         // If we're using a Tokenization Key, then we're not using a Customer.
         NSString *tokenizationKey;
-        switch ([BraintreeDemoSettings currentEnvironment]) {
-            case BraintreeDemoTransactionServiceEnvironmentSandboxBraintreeSampleMerchant:
+        switch (DemoSettings.currentEnvironment) {
+            case DemoEnvironmentSandbox:
                 tokenizationKey = @"sandbox_9dbg82cq_dcpspy2brwdjr3qn";
                 break;
-            case BraintreeDemoTransactionServiceEnvironmentProductionExecutiveSampleMerchant:
+            case DemoEnvironmentProduction:
                 tokenizationKey = @"production_t2wns2y2_dfy45jdj3dxkmz5m";
                 break;
-            case BraintreeDemoTransactionServiceEnvironmentCustomMerchant:
+            case DemoEnvironmentCustom:
             default:
                 tokenizationKey = @"development_testing_integration_merchant_id";
                 break;

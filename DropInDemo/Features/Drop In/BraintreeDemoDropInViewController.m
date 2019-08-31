@@ -4,12 +4,13 @@
 #import "BraintreeCore.h"
 #import <BraintreeDropIn/BraintreeDropIn.h>
 #import "BraintreeUIKit.h"
-#import "BraintreeDemoSettings.h"
 #import "BTPaymentSelectionViewController.h"
 #import "BraintreeApplePay.h"
 #import "BraintreeCard.h"
 #import "BraintreePaymentFlow.h"
 #import "BraintreePayPal.h"
+
+#import "DropInDemo-Swift.h"
 
 @interface BraintreeDemoDropInViewController () <PKPaymentAuthorizationViewControllerDelegate, BTViewControllerPresentingDelegate>
 
@@ -206,14 +207,14 @@
         paymentRequest.currencyCode = @"USD";
         paymentRequest.countryCode = @"US";
         
-        switch ([BraintreeDemoSettings currentEnvironment]) {
-            case BraintreeDemoTransactionServiceEnvironmentSandboxBraintreeSampleMerchant:
+        switch (DemoSettings.currentEnvironment) {
+            case DemoEnvironmentSandbox:
                 paymentRequest.merchantIdentifier = @"merchant.com.braintreepayments.sandbox.Braintree-Demo";
                 break;
-            case BraintreeDemoTransactionServiceEnvironmentProductionExecutiveSampleMerchant:
+            case DemoEnvironmentProduction:
                 paymentRequest.merchantIdentifier = @"merchant.com.braintreepayments.Braintree-Demo";
                 break;
-            case BraintreeDemoTransactionServiceEnvironmentCustomMerchant:
+            case DemoEnvironmentCustom:
                 self.progressBlock(@"Direct Apple Pay integration does not support custom environments in this Demo App");
                 break;
         }
@@ -223,7 +224,7 @@
         
         self.progressBlock(@"Presenting Apple Pay Sheet");
         [self presentViewController:viewController animated:YES completion:nil];
-    } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired
+    } else if (DemoSettings.threeDSecureRequiredStatus == DemoThreeDSecureRequiredSettingRequired
                && [self nonceRequiresThreeDSecureVerification:self.selectedNonce]) {
         [self performThreeDSecureVerification];
     } else {
@@ -244,23 +245,23 @@
     dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
     [BTUIKLocalizedString setCustomTranslations:@[@"cs"]];
 
-    dropInRequest.paypalDisabled = [BraintreeDemoSettings paypalDisabled];
-    dropInRequest.venmoDisabled = [BraintreeDemoSettings venmoDisabled];
+    dropInRequest.paypalDisabled = DemoSettings.paypalDisabled;
+    dropInRequest.venmoDisabled = DemoSettings.venmoDisabled;
     dropInRequest.cardDisabled = [[[NSProcessInfo processInfo] arguments] containsObject:@"-CardDisabled"];
-    dropInRequest.shouldMaskSecurityCode = [BraintreeDemoSettings maskSecurityCode];
-    dropInRequest.cardholderNameSetting = [BraintreeDemoSettings cardholderNameSetting];
-    dropInRequest.vaultCard = [BraintreeDemoSettings vaultCardSetting];
-    dropInRequest.allowVaultCardOverride = [BraintreeDemoSettings allowVaultCardOverrideSetting];
+    dropInRequest.shouldMaskSecurityCode = DemoSettings.maskSecurityCode;
+    dropInRequest.cardholderNameSetting = DemoSettings.cardholderNameSetting;
+    dropInRequest.vaultCard = DemoSettings.vaultCardSetting;
+    dropInRequest.allowVaultCardOverride = DemoSettings.allowVaultCardOverrideSetting;
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-PayPalOneTime"]) {
         dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
     }
 
-    if (BraintreeDemoSettings.threeDSecureRequiredStatus == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
+    if (DemoSettings.threeDSecureRequiredStatus == DemoThreeDSecureRequiredSettingRequired) {
         dropInRequest.threeDSecureVerification = YES;
         BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
         threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
-        threeDSecureRequest.versionRequested = BraintreeDemoSettings.threeDSecureRequestedVersion;
+        threeDSecureRequest.versionRequested = DemoSettings.threeDSecureRequestedVersion;
         
         BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
         billingAddress.givenName = @"Jill";

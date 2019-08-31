@@ -1,9 +1,9 @@
 #import "BraintreeDemoAppDelegate.h"
-#import "BraintreeDemoSettings.h"
 #import "BraintreeDemoDemoContainmentViewController.h"
 #import "BraintreeCore.h"
 #import "BTDropInOverrides.h"
 #import "BraintreePaymentFlow.h"
+#import "DropInDemo-Swift.h"
 
 NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.DropInDemo.payments";
 
@@ -38,21 +38,21 @@ NSString *BraintreeDemoAppDelegatePaymentsURLScheme = @"com.braintreepayments.Dr
 - (void)registerDefaultsFromSettings {
     // Check for testing arguments
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EnvironmentSandbox"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceEnvironmentSandboxBraintreeSampleMerchant forKey:BraintreeDemoSettingsEnvironmentDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:DemoEnvironmentSandbox forKey:DemoSettings.EnvironmentDefaultsKey];
     } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-EnvironmentProduction"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceEnvironmentProductionExecutiveSampleMerchant forKey:BraintreeDemoSettingsEnvironmentDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:DemoEnvironmentProduction forKey:DemoSettings.EnvironmentDefaultsKey];
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureRequired"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:DemoThreeDSecureRequiredSettingRequired forKey:DemoSettings.ThreeDSecureRequiredDefaultsKey];
     } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureDefault"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BraintreeDemoTransactionServiceThreeDSecureRequiredStatusDefault forKey:BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:DemoThreeDSecureRequiredSettingRequiredIfPresent forKey:DemoSettings.ThreeDSecureRequiredDefaultsKey];
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureVersion2"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BTThreeDSecureVersion2 forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:BTThreeDSecureVersion2 forKey:DemoSettings.ThreeDSecureVersionDefaultsKey];
     } else if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-ThreeDSecureVersionLegacy"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:BTThreeDSecureVersion1 forKey:BraintreeDemoSettingsThreeDSecureVersionDefaultsKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:BTThreeDSecureVersion1 forKey:DemoSettings.ThreeDSecureVersionDefaultsKey];
     }
 
     if ([[[NSProcessInfo processInfo] arguments] containsObject:@"-TokenizationKey"]) {

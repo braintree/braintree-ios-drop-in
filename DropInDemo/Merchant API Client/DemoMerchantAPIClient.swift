@@ -1,36 +1,4 @@
-//
-//  DemoMerchantAPIClient.swift
-//  DropInDemo
-//
-//  Created by Stevens, Susan on 8/30/19.
-//  Copyright © 2019 Braintree Payments Solution, LLC. All rights reserved.
-//
-
 import Foundation
-
-struct ClientToken: Codable {
-    let value: String
-    
-    enum CodingKeys: String, CodingKey {
-        case value = "client_token"
-    }
-}
-
-struct TransactionRequest: Codable {
-    let nonce: String
-    let threeDSecureRequired: Bool?
-    let merchantAccountId: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case nonce
-        case threeDSecureRequired = "three_d_secure_required"
-        case merchantAccountId = "merchant_account_id"
-    }
-}
-
-struct TransactionResponse: Codable {
-    let message: String
-}
 
 @objc
 class DemoMerchantAPIClient: NSObject {
@@ -41,10 +9,10 @@ class DemoMerchantAPIClient: NSObject {
     @objc
     func createCustomerAndFetchClientToken(completion: @escaping ((String?, Error?) -> Void)) {
         
-        guard var urlComponents = URLComponents(string: BraintreeDemoSettings.currentEnvironmentURLString() + "/clientToken") else { return }
+        guard var urlComponents = URLComponents(string: DemoSettings.currentEnvironmentURLString + "/clientToken") else { return }
         
-        if BraintreeDemoSettings.customerPresent() {
-            if let id = BraintreeDemoSettings.customerIdentifier(), id.count > 0 {
+        if DemoSettings.customerPresent {
+            if let id = DemoSettings.customerIdentifier, id.count > 0 {
                 urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: id)]
             } else {
                 urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: UUID().uuidString)]
@@ -68,11 +36,11 @@ class DemoMerchantAPIClient: NSObject {
     func makeTransaction(paymentMethodNonce: String, merchantAccountId: String? = nil, completion: @escaping ((String?, Error?) -> Void)) {
         NSLog("Creating a transaction with nonce: %@", paymentMethodNonce)
         
-        guard let url = URL(string: BraintreeDemoSettings.currentEnvironmentURLString() + "/nonce/transaction") else { return }
+        guard let url = URL(string: DemoSettings.currentEnvironmentURLString + "/nonce/transaction") else { return }
         
         let threeDSecureRequired: Bool?
-        switch (BraintreeDemoSettings.threeDSecureRequiredStatus()) {
-        case .default:
+        switch (DemoSettings.threeDSecureRequiredStatus) {
+        case .requiredIfPresent:
             threeDSecureRequired = nil
         case .required:
             threeDSecureRequired = true

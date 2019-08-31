@@ -20,6 +20,10 @@
 		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
 		42A10ADA230EE4D700892302 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */; };
 		42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */; };
+		42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */; };
+		42DA26C7231ABCDF00E69CC5 /* TransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C6231ABCDF00E69CC5 /* TransactionRequest.swift */; };
+		42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */; };
+		42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */; };
 		53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */; };
 		53E78BE322248A29000388D3 /* BTUIKHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */; };
 		53E78BE622248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */; };
@@ -183,7 +187,6 @@
 		A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */; };
 		A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */; };
 		A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */; };
-		A5CE1D7A1D83599D009BE61A /* BraintreeDemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */; };
 		A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D711D83599D009BE61A /* Settings.bundle */; };
 		A5CE1D8B1D835A9F009BE61A /* Braintree-Demo.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */; };
 		A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */; };
@@ -274,6 +277,10 @@
 		42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInControllerTests.swift; sourceTree = "<group>"; };
 		42A48B4F2319D02A002349B5 /* DropInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DropInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPIClient.swift; sourceTree = "<group>"; };
+		42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientToken.swift; sourceTree = "<group>"; };
+		42DA26C6231ABCDF00E69CC5 /* TransactionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRequest.swift; sourceTree = "<group>"; };
+		42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
+		42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
 		4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKHipercardVectorArtView.h; sourceTree = "<group>"; };
 		53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKHipercardVectorArtView.m; sourceTree = "<group>"; };
@@ -460,8 +467,6 @@
 		A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoIntegrationViewController.h; sourceTree = "<group>"; };
 		A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoIntegrationViewController.m; sourceTree = "<group>"; };
 		A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		A5CE1D6F1D83599D009BE61A /* BraintreeDemoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoSettings.h; sourceTree = "<group>"; };
-		A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoSettings.m; sourceTree = "<group>"; };
 		A5CE1D711D83599D009BE61A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Braintree-Demo.entitlements"; sourceTree = "<group>"; };
 		A5CE1DA71D835AB6009BE61A /* BraintreeDemoDropInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoDropInViewController.h; sourceTree = "<group>"; };
@@ -930,8 +935,7 @@
 		A5CE1D6E1D83599D009BE61A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A5CE1D6F1D83599D009BE61A /* BraintreeDemoSettings.h */,
-				A5CE1D701D83599D009BE61A /* BraintreeDemoSettings.m */,
+				42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */,
 				A5CE1D711D83599D009BE61A /* Settings.bundle */,
 			);
 			path = Settings;
@@ -959,6 +963,9 @@
 			isa = PBXGroup;
 			children = (
 				42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */,
+				42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */,
+				42DA26C6231ABCDF00E69CC5 /* TransactionRequest.swift */,
+				42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */,
 			);
 			name = "Merchant API Client";
 			path = "DropInDemo/Merchant API Client";
@@ -1509,7 +1516,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5CE1D7A1D83599D009BE61A /* BraintreeDemoSettings.m in Sources */,
+				42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */,
+				42DA26C7231ABCDF00E69CC5 /* TransactionRequest.swift in Sources */,
+				42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */,
 				A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */,
 				A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */,
 				A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */,
@@ -1517,6 +1526,7 @@
 				A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */,
 				A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */,
 				A5CE1E001D835AB6009BE61A /* main.m in Sources */,
+				42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
