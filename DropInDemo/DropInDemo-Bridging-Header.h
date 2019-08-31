@@ -4,3 +4,6 @@
 
 #import "BTDropInRequest.h"
 #import "BTThreeDSecureRequest.h"
+#import "BraintreeDemoDemoContainmentViewController.h"
+#import "BTDropInOverrides.h"
+#import "BTAppSwitch.h"

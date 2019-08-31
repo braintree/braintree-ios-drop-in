@@ -6,10 +6,9 @@
 #import "BraintreeCore.h"
 
 #import "DropInDemo-Swift.h"
-#import "BraintreeDemoIntegrationViewController.h"
 #import "BraintreeDemoDropInViewController.h"
 
-@interface BraintreeDemoDemoContainmentViewController () <IASKSettingsDelegate, IntegrationViewControllerDelegate>
+@interface BraintreeDemoDemoContainmentViewController () <IASKSettingsDelegate>
 @property (nonatomic, strong) UIBarButtonItem *statusItem;
 @property (nonatomic, strong) BTPaymentMethodNonce *latestTokenizedPayment;
 @property (nonatomic, strong) BraintreeDemoBaseViewController *currentDemoViewController;
@@ -240,12 +239,6 @@
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController *)sender {
     [sender dismissViewControllerAnimated:YES completion:nil];
-    [self reloadIntegration];
-}
-
-#pragma mark IntegrationViewControllerDelegate
-
-- (void)integrationViewController:(__unused BraintreeDemoIntegrationViewController *)integrationViewController didChangeAppSetting:(__unused NSDictionary *)appSetting {
     [self reloadIntegration];
 }
 
