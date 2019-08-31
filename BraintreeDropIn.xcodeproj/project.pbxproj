@@ -186,7 +186,6 @@
 		A5CE1D751D83599D009BE61A /* BraintreeDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D661D83599D009BE61A /* BraintreeDemoAppDelegate.m */; };
 		A5CE1D761D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */; };
 		A5CE1D771D83599D009BE61A /* BraintreeDemoIntegrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */; };
-		A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */; };
 		A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D711D83599D009BE61A /* Settings.bundle */; };
 		A5CE1D8B1D835A9F009BE61A /* Braintree-Demo.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */; };
 		A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CE1DA81D835AB6009BE61A /* BraintreeDemoDropInViewController.m */; };
@@ -466,7 +465,6 @@
 		A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoDemoContainmentViewController.m; sourceTree = "<group>"; };
 		A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoIntegrationViewController.h; sourceTree = "<group>"; };
 		A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BraintreeDemoIntegrationViewController.m; sourceTree = "<group>"; };
-		A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A5CE1D711D83599D009BE61A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A5CE1D7D1D835A9F009BE61A /* Braintree-Demo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Braintree-Demo.entitlements"; sourceTree = "<group>"; };
 		A5CE1DA71D835AB6009BE61A /* BraintreeDemoDropInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeDemoDropInViewController.h; sourceTree = "<group>"; };
@@ -917,7 +915,6 @@
 				A5CE1D681D83599D009BE61A /* BraintreeDemoDemoContainmentViewController.m */,
 				A5CE1D691D83599D009BE61A /* BraintreeDemoIntegrationViewController.h */,
 				A5CE1D6A1D83599D009BE61A /* BraintreeDemoIntegrationViewController.m */,
-				A5CE1D6D1D83599D009BE61A /* Launch Screen.storyboard */,
 				A5CE1D6E1D83599D009BE61A /* Settings */,
 			);
 			path = "Demo Base";
@@ -1308,7 +1305,6 @@
 				032C90FD20C064E500FD5B59 /* BTUI.strings in Resources */,
 				03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */,
 				A5CE1DFE1D835AB6009BE61A /* InfoPlist.strings in Resources */,
-				A5CE1D791D83599D009BE61A /* Launch Screen.storyboard in Resources */,
 				A5CE1D7B1D83599D009BE61A /* Settings.bundle in Resources */,
 				A5CE1DFF1D835AB6009BE61A /* Main.strings in Resources */,
 				A5CE1DFA1D835AB6009BE61A /* Images.xcassets in Resources */,
