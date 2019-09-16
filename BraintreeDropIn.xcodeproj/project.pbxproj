@@ -21,7 +21,6 @@
 		42A10ADA230EE4D700892302 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */; };
 		42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */; };
 		42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */; };
-		42DA26C7231ABCDF00E69CC5 /* TransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C6231ABCDF00E69CC5 /* TransactionRequest.swift */; };
 		42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */; };
 		42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */; };
 		42DA26CD231AF06C00E69CC5 /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CC231AF06C00E69CC5 /* DemoAppDelegate.swift */; };
@@ -275,7 +274,6 @@
 		42A48B4F2319D02A002349B5 /* DropInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DropInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPIClient.swift; sourceTree = "<group>"; };
 		42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientToken.swift; sourceTree = "<group>"; };
-		42DA26C6231ABCDF00E69CC5 /* TransactionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRequest.swift; sourceTree = "<group>"; };
 		42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
 		42DA26CC231AF06C00E69CC5 /* DemoAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppDelegate.swift; sourceTree = "<group>"; };
@@ -952,7 +950,6 @@
 			children = (
 				42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */,
 				42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */,
-				42DA26C6231ABCDF00E69CC5 /* TransactionRequest.swift */,
 				42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */,
 			);
 			name = "Merchant API Client";
@@ -1503,7 +1500,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */,
-				42DA26C7231ABCDF00E69CC5 /* TransactionRequest.swift in Sources */,
 				42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */,
 				A5CE1D721D83599D009BE61A /* BraintreeDemoBaseViewController.m in Sources */,
 				A5CE1DE81D835AB6009BE61A /* BraintreeDemoDropInViewController.m in Sources */,

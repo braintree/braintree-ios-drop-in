@@ -91,7 +91,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         UserDefaults.standard.set(true, forKey:"BraintreeDemoVaultCardSetting")
-        if testArguments.contains("-VaultCardIsfalse") {
+        if testArguments.contains("-VaultCardIsFalse") {
             UserDefaults.standard.set(false, forKey:"BraintreeDemoVaultCardSetting")
         }
         
