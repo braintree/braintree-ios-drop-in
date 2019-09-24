@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## Unreleased
+
+* Require Braintree ~> 4.29
+
 ## 7.4.0 (2019-08-29)
 
 * Deprecate `amount` property on `BTDropInRequest`
