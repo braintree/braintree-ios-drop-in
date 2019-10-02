@@ -88,7 +88,7 @@ GEM
     rake_commit (1.2.0)
     rouge (2.0.7)
     ruby-macho (1.4.0)
-    rubyzip (1.2.2)
+    rubyzip (1.3.0)
     security (0.1.3)
     shenzhen (0.14.3)
       aws-sdk (~> 1.0)
