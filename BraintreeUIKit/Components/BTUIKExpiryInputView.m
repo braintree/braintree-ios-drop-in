@@ -98,11 +98,11 @@
                                                                        views:viewBindings]];
         
         id bottomReferenceView = self;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+
         if (@available(iOS 11.0, *)) {
             bottomReferenceView = self.safeAreaLayoutGuide;
         }
-#endif
+
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.monthCollectionView
                                                          attribute:NSLayoutAttributeBottom
                                                          relatedBy:0

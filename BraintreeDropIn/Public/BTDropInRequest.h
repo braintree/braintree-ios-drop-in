@@ -2,7 +2,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BTPostalAddress, BTPayPalRequest;
+@class BTPostalAddress, BTPayPalRequest, BTThreeDSecureRequest;
 
 typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
     BTFormFieldDisabled = 0,
@@ -12,13 +12,13 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 @interface BTDropInRequest : NSObject <NSCopying>
 
-/// Optional: Amount of the transaction for ThreeDSecure flows.
+/// Optional: Amount of the transaction for ThreeDSecure flows. If `threeDSecureRequest.amount` is set, this value will be ignored.
 ///
 /// Amount must be a non-negative number, may optionally contain exactly 2 decimal places
 /// separated by '.', optional thousands separator ',', limited to 7 digits before the decimal point.
 ///
 /// Note: You must still set the amount on the `payPalRequest` for PayPal checkout flows.
-@property (nonatomic, copy, nullable) NSString *amount;
+@property (nonatomic, copy, nullable) NSString *amount DEPRECATED_MSG_ATTRIBUTE("Use `threeDSecureRequest.amount` instead.");
 
 /// Optional: Specify the options for the PayPal flow. If not present, a default vault flow will be used.
 ///
@@ -40,6 +40,11 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Optional: If true and an amount is set, ThreeDSecure will be used to verify new cards. ThreeDSecure must be enabled in the control panel.
 /// Defaults to false.
 @property (nonatomic, assign) BOOL threeDSecureVerification;
+
+/// Optional: Enable 3DS verification and specify options and additional information. If no amount is set, the `BTDropInRequest` `amount` will be used.
+///
+/// Note: To encourage 3DS 2.0 flows, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
+@property (nonatomic, strong, nullable) BTThreeDSecureRequest *threeDSecureRequest;
 
 /// Optional: Determines the visibility and input requirements of the cardholder name field.
 ///

@@ -1,5 +1,21 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## Unreleased
+
+* Require Braintree ~> 4.29
+
+## 7.4.0 (2019-08-29)
+
+* Deprecate `amount` property on `BTDropInRequest`
+* Show activity indicator when 3D Secure flow is triggered for a vaulted payment method
+
+## 7.3.0 (2019-08-09)
+
+* UI changes to support iOS 13
+* Demo app maintenance
+* Remove unneeded pre-processor directives
+* Support for 3DS 2 verification
+
 ## 7.2.0 (2019-06-17)
 
 * Add ability for merchant and/or customer to opt in/out of client side vaulting (card).

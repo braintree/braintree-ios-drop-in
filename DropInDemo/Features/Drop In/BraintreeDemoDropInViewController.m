@@ -266,8 +266,7 @@
     } else if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired
                && [self nonceRequiresThreeDSecureVerification:self.selectedNonce]) {
         [self performThreeDSecureVerification];
-    }
-    else {
+    } else {
         self.completionBlock(self.selectedNonce);
         self.transactionBlock();
     }
@@ -275,11 +274,6 @@
 
 - (void)tappedToShowDropIn {
     BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
-    // To test 3DS
-    if ([BraintreeDemoSettings threeDSecureRequiredStatus] == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
-        dropInRequest.amount = @"10.00";
-        dropInRequest.threeDSecureVerification = YES;
-    }
 
     switch (self.dropInThemeSegmentedControl.selectedSegmentIndex) {
         case 0:
@@ -310,25 +304,51 @@
         dropInRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"4.77"];
     }
 
-    BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString request:dropInRequest handler:^(BTDropInController * _Nonnull dropInController, BTDropInResult * _Nullable result, NSError * _Nullable error) {
-        if (error) {
-            self.progressBlock([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
-            NSLog(@"Error: %@", error);
-        } else if (result.isCancelled) {
-            self.progressBlock(@"Cancelled🎲");
-        } else {
-            if (result.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
-                self.progressBlock(@"Ready for checkout...");
-                [self setupApplePay];
-            } else {
-                self.useApplePay = NO;
-                self.selectedNonce = result.paymentMethod;
-                self.progressBlock(@"Ready for checkout...");
-                [self updatePaymentMethod:self.selectedNonce];
-            }
-        }
-        [dropInController dismissViewControllerAnimated:YES completion:nil];
-    }];
+    if (BraintreeDemoSettings.threeDSecureRequiredStatus == BraintreeDemoTransactionServiceThreeDSecureRequiredStatusRequired) {
+        dropInRequest.threeDSecureVerification = YES;
+        BTThreeDSecureRequest *threeDSecureRequest = [BTThreeDSecureRequest new];
+        threeDSecureRequest.amount = [NSDecimalNumber decimalNumberWithString:@"10.32"];
+        threeDSecureRequest.versionRequested = BraintreeDemoSettings.threeDSecureRequestedVersion;
+        
+        BTThreeDSecurePostalAddress *billingAddress = [BTThreeDSecurePostalAddress new];
+        billingAddress.givenName = @"Jill";
+        billingAddress.surname = @"Doe";
+        billingAddress.streetAddress = @"555 Smith St.";
+        billingAddress.extendedAddress = @"#5";
+        billingAddress.locality = @"Oakland";
+        billingAddress.region = @"CA";
+        billingAddress.countryCodeAlpha2 = @"US";
+        billingAddress.postalCode = @"12345";
+        billingAddress.phoneNumber = @"8101234567";
+        threeDSecureRequest.billingAddress = billingAddress;
+        threeDSecureRequest.email = @"test@example.com";
+        threeDSecureRequest.shippingMethod = @"01";
+        dropInRequest.threeDSecureRequest = threeDSecureRequest;
+    }
+
+    BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:self.authorizationString
+                                                                           request:dropInRequest
+                                                                           handler:^(BTDropInController * _Nonnull dropInController,
+                                                                                     BTDropInResult * _Nullable result,
+                                                                                     NSError * _Nullable error) {
+                                                                               
+                                                                               if (error) {
+                                                                                   self.progressBlock([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
+                                                                                   NSLog(@"Error: %@", error);
+                                                                               } else if (result.isCancelled) {
+                                                                                   self.progressBlock(@"Cancelled🎲");
+                                                                               } else if (result.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
+                                                                                   self.progressBlock(@"Ready for checkout...");
+                                                                                   [self setupApplePay];
+                                                                               } else {
+                                                                                   self.useApplePay = NO;
+                                                                                   self.selectedNonce = result.paymentMethod;
+                                                                                   self.progressBlock(@"Ready for checkout...");
+                                                                                   [self updatePaymentMethod:self.selectedNonce];
+                                                                               }
+                                                                               NSLog(@"%@", dropInController);
+                                                                               [dropInController dismissViewControllerAnimated:YES completion:nil];
+                                                                           }];
 
     [self presentViewController:dropIn animated:YES completion:nil];
 }
@@ -354,7 +374,6 @@
     }
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
 - (void)paymentAuthorizationViewController:(__unused PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion API_AVAILABLE(ios(11.0), watchos(4.0)) {
     self.progressBlock(@"Apple Pay Did Authorize Payment");
     BTAPIClient *client = [[BTAPIClient alloc] initWithAuthorization:self.authorizationString];
@@ -369,7 +388,6 @@
         }
     }];
 }
-#endif
 
 - (void)paymentAuthorizationViewController:(__unused PKPaymentAuthorizationViewController *)controller
                        didAuthorizePayment:(PKPayment *)payment
