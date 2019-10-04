@@ -209,12 +209,12 @@ And set `NSCameraUsageDescription` in your application's plist.
 <string>To offer card scanning via card.io</string>
 ```
 
-### Themes
+### Color Schemes
 
-Drop-In is fully customizable, but we also provide `Light` and `Dark` themes. Drop-In will use the `Light` theme by default.
+Drop-In is fully customizable, but we also provide `Light`, `Dark` and `Dynamic` color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. Drop-In will use the `Light` theme by default.
 ```swift
 // Set the theme before initializing Drop-In
-BTUIKAppearance.darkTheme()
+BTUIKAppearance.sharedInstance().colorScheme = .dynamic // iOS 13 only
 ```
 
 ![Drop-in dark theme](Docs/client-sdk-ios-series-dark.png "Drop-in dark theme")
