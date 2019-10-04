@@ -5,12 +5,10 @@
 #import <PureLayout/PureLayout.h>
 #import "BraintreeCore.h"
 
-#import "BraintreeDemoMerchantAPI.h"
-#import "BraintreeDemoIntegrationViewController.h"
-#import "BraintreeDemoSettings.h"
+#import "DropInDemo-Swift.h"
 #import "BraintreeDemoDropInViewController.h"
 
-@interface BraintreeDemoDemoContainmentViewController () <IASKSettingsDelegate, IntegrationViewControllerDelegate>
+@interface BraintreeDemoDemoContainmentViewController () <IASKSettingsDelegate>
 @property (nonatomic, strong) UIBarButtonItem *statusItem;
 @property (nonatomic, strong) BTPaymentMethodNonce *latestTokenizedPayment;
 @property (nonatomic, strong) BraintreeDemoBaseViewController *currentDemoViewController;
@@ -76,30 +74,23 @@
         NSString *nonce = self.latestTokenizedPayment.nonce;
         [self updateStatus:@"Creating Transaction…"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        if ([self.latestTokenizedPayment.type isEqualToString:@"UnionPay"]){
-            [[BraintreeDemoMerchantAPI sharedService] makeTransactionWithPaymentMethodNonce:nonce
-                                                                          merchantAccountId:@"fake_switch_usd"
-                                                                                 completion:^(NSString *transactionId, NSError *error){
-                                                                                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                                                                     self.latestTokenizedPayment = nil;
-                                                                                     if (error) {
-                                                                                         [self updateStatus:error.localizedDescription];
-                                                                                     } else {
-                                                                                         [self updateStatus:transactionId];
-                                                                                     }
-                                                                                 }];
-        } else {
-        [[BraintreeDemoMerchantAPI sharedService] makeTransactionWithPaymentMethodNonce:nonce
-                                                                             completion:^(NSString *transactionId, NSError *error){
-                                                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                                                                 self.latestTokenizedPayment = nil;
-                                                                                 if (error) {
-                                                                                     [self updateStatus:error.localizedDescription];
-                                                                                 } else {
-                                                                                     [self updateStatus:transactionId];
-                                                                                 }
-                                                                             }];
+        
+        NSString *merchantAccountId;
+        if ([self.latestTokenizedPayment.type isEqualToString:@"UnionPay"]) {
+            merchantAccountId = @"fake_switch_usd";
         }
+        
+        [DemoMerchantAPIClient.shared makeTransactionWithPaymentMethodNonce:nonce
+                                                             merchantAccountId:merchantAccountId
+                                                                    completion:^(NSString *transactionId, NSError *error) {
+                                                                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                                                        self.latestTokenizedPayment = nil;
+                                                                        if (error) {
+                                                                            [self updateStatus:error.localizedDescription];
+                                                                        } else {
+                                                                            [self updateStatus:transactionId];
+                                                                        }
+                                                                    }];
     }
 }
 
@@ -127,24 +118,24 @@
 
     self.title = NSLocalizedString(@"Braintree", nil);
     
-    if ([BraintreeDemoSettings authorizationOverride]) {
-        self.currentDemoViewController = [self instantiateCurrentIntegrationViewControllerWithAuthorization:[BraintreeDemoSettings authorizationOverride]];
+    if (DemoSettings.authorizationOverride) {
+        self.currentDemoViewController = [self instantiateCurrentIntegrationViewControllerWithAuthorization:DemoSettings.authorizationOverride];
         return;
     }
 
-    if ([BraintreeDemoSettings useTokenizationKey]) {
+    if (DemoSettings.useTokenizationKey) {
         [self updateStatus:@"Using Tokenization Key"];
 
         // If we're using a Tokenization Key, then we're not using a Customer.
         NSString *tokenizationKey;
-        switch ([BraintreeDemoSettings currentEnvironment]) {
-            case BraintreeDemoTransactionServiceEnvironmentSandboxBraintreeSampleMerchant:
+        switch (DemoSettings.currentEnvironment) {
+            case DemoEnvironmentSandbox:
                 tokenizationKey = @"sandbox_9dbg82cq_dcpspy2brwdjr3qn";
                 break;
-            case BraintreeDemoTransactionServiceEnvironmentProductionExecutiveSampleMerchant:
+            case DemoEnvironmentProduction:
                 tokenizationKey = @"production_t2wns2y2_dfy45jdj3dxkmz5m";
                 break;
-            case BraintreeDemoTransactionServiceEnvironmentCustomMerchant:
+            case DemoEnvironmentCustom:
             default:
                 tokenizationKey = @"development_testing_integration_merchant_id";
                 break;
@@ -158,7 +149,7 @@
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    [[BraintreeDemoMerchantAPI sharedService] createCustomerAndFetchClientTokenWithCompletion:^(NSString *clientToken, NSError *error) {
+    [DemoMerchantAPIClient.shared createCustomerAndFetchClientTokenWithCompletion:^(NSString *clientToken, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         if (error) {
             [self updateStatus:error.localizedDescription];
@@ -248,12 +239,6 @@
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController *)sender {
     [sender dismissViewControllerAnimated:YES completion:nil];
-    [self reloadIntegration];
-}
-
-#pragma mark IntegrationViewControllerDelegate
-
-- (void)integrationViewController:(__unused BraintreeDemoIntegrationViewController *)integrationViewController didChangeAppSetting:(__unused NSDictionary *)appSetting {
     [self reloadIntegration];
 }
 
