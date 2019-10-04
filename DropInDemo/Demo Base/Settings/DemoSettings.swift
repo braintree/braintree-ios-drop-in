@@ -120,4 +120,14 @@ class DemoSettings: NSObject {
     static var allowVaultCardOverrideSetting: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoAllowVaultCardOverrideSetting")
     }
+    
+    @objc
+    static var colorSchemeSetting: BTUIKColorScheme {
+        get {
+            return BTUIKColorScheme(rawValue: UserDefaults.standard.integer(forKey: "BraintreeDemoColorSchemeSetting")) ?? .light
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "BraintreeDemoColorSchemeSetting")
+        }
+    }
 }

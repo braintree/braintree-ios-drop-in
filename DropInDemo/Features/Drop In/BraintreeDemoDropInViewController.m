@@ -22,8 +22,8 @@
 @property (nonatomic, strong) UILabel *paymentMethodHeaderLabel;
 @property (nonatomic, strong) UIButton *dropInButton;
 @property (nonatomic, strong) UIButton *purchaseButton;
-@property (nonatomic, strong) UILabel *themeLabel;
-@property (nonatomic, strong) UISegmentedControl *dropInThemeSegmentedControl;
+@property (nonatomic, strong) UILabel *colorSchemeLabel;
+@property (nonatomic, strong) UISegmentedControl *colorSchemeSegmentedControl;
 @property (nonatomic, strong) NSString *authorizationString;
 @property (nonatomic) BOOL useApplePay;
 @property (nonatomic, strong) BTPaymentMethodNonce *selectedNonce;
@@ -108,22 +108,25 @@
     [self.view addSubview:self.paymentMethodTypeLabel];
     self.paymentMethodTypeLabel.hidden = YES;
 
-    self.themeLabel = [[UILabel alloc] init];
-    [self.themeLabel setText:NSLocalizedString(@"THEME", nil)];
-    self.themeLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
-    self.themeLabel.textColor = self.secondaryLabelColor;
-    self.themeLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:self.themeLabel];
+    self.colorSchemeLabel = [[UILabel alloc] init];
+    [self.colorSchemeLabel setText:NSLocalizedString(@"COLOR SCHEME", nil)];
+    self.colorSchemeLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+    self.colorSchemeLabel.textColor = self.secondaryLabelColor;
+    self.colorSchemeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.colorSchemeLabel];
 
-    self.dropInThemeSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Light", @"Dark", @"Dynamic"]];
-    self.dropInThemeSegmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
-    self.dropInThemeSegmentedControl.selectedSegmentIndex = 0;
-    [self.dropInThemeSegmentedControl addTarget:self action:@selector(tappedThemeSegmentedControl:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:self.dropInThemeSegmentedControl];
-    
+    NSArray<NSString *> *colorSchemes;
     if (@available(iOS 13, *)) {
-        self.view.backgroundColor = UIColor.systemBackgroundColor;
+        colorSchemes = @[@"Light", @"Dark", @"Dynamic"];
+    } else {
+        colorSchemes = @[@"Light", @"Dark"];
     }
+    
+    self.colorSchemeSegmentedControl = [[UISegmentedControl alloc] initWithItems:colorSchemes];
+    self.colorSchemeSegmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
+    self.colorSchemeSegmentedControl.selectedSegmentIndex = DemoSettings.colorSchemeSetting;
+    [self.colorSchemeSegmentedControl addTarget:self action:@selector(tappedColorSchemeSegmentedControl:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.colorSchemeSegmentedControl];
     
     [self updatePaymentMethodConstraints];
     [self fetchPaymentMethods];
@@ -187,8 +190,8 @@
                                    @"paymentMethodTypeIcon": self.paymentMethodTypeIcon,
                                    @"paymentMethodTypeLabel": self.paymentMethodTypeLabel,
                                    @"purchaseButton":self.purchaseButton,
-                                   @"themeLabel": self.themeLabel,
-                                   @"dropInThemeSegmentedControl":self.dropInThemeSegmentedControl
+                                   @"colorSchemeLabel": self.colorSchemeLabel,
+                                   @"dropInThemeSegmentedControl":self.colorSchemeSegmentedControl
                                    };
     
     NSMutableArray *newConstraints = [NSMutableArray new];
@@ -197,7 +200,7 @@
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[cartLabel]-[itemLabel]-[paymentMethodHeaderLabel]" options:0 metrics:nil views:viewBindings]];
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[itemLabel]-[priceLabel]-|" options:NSLayoutFormatAlignAllTop metrics:nil views:viewBindings]];
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[paymentMethodHeaderLabel]-|" options:0 metrics:nil views:viewBindings]];
-    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[themeLabel]-|" options:0 metrics:nil views:viewBindings]];
+    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[colorSchemeLabel]-|" options:0 metrics:nil views:viewBindings]];
 
     if (!self.paymentMethodTypeIcon.hidden && !self.paymentMethodTypeLabel.hidden) {
         [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[paymentMethodHeaderLabel]-[paymentMethodTypeIcon(29)]-[dropInButton]" options:0 metrics:nil views:viewBindings]];
@@ -213,7 +216,7 @@
         self.purchaseButton.backgroundColor = self.secondaryLabelColor;
         self.purchaseButton.enabled = NO;
     }
-    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[themeLabel]-[dropInThemeSegmentedControl]" options:0 metrics:nil views:viewBindings]];
+    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[colorSchemeLabel]-[dropInThemeSegmentedControl]" options:0 metrics:nil views:viewBindings]];
     [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[dropInThemeSegmentedControl]-|" options:0 metrics:nil views:viewBindings]];
     
     self.checkoutConstraints = newConstraints;
@@ -222,17 +225,8 @@
 
 #pragma mark Button Handlers
 
-- (void)tappedThemeSegmentedControl:(UISegmentedControl *)segmentedControl {
-    if (@available(iOS 13.0, *)) {
-        // Do nothing - dynamic colors (i.e., dark mode) are available in iOS 13
-    } else if (segmentedControl.selectedSegmentIndex == 2) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Dynamic Theme Unavailable", nil)
-                                                                                 message:NSLocalizedString(@"Dynamic theme (i.e., dark mode) is only available on iOS 13 and later.", nil)
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Okay", nil) style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction: alertAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
+- (void)tappedColorSchemeSegmentedControl:(UISegmentedControl *)segmentedControl {
+    DemoSettings.colorSchemeSetting = segmentedControl.selectedSegmentIndex;
 }
 
 - (void)purchaseButtonPressed {
@@ -276,19 +270,7 @@
 - (void)tappedToShowDropIn {
     BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
 
-    switch (self.dropInThemeSegmentedControl.selectedSegmentIndex) {
-        case 0:
-            [BTUIKAppearance sharedInstance].colorScheme = BTUIKColorSchemeLight;
-            break;
-        case 1:
-            [BTUIKAppearance sharedInstance].colorScheme = BTUIKColorSchemeDark;
-            break;
-        case 2:
-            if (@available(iOS 13.0, *)) {
-                [BTUIKAppearance sharedInstance].colorScheme = BTUIKColorSchemeDynamic;
-            }
-            break;
-    }
+    BTUIKAppearance.sharedInstance.colorScheme = DemoSettings.colorSchemeSetting;
 
     dropInRequest.vaultManager = ![[[NSProcessInfo processInfo] arguments] containsObject:@"-DisableEditMode"];
     [BTUIKLocalizedString setCustomTranslations:@[@"cs"]];
