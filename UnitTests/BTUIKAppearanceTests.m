@@ -10,9 +10,13 @@
 
 @implementation BTUIKAppearanceTests
 
-- (void)test_lightTheme_classMethod {
+- (void)testLightTheme {
     BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [BTUIKAppearance lightTheme];
+#pragma clang diagnostic pop
     
     XCTAssert([appearance.overlayColor isEqual:[UIColor btuik_colorFromHex:@"000000" alpha:0.5]]);
     XCTAssert([appearance.tintColor isEqual:[UIColor btuik_colorFromHex:@"2489F6" alpha:1.0]]);
@@ -36,9 +40,13 @@
     XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleGray);
 }
 
-- (void)test_darkTheme_classMethod {
+- (void)testDarkTheme {
     BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [BTUIKAppearance darkTheme];
+#pragma clang diagnostic pop
     
     XCTAssert([appearance.overlayColor isEqual:[UIColor btuik_colorFromHex:@"000000" alpha:0.5]]);
     XCTAssert([appearance.tintColor isEqual:[UIColor btuik_colorFromHex:@"2489F6" alpha:1.0]]);
@@ -62,7 +70,7 @@
     XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleWhite);
 }
 
-- (void)test_lightTheme_enum {
+- (void)testLightColorScheme {
     BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
     appearance.colorScheme = BTUIKColorSchemeLight;
 
@@ -88,7 +96,7 @@
     XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleGray);
 }
 
-- (void)test_darkTheme_enum {
+- (void)testDarkColorScheme {
     BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
     appearance.colorScheme = BTUIKColorSchemeDark;
 
@@ -114,7 +122,7 @@
     XCTAssertEqual(appearance.activityIndicatorViewStyle, UIActivityIndicatorViewStyleWhite);
 }
 
-- (void)test_dynamicTheme_enum_usingSystemLightMode {
+- (void)testDynamicColorScheme_whenSystemIsInLightMode {
     if (@available(iOS 13.0, *)) {
         BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
         appearance.colorScheme = BTUIKColorSchemeDynamic;
@@ -146,7 +154,7 @@
     }
 }
 
-- (void)test_dynamicTheme_enum_usingSystemDarkMode {
+- (void)testDynamicColorScheme_whenSystemIsInDarkMode {
     if (@available(iOS 13.0, *)) {
         BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
         appearance.colorScheme = BTUIKColorSchemeDynamic;
@@ -178,7 +186,7 @@
     }
 }
 
-- (void)test_dynamicTheme_enum_switchingBetweenLightAndDarkMode {
+- (void)testDynamicColorScheme_switchingBetweenLightAndDarkMode {
     if (@available(iOS 13.0, *)) {
         BTUIKAppearance *appearance = [BTUIKAppearance sharedInstance];
         appearance.colorScheme = BTUIKColorSchemeDynamic;
@@ -215,39 +223,39 @@
     }
 }
 
-- (void)test_navigationTitleTextColor_defaultsToPrimaryTextColor_whenNotSet {
+- (void)testNavigationTitleTextColor_defaultsToPrimaryTextColor_whenNotSet {
     [BTUIKAppearance sharedInstance].primaryTextColor = [UIColor purpleColor];
     [BTUIKAppearance sharedInstance].navigationBarTitleTextColor = nil;
     XCTAssertEqual([BTUIKAppearance sharedInstance].navigationBarTitleTextColor, [BTUIKAppearance sharedInstance].primaryTextColor);
 }
 
-- (void)test_navigationTitleTextColor_returnsWhenSet {
+- (void)testNavigationTitleTextColor_returnsWhenSet {
     [BTUIKAppearance sharedInstance].primaryTextColor = [UIColor yellowColor];
     [BTUIKAppearance sharedInstance].navigationBarTitleTextColor = [UIColor brownColor];
     XCTAssertEqual([BTUIKAppearance sharedInstance].navigationBarTitleTextColor, [UIColor brownColor]);
 }
 
-- (void)test_styledNavigationTitleLabel_returnsLabelWithCorrectColor {
+- (void)testStyledNavigationTitleLabel_returnsLabelWithCorrectColor {
     [BTUIKAppearance sharedInstance].primaryTextColor = [UIColor whiteColor];
     [BTUIKAppearance sharedInstance].navigationBarTitleTextColor = [UIColor greenColor];
     XCTAssertEqual([BTUIKAppearance styledNavigationTitleLabel].textColor, [UIColor greenColor]);
 }
 
-- (void)test_settingFontFamily_returnsCorrectFont {
+- (void)testSettingFontFamily_returnsCorrectFont {
     [BTUIKAppearance sharedInstance].fontFamily = @"Verdana";
     XCTAssert([[BTUIKAppearance sharedInstance].font.fontName isEqualToString:@"Verdana"]);
 }
 
-- (void)test_settingBoldFontFamily_returnsCorrectBoldFont {
+- (void)testSettingBoldFontFamily_returnsCorrectBoldFont {
     [BTUIKAppearance sharedInstance].boldFontFamily = @"Courier-Bold";
     XCTAssert([[BTUIKAppearance sharedInstance].boldFont.fontName isEqualToString:@"Courier-Bold"]);
 }
 
-- (void)test_defaultFontFamily_returnsSystemFont {
+- (void)testDefaultFontFamily_returnsSystemFont {
     XCTAssertEqual([BTUIKAppearance sharedInstance].font, [UIFont systemFontOfSize:10.0]);
 }
 
-- (void)test_defaultBoldFontFamily_returnsBoldSystemFont {
+- (void)testDefaultBoldFontFamily_returnsBoldSystemFont {
     XCTAssertEqual([BTUIKAppearance sharedInstance].boldFont, [UIFont boldSystemFontOfSize:10.0]);
 }
 
