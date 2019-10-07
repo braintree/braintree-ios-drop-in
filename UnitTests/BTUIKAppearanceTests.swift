@@ -135,7 +135,7 @@ class BTUIKAppearanceTests2: XCTestCase {
             XCTAssertEqual(appearance?.secondaryTextColor, BTUIKColor.dynamicSecondaryTextColor);
             XCTAssertEqual(appearance?.placeholderTextColor, BTUIKColor.dynamicPlaceholderTextColor);
             XCTAssertEqual(appearance?.lineColor, BTUIKColor.dynamicLineColor);
-            XCTAssertEqual(appearance?.blurStyle, UIBlurEffect.Style.systemMaterial);
+            XCTAssertEqual(appearance?.blurStyle, .systemUltraThinMaterial);
             XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium);
         }
     }
@@ -167,7 +167,7 @@ class BTUIKAppearanceTests2: XCTestCase {
             XCTAssertEqual(appearance?.secondaryTextColor, BTUIKColor.dynamicSecondaryTextColor);
             XCTAssertEqual(appearance?.placeholderTextColor, BTUIKColor.dynamicPlaceholderTextColor);
             XCTAssertEqual(appearance?.lineColor, BTUIKColor.dynamicLineColor);
-            XCTAssertEqual(appearance?.blurStyle, .systemMaterial);
+            XCTAssertEqual(appearance?.blurStyle, .systemUltraThinMaterial);
             XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium);
         }
     }
