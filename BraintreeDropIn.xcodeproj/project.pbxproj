@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0305FE7B205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */; };
-		031F576F1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */; };
 		032C90FD20C064E500FD5B59 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 032C90FB20C064E500FD5B59 /* BTUI.strings */; };
 		034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */; };
 		034D319A1E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */; };
@@ -18,6 +17,7 @@
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
 		03FFF6B01DB82E9D004A1F9B /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = A52900E81D8903A600032220 /* BTUI.strings */; };
+		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
 		42A10ADA230EE4D700892302 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */; };
 		42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */; };
 		42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */; };
@@ -32,6 +32,8 @@
 		53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */; };
 		53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */; };
 		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
+		803B8DC422D3D307008B0DD9 /* BTUIKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 803B8DC222D3D307008B0DD9 /* BTUIKColor.m */; };
+		803B8DC522D3DAB8008B0DD9 /* BTUIKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 803B8DC122D3D307008B0DD9 /* BTUIKColor.h */; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
@@ -258,7 +260,6 @@
 		030D98331DC935B200161899 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BTUI.strings"; sourceTree = "<group>"; };
 		030D98351DC9363500161899 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D98361DC9385300161899 /* zh-Hant-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-HK"; path = "zh-Hant-HK.lproj/BTUI.strings"; sourceTree = "<group>"; };
-		031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKAppearanceTests.m; sourceTree = "<group>"; };
 		032C90FC20C064E500FD5B59 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/BTUI.strings; sourceTree = "<group>"; };
 		034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardListLabelTests.m; sourceTree = "<group>"; };
 		034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInBaseViewControllerTests.m; sourceTree = "<group>"; };
@@ -269,6 +270,7 @@
 		03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInResultTests.m; sourceTree = "<group>"; };
 		1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		273802B93A7925EB38CBFA75 /* Pods-DropInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInControllerTests.swift; sourceTree = "<group>"; };
 		42A48B4F2319D02A002349B5 /* DropInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DropInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -287,6 +289,8 @@
 		53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKHiperVectorArtView.h; sourceTree = "<group>"; };
 		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
+		803B8DC122D3D307008B0DD9 /* BTUIKColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKColor.h; sourceTree = "<group>"; };
+		803B8DC222D3D307008B0DD9 /* BTUIKColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKColor.m; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKCardholderNameFormField.h; sourceTree = "<group>"; };
@@ -599,6 +603,8 @@
 		A52900E21D8903A600032220 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				803B8DC122D3D307008B0DD9 /* BTUIKColor.h */,
+				803B8DC222D3D307008B0DD9 /* BTUIKColor.m */,
 				A52900E31D8903A600032220 /* BTUIKAppearance.m */,
 				A52900E41D8903A600032220 /* BTUIKViewUtil.m */,
 				A52900E51D8903A600032220 /* UIColor+BTUIK.m */,
@@ -760,10 +766,10 @@
 				0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */,
 				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
 				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
-				031F576E1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m */,
 				034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */,
 				034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */,
 				42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */,
+				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
 				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
 			);
 			path = UnitTests;
@@ -1002,6 +1008,7 @@
 				53E78BEA22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h in Headers */,
 				A52901B11D8903A700032220 /* BTUIKCardVectorArtView.h in Headers */,
 				A52902011D8903A700032220 /* BTUIKLargePayPalMonogramCardView.h in Headers */,
+				803B8DC522D3DAB8008B0DD9 /* BTUIKColor.h in Headers */,
 				A52901F21D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.h in Headers */,
 				53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */,
 				A52901AE1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.h in Headers */,
@@ -1440,6 +1447,7 @@
 				A52901EE1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */,
 				53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */,
 				A52901B01D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */,
+				803B8DC422D3D307008B0DD9 /* BTUIKColor.m in Sources */,
 				A52901911D8903A600032220 /* BTUIKCardType.m in Sources */,
 				A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */,
 				A529020C1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */,
@@ -1459,8 +1467,8 @@
 				034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */,
 				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
 				A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */,
-				031F576F1E8EE0FB0013B5ED /* BTUIKAppearanceTests.m in Sources */,
 				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
+				425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */,
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,
 				0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */,
 			);
@@ -2172,6 +2180,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = KM8K9UZQH3;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

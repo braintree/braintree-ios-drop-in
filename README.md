@@ -6,7 +6,7 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 ![Drop-in light theme](Docs/client-sdk-ios-series-light.png "Drop-in light theme")
 
-**The Braintree iOS Drop-In SDK requires Xcode 10+ and a Base SDK of iOS 9+**. It permits a Deployment Target of iOS 9.0 or higher.
+**The Braintree iOS Drop-In SDK requires Xcode 11+**. It permits a Deployment Target of iOS 9.0 or higher.
 
 # What's new
 - All new UI and integration for Drop-In
@@ -209,12 +209,12 @@ And set `NSCameraUsageDescription` in your application's plist.
 <string>To offer card scanning via card.io</string>
 ```
 
-### Themes
+### Color Schemes
 
-Drop-In is fully customizable, but we also provide `Light` and `Dark` themes. Drop-In will use the `Light` theme by default.
+Drop-In is fully customizable, but we also provide `Light`, `Dark` and `Dynamic` color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. The `Dynamic` scheme is only available in iOS 13 or higher. Drop-In will use the `Light` color scheme by default.
 ```swift
 // Set the theme before initializing Drop-In
-BTUIKAppearance.darkTheme()
+BTUIKAppearance.sharedInstance().colorScheme = .dynamic
 ```
 
 ![Drop-in dark theme](Docs/client-sdk-ios-series-dark.png "Drop-in dark theme")

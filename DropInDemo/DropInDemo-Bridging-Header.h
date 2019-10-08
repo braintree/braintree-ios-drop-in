@@ -7,3 +7,4 @@
 #import "BraintreeDemoDemoContainmentViewController.h"
 #import "BTDropInOverrides.h"
 #import "BTAppSwitch.h"
+#import "BTUIKAppearance.h"

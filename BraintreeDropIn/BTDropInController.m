@@ -178,7 +178,6 @@
     self.blurredContentBackgroundView.hidden = !self.useBlur;
     [self.contentView addSubview:self.blurredContentBackgroundView];
     [self.contentView sendSubviewToBack:self.blurredContentBackgroundView];
-    
 }
 
 - (void)setUpChildViewControllers {

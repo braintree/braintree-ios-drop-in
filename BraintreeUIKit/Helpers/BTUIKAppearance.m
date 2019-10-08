@@ -1,5 +1,6 @@
 #import "BTUIKAppearance.h"
 #import "UIColor+BTUIK.h"
+#import "BTUIKColor.h"
 
 @interface BTUIKAppearance ()
 
@@ -23,47 +24,87 @@ static BTUIKAppearance *sharedTheme;
 }
 
 + (void)lightTheme {
-    sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
-    sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
+    [sharedTheme setDefaultProperties];
+    [sharedTheme setLightColors];
+}
+
++ (void)darkTheme {
+    [sharedTheme setDefaultProperties];
+    [sharedTheme setDarkColors];
+}
+
+- (void)setLightColors {
     sharedTheme.barBackgroundColor = UIColor.whiteColor;
-    sharedTheme.font = [UIFont systemFontOfSize:10];
-    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
-    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"efeff4" alpha:1.0];
+    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"EFEFF4" alpha:1.0];
     sharedTheme.formFieldBackgroundColor =  UIColor.whiteColor;
     sharedTheme.primaryTextColor = UIColor.blackColor;
     sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
-    sharedTheme.disabledColor = UIColor.lightGrayColor;
     sharedTheme.placeholderTextColor = UIColor.lightGrayColor;
     sharedTheme.lineColor = [UIColor btuik_colorFromHex:@"BFBFBF" alpha:1.0];
-    sharedTheme.errorForegroundColor = [UIColor btuik_colorFromHex:@"ff3b30" alpha:1.0];
     sharedTheme.blurStyle = UIBlurEffectStyleExtraLight;
     sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [sharedTheme setDefaultColors];
+}
+
+- (void)setDarkColors {
+    sharedTheme.barBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
+    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
+    sharedTheme.formFieldBackgroundColor = [UIColor btuik_colorFromHex:@"333333" alpha:1.0];
+    sharedTheme.primaryTextColor = UIColor.whiteColor;
+    sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"999999" alpha:1.0];
+    sharedTheme.placeholderTextColor = [UIColor btuik_colorFromHex:@"8E8E8E" alpha:1.0];
+    sharedTheme.lineColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
+    sharedTheme.blurStyle = UIBlurEffectStyleDark;
+    sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+    [sharedTheme setDefaultColors];
+}
+
+- (void)setDynamicColors {
+    if (@available(iOS 13, *)) {
+        sharedTheme.barBackgroundColor = BTUIKColor.dynamicBarBackgroundColor;
+        sharedTheme.formBackgroundColor = BTUIKColor.dynamicFormBackgroundColor;
+        sharedTheme.formFieldBackgroundColor = BTUIKColor.dynamicFormFieldBackgroundColor;
+        sharedTheme.primaryTextColor = BTUIKColor.dynamicPrimaryTextColor;
+        sharedTheme.secondaryTextColor = BTUIKColor.dynamicSecondaryTextColor;
+        sharedTheme.placeholderTextColor = BTUIKColor.dynamicPlaceholderTextColor;
+        sharedTheme.lineColor = BTUIKColor.dynamicLineColor;
+        sharedTheme.blurStyle = UIBlurEffectStyleSystemUltraThinMaterial;
+        sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
+        [sharedTheme setDefaultColors];
+    }
+}
+
+- (void)setDefaultProperties {
+    sharedTheme.font = [UIFont systemFontOfSize:10];
+    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
     sharedTheme.useBlurs = YES;
     sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
+}
+
+- (void)setDefaultColors {
+    sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
+    sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
+    sharedTheme.disabledColor = UIColor.lightGrayColor;
+    sharedTheme.errorForegroundColor = [UIColor btuik_colorFromHex:@"ff3b30" alpha:1.0];
     sharedTheme.switchThumbTintColor =  UIColor.whiteColor;
     sharedTheme.switchOnTintColor = UIColor.greenColor;
 }
 
-+ (void)darkTheme {
-    sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
-    sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
-    sharedTheme.barBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
-    sharedTheme.font = [UIFont systemFontOfSize:10];
-    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
-    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
-    sharedTheme.formFieldBackgroundColor = [UIColor btuik_colorFromHex:@"333333" alpha:1.0];
-    sharedTheme.primaryTextColor =  UIColor.whiteColor;
-    sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"999999" alpha:1.0];
-    sharedTheme.disabledColor = UIColor.lightGrayColor;
-    sharedTheme.placeholderTextColor = [UIColor btuik_colorFromHex:@"8E8E8E" alpha:1.0];
-    sharedTheme.lineColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
-    sharedTheme.errorForegroundColor = [UIColor btuik_colorFromHex:@"ff3b30" alpha:1.0];
-    sharedTheme.blurStyle = UIBlurEffectStyleDark;
-    sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-    sharedTheme.useBlurs = YES;
-    sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
-    sharedTheme.switchThumbTintColor =  UIColor.whiteColor;
-    sharedTheme.switchOnTintColor = UIColor.greenColor;
+- (void)setColorScheme:(enum BTUIKColorScheme)colorScheme {
+    _colorScheme = colorScheme;
+    switch (colorScheme) {
+        case BTUIKColorSchemeLight:
+            [sharedTheme setLightColors];
+            sharedTheme.keyboardAppearance = UIKeyboardAppearanceLight;
+            break;
+        case BTUIKColorSchemeDark:
+            [sharedTheme setDarkColors];
+            sharedTheme.keyboardAppearance = UIKeyboardAppearanceDark;
+            break;
+        case BTUIKColorSchemeDynamic:
+            [sharedTheme setDynamicColors];
+            break;
+    }
 }
 
 - (void)setFontFamily:(NSString *)fontFamily {

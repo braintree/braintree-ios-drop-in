@@ -2,11 +2,17 @@
 
 @interface BTUIKAppearance : NSObject
 
+typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
+    BTUIKColorSchemeLight,
+    BTUIKColorSchemeDark,
+    BTUIKColorSchemeDynamic API_AVAILABLE(ios(13.0))
+};
+
 /// Shared instance used by Form elements
 + (instancetype)sharedInstance;
 
-+ (void)darkTheme;
-+ (void)lightTheme;
++ (void)darkTheme DEPRECATED_MSG_ATTRIBUTE("Use colorScheme property instead");
++ (void)lightTheme DEPRECATED_MSG_ATTRIBUTE("Use colorScheme property instead");
 
 /// Fallback color for the overlay if blur is disabled
 @property (nonatomic, strong) UIColor *overlayColor;
@@ -55,6 +61,14 @@
 @property (nonatomic, strong) UIColor *switchOnTintColor;
 /// Tint color for UISwitch thumb
 @property (nonatomic, strong) UIColor *switchThumbTintColor;
+/// Color scheme of the Drop-In UI. Only available in iOS 13+
+///
+/// When set to BTUIKColorSchemeLight, the Drop-In UI uses a light color palette.
+/// When set to BTUIKColorSchemeDark, the Drop-In UI uses a dark color palette.
+/// When set to BTUIKColorSchemeDynamic, the Drop-In UI uses a dark or light color palette depending on the user's light or dark mode system preference.
+@property (nonatomic) enum BTUIKColorScheme colorScheme;
+/// Appearance style of keyboards associated with text fields
+@property (nonatomic) UIKeyboardAppearance keyboardAppearance;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]

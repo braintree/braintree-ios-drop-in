@@ -27,6 +27,7 @@
         self.textField.opaque = NO;
         self.textField.adjustsFontSizeToFitWidth = YES;
         self.textField.returnKeyType = UIReturnKeyNext;
+        self.textField.keyboardAppearance = [BTUIKAppearance sharedInstance].keyboardAppearance;
         [self.textField addTarget:self action:@selector(fieldContentDidChange) forControlEvents:UIControlEventEditingChanged];
         [self.textField addTarget:self action:@selector(editingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
         [self.textField addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
