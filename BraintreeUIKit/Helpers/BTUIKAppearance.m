@@ -68,7 +68,7 @@ static BTUIKAppearance *sharedTheme;
         sharedTheme.secondaryTextColor = BTUIKColor.dynamicSecondaryTextColor;
         sharedTheme.placeholderTextColor = BTUIKColor.dynamicPlaceholderTextColor;
         sharedTheme.lineColor = BTUIKColor.dynamicLineColor;
-        sharedTheme.blurStyle = UIBlurEffectStyleSystemUltraThinMaterial;
+        sharedTheme.blurStyle = UIBlurEffectStyleSystemMaterial;
         sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
         [sharedTheme setDefaultColors];
     }

@@ -1,6 +1,6 @@
 import XCTest
 
-class BTUIKAppearanceTests2: XCTestCase {
+class BTUIKAppearanceTests: XCTestCase {
     
     func testLightTheme() {
         let appearance = BTUIKAppearance.sharedInstance()
@@ -135,7 +135,7 @@ class BTUIKAppearanceTests2: XCTestCase {
             XCTAssertEqual(appearance?.secondaryTextColor, BTUIKColor.dynamicSecondaryTextColor);
             XCTAssertEqual(appearance?.placeholderTextColor, BTUIKColor.dynamicPlaceholderTextColor);
             XCTAssertEqual(appearance?.lineColor, BTUIKColor.dynamicLineColor);
-            XCTAssertEqual(appearance?.blurStyle, .systemUltraThinMaterial);
+            XCTAssertEqual(appearance?.blurStyle, .systemMaterial);
             XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium);
         }
     }
@@ -167,7 +167,7 @@ class BTUIKAppearanceTests2: XCTestCase {
             XCTAssertEqual(appearance?.secondaryTextColor, BTUIKColor.dynamicSecondaryTextColor);
             XCTAssertEqual(appearance?.placeholderTextColor, BTUIKColor.dynamicPlaceholderTextColor);
             XCTAssertEqual(appearance?.lineColor, BTUIKColor.dynamicLineColor);
-            XCTAssertEqual(appearance?.blurStyle, .systemUltraThinMaterial);
+            XCTAssertEqual(appearance?.blurStyle, .systemMaterial);
             XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium);
         }
     }
