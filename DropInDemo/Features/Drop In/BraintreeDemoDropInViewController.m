@@ -191,7 +191,7 @@
                                    @"paymentMethodTypeLabel": self.paymentMethodTypeLabel,
                                    @"purchaseButton":self.purchaseButton,
                                    @"colorSchemeLabel": self.colorSchemeLabel,
-                                   @"dropInThemeSegmentedControl":self.colorSchemeSegmentedControl
+                                   @"colorSchemeSegmentedControl":self.colorSchemeSegmentedControl
                                    };
     
     NSMutableArray *newConstraints = [NSMutableArray new];
@@ -216,8 +216,8 @@
         self.purchaseButton.backgroundColor = self.secondaryLabelColor;
         self.purchaseButton.enabled = NO;
     }
-    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[colorSchemeLabel]-[dropInThemeSegmentedControl]" options:0 metrics:nil views:viewBindings]];
-    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[dropInThemeSegmentedControl]-|" options:0 metrics:nil views:viewBindings]];
+    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dropInButton]-(20)-[purchaseButton]-(20)-[colorSchemeLabel]-[colorSchemeSegmentedControl]" options:0 metrics:nil views:viewBindings]];
+    [newConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[colorSchemeSegmentedControl]-|" options:0 metrics:nil views:viewBindings]];
     
     self.checkoutConstraints = newConstraints;
     [self.view addConstraints:self.checkoutConstraints];
