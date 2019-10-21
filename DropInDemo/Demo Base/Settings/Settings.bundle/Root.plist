@@ -85,8 +85,12 @@
 		<dict>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
+			<key>FooterText</key>
+			<string>This setting determines whether successful 3DS verification is required in order to complete a transaction.
+
+The default option requires successful verification only if 3DS verification was attempted.</string>
 			<key>Title</key>
-			<string>Required (3DS Transaction Option)</string>
+			<string>Require for Transactions</string>
 			<key>Key</key>
 			<string>BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey</string>
 			<key>Values</key>
@@ -99,9 +103,9 @@
 			<integer>0</integer>
 			<key>Titles</key>
 			<array>
-				<string>Default (Required if 3DS Verification present)</string>
+				<string>Default (Required if 3DS attempted)</string>
 				<string>Required</string>
-				<string>Optional (required = false)</string>
+				<string>Optional</string>
 			</array>
 			<key>ShortTitles</key>
 			<array>

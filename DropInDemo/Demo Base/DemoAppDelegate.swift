@@ -40,7 +40,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         if testArguments.contains("-ThreeDSecureRequired") {
             UserDefaults.standard.set(DemoThreeDSecureRequiredSetting.required.rawValue, forKey:DemoSettings.ThreeDSecureRequiredDefaultsKey)
         } else if testArguments.contains("-ThreeDSecureDefault") {
-            UserDefaults.standard.set(DemoThreeDSecureRequiredSetting.requiredIfPresent.rawValue, forKey:DemoSettings.ThreeDSecureRequiredDefaultsKey)
+            UserDefaults.standard.set(DemoThreeDSecureRequiredSetting.requiredIfAttempted.rawValue, forKey:DemoSettings.ThreeDSecureRequiredDefaultsKey)
         }
         
         if testArguments.contains("-ThreeDSecureVersion2") {

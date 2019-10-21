@@ -42,7 +42,7 @@ class DemoMerchantAPIClient: NSObject {
         
         if (DemoSettings.threeDSecureRequiredStatus == .required) {
             queryItems += [URLQueryItem(name: "three_d_secure_required", value: "true")]
-        } else if (DemoSettings.threeDSecureRequiredStatus == .notRequired) {
+        } else if (DemoSettings.threeDSecureRequiredStatus == .optional) {
             queryItems += [URLQueryItem(name: "three_d_secure_required", value: "false")]
         }
         

@@ -9,9 +9,9 @@ enum DemoEnvironment: Int {
 
 @objc
 enum DemoThreeDSecureRequiredSetting: Int {
-    case requiredIfPresent
+    case requiredIfAttempted
     case required
-    case notRequired
+    case optional
 }
 
 @objc
@@ -68,7 +68,7 @@ class DemoSettings: NSObject {
     
     @objc
     static var threeDSecureRequiredStatus: DemoThreeDSecureRequiredSetting {
-        return DemoThreeDSecureRequiredSetting(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureRequiredDefaultsKey)) ?? .requiredIfPresent
+        return DemoThreeDSecureRequiredSetting(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureRequiredDefaultsKey)) ?? .requiredIfAttempted
     }
     
     @objc

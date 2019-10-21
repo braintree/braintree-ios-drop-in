@@ -943,7 +943,7 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         waitForElementToAppear(app.staticTexts["Purchase Authentication"], timeout: 20)
 
-        app.buttons["Cancel"].forceTapElement()
+        app.navigationBars["Secure Checkout"].buttons["Cancel"].forceTapElement()
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         waitForElementToAppear(app.staticTexts["Select Payment Method"])
 
