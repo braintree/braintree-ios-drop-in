@@ -251,7 +251,7 @@
                 self.displayCardTypes = paymentOptionTypes;
             } else {
                 if (self.handler) {
-                    self.handler(self, nil, error);
+                    [self invokeHandlerWithResult:nil error:error];
                 }
             }
         });
@@ -264,7 +264,7 @@
     BTDropInResult *result = [[BTDropInResult alloc] init];
     result.cancelled = YES;
     if (self.handler) {
-        self.handler(self, result, nil);
+        [self invokeHandlerWithResult:result error:nil];
     }
 }
 
@@ -282,7 +282,7 @@
                 if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureVerification) {
                     [self threeDSecureVerification:tokenizedCard];
                 } else {
-                    self.handler(self, result, error);
+                    [self invokeHandlerWithResult:result error:error];
                 }
             }];
         }
@@ -323,7 +323,7 @@
                 [self reloadDropInData];
                 return;
             }
-            self.handler(self, dropInResult, error);
+            [self invokeHandlerWithResult:dropInResult error:error];
         }
     }];
 }
@@ -503,12 +503,12 @@
                 [self.paymentSelectionViewController showLoadingScreen:YES];
                 [self threeDSecureVerification:nonce];
             } else {
-                self.handler(self, result, error);
+                [self invokeHandlerWithResult:result error:error];
             }
         }
     } else {
         if (self.handler != nil) {
-            self.handler(self, nil, error);
+            [self invokeHandlerWithResult:nil error:error];
         }
     }
 }
@@ -563,6 +563,21 @@
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(__unused UIViewController *)dismissed
 {
     return [[BTDropInControllerDismissTransition alloc] init];
+}
+
+#pragma mark Handler Callback
+
+// Show loading indicator and disable user interation to block additional actions.
+- (void)invokeHandlerWithResult:(BTDropInResult * __nullable)result error:(NSError * __nullable)error {
+    if (self.handler) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.paymentSelectionViewController) {
+                self.paymentSelectionViewController.view.userInteractionEnabled = NO;
+                [self.paymentSelectionViewController showLoadingScreen:YES];
+            }
+            self.handler(self, result, error);
+        });
+    }
 }
 
 @end
