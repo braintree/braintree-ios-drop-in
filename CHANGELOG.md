@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* Disable user interaction and show loading indicator when `BTDropInControllerHandler` is invoked.
 * Require Braintree ~> 4.29
 * Add support for iOS 13 Dark Mode
   * Add `colorScheme` property to `BTUIKAppearance`, with support for light, dark and dynamic color schemes
