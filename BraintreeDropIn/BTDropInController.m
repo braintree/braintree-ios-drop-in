@@ -567,7 +567,7 @@
 
 #pragma mark Handler Callback
 
-// Show loading indicator and disable user interation to block additional actions.
+// Show loading indicator and disable user interaction to block additional actions.
 - (void)invokeHandlerWithResult:(BTDropInResult * __nullable)result error:(NSError * __nullable)error {
     if (self.handler) {
         dispatch_async(dispatch_get_main_queue(), ^{
