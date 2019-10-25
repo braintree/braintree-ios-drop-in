@@ -130,4 +130,15 @@ class DemoSettings: NSObject {
             UserDefaults.standard.set(newValue.rawValue, forKey: "BraintreeDemoColorSchemeSetting")
         }
     }
+    
+    static var applePayMerchantIdentifier: String? {
+        switch (currentEnvironment) {
+        case .sandbox:
+            return "merchant.com.braintreepayments.sandbox.Braintree-Demo"
+        case .production:
+            return "merchant.com.braintreepayments.Braintree-Demo"
+        case .custom:
+            return nil
+        }
+    }
 }

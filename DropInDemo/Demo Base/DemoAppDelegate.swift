@@ -15,7 +15,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
 
         registerUserDefaults()
         
-        let rootViewController = BraintreeDemoDemoContainmentViewController()
+        let rootViewController = DemoContainerViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController
