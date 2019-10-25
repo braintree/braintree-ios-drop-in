@@ -23,6 +23,7 @@
 		42AA2C9B2363452600A4B026 /* DemoContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9A2363452600A4B026 /* DemoContainerViewController.swift */; };
 		42AA2C9D2363768900A4B026 /* DemoDropInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9C2363768900A4B026 /* DemoDropInViewController.swift */; };
 		42AA2C9F236393FA00A4B026 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */; };
+		42AA2CA123639DCD00A4B026 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */; };
 		42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */; };
 		42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */; };
 		42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */; };
@@ -276,6 +277,7 @@
 		42AA2C9A2363452600A4B026 /* DemoContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoContainerViewController.swift; sourceTree = "<group>"; };
 		42AA2C9C2363768900A4B026 /* DemoDropInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDropInViewController.swift; sourceTree = "<group>"; };
 		42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
+		42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDropInView.swift; sourceTree = "<group>"; };
 		42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientToken.swift; sourceTree = "<group>"; };
 		42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 			isa = PBXGroup;
 			children = (
 				42AA2C9C2363768900A4B026 /* DemoDropInViewController.swift */,
+				42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */,
 			);
 			path = "Drop In";
 			sourceTree = "<group>";
@@ -1486,6 +1489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */,
+				42AA2CA123639DCD00A4B026 /* DemoDropInView.swift in Sources */,
 				42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */,
 				42AA2C9D2363768900A4B026 /* DemoDropInViewController.swift in Sources */,
 				42AA2C9B2363452600A4B026 /* DemoContainerViewController.swift in Sources */,

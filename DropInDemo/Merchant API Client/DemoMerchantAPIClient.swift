@@ -1,12 +1,9 @@
 import Foundation
 
-@objc
 class DemoMerchantAPIClient: NSObject {
     
-    @objc
     static let shared = DemoMerchantAPIClient()
     
-    @objc
     func createCustomerAndFetchClientToken(completion: @escaping ((String?, Error?) -> Void)) {
         
         guard var urlComponents = URLComponents(string: DemoSettings.currentEnvironmentURLString + "/client_token") else { return }
@@ -32,7 +29,6 @@ class DemoMerchantAPIClient: NSObject {
         task.resume()
     }
     
-    @objc
     func makeTransaction(paymentMethodNonce: String, merchantAccountId: String? = nil, completion: @escaping ((String?, Error?) -> Void)) {
         NSLog("Creating a transaction with nonce: %@", paymentMethodNonce)
         

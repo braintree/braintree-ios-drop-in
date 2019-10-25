@@ -1,33 +1,28 @@
 import Foundation
 
-@objc
 enum DemoEnvironment: Int {
     case sandbox
     case production
     case custom
 }
 
-@objc
 enum DemoThreeDSecureRequiredSetting: Int {
     case requiredIfAttempted
     case required
     case optional
 }
 
-@objc
 class DemoSettings: NSObject {
-
-    @objc static let EnvironmentDefaultsKey = "BraintreeDemoSettingsEnvironmentDefaultsKey"
-    @objc static let CustomEnvironmentURLDefaultsKey = "BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey"
-    @objc static let ThreeDSecureRequiredDefaultsKey = "BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey"
-    @objc static let ThreeDSecureVersionDefaultsKey = "BraintreeDemoSettingsThreeDSecureVersionDefaultsKey"
     
-    @objc
+    static let EnvironmentDefaultsKey = "BraintreeDemoSettingsEnvironmentDefaultsKey"
+    static let CustomEnvironmentURLDefaultsKey = "BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey"
+    static let ThreeDSecureRequiredDefaultsKey = "BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey"
+    static let ThreeDSecureVersionDefaultsKey = "BraintreeDemoSettingsThreeDSecureVersionDefaultsKey"
+    
     static var currentEnvironment: DemoEnvironment {
         return DemoEnvironment(rawValue: UserDefaults.standard.integer(forKey: EnvironmentDefaultsKey)) ?? DemoEnvironment.sandbox
     }
     
-    @objc
     static var currentEnvironmentName: String {
         switch currentEnvironment {
         case .sandbox:
@@ -44,7 +39,6 @@ class DemoSettings: NSObject {
         }
     }
     
-    @objc
     static var currentEnvironmentURLString: String {
         switch currentEnvironment {
         case .sandbox:
@@ -56,72 +50,58 @@ class DemoSettings: NSObject {
         }
     }
     
-    @objc
     static var authorizationOverride: String? {
         return UserDefaults.standard.string(forKey: "BraintreeDemoSettingsAuthorizationOverride")
     }
     
-    @objc
     static var useTokenizationKey: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoUseTokenizationKey")
     }
     
-    @objc
     static var threeDSecureRequiredStatus: DemoThreeDSecureRequiredSetting {
         return DemoThreeDSecureRequiredSetting(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureRequiredDefaultsKey)) ?? .requiredIfAttempted
     }
     
-    @objc
     static var threeDSecureRequestedVersion: BTThreeDSecureVersion {
         return BTThreeDSecureVersion(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureVersionDefaultsKey)) ?? .version2
     }
     
-    @objc
     static var useModalPresentation: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoChooserViewControllerShouldUseModalPresentationDefaultsKey")
     }
     
-    @objc
     static var customerPresent: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoCustomerPresent")
     }
     
-    @objc
     static var customerIdentifier: String? {
         return UserDefaults.standard.string(forKey: "BraintreeDemoCustomerIdentifier")
     }
     
-    @objc
     static var paypalDisabled: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoDisablePayPal")
     }
     
-    @objc
     static var venmoDisabled: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoDisableVenmo")
     }
     
-    @objc
     static var maskSecurityCode: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoMaskSecurityCode")
     }
     
-    @objc
     static var cardholderNameSetting: BTFormFieldSetting {
         return BTFormFieldSetting(rawValue: UserDefaults.standard.integer(forKey: "BraintreeDemoCardholderNameSetting")) ?? .disabled
     }
     
-    @objc
     static var vaultCardSetting: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoVaultCardSetting")
     }
     
-    @objc
     static var allowVaultCardOverrideSetting: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoAllowVaultCardOverrideSetting")
     }
     
-    @objc
     static var colorSchemeSetting: BTUIKColorScheme {
         get {
             return BTUIKColorScheme(rawValue: UserDefaults.standard.integer(forKey: "BraintreeDemoColorSchemeSetting")) ?? .light
