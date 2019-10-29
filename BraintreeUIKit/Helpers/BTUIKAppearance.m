@@ -1,6 +1,5 @@
 #import "BTUIKAppearance.h"
 #import "UIColor+BTUIK.h"
-#import "BTUIKColor.h"
 
 @interface BTUIKAppearance ()
 
@@ -61,16 +60,22 @@ static BTUIKAppearance *sharedTheme;
 
 - (void)setDynamicColors {
     if (@available(iOS 13, *)) {
-        sharedTheme.barBackgroundColor = BTUIKColor.dynamicBarBackgroundColor;
-        sharedTheme.formBackgroundColor = BTUIKColor.dynamicFormBackgroundColor;
-        sharedTheme.formFieldBackgroundColor = BTUIKColor.dynamicFormFieldBackgroundColor;
-        sharedTheme.primaryTextColor = BTUIKColor.dynamicPrimaryTextColor;
-        sharedTheme.secondaryTextColor = BTUIKColor.dynamicSecondaryTextColor;
-        sharedTheme.placeholderTextColor = BTUIKColor.dynamicPlaceholderTextColor;
-        sharedTheme.lineColor = BTUIKColor.dynamicLineColor;
+        sharedTheme.barBackgroundColor = UIColor.systemBackgroundColor;
+        sharedTheme.formBackgroundColor = UIColor.systemGroupedBackgroundColor;
+        sharedTheme.formFieldBackgroundColor = UIColor.secondarySystemGroupedBackgroundColor;
+        sharedTheme.primaryTextColor = UIColor.labelColor;
+        sharedTheme.secondaryTextColor = UIColor.secondaryLabelColor;
+        sharedTheme.placeholderTextColor = UIColor.placeholderTextColor;
+        sharedTheme.lineColor = UIColor.separatorColor;
         sharedTheme.blurStyle = UIBlurEffectStyleSystemMaterial;
         sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
-        [sharedTheme setDefaultColors];
+        
+        sharedTheme.overlayColor = [UIColor.blackColor colorWithAlphaComponent:0.5];
+        sharedTheme.tintColor = UIColor.systemBlueColor;
+        sharedTheme.disabledColor = UIColor.systemGrayColor;
+        sharedTheme.errorForegroundColor = UIColor.systemRedColor;
+        sharedTheme.switchThumbTintColor =  UIColor.whiteColor;
+        sharedTheme.switchOnTintColor = UIColor.systemGreenColor;
     }
 }
 
