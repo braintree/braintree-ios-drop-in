@@ -77,6 +77,11 @@ class DemoSettings {
     static var customerIdentifier: String? {
         return UserDefaults.standard.string(forKey: "BraintreeDemoCustomerIdentifier")
     }
+
+    @objc
+    static var createVaultedPaymentMethod: Bool {
+        return UserDefaults.standard.bool(forKey: "BraintreeDemoCreateVaultedPaymentMethod")
+    }
     
     static var paypalDisabled: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoDisablePayPal")

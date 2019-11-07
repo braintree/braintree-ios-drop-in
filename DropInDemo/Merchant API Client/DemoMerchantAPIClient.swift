@@ -23,6 +23,10 @@ class DemoMerchantAPIClient {
             } else {
                 urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: UUID().uuidString)]
             }
+
+            if DemoSettings.createVaultedPaymentMethod {
+                urlComponents.queryItems?.append(URLQueryItem(name: "add_payment_method", value: "true"))
+            }
         }
         
         let task = URLSession.shared.dataTask(with: urlComponents.url!) { (data, response, error) in

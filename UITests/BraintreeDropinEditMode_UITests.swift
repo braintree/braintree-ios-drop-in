@@ -14,7 +14,7 @@ class BraintreeDropIn_EditMode_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-CustomerIDWithVaultedPaymentMethods")
+        app.launchArguments.append("-CreateVaultedPaymentMethod")
         app.launchArguments.append("-ClientToken")
         app.launch()
         sleep(1)
@@ -50,7 +50,7 @@ class BraintreeDropIn_EditMode_Disabled_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-CustomerIDWithVaultedPaymentMethods")
+        app.launchArguments.append("-CreateVaultedPaymentMethod")
         app.launchArguments.append("-DisableEditMode")
         app.launchArguments.append("-ClientToken")
         app.launch()
@@ -59,7 +59,7 @@ class BraintreeDropIn_EditMode_Disabled_UITests: XCTestCase {
         app.buttons["Change Payment Method"].tap()
     }
 
-    func testDropIn_canDisplay_editScreen() {
+    func testDropIn_doesNotDisplay_editScreen() {
         self.waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
 
         XCTAssertFalse(app.buttons["Edit"].exists)
