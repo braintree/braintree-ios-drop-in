@@ -1,8 +1,10 @@
 import Foundation
 
-class DemoMerchantAPIClient: NSObject {
+class DemoMerchantAPIClient {
     
     static let shared = DemoMerchantAPIClient()
+    
+    private init() {}
     
     func createCustomerAndFetchClientToken(completion: @escaping ((String?, Error?) -> Void)) {
         
