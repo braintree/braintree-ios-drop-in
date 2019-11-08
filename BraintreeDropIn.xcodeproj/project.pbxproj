@@ -32,8 +32,6 @@
 		53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */; };
 		53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */; };
 		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
-		803B8DC422D3D307008B0DD9 /* BTUIKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 803B8DC222D3D307008B0DD9 /* BTUIKColor.m */; };
-		803B8DC522D3DAB8008B0DD9 /* BTUIKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 803B8DC122D3D307008B0DD9 /* BTUIKColor.h */; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
@@ -289,8 +287,6 @@
 		53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKHiperVectorArtView.h; sourceTree = "<group>"; };
 		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
-		803B8DC122D3D307008B0DD9 /* BTUIKColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKColor.h; sourceTree = "<group>"; };
-		803B8DC222D3D307008B0DD9 /* BTUIKColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKColor.m; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKCardholderNameFormField.h; sourceTree = "<group>"; };
@@ -603,8 +599,6 @@
 		A52900E21D8903A600032220 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				803B8DC122D3D307008B0DD9 /* BTUIKColor.h */,
-				803B8DC222D3D307008B0DD9 /* BTUIKColor.m */,
 				A52900E31D8903A600032220 /* BTUIKAppearance.m */,
 				A52900E41D8903A600032220 /* BTUIKViewUtil.m */,
 				A52900E51D8903A600032220 /* UIColor+BTUIK.m */,
@@ -1008,7 +1002,6 @@
 				53E78BEA22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.h in Headers */,
 				A52901B11D8903A700032220 /* BTUIKCardVectorArtView.h in Headers */,
 				A52902011D8903A700032220 /* BTUIKLargePayPalMonogramCardView.h in Headers */,
-				803B8DC522D3DAB8008B0DD9 /* BTUIKColor.h in Headers */,
 				A52901F21D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.h in Headers */,
 				53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */,
 				A52901AE1D8903A700032220 /* BTUIKApplePayMarkVectorArtView.h in Headers */,
@@ -1447,7 +1440,6 @@
 				A52901EE1D8903A700032220 /* BTUIKLargeApplePayMarkVectorArtView.m in Sources */,
 				53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */,
 				A52901B01D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */,
-				803B8DC422D3D307008B0DD9 /* BTUIKColor.m in Sources */,
 				A52901911D8903A600032220 /* BTUIKCardType.m in Sources */,
 				A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */,
 				A529020C1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */,

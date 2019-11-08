@@ -1,6 +1,6 @@
 import XCTest
 
-class BTUIKAppearanceTests2: XCTestCase {
+class BTUIKAppearanceTests: XCTestCase {
     
     func testLightTheme() {
         let appearance = BTUIKAppearance.sharedInstance()
@@ -112,66 +112,30 @@ class BTUIKAppearanceTests2: XCTestCase {
         if #available(iOS 13, *) {
             let appearance = BTUIKAppearance.sharedInstance()
             appearance?.colorScheme = .dynamic
-
-            let dropInVC = BTDropInController()
-            dropInVC.overrideUserInterfaceStyle = .light
-            dropInVC.viewDidLoad()
             
-            XCTAssertEqual(appearance?.overlayColor, UIColor.btuik_color(fromHex:"000000", alpha:0.5));
-            XCTAssertEqual(appearance?.tintColor, UIColor.btuik_color(fromHex:"2489F6", alpha:1.0));
-            XCTAssertEqual(appearance?.disabledColor, UIColor.lightGray);
-            XCTAssertEqual(appearance?.errorForegroundColor, UIColor.btuik_color(fromHex:"ff3b30", alpha:1.0));
+            XCTAssertEqual(appearance?.overlayColor, UIColor.black.withAlphaComponent(0.5));
+            XCTAssertEqual(appearance?.tintColor, UIColor.systemBlue);
+            XCTAssertEqual(appearance?.disabledColor, UIColor.systemGray);
+            XCTAssertEqual(appearance?.errorForegroundColor, UIColor.systemRed);
             XCTAssertEqual(appearance?.switchThumbTintColor, UIColor.white);
-            XCTAssertEqual(appearance?.switchOnTintColor, UIColor.green);
+            XCTAssertEqual(appearance?.switchOnTintColor, UIColor.systemGreen);
             XCTAssertEqual(appearance?.font, UIFont.systemFont(ofSize:10));
             XCTAssertEqual(appearance?.boldFont, UIFont.boldSystemFont(ofSize:10));
             XCTAssertEqual(appearance?.useBlurs, true);
             XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .numberPad);
 
-            XCTAssertEqual(appearance?.barBackgroundColor, BTUIKColor.dynamicBarBackgroundColor)
-            XCTAssertEqual(appearance?.formBackgroundColor, BTUIKColor.dynamicFormBackgroundColor);
-            XCTAssertEqual(appearance?.formFieldBackgroundColor,  BTUIKColor.dynamicFormFieldBackgroundColor);
-            XCTAssertEqual(appearance?.primaryTextColor, BTUIKColor.dynamicPrimaryTextColor);
-            XCTAssertEqual(appearance?.secondaryTextColor, BTUIKColor.dynamicSecondaryTextColor);
-            XCTAssertEqual(appearance?.placeholderTextColor, BTUIKColor.dynamicPlaceholderTextColor);
-            XCTAssertEqual(appearance?.lineColor, BTUIKColor.dynamicLineColor);
-            XCTAssertEqual(appearance?.blurStyle, .systemUltraThinMaterial);
+            XCTAssertEqual(appearance?.barBackgroundColor, UIColor.systemBackground)
+            XCTAssertEqual(appearance?.formBackgroundColor, UIColor.systemGroupedBackground);
+            XCTAssertEqual(appearance?.formFieldBackgroundColor, UIColor.secondarySystemGroupedBackground);
+            XCTAssertEqual(appearance?.primaryTextColor, UIColor.label);
+            XCTAssertEqual(appearance?.secondaryTextColor, UIColor.secondaryLabel);
+            XCTAssertEqual(appearance?.placeholderTextColor, UIColor.placeholderText);
+            XCTAssertEqual(appearance?.lineColor, UIColor.separator);
+            XCTAssertEqual(appearance?.blurStyle, .systemMaterial);
             XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium);
         }
     }
-
-    func testDynamicColorScheme_whenSystemIsInDarkMode() {
-        if #available(iOS 13, *) {
-            let appearance = BTUIKAppearance.sharedInstance()
-            appearance?.colorScheme = .dynamic
-
-            let dropInVC = BTDropInController()
-            dropInVC.overrideUserInterfaceStyle = .dark
-            dropInVC.viewDidLoad()
-
-            XCTAssertEqual(appearance?.overlayColor, UIColor.btuik_color(fromHex:"000000", alpha:0.5));
-            XCTAssertEqual(appearance?.tintColor, UIColor.btuik_color(fromHex:"2489F6", alpha:1.0));
-            XCTAssertEqual(appearance?.disabledColor, UIColor.lightGray);
-            XCTAssertEqual(appearance?.errorForegroundColor, UIColor.btuik_color(fromHex:"ff3b30", alpha:1.0));
-            XCTAssertEqual(appearance?.switchThumbTintColor, UIColor.white);
-            XCTAssertEqual(appearance?.switchOnTintColor, UIColor.green);
-            XCTAssertEqual(appearance?.font, UIFont.systemFont(ofSize:10));
-            XCTAssertEqual(appearance?.boldFont, UIFont.boldSystemFont(ofSize:10));
-            XCTAssertEqual(appearance?.useBlurs, true);
-            XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .numberPad);
-
-            XCTAssertEqual(appearance?.barBackgroundColor, BTUIKColor.dynamicBarBackgroundColor)
-            XCTAssertEqual(appearance?.formBackgroundColor, BTUIKColor.dynamicFormBackgroundColor);
-            XCTAssertEqual(appearance?.formFieldBackgroundColor,  BTUIKColor.dynamicFormFieldBackgroundColor);
-            XCTAssertEqual(appearance?.primaryTextColor, BTUIKColor.dynamicPrimaryTextColor);
-            XCTAssertEqual(appearance?.secondaryTextColor, BTUIKColor.dynamicSecondaryTextColor);
-            XCTAssertEqual(appearance?.placeholderTextColor, BTUIKColor.dynamicPlaceholderTextColor);
-            XCTAssertEqual(appearance?.lineColor, BTUIKColor.dynamicLineColor);
-            XCTAssertEqual(appearance?.blurStyle, .systemUltraThinMaterial);
-            XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium);
-        }
-    }
-
+    
     func testNavigationTitleTextColor_defaultsToPrimaryTextColor_whenNotSet() {
         BTUIKAppearance.sharedInstance().primaryTextColor = UIColor.purple
         BTUIKAppearance.sharedInstance().navigationBarTitleTextColor = nil;

@@ -4,4 +4,3 @@
 
 #import "BraintreeDropIn.h"
 #import "BraintreePaymentFlow.h"
-#import "BTUIKColor.h"
