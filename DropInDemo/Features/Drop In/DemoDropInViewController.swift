@@ -132,7 +132,7 @@ class DemoDropInViewController: DemoBaseViewController {
             
             progressBlock?("Presenting Apple Pay Sheet")
             present(applePayController, animated: true)
-        } else if DemoSettings.threeDSecureRequiredStatus == .required, let cardNonce = selectedNonce as? BTCardNonce, cardNonce.threeDSecureInfo.wasVerified {
+        } else if DemoSettings.threeDSecureRequiredStatus == .required, (selectedNonce as? BTCardNonce)?.threeDSecureInfo.wasVerified == false {
             performThreeDSecureVerification()
         } else {
             completionBlock?(self.selectedNonce)
