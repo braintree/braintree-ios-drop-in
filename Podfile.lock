@@ -52,7 +52,6 @@ PODS:
   - OHHTTPStubs/NSURLSession (8.0.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (8.0.0)
-  - PureLayout (3.1.4)
   - Specta (1.0.7)
 
 DEPENDENCIES:
@@ -66,7 +65,6 @@ DEPENDENCIES:
   - InAppSettingsKit
   - OCMock
   - OHHTTPStubs
-  - PureLayout
   - Specta
 
 SPEC REPOS:
@@ -77,7 +75,6 @@ SPEC REPOS:
     - InAppSettingsKit
     - OCMock
     - OHHTTPStubs
-    - PureLayout
     - Specta
 
 EXTERNAL SOURCES:
@@ -92,9 +89,8 @@ SPEC CHECKSUMS:
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
-  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: 199cd76cf31f93f6ed347cc4a09b8ddfde278550
+PODFILE CHECKSUM: 8fb97363ee8a1843dccf275895f7850a4e4fb72d
 
 COCOAPODS: 1.8.4

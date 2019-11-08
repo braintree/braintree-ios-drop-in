@@ -26,10 +26,8 @@ class DemoContainerViewController: UIViewController {
             
             addChild(current)
             view.addSubview(current.view)
-            current.view.autoPin(toTopLayoutGuideOf: self, withInset: 0)
-            current.view.autoPin(toBottomLayoutGuideOf: self, withInset: 0)
-            current.view.autoPinEdge(toSuperviewEdge: .leading)
-            current.view.autoPinEdge(toSuperviewEdge: .trailing)
+            
+            current.view.pinToEdges(of: self)
             current.didMove(toParent: self)
         }
     }

@@ -7,7 +7,6 @@ workspace 'BraintreeDropIn.xcworkspace'
 
 target 'DropInDemo' do
   pod 'CardIO'
-  pod 'PureLayout'
   pod 'InAppSettingsKit'
 
   pod "BraintreeDropIn", :path => "./"

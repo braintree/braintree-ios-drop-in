@@ -24,6 +24,7 @@
 		42AA2C9D2363768900A4B026 /* DemoDropInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9C2363768900A4B026 /* DemoDropInViewController.swift */; };
 		42AA2C9F236393FA00A4B026 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */; };
 		42AA2CA123639DCD00A4B026 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */; };
+		42C54B352375CA6C006104C9 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C54B342375CA6C006104C9 /* ViewHelpers.swift */; };
 		42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */; };
 		42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */; };
 		42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */; };
@@ -277,6 +278,7 @@
 		42AA2C9C2363768900A4B026 /* DemoDropInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDropInViewController.swift; sourceTree = "<group>"; };
 		42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
 		42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDropInView.swift; sourceTree = "<group>"; };
+		42C54B342375CA6C006104C9 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
 		42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientToken.swift; sourceTree = "<group>"; };
 		42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
@@ -899,6 +901,7 @@
 				42DA26CC231AF06C00E69CC5 /* DemoAppDelegate.swift */,
 				42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */,
 				42AA2C9A2363452600A4B026 /* DemoContainerViewController.swift */,
+				42C54B342375CA6C006104C9 /* ViewHelpers.swift */,
 				A5CE1D6E1D83599D009BE61A /* Settings */,
 			);
 			path = "Demo Base";
@@ -1492,6 +1495,7 @@
 				42AA2C9F236393FA00A4B026 /* DemoBaseViewController.swift in Sources */,
 				42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */,
 				42DA26CD231AF06C00E69CC5 /* DemoAppDelegate.swift in Sources */,
+				42C54B352375CA6C006104C9 /* ViewHelpers.swift in Sources */,
 				42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
