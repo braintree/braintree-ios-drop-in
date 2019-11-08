@@ -7,5 +7,5 @@
 #import "IASKAppSettingsViewController.h"
 #import "ALView+PureLayout.h"
 
-// For Testing Only
+// For Testing Purposes Only
 #import "BTDropInOverrides.h"
