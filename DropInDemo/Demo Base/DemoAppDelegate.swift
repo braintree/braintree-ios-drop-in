@@ -65,9 +65,15 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
 
         if testArguments.contains("-CreateVaultedPaymentMethod") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
-        }
-        else {
+        } else {
             UserDefaults.standard.set(false, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
+        }
+
+        // -CreateVaulted3DS2PaymentMethod
+        if testArguments.contains("-CreateVaulted3DS2PaymentMethod") {
+            UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaulted3DS2PaymentMethod")
+        } else {
+            UserDefaults.standard.set(false, forKey:"BraintreeDemoCreateVaulted3DS2PaymentMethod")
         }
         
         UserDefaults.standard.set(false, forKey:"BraintreeDemoDisablePayPal")
