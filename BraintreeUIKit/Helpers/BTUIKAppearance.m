@@ -16,7 +16,10 @@ static BTUIKAppearance *sharedTheme;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedTheme = [BTUIKAppearance new];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         [BTUIKAppearance lightTheme];
+#pragma clang diagnostic pop
     });
     
     return sharedTheme;
