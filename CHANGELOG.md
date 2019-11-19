@@ -1,8 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## Unreleased
+## 7.5.0 (2019-11-19)
 
-* Require Braintree ~> 4.29
+* Require Braintree ~> 4.30
 * Add support for iOS 13 Dark Mode
   * Add `colorScheme` property to `BTUIKAppearance`, with support for light, dark and dynamic color schemes
   * Deprecate `lightTheme` and `darkTheme`
