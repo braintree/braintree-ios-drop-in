@@ -1,38 +1,38 @@
 PODS:
-  - Braintree/Apple-Pay (4.29.0):
+  - Braintree/Apple-Pay (4.30.2):
     - Braintree/Core
-  - Braintree/Card (4.29.0):
+  - Braintree/Card (4.30.2):
     - Braintree/Core
-  - Braintree/Core (4.29.0)
-  - Braintree/PaymentFlow (4.29.0):
+  - Braintree/Core (4.30.2)
+  - Braintree/PaymentFlow (4.30.2):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.29.0):
+  - Braintree/PayPal (4.30.2):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.29.0):
+  - Braintree/PayPalDataCollector (4.30.2):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.29.0):
+  - Braintree/PayPalOneTouch (4.30.2):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.29.0)
-  - Braintree/UnionPay (4.29.0):
+  - Braintree/PayPalUtils (4.30.2)
+  - Braintree/UnionPay (4.30.2):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.29.0):
+  - Braintree/Venmo (4.30.2):
     - Braintree/Core
     - Braintree/PayPalDataCollector
   - BraintreeDropIn (7.4.0):
     - BraintreeDropIn/DropIn (= 7.4.0)
   - BraintreeDropIn/DropIn (7.4.0):
-    - Braintree/Card (~> 4.29)
-    - Braintree/Core (~> 4.29)
-    - Braintree/PaymentFlow (~> 4.29)
-    - Braintree/PayPal (~> 4.29)
-    - Braintree/UnionPay (~> 4.29)
+    - Braintree/Card (~> 4.30)
+    - Braintree/Core (~> 4.30)
+    - Braintree/PaymentFlow (~> 4.30)
+    - Braintree/PayPal (~> 4.30)
+    - Braintree/UnionPay (~> 4.30)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (7.4.0)
   - CardIO (5.4.1)
@@ -85,8 +85,8 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  Braintree: c8276bc46657026116971442f9de194e028f4fbb
-  BraintreeDropIn: 54f86beb0f776fdadc4b0918ad130cdbf1946764
+  Braintree: 9fc21dc2ead57d104c4a0743454308e404217ec7
+  BraintreeDropIn: 9eeb960d86b5b5e351f403da36ea2313b9fdb70c
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
@@ -97,4 +97,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 199cd76cf31f93f6ed347cc4a09b8ddfde278550
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.4
