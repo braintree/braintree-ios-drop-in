@@ -2,12 +2,19 @@ import Foundation
 
 class DemoMerchantAPIClient {
     
+    private struct ClientToken: Codable {
+        let clientToken: String
+    }
+    
+    private struct TransactionResponse: Codable {
+        let message: String
+    }
+    
     static let shared = DemoMerchantAPIClient()
     
     private init() {}
     
     func createCustomerAndFetchClientToken(completion: @escaping ((String?, Error?) -> Void)) {
-        
         guard var urlComponents = URLComponents(string: DemoSettings.currentEnvironmentURLString + "/client_token") else { return }
         
         if DemoSettings.customerPresent {
@@ -24,7 +31,9 @@ class DemoMerchantAPIClient {
                 return
             }
             
-            let clientToken = try? JSONDecoder().decode(ClientToken.self, from: data).value
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            let clientToken = try? jsonDecoder.decode(ClientToken.self, from: data).clientToken
             DispatchQueue.main.async { completion(clientToken, nil) }
         }
         

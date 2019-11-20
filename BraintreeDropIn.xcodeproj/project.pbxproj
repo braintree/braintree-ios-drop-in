@@ -25,8 +25,6 @@
 		42AA2C9F236393FA00A4B026 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */; };
 		42AA2CA123639DCD00A4B026 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */; };
 		42C54B352375CA6C006104C9 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C54B342375CA6C006104C9 /* ViewHelpers.swift */; };
-		42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */; };
-		42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */; };
 		42DA26CB231ABDCA00E69CC5 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */; };
 		42DA26CD231AF06C00E69CC5 /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DA26CC231AF06C00E69CC5 /* DemoAppDelegate.swift */; };
 		53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */; };
@@ -279,8 +277,6 @@
 		42AA2C9E236393FA00A4B026 /* DemoBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
 		42AA2CA023639DCD00A4B026 /* DemoDropInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDropInView.swift; sourceTree = "<group>"; };
 		42C54B342375CA6C006104C9 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
-		42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientToken.swift; sourceTree = "<group>"; };
-		42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		42DA26CA231ABDCA00E69CC5 /* DemoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
 		42DA26CC231AF06C00E69CC5 /* DemoAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppDelegate.swift; sourceTree = "<group>"; };
 		4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -938,8 +934,6 @@
 			isa = PBXGroup;
 			children = (
 				42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */,
-				42DA26C4231ABCCB00E69CC5 /* ClientToken.swift */,
-				42DA26C8231ABCE800E69CC5 /* TransactionResponse.swift */,
 			);
 			name = "Merchant API Client";
 			path = "DropInDemo/Merchant API Client";
@@ -1487,9 +1481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42DA26C9231ABCE800E69CC5 /* TransactionResponse.swift in Sources */,
 				42AA2CA123639DCD00A4B026 /* DemoDropInView.swift in Sources */,
-				42DA26C5231ABCCB00E69CC5 /* ClientToken.swift in Sources */,
 				42AA2C9D2363768900A4B026 /* DemoDropInViewController.swift in Sources */,
 				42AA2C9B2363452600A4B026 /* DemoContainerViewController.swift in Sources */,
 				42AA2C9F236393FA00A4B026 /* DemoBaseViewController.swift in Sources */,

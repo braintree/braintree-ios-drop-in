@@ -12,7 +12,7 @@ enum DemoThreeDSecureRequiredSetting: Int {
     case optional
 }
 
-class DemoSettings: NSObject {
+class DemoSettings {
     
     static let EnvironmentDefaultsKey = "BraintreeDemoSettingsEnvironmentDefaultsKey"
     static let CustomEnvironmentURLDefaultsKey = "BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey"
