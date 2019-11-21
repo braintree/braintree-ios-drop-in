@@ -1,14 +1,20 @@
 import Foundation
 
-@objc
-class DemoMerchantAPIClient: NSObject {
+class DemoMerchantAPIClient {
     
-    @objc
+    private struct ClientToken: Codable {
+        let clientToken: String
+    }
+    
+    private struct TransactionResponse: Codable {
+        let message: String
+    }
+    
     static let shared = DemoMerchantAPIClient()
     
-    @objc
+    private init() {}
+    
     func createCustomerAndFetchClientToken(completion: @escaping ((String?, Error?) -> Void)) {
-        
         guard var urlComponents = URLComponents(string: DemoSettings.currentEnvironmentURLString + "/client_token") else { return }
         
         if DemoSettings.customerPresent {
@@ -25,14 +31,15 @@ class DemoMerchantAPIClient: NSObject {
                 return
             }
             
-            let clientToken = try? JSONDecoder().decode(ClientToken.self, from: data).value
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            let clientToken = try? jsonDecoder.decode(ClientToken.self, from: data).clientToken
             DispatchQueue.main.async { completion(clientToken, nil) }
         }
         
         task.resume()
     }
     
-    @objc
     func makeTransaction(paymentMethodNonce: String, merchantAccountId: String? = nil, completion: @escaping ((String?, Error?) -> Void)) {
         NSLog("Creating a transaction with nonce: %@", paymentMethodNonce)
         

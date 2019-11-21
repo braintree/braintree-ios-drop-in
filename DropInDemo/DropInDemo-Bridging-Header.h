@@ -1,10 +1,10 @@
-//
-//  Use this file to import your target's public headers that you would like to expose to Swift.
-//
+#import <BraintreeDropIn/BraintreeDropIn.h>
+#import "BraintreePaymentFlow.h"
+#import "BraintreePayPal.h"
+#import "BraintreeApplePay.h"
 
-#import "BTDropInRequest.h"
-#import "BTThreeDSecureRequest.h"
-#import "BraintreeDemoDemoContainmentViewController.h"
+// Helpers
+#import "IASKAppSettingsViewController.h"
+
+// For Testing Purposes Only
 #import "BTDropInOverrides.h"
-#import "BTAppSwitch.h"
-#import "BTUIKAppearance.h"
