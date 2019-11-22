@@ -1103,7 +1103,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
         cardNumberTextField.typeText("4111111111111111")
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
-        waitForElementToAppear(saveCardSwitch)
+        waitForElementToBeHittable(saveCardSwitch)
 
         XCTAssertEqual("1", saveCardSwitch.value as? String)
 
@@ -1141,7 +1141,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         cardNumberTextField.typeText("4111111111111111")
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
-        waitForElementToAppear(saveCardSwitch)
+        waitForElementToBeHittable(saveCardSwitch)
 
         XCTAssertEqual("0", saveCardSwitch.value as? String)
     }
