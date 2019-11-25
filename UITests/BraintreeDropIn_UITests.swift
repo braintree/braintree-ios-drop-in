@@ -166,6 +166,7 @@ class BraintreeDropIn_CardDisabled_UITests: XCTestCase {
     }
 
     func testDropIn_cardDisabledOption_disablesCreditCard() {
+        waitForElementToBeHittable(app.staticTexts["PayPal"])
         XCTAssertTrue(app.staticTexts["PayPal"].exists)
         XCTAssertFalse(app.staticTexts["Credit or Debit Card"].exists)
     }
