@@ -968,7 +968,7 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
         app.launchArguments.append("-ClientToken")
         app.launchArguments.append("-ThreeDSecureRequired")
         app.launchArguments.append("-ThreeDSecureVersion2")
-        app.launchArguments.append("-CustomerIDWithVaultedPaymentMethods")
+        app.launchArguments.append("-CreateVaulted3DS2PaymentMethod")
         app.launch()
         sleep(1)
         
@@ -1105,8 +1105,6 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
 
         let saveCardSwitch = elementsQuery.switches["Save card"]
         waitForElementToBeHittable(saveCardSwitch)
-
-        XCTAssertTrue(saveCardSwitch.exists)
 
         XCTAssertEqual("1", saveCardSwitch.value as? String)
 

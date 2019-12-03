@@ -18,11 +18,22 @@ class DemoMerchantAPIClient {
         guard var urlComponents = URLComponents(string: DemoSettings.currentEnvironmentURLString + "/client_token") else { return }
         
         if DemoSettings.customerPresent {
+            var queryItems: [URLQueryItem] = []
             if let id = DemoSettings.customerIdentifier, id.count > 0 {
-                urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: id)]
+                queryItems.append(URLQueryItem(name: "customer_id", value: id))
             } else {
-                urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: UUID().uuidString)]
+                queryItems.append(URLQueryItem(name: "customer_id", value: UUID().uuidString))
             }
+
+            if DemoSettings.createVaultedPaymentMethod {
+                queryItems.append(URLQueryItem(name: "add_payment_method", value: "true"))
+            }
+
+            if DemoSettings.createVaulted3DS2PaymentMethod {
+                queryItems.append(URLQueryItem(name: "add_3ds_card", value: "true"))
+            }
+
+            urlComponents.queryItems = queryItems
         }
         
         let task = URLSession.shared.dataTask(with: urlComponents.url!) { (data, response, error) in

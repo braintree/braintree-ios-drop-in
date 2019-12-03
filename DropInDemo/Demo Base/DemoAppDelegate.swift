@@ -57,10 +57,17 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoCustomerPresent")
             UserDefaults.standard.set("", forKey:"BraintreeDemoCustomerIdentifier")
         }
-        
-        if testArguments.contains("-CustomerIDWithVaultedPaymentMethods") {
-            // Customer ID "123-edit-test" has vaulted payment methods
-            UserDefaults.standard.set("123-edit-test", forKey:"BraintreeDemoCustomerIdentifier")
+
+        if testArguments.contains("-CreateVaultedPaymentMethod") {
+            UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
+        } else {
+            UserDefaults.standard.set(false, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
+        }
+
+        if testArguments.contains("-CreateVaulted3DS2PaymentMethod") {
+            UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaulted3DS2PaymentMethod")
+        } else {
+            UserDefaults.standard.set(false, forKey:"BraintreeDemoCreateVaulted3DS2PaymentMethod")
         }
         
         UserDefaults.standard.set(false, forKey:"BraintreeDemoDisablePayPal")
