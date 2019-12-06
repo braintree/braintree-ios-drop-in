@@ -93,11 +93,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    if (self.isBeingPresented) {
+//    if (self.isBeingPresented) {
         [self.paymentSelectionViewController loadConfiguration];
         [self resetDropInState];
         [self loadConfiguration];
-    }
+//    }
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
 }
 

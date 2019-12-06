@@ -16,6 +16,12 @@ target 'DropInDemo' do
   pod 'Braintree/PaymentFlow'
 end
 
+target 'DropInDemoSwiftUI' do
+  pod "BraintreeDropIn", :path => "./"
+  pod 'Braintree/PayPal'
+  pod 'Braintree/Apple-Pay'
+end
+
 abstract_target 'Tests' do
   pod 'Specta'
   pod 'Expecta'
