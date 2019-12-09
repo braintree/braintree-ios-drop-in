@@ -61,11 +61,11 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 @property (nonatomic, strong) UIColor *switchOnTintColor;
 /// Tint color for UISwitch thumb
 @property (nonatomic, strong) UIColor *switchThumbTintColor;
-/// Color scheme of the Drop-In UI. Only available in iOS 13+
+/// Color scheme of the Drop-In UI.
 ///
 /// When set to BTUIKColorSchemeLight, the Drop-In UI uses a light color palette.
 /// When set to BTUIKColorSchemeDark, the Drop-In UI uses a dark color palette.
-/// When set to BTUIKColorSchemeDynamic, the Drop-In UI uses a dark or light color palette depending on the user's light or dark mode system preference.
+/// When set to BTUIKColorSchemeDynamic, the Drop-In UI uses a dark or light color palette depending on the user's light or dark mode system preference. Only available in iOS 13+
 @property (nonatomic) enum BTUIKColorScheme colorScheme;
 /// Appearance style of keyboards associated with text fields
 @property (nonatomic) UIKeyboardAppearance keyboardAppearance;
