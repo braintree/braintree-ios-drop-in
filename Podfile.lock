@@ -35,7 +35,6 @@ PODS:
     - Braintree/UnionPay (~> 4.30)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (7.5.0)
-  - CardIO (5.4.1)
   - Expecta (1.0.6)
   - InAppSettingsKit (2.12)
   - OCMock (3.4.3)
@@ -60,7 +59,6 @@ DEPENDENCIES:
   - Braintree/PayPal
   - Braintree/Venmo
   - BraintreeDropIn (from `./`)
-  - CardIO
   - Expecta
   - InAppSettingsKit
   - OCMock
@@ -70,7 +68,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Braintree
-    - CardIO
     - Expecta
     - InAppSettingsKit
     - OCMock
@@ -84,13 +81,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Braintree: 9fc21dc2ead57d104c4a0743454308e404217ec7
   BraintreeDropIn: 15d6f53bf80bc0ae7809ab17803100c0a5448fd2
-  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: 8fb97363ee8a1843dccf275895f7850a4e4fb72d
+PODFILE CHECKSUM: 5b71dc897ee1a212912d8c4a661c2671db93c563
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.1

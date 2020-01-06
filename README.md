@@ -193,22 +193,6 @@ func fetchExistingPaymentMethod(clientToken: String) {
 
 Drop-In is currently localized for [23 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/BraintreeUIKit/Localization).
 
-### card.io
-
-To offer card scanning via card.io, add [card.io](https://github.com/card-io/card.io-iOS-SDK) to your project.
-
-```
-//Update your Podfile with card.io
-pod 'CardIO'
-
-```
-And set `NSCameraUsageDescription` in your application's plist.
-
-```
-<key>NSCameraUsageDescription</key>
-<string>To offer card scanning via card.io</string>
-```
-
 ### Color Schemes
 
 Drop-In is fully customizable, but we also provide `Light`, `Dark` and `Dynamic` color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. The `Dynamic` scheme is only available in iOS 13 or higher. Drop-In will use the `Light` color scheme by default.

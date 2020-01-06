@@ -6,7 +6,6 @@ inhibit_all_warnings!
 workspace 'BraintreeDropIn.xcworkspace'
 
 target 'DropInDemo' do
-  pod 'CardIO'
   pod 'InAppSettingsKit'
 
   pod "BraintreeDropIn", :path => "./"
