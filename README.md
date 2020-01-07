@@ -14,7 +14,6 @@ Welcome to Braintree's Drop-In SDK for iOS!
 - UI elements, art, helpers and localization are now accessible
 - Added Apple Pay and UnionPay support to Drop-In
 - Customizable appearance
-- card.io card number scanning support
 - And more...
 
 Please create an [issue](https://github.com/braintree/braintree-ios-drop-in/issues) with any comments or concerns.
