@@ -1,17 +1,29 @@
 language: objective-c
-cache:
-  - bundler
-  - cocoapods
-osx_image: xcode11.2.1
-
-before_install:
-  - brew update || brew update
+osx_image: xcode11.2
 
 install:
   - bundle install
   - bundle exec pod repo update --silent
-  - bundle exec pod install
+  - travis_wait bundle exec pod install || { rm -rf ./Pods; bundle exec pod install; }
 
 script:
-  - travis_wait bundle exec rake spec
+  - set -o pipefail
+  - xcodebuild test -workspace BraintreeDropIn.xcworkspace -scheme "UnitTests" -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2' | xcpretty -c
 
+#language: objective-c
+#cache:
+#  - bundler
+#  - cocoapods
+#osx_image: xcode11.2.1
+#
+#before_install:
+#  - brew update || brew update
+#
+#install:
+#  - bundle install
+#  - bundle exec pod repo update --silent
+#  - bundle exec pod install
+#
+#script:
+#  - travis_wait bundle exec rake spec
+#
