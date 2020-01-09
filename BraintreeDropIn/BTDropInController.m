@@ -79,17 +79,6 @@
         }
         self.handler = handler;
         self.displayCardTypes = @[];
-
-        // For backwards compatibility, create a BTThreeDSecureRequest if threeDSecureVerification is enabled and an amount is present
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if (self.dropInRequest.threeDSecureVerification && self.dropInRequest.amount && !self.dropInRequest.threeDSecureRequest) {
-            BTThreeDSecureRequest *threeDSecureRequest = [[BTThreeDSecureRequest alloc] init];
-            threeDSecureRequest.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
-            self.dropInRequest.threeDSecureRequest = threeDSecureRequest;
-        }
-#pragma clang diagnostic pop
     }
     return self;
 }
@@ -298,13 +287,6 @@
         request = [[BTThreeDSecureRequest alloc] init];
     }
     request.nonce = tokenizedCard.nonce;
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if (!request.amount && self.dropInRequest.amount) {
-        request.amount = [[NSDecimalNumber alloc] initWithString:self.dropInRequest.amount];
-    }
-#pragma clang diagnostic pop
 
     if (request.versionRequested == BTThreeDSecureVersion2) {
         request.threeDSecureRequestDelegate = self;
