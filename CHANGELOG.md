@@ -1,5 +1,12 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Remove deprecated methods and properties
+  * Remove BTDropInBaseViewController showLoadingScreen:animated: method
+  * Remove BTDropInRequest amount property
+  * Remove BTUIKAppearance darkTheme and lightTheme methods
+
 ## 7.5.0 (2019-11-19)
 
 * Require Braintree ~> 4.30
