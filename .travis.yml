@@ -4,6 +4,9 @@ cache:
   - cocoapods
 osx_image: xcode11.2.1
 
+before_install:
+  - rvm install 2.3.0
+
 install:
   - bundle install
   - bundle exec pod repo update --silent
