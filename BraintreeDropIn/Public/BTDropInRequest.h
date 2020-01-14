@@ -12,7 +12,6 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 @interface BTDropInRequest : NSObject <NSCopying>
 
-
 /// Optional: Specify the options for the PayPal flow. If not present, a default vault flow will be used.
 ///
 /// Note: The checkout flow is used when an amount is set on the `payPalRequest`.
