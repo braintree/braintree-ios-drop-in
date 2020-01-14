@@ -2,10 +2,10 @@
 
 ## unreleased
 
-* Remove deprecated methods and properties
-  * Remove BTDropInBaseViewController showLoadingScreen:animated: method
-  * Remove BTDropInRequest amount property
-  * Remove BTUIKAppearance darkTheme and lightTheme methods
+* Remove deprecated methods and properties (NEXT_MAJOR_VERSION)
+  * Remove BTDropInBaseViewController showLoadingScreen:animated: method (NEXT_MAJOR_VERSION)
+  * Remove BTDropInRequest amount property (NEXT_MAJOR_VERSION)
+  * Remove BTUIKAppearance darkTheme and lightTheme methods (NEXT_MAJOR_VERSION)
 
 ## 7.5.0 (2019-11-19)
 
