@@ -1,29 +1,26 @@
 language: objective-c
-osx_image: xcode11.2
+cache:
+  - bundler
+  - cocoapods
+osx_image: xcode7.3
+
+before_install:
+  - brew update || brew update
+  - brew outdated xctool || brew upgrade xctool
+  - SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 6 (9.3) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
 
 install:
   - bundle install
-  - bundle exec pod repo update --silent
-  - travis_wait bundle exec pod install || { rm -rf ./Pods; bundle exec pod install; }
+  - bundle exec pod install
 
 script:
-  - set -o pipefail
-  - xcodebuild test -workspace BraintreeDropIn.xcworkspace -scheme "UnitTests" -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2' | xcpretty -c
+  - echo $SIMULATOR_ID
+  # Launching the simulator before building and testing is necessary to prevent spurious timeouts.
+  # Specifying the simulator UDID is also necessary.
+  - open -a "Simulator" --args -CurrentDeviceUDID $SIMULATOR_ID
+  - travis_wait bundle exec rake spec:unit
+  - bundle exec rake spec:api:integration
 
-#language: objective-c
-#cache:
-#  - bundler
-#  - cocoapods
-#osx_image: xcode11.2.1
-#
-#before_install:
-#  - brew update || brew update
-#
-#install:
-#  - bundle install
-#  - bundle exec pod repo update --silent
-#  - bundle exec pod install
-#
-#script:
-#  - travis_wait bundle exec rake spec
-#
+notifications:
+  email:
+    - team-ios@getbraintree.com
