@@ -28,11 +28,11 @@ PODS:
   - BraintreeDropIn (7.5.0):
     - BraintreeDropIn/DropIn (= 7.5.0)
   - BraintreeDropIn/DropIn (7.5.0):
-    - Braintree/Card (~> 4.30)
-    - Braintree/Core (~> 4.30)
-    - Braintree/PaymentFlow (~> 4.30)
-    - Braintree/PayPal (~> 4.30)
-    - Braintree/UnionPay (~> 4.30)
+    - Braintree/Card (>= 4.30.2)
+    - Braintree/Core (>= 4.30.2)
+    - Braintree/PaymentFlow (>= 4.30.2)
+    - Braintree/PayPal (>= 4.30.2)
+    - Braintree/UnionPay (>= 4.30.2)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (7.5.0)
   - CardIO (5.4.1)
@@ -83,7 +83,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Braintree: 9fc21dc2ead57d104c4a0743454308e404217ec7
-  BraintreeDropIn: 15d6f53bf80bc0ae7809ab17803100c0a5448fd2
+  BraintreeDropIn: 2e28fa4514b8a2c5c0364f1988a94c7ac0b7acd9
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
