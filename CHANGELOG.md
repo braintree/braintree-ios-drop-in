@@ -4,6 +4,7 @@
 * UI changes to support iOS 13
 * Demo app maintenance
 * Remove unneeded pre-processor directives
+* Close Drop-In on tap outside (NEXT_MAJOR_VERSION)
 
 ## 7.2.0 (2019-06-17)
 
