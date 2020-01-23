@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-* Update podspec to require versions `>= 4.30.2` of Braintree SDK
+* Update podspec to require versions `~> 4.31` of Braintree SDK dependencies.
 
 ## 7.5.0 (2019-11-19)
 
