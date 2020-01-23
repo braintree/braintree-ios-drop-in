@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-* Change postal code default keyboard type to `UIKeyboardTypeDefault`
+* Change postal code default keyboard type to `UIKeyboardTypeDefault` (NEXT_MAJOR_VERSION)
 
 ## 7.5.0 (2019-11-19)
 
