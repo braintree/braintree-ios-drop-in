@@ -71,6 +71,10 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false
 @property (nonatomic, assign) BOOL allowVaultCardOverride;
 
+/// Optional: Whether or not to vault the venmo upon tokenization, must be set to false when using a client token without a customer.
+/// Defaults to true
+@property (nonatomic, assign) BOOL vaultVenmo;
+
 @end
 
 NS_ASSUME_NONNULL_END
