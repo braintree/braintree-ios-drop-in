@@ -135,10 +135,6 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT", [self localizationTable], [self localizationBundle], @"OK", @"TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT");
 }
 
-+ (NSString *)SCAN_CARD_IO_ACTION {
-    return NSLocalizedStringWithDefaultValue(@"SCAN_CARD_IO_ACTION", [self localizationTable], [self localizationBundle], @"Scan with card.io", @"SCAN_CARD_IO_ACTION");
-}
-
 + (NSString *)EDIT_PAYMENT_METHOD {
     return NSLocalizedStringWithDefaultValue(@"EDIT_PAYMENT_METHOD", [self localizationTable], [self localizationBundle], @"Edit Payment Methods", @"EDIT_PAYMENT_METHOD");
 }
