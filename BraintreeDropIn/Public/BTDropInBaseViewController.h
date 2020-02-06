@@ -31,13 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// The properties of this payment request are used to customize Drop-in.
 @property (nonatomic, strong, nullable) BTDropInRequest *dropInRequest;
 
-
-/// Displays an overlay loading screen
-///
-/// @param show Modifies the hidden property of the overlay
-/// @param animated Will animate the overlay changing the hidden property if set to `true`.
-- (void)showLoadingScreen:(BOOL)show animated:(BOOL)animated DEPRECATED_MSG_ATTRIBUTE("Use showLoadingScreen: instead.");
-
 /// Displays an overlay loading screen
 ///
 /// @param show Modifies the hidden property of the overlay

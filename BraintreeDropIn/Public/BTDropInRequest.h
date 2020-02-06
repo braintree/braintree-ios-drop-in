@@ -12,14 +12,6 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 @interface BTDropInRequest : NSObject <NSCopying>
 
-/// Optional: Amount of the transaction for ThreeDSecure flows. If `threeDSecureRequest.amount` is set, this value will be ignored.
-///
-/// Amount must be a non-negative number, may optionally contain exactly 2 decimal places
-/// separated by '.', optional thousands separator ',', limited to 7 digits before the decimal point.
-///
-/// Note: You must still set the amount on the `payPalRequest` for PayPal checkout flows.
-@property (nonatomic, copy, nullable) NSString *amount DEPRECATED_MSG_ATTRIBUTE("Use `threeDSecureRequest.amount` instead.");
-
 /// Optional: Specify the options for the PayPal flow. If not present, a default vault flow will be used.
 ///
 /// Note: The checkout flow is used when an amount is set on the `payPalRequest`.

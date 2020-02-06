@@ -16,23 +16,18 @@ static BTUIKAppearance *sharedTheme;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedTheme = [BTUIKAppearance new];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        [BTUIKAppearance lightTheme];
-#pragma clang diagnostic pop
+        [sharedTheme setDefaultProperties];
+        [sharedTheme setLightColors];
     });
     
     return sharedTheme;
 }
 
-+ (void)lightTheme {
-    [sharedTheme setDefaultProperties];
-    [sharedTheme setLightColors];
-}
-
-+ (void)darkTheme {
-    [sharedTheme setDefaultProperties];
-    [sharedTheme setDarkColors];
+- (void)setDefaultProperties {
+    sharedTheme.font = [UIFont systemFontOfSize:10];
+    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
+    sharedTheme.useBlurs = YES;
+    sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeDefault;
 }
 
 - (void)setLightColors {
@@ -80,13 +75,6 @@ static BTUIKAppearance *sharedTheme;
         sharedTheme.switchThumbTintColor =  UIColor.whiteColor;
         sharedTheme.switchOnTintColor = UIColor.systemGreenColor;
     }
-}
-
-- (void)setDefaultProperties {
-    sharedTheme.font = [UIFont systemFontOfSize:10];
-    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
-    sharedTheme.useBlurs = YES;
-    sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeDefault;
 }
 
 - (void)setDefaultColors {
