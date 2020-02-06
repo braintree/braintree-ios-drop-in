@@ -1,38 +1,38 @@
 PODS:
-  - Braintree/Apple-Pay (4.30.2):
+  - Braintree/Apple-Pay (4.31.0):
     - Braintree/Core
-  - Braintree/Card (4.30.2):
+  - Braintree/Card (4.31.0):
     - Braintree/Core
-  - Braintree/Core (4.30.2)
-  - Braintree/PaymentFlow (4.30.2):
+  - Braintree/Core (4.31.0)
+  - Braintree/PaymentFlow (4.31.0):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.30.2):
+  - Braintree/PayPal (4.31.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.30.2):
+  - Braintree/PayPalDataCollector (4.31.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.30.2):
+  - Braintree/PayPalOneTouch (4.31.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.30.2)
-  - Braintree/UnionPay (4.30.2):
+  - Braintree/PayPalUtils (4.31.0)
+  - Braintree/UnionPay (4.31.0):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.30.2):
+  - Braintree/Venmo (4.31.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
   - BraintreeDropIn (7.5.0):
     - BraintreeDropIn/DropIn (= 7.5.0)
   - BraintreeDropIn/DropIn (7.5.0):
-    - Braintree/Card (~> 4.30)
-    - Braintree/Core (~> 4.30)
-    - Braintree/PaymentFlow (~> 4.30)
-    - Braintree/PayPal (~> 4.30)
-    - Braintree/UnionPay (~> 4.30)
+    - Braintree/Card (~> 4.31)
+    - Braintree/Core (~> 4.31)
+    - Braintree/PaymentFlow (~> 4.31)
+    - Braintree/PayPal (~> 4.31)
+    - Braintree/UnionPay (~> 4.31)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (7.5.0)
   - CardIO (5.4.1)
@@ -82,8 +82,8 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  Braintree: 9fc21dc2ead57d104c4a0743454308e404217ec7
-  BraintreeDropIn: 15d6f53bf80bc0ae7809ab17803100c0a5448fd2
+  Braintree: c20fb599a8cfee54ad7dfc603dee68f0922bfcba
+  BraintreeDropIn: 24ee6c3e79b51defd5eea91dcc7751b5b56da0be
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
