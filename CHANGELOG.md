@@ -2,6 +2,7 @@
 
 ## unreleased
 * Change postal code default keyboard type to `UIKeyboardTypeDefault` (NEXT_MAJOR_VERSION)
+* Update podspec to require versions `~> 4.31` of Braintree SDK dependencies.
 
 ## 7.5.0 (2019-11-19)
 
