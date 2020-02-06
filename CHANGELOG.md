@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased 
-* Remove support for CardIO (NEXT_MAJOR_VERSION)
+* Remove support for CardIO, a no longer maintained framework. (NEXT_MAJOR_VERSION)
 
 ## 7.5.0 (2019-11-19)
 
