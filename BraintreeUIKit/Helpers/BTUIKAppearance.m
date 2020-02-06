@@ -86,7 +86,7 @@ static BTUIKAppearance *sharedTheme;
     sharedTheme.font = [UIFont systemFontOfSize:10];
     sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
     sharedTheme.useBlurs = YES;
-    sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeNumberPad;
+    sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeDefault;
 }
 
 - (void)setDefaultColors {

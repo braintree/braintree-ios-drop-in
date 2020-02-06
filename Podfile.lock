@@ -1,38 +1,38 @@
 PODS:
-  - Braintree/Apple-Pay (4.30.2):
+  - Braintree/Apple-Pay (4.31.0):
     - Braintree/Core
-  - Braintree/Card (4.30.2):
+  - Braintree/Card (4.31.0):
     - Braintree/Core
-  - Braintree/Core (4.30.2)
-  - Braintree/PaymentFlow (4.30.2):
+  - Braintree/Core (4.31.0)
+  - Braintree/PaymentFlow (4.31.0):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.30.2):
+  - Braintree/PayPal (4.31.0):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.30.2):
+  - Braintree/PayPalDataCollector (4.31.0):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.30.2):
+  - Braintree/PayPalOneTouch (4.31.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.30.2)
-  - Braintree/UnionPay (4.30.2):
+  - Braintree/PayPalUtils (4.31.0)
+  - Braintree/UnionPay (4.31.0):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.30.2):
+  - Braintree/Venmo (4.31.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
   - BraintreeDropIn (7.5.0):
     - BraintreeDropIn/DropIn (= 7.5.0)
   - BraintreeDropIn/DropIn (7.5.0):
-    - Braintree/Card (~> 4.30)
-    - Braintree/Core (~> 4.30)
-    - Braintree/PaymentFlow (~> 4.30)
-    - Braintree/PayPal (~> 4.30)
-    - Braintree/UnionPay (~> 4.30)
+    - Braintree/Card (~> 4.31)
+    - Braintree/Core (~> 4.31)
+    - Braintree/PaymentFlow (~> 4.31)
+    - Braintree/PayPal (~> 4.31)
+    - Braintree/UnionPay (~> 4.31)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (7.5.0)
   - Expecta (1.0.6)
