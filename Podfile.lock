@@ -79,8 +79,8 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  Braintree: 9fc21dc2ead57d104c4a0743454308e404217ec7
-  BraintreeDropIn: 15d6f53bf80bc0ae7809ab17803100c0a5448fd2
+  Braintree: c20fb599a8cfee54ad7dfc603dee68f0922bfcba
+  BraintreeDropIn: 24ee6c3e79b51defd5eea91dcc7751b5b56da0be
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
