@@ -527,18 +527,7 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         
         XCTAssertTrue(app.staticTexts["ending in 32"].exists)
     }
-    
-    func testDropIn_cardInput_doesNotShowCardIOButton_inSimulator() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        app.staticTexts["Credit or Debit Card"].tap()
-        
-        let elementsQuery = app.scrollViews.otherElements
-        let cardNumberTextField = elementsQuery.textFields["Card Number"]
-        
-        waitForElementToBeHittable(cardNumberTextField)
-        cardNumberTextField.typeText("4111111111111111")
-        XCTAssertFalse(app.staticTexts["Scan with card.io"].exists)
-    }
+
 }
 
 

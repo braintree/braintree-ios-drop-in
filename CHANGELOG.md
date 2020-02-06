@@ -1,6 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## unreleased 
+* Remove support for CardIO, a no longer maintained framework. (NEXT_MAJOR_VERSION)
 * Change postal code default keyboard type to `UIKeyboardTypeDefault` (NEXT_MAJOR_VERSION)
 * Update podspec to require versions `~> 4.31` of Braintree SDK dependencies.
 
