@@ -253,21 +253,34 @@
     return [self isLanguageLayoutDirectionRightToLeft] ? NSTextAlignmentLeft : NSTextAlignmentRight;
 }
 
++ (UIWindowScene *)activeWindowScene {
+    for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
+        if (scene.activationState == UISceneActivationStateForegroundActive) {
+            return (UIWindowScene *)scene;
+        }
+    }
+}
+
 + (BOOL)isOrientationLandscape {
     BOOL isLandscape = NO;
     if (@available(iOS 13, *)) {
-        for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive) {
-                UIWindowScene *windowScene = (UIWindowScene *)scene;
-                isLandscape = UIInterfaceOrientationIsLandscape(windowScene.interfaceOrientation);
-                break;
-            }
-        }
+        isLandscape = UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
     } else {
         isLandscape = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
     }
 
     return isLandscape;
+}
+
++ (CGFloat)statusBarHeight {
+    CGFloat statusBarHeight = 0;
+    if (@available(iOS 13, *)) {
+        statusBarHeight = CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
+    } else {
+        statusBarHeight = CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame);
+    }
+
+    return statusBarHeight;
 }
 
 @end

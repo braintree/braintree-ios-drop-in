@@ -90,4 +90,7 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 /// @return true if the device is in landscape
 + (BOOL)isOrientationLandscape;
 
+/// @return height of the status bar
++ (CGFloat)statusBarHeight;
+
 @end

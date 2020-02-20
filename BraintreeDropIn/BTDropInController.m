@@ -358,9 +358,9 @@
         self.contentHeightConstraint.constant = 0;
     } else {
         // Flexible views
-        int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-        int sh = [[UIScreen mainScreen] bounds].size.height - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
-        int sheetHeight = [self.paymentSelectionViewController sheetHeight];
+        CGFloat statusBarHeight = [BTUIKViewUtil statusBarHeight];
+        CGFloat sh = [[UIScreen mainScreen] bounds].size.height - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
+        CGFloat sheetHeight = [self.paymentSelectionViewController sheetHeight];
         self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
     }
     
@@ -500,10 +500,9 @@
         self.contentHeightConstraint.constant = 0;
     } else {
         // Flexible views
-        int statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-        int sh = [[UIScreen mainScreen] bounds].size.height - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
-        int sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
+        CGFloat sh = CGRectGetHeight(UIScreen.mainScreen.bounds) - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
+        CGFloat sheetHeight = [self.paymentSelectionViewController sheetHeight];
+        self.contentHeightConstraint.constant = self.isFullScreen ? [BTUIKViewUtil statusBarHeight] + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
     }
     self.contentHeightConstraintBottom.constant = -[self sheetInset];
 
@@ -561,7 +560,7 @@
     [[transitionContext containerView] addSubview:toViewController.view];
 
     // Move content off screen so it can be animated in when it appears
-    CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]) + [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]) + [BTUIKViewUtil statusBarHeight];
     toViewController.contentHeightConstraintBottom.constant = sh;
     toViewController.contentHeightConstraint.constant = sh;
     [toViewController.view setNeedsUpdateConstraints];
