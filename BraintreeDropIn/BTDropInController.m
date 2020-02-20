@@ -40,8 +40,8 @@
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *contentClippingView;
 @property (nonatomic, strong) BTPaymentSelectionViewController *paymentSelectionViewController;
-@property (nonatomic, strong) NSLayoutConstraint *contentHeightConstraint;
-@property (nonatomic, strong) NSLayoutConstraint *contentHeightConstraintBottom;
+@property (nonatomic, strong) NSLayoutConstraint *contentViewTopConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *contentViewBottomConstraint;
 @property (nonatomic) BOOL useBlur;
 @property (nonatomic, copy) NSArray *displayCardTypes;
 @property (nonatomic, strong) UIVisualEffectView *blurredContentBackgroundView;
@@ -140,7 +140,7 @@
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     self.contentView.backgroundColor = self.useBlur ? [UIColor clearColor] : [BTUIKAppearance sharedInstance].formBackgroundColor;
     self.contentView.layer.cornerRadius = BT_HALF_SHEET_CORNER_RADIUS;
-    self.contentView.clipsToBounds = true;
+    self.contentView.clipsToBounds = YES;
 
     [self.view addSubview: self.contentView];
     
@@ -148,7 +148,7 @@
     self.contentClippingView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview: self.contentClippingView];
     self.contentClippingView.backgroundColor = [UIColor clearColor];
-    self.contentClippingView.clipsToBounds = true;
+    self.contentClippingView.clipsToBounds = YES;
     
     self.btToolbar = [[UIToolbar alloc] init];
     self.btToolbar.delegate = self;
@@ -158,7 +158,7 @@
     self.btToolbar.backgroundColor = [UIColor clearColor];
     [self.btToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.btToolbar.barTintColor = [UIColor clearColor];
-    self.btToolbar.translatesAutoresizingMaskIntoConstraints = false;
+    self.btToolbar.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview:self.btToolbar];
     
     UIBlurEffect *contentEffect = [UIBlurEffect effectWithStyle:[BTUIKAppearance sharedInstance].blurStyle];
@@ -193,15 +193,13 @@
                                                                       options:0
                                                                       metrics:metrics
                                                                         views:viewBindings]];
-    
-    
-    self.contentHeightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-    [self.view addConstraint:self.contentHeightConstraint];
-    
-    self.contentHeightConstraintBottom = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-    [self.view addConstraint:self.contentHeightConstraintBottom];
-    
-    
+
+    self.contentViewTopConstraint = [self.contentView.topAnchor constraintEqualToAnchor:[self topLayoutAnchor]];
+    self.contentViewTopConstraint.active = YES;
+
+    self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:[self bottomLayoutAnchor]];
+    self.contentViewBottomConstraint.active = YES;
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[paymentSelectionViewController]|"
                                                                       options:0
                                                                       metrics:metrics
@@ -352,23 +350,14 @@
 - (void)flexViewAnimated:(BOOL)animated{
     [self.btToolbar removeFromSuperview];
     [self.contentView addSubview:self.btToolbar];
-    
-    if ([self isFormSheet]) {
-        // iPad formSheet
-        self.contentHeightConstraint.constant = 0;
-    } else {
-        // Flexible views
-        CGFloat statusBarHeight = [BTUIKViewUtil statusBarHeight];
-        CGFloat sh = [[UIScreen mainScreen] bounds].size.height - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
-        CGFloat sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? statusBarHeight + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
-    }
-    
+
+    self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
+
     [self applyContentViewConstraints];
     
     [self.view setNeedsUpdateConstraints];
 
-    self.contentHeightConstraintBottom.constant = -[self sheetInset];
+    self.contentViewBottomConstraint.constant = -[self sheetInset];
 
     if (animated) {
         [UIView animateWithDuration:BT_ANIMATION_SLIDE_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
@@ -420,6 +409,40 @@
 
 - (BOOL)isFormSheet {
     return self.modalPresentationStyle == UIModalPresentationFormSheet;
+}
+
+- (CGFloat)safeAreaHeight {
+    if (@available(iOS 11.0, *)) {
+        return CGRectGetHeight(self.view.safeAreaLayoutGuide.layoutFrame);
+    } else {
+        return CGRectGetHeight(UIScreen.mainScreen.bounds) - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
+    }
+}
+
+- (CGFloat)calculateContentViewTopConstraintConstant {
+    if ([self isFormSheet]) {
+        return 0;
+    } else if (self.isFullScreen) {
+        return [BTUIKViewUtil statusBarHeight] + [self sheetInset];
+    } else {
+        return [self safeAreaHeight] - [self.paymentSelectionViewController sheetHeight] - [self sheetInset];
+    }
+}
+
+- (NSLayoutAnchor *)topLayoutAnchor {
+    if (@available(iOS 11.0, *)) {
+        return self.view.safeAreaLayoutGuide.topAnchor;
+    } else {
+        return self.topLayoutGuide.bottomAnchor;
+    }
+}
+
+- (NSLayoutAnchor *)bottomLayoutAnchor {
+    if (@available(iOS 11.0, *)) {
+        return self.view.safeAreaLayoutGuide.bottomAnchor;
+    } else {
+        return self.bottomLayoutGuide.topAnchor;
+    }
 }
 
 #pragma mark - UI Preferences
@@ -495,16 +518,8 @@
 }
 
 - (void)sheetHeightDidChange:(__unused BTPaymentSelectionViewController *)sender {
-    if ([self isFormSheet]) {
-        // iPad formSheet
-        self.contentHeightConstraint.constant = 0;
-    } else {
-        // Flexible views
-        CGFloat sh = CGRectGetHeight(UIScreen.mainScreen.bounds) - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
-        CGFloat sheetHeight = [self.paymentSelectionViewController sheetHeight];
-        self.contentHeightConstraint.constant = self.isFullScreen ? [BTUIKViewUtil statusBarHeight] + [self sheetInset] : (sh - sheetHeight - [self sheetInset]);
-    }
-    self.contentHeightConstraintBottom.constant = -[self sheetInset];
+    self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
+    self.contentViewBottomConstraint.constant = -[self sheetInset];
 
     [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
         [self.view layoutIfNeeded];
@@ -561,8 +576,8 @@
 
     // Move content off screen so it can be animated in when it appears
     CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]) + [BTUIKViewUtil statusBarHeight];
-    toViewController.contentHeightConstraintBottom.constant = sh;
-    toViewController.contentHeightConstraint.constant = sh;
+    toViewController.contentViewBottomConstraint.constant = sh;
+    toViewController.contentViewTopConstraint.constant = sh;
     [toViewController.view setNeedsUpdateConstraints];
     [toViewController.view layoutIfNeeded];
     [toViewController flexViewAnimated:YES];
@@ -587,8 +602,8 @@
     BTDropInController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]);
-    fromViewController.contentHeightConstraintBottom.constant = sh;
-    fromViewController.contentHeightConstraint.constant = sh;
+    fromViewController.contentViewBottomConstraint.constant = sh;
+    fromViewController.contentViewTopConstraint.constant = sh;
     [fromViewController.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromViewController.view.alpha = 0;
