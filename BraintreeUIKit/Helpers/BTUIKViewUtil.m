@@ -253,12 +253,14 @@
     return [self isLanguageLayoutDirectionRightToLeft] ? NSTextAlignmentLeft : NSTextAlignmentRight;
 }
 
-+ (UIWindowScene *)activeWindowScene {
++ (UIWindowScene *)activeWindowScene API_AVAILABLE(ios(13.0)) {
     for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
         if (scene.activationState == UISceneActivationStateForegroundActive) {
             return (UIWindowScene *)scene;
         }
     }
+
+    return nil;
 }
 
 + (BOOL)isOrientationLandscape {
