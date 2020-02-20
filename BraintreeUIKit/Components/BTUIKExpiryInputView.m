@@ -284,7 +284,18 @@ referenceSizeForHeaderInSection:(__unused NSInteger)section {
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(__unused UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(__unused NSIndexPath *)indexPath {
-    BOOL isLandscape = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
+    BOOL isLandscape = NO;
+    if (@available(iOS 13, *)) {
+        for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive) {
+                UIWindowScene *windowScene = (UIWindowScene *)scene;
+                isLandscape = UIInterfaceOrientationIsLandscape(windowScene.interfaceOrientation);
+                break;
+            }
+        }
+    } else {
+        isLandscape = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
+    }
     int monthRows = isLandscape ? 3.0 : 4.0;
     
     CGFloat cellHeight = (CGRectGetHeight(self.monthCollectionView.frame) - BT_EXPIRY_SECTION_HEADER_HEIGHT - ((BT_EXPIRY_FULL_PADDING * monthRows) + BT_EXPIRY_FULL_PADDING)) / monthRows;
