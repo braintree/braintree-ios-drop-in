@@ -349,10 +349,6 @@
     return [self isFormSheet] ? 0 : BT_HALF_SHEET_MARGIN;
 }
 
-- (BOOL)isFullScreen {
-    return ![self supportsHalfSheet] || [self isFormSheet] ;
-}
-
 - (void)flexViewAnimated:(BOOL)animated{
     [self.btToolbar removeFromSuperview];
     [self.contentView addSubview:self.btToolbar];
@@ -410,10 +406,13 @@
     self.paymentSelectionViewController.view.alpha = 1.0;
 }
 
-// No fullscreen when in landscape or FormSheet modes.
+- (BOOL)isFullScreen {
+    return ![self supportsHalfSheet] || [self isFormSheet] ;
+}
+
+// No half sheet when in landscape or FormSheet modes.
 - (BOOL)supportsHalfSheet {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight || [self isFormSheet]) {
+    if([BTUIKViewUtil isOrientationLandscape] || [self isFormSheet]) {
         return false;
     }
     return true;
@@ -495,7 +494,7 @@
     }
 }
 
-- (void) sheetHeightDidChange:(__unused BTPaymentSelectionViewController *)sender {
+- (void)sheetHeightDidChange:(__unused BTPaymentSelectionViewController *)sender {
     if ([self isFormSheet]) {
         // iPad formSheet
         self.contentHeightConstraint.constant = 0;

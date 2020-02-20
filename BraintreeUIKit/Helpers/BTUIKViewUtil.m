@@ -241,19 +241,33 @@
     }
 }
 
-+ (BOOL)isLanguageLayoutDirectionRightToLeft
-{
++ (BOOL)isLanguageLayoutDirectionRightToLeft {
     return [UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft;
 }
 
-+ (NSTextAlignment)naturalTextAlignment
-{
++ (NSTextAlignment)naturalTextAlignment {
     return [self isLanguageLayoutDirectionRightToLeft] ? NSTextAlignmentRight : NSTextAlignmentLeft;
 }
 
-+ (NSTextAlignment)naturalTextAlignmentInverse
-{
++ (NSTextAlignment)naturalTextAlignmentInverse {
     return [self isLanguageLayoutDirectionRightToLeft] ? NSTextAlignmentLeft : NSTextAlignmentRight;
+}
+
++ (BOOL)isOrientationLandscape {
+    BOOL isLandscape = NO;
+    if (@available(iOS 13, *)) {
+        for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive) {
+                UIWindowScene *windowScene = (UIWindowScene *)scene;
+                isLandscape = UIInterfaceOrientationIsLandscape(windowScene.interfaceOrientation);
+                break;
+            }
+        }
+    } else {
+        isLandscape = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
+    }
+
+    return isLandscape;
 }
 
 @end

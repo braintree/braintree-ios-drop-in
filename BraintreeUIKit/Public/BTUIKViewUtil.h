@@ -84,4 +84,10 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 + (NSTextAlignment)naturalTextAlignment;
 /// @return NSTextAlignmentLeft if isLanguageLayoutDirectionRightToLeft is true. Ohterwise NSTextAlignmentRight.
 + (NSTextAlignment)naturalTextAlignmentInverse;
+
+#pragma mark Orientation Utilities
+
+/// @return true if the device is in landscape
++ (BOOL)isOrientationLandscape;
+
 @end
