@@ -90,7 +90,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     paint (2.1.0)
     plist (3.1.0)
-    rake (12.3.2)
+    rake (12.3.3)
     rake_commit (1.2.0)
     rouge (2.0.7)
     ruby-macho (1.4.0)
