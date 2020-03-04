@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Fix several UIKit deprecation warnings
+
 ## 8.0.0 (2020-02-06)
 
 * Remove deprecated methods and properties
