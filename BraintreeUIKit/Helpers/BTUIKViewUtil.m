@@ -264,25 +264,19 @@
 }
 
 + (BOOL)isOrientationLandscape {
-    BOOL isLandscape = NO;
     if (@available(iOS 13, *)) {
-        isLandscape = UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
+        return UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
     } else {
-        isLandscape = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
+        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
     }
-
-    return isLandscape;
 }
 
 + (CGFloat)statusBarHeight {
-    CGFloat statusBarHeight = 0;
     if (@available(iOS 13, *)) {
-        statusBarHeight = CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
+        return CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
     } else {
-        statusBarHeight = CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame);
+        return CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame);
     }
-
-    return statusBarHeight;
 }
 
 @end
