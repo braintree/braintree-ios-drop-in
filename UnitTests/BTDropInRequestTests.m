@@ -50,6 +50,7 @@
     originalRequest.vaultManager = YES;
     originalRequest.vaultCard = NO;
     originalRequest.allowVaultCardOverride = YES;
+    originalRequest.vaultVenmo = NO;
 
     BTDropInRequest *copiedRequest = [originalRequest copy];
     
@@ -64,6 +65,7 @@
     XCTAssertEqual(originalRequest.vaultManager, copiedRequest.vaultManager);
     XCTAssertEqual(originalRequest.vaultCard, copiedRequest.vaultCard);
     XCTAssertEqual(originalRequest.allowVaultCardOverride, copiedRequest.allowVaultCardOverride);
+    XCTAssertEqual(originalRequest.vaultVenmo, copiedRequest.vaultVenmo);
 
     XCTAssertEqual(originalRequest.threeDSecureRequest, copiedRequest.threeDSecureRequest);
     XCTAssertEqual(BTThreeDSecureVersion2, copiedRequest.threeDSecureRequest.versionRequested);

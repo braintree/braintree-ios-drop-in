@@ -491,6 +491,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         }
     } else if (cell.type == BTUIKPaymentOptionTypeVenmo) {
         NSMutableDictionary *options = [NSMutableDictionary dictionary];
+        options[@"vault"] = [NSNumber numberWithBool:self.dropInRequest.vaultVenmo];
         if (self.delegate != nil) {
             options[BTTokenizationServiceViewPresentingDelegateOption] = self.delegate;
         }
