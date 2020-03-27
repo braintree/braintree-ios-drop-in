@@ -26,6 +26,7 @@ Description of what you expected to happen.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
+<!-- Do not reveal sensitive data. ex: credit card numbers & customer credentials -->
 
 <!-- NOTE: Please do not open an issue for translation requests for new languages. We support the same languages that are supported by PayPal, and have a dedicated localization team to provide translations. 
 
