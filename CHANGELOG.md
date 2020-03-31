@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## Unreleased
+
+* Require Braintree ~> 4.32
+
 ## 8.0.0 (2020-02-06)
 
 * Remove deprecated methods and properties
