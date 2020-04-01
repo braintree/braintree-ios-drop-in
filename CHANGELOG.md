@@ -1,8 +1,11 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## Unreleased
+## unreleased
 
 * Require Braintree ~> 4.32
+* Fix UIKit deprecation warnings:
+  * UIApplication's `statusBarOrientation` and `statusBarFrame` properties
+  * UIViewController's `topLayoutGuide` and `bottomLayoutGuide` properties
 
 ## 8.0.0 (2020-02-06)
 
