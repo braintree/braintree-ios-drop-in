@@ -1,7 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 8.1.0 (2020-04-01)
 
+* Add `vaultVenmo` flag to `BTDropInRequest`
 * Require Braintree ~> 4.32
 * Fix UIKit deprecation warnings:
   * UIApplication's `statusBarOrientation` and `statusBarFrame` properties
