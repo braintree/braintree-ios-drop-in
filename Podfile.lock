@@ -1,38 +1,38 @@
 PODS:
-  - Braintree/Apple-Pay (4.31.0):
+  - Braintree/Apple-Pay (4.32.1):
     - Braintree/Core
-  - Braintree/Card (4.31.0):
+  - Braintree/Card (4.32.1):
     - Braintree/Core
-  - Braintree/Core (4.31.0)
-  - Braintree/PaymentFlow (4.31.0):
+  - Braintree/Core (4.32.1)
+  - Braintree/PaymentFlow (4.32.1):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.31.0):
+  - Braintree/PayPal (4.32.1):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.31.0):
+  - Braintree/PayPalDataCollector (4.32.1):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.31.0):
+  - Braintree/PayPalOneTouch (4.32.1):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.31.0)
-  - Braintree/UnionPay (4.31.0):
+  - Braintree/PayPalUtils (4.32.1)
+  - Braintree/UnionPay (4.32.1):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.31.0):
+  - Braintree/Venmo (4.32.1):
     - Braintree/Core
     - Braintree/PayPalDataCollector
   - BraintreeDropIn (8.0.0):
     - BraintreeDropIn/DropIn (= 8.0.0)
   - BraintreeDropIn/DropIn (8.0.0):
-    - Braintree/Card (~> 4.31)
-    - Braintree/Core (~> 4.31)
-    - Braintree/PaymentFlow (~> 4.31)
-    - Braintree/PayPal (~> 4.31)
-    - Braintree/UnionPay (~> 4.31)
+    - Braintree/Card (~> 4.32)
+    - Braintree/Core (~> 4.32)
+    - Braintree/PaymentFlow (~> 4.32)
+    - Braintree/PayPal (~> 4.32)
+    - Braintree/UnionPay (~> 4.32)
     - BraintreeDropIn/UIKit
   - BraintreeDropIn/UIKit (8.0.0)
   - Expecta (1.0.6)
@@ -79,8 +79,8 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  Braintree: c20fb599a8cfee54ad7dfc603dee68f0922bfcba
-  BraintreeDropIn: 441ad16190e20548a2544652bffef66d457eb70a
+  Braintree: b06d2b42f0c591e508f7f538a7cc6715af1958b7
+  BraintreeDropIn: 528e54537f021fc07fe4905b1fe933475c9945e7
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   InAppSettingsKit: 363ed5ea061ebcb76d69ca1eed08c8a4fe48baf2
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
