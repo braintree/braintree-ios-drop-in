@@ -2,6 +2,7 @@
 
 ## unreleased
 
+* Require Braintree ~> 4.32
 * Fix UIKit deprecation warnings:
   * UIApplication's `statusBarOrientation` and `statusBarFrame` properties
   * UIViewController's `topLayoutGuide` and `bottomLayoutGuide` properties

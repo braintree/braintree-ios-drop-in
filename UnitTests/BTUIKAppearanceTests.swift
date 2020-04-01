@@ -15,7 +15,7 @@ class BTUIKAppearanceTests: XCTestCase {
         XCTAssertEqual(appearance?.font, UIFont.systemFont(ofSize:10))
         XCTAssertEqual(appearance?.boldFont, UIFont.boldSystemFont(ofSize:10))
         XCTAssertEqual(appearance?.useBlurs, true)
-        XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .numberPad)
+        XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .default)
 
         XCTAssertEqual(appearance?.barBackgroundColor, UIColor.white)
         XCTAssertEqual(appearance?.formBackgroundColor, UIColor.btuik_color(fromHex:"EFEFF4", alpha:1.0))
@@ -41,7 +41,7 @@ class BTUIKAppearanceTests: XCTestCase {
         XCTAssertEqual(appearance?.font, UIFont.systemFont(ofSize:10))
         XCTAssertEqual(appearance?.boldFont, UIFont.boldSystemFont(ofSize:10))
         XCTAssertEqual(appearance?.useBlurs, true)
-        XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .numberPad)
+        XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .default)
 
         XCTAssertEqual(appearance?.barBackgroundColor, UIColor.btuik_color(fromHex:"222222", alpha:1.0))
         XCTAssertEqual(appearance?.formBackgroundColor, UIColor.btuik_color(fromHex:"222222", alpha:1.0))
