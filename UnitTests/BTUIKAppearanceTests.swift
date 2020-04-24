@@ -68,7 +68,7 @@ class BTUIKAppearanceTests: XCTestCase {
             XCTAssertEqual(appearance?.font, UIFont.systemFont(ofSize:10));
             XCTAssertEqual(appearance?.boldFont, UIFont.boldSystemFont(ofSize:10));
             XCTAssertEqual(appearance?.useBlurs, true);
-            XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .numberPad);
+            XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .default);
 
             XCTAssertEqual(appearance?.barBackgroundColor, UIColor.systemBackground)
             XCTAssertEqual(appearance?.formBackgroundColor, UIColor.systemGroupedBackground);
