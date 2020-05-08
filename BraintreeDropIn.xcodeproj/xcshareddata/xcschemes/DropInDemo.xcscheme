@@ -41,36 +41,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5CE1D2B1D835832009BE61A"
-               BuildableName = "DropInDemoTests.xctest"
-               BlueprintName = "DropInDemoTests"
-               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5CE1D361D835832009BE61A"
-               BuildableName = "DropInDemoUITests.xctest"
-               BlueprintName = "DropInDemoUITests"
-               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A529003E1D88FB5200032220"
-               BuildableName = "BraintreeUIKitTests.xctest"
-               BlueprintName = "BraintreeUIKitTests"
-               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "A5411A1B1D8A1F090041BE92"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
