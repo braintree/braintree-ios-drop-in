@@ -477,13 +477,17 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
         // One time payment if an amount is present
         if (payPalRequest.amount) {
+            [self showLoadingScreen:YES];
             [driver requestOneTimePayment:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable payPalAccount, NSError * _Nullable error) {
+                [self showLoadingScreen:NO];
                 if (self.delegate && (payPalAccount != nil || error != nil)) {
                     [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:payPalAccount error:error];
                 }
             }];
         } else {
+            [self showLoadingScreen:YES];
             [driver requestBillingAgreement:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable payPalAccount, NSError * _Nullable error) {
+                [self showLoadingScreen:NO];
                 if (self.delegate && (payPalAccount != nil || error != nil)) {
                     [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:payPalAccount error:error];
                 }
@@ -495,7 +499,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         if (self.delegate != nil) {
             options[BTTokenizationServiceViewPresentingDelegateOption] = self.delegate;
         }
+        [self showLoadingScreen:YES];
         [[BTTokenizationService sharedService] tokenizeType:@"Venmo" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
+            [self showLoadingScreen:NO];
             if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
                 [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:paymentMethodNonce error:error];
             }

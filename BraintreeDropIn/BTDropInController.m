@@ -290,6 +290,7 @@
         request.threeDSecureRequestDelegate = self;
     }
 
+    [self.paymentSelectionViewController showLoadingScreen: YES];
     [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
         BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
         [self.paymentSelectionViewController showLoadingScreen:NO];
