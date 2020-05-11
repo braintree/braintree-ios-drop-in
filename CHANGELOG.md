@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Show activity indicator on payment method selection screen at the beginning of PayPal, Venmo and 3DS flows
+
 ## 8.1.0 (2020-04-01)
 
 * Add `vaultVenmo` flag to `BTDropInRequest`
