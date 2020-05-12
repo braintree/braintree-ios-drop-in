@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-               BuildableName = "DropInDemo.app"
+               BuildableName = "Drop-in Demo.app"
                BlueprintName = "DropInDemo"
                ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-            BuildableName = "DropInDemo.app"
+            BuildableName = "Drop-in Demo.app"
             BlueprintName = "DropInDemo"
             ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
          </BuildableReference>
@@ -74,7 +74,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-            BuildableName = "DropInDemo.app"
+            BuildableName = "Drop-in Demo.app"
             BlueprintName = "DropInDemo"
             ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
          </BuildableReference>
@@ -91,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-            BuildableName = "DropInDemo.app"
+            BuildableName = "Drop-in Demo.app"
             BlueprintName = "DropInDemo"
             ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
          </BuildableReference>

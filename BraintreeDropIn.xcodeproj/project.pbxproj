@@ -453,7 +453,7 @@
 		A5A45B251D874F550029A3B5 /* BraintreeCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCore.framework; path = Carthage/Build/iOS/BraintreeCore.framework; sourceTree = "<group>"; };
 		A5A45B261D874F550029A3B5 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = Carthage/Build/iOS/BraintreeUIKit.framework; sourceTree = "<group>"; };
 		A5A45B271D874F550029A3B5 /* BraintreeUnionPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUnionPay.framework; path = Carthage/Build/iOS/BraintreeUnionPay.framework; sourceTree = "<group>"; };
-		A5CE1D141D835832009BE61A /* DropInDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropInDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5CE1D141D835832009BE61A /* Drop-in Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drop-in Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CE1D711D83599D009BE61A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A5CE1DD51D835AB6009BE61A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DropInDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		A5CE1DD91D835AB6009BE61A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = DropInDemo/README.md; sourceTree = SOURCE_ROOT; };
@@ -798,7 +798,7 @@
 			isa = PBXGroup;
 			children = (
 				A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */,
-				A5CE1D141D835832009BE61A /* DropInDemo.app */,
+				A5CE1D141D835832009BE61A /* Drop-in Demo.app */,
 				A52900361D88FB5100032220 /* BraintreeUIKit.framework */,
 				A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */,
 				A5411A2A1D8A20D00041BE92 /* UITests.xctest */,
@@ -1141,7 +1141,7 @@
 			);
 			name = DropInDemo;
 			productName = DropInDemo;
-			productReference = A5CE1D141D835832009BE61A /* DropInDemo.app */;
+			productReference = A5CE1D141D835832009BE61A /* Drop-in Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1724,7 +1724,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropInDemo.app/DropInDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop-in Demo.app/Drop-in Demo";
 			};
 			name = Debug;
 		};
@@ -1769,7 +1769,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropInDemo.app/DropInDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop-in Demo.app/Drop-in Demo";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2122,7 +2122,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.DropInDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Drop-in Demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "DropInDemo/DropInDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2172,7 +2172,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.DropInDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Drop-in Demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "DropInDemo/DropInDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
