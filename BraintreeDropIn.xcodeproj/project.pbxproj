@@ -25,7 +25,6 @@
 		427C7616239AA176002AD1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 427C7615239AA176002AD1BB /* Assets.xcassets */; };
 		427C7619239AA176002AD1BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 427C7618239AA176002AD1BB /* Preview Assets.xcassets */; };
 		427C761C239AA176002AD1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427C761A239AA176002AD1BB /* LaunchScreen.storyboard */; };
-		42A10ADA230EE4D700892302 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A10AD9230EE4D700892302 /* BTDropInControllerTests.swift */; };
 		42A48B512319D02A002349B5 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A48B502319D02A002349B5 /* DemoMerchantAPIClient.swift */; };
 		42AA2C9B2363452600A4B026 /* DemoContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9A2363452600A4B026 /* DemoContainerViewController.swift */; };
 		42AA2C9D2363768900A4B026 /* DemoDropInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA2C9C2363768900A4B026 /* DemoDropInViewController.swift */; };

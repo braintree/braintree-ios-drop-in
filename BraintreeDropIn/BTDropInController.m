@@ -93,12 +93,16 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-//    if (self.isBeingPresented) {
-        [self.paymentSelectionViewController loadConfiguration];
-        [self resetDropInState];
-        [self loadConfiguration];
-//    }
+    [self.paymentSelectionViewController loadConfiguration];
+    [self resetDropInState];
+    [self loadConfiguration];
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
+    self.contentViewBottomConstraint.constant = -[self sheetInset];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
