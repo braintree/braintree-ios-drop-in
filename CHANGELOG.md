@@ -2,7 +2,8 @@
 
 ## unreleased
 
-* Show activity indicator on payment method selection screen at the beginning of PayPal, Venmo and 3DS flows
+* Show activity indicator on payment method selection screen at the beginning of PayPal, Venmo and 3DS flows (resolves #177)
+* Update constraints for SwiftUI support (resolves #202)
 
 ## 8.1.0 (2020-04-01)
 
