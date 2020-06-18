@@ -48,7 +48,7 @@ class DemoDropInViewController: DemoBaseViewController {
         dropInRequest.venmoDisabled = DemoSettings.venmoDisabled
         dropInRequest.cardDisabled = ProcessInfo.processInfo.arguments.contains("-CardDisabled")
         dropInRequest.shouldMaskSecurityCode = DemoSettings.maskSecurityCode
-        dropInRequest.cardholderNameSetting = DemoSettings.cardholderNameSetting
+        dropInRequest.cardholderNameSetting = BTFormFieldSetting.required
         dropInRequest.vaultCard = DemoSettings.vaultCardSetting
         dropInRequest.allowVaultCardOverride = DemoSettings.allowVaultCardOverrideSetting
         

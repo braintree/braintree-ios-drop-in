@@ -290,12 +290,6 @@ Here are a few ways to get in touch:
 * [GitHub Issues](https://github.com/braintree/braintree-ios-drop-in/issues) - For generally applicable issues and feedback
 * [Braintree Support](https://articles.braintreepayments.com/) / support@braintreepayments.com - for personal support at any phase of integration
 
-
-## Releases
-
-Subscribe to our [Google Group](https://groups.google.com/forum/#!forum/braintree-sdk-announce) to
-be notified when SDK releases go out.
-
 ## License
 
 The Braintree iOS Drop-In SDK is open source and available under the MIT license. See the [LICENSE](LICENSE) file for more info.
