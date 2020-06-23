@@ -34,6 +34,7 @@
 		53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */; };
 		53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */; };
 		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
+		805FAC10686713205E35E70A /* libPods-Tests-UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A6621EAF36C76F63E5985A /* libPods-Tests-UITests.a */; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A03FC5AC215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */; };
 		A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */; };
@@ -287,6 +288,7 @@
 		53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKHiperVectorArtView.h; sourceTree = "<group>"; };
 		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
+		860FEA352A197302E447E853 /* Pods-Tests-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKCardholderNameFormField.h; sourceTree = "<group>"; };
@@ -468,7 +470,9 @@
 		A5CEBB1F1D8885910064FD29 /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = Carthage/Build/iOS/BraintreeApplePay.framework; sourceTree = "<group>"; };
 		A5CEBB211D8885C00064FD29 /* libBraintree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBraintree.a; path = "../../../Library/Developer/Xcode/DerivedData/BraintreeDropInSampleStaticLib-czvlfzajgufrbydxfsjtvqriemso/Build/Products/Debug-iphoneos/libBraintree.a"; sourceTree = "<group>"; };
 		A5CEBBFA1D8898490064FD29 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = Vendor/BraintreeUIKit.framework; sourceTree = "<group>"; };
+		B8A6621EAF36C76F63E5985A /* libPods-Tests-UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5342685A05987416D3E9FD /* libPods-BraintreeDropIn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BraintreeDropIn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37A01467E45EF463E2E8512 /* Pods-Tests-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKSwitchFormField.h; sourceTree = "<group>"; };
 		D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKSwitchFormField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -493,6 +497,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805FAC10686713205E35E70A /* libPods-Tests-UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +528,8 @@
 				69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */,
 				4E893F56079C5D0E5FB1FF07 /* Pods-Tests-UnitTests.debug.xcconfig */,
 				1741E0093A0037D2EBE80FE4 /* Pods-Tests-UnitTests.release.xcconfig */,
+				D37A01467E45EF463E2E8512 /* Pods-Tests-UITests.debug.xcconfig */,
+				860FEA352A197302E447E853 /* Pods-Tests-UITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -544,6 +551,7 @@
 				CB5342685A05987416D3E9FD /* libPods-BraintreeDropIn.a */,
 				9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */,
 				9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */,
+				B8A6621EAF36C76F63E5985A /* libPods-Tests-UITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1090,6 +1098,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5411A311D8A20D00041BE92 /* Build configuration list for PBXNativeTarget "UITests" */;
 			buildPhases = (
+				E95A749B809641F92F6EE213 /* [CP] Check Pods Manifest.lock */,
 				A5411A261D8A20D00041BE92 /* Sources */,
 				A5411A271D8A20D00041BE92 /* Frameworks */,
 				A5411A281D8A20D00041BE92 /* Resources */,
@@ -1352,6 +1361,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DropInDemo/Pods-DropInDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E95A749B809641F92F6EE213 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tests-UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1776,6 +1807,7 @@
 		};
 		A5411A321D8A20D00041BE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D37A01467E45EF463E2E8512 /* Pods-Tests-UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1823,6 +1855,7 @@
 		};
 		A5411A331D8A20D00041BE92 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 860FEA352A197302E447E853 /* Pods-Tests-UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;

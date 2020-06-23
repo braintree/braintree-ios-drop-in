@@ -52,6 +52,7 @@ PODS:
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (8.0.0)
   - Specta (1.0.7)
+  - xcbeautify (0.8.0)
 
 DEPENDENCIES:
   - Braintree/Apple-Pay
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - OCMock
   - OHHTTPStubs
   - Specta
+  - xcbeautify
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -73,6 +75,8 @@ SPEC REPOS:
     - OCMock
     - OHHTTPStubs
     - Specta
+  trunk:
+    - xcbeautify
 
 EXTERNAL SOURCES:
   BraintreeDropIn:
@@ -86,7 +90,8 @@ SPEC CHECKSUMS:
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  xcbeautify: 34e667aac66c3357794431c9dd4037808cdab025
 
-PODFILE CHECKSUM: 135e2e593b746a30461cc24ac613a4e53ce6902c
+PODFILE CHECKSUM: 3d954c4b165c75add886b9c6b53e412afc04e4ba
 
 COCOAPODS: 1.8.4
