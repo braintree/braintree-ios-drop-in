@@ -166,7 +166,7 @@ class DemoContainerViewController: UIViewController {
 
 // MARK: - IASKSettingsDelegate
 extension DemoContainerViewController: IASKSettingsDelegate {
-    func settingsViewControllerDidEnd(_ sender: IASKAppSettingsViewController!) {
+    func settingsViewControllerDidEnd(_ sender: IASKAppSettingsViewController) {
         sender.dismiss(animated: true)
         reloadIntegration()
     }
