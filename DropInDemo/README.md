@@ -16,7 +16,7 @@ The current status is shown on the bottom toolbar. If you've created a payment m
 
 ### Compatibility
 
-This app should be compiled with a 8.x Base SDK (Xcode 6.x) and has a deployment target of iOS 7.0.
+This app should be run on Xcode 12 and has a deployment target of iOS 11.0.
 
 ## Implementation
 

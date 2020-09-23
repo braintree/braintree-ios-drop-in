@@ -198,10 +198,10 @@
                                                                       metrics:metrics
                                                                         views:viewBindings]];
 
-    self.contentViewTopConstraint = [self.contentView.topAnchor constraintEqualToAnchor:[self topLayoutAnchor]];
+    self.contentViewTopConstraint = [self.contentView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor];
     self.contentViewTopConstraint.active = YES;
 
-    self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:[self bottomLayoutAnchor]];
+    self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor];
     self.contentViewBottomConstraint.active = YES;
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[paymentSelectionViewController]|"
@@ -417,11 +417,7 @@
 }
 
 - (CGFloat)safeAreaHeight {
-    if (@available(iOS 11.0, *)) {
-        return CGRectGetHeight(self.view.safeAreaLayoutGuide.layoutFrame);
-    } else {
-        return CGRectGetHeight(UIScreen.mainScreen.bounds) - self.topLayoutGuide.length - self.bottomLayoutGuide.length;
-    }
+    return CGRectGetHeight(self.view.safeAreaLayoutGuide.layoutFrame);
 }
 
 - (CGFloat)calculateContentViewTopConstraintConstant {
@@ -431,22 +427,6 @@
         return [BTUIKViewUtil statusBarHeight] + [self sheetInset];
     } else {
         return [self safeAreaHeight] - [self.paymentSelectionViewController sheetHeight] - [self sheetInset];
-    }
-}
-
-- (NSLayoutAnchor *)topLayoutAnchor {
-    if (@available(iOS 11.0, *)) {
-        return self.view.safeAreaLayoutGuide.topAnchor;
-    } else {
-        return self.topLayoutGuide.bottomAnchor;
-    }
-}
-
-- (NSLayoutAnchor *)bottomLayoutAnchor {
-    if (@available(iOS 11.0, *)) {
-        return self.view.safeAreaLayoutGuide.bottomAnchor;
-    } else {
-        return self.bottomLayoutGuide.topAnchor;
     }
 }
 

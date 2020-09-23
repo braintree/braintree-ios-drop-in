@@ -98,11 +98,7 @@
                                                                      metrics:nil
                                                                        views:viewBindings]];
         
-        id bottomReferenceView = self;
-
-        if (@available(iOS 11.0, *)) {
-            bottomReferenceView = self.safeAreaLayoutGuide;
-        }
+        UILayoutGuide *bottomReferenceView = self.safeAreaLayoutGuide;
 
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.monthCollectionView
                                                          attribute:NSLayoutAttributeBottom

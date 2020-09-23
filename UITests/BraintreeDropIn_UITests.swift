@@ -552,45 +552,56 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         XCTAssertTrue(app.staticTexts["PayPal"].exists)
     }
-    
+
     func testDropIn_paypal_receivesNonce() {
-        if #available(iOS 11.0, *) {
-            // SFSafariAuthenticationSession flow cannot be fully automated, so returning early
-            return
-        }
-        
+        // Tap Drop-in PayPal button
         waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
         sleep(3)
-        
+
+        // Tap "Continue" on alert
+        addUIInterruptionMonitor(withDescription: "Alert prompting user that the app wants to use PayPal.com to sign in.") { (alert) -> Bool in
+            let continueButton = alert.buttons["Continue"]
+            if (alert.buttons["Continue"].exists) {
+                continueButton.tap()
+            }
+            return true
+        }
+        app.tap()
+
+        // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
-        
         waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
-        
         webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
-        
+
+        // Assert on demo
         waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
-        
         XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists)
     }
 
     func testDropIn_paypal_cancelPopupShowsSelectPaymentMethodView() {
-        if #available(iOS 11.0, *) {
-            return
-        }
-
+        // Tap Drop-in PayPal button
         waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
         sleep(3)
 
+        // Tap "Continue" on alert
+        addUIInterruptionMonitor(withDescription: "Alert prompting user that the app wants to use PayPal.com to sign in.") { (alert) -> Bool in
+            let continueButton = alert.buttons["Continue"]
+            if (alert.buttons["Continue"].exists) {
+                continueButton.tap()
+            }
+            return true
+        }
+        app.tap()
+
+        // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
-
         waitForElementToBeHittable(webviewElementsQuery.links["Cancel Sandbox Purchase"])
-
         webviewElementsQuery.links["Cancel Sandbox Purchase"].forceTapElement()
 
+        // Assert on demo
         waitForElementToAppear(app.staticTexts["Select Payment Method"])
-
         XCTAssertTrue(app.staticTexts["Select Payment Method"].exists)
     }
 }
@@ -613,27 +624,33 @@ class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
     }
 
     func testDropIn_paypal_showAmount_receivesNonce() {
-        if #available(iOS 11.0, *) {
-            // SFSafariAuthenticationSession flow cannot be fully automated, so returning early
-            return
-        }
-
+        // Tap Drop-in PayPal button
         waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
         sleep(3)
 
+        // Tap "Continue" on alert
+        addUIInterruptionMonitor(withDescription: "Alert prompting user that the app wants to use PayPal.com to sign in.") { (alert) -> Bool in
+            let continueButton = alert.buttons["Continue"]
+            if (alert.buttons["Continue"].exists) {
+                continueButton.tap()
+            }
+            return true
+        }
+        app.tap()
+
+        // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
 
         waitForElementToAppear(webviewElementsQuery.staticTexts["4.77"])
-
         waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
-
         webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
 
+        // Assert in demo
         waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
-
         XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists)
     }
+
 }
 
 class BraintreeDropIn_PayPal_Disabled_UITests: XCTestCase {

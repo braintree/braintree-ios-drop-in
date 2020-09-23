@@ -1,6 +1,6 @@
 source 'https://cdn.cocoapods.org/'
 
-platform :ios, '9.0'
+platform :ios, '11.0'
 inhibit_all_warnings!
 
 workspace 'BraintreeDropIn.xcworkspace'
