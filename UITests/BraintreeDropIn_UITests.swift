@@ -531,7 +531,7 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
 
 }
 
-
+// Note: These tests are flakey. They are only working on iOS 13+ simulators
 class BraintreeDropIn_PayPal_UITests: XCTestCase {
     
     var app: XCUIApplication!
@@ -606,6 +606,7 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
     }
 }
 
+// Note: These tests are flakey. They are only working on iOS 13+ simulators
 class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
 
     var app: XCUIApplication!
