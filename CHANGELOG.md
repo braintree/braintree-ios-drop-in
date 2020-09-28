@@ -3,7 +3,7 @@
 ## unreleased
 
 * Breaking changes (v9)
-  * Bump minimum supported iOS version to 11.0+
+  * Bump minimum supported deployment target to iOS 12.0
 
 ## 8.1.1 (2020-07-14)
 
