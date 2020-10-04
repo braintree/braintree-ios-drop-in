@@ -15,13 +15,13 @@
 #if __has_include("BraintreeCard.h")
 #import "BraintreeCard.h"
 #else
-#import <BraintreeCard/BraintreeCard.h>
+#import <Braintree/BraintreeCard.h>
 #endif
 
 #if __has_include("BraintreePayPal.h")
 #import "BraintreePayPal.h"
 #else
-#import <BraintreePayPal/BraintreePayPal.h>
+#import <Braintree/BraintreePayPal.h>
 #endif
 
 #if __has_include("BraintreeApplePay.h")

@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Fix Braintree module imports
+
 ## 8.1.1 (2020-07-14)
 
 * Show activity indicator on payment method selection screen at the beginning of PayPal, Venmo and 3DS flows (resolves #177)

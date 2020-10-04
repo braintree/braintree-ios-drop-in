@@ -1,8 +1,8 @@
 #import "BTDropInRequest.h"
 #if __has_include("BraintreeCore.h")
-#import "BTPostalAddress.h"
+#import "BraintreeCore.h"
 #else
-#import <BraintreeCore/BTPostalAddress.h>
+#import <Braintree/BraintreeCore.h>
 #endif
 
 @implementation BTDropInRequest

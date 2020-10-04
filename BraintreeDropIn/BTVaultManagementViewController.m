@@ -5,12 +5,12 @@
 #if __has_include("BraintreeCore.h")
 #import "BraintreeCore.h"
 #else
-#import <BraintreeCore/BraintreeCore.h>
+#import <Braintree/BraintreeCore.h>
 #endif
 #if __has_include("BraintreeCard.h")
 #import "BraintreeCard.h"
 #else
-#import <BraintreeCard/BraintreeCard.h>
+#import <Braintree/BraintreeCard.h>
 #endif
 
 @interface BTVaultManagementViewController ()
