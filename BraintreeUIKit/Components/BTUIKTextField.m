@@ -12,10 +12,6 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.hideCaret = NO;
-        if ([UIDevice currentDevice].systemVersion.intValue == 9) {
-            [self addTarget:self action:@selector(iOS9_changed) forControlEvents:UIControlEventEditingChanged];
-            self.delegate = self;
-        }
     }
     return self;
 }
@@ -29,28 +25,6 @@
     [mutablePlaceholder endEditing];
     
     self.attributedPlaceholder = mutablePlaceholder;
-}
-
-- (void)iOS9_changed {
-    // We only want to notify when this text field's text length has increased
-    if (self.previousText.length >= self.text.length) {
-        self.previousText = self.text;
-        return;
-    }
-    self.previousText = self.text;
-    
-    NSString *insertedText = [self.text substringWithRange:NSMakeRange(self.previousText.length, self.text.length - self.previousText.length)];
-    
-    if ([self.editDelegate respondsToSelector:@selector(textField:willInsertText:)]) {
-        // Sets _backspace = NO; in the BTUIKFormField or BTUIKFormField subclass
-        [self.editDelegate textField:self willInsertText:insertedText];
-    }
-
-    self.previousText = self.text;
-    
-    if ([self.editDelegate respondsToSelector:@selector(textField:didInsertText:)]) {
-        [self.editDelegate textField:self didInsertText:insertedText];
-    }
 }
 
 - (BOOL)keyboardInputShouldDelete:(__unused UITextField *)textField {
@@ -68,17 +42,6 @@
         }
     }
 
-    BOOL isIos8 = ([[[UIDevice currentDevice] systemVersion] intValue] == 8);
-    BOOL isLessThanIos8_3 = ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.3f);
-
-    // iOS 8.0-8.2 has a bug where deleteBackward is not called even when this method returns YES and the character is deleted
-    // As a result, we do so manually but return NO in order to prevent UITextField from double-calling the delegate method
-    // (textFieldDidDeleteBackwards:originalText:)
-    if (isIos8 && isLessThanIos8_3) {
-        [self deleteBackward];
-        shouldDelete = NO;
-    }
-    
     return shouldDelete;
 }
 

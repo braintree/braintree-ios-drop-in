@@ -98,16 +98,10 @@
                                                                      metrics:nil
                                                                        views:viewBindings]];
         
-        id bottomReferenceView = self;
-
-        if (@available(iOS 11.0, *)) {
-            bottomReferenceView = self.safeAreaLayoutGuide;
-        }
-
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.monthCollectionView
                                                          attribute:NSLayoutAttributeBottom
                                                          relatedBy:0
-                                                            toItem:bottomReferenceView
+                                                            toItem:self.safeAreaLayoutGuide
                                                          attribute:NSLayoutAttributeBottom
                                                         multiplier:1
                                                           constant:0]];
@@ -115,7 +109,7 @@
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.yearCollectionView
                                                          attribute:NSLayoutAttributeBottom
                                                          relatedBy:0
-                                                            toItem:bottomReferenceView
+                                                            toItem:self.safeAreaLayoutGuide
                                                          attribute:NSLayoutAttributeBottom
                                                         multiplier:1
                                                           constant:0]];
@@ -123,7 +117,7 @@
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.verticalLine
                                                          attribute:NSLayoutAttributeBottom
                                                          relatedBy:0
-                                                            toItem:bottomReferenceView
+                                                            toItem:self.safeAreaLayoutGuide
                                                          attribute:NSLayoutAttributeBottom
                                                         multiplier:1
                                                           constant:0]];

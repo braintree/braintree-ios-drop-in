@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BraintreeDropIn"
-  s.version          = "8.1.1"
+  s.version          = "9.0.0"
   s.summary          = "Braintree v.zero: A modern foundation for accepting payments"
   s.description      = <<-DESC
                        Braintree is a full-stack payments platform for developers
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/braintree/braintree-ios-drop-in.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/braintree"
 
-  s.platform         = :ios, "9.0"
+  s.platform         = :ios, "12.0"
   s.requires_arc     = true
   s.compiler_flags = "-Wall -Werror -Wextra"
 

@@ -245,7 +245,6 @@ extension DemoDropInViewController: PKPaymentAuthorizationViewControllerDelegate
         }
     }
     
-    @available(iOS 11.0, *)
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController,
                                             didAuthorizePayment payment: PKPayment,
                                             handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {

@@ -5,39 +5,11 @@ extension UIView {
     func pinToEdges(of viewController: UIViewController) {
         translatesAutoresizingMaskIntoConstraints = false
 
-        let topConstraint = NSLayoutConstraint(item: self,
-                                               attribute: .top,
-                                               relatedBy: .equal,
-                                               toItem: viewController.topLayoutGuide,
-                                               attribute: .bottom,
-                                               multiplier: 1.0,
-                                               constant: 0)
+        let safeAreaLayoutGuide = viewController.view.safeAreaLayoutGuide
         
-        let bottomConstraint = NSLayoutConstraint(item: self,
-                                                  attribute: .bottom,
-                                                  relatedBy: .equal,
-                                                  toItem: viewController.bottomLayoutGuide,
-                                                  attribute: .top,
-                                                  multiplier: 1.0,
-                                                  constant: 0)
-        
-        let leadingConstraint = NSLayoutConstraint(item: self,
-                                                   attribute: .leading,
-                                                   relatedBy: .equal,
-                                                   toItem: viewController.view,
-                                                   attribute: .leading,
-                                                   multiplier: 1.0,
-                                                   constant: 0)
-        
-        let trailingConstraint = NSLayoutConstraint(item: self,
-                                                   attribute: .trailing,
-                                                   relatedBy: .equal,
-                                                   toItem: viewController.view,
-                                                   attribute: .trailing,
-                                                   multiplier: 1.0,
-                                                   constant: 0)
-        
-        
-        viewController.view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
