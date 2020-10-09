@@ -77,7 +77,6 @@ GEM
     paint (2.2.0)
     rake (13.0.1)
     rake_commit (1.2.0)
-    rouge (2.0.7)
     ruby-macho (1.4.0)
     thread_safe (0.3.6)
     trollop (2.9.10)
@@ -85,14 +84,12 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    xcodeproj (1.18.0)
+    xcodeproj (1.19.0)
       CFPropertyList (>= 2.3.3, < 4.0)
       atomos (~> 0.1.3)
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
       nanaimo (~> 0.3.0)
-    xcpretty (0.3.0)
-      rouge (~> 2.0.7)
 
 PLATFORMS
   ruby
@@ -103,7 +100,6 @@ DEPENDENCIES
   highline
   rake
   rake_commit
-  xcpretty
 
 BUNDLED WITH
    2.1.4
