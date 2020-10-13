@@ -82,9 +82,7 @@ namespace :spec do
 
   desc 'Run UI tests'
   task :ui do
-    ENV['NSUnbufferedIO'] = 'YES' #Forces parallel test output to be printed after each test rather than on completion of all tests
-    run_test_scheme! 'UITests', nil, '2>&1'
-    ENV['NSUnbufferedIO'] = 'NO'
+    run_test_scheme! 'UITests'
   end
 
   desc 'Run all spec schemes'
