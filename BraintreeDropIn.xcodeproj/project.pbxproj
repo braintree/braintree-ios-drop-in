@@ -288,6 +288,7 @@
 		53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKHiperVectorArtView.h; sourceTree = "<group>"; };
 		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		69624BD75D7A10A1C4C5B0F8 /* Pods-DropInDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropInDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropInDemo/Pods-DropInDemo.release.xcconfig"; sourceTree = "<group>"; };
+		80BA96F72534F6EB00E2D194 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		860FEA352A197302E447E853 /* Pods-Tests-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		9053ABB714FF46965A04A3D0 /* libPods-DropInDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DropInDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9A2DAB5BA53008228298F4 /* libPods-Tests-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -791,6 +792,7 @@
 		A56C41601D833348000DFFAB = {
 			isa = PBXGroup;
 			children = (
+				80BA96F72534F6EB00E2D194 /* Release.xcconfig */,
 				A56C416C1D833348000DFFAB /* BraintreeDropIn */,
 				A5CE1D151D835832009BE61A /* DropInDemo */,
 				A52900CE1D8903A600032220 /* BraintreeUIKit */,
@@ -1947,6 +1949,7 @@
 		};
 		A56C417D1D833348000DFFAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80BA96F72534F6EB00E2D194 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
