@@ -1,7 +1,8 @@
-name: Test Suite
+name: CI
 on: [pull_request]
 jobs:
-  test:
+  test_job:
+    name: Unit / UI Tests
     runs-on: macOS-latest
     steps:
       # Checks out a copy of your repository
