@@ -19,14 +19,14 @@ jobs:
         env:
           DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
 
-name: TestFlight
-on: [pull_request]
-jobs:
-  upload_to_testflight:
-    - name: 'Upload app to TestFlight'
-      uses: apple-actions/upload-testflight-build@v1
-      with: 
-        app-path: 'path/to/application.ipa' 
-        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-        api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-        api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+# name: TestFlight
+# on: [pull_request]
+# jobs:
+#   upload_to_testflight:
+#     - name: 'Upload app to TestFlight'
+#       uses: apple-actions/upload-testflight-build@v1
+#       with: 
+#         app-path: 'path/to/application.ipa' 
+#         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+#         api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+#         api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
