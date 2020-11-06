@@ -18,4 +18,4 @@ jobs:
       - name: Testing iOS app
         run: exec ./.github/scripts/test_app.sh
         env:
-          DEVELOPER_DIR: /Applications/Xcode_12.1.app/Contents/Developer
+          DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
