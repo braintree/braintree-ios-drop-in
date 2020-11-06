@@ -1,11 +1,7 @@
-name: Testing
-on:
-  pull_request:
-    branches:
-    - master
+name: Test Suite
+on: [pull_request]
 jobs:
   test:
-    name: UnitTests
     runs-on: macOS-latest
     steps:
       # Checks out a copy of your repository
