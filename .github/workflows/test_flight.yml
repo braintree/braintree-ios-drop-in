@@ -1,0 +1,20 @@
+name: TestFlight
+on: [pull_request]
+jobs:
+  test_job:
+    name: Unit & UI Tests
+    runs-on: macOS-latest
+    steps:
+      # Checks out a copy of your repository
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Install CocoaPod dependencies
+        run: pod install
+      - name: 'Upload app to TestFlight'
+        uses: apple-actions/upload-testflight-build@v1
+        with: 
+          app-path: 'build/Braintree\ iOS\ SDK\ Demo.ipa'
+          app-type: 'ios'
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
