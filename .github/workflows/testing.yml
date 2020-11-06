@@ -1,0 +1,18 @@
+name: Testing
+on:
+  pull_request:
+    branches:
+    - master
+jobs:
+  test:
+    name: UnitTests
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      # - name: Force XCode 12.0
+      #   run: sudo xcode-select -switch /Applications/Xcode_12.0.app
+      - name: Testing iOS app
+        run: exec ./.github/scripts/test_app.sh
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
