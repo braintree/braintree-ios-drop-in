@@ -2,7 +2,7 @@ name: TestFlight
 on: [pull_request]
 jobs:
   test_job:
-    name: Unit & UI Tests
+    name: Push to TestFlight
     runs-on: macOS-latest
     steps:
       # Checks out a copy of your repository
@@ -13,7 +13,7 @@ jobs:
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v1
         with: 
-          app-path: 'build/Braintree\ iOS\ SDK\ Demo.ipa'
+          app-path: 'build/DropInDemo.ipa'
           app-type: 'ios'
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
