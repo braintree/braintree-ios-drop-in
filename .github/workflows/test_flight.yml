@@ -8,8 +8,6 @@ jobs:
       # Checks out a copy of your repository
       - name: Checkout repository
         uses: actions/checkout@v1
-      - name: Install CocoaPod dependencies
-        run: pod install
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v1
         with: 
