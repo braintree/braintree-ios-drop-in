@@ -10,17 +10,29 @@ jobs:
         uses: actions/checkout@v1
       - name: Install CocoaPod dependencies
         run: pod install
-      - name: mkdir
-        run: mkdir build
-      - name: make archive
-        run: xcodebuild -workspace BraintreeDropIn.xcworkspace -scheme DropInDemo -sdk iphoneos -configuration Release archive -allowProvisioningUpdates -archivePath build/DropInDemo.xcarchive
-      - name: make ipa
-        run: xcodebuild -exportArchive -allowProvisioningUpdates -archivePath build/DropInDemo.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/DropInDemo.ipa
-      - name: 'Upload app to TestFlight'
-        uses: apple-actions/upload-testflight-build@v1
-        with: 
-          app-path: 'build/DropInDemo.ipa'
-          app-type: 'ios'
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+      - name: make IPA
+        uses: yukiarrr/ios-build-action@v1.3.0
+        with:
+          # project-path: BraintreeDropIn.xcodeproj
+          workspace-path: BraintreeDropIn.xcworkspace
+          scheme: DropInDemo
+          p12-base64: ${{ secrets.P12_BASE64_KEY_AND_CERT }}
+          mobileprovision-base64: ${{ secrets.MOBILE_PROVISION_BASE64 }}
+          code-signing-identity: "iOS Distribution"
+          team-id: ${{ secrets.APPSTORE_TEAM_ID }}
+          output-path: DropInDemo.ipa
+
+      # - name: mkdir
+      #   run: mkdir build
+      # - name: make archive
+      #   run: xcodebuild -workspace BraintreeDropIn.xcworkspace -scheme DropInDemo -sdk iphoneos -configuration Release archive -allowProvisioningUpdates -archivePath build/DropInDemo.xcarchive
+      # - name: make ipa
+      #   run: xcodebuild -exportArchive -allowProvisioningUpdates -archivePath build/DropInDemo.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/DropInDemo.ipa
+      # - name: 'Upload app to TestFlight'
+      #   uses: apple-actions/upload-testflight-build@v1
+      #   with: 
+      #     app-path: 'build/DropInDemo.ipa'
+      #     app-type: 'ios'
+      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      #     api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+      #     api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
