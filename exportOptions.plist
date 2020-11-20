@@ -5,7 +5,7 @@
 	<key>compileBitcode</key>
 	<false/>
 	<key>method</key>
-	<string>ad-hoc</string>
+	<string>app-store</string>
 <!-- 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.braintreepayments.DropInDemo</key>
