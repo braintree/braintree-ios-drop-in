@@ -17,7 +17,7 @@ jobs:
           workspace-path: BraintreeDropIn.xcworkspace
           scheme: DropInDemo
           p12-base64: ${{ secrets.P12_BASE64_KEY_AND_CERT }}
-          mobileprovision-base64: ${{ secrets.MOBILE_PROVISION_BASE64 }}
+          #mobileprovision-base64: ${{ secrets.MOBILE_PROVISION_BASE64 }}
           code-signing-identity: "iOS Distribution"
           team-id: ${{ secrets.APPSTORE_TEAM_ID }}
           output-path: DropInDemo.ipa
