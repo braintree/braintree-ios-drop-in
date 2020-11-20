@@ -13,7 +13,7 @@ jobs:
       - name: make IPA
         uses: yukiarrr/ios-build-action@v1.3.0
         with:
-          # project-path: BraintreeDropIn.xcodeproj
+          project-path: BraintreeDropIn.xcodeproj
           workspace-path: BraintreeDropIn.xcworkspace
           scheme: DropInDemo
           p12-base64: ${{ secrets.P12_BASE64_KEY_AND_CERT }}
