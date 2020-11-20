@@ -10,18 +10,12 @@ jobs:
         uses: actions/checkout@v1
       - name: Install CocoaPod dependencies
         run: pod install
-      - name: make IPA
-        uses: yukiarrr/ios-build-action@v1.3.0
-        with:
-          project-path: BraintreeDropIn.xcodeproj
-          workspace-path: BraintreeDropIn.xcworkspace
-          scheme: DropInDemo
-          p12-base64: ${{ secrets.P12_BASE64_KEY_AND_CERT }}
-          #mobileprovision-base64: ${{ secrets.MOBILE_PROVISION_BASE64 }}
-          code-signing-identity: "iOS Distribution"
-          team-id: ${{ secrets.APPSTORE_TEAM_ID }}
-          output-path: DropInDemo.ipa
-
+      - name: Install gpg
+        run: brew install gnupg
+      - name: Setup provisioning profile
+        env:
+          IOS_KEYS: ${{ secrets.IOS_KEYS }}
+        run: ./.github/secrets/decrypt_secrets.sh
       # - name: mkdir
       #   run: mkdir build
       # - name: make archive
