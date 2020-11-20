@@ -8,6 +8,8 @@ jobs:
       # Checks out a copy of your repository
       - name: Checkout repository
         uses: actions/checkout@v1
+      - name: Install CocoaPod dependencies
+        run: pod install
       - name: mkdir
         run: mkdir build
       - name: make archive
