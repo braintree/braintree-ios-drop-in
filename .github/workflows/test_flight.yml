@@ -9,9 +9,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Create ipa
-        - run: mkdir build
-        - run: xcodebuild -workspace BraintreeDropIn.xcworkspace -scheme DropInDemo -sdk iphoneos -configuration Release archive -archivePath build/DropInDemo.xcarchive
-        - run: xcodebuild -exportArchive -allowProvisioningUpdates -archivePath build/DropInDemo.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/DropInDemo.ipa
+        run: |
+        mkdir build
+        xcodebuild -workspace BraintreeDropIn.xcworkspace -scheme DropInDemo -sdk iphoneos -configuration Release archive -archivePath build/DropInDemo.xcarchive
+        xcodebuild -exportArchive -allowProvisioningUpdates -archivePath build/DropInDemo.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/DropInDemo.ipa
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v1
         with: 
