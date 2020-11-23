@@ -4,7 +4,7 @@
 #import "BraintreeApplePay.h"
 
 // Helpers
-#import "IASKAppSettingsViewController.h"
+//#import "IASKAppSettingsViewController.h"
 
 // For Testing Purposes Only
 #import "BTDropInOverrides.h"

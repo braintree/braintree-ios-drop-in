@@ -1,11 +1,12 @@
 source 'https://cdn.cocoapods.org/'
 
-platform :ios, '12.0'
-
 workspace 'BraintreeDropIn.xcworkspace'
+platform :ios, '12.0'
+use_frameworks!
 
-target 'DropInDemo' do
-  pod 'InAppSettingsKit'
+target 'Demo' do
+  project 'Demo/Demo'
+  pod 'InAppSettingsKit', :inhibit_warnings => true
 
   pod "BraintreeDropIn", :path => "./"
 

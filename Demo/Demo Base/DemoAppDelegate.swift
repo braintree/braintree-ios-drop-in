@@ -1,4 +1,5 @@
-import UIKit
+import BraintreeDropIn
+import Braintree
 
 @UIApplicationMain
 class DemoAppDelegate: UIResponder, UIApplicationDelegate {
@@ -104,7 +105,8 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.removeObject(forKey: "BraintreeTest_ForceVenmoDisplay")
         if testArguments.contains("-ForceVenmo") {
-            BTDropInOverrides.displayVenmoOption = true
+            // TODO: - BTDropInOverrides isn't available from a separate project
+//            BTDropInOverrides.displayVenmoOption = true
         }
         
         UserDefaults.standard.removeObject(forKey: "BraintreeDemoSettingsAuthorizationOverride")
