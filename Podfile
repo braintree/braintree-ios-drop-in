@@ -23,6 +23,11 @@ abstract_target 'Tests' do
   pod 'OHHTTPStubs'
   pod 'xcbeautify'
 
+  pod 'Braintree/Apple-Pay'
+  pod 'Braintree/PayPal'
+  pod 'Braintree/Venmo'
+  pod 'Braintree/PaymentFlow'
+
   target 'UnitTests'
   target 'UITests'
 end

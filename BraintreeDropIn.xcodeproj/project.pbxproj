@@ -15,6 +15,8 @@
 		039C176C1FC4F1C000D5A3B5 /* BTDropInOverrides.m in Sources */ = {isa = PBXBuildFile; fileRef = 039C176A1FC4F1C000D5A3B5 /* BTDropInOverrides.m */; };
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
+		4245DAED256C70F100F1A413 /* BTPaymentSelectionViewController_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4245DAEC256C70F100F1A413 /* BTPaymentSelectionViewController_Internal.h */; };
+		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
 		4621948924CDD58545FD02D1 /* Pods_Tests_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADEFAF207F0FB2660592B95 /* Pods_Tests_UnitTests.framework */; };
 		53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */; };
@@ -221,6 +223,8 @@
 		039C176A1FC4F1C000D5A3B5 /* BTDropInOverrides.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDropInOverrides.m; sourceTree = "<group>"; };
 		03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVisualAssetType.h; sourceTree = "<group>"; };
 		03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInResultTests.m; sourceTree = "<group>"; };
+		4245DAEC256C70F100F1A413 /* BTPaymentSelectionViewController_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTPaymentSelectionViewController_Internal.h; sourceTree = "<group>"; };
+		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		496DF2F22553CCF2ED03C8D0 /* Pods_Tests_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -474,7 +478,6 @@
 				59B00931EDB0D2F76DF2CD30 /* Pods-Tests-UnitTests.debug.xcconfig */,
 				6E5AC595194AF50DA4CD4F0D /* Pods-Tests-UnitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -687,6 +690,7 @@
 				034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */,
 				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
 				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
+				4245DAF2256C721D00F1A413 /* FakeApplication.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -797,6 +801,7 @@
 			children = (
 				A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */,
 				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
+				4245DAEC256C70F100F1A413 /* BTPaymentSelectionViewController_Internal.h */,
 			);
 			name = "Braintree Internal Headers";
 			sourceTree = "<group>";
@@ -890,6 +895,7 @@
 				A56C41B11D8335C7000DFFAB /* BTDropInRequest.h in Headers */,
 				0367AB4D1FC510AB00F8EF56 /* BTDropInOverrides.h in Headers */,
 				A56C41AF1D8335C7000DFFAB /* BTDropInBaseViewController.h in Headers */,
+				4245DAED256C70F100F1A413 /* BTPaymentSelectionViewController_Internal.h in Headers */,
 				A56C41B21D8335C7000DFFAB /* BTDropInResult.h in Headers */,
 				A56C41A11D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h in Headers */,
 				A56C419F1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h in Headers */,
@@ -992,7 +998,6 @@
 					A5411A1B1D8A1F090041BE92 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1030;
-						TestTargetID = A5CE1D131D835832009BE61A;
 					};
 					A5411A291D8A20D00041BE92 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1117,6 +1122,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Braintree-17a0f91b/Braintree.framework",
+				"${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework",
 				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
 				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -1124,6 +1131,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
@@ -1141,6 +1150,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Braintree-17a0f91b/Braintree.framework",
+				"${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework",
 				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
 				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -1148,6 +1159,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
@@ -1265,6 +1278,7 @@
 				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
 				425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */,
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,
+				4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */,
 				0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1461,7 +1475,6 @@
 			baseConfigurationReference = 59B00931EDB0D2F76DF2CD30 /* Pods-Tests-UnitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1502,7 +1515,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop-in Demo.app/Drop-in Demo";
 			};
 			name = Debug;
 		};
@@ -1511,7 +1523,6 @@
 			baseConfigurationReference = 6E5AC595194AF50DA4CD4F0D /* Pods-Tests-UnitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1546,7 +1557,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop-in Demo.app/Drop-in Demo";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

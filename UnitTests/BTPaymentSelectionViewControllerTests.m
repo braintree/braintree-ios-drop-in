@@ -2,9 +2,11 @@
 
 #import "BTPaymentSelectionViewController.h"
 #import "BTConfiguration.h"
+#import "UnitTests-Swift.h"
 
 @interface BTPaymentSelectionViewController ()
 @property (nonatomic, strong) NSArray *paymentOptionsData;
+@property (nonatomic, strong) id application;
 @end
 
 @interface BTPaymentSelectionViewControllerTests : XCTestCase
@@ -44,6 +46,19 @@
     paymentSelectionVC.configuration = configuration;
     [paymentSelectionVC configurationLoaded:configuration error:error];
     XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeUnknown)]);
+}
+
+- (void)test_venmoAppInstalled_hasVenmoInSupportedTypes {
+    NSError *error = nil;
+    BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
+    BTConfiguration *config = [[BTConfiguration alloc] initWithJSON:[[BTJSON alloc] init]];
+    paymentSelectionVC.configuration = config;
+    paymentSelectionVC.application = [[FakeApplication alloc] init];
+    NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
+    paymentSelectionVC.application.canOpenURLWhitelist = @[venmoURL];
+
+    [paymentSelectionVC configurationLoaded:config error:error];
+    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
 }
 
 @end

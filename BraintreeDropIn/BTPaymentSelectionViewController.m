@@ -49,6 +49,7 @@
 @property (nonatomic, strong) UILabel *vaultedPaymentsHeader;
 @property (nonatomic, strong) UIButton *vaultedPaymentsEditButton;
 @property (nonatomic, strong) UICollectionView *savedPaymentMethodsCollectionView;
+@property (nonatomic, strong) id application;
 @end
 
 @implementation BTPaymentSelectionViewController
@@ -233,7 +234,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             BTJSON *venmoAccessToken = self.configuration.json[@"payWithVenmo"][@"accessToken"];
             if ([[BTTokenizationService sharedService] isTypeAvailable:@"Venmo"] && venmoAccessToken.isString && !self.dropInRequest.venmoDisabled) {
                 NSURLComponents *components = [NSURLComponents componentsWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
-                BOOL isVenmoAppInstalled = [[UIApplication sharedApplication] canOpenURL:components.URL];
+                BOOL isVenmoAppInstalled = [self.application canOpenURL:components.URL];
                 if (isVenmoAppInstalled || [BTDropInOverrides displayVenmoOption]) {
                     [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
                 }
@@ -283,6 +284,15 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     }
 }
 
+#pragma mark - Accessors
+
+- (id)application {
+    if (!_application) {
+        _application = [UIApplication sharedApplication];
+    }
+    return _application;
+}
+
 #pragma mark - Helpers
 
 - (void)fetchPaymentMethodsOnCompletion:(void(^)(void))completionBlock {
@@ -294,10 +304,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         return;
     }
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [self.application setNetworkActivityIndicatorVisible:YES];
     
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self.application setNetworkActivityIndicatorVisible:NO];
         
         if (error) {
             // no action
