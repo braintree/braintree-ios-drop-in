@@ -3,7 +3,6 @@
 #import "BTDropInController.h"
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
-#import "BTDropInOverrides.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 
 #if __has_include("BraintreeUIKit.h")
@@ -235,7 +234,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             if ([[BTTokenizationService sharedService] isTypeAvailable:@"Venmo"] && venmoAccessToken.isString && !self.dropInRequest.venmoDisabled) {
                 NSURLComponents *components = [NSURLComponents componentsWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
                 BOOL isVenmoAppInstalled = [self.application canOpenURL:components.URL];
-                if (isVenmoAppInstalled || [BTDropInOverrides displayVenmoOption]) {
+                if (isVenmoAppInstalled) {
                     [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
                 }
             }

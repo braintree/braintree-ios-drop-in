@@ -93,10 +93,6 @@ class DemoSettings {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoDisablePayPal")
     }
     
-    static var venmoDisabled: Bool {
-        return UserDefaults.standard.bool(forKey: "BraintreeDemoDisableVenmo")
-    }
-    
     static var maskSecurityCode: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoMaskSecurityCode")
     }

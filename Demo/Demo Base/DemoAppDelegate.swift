@@ -76,11 +76,6 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoDisablePayPal")
         }
         
-        UserDefaults.standard.set(false, forKey:"BraintreeDemoDisableVenmo")
-        if testArguments.contains("-DisableVenmo") {
-            UserDefaults.standard.set(true, forKey:"BraintreeDemoDisableVenmo")
-        }
-        
         UserDefaults.standard.set(false, forKey:"BraintreeDemoMaskSecurityCode")
         if testArguments.contains("-MaskSecurityCode") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoMaskSecurityCode")
@@ -102,13 +97,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         if testArguments.contains("-VaultCardIsFalse") {
             UserDefaults.standard.set(false, forKey:"BraintreeDemoVaultCardSetting")
         }
-        
-        UserDefaults.standard.removeObject(forKey: "BraintreeTest_ForceVenmoDisplay")
-        if testArguments.contains("-ForceVenmo") {
-            // TODO: - BTDropInOverrides isn't available from a separate project
-//            BTDropInOverrides.displayVenmoOption = true
-        }
-        
+
         UserDefaults.standard.removeObject(forKey: "BraintreeDemoSettingsAuthorizationOverride")
         for arg in testArguments {
             if arg.contains("-Authorization:") {

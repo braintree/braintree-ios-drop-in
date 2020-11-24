@@ -48,16 +48,58 @@
     XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeUnknown)]);
 }
 
-- (void)test_venmoAppInstalled_hasVenmoInSupportedTypes {
-    NSError *error = nil;
-    BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
-    BTConfiguration *config = [[BTConfiguration alloc] initWithJSON:[[BTJSON alloc] init]];
-    paymentSelectionVC.configuration = config;
-    paymentSelectionVC.application = [[FakeApplication alloc] init];
-    NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
-    ((FakeApplication *)paymentSelectionVC.application).canOpenURLWhitelist = @[venmoURL];
+- (void)test_venmoAppInstalled_andMerchantConfiguredForVenmo_hasVenmoInSupportedTypes {
+    NSDictionary *configurationJSON = @{
+                                        @"payWithVenmo": @{
+                                            @"accessToken": @"fake-token"
+                                        }
+                                        };
+    BTJSON *json = [[BTJSON alloc] initWithData:[NSJSONSerialization dataWithJSONObject:configurationJSON options:0 error:nil]];
+    BTConfiguration *configuration = [[BTConfiguration alloc] initWithJSON:json];
 
-    [paymentSelectionVC configurationLoaded:config error:error];
+    BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
+    paymentSelectionVC.configuration = configuration;
+
+    FakeApplication *fakeApplication = [[FakeApplication alloc] init];
+    paymentSelectionVC.application = fakeApplication;
+    NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
+    fakeApplication.canOpenURLWhitelist = @[venmoURL];
+
+    NSError *error = nil;
+    [paymentSelectionVC configurationLoaded:configuration error:error];
+    XCTAssertTrue([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
+}
+
+- (void)test_venmoAppInstalled_andMerchantNotConfiguredForVenmo_venmoNotInSupportedTypes {
+    BTConfiguration *configuration = [[BTConfiguration alloc] initWithJSON:[[BTJSON alloc] init]];
+
+    BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
+    paymentSelectionVC.configuration = configuration;
+
+    FakeApplication *fakeApplication = [[FakeApplication alloc] init];
+    paymentSelectionVC.application = fakeApplication;
+    NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
+    fakeApplication.canOpenURLWhitelist = @[venmoURL];
+
+    NSError *error = nil;
+    [paymentSelectionVC configurationLoaded:configuration error:error];
+    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
+}
+
+- (void)test_venmoAppNotInstalled_andMerchantConfiguredForVenmo_venmoNotInSupportedTypes {
+    NSDictionary *configurationJSON = @{
+                                        @"payWithVenmo": @{
+                                            @"accessToken": @"fake-token"
+                                        }
+                                        };
+    BTJSON *json = [[BTJSON alloc] initWithData:[NSJSONSerialization dataWithJSONObject:configurationJSON options:0 error:nil]];
+    BTConfiguration *configuration = [[BTConfiguration alloc] initWithJSON:json];
+
+    BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
+    paymentSelectionVC.configuration = configuration;
+    
+    NSError *error = nil;
+    [paymentSelectionVC configurationLoaded:configuration error:error];
     XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
 }
 
