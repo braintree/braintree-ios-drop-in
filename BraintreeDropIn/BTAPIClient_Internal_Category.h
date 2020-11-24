@@ -1,5 +1,3 @@
-// TODO: - shouldn't this be added to a target?
-
 #if __has_include("BraintreeCore.h")
 #import "BraintreeCore.h"
 #else
