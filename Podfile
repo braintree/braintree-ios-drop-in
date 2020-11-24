@@ -38,6 +38,8 @@ abstract_target 'Tests' do
   pod 'Braintree/PaymentFlow'
 
   target 'UnitTests'
-  target 'UITests'
+  target 'UITests' do
+    project 'Demo/Demo'
+  end
 end
 
