@@ -55,7 +55,7 @@
     paymentSelectionVC.configuration = config;
     paymentSelectionVC.application = [[FakeApplication alloc] init];
     NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
-    paymentSelectionVC.application.canOpenURLWhitelist = @[venmoURL];
+    ((FakeApplication *)paymentSelectionVC.application).canOpenURLWhitelist = @[venmoURL];
 
     [paymentSelectionVC configurationLoaded:config error:error];
     XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);

@@ -8,12 +8,21 @@ target 'Demo' do
   project 'Demo/Demo'
   pod 'InAppSettingsKit', :inhibit_warnings => true
 
-  pod "BraintreeDropIn", :path => "./"
-
   pod 'Braintree/Apple-Pay'
   pod 'Braintree/PayPal'
   pod 'Braintree/Venmo'
   pod 'Braintree/PaymentFlow'
+  pod 'Braintree/UnionPay'
+end
+
+# TODO: Can we migrate demo to use SPM?
+target 'BraintreeDropIn' do
+  project 'BraintreeDropIn'
+  pod 'Braintree/Apple-Pay'
+  pod 'Braintree/PayPal'
+  pod 'Braintree/Venmo'
+  pod 'Braintree/PaymentFlow'
+  pod 'Braintree/UnionPay'
 end
 
 abstract_target 'Tests' do
