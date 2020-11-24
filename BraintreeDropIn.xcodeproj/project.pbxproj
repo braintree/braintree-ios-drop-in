@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0305FE7B205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */; };
 		034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */; };
 		034D319A1E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */; };
 		0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */; };
@@ -154,8 +153,6 @@
 		A52902101D8903A700032220 /* BTUIKLargeVisaVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901601D8903A600032220 /* BTUIKLargeVisaVectorArtView.h */; };
 		A52902121D8903A700032220 /* BTUIKLargeVisaVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */; };
 		A52902131D8904EE00032220 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52900361D88FB5100032220 /* BraintreeUIKit.framework */; };
-		A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */; };
-		A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5411A371D8A23990041BE92 /* BTUITest.swift */; };
 		A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */; };
 		A56C418E1D833568000DFFAB /* BTCardFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41871D833568000DFFAB /* BTCardFormViewController.m */; };
 		A56C418F1D833568000DFFAB /* BTDropInBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */; };
@@ -180,7 +177,6 @@
 		A56C41B21D8335C7000DFFAB /* BTDropInResult.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A56C41B31D8335C7000DFFAB /* BTPaymentSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A56C41B41D8335C7000DFFAB /* BTVaultManagementViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFB7F14ED0DBBDEB22A63C15 /* Pods_Tests_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496DF2F22553CCF2ED03C8D0 /* Pods_Tests_UITests.framework */; };
 		D6C2F3342239917F00DFF7E5 /* BTUIKSwitchFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6C2F3352239917F00DFF7E5 /* BTUIKSwitchFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */; };
 /* End PBXBuildFile section */
@@ -196,7 +192,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropinEditMode_UITests.swift; sourceTree = "<group>"; };
 		030D981E1DC933EF00161899 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D981F1DC9340500161899 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D98221DC9347C00161899 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BTUI.strings; sourceTree = "<group>"; };
@@ -371,10 +366,6 @@
 		A52901611D8903A600032220 /* BTUIKLargeVisaVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKLargeVisaVectorArtView.m; sourceTree = "<group>"; };
 		A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5411A201D8A1F090041BE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5411A2A1D8A20D00041BE92 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5411A2E1D8A20D00041BE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
-		A5411A371D8A23990041BE92 /* BTUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTUITest.swift; sourceTree = "<group>"; };
 		A55F56511D88EBAB00C55BFD /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = "../braintree-ios/build/Debug-iphoneos/BraintreeApplePay.framework"; sourceTree = "<group>"; };
 		A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardTypeTests.m; sourceTree = "<group>"; };
 		A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -436,14 +427,6 @@
 				8068E514256D727C002904E6 /* BraintreeUIKit.framework in Frameworks */,
 				8068E50F256D7261002904E6 /* BraintreeDropIn.framework in Frameworks */,
 				4621948924CDD58545FD02D1 /* Pods_Tests_UnitTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5411A271D8A20D00041BE92 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BFB7F14ED0DBBDEB22A63C15 /* Pods_Tests_UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,32 +690,12 @@
 			path = UnitTests;
 			sourceTree = "<group>";
 		};
-		A5411A2B1D8A20D00041BE92 /* UITests */ = {
-			isa = PBXGroup;
-			children = (
-				A5411A341D8A23030041BE92 /* BraintreeDropIn_UITests.swift */,
-				0305FE7A205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift */,
-				A5411A361D8A23580041BE92 /* Helpers */,
-				A5411A2E1D8A20D00041BE92 /* Info.plist */,
-			);
-			path = UITests;
-			sourceTree = "<group>";
-		};
-		A5411A361D8A23580041BE92 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				A5411A371D8A23990041BE92 /* BTUITest.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		A56C41601D833348000DFFAB = {
 			isa = PBXGroup;
 			children = (
 				A56C416C1D833348000DFFAB /* BraintreeDropIn */,
 				A52900CE1D8903A600032220 /* BraintreeUIKit */,
 				A5411A1D1D8A1F090041BE92 /* UnitTests */,
-				A5411A2B1D8A20D00041BE92 /* UITests */,
 				A56C416B1D833348000DFFAB /* Products */,
 				7CB021C39C809C0427A911A4 /* Frameworks */,
 				8FC32AAB8C66FB63C48F9B8D /* Pods */,
@@ -745,7 +708,6 @@
 				A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */,
 				A52900361D88FB5100032220 /* BraintreeUIKit.framework */,
 				A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */,
-				A5411A2A1D8A20D00041BE92 /* UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -956,25 +918,6 @@
 			productReference = A5411A1C1D8A1F090041BE92 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A5411A291D8A20D00041BE92 /* UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A5411A311D8A20D00041BE92 /* Build configuration list for PBXNativeTarget "UITests" */;
-			buildPhases = (
-				ED74CBD2DF7ED8336769FB0C /* [CP] Check Pods Manifest.lock */,
-				A5411A261D8A20D00041BE92 /* Sources */,
-				A5411A271D8A20D00041BE92 /* Frameworks */,
-				A5411A281D8A20D00041BE92 /* Resources */,
-				6DD421EA4E000D50148BFDEF /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = UITests;
-			productName = UITests;
-			productReference = A5411A2A1D8A20D00041BE92 /* UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		A56C41691D833348000DFFAB /* BraintreeDropIn */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A56C417E1D833348000DFFAB /* Build configuration list for PBXNativeTarget "BraintreeDropIn" */;
@@ -1011,11 +954,6 @@
 					A5411A1B1D8A1F090041BE92 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1030;
-					};
-					A5411A291D8A20D00041BE92 = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 1020;
-						TestTargetID = A5CE1D131D835832009BE61A;
 					};
 					A56C41691D833348000DFFAB = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1068,7 +1006,6 @@
 				A56C41691D833348000DFFAB /* BraintreeDropIn */,
 				A52900351D88FB5100032220 /* BraintreeUIKit */,
 				A5411A1B1D8A1F090041BE92 /* UnitTests */,
-				A5411A291D8A20D00041BE92 /* UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1083,13 +1020,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A5411A1A1D8A1F090041BE92 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5411A281D8A20D00041BE92 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1176,56 +1106,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6DD421EA4E000D50148BFDEF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Braintree-17a0f91b/Braintree.framework",
-				"${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework",
-				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
-				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/Specta/Specta.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Specta.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED74CBD2DF7ED8336769FB0C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tests-UITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1315,16 +1195,6 @@
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,
 				4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */,
 				0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5411A261D8A20D00041BE92 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A5411A351D8A23030041BE92 /* BraintreeDropIn_UITests.swift in Sources */,
-				A5411A381D8A23990041BE92 /* BTUITest.swift in Sources */,
-				0305FE7B205EF40B00BB346B /* BraintreeDropinEditMode_UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1596,95 +1466,6 @@
 			};
 			name = Release;
 		};
-		A5411A321D8A20D00041BE92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E5F51A76634D603EF92C40 /* Pods-Tests-UITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = DropInDemo;
-			};
-			name = Debug;
-		};
-		A5411A331D8A20D00041BE92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D91EC2C0EE94450002FC512D /* Pods-Tests-UITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = DropInDemo;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		A56C417C1D833348000DFFAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1922,15 +1703,6 @@
 			buildConfigurations = (
 				A5411A231D8A1F090041BE92 /* Debug */,
 				A5411A241D8A1F090041BE92 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A5411A311D8A20D00041BE92 /* Build configuration list for PBXNativeTarget "UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5411A321D8A20D00041BE92 /* Debug */,
-				A5411A331D8A20D00041BE92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

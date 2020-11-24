@@ -23,7 +23,20 @@
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
 		4245D969256C627400F1A413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4245D968256C627400F1A413 /* Assets.xcassets */; };
 		8068E4E0256D7087002904E6 /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */; };
+		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
+		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
+		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8068E522256D73D5002904E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4245D79B256C5AF900F1A413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4245D7A2256C5AF900F1A413;
+			remoteInfo = Demo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4245D7A3256C5AF900F1A413 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +59,11 @@
 		4245D968256C627400F1A413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C60C37B4119D7299F6A4EE2 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8068E51D256D73D5002904E6 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
+		8068E521256D73D5002904E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_EditMode_UITests.swift; sourceTree = "<group>"; };
+		8068E531256D7489002904E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A4F2154C11B116BA29329F2F /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F67689ED383BC55464B120 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +78,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8068E51A256D73D5002904E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				4245D7A5256C5AF900F1A413 /* Demo */,
+				8068E51E256D73D5002904E6 /* UITests */,
 				4245D7A4256C5AF900F1A413 /* Products */,
 				4365BAA64EC40596BEA8A066 /* Pods */,
 				D29CC413D438C2B9AD73E86C /* Frameworks */,
@@ -77,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				4245D7A3256C5AF900F1A413 /* Demo.app */,
+				8068E51D256D73D5002904E6 /* UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +190,17 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		8068E51E256D73D5002904E6 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */,
+				8068E521256D73D5002904E6 /* Info.plist */,
+				8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */,
+				8068E531256D7489002904E6 /* Helpers.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
 		D29CC413D438C2B9AD73E86C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +232,24 @@
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8068E51C256D73D5002904E6 /* UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8068E526256D73D5002904E6 /* Build configuration list for PBXNativeTarget "UITests" */;
+			buildPhases = (
+				8068E519256D73D5002904E6 /* Sources */,
+				8068E51A256D73D5002904E6 /* Frameworks */,
+				8068E51B256D73D5002904E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8068E523256D73D5002904E6 /* PBXTargetDependency */,
+			);
+			name = UITests;
+			productName = UITests;
+			productReference = 8068E51D256D73D5002904E6 /* UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +261,10 @@
 				TargetAttributes = {
 					4245D7A2256C5AF900F1A413 = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					8068E51C256D73D5002904E6 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 4245D7A2256C5AF900F1A413;
 					};
 				};
 			};
@@ -223,6 +283,7 @@
 			projectRoot = "";
 			targets = (
 				4245D7A2256C5AF900F1A413 /* Demo */,
+				8068E51C256D73D5002904E6 /* UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,6 +299,13 @@
 				4245D969256C627400F1A413 /* Assets.xcassets in Resources */,
 				4245D886256C5C4E00F1A413 /* README.md in Resources */,
 				4245D87F256C5C4E00F1A413 /* Settings.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8068E51B256D73D5002904E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +369,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8068E519256D73D5002904E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */,
+				8068E532256D7489002904E6 /* Helpers.swift in Sources */,
+				8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8068E523256D73D5002904E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4245D7A2256C5AF900F1A413 /* Demo */;
+			targetProxy = 8068E522256D73D5002904E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4245D86F256C5C4E00F1A413 /* Main.strings */ = {
@@ -491,6 +577,44 @@
 			};
 			name = Release;
 		};
+		8068E524256D73D5002904E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43253H4X22;
+				INFOPLIST_FILE = UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Demo;
+			};
+			name = Debug;
+		};
+		8068E525256D73D5002904E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43253H4X22;
+				INFOPLIST_FILE = UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Demo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,6 +632,15 @@
 			buildConfigurations = (
 				4245D7B8256C5AFC00F1A413 /* Debug */,
 				4245D7B9256C5AFC00F1A413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8068E526256D73D5002904E6 /* Build configuration list for PBXNativeTarget "UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8068E524256D73D5002904E6 /* Debug */,
+				8068E525256D73D5002904E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
