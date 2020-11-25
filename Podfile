@@ -4,42 +4,26 @@ workspace 'BraintreeDropIn.xcworkspace'
 platform :ios, '12.0'
 use_frameworks!
 
-target 'Demo' do
+target 'UITests' do
   project 'Demo/Demo'
-  pod 'InAppSettingsKit', :inhibit_warnings => true
-
-  pod 'Braintree/Apple-Pay'
-  pod 'Braintree/PayPal'
-  pod 'Braintree/Venmo'
-  pod 'Braintree/PaymentFlow'
-  pod 'Braintree/UnionPay'
+  pod 'xcbeautify'
 end
 
 # TODO: Can we migrate demo to use SPM?
-target 'BraintreeDropIn' do
-  project 'BraintreeDropIn'
+abstract_target 'All' do
   pod 'Braintree/Apple-Pay'
+  pod 'Braintree/PaymentFlow'
   pod 'Braintree/PayPal'
   pod 'Braintree/Venmo'
-  pod 'Braintree/PaymentFlow'
   pod 'Braintree/UnionPay'
-end
+  pod 'BraintreeDropIn', :path => './'
 
-abstract_target 'Tests' do
-  pod 'Specta'
-  pod 'Expecta'
-  pod 'OCMock'
-  pod 'OHHTTPStubs'
-  pod 'xcbeautify'
-
-  pod 'Braintree/Apple-Pay'
-  pod 'Braintree/PayPal'
-  pod 'Braintree/Venmo'
-  pod 'Braintree/PaymentFlow'
-
-  target 'UnitTests'
-  target 'UITests' do
+  target 'Demo' do
     project 'Demo/Demo'
+    pod 'InAppSettingsKit', :inhibit_warnings => true
+  end
+
+  target 'UnitTests' do
+    pod 'xcbeautify'
   end
 end
-
