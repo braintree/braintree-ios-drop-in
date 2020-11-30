@@ -223,7 +223,7 @@ namespace :publish do
 
   desc "Create GitHub release & attach .framework binaries."
   task :create_github_release do
-    run! "gh release create #{current_version} BraintreeDropIn.framework.zip -t #{current_version} -n #{changelog_entries}"
+    run! "gh release create #{current_version} BraintreeDropIn.framework.zip -t #{current_version} -n '#{changelog_entries}'"
     run! "rm -rf BraintreeDropIn.framework.zip"
   end
 end
