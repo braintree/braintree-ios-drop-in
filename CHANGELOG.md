@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-* Exclude arm64 simulator architectures from Release build settings
+* Exclude arm64 simulator architectures via Podspec (fixes #233)
 
 ## 8.1.1 (2020-07-14)
 
