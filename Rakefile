@@ -11,10 +11,10 @@ desc "Run default set of tasks"
 task :spec => %w[spec:all]
 
 desc "Run internal release process"
-task :release => %w[release:assumptions sanity_checks release:check_working_directory release:bump_version release:lint_podspec release:tag]
+task :release => %w[release:assumptions sanity_checks release:check_working_directory release:bump_version release:lint_podspec carthage:create_binaries release:tag]
 
 desc "Publish code and pod to public github.com"
-task :publish => %w[publish:push publish:push_pod]
+task :publish => %w[publish:push publish:create_github_release publish:push_pod]
 
 SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
@@ -22,6 +22,8 @@ DEMO_PLIST = "DropInDemo/Supporting Files/Braintree-Demo-Info.plist"
 DROPIN_FRAMEWORKS_PLIST = "BraintreeDropIn/Info.plist"
 UIKIT_FRAMEWORKS_PLIST = "BraintreeUIKit/Info.plist"
 PUBLIC_REMOTE_NAME = "origin"
+
+bt_modules = ["BraintreeDropIn", "BraintreeUIKit"]
 
 class << self
   def run cmd
@@ -82,9 +84,7 @@ namespace :spec do
 
   desc 'Run UI tests'
   task :ui do
-    ENV['NSUnbufferedIO'] = 'YES' #Forces parallel test output to be printed after each test rather than on completion of all tests
-    run_test_scheme! 'UITests', nil, '2>&1'
-    ENV['NSUnbufferedIO'] = 'NO'
+    run_test_scheme! 'UITests'
   end
 
   desc 'Run all spec schemes'
@@ -120,6 +120,13 @@ namespace :carthage do
     run! "cd BuildTest && carthage update"
     run! "mv BuildTest/Carthage #{Dir.pwd}"
     run! "xcodebuild -project 'DropInDemo/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
+  end
+
+  desc "Create BraintreeDropIn.framework.zip for Carthage."
+  task :create_binaries do
+    run! "carthage.sh build --no-skip-current"
+    run! "carthage.sh archive #{bt_modules.join(" ")} --output BraintreeDropIn.framework.zip"
+    say "Create binaries for Carthage complete."
   end
 end
 
@@ -200,4 +207,23 @@ namespace :publish do
     run! "pod trunk push --allow-warnings BraintreeDropIn.podspec"
   end
 
+  def changelog_entries
+    append_lines = false
+    lines = ""
+    File.read("CHANGELOG.md").each_line do |line|
+      if append_lines
+        break if line.include?("##") # break when we reach header for previous release
+        lines += line
+      elsif line.include?("##") # start appending after we find first header
+        append_lines = true
+      end
+    end
+    lines
+  end
+
+  desc "Create GitHub release & attach .framework binaries."
+  task :create_github_release do
+    run! "gh release create #{current_version} BraintreeDropIn.framework.zip -t #{current_version} -n '#{changelog_entries}'"
+    run! "rm -rf BraintreeDropIn.framework.zip"
+  end
 end
