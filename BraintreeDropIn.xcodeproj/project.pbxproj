@@ -444,6 +444,54 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		42CEF78C25782EF1000B5A44 /* BraintreeDropIn */ = {
+			isa = PBXGroup;
+			children = (
+				A56C41A51D8335C7000DFFAB /* BraintreeDropIn.h */,
+				A56C41A61D8335C7000DFFAB /* BTCardFormViewController.h */,
+				A56C41A71D8335C7000DFFAB /* BTDropInBaseViewController.h */,
+				A56C41A81D8335C7000DFFAB /* BTDropInController.h */,
+				A56C41A91D8335C7000DFFAB /* BTDropInRequest.h */,
+				A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */,
+				A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */,
+				A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */,
+			);
+			path = BraintreeDropIn;
+			sourceTree = "<group>";
+		};
+		42CEF79525782F02000B5A44 /* BraintreeUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A52901041D8903A600032220 /* BraintreeUIKit.h */,
+				A52901051D8903A600032220 /* BTUIKAppearance.h */,
+				A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */,
+				A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */,
+				A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */,
+				A52901081D8903A600032220 /* BTUIKCardListLabel.h */,
+				A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */,
+				A529010A1D8903A600032220 /* BTUIKCardType.h */,
+				A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */,
+				A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */,
+				A529010D1D8903A600032220 /* BTUIKFormField.h */,
+				A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */,
+				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
+				A52901101D8903A600032220 /* BTUIKMobileCountryCodeFormField.h */,
+				A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */,
+				A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */,
+				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
+				A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */,
+				A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */,
+				D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */,
+				A52901161D8903A600032220 /* BTUIKTextField.h */,
+				A52901171D8903A600032220 /* BTUIKUtil.h */,
+				A52901181D8903A600032220 /* BTUIKVectorArtView.h */,
+				A52901191D8903A600032220 /* BTUIKViewUtil.h */,
+				03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */,
+				A529011A1D8903A600032220 /* UIColor+BTUIK.h */,
+			);
+			path = BraintreeUIKit;
+			sourceTree = "<group>";
+		};
 		7CB021C39C809C0427A911A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,32 +599,7 @@
 		A52901031D8903A600032220 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A52901041D8903A600032220 /* BraintreeUIKit.h */,
-				A52901051D8903A600032220 /* BTUIKAppearance.h */,
-				A52901061D8903A600032220 /* BTUIKCardExpirationValidator.h */,
-				A52901071D8903A600032220 /* BTUIKCardExpiryFormat.h */,
-				A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */,
-				A52901081D8903A600032220 /* BTUIKCardListLabel.h */,
-				A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */,
-				A529010A1D8903A600032220 /* BTUIKCardType.h */,
-				A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */,
-				A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */,
-				A529010D1D8903A600032220 /* BTUIKFormField.h */,
-				A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */,
-				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
-				A52901101D8903A600032220 /* BTUIKMobileCountryCodeFormField.h */,
-				A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */,
-				A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */,
-				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
-				A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */,
-				A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */,
-				D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */,
-				A52901161D8903A600032220 /* BTUIKTextField.h */,
-				A52901171D8903A600032220 /* BTUIKUtil.h */,
-				A52901181D8903A600032220 /* BTUIKVectorArtView.h */,
-				A52901191D8903A600032220 /* BTUIKViewUtil.h */,
-				03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */,
-				A529011A1D8903A600032220 /* UIColor+BTUIK.h */,
+				42CEF79525782F02000B5A44 /* BraintreeUIKit */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -756,14 +779,7 @@
 		A56C41861D8334DD000DFFAB /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A56C41A51D8335C7000DFFAB /* BraintreeDropIn.h */,
-				A56C41A61D8335C7000DFFAB /* BTCardFormViewController.h */,
-				A56C41A71D8335C7000DFFAB /* BTDropInBaseViewController.h */,
-				A56C41A81D8335C7000DFFAB /* BTDropInController.h */,
-				A56C41A91D8335C7000DFFAB /* BTDropInRequest.h */,
-				A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */,
-				A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */,
-				A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */,
+				42CEF78C25782EF1000B5A44 /* BraintreeDropIn */,
 			);
 			path = Public;
 			sourceTree = "<group>";

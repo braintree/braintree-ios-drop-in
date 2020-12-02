@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
   s.subspec "DropIn" do |s|
     s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
-    s.public_header_files = "Sources/BraintreeDropIn/Public/*.h"
+    s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
     s.frameworks = "UIKit"
     s.dependency "Braintree/Card", "~> 4.32"
     s.dependency "Braintree/Core", "~> 4.32"
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
 
   s.subspec "UIKit" do |s|
     s.source_files  = "Sources/BraintreeUIKit/**/*.{h,m}"
-    s.public_header_files = "Sources/BraintreeUIKit/Public/*.h"
+    s.public_header_files = "Sources/BraintreeUIKit/Public/BraintreeUIKit/*.h"
     s.frameworks = "UIKit"
     s.resource_bundles = {
       "Braintree-UIKit-Localization" => ["Sources/BraintreeUIKit/Localization/*.lproj"] }
