@@ -102,30 +102,26 @@ desc 'Run Carthage update'
 namespace :carthage do
   def generate_cartfile
     run! 'mkdir -p BuildTest'
-    File.write("BuildTest/Cartfile", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
+    File.write("SampleApps/CarthageTest/Cartfile", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
   end
 
-  task :generate do
+  task :build_demo do
+    # TODO: Once SPM demo is added, Carthage will likely need to temporarily remove SPM demo to build.
+
+    # Build Carthage demo app
     generate_cartfile
-  end
+    run! "cd SampleApps/CarthageTest && carthage update" # TODO: Why isn't carthage.sh working?
+    run! "xcodebuild -project 'SampleApps/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
 
-  task :clean do
-    run! 'rm -rf BuildTest/Carthage && rm -rf Carthage && rm BuildTest/Cartfile && rm BuildTest/Cartfile.resolved && rm -rf ~/Library/Developers/Xcode/DerivedData'
-  end
-
-  task :test do
-    run! "rm -rf Carthage"
-    run! "rm -rf BuildTest"
-    generate_cartfile
-    run! "cd BuildTest && carthage update"
-    run! "mv BuildTest/Carthage #{Dir.pwd}"
-    run! "xcodebuild -project 'DropInDemo/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
+    # Clean up
+    run! "rm -rf ~/Library/Developers/Xcode/DerivedData"
+    run! "rm SampleApps/CarthageTest/Cartfile.resolved && rm -rf SampleApps/CarthageTest/Carthage"
   end
 
   desc "Create BraintreeDropIn.framework.zip for Carthage."
   task :create_binaries do
-    run! "carthage.sh build --no-skip-current"
-    run! "carthage.sh archive #{bt_modules.join(" ")} --output BraintreeDropIn.framework.zip"
+    run! "carthage build --no-skip-current"
+    run! "carthage archive #{bt_modules.join(" ")} --output BraintreeDropIn.framework.zip"
     say "Create binaries for Carthage complete."
   end
 end
@@ -139,11 +135,11 @@ namespace :sanity_checks do
     #TODO Update for UI Tests
   end
 
-  desc 'Verify that all demo apps Build successfully'
+  desc 'Verify that BraintreeDropIn demo app builds successfully'
   task :build_demo => 'demo:build'
 
   desc 'Verify that Carthage builds successfully'
-  task :carthage_test => %w[carthage:test carthage:clean]
+  task :carthage_test => %w[carthage:build_demo]
 end
 
 namespace :release do
