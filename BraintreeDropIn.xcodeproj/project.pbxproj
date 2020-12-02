@@ -23,8 +23,6 @@
 		53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */; };
 		53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */; };
 		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
-		8068E50F256D7261002904E6 /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */; };
-		8068E514256D727C002904E6 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52900361D88FB5100032220 /* BraintreeUIKit.framework */; };
 		8068E585256D9C64002904E6 /* BTAPIClient_Internal_Category.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		8068E589256D9C68002904E6 /* BTUIKBarButtonItem_Internal_Declaration.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -418,8 +416,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8068E514256D727C002904E6 /* BraintreeUIKit.framework in Frameworks */,
-				8068E50F256D7261002904E6 /* BraintreeDropIn.framework in Frameworks */,
 				532648AE2072239001D1D61F /* Pods_All_UnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,7 +681,6 @@
 		A56C41601D833348000DFFAB = {
 			isa = PBXGroup;
 			children = (
-				80BA96F72534F6EB00E2D194 /* Release.xcconfig */,
 				A56C416C1D833348000DFFAB /* BraintreeDropIn */,
 				A52900CE1D8903A600032220 /* BraintreeUIKit */,
 				A5411A1D1D8A1F090041BE92 /* UnitTests */,
@@ -1478,7 +1473,6 @@
 		};
 		A56C417D1D833348000DFFAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80BA96F72534F6EB00E2D194 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
