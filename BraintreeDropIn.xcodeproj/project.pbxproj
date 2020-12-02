@@ -685,6 +685,7 @@
 		A56C41601D833348000DFFAB = {
 			isa = PBXGroup;
 			children = (
+				80BA96F72534F6EB00E2D194 /* Release.xcconfig */,
 				A56C416C1D833348000DFFAB /* BraintreeDropIn */,
 				A52900CE1D8903A600032220 /* BraintreeUIKit */,
 				A5411A1D1D8A1F090041BE92 /* UnitTests */,
@@ -1477,6 +1478,7 @@
 		};
 		A56C417D1D833348000DFFAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80BA96F72534F6EB00E2D194 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;

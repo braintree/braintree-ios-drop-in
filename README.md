@@ -1,6 +1,9 @@
 # Braintree iOS Drop-In SDK
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/BraintreeDropIn.svg?style=flat)](https://cocoapods.org/pods/BraintreeDropIn)
+
+![GitHub Actions CI](https://github.com/braintree/braintree-ios-drop-in/workflows/CI/badge.svg)
 
 Welcome to Braintree's Drop-In SDK for iOS!
 
