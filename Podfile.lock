@@ -25,16 +25,16 @@ PODS:
   - Braintree/Venmo (4.34.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - BraintreeDropIn (9.0.0):
-    - BraintreeDropIn/DropIn (= 9.0.0)
-  - BraintreeDropIn/DropIn (9.0.0):
+  - BraintreeDropIn (8.1.2):
+    - BraintreeDropIn/DropIn (= 8.1.2)
+  - BraintreeDropIn/DropIn (8.1.2):
     - Braintree/Card (~> 4.32)
     - Braintree/Core (~> 4.32)
     - Braintree/PaymentFlow (~> 4.32)
     - Braintree/PayPal (~> 4.32)
     - Braintree/UnionPay (~> 4.32)
     - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (9.0.0)
+  - BraintreeDropIn/UIKit (8.1.2)
   - InAppSettingsKit (3.1.2)
   - xcbeautify (0.8.1)
 
@@ -60,7 +60,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Braintree: 48154e70306eb3e6c81eaa87bbc5c5988c0d2784
-  BraintreeDropIn: 84ae21e765c8384dfb2172bfe17ed1079f94b6c5
+  BraintreeDropIn: 3f9fbdbed045e7484893664a4b6c1e725a64949e
   InAppSettingsKit: 988142fed825524ae44dd0d93684daf8f0358b8c
   xcbeautify: a3b03e4a38eb1a5766a83a7a3c53915a233572e3
 

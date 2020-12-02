@@ -1501,6 +1501,7 @@
 		};
 		A56C417D1D833348000DFFAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80BA96F72534F6EB00E2D194 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
