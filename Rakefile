@@ -110,7 +110,8 @@ namespace :carthage do
 
     # Build Carthage demo app
     generate_cartfile
-    run! "cd SampleApps/CarthageTest && carthage update" # TODO: Why isn't carthage.sh working?
+    run! "cd SampleApps/CarthageTest"
+    sh "sh carthage.sh update"
     run! "xcodebuild -project 'SampleApps/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
 
     # Clean up
@@ -120,8 +121,8 @@ namespace :carthage do
 
   desc "Create BraintreeDropIn.framework.zip for Carthage."
   task :create_binaries do
-    run! "carthage build --no-skip-current"
-    run! "carthage archive #{bt_modules.join(" ")} --output BraintreeDropIn.framework.zip"
+    sh "sh carthage.sh build --no-skip-current"
+    sh "sh carthage.sh archive #{bt_modules.join(" ")} --output BraintreeDropIn.framework.zip"
     say "Create binaries for Carthage complete."
   end
 end
