@@ -1,28 +1,28 @@
 PODS:
-  - Braintree/Apple-Pay (4.34.0):
+  - Braintree/Apple-Pay (4.36.1):
     - Braintree/Core
-  - Braintree/Card (4.34.0):
+  - Braintree/Card (4.36.1):
     - Braintree/Core
-  - Braintree/Core (4.34.0)
-  - Braintree/PaymentFlow (4.34.0):
+  - Braintree/Core (4.36.1)
+  - Braintree/PaymentFlow (4.36.1):
     - Braintree/Card
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPal (4.34.0):
+  - Braintree/PayPal (4.36.1):
     - Braintree/Core
     - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.34.0):
+  - Braintree/PayPalDataCollector (4.36.1):
     - Braintree/Core
     - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.34.0):
+  - Braintree/PayPalOneTouch (4.36.1):
     - Braintree/Core
     - Braintree/PayPalDataCollector
     - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.34.0)
-  - Braintree/UnionPay (4.34.0):
+  - Braintree/PayPalUtils (4.36.1)
+  - Braintree/UnionPay (4.36.1):
     - Braintree/Card
     - Braintree/Core
-  - Braintree/Venmo (4.34.0):
+  - Braintree/Venmo (4.36.1):
     - Braintree/Core
     - Braintree/PayPalDataCollector
   - BraintreeDropIn (8.1.2):
@@ -59,7 +59,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  Braintree: 48154e70306eb3e6c81eaa87bbc5c5988c0d2784
+  Braintree: f7e0e9a5030e22b8ad77e617f27ac9327d7bc004
   BraintreeDropIn: a610987ee391a23926c7ec86a7e883c7672d1df8
   InAppSettingsKit: 988142fed825524ae44dd0d93684daf8f0358b8c
   xcbeautify: a3b03e4a38eb1a5766a83a7a3c53915a233572e3
