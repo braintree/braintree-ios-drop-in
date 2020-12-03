@@ -25,16 +25,6 @@ PODS:
   - Braintree/Venmo (4.36.1):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - BraintreeDropIn (8.1.2):
-    - BraintreeDropIn/DropIn (= 8.1.2)
-  - BraintreeDropIn/DropIn (8.1.2):
-    - Braintree/Card (~> 4.32)
-    - Braintree/Core (~> 4.32)
-    - Braintree/PaymentFlow (~> 4.32)
-    - Braintree/PayPal (~> 4.32)
-    - Braintree/UnionPay (~> 4.32)
-    - BraintreeDropIn/UIKit
-  - BraintreeDropIn/UIKit (8.1.2)
   - InAppSettingsKit (3.1.2)
   - xcbeautify (0.8.1)
 
@@ -44,7 +34,6 @@ DEPENDENCIES:
   - Braintree/PayPal
   - Braintree/UnionPay
   - Braintree/Venmo
-  - BraintreeDropIn (from `./`)
   - InAppSettingsKit
   - xcbeautify
 
@@ -54,16 +43,11 @@ SPEC REPOS:
     - InAppSettingsKit
     - xcbeautify
 
-EXTERNAL SOURCES:
-  BraintreeDropIn:
-    :path: "./"
-
 SPEC CHECKSUMS:
   Braintree: f7e0e9a5030e22b8ad77e617f27ac9327d7bc004
-  BraintreeDropIn: a610987ee391a23926c7ec86a7e883c7672d1df8
   InAppSettingsKit: 988142fed825524ae44dd0d93684daf8f0358b8c
   xcbeautify: a3b03e4a38eb1a5766a83a7a3c53915a233572e3
 
-PODFILE CHECKSUM: 743f6e839b6f579b8e327742d07bcc62b43a6290
+PODFILE CHECKSUM: b44fc2634b902720ee6f373304ca9555d37864be
 
 COCOAPODS: 1.10.0
