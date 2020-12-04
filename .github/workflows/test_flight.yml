@@ -4,6 +4,9 @@ jobs:
   test_job:
     name: Push to TestFlight
     runs-on: macOS-latest
+    env:
+      PRODUCT_NAME: Drop-in Demo
+      SCHEME: DropInDemo
     steps:
       # Checks: out a copy of your repository
       # - name: Checkout repository
@@ -18,11 +21,11 @@ jobs:
       #     api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
 
       - name: Checkout project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
-      - name: Set environment variables from project settings
-        run: |
-          exec .github/scripts/set-env-from-xcodeproj.sh
+      # - name: Set environment variables from project settings
+      #   run: |
+      #     exec .github/scripts/set-env-from-xcodeproj.sh
 
       - name: Import signing certificate
         env:
