@@ -21,12 +21,14 @@
 		4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */; };
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
 		4245D969256C627400F1A413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4245D968256C627400F1A413 /* Assets.xcassets */; };
+		42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */; };
+		42ACD39E257989E9000BE57C /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
 		8272877B924C846E64EAB7AC /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38603586774B24C433EE065D /* Pods_UITests.framework */; };
-		C4C39C289E7C86BD7B2BE5C2 /* Pods_All_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1845383F725ACC4CD2678809 /* Pods_All_Demo.framework */; };
+		C4FB5BADCF203B2B26F9E373 /* Pods_All_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +41,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		42ACD39F257989E9000BE57C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				42ACD39E257989E9000BE57C /* BraintreeDropIn.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Demo.release.xcconfig"; path = "Target Support Files/Pods-All-Demo/Pods-All-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		1845383F725ACC4CD2678809 /* Pods_All_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38603586774B24C433EE065D /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D7A3256C5AF900F1A413 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D866256C5C4E00F1A413 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -61,7 +76,9 @@
 		4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDropInView.swift; sourceTree = "<group>"; };
 		4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPIClient.swift; sourceTree = "<group>"; };
 		4245D968256C627400F1A413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		7C60C37B4119D7299F6A4EE2 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4C39C289E7C86BD7B2BE5C2 /* Pods_All_Demo.framework in Frameworks */,
+				42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */,
+				C4FB5BADCF203B2B26F9E373 /* Pods_All_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,9 +234,10 @@
 		D29CC413D438C2B9AD73E86C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */,
 				8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */,
-				1845383F725ACC4CD2678809 /* Pods_All_Demo.framework */,
 				38603586774B24C433EE065D /* Pods_UITests.framework */,
+				665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -235,6 +254,7 @@
 				4245D7A0256C5AF900F1A413 /* Frameworks */,
 				4245D7A1256C5AF900F1A413 /* Resources */,
 				77C2BB2986B8D51ACDF4A9F8 /* [CP] Embed Pods Frameworks */,
+				42ACD39F257989E9000BE57C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

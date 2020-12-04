@@ -12,9 +12,10 @@
 		0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */; };
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
+		2F7FB0ECFD9A424F15670E5A /* Pods_All_BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93F29A91004AF33552E0830 /* Pods_All_BraintreeDropIn.framework */; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
-		532648AE2072239001D1D61F /* Pods_All_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D8832FA21FC206F4C97D2 /* Pods_All_UnitTests.framework */; };
+		42ACD3A025798A03000BE57C /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */; };
 		53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */; };
 		53E78BE322248A29000388D3 /* BTUIKHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */; };
 		53E78BE622248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */; };
@@ -23,8 +24,7 @@
 		53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BE922248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m */; };
 		53E78BEE22248FD9000388D3 /* BTUIKHiperVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E78BEC22248FD9000388D3 /* BTUIKHiperVectorArtView.h */; };
 		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
-		8068E50F256D7261002904E6 /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */; };
-		8068E514256D727C002904E6 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52900361D88FB5100032220 /* BraintreeUIKit.framework */; };
+		765D59458C22E074CD1D44A9 /* Pods_All_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92549172957B1A5F9B817F97 /* Pods_All_UnitTests.framework */; };
 		8068E585256D9C64002904E6 /* BTAPIClient_Internal_Category.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		8068E589256D9C68002904E6 /* BTUIKBarButtonItem_Internal_Declaration.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -215,14 +215,15 @@
 		034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardListLabelTests.m; sourceTree = "<group>"; };
 		034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInBaseViewControllerTests.m; sourceTree = "<group>"; };
 		0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDropInRequestTests.m; sourceTree = "<group>"; };
-		0381920D038F94CD8D3ABC75 /* Pods-All-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKVisualAssetType.h; sourceTree = "<group>"; };
 		03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDropInResultTests.m; sourceTree = "<group>"; };
+		0BD902D41FE8E71BAC1F2CDF /* Pods-All-BraintreeDropIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-BraintreeDropIn.release.xcconfig"; path = "Target Support Files/Pods-All-BraintreeDropIn/Pods-All-BraintreeDropIn.release.xcconfig"; sourceTree = "<group>"; };
+		2C49A2D3017C36DE7AF6C8EF /* Pods-All-BraintreeDropIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-BraintreeDropIn.debug.xcconfig"; path = "Target Support Files/Pods-All-BraintreeDropIn/Pods-All-BraintreeDropIn.debug.xcconfig"; sourceTree = "<group>"; };
+		3622655EA20BF44ED95826D3 /* Pods-BraintreeDropIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BraintreeDropIn.debug.xcconfig"; path = "Target Support Files/Pods-BraintreeDropIn/Pods-BraintreeDropIn.debug.xcconfig"; sourceTree = "<group>"; };
 		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		496DF2F22553CCF2ED03C8D0 /* Pods_Tests_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		538D8832FA21FC206F4C97D2 /* Pods_All_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKHipercardVectorArtView.h; sourceTree = "<group>"; };
 		53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKHipercardVectorArtView.m; sourceTree = "<group>"; };
 		53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeHiperVectorArtView.h; sourceTree = "<group>"; };
@@ -233,6 +234,8 @@
 		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		59B00931EDB0D2F76DF2CD30 /* Pods-Tests-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E5AC595194AF50DA4CD4F0D /* Pods-Tests-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-Tests-UnitTests/Pods-Tests-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		92549172957B1A5F9B817F97 /* Pods_All_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98B729AF741A229CD227DAAD /* Pods-All-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKCardholderNameFormField.h; sourceTree = "<group>"; };
 		A03FC5AA215AD10B00E3DF95 /* BTUIKCardholderNameFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKCardholderNameFormField.m; sourceTree = "<group>"; };
 		A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionViewControllerTests.m; sourceTree = "<group>"; };
@@ -399,7 +402,9 @@
 		A5CEBB1F1D8885910064FD29 /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = Carthage/Build/iOS/BraintreeApplePay.framework; sourceTree = "<group>"; };
 		A5CEBB211D8885C00064FD29 /* libBraintree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBraintree.a; path = "../../../Library/Developer/Xcode/DerivedData/BraintreeDropInSampleStaticLib-czvlfzajgufrbydxfsjtvqriemso/Build/Products/Debug-iphoneos/libBraintree.a"; sourceTree = "<group>"; };
 		A5CEBBFA1D8898490064FD29 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUIKit.framework; path = Vendor/BraintreeUIKit.framework; sourceTree = "<group>"; };
-		B1BB9F964FA6B7A223077597 /* Pods-All-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A611395DB3E82B25435AF1D3 /* Pods-BraintreeDropIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BraintreeDropIn.release.xcconfig"; path = "Target Support Files/Pods-BraintreeDropIn/Pods-BraintreeDropIn.release.xcconfig"; sourceTree = "<group>"; };
+		B8EB2DD919139FCAD0FC4BCB /* Pods-All-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B93F29A91004AF33552E0830 /* Pods_All_BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E5F51A76634D603EF92C40 /* Pods-Tests-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-UITests.debug.xcconfig"; path = "Target Support Files/Pods-Tests-UITests/Pods-Tests-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKSwitchFormField.h; sourceTree = "<group>"; };
 		D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKSwitchFormField.m; sourceTree = "<group>"; };
@@ -418,9 +423,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8068E514256D727C002904E6 /* BraintreeUIKit.framework in Frameworks */,
-				8068E50F256D7261002904E6 /* BraintreeDropIn.framework in Frameworks */,
-				532648AE2072239001D1D61F /* Pods_All_UnitTests.framework in Frameworks */,
+				42ACD3A025798A03000BE57C /* BraintreeDropIn.framework in Frameworks */,
+				765D59458C22E074CD1D44A9 /* Pods_All_UnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52902131D8904EE00032220 /* BraintreeUIKit.framework in Frameworks */,
+				2F7FB0ECFD9A424F15670E5A /* Pods_All_BraintreeDropIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +512,8 @@
 				A5CE1E0A1D835F53009BE61A /* Braintree.framework */,
 				A5CE1E071D835CC0009BE61A /* PassKit.framework */,
 				496DF2F22553CCF2ED03C8D0 /* Pods_Tests_UITests.framework */,
-				538D8832FA21FC206F4C97D2 /* Pods_All_UnitTests.framework */,
+				B93F29A91004AF33552E0830 /* Pods_All_BraintreeDropIn.framework */,
+				92549172957B1A5F9B817F97 /* Pods_All_UnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -519,8 +525,12 @@
 				D91EC2C0EE94450002FC512D /* Pods-Tests-UITests.release.xcconfig */,
 				59B00931EDB0D2F76DF2CD30 /* Pods-Tests-UnitTests.debug.xcconfig */,
 				6E5AC595194AF50DA4CD4F0D /* Pods-Tests-UnitTests.release.xcconfig */,
-				B1BB9F964FA6B7A223077597 /* Pods-All-UnitTests.debug.xcconfig */,
-				0381920D038F94CD8D3ABC75 /* Pods-All-UnitTests.release.xcconfig */,
+				3622655EA20BF44ED95826D3 /* Pods-BraintreeDropIn.debug.xcconfig */,
+				A611395DB3E82B25435AF1D3 /* Pods-BraintreeDropIn.release.xcconfig */,
+				2C49A2D3017C36DE7AF6C8EF /* Pods-All-BraintreeDropIn.debug.xcconfig */,
+				0BD902D41FE8E71BAC1F2CDF /* Pods-All-BraintreeDropIn.release.xcconfig */,
+				B8EB2DD919139FCAD0FC4BCB /* Pods-All-UnitTests.debug.xcconfig */,
+				98B729AF741A229CD227DAAD /* Pods-All-UnitTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -916,11 +926,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5411A251D8A1F090041BE92 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
-				192061FE310A0B5351466AE5 /* [CP] Check Pods Manifest.lock */,
+				03B9F04812133B686B3A8F67 /* [CP] Check Pods Manifest.lock */,
 				A5411A181D8A1F090041BE92 /* Sources */,
 				A5411A191D8A1F090041BE92 /* Frameworks */,
 				A5411A1A1D8A1F090041BE92 /* Resources */,
-				2FD5347D7241C6FA43E5BE5C /* [CP] Embed Pods Frameworks */,
+				6020EE64A9F114E9F2989D9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -935,6 +945,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A56C417E1D833348000DFFAB /* Build configuration list for PBXNativeTarget "BraintreeDropIn" */;
 			buildPhases = (
+				608569A3E5DCD75668DDB017 /* [CP] Check Pods Manifest.lock */,
 				A56C41651D833348000DFFAB /* Sources */,
 				A56C41661D833348000DFFAB /* Frameworks */,
 				A56C41671D833348000DFFAB /* Headers */,
@@ -1048,7 +1059,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		192061FE310A0B5351466AE5 /* [CP] Check Pods Manifest.lock */ = {
+		03B9F04812133B686B3A8F67 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1070,7 +1081,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FD5347D7241C6FA43E5BE5C /* [CP] Embed Pods Frameworks */ = {
+		6020EE64A9F114E9F2989D9C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1079,17 +1090,37 @@
 				"${PODS_ROOT}/Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
 				"${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework",
-				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		608569A3E5DCD75668DDB017 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-All-BraintreeDropIn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1360,7 +1391,7 @@
 		};
 		A5411A231D8A1F090041BE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1BB9F964FA6B7A223077597 /* Pods-All-UnitTests.debug.xcconfig */;
+			baseConfigurationReference = B8EB2DD919139FCAD0FC4BCB /* Pods-All-UnitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1408,7 +1439,7 @@
 		};
 		A5411A241D8A1F090041BE92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0381920D038F94CD8D3ABC75 /* Pods-All-UnitTests.release.xcconfig */;
+			baseConfigurationReference = 98B729AF741A229CD227DAAD /* Pods-All-UnitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1501,7 +1532,6 @@
 		};
 		A56C417D1D833348000DFFAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80BA96F72534F6EB00E2D194 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
@@ -1551,6 +1581,7 @@
 		};
 		A56C417F1D833348000DFFAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C49A2D3017C36DE7AF6C8EF /* Pods-All-BraintreeDropIn.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1577,12 +1608,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Vendor",
-					"${PROJECT_DIR}/Carthage/Build/**",
-					"${PROJECT_DIR}/BuildTest/Carthage/Build/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1613,6 +1639,7 @@
 		};
 		A56C41801D833348000DFFAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BD902D41FE8E71BAC1F2CDF /* Pods-All-BraintreeDropIn.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1639,12 +1666,7 @@
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Vendor",
-					"${PROJECT_DIR}/Carthage/Build/**",
-					"${PROJECT_DIR}/BuildTest/Carthage/Build/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
