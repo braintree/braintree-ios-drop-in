@@ -565,7 +565,7 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         
         let webviewElementsQuery = app.webViews.element.otherElements
         
-        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
+        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"], timeout: 20)
         
         webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
         
@@ -585,7 +585,7 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
 
         let webviewElementsQuery = app.webViews.element.otherElements
 
-        waitForElementToBeHittable(webviewElementsQuery.links["Cancel Sandbox Purchase"])
+        waitForElementToBeHittable(webviewElementsQuery.links["Cancel Sandbox Purchase"], timeout: 20)
 
         webviewElementsQuery.links["Cancel Sandbox Purchase"].forceTapElement()
 
@@ -626,7 +626,7 @@ class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
 
         waitForElementToAppear(webviewElementsQuery.staticTexts["4.77"])
 
-        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
+        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"], timeout: 20)
 
         webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
 
