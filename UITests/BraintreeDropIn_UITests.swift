@@ -284,6 +284,7 @@ class BraintreeDropIn_CardholderNameAvailable_UITests: XCTestCase {
         cardNumberTextField.typeText("4111111111111111")
         
         let cardholderNameTextField = elementsQuery.textFields["Cardholder Name"]
+        cardholderNameTextField.forceTapElement()
         cardholderNameTextField.typeText("\n")
         
         waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
@@ -352,6 +353,7 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
         cardNumberTextField.typeText("4111111111111111")
 
         let cardholderNameTextField = elementsQuery.textFields["Cardholder Name"]
+        cardholderNameTextField.forceTapElement()
         cardholderNameTextField.typeText("\n")
 
         waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
@@ -380,6 +382,7 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
 
         let cardholderNameField = elementsQuery.textFields["Cardholder Name"]
         waitForElementToBeHittable(cardholderNameField)
+        cardholderNameField.forceTapElement()
         cardholderNameField.typeText("First Last\n")
 
         waitForElementToBeHittable(app.staticTexts[Date.getNextYear()])
@@ -567,13 +570,13 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
             }
             return true
         }
-        app.tap()
+        app.coordinate(withNormalizedOffset: CGVector.zero).tap()
 
         // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
-        
-        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"], timeout: 20)
-        
+
+        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
+
         webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
 
         // Assert on demo
@@ -595,11 +598,11 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
             }
             return true
         }
-        app.tap()
+        app.coordinate(withNormalizedOffset: CGVector.zero).tap()
 
         // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
-        waitForElementToBeHittable(webviewElementsQuery.links["Cancel Sandbox Purchase"], timeout: 20)
+        waitForElementToBeHittable(webviewElementsQuery.links["Cancel Sandbox Purchase"])
 
         webviewElementsQuery.links["Cancel Sandbox Purchase"].forceTapElement()
 
@@ -641,14 +644,14 @@ class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
             }
             return true
         }
-        app.tap()
+        app.coordinate(withNormalizedOffset: CGVector.zero).tap()
 
         // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
 
         waitForElementToAppear(webviewElementsQuery.staticTexts["4.77"])
 
-        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"], timeout: 20)
+        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
 
         webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
 
