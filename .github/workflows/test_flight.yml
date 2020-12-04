@@ -68,7 +68,7 @@ jobs:
       - name: 'Upload app to TestFlight'
         uses: apple-actions/upload-testflight-build@v1
         with: 
-          app-path: '$PWD/build/DropInDemo.ipa'
+          app-path: $PWD/build/DropInDemo.ipa
           app-type: 'ios'
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
