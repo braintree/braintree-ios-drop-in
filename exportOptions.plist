@@ -6,10 +6,10 @@
 	<false/>
 	<key>method</key>
 	<string>app-store</string>
-<!-- 	<key>provisioningProfiles</key>
+	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.braintreepayments.DropInDemo</key>
-		<string>Drop-In Demo Ad Hoc</string>
+		<string>BTDropInDemo - App Store</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>iPhone Distribution</string>
@@ -20,6 +20,6 @@
 	<key>teamID</key>
 	<string>43253H4X22</string>
 	<key>thinning</key>
-	<string>&lt;none&gt;</string> -->
+	<string>&lt;none&gt;</string>
 </dict>
 </plist>
