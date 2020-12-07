@@ -2,6 +2,8 @@
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
+#import "BTPaymentMethodNonce+DropIn.h"
+
 #if __has_include("BraintreeCore.h")
 #import "BraintreeCore.h"
 #else
@@ -132,11 +134,8 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 
     cell.detailLabel.text = @"";
     NSString *typeString = paymentMethod.type;
-    NSMutableAttributedString *typeWithDescription = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", paymentMethod.localizedDescription ?: @""]];
-    if ([paymentMethod isKindOfClass:[BTCardNonce class]]) {
-        typeWithDescription = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"••• ••%@", ((BTCardNonce*)paymentMethod).lastTwo ?: @""]];
-    }
-    cell.detailLabel.attributedText = typeWithDescription;
+
+    cell.detailLabel.text = paymentMethod.paymentDescription;
     cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString]];
     cell.iconView.paymentOptionType = option;
     cell.type = option;

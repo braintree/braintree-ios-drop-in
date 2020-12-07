@@ -21,6 +21,12 @@
 #import <BraintreePaymentFlow/BraintreePaymentFlow.h>
 #endif
 
+#ifdef COCOAPODS
+#import <Braintree/BTThreeDSecureResult.h>
+#else
+#import <BraintreeThreeDSecure/BTThreeDSecureResult.h>
+#endif
+
 #define BT_ANIMATION_SLIDE_SPEED 0.35
 #define BT_ANIMATION_TRANSITION_SPEED 0.1
 #define BT_HALF_SHEET_MARGIN 5
@@ -313,7 +319,7 @@
     }];
 }
 
-- (void)onLookupComplete:(__unused BTThreeDSecureRequest *)request result:(__unused BTThreeDSecureLookup *)result next:(void (^)(void))next {
+- (void)onLookupComplete:(__unused BTThreeDSecureRequest *)request lookupResult:(__unused BTThreeDSecureResult *)result next:(void (^)(void))next {
     next();
 }
 

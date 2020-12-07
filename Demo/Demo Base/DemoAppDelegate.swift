@@ -15,6 +15,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         appearanceProxy.barStyle = .blackTranslucent
 
         registerUserDefaults()
+        BTAppSwitch.setReturnURLScheme(BraintreeDemoAppDelegatePaymentsURLScheme)
         
         let rootViewController = DemoContainerViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
@@ -26,7 +27,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         guard url.scheme?.lowercased() == BraintreeDemoAppDelegatePaymentsURLScheme.lowercased() else { return true }
-        return BTAppSwitch.handleOpen(url, options: options)
+        return BTAppSwitch.handleOpen(url)
     }
     
     private func registerUserDefaults() {
@@ -105,13 +106,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
                 UserDefaults.standard.set(testIntegration, forKey: "BraintreeDemoSettingsAuthorizationOverride")
             }
         }
-        
-        if testArguments.contains("-BadUrlScheme") {
-            BTAppSwitch.setReturnURLScheme("com.braintreepayments.bad.scheme")
-        } else {
-            BTAppSwitch.setReturnURLScheme(BraintreeDemoAppDelegatePaymentsURLScheme)
-        }
-        
+
         let settingsPlist = Bundle.main.url(forResource: "Settings", withExtension: "bundle")!.appendingPathComponent("Root.plist")
         let settingsDictionary = NSDictionary(contentsOf: settingsPlist)!
         let preferences = settingsDictionary["PreferenceSpecifiers"] as! [[String : Any]]

@@ -4,6 +4,7 @@
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
+#import "BTPaymentMethodNonce+DropIn.h"
 
 #if __has_include("BraintreeUIKit.h")
 #import "BraintreeUIKit.h"
@@ -226,7 +227,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     NSMutableArray *activePaymentOptions = [@[] mutableCopy];
     if (!error) {
         [self fetchPaymentMethodsOnCompletion:^{
-            if ([[BTTokenizationService sharedService] isTypeAvailable:@"PayPal"] && [self.configuration.json[@"paypalEnabled"] isTrue] && !self.dropInRequest.paypalDisabled) {
+            if ([self.configuration.json[@"paypalEnabled"] isTrue] && !self.dropInRequest.paypalDisabled) {
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypePayPal)];
             }
 
@@ -252,10 +253,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 #ifdef __BT_APPLE_PAY
             BTJSON *applePayConfiguration = self.configuration.json[@"applePay"];
             if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled && self.configuration.canMakeApplePayPayments) {
-                // Short-circuits if BraintreeApplePay is not available at runtime
-                if (__BT_AVAILABLE(@"BTApplePayClient")) {
-                    [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
-                }
+                [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
             }
 #endif
 
@@ -396,17 +394,14 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     BTPaymentMethodNonce *paymentInfo = self.paymentMethodNonces[indexPath.row];
     cell.paymentMethodNonce = paymentInfo;
     NSString *typeString = paymentInfo.type;
-    NSMutableAttributedString *typeWithDescription = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", paymentInfo.localizedDescription ?: @""]];
-    if ([paymentInfo isKindOfClass:[BTCardNonce class]]) {
-        typeWithDescription = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"••• ••%@", ((BTCardNonce*)paymentInfo).lastTwo ?: @""]];
-    }
+    
     cell.highlighted = NO;
-    cell.descriptionLabel.attributedText = typeWithDescription;
+    cell.descriptionLabel.text = paymentInfo.paymentDescription;
     cell.titleLabel.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString]];
     cell.paymentOptionCardView.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString];
 
     cell.isAccessibilityElement = YES;
-    cell.accessibilityLabel = [NSString stringWithFormat:@"%@-%@", typeString, typeWithDescription.string];
+    cell.accessibilityLabel = [NSString stringWithFormat:@"%@-%@", typeString, paymentInfo.paymentDescription];
 
     return cell;
 }
@@ -476,7 +471,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         }
     } else if (cell.type == BTUIKPaymentOptionTypePayPal) {
         BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
-        driver.viewControllerPresentingDelegate = self.delegate;
         driver.appSwitchDelegate = self.delegate;
 
         BTPayPalRequest *payPalRequest = self.dropInRequest.payPalRequest;

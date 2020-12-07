@@ -62,9 +62,9 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 11"])
+        waitForElementToAppear(app.staticTexts["••• ••11"])
 
-        XCTAssertTrue(app.staticTexts["ending in 11"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
     }
 
     func testDropIn_cardInput_showsInvalidState_withInvalidCardNumber() {
@@ -303,9 +303,9 @@ class BraintreeDropIn_CardholderNameAvailable_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 11"])
+        waitForElementToAppear(app.staticTexts["••• ••11"])
 
-        XCTAssertTrue(app.staticTexts["ending in 11"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
 
     }
 }
@@ -401,9 +401,9 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 11"])
+        waitForElementToAppear(app.staticTexts["••• ••11"])
 
-        XCTAssertTrue(app.staticTexts["ending in 11"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
     }
 }
 
@@ -449,9 +449,9 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 11"])
+        waitForElementToAppear(app.staticTexts["••• ••11"])
 
-        XCTAssertTrue(app.staticTexts["ending in 11"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
     }
 
     func testDropIn_nonUnionPayCardNumber_showsNextButton() {
@@ -527,9 +527,9 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         waitForElementToBeHittable(app.buttons["Confirm"])
         app.buttons["Confirm"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 32"])
+        waitForElementToAppear(app.staticTexts["••• ••32"])
 
-        XCTAssertTrue(app.staticTexts["ending in 32"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••32"].exists)
     }
 
 }
@@ -739,9 +739,9 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
 
         app.buttons["Submit"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 11"])
+        waitForElementToAppear(app.staticTexts["••• ••11"])
 
-        XCTAssertTrue(app.staticTexts["ending in 11"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
 
         waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
@@ -779,7 +779,7 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
 
         waitForElementToAppear(app.staticTexts["Added Protection"], timeout: 20)
 
-        app.buttons["Done"].forceTapElement()
+        app.staticTexts["Cancel"].firstMatch.forceTapElement()
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         waitForElementToAppear(app.staticTexts["Select Payment Method"])
 
@@ -872,9 +872,9 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 00"])
+        waitForElementToAppear(app.staticTexts["••• ••00"])
 
-        XCTAssertTrue(app.staticTexts["ending in 00"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••00"].exists)
 
         waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
@@ -920,9 +920,9 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         app.buttons["SUBMIT"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 91"])
+        waitForElementToAppear(app.staticTexts["••• ••91"])
 
-        XCTAssertTrue(app.staticTexts["ending in 91"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••91"].exists)
 
         waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
@@ -1009,9 +1009,9 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
 
         app.buttons["SUBMIT"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["ending in 91"])
+        waitForElementToAppear(app.staticTexts["••• ••91"])
 
-        XCTAssertTrue(app.staticTexts["ending in 91"].exists)
+        XCTAssertTrue(app.staticTexts["••• ••91"].exists)
     }
 }
 
@@ -1034,34 +1034,6 @@ class BraintreeDropIn_Venmo_NotInstalled_UITests: XCTestCase {
     func testDropIn_venmo_doesNotShow_whenDisabled() {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         XCTAssertFalse(app.staticTexts["Venmo"].exists)
-    }
-}
-
-class BraintreeDropIn_Error_UITests: XCTestCase {
-
-    var app: XCUIApplication!
-
-    override func setUp() {
-        super.setUp()
-        continueAfterFailure = false
-        app = XCUIApplication()
-        app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-TokenizationKey")
-        app.launchArguments.append("-BadUrlScheme")
-        app.launch()
-        sleep(1)
-        waitForElementToBeHittable(app.buttons["Add Payment Method"])
-        app.buttons["Add Payment Method"].tap()
-    }
-
-    func testDropIn_paypal_receivesError_whenUrlSchemeIsIncorrect() {
-        waitForElementToBeHittable(app.staticTexts["PayPal"])
-        app.staticTexts["PayPal"].tap()
-        sleep(3)
-
-        let existsPredicate = NSPredicate(format: "label LIKE '*Application does not support One Touch callback*'")
-
-        waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
     }
 }
 

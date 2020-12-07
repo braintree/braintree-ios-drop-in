@@ -13,6 +13,9 @@
 		03AE59581DDE7E8C000B594C /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */; };
 		2F7FB0ECFD9A424F15670E5A /* Pods_All_BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93F29A91004AF33552E0830 /* Pods_All_BraintreeDropIn.framework */; };
+		4225EA53257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4225EA52257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h */; };
+		4225EA58257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225EA57257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m */; };
+		4225EA87257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
 		42ACD3A025798A03000BE57C /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */; };
@@ -220,6 +223,9 @@
 		0BD902D41FE8E71BAC1F2CDF /* Pods-All-BraintreeDropIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-BraintreeDropIn.release.xcconfig"; path = "Target Support Files/Pods-All-BraintreeDropIn/Pods-All-BraintreeDropIn.release.xcconfig"; sourceTree = "<group>"; };
 		2C49A2D3017C36DE7AF6C8EF /* Pods-All-BraintreeDropIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-BraintreeDropIn.debug.xcconfig"; path = "Target Support Files/Pods-All-BraintreeDropIn/Pods-All-BraintreeDropIn.debug.xcconfig"; sourceTree = "<group>"; };
 		3622655EA20BF44ED95826D3 /* Pods-BraintreeDropIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BraintreeDropIn.debug.xcconfig"; path = "Target Support Files/Pods-BraintreeDropIn/Pods-BraintreeDropIn.debug.xcconfig"; sourceTree = "<group>"; };
+		4225EA52257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTPaymentMethodNonce+DropIn.h"; sourceTree = "<group>"; };
+		4225EA57257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BTPaymentMethodNonce+DropIn.m"; sourceTree = "<group>"; };
+		4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BTPaymentMethodNonce+DropInTests.swift"; sourceTree = "<group>"; };
 		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -720,6 +726,7 @@
 				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
 				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
 				4245DAF2256C721D00F1A413 /* FakeApplication.swift */,
+				4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -755,6 +762,7 @@
 				A56C41891D833568000DFFAB /* BTDropInController.m */,
 				A56C418A1D833568000DFFAB /* BTDropInUIUtilities.h */,
 				A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */,
+				4225EA57257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m */,
 				A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */,
 				A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */,
 				A56C41851D8334D7000DFFAB /* Custom Views */,
@@ -799,6 +807,7 @@
 			children = (
 				A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */,
 				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
+				4225EA52257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h */,
 			);
 			name = "Braintree Internal Headers";
 			sourceTree = "<group>";
@@ -887,6 +896,7 @@
 				A56C41B31D8335C7000DFFAB /* BTPaymentSelectionViewController.h in Headers */,
 				8068E589256D9C68002904E6 /* BTUIKBarButtonItem_Internal_Declaration.h in Headers */,
 				A56C41AD1D8335C7000DFFAB /* BraintreeDropIn.h in Headers */,
+				4225EA53257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h in Headers */,
 				A56C41B41D8335C7000DFFAB /* BTVaultManagementViewController.h in Headers */,
 				A56C41AE1D8335C7000DFFAB /* BTCardFormViewController.h in Headers */,
 				A56C41B01D8335C7000DFFAB /* BTDropInController.h in Headers */,
@@ -1090,11 +1100,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-All-UnitTests/Pods-All-UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
 				"${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PPRiskMagnes/PPRiskMagnes.framework/PPRiskMagnes",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPRiskMagnes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1210,6 +1222,7 @@
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,
 				4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */,
 				0358590B203E09E200FCE1B7 /* BTDropInRequestTests.m in Sources */,
+				4225EA87257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,6 +1234,7 @@
 				A56C41A01D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m in Sources */,
 				A56C41941D833568000DFFAB /* BTVaultManagementViewController.m in Sources */,
 				A56C41A41D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m in Sources */,
+				4225EA58257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m in Sources */,
 				A56C41921D833568000DFFAB /* BTDropInUIUtilities.m in Sources */,
 				A56C418E1D833568000DFFAB /* BTCardFormViewController.m in Sources */,
 				A56C41981D833597000DFFAB /* BTDropInResult.m in Sources */,
