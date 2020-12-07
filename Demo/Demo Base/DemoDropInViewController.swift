@@ -1,5 +1,7 @@
 import UIKit
 import PassKit
+import BraintreeDropIn
+import Braintree
 
 class DemoDropInViewController: DemoBaseViewController {
     
@@ -45,7 +47,6 @@ class DemoDropInViewController: DemoBaseViewController {
         BTUIKLocalizedString.setCustomTranslations(["cs"])
         
         dropInRequest.paypalDisabled = DemoSettings.paypalDisabled
-        dropInRequest.venmoDisabled = DemoSettings.venmoDisabled
         dropInRequest.cardDisabled = ProcessInfo.processInfo.arguments.contains("-CardDisabled")
         dropInRequest.shouldMaskSecurityCode = DemoSettings.maskSecurityCode
         dropInRequest.cardholderNameSetting = DemoSettings.cardholderNameSetting

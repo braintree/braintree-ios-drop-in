@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1150"
+   LastUpgradeVersion = "1220"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-               BuildableName = "Drop-in Demo.app"
-               BlueprintName = "DropInDemo"
-               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
+               BlueprintIdentifier = "4245D7A2256C5AF900F1A413"
+               BuildableName = "Demo.app"
+               BlueprintName = "Demo"
+               ReferencedContainer = "container:Demo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A5411A1B1D8A1F090041BE92"
+               BuildableName = "UnitTests.xctest"
+               BlueprintName = "UnitTests"
+               ReferencedContainer = "container:../BraintreeDropIn.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,16 +41,17 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-            BuildableName = "Drop-in Demo.app"
-            BlueprintName = "DropInDemo"
-            ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8068E51C256D73D5002904E6"
+               BuildableName = "UITests.xctest"
+               BlueprintName = "UITests"
+               ReferencedContainer = "container:Demo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -44,17 +59,7 @@
                BlueprintIdentifier = "A5411A1B1D8A1F090041BE92"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5411A291D8A20D00041BE92"
-               BuildableName = "UITests.xctest"
-               BlueprintName = "UITests"
-               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
+               ReferencedContainer = "container:../BraintreeDropIn.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,10 +78,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-            BuildableName = "Drop-in Demo.app"
-            BlueprintName = "DropInDemo"
-            ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
+            BlueprintIdentifier = "4245D7A2256C5AF900F1A413"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -90,10 +95,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A5CE1D131D835832009BE61A"
-            BuildableName = "Drop-in Demo.app"
-            BlueprintName = "DropInDemo"
-            ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
+            BlueprintIdentifier = "4245D7A2256C5AF900F1A413"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

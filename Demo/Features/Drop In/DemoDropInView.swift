@@ -1,4 +1,4 @@
-import UIKit
+import BraintreeDropIn
 
 class DemoDropInView: UIView {
     

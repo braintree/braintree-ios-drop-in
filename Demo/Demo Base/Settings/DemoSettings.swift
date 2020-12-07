@@ -1,4 +1,5 @@
-import Foundation
+import BraintreeDropIn
+import Braintree
 
 enum DemoEnvironment: Int {
     case sandbox
@@ -90,10 +91,6 @@ class DemoSettings {
     
     static var paypalDisabled: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoDisablePayPal")
-    }
-    
-    static var venmoDisabled: Bool {
-        return UserDefaults.standard.bool(forKey: "BraintreeDemoDisableVenmo")
     }
     
     static var maskSecurityCode: Bool {

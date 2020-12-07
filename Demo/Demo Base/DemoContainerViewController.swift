@@ -1,4 +1,6 @@
-import UIKit
+import BraintreeDropIn
+import Braintree
+import InAppSettingsKit
 
 class DemoContainerViewController: UIViewController {
     
