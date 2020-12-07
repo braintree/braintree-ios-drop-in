@@ -24,8 +24,8 @@ Pod::Spec.new do |s|
   s.default_subspecs = %w[DropIn]
 
   s.subspec "DropIn" do |s|
-    s.source_files  = "BraintreeDropIn/**/*.{h,m}"
-    s.public_header_files = "BraintreeDropIn/Public/*.h"
+    s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
+    s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
     s.frameworks = "UIKit"
     s.dependency "Braintree/Card", "~> 4.32"
     s.dependency "Braintree/Core", "~> 4.32"
@@ -36,11 +36,11 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "UIKit" do |s|
-    s.source_files  = "BraintreeUIKit/**/*.{h,m}"
-    s.public_header_files = "BraintreeUIKit/Public/*.h"
+    s.source_files  = "Sources/BraintreeUIKit/**/*.{h,m}"
+    s.public_header_files = "Sources/BraintreeUIKit/Public/BraintreeUIKit/*.h"
     s.frameworks = "UIKit"
     s.resource_bundles = {
-      "Braintree-UIKit-Localization" => ["BraintreeUIKit/Localization/*.lproj"] }
+      "Braintree-UIKit-Localization" => ["Sources/BraintreeUIKit/Localization/*.lproj"] }
   end
 
   # https://github.com/CocoaPods/CocoaPods/issues/10065#issuecomment-694266259
