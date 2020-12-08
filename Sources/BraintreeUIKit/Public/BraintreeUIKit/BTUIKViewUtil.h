@@ -1,11 +1,13 @@
 #import <UIKit/UIKit.h>
-#import "BTUIKPaymentOptionType.h"
-#import "BTUIKVisualAssetType.h"
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKCardType.h>
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTUIKVisualAssetType.h>
 #else
 #import <BraintreeUIKit/BTUIKCardType.h>
+#import <BraintreeUIKit/BTUIKPaymentOptionType.h>
+#import <BraintreeUIKit/BTUIKVisualAssetType.h>
 #endif
 
 @class BTUIKVectorArtView;

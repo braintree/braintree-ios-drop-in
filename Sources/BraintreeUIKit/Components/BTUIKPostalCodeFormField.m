@@ -1,15 +1,17 @@
-#import "BTUIKPostalCodeFormField.h"
-#import "BTUIKUtil.h"
-#import "BTUIKTextField.h"
-#import "BTUIKLocalizedString.h"
-#import "BTUIKInputAccessoryToolbar.h"
-
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
 #import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import <BraintreeDropIn/BTUIKPostalCodeFormField.h>
+#import <BraintreeDropIn/BTUIKTextField.h>
+#import <BraintreeDropIn/BTUIKUtil.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
 #import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#import <BraintreeUIKit/BTUIKPostalCodeFormField.h>
+#import <BraintreeUIKit/BTUIKTextField.h>
+#import <BraintreeUIKit/BTUIKUtil.h>
 #endif
 
 @implementation BTUIKPostalCodeFormField

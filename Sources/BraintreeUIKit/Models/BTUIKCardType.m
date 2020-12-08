@@ -2,11 +2,11 @@
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKCardType.h>
+#import <BraintreeDropIn/BTUIKUtil.h>
 #else
 #import <BraintreeUIKit/BTUIKCardType.h>
+#import <BraintreeUIKit/BTUIKUtil.h>
 #endif
-
-#import "BTUIKUtil.h"
 
 #define kDefaultFormatSpaceIndices @[@4, @8, @12, @16]
 #define kDefaultCvvLength          3

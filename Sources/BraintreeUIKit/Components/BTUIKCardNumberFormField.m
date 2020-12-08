@@ -1,17 +1,21 @@
-#import "BTUIKPaymentOptionCardView.h"
-#import "BTUIKLocalizedString.h"
-#import "BTUIKUtil.h"
-#import "BTUIKTextField.h"
-#import "BTUIKViewUtil.h"
-
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
 #import <BraintreeDropIn/BTUIKCardNumberFormField.h>
 #import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import <BraintreeDropIn/BTUIKPaymentOptionCardView.h>
+#import <BraintreeDropIn/BTUIKTextField.h>
+#import <BraintreeDropIn/BTUIKUtil.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
 #import <BraintreeUIKit/BTUIKCardNumberFormField.h>
 #import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#import <BraintreeUIKit/BTUIKPaymentOptionCardView.h>
+#import <BraintreeUIKit/BTUIKTextField.h>
+#import <BraintreeUIKit/BTUIKUtil.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
 #endif
 
 #define TEMP_KERNING 8.0

@@ -1,10 +1,11 @@
-#import "BTUIKSwitchFormField.h"
-#import "BTUIKViewUtil.h"
-
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKSwitchFormField.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKSwitchFormField.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
 #endif
 
 @interface BTUIKSwitchFormField ()

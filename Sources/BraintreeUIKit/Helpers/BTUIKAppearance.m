@@ -1,10 +1,10 @@
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/UIColor+BTUIK.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/UIColor+BTUIK.h>
 #endif
-
-#import "UIColor+BTUIK.h"
 
 @interface BTUIKAppearance ()
 

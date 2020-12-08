@@ -1,12 +1,13 @@
-#import "BTUIKVectorArtView.h"
-#import "BTUIKViewUtil.h"
-
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
 #import <BraintreeDropIn/BTUIKFormField.h>
+#import <BraintreeDropIn/BTUIKVectorArtView.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
 #import <BraintreeUIKit/BTUIKFormField.h>
+#import <BraintreeUIKit/BTUIKVectorArtView.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
 #endif
 
 @interface BTUIKFormField ()<BTUIKTextFieldEditDelegate>

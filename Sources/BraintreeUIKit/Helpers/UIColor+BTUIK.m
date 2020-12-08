@@ -1,4 +1,8 @@
-#import "UIColor+BTUIK.h"
+#ifdef COCOAPODS
+#import <BraintreeDropIn/UIColor+BTUIK.h>
+#else
+#import <BraintreeUIKit/UIColor+BTUIK.h>
+#endif
 
 @implementation UIColor (BTUIK)
 

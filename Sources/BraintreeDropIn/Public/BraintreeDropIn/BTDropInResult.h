@@ -1,8 +1,9 @@
 #import <UIKit/UIKit.h>
-#if __has_include("BTUIKPaymentOptionType.h")
-#import "BTUIKPaymentOptionType.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 #else
-#import <BraintreeUIKit/BraintreeUIKit.h>
+#import <BraintreeUIKit/BTUIKPaymentOptionType.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
