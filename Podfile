@@ -11,12 +11,12 @@ end
 
 # TODO: Can we migrate demo to use SPM?
 abstract_target 'All' do
-  pod 'Braintree/ApplePay', :git => 'https://github.com/braintree/braintree_ios.git', :branch => 'apple-pay-last-two'
-  pod 'Braintree/PaymentFlow', :git => 'https://github.com/braintree/braintree_ios.git', :branch => 'apple-pay-last-two'
-  pod 'Braintree/PayPal', :git => 'https://github.com/braintree/braintree_ios.git', :branch => 'apple-pay-last-two'
-  pod 'Braintree/ThreeDSecure', :git => 'https://github.com/braintree/braintree_ios.git', :branch => 'apple-pay-last-two'
-  pod 'Braintree/UnionPay', :git => 'https://github.com/braintree/braintree_ios.git', :branch => 'apple-pay-last-two'
-  pod 'Braintree/Venmo', :git => 'https://github.com/braintree/braintree_ios.git', :branch => 'apple-pay-last-two'
+  pod 'Braintree/ApplePay', '~> 5.0.0-beta'
+  pod 'Braintree/PaymentFlow', '~> 5.0.0-beta'
+  pod 'Braintree/PayPal', '~> 5.0.0-beta'
+  pod 'Braintree/ThreeDSecure', '~> 5.0.0-beta'
+  pod 'Braintree/UnionPay', '~> 5.0.0-beta'
+  pod 'Braintree/Venmo', '~> 5.0.0-beta'
 
   target 'Demo' do
     project 'Demo/Demo'
