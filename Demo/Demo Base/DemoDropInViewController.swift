@@ -96,7 +96,7 @@ class DemoDropInViewController: DemoBaseViewController {
                 self.progressBlock?("Ready for checkout...")
                 self.didSelectApplePay = false
                 self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(result.paymentMethod, paymentDescription: result.paymentDescription)
+                self.updatePaymentMethodNonce(result)
             }
             
             dropInController.dismiss(animated: true, completion: nil)
@@ -145,13 +145,13 @@ class DemoDropInViewController: DemoBaseViewController {
     
     // MARK: - Helper Methods
 
-    func updatePaymentMethodNonce(_ nonce: BTPaymentMethodNonce?, paymentDescription: String?) {
-        demoView.paymentMethodTypeLabel.isHidden = (nonce == nil)
-        demoView.paymentMethodTypeIcon.isHidden = (nonce == nil)
-        if let nonce = nonce {
+    func updatePaymentMethodNonce(_ result: BTDropInResult?) {
+        demoView.paymentMethodTypeLabel.isHidden = (result?.paymentMethod == nil)
+        demoView.paymentMethodTypeIcon.isHidden = (result?.paymentMethod == nil)
+        if let nonce = result?.paymentMethod {
             let paymentMethodType = BTUIKViewUtil.paymentOptionType(forPaymentInfoType: nonce.type)
             demoView.paymentMethodTypeIcon.paymentOptionType = paymentMethodType
-            demoView.paymentMethodTypeLabel.text = paymentDescription
+            demoView.paymentMethodTypeLabel.text = result?.paymentDescription
         }
         demoView.updatePaymentMethodConstraints()
     }
@@ -173,7 +173,7 @@ class DemoDropInViewController: DemoBaseViewController {
             } else {
                 self.didSelectApplePay = false
                 self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(self.selectedNonce, paymentDescription: result.paymentDescription)
+                self.updatePaymentMethodNonce(result)
             }
         }
     }

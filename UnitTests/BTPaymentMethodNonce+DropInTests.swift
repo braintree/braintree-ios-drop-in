@@ -6,7 +6,6 @@ class BTPaymentMethodNonceDropInTests: XCTestCase {
 
     let sharedParser = BTPaymentMethodNonceParser.shared()
 
-    // TODO: - Why three dots + space + two dots + last two? Should it start w/ four dots?
     func testPaymentDescription_whenCardNonceWithLastTwo() {
         let cardJSON = BTJSON(value: [
             "nonce": "fake-nonce",
@@ -21,7 +20,6 @@ class BTPaymentMethodNonceDropInTests: XCTestCase {
         XCTAssertEqual("••• ••11", cardNonce?.paymentDescription)
     }
 
-    // TODO: - check how other SDKs handle cards w/o last two digits
     func testPaymentDescription_whenCardNonceWithoutLastTwo() {
         let cardJSON = BTJSON(value: [
             "nonce": "fake-nonce",
@@ -63,17 +61,37 @@ class BTPaymentMethodNonceDropInTests: XCTestCase {
         XCTAssertEqual("username@example.com", venmoNonce?.paymentDescription)
     }
 
-    // TODO: - We need to expose the description on BTApplePayCardNonce, use a different value or hard-code the string in Drop-in
-    func testPaymentDescription_whenApplePayNonce() {
+    func testPaymentDescription_whenApplePayNonceWithLastTwo() {
         let sharedParser = BTPaymentMethodNonceParser.shared()
+
         let applePayCard = BTJSON(value: [
-            "nonce": "fake-nonce",
-            "description": "Apple Pay"
+            "details": [
+                "cardType": "Visa",
+                "dpanLastTwo": "11"
+            ],
+            "nonce": "a-nonce",
+            "type": "ApplePayCard",
         ])
 
         let applePayNonce = sharedParser.parseJSON(applePayCard, withParsingBlockForType: "ApplePayCard") as? BTApplePayCardNonce
 
-        XCTAssertEqual("Apple Pay", applePayNonce?.paymentDescription)
+        XCTAssertEqual("••• ••11", applePayNonce?.paymentDescription)
+    }
+
+    func testPaymentDescription_whenApplePayNonceWithoutLastTwo() {
+        let sharedParser = BTPaymentMethodNonceParser.shared()
+
+        let applePayCard = BTJSON(value: [
+            "details": [
+                "cardType": "Visa"
+            ],
+            "nonce": "a-nonce",
+            "type": "ApplePayCard",
+        ])
+
+        let applePayNonce = sharedParser.parseJSON(applePayCard, withParsingBlockForType: "ApplePayCard") as? BTApplePayCardNonce
+
+        XCTAssertEqual("••• ••", applePayNonce?.paymentDescription)
     }
 
     func testPaymentDescription_whenUnknownNonce() {

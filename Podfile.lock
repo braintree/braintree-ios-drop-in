@@ -25,26 +25,35 @@ PODS:
   - xcbeautify (0.8.1)
 
 DEPENDENCIES:
-  - Braintree/ApplePay (~> 5.0.0-beta)
-  - Braintree/PaymentFlow (~> 5.0.0-beta)
-  - Braintree/PayPal (~> 5.0.0-beta)
-  - Braintree/ThreeDSecure (~> 5.0.0-beta)
-  - Braintree/UnionPay (~> 5.0.0-beta)
-  - Braintree/Venmo (~> 5.0.0-beta)
+  - Braintree/ApplePay (from `https://github.com/braintree/braintree_ios.git`, branch `apple-pay-last-two`)
+  - Braintree/PaymentFlow (from `https://github.com/braintree/braintree_ios.git`, branch `apple-pay-last-two`)
+  - Braintree/PayPal (from `https://github.com/braintree/braintree_ios.git`, branch `apple-pay-last-two`)
+  - Braintree/ThreeDSecure (from `https://github.com/braintree/braintree_ios.git`, branch `apple-pay-last-two`)
+  - Braintree/UnionPay (from `https://github.com/braintree/braintree_ios.git`, branch `apple-pay-last-two`)
+  - Braintree/Venmo (from `https://github.com/braintree/braintree_ios.git`, branch `apple-pay-last-two`)
   - InAppSettingsKit
   - xcbeautify
 
 SPEC REPOS:
   trunk:
-    - Braintree
     - InAppSettingsKit
     - xcbeautify
+
+EXTERNAL SOURCES:
+  Braintree:
+    :branch: apple-pay-last-two
+    :git: https://github.com/braintree/braintree_ios.git
+
+CHECKOUT OPTIONS:
+  Braintree:
+    :commit: a1c6649f1fd0267a944facbd9ef8d56b305d7685
+    :git: https://github.com/braintree/braintree_ios.git
 
 SPEC CHECKSUMS:
   Braintree: 725c991036ca072618ba1382a46537a75ff318db
   InAppSettingsKit: 988142fed825524ae44dd0d93684daf8f0358b8c
   xcbeautify: a3b03e4a38eb1a5766a83a7a3c53915a233572e3
 
-PODFILE CHECKSUM: d5528a1b407696733233bec79b8e42ed1aa7a636
+PODFILE CHECKSUM: b729401550ae40c23d725003fe9962edd6f980f6
 
 COCOAPODS: 1.10.0
