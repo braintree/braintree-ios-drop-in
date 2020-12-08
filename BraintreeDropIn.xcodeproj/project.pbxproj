@@ -715,18 +715,18 @@
 		A5411A1D1D8A1F090041BE92 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A5411A201D8A1F090041BE92 /* Info.plist */,
-				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
-				03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */,
-				0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */,
-				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
-				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
 				034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */,
-				034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */,
-				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
-				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
-				4245DAF2256C721D00F1A413 /* FakeApplication.swift */,
+				0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */,
+				03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */,
 				4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */,
+				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
+				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
+				034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */,
+				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
+				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
+				4245DAF2256C721D00F1A413 /* FakeApplication.swift */,
+				A5411A201D8A1F090041BE92 /* Info.plist */,
+				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";

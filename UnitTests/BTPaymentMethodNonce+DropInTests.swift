@@ -61,37 +61,9 @@ class BTPaymentMethodNonceDropInTests: XCTestCase {
         XCTAssertEqual("username@example.com", venmoNonce?.paymentDescription)
     }
 
-    func testPaymentDescription_whenApplePayNonceWithLastTwo() {
-        let sharedParser = BTPaymentMethodNonceParser.shared()
-
-        let applePayCard = BTJSON(value: [
-            "details": [
-                "cardType": "Visa",
-                "dpanLastTwo": "11"
-            ],
-            "nonce": "a-nonce",
-            "type": "ApplePayCard",
-        ])
-
-        let applePayNonce = sharedParser.parseJSON(applePayCard, withParsingBlockForType: "ApplePayCard") as? BTApplePayCardNonce
-
-        XCTAssertEqual("••• ••11", applePayNonce?.paymentDescription)
-    }
-
-    func testPaymentDescription_whenApplePayNonceWithoutLastTwo() {
-        let sharedParser = BTPaymentMethodNonceParser.shared()
-
-        let applePayCard = BTJSON(value: [
-            "details": [
-                "cardType": "Visa"
-            ],
-            "nonce": "a-nonce",
-            "type": "ApplePayCard",
-        ])
-
-        let applePayNonce = sharedParser.parseJSON(applePayCard, withParsingBlockForType: "ApplePayCard") as? BTApplePayCardNonce
-
-        XCTAssertEqual("••• ••", applePayNonce?.paymentDescription)
+    func testPaymentDescription_whenApplePay() {
+        let applePayNonce = BTApplePayCardNonce()
+        XCTAssertEqual("Apple Pay", applePayNonce.paymentDescription)
     }
 
     func testPaymentDescription_whenUnknownNonce() {

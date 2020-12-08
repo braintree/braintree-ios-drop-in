@@ -22,7 +22,7 @@
     } else if ([self isKindOfClass:[BTVenmoAccountNonce class]]) {
         return ((BTVenmoAccountNonce *)self).username;
     } else if ([self isKindOfClass:[BTApplePayCardNonce class]]) {
-        return [NSString stringWithFormat:@"••• ••%@", ((BTApplePayCardNonce *)self).dpanLastTwo ?: @""];
+        return @"Apple Pay";
     } else {
         return @"";
     }
