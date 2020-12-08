@@ -28,6 +28,10 @@ Carthage/
 SampleApps/CarthageTest/Carthage
 SampleApps/CarthageTest/Cartfile.resolved
 
+# Swift Package Manager
+.build
+.swiftpm
+
 appledocs
 
 # This file is needed for signing the ipa with our enterprise cert;
