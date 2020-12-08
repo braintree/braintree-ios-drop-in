@@ -4,15 +4,11 @@
 #import <BraintreeUIKit/BTUIKViewUtil.h>
 #endif
 
-#if COCOAPODS // CocoaPods
-#import <BraintreeDropIn/BTUIKMasterCardVectorArtView.h>
-
-#elif SWIFT_PACKAGE // SPM
-#import "../Vector Art/BTUIKMasterCardVectorArtView.h"
-
-#else // Carthage
-#import <BraintreeUIKit/BTUIKMasterCardVectorArtView.h>
-#endif
+//#if SWIFT_PACKAGE // SPM
+//#import "../Vector Art/BTUIKMasterCardVectorArtView.h"
+//#else // Carthage & CocoaPods
+#import "BTUIKMasterCardVectorArtView.h"
+//#endif
 
 #import "BTUIKJCBVectorArtView.h"
 #import "BTUIKMaestroVectorArtView.h"
