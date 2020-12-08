@@ -27,11 +27,11 @@ Pod::Spec.new do |s|
     s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
     s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
     s.frameworks = "UIKit"
-    s.dependency "Braintree/Card", "~> 5.0.0-beta1"
-    s.dependency "Braintree/Core", "~> 5.0.0-beta1"
-    s.dependency "Braintree/UnionPay", "~> 5.0.0-beta1"
-    s.dependency "Braintree/PaymentFlow", "~> 5.0.0-beta1"
-    s.dependency "Braintree/PayPal", "~> 5.0.0-beta1"
+    s.dependency "Braintree/Card", "~> 5.0.0-beta"
+    s.dependency "Braintree/Core", "~> 5.0.0-beta"
+    s.dependency "Braintree/UnionPay", "~> 5.0.0-beta"
+    s.dependency "Braintree/PaymentFlow", "~> 5.0.0-beta"
+    s.dependency "Braintree/PayPal", "~> 5.0.0-beta"
     s.dependency "BraintreeDropIn/UIKit"
   end
 
