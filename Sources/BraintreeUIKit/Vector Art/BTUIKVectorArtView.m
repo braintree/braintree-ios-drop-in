@@ -1,4 +1,9 @@
-#import "BTUIKVectorArtView.h"
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKVectorArtView.h>
+#else
+#import <BraintreeUIKit/BTUIKVectorArtView.h>
+#endif
+
 @import QuartzCore;
 
 @implementation BTUIKVectorArtView
