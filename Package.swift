@@ -34,9 +34,8 @@ let package = Package(
             exclude: ["Info.plist"],
             publicHeadersPath: "Public",
             cSettings: [
-                .headerSearchPath("BraintreeUIKit"),
-                .headerSearchPath("BraintreeUIKit/Components"),
-                .headerSearchPath("BraintreeUIKit/Vector Art")
+                .headerSearchPath("Components"),
+                .headerSearchPath("Vector Art")
             ]
         )
     ]
