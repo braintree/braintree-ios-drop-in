@@ -35,7 +35,8 @@ let package = Package(
             publicHeadersPath: "Public",
             cSettings: [
                 .headerSearchPath("Components"),
-                .headerSearchPath("Vector Art")
+                .headerSearchPath("Vector Art"),
+                .headerSearchPath("Vector Art/Large")
             ]
         )
     ]
