@@ -1,4 +1,4 @@
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
 #import <BraintreeDropIn/BTUIKCardType.h>
 #import <BraintreeDropIn/BTUIKFormField.h>
 #else

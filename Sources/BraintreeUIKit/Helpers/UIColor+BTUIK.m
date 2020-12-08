@@ -1,4 +1,4 @@
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
 #import <BraintreeDropIn/UIColor+BTUIK.h>
 #else
 #import <BraintreeUIKit/UIColor+BTUIK.h>

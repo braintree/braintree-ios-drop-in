@@ -6,7 +6,7 @@ FOUNDATION_EXPORT double BraintreeUIKitVersionNumber;
 //! Project version string for BraintreeUIKit.
 FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
 #import <BraintreeDropIn/BTUIKFormField.h>
 #import <BraintreeDropIn/BTUIKExpiryInputView.h>
 #import <BraintreeDropIn/BTUIKTextField.h>

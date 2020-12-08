@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
 #import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 #import <BraintreeDropIn/BTUIKViewUtil.h>
 #else

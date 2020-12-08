@@ -1,4 +1,4 @@
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
 #import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
 #import <BraintreeDropIn/BTUIKSecurityCodeFormField.h>
