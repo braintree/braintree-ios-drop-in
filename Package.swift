@@ -32,7 +32,12 @@ let package = Package(
         .target(
             name: "BraintreeUIKit",
             exclude: ["Info.plist"],
-            publicHeadersPath: "Public"
+            publicHeadersPath: "Public",
+            cSettings: [
+                .headerSearchPath("BraintreeUIKit"),
+                .headerSearchPath("BraintreeUIKit/Components"),
+                .headerSearchPath("BraintreeUIKit/Vector Art")
+            ]
         )
     ]
 )
