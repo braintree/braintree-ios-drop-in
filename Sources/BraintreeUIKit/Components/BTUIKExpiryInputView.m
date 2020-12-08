@@ -1,9 +1,14 @@
 #import "BTUIKExpiryInputView.h"
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
-#import "BTUIKAppearance.h"
 #import "BTUIKLocalizedString.h"
 #import "BTUIKViewUtil.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
 
 #define BT_EXPIRY_FULL_PADDING 10
 #define BT_EXPIRY_SECTION_HEADER_HEIGHT 12

@@ -1,7 +1,12 @@
 #import "BTUIKTextField.h"
 #import "BTUIKInputAccessoryToolbar.h"
-#import "BTUIKAppearance.h"
 #import "BTUIKViewUtil.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
 
 @interface BTUIKTextField () <UITextFieldDelegate>
 @property (nonatomic, copy) NSString *previousText;

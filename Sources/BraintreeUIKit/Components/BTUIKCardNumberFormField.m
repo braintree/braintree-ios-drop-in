@@ -5,7 +5,12 @@
 #import "BTUIKTextField.h"
 #import "BTUIKViewUtil.h"
 #import "BTUIKInputAccessoryToolbar.h"
-#import "BTUIKAppearance.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
 
 #define TEMP_KERNING 8.0
 

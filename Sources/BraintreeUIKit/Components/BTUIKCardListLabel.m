@@ -1,7 +1,13 @@
 #import "BTUIKCardListLabel.h"
 #import "BTUIKPaymentOptionCardView.h"
 #import "BTUIKViewUtil.h"
-#import "BTUIKAppearance.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface BTUIKCardListLabel ()

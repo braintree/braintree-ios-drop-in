@@ -3,7 +3,12 @@
 #import "BTUIKTextField.h"
 #import "BTUIKLocalizedString.h"
 #import "BTUIKInputAccessoryToolbar.h"
-#import "BTUIKAppearance.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
 
 @implementation BTUIKPostalCodeFormField
 
