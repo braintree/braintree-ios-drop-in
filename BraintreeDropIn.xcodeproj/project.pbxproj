@@ -544,7 +544,6 @@
 		A52900CE1D8903A600032220 /* BraintreeUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				A52900E41D8903A600032220 /* BTUIKViewUtil.m */,
 				A52900CF1D8903A600032220 /* Components */,
 				A52900E21D8903A600032220 /* Helpers */,
 				A529003A1D88FB5100032220 /* Info.plist */,
@@ -587,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				A52900E31D8903A600032220 /* BTUIKAppearance.m */,
+				A52900E41D8903A600032220 /* BTUIKViewUtil.m */,
 				A52900E51D8903A600032220 /* UIColor+BTUIK.m */,
 			);
 			path = Helpers;
