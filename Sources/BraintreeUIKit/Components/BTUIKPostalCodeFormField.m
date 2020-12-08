@@ -6,8 +6,10 @@
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
 #endif
 
 @implementation BTUIKPostalCodeFormField

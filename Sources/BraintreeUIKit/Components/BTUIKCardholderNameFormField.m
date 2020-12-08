@@ -1,5 +1,10 @@
-#import "BTUIKCardholderNameFormField.h"
 #import "BTUIKLocalizedString.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKCardholderNameFormField.h>
+#else
+#import <BraintreeUIKit/BTUIKCardholderNameFormField.h>
+#endif
 
 @implementation BTUIKCardholderNameFormField
 

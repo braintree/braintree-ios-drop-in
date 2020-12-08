@@ -1,6 +1,11 @@
-#import "BTUIKInputAccessoryToolbar.h"
 #import <UIKit/UIKit.h>
 #import "UIColor+BTUIK.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#else
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#endif
 
 @implementation BTUIKInputAccessoryToolbar
 

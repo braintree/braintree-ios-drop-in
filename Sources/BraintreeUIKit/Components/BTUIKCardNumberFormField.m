@@ -1,15 +1,17 @@
-#import "BTUIKCardNumberFormField.h"
 #import "BTUIKPaymentOptionCardView.h"
 #import "BTUIKLocalizedString.h"
 #import "BTUIKUtil.h"
 #import "BTUIKTextField.h"
 #import "BTUIKViewUtil.h"
-#import "BTUIKInputAccessoryToolbar.h"
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKCardNumberFormField.h>
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKCardNumberFormField.h>
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
 #endif
 
 #define TEMP_KERNING 8.0

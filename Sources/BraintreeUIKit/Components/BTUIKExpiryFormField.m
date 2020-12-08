@@ -1,10 +1,18 @@
-#import "BTUIKCardExpiryFormat.h"
-#import "BTUIKCardExpirationValidator.h"
-#import "BTUIKExpiryFormField.h"
-#import "BTUIKInputAccessoryToolbar.h"
 #import "BTUIKLocalizedString.h"
 #import "BTUIKTextField.h"
 #import "BTUIKUtil.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKCardExpirationValidator.h>
+#import <BraintreeDropIn/BTUIKCardExpiryFormat.h>
+#import <BraintreeDropIn/BTUIKExpiryFormField.h>
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#else
+#import <BraintreeUIKit/BTUIKCardExpirationValidator.h>
+#import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
+#import <BraintreeUIKit/BTUIKExpiryFormField.h>
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#endif
 
 #define BTUIKCardExpiryFieldYYYYPrefix @"20"
 #define BTUIKCardExpiryFieldComponentSeparator @"/"

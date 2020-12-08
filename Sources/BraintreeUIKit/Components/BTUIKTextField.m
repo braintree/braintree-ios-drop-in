@@ -1,11 +1,12 @@
 #import "BTUIKTextField.h"
-#import "BTUIKInputAccessoryToolbar.h"
 #import "BTUIKViewUtil.h"
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
 #endif
 
 @interface BTUIKTextField () <UITextFieldDelegate>

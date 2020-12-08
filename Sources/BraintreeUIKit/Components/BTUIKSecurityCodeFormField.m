@@ -1,7 +1,12 @@
 #import "BTUIKSecurityCodeFormField.h"
 #import "BTUIKTextField.h"
-#import "BTUIKInputAccessoryToolbar.h"
 #import "BTUIKLocalizedString.h"
+
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#else
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#endif
 
 @interface BTUIKSecurityCodeFormField ()
 

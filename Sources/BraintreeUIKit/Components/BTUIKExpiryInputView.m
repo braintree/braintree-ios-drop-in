@@ -1,4 +1,3 @@
-#import "BTUIKExpiryInputView.h"
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
 #import "BTUIKLocalizedString.h"
@@ -6,8 +5,10 @@
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKExpiryInputView.h>
 #else
 #import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKExpiryInputView.h>
 #endif
 
 #define BT_EXPIRY_FULL_PADDING 10

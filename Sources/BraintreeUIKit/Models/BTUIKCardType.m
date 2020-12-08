@@ -1,6 +1,11 @@
 #import <UIKit/UIKit.h>
 
-#import "BTUIKCardType.h"
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BTUIKCardType.h>
+#else
+#import <BraintreeUIKit/BTUIKCardType.h>
+#endif
+
 #import "BTUIKUtil.h"
 
 #define kDefaultFormatSpaceIndices @[@4, @8, @12, @16]
