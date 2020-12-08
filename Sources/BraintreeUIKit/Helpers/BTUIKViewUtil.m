@@ -7,7 +7,7 @@
 //#if SWIFT_PACKAGE // SPM
 //#import "../Vector Art/BTUIKMasterCardVectorArtView.h"
 //#else // Carthage & CocoaPods
-#import "BTUIKMasterCardVectorArtView.h"
+#import "../BTUIKMasterCardVectorArtView.h"
 //#endif
 
 #import "BTUIKJCBVectorArtView.h"
