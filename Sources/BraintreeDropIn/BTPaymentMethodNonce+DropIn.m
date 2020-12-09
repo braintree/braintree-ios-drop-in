@@ -1,5 +1,7 @@
 #import "BTPaymentMethodNonce+DropIn.h"
 
+// TODO: This forces Drop-In merchants to always nede to include BTVenmo, BTApplePay, etc.
+// Is this our only option?
 #ifdef COCOAPODS
 #import <Braintree/BTCardNonce.h>
 #import <Braintree/BTPayPalAccountNonce.h>

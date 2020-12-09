@@ -26,6 +26,7 @@ let package = Package(
         .target(
             name: "BraintreeDropIn",
             dependencies: [
+                .product(name: "BraintreeApplePay", package: "Braintree"),
                 .product(name: "BraintreeCard", package: "Braintree"),
                 .product(name: "BraintreeCore", package: "Braintree"),
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
