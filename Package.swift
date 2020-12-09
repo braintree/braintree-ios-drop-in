@@ -10,7 +10,7 @@ let package = Package(
     products: [
         .library(
             name: "BraintreeDropIn",
-            targets: ["BraintreeDropIn"]
+            targets: ["BraintreeDropIn", "BraintreeThreeDSecure"]
         ),
         .library(
             name: "BraintreeUIKit",
@@ -49,6 +49,13 @@ let package = Package(
                 .headerSearchPath("Vector Art"),
                 .headerSearchPath("Vector Art/Large")
             ]
+        ),
+        .binaryTarget(
+            // https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
+            name: "BraintreeThreeDSecure",
+            url: "https://github.com/braintree/braintree_ios/releases/download/5.0.0-beta1/Braintree-xcframeworks.zip",
+            checksum: "8a2a49ae1dd3c8119787ce9dfbbeabe2216740be1dfb3a1d3156682d349d5a4f"
+            // TODO - add rake task to BT iOS that takes a version tag and generates checksum
         )
     ]
 )
