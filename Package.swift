@@ -31,6 +31,7 @@ let package = Package(
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
                 .product(name: "BraintreePaymentFlow", package: "Braintree"),
                 .product(name: "BraintreePayPal", package: "Braintree"),
+                .product(name: "BraintreeVenmo", package: "Braintree"),
                 .product(name: "PayPalDataCollector", package: "Braintree"),
                 .target(name: "BraintreeUIKit")
             ],
