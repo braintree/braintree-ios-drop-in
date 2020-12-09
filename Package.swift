@@ -38,7 +38,8 @@ let package = Package(
             exclude: ["Info.plist"],
             publicHeadersPath: "Public",
             cSettings: [
-                .headerSearchPath("Custom Views")
+                .headerSearchPath("Custom Views"),
+                .headerSearchPath("Braintree Internal Headers")
             ]
         ),
         .target(
