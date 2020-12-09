@@ -1,5 +1,5 @@
-#import "BTDropInBaseViewController.h"
-#import "BTDropInController.h"
+#import <BraintreeDropIn/BTDropInBaseViewController.h>
+#import <BraintreeDropIn/BTDropInController.h>
 
 #if __has_include("BraintreeUIKit.h")
 #import "BraintreeUIKit.h"

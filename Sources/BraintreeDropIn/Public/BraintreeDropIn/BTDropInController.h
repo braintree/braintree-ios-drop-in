@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
-#import "BTDropInBaseViewController.h"
-#import "BTDropInResult.h"
-#import "BTDropInRequest.h"
-#import "BTPaymentSelectionViewController.h"
-#import "BTCardFormViewController.h"
+#import <BraintreeDropIn/BTDropInBaseViewController.h>
+#import <BraintreeDropIn/BTDropInResult.h>
+#import <BraintreeDropIn/BTDropInRequest.h>
+#import <BraintreeDropIn/BTPaymentSelectionViewController.h>
+#import <BraintreeDropIn/BTCardFormViewController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

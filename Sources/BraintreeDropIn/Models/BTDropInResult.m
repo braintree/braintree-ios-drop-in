@@ -1,4 +1,4 @@
-#import "BTDropInResult.h"
+#import <BraintreeDropIn/BTDropInResult.h>
 #import "BTAPIClient_Internal_Category.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
