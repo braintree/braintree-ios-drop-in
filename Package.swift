@@ -8,27 +8,38 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [.iOS(.v12)],
     products: [
-//        .library(
-//            name: "BraintreeDropIn",
-//            targets: ["BraintreeDropIn"]
-//        ),
+        .library(
+            name: "BraintreeDropIn",
+            targets: ["BraintreeDropIn"]
+        ),
         .library(
             name: "BraintreeUIKit",
             targets: ["BraintreeUIKit"]
         )
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
+        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios.git", from: "5.0.0-beta1")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        // .target(
-        //     name: "BraintreeAmericanExpress",
-        //     dependencies: ["BraintreeCore"],
-        //     exclude: ["Info.plist"],
-        //     publicHeadersPath: "Public"
-        // ),
+        .target(
+            name: "BraintreeDropIn",
+            dependencies: [
+                .product(name: "BraintreeCard", package: "Braintree"),
+                .product(name: "BraintreeCore", package: "Braintree"),
+                .product(name: "BraintreeUnionPay", package: "Braintree"),
+                .product(name: "BraintreePaymentFlow", package: "Braintree"),
+                .product(name: "BraintreePayPal", package: "Braintree"),
+                .target(name: "BraintreeUIKit")
+            ],
+            exclude: ["Info.plist"],
+            publicHeadersPath: "Public",
+            cSettings: [
+                .headerSearchPath("Braintree Internal Headers"),
+                .headerSearchPath("Custom Views")
+            ]
+        ),
         .target(
             name: "BraintreeUIKit",
             exclude: ["Info.plist"],
