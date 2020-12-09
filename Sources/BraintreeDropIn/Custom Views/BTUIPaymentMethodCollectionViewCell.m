@@ -1,7 +1,7 @@
 #import "BTUIPaymentMethodCollectionViewCell.h"
 
-#if __has_include("BraintreeUIKit.h")
-#import "BraintreeUIKit.h"
+#if __has_include(<Braintree/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif

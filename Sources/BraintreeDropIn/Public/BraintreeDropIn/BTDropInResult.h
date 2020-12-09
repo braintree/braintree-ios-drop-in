@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
 #if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #else
-#import <BraintreeUIKit/BTUIKPaymentOptionType.h>
+#import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
