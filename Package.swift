@@ -40,7 +40,6 @@ let package = Package(
             publicHeadersPath: "Public",
             cSettings: [
                 .headerSearchPath("Custom Views"),
-                .headerSearchPath("Braintree Internal Headers"),
                 .headerSearchPath(".")
             ]
         ),

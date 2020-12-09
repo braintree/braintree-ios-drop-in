@@ -524,16 +524,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		80237244258182C700254687 /* Braintree Internal Headers */ = {
-			isa = PBXGroup;
-			children = (
-				A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */,
-				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
-				4225EA52257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h */,
-			);
-			path = "Braintree Internal Headers";
-			sourceTree = "<group>";
-		};
 		8FC32AAB8C66FB63C48F9B8D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,19 +755,21 @@
 		A56C416C1D833348000DFFAB /* BraintreeDropIn */ = {
 			isa = PBXGroup;
 			children = (
-				80237244258182C700254687 /* Braintree Internal Headers */,
-				A56C41841D8334D1000DFFAB /* Models */,
+				A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */,
 				A56C41871D833568000DFFAB /* BTCardFormViewController.m */,
 				A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */,
 				A56C41891D833568000DFFAB /* BTDropInController.m */,
 				A56C418A1D833568000DFFAB /* BTDropInUIUtilities.h */,
 				A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */,
+				4225EA52257EC1EB00923CE3 /* BTPaymentMethodNonce+DropIn.h */,
 				4225EA57257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m */,
 				A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */,
+				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
 				A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */,
 				A56C41851D8334D7000DFFAB /* Custom Views */,
-				A56C41861D8334DD000DFFAB /* Public */,
 				A56C416F1D833348000DFFAB /* Info.plist */,
+				A56C41841D8334D1000DFFAB /* Models */,
+				A56C41861D8334DD000DFFAB /* Public */,
 			);
 			path = BraintreeDropIn;
 			sourceTree = "<group>";
