@@ -53,9 +53,8 @@ let package = Package(
         .binaryTarget(
             // https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
             name: "BraintreeThreeDSecure",
-            url: "https://github.com/braintree/braintree_ios/releases/download/5.0.0-beta1/Braintree-xcframeworks.zip",
-            checksum: "8a2a49ae1dd3c8119787ce9dfbbeabe2216740be1dfb3a1d3156682d349d5a4f"
-            // TODO - add rake task to BT iOS that takes a version tag and generates checksum
+            url: "https://tmpfiles.org/dl/108842/BraintreeThreeDSecure.xcframework.zip",
+            checksum: "72ddb118fb9f2eb5560c1f103eea88f728da770a37c6b6667cdd0b5c7bf2c6b9"
         )
     ]
 )
