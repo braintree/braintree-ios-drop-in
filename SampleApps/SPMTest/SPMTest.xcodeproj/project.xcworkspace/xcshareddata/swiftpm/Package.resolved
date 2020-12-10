@@ -6,8 +6,17 @@
         "repositoryURL": "/Users/scannillo/bt/braintree-ios-drop-in",
         "state": {
           "branch": "spm-support",
-          "revision": "1747cda889e7db39c3bfe3b93f8d35d9f2ce3f1a",
+          "revision": "d5d3963114e37979e5e9a0830d284db66c756e40",
           "version": null
+        }
+      },
+      {
+        "package": "Braintree",
+        "repositoryURL": "https://github.com/braintree/braintree_ios.git",
+        "state": {
+          "branch": null,
+          "revision": "2ca43a867806ceee4cf2e12bcf4095f6ce2109a6",
+          "version": "5.0.0-beta1"
         }
       }
     ]
