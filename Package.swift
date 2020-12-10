@@ -10,7 +10,7 @@ let package = Package(
     products: [
         .library(
             name: "BraintreeDropIn",
-            targets: ["BraintreeDropIn", "BraintreeThreeDSecure"]
+            targets: ["BraintreeDropIn"] //,"BraintreeThreeDSecure"]
         ),
         .library(
             name: "BraintreeUIKit",
@@ -52,12 +52,12 @@ let package = Package(
                 .headerSearchPath("Vector Art"),
                 .headerSearchPath("Vector Art/Large")
             ]
-        ),
-        .binaryTarget(
-            // https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
-            name: "BraintreeThreeDSecure",
-            url: "https://tmpfiles.org/dl/109215/BraintreeThreeDSecure.xcframework.zip",
-            checksum: "72ddb118fb9f2eb5560c1f103eea88f728da770a37c6b6667cdd0b5c7bf2c6b9"
         )
+//        .binaryTarget(
+//            // https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
+//            name: "BraintreeThreeDSecure",
+//            url: "https://tmpfiles.org/dl/109215/BraintreeThreeDSecure.xcframework.zip",
+//            checksum: "72ddb118fb9f2eb5560c1f103eea88f728da770a37c6b6667cdd0b5c7bf2c6b9"
+//        )
     ]
 )
