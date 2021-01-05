@@ -22,7 +22,7 @@ typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NS
 /// A UIView (BTUIKPaymentOptionCardView) that represents the payment option
 @property (nonatomic, readonly) UIView *paymentIcon;
 
-/// A description of the payment option (e.g `ending in 1234`)
+/// A description of the payment option (e.g `••• ••11`)
 @property (nonatomic, readonly) NSString *paymentDescription;
 
 /// The payment method nonce

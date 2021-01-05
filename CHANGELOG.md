@@ -1,9 +1,10 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## unreleased (9.0.0-beta1)
 
-* Breaking changes (v9)
+* Breaking changes
   * Bump minimum supported deployment target to iOS 12.0
+  * Require Braintree ~> 5.0.0-beta
 
 ## 8.1.2 (2020-11-30)
 

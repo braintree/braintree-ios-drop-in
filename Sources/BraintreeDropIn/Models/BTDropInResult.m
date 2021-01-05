@@ -1,5 +1,7 @@
 #import "BTDropInResult.h"
 #import "BTAPIClient_Internal_Category.h"
+#import "BTPaymentMethodNonce+DropIn.h"
+
 #if __has_include("BraintreeCore.h")
 #import "BraintreeCore.h"
 #else
@@ -43,12 +45,7 @@
 }
 
 - (NSString *)paymentDescription {
-    if (self.paymentMethod != nil) {
-        return self.paymentMethod.localizedDescription;
-    } else if (self.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
-        return BTUIKLocalizedString(BRANDING_APPLE_PAY);
-    }
-    return @"";
+    return self.paymentMethod.paymentDescription;
 }
 
 @end

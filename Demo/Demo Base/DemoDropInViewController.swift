@@ -96,7 +96,7 @@ class DemoDropInViewController: DemoBaseViewController {
                 self.progressBlock?("Ready for checkout...")
                 self.didSelectApplePay = false
                 self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(result.paymentMethod)
+                self.updatePaymentMethodNonce(result)
             }
             
             dropInController.dismiss(animated: true, completion: nil)
@@ -133,8 +133,6 @@ class DemoDropInViewController: DemoBaseViewController {
             
             progressBlock?("Presenting Apple Pay Sheet")
             present(applePayController, animated: true)
-        } else if DemoSettings.threeDSecureRequiredStatus == .required, (selectedNonce as? BTCardNonce)?.threeDSecureInfo.wasVerified == false {
-            performThreeDSecureVerification()
         } else {
             completionBlock?(self.selectedNonce)
             transactionBlock?()
@@ -145,52 +143,15 @@ class DemoDropInViewController: DemoBaseViewController {
         DemoSettings.colorSchemeSetting = BTUIKColorScheme(rawValue: segmentedControl.selectedSegmentIndex)!
     }
     
-    // MARK: - ThreeDSecure Verification
-    
-    func performThreeDSecureVerification() {
-        guard let apiClient = BTAPIClient(authorization: authorization) else { return }
-        guard let nonce = selectedNonce?.nonce else { return }
-        
-        let threeDSecureRequest = BTThreeDSecureRequest()
-        threeDSecureRequest.amount = 10.00
-        threeDSecureRequest.nonce = nonce
-
-        let paymentFlowDriver = BTPaymentFlowDriver(apiClient: apiClient)
-        paymentFlowDriver.viewControllerPresentingDelegate = self
-        
-        paymentFlowDriver.startPaymentFlow(threeDSecureRequest) { (result, error) in
-            self.selectedNonce = nil
-            
-            if let error = error {
-                if (error as NSError).code == BTPaymentFlowDriverErrorType.canceled.rawValue {
-                    // User cancelled 3DS flow and nonce was consumed
-                } else {
-                    // An error occurred and nonce was consumed
-                }
-                self.updatePaymentMethodNonce(nil)
-                self.fetchPaymentMethods()
-                self.progressBlock?(error.localizedDescription)
-                return
-            }
-        
-            if let threeDSecureResult = result as? BTThreeDSecureResult {
-                self.selectedNonce = threeDSecureResult.tokenizedCard
-                self.updatePaymentMethodNonce(self.selectedNonce)
-                self.completionBlock?(self.selectedNonce)
-                self.transactionBlock?()
-            }
-        }
-    }
-    
     // MARK: - Helper Methods
-    
-    func updatePaymentMethodNonce(_ nonce: BTPaymentMethodNonce?) {
-        demoView.paymentMethodTypeLabel.isHidden = (nonce == nil)
-        demoView.paymentMethodTypeIcon.isHidden = (nonce == nil)
-        if let nonce = nonce {
+
+    func updatePaymentMethodNonce(_ result: BTDropInResult?) {
+        demoView.paymentMethodTypeLabel.isHidden = (result?.paymentMethod == nil)
+        demoView.paymentMethodTypeIcon.isHidden = (result?.paymentMethod == nil)
+        if let nonce = result?.paymentMethod {
             let paymentMethodType = BTUIKViewUtil.paymentOptionType(forPaymentInfoType: nonce.type)
             demoView.paymentMethodTypeIcon.paymentOptionType = paymentMethodType
-            demoView.paymentMethodTypeLabel.text = nonce.localizedDescription
+            demoView.paymentMethodTypeLabel.text = result?.paymentDescription
         }
         demoView.updatePaymentMethodConstraints()
     }
@@ -212,7 +173,7 @@ class DemoDropInViewController: DemoBaseViewController {
             } else {
                 self.didSelectApplePay = false
                 self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(self.selectedNonce)
+                self.updatePaymentMethodNonce(result)
             }
         }
     }

@@ -11,11 +11,12 @@ end
 
 # TODO: Can we migrate demo to use SPM?
 abstract_target 'All' do
-  pod 'Braintree/Apple-Pay'
-  pod 'Braintree/PaymentFlow'
-  pod 'Braintree/PayPal'
-  pod 'Braintree/Venmo'
-  pod 'Braintree/UnionPay'
+  pod 'Braintree/ApplePay', '~> 5.0.0-beta'
+  pod 'Braintree/PaymentFlow', '~> 5.0.0-beta'
+  pod 'Braintree/PayPal', '~> 5.0.0-beta'
+  pod 'Braintree/ThreeDSecure', '~> 5.0.0-beta'
+  pod 'Braintree/UnionPay', '~> 5.0.0-beta'
+  pod 'Braintree/Venmo', '~> 5.0.0-beta'
 
   target 'Demo' do
     project 'Demo/Demo'

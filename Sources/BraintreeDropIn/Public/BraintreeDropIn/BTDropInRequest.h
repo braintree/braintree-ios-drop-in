@@ -1,8 +1,16 @@
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+#ifdef COCOAPODS
+#import <Braintree/BTPostalAddress.h>
+#import <Braintree/BTPayPalRequest.h>
+#import <Braintree/BTThreeDSecureRequest.h>
+#else
+#import <BraintreeCore/BTPostalAddress.h>
+#import <BraintreePayPal/BTPayPalRequest.h>
+#import <BraintreeThreeDSecure/BTThreeDSecureRequest.h>
+#endif
 
-@class BTPostalAddress, BTPayPalRequest, BTThreeDSecureRequest;
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
     BTFormFieldDisabled = 0,
