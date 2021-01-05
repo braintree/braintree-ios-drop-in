@@ -100,18 +100,12 @@ end
 
 desc 'Run Carthage update'
 namespace :carthage do
-  def generate_cartfile
-    run! 'mkdir -p BuildTest'
-    File.write("SampleApps/CarthageTest/Cartfile", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
-  end
-
   task :build_demo do
     # TODO: Once SPM demo is added, Carthage will likely need to temporarily remove SPM demo to build.
 
     # Build Carthage demo app
-    generate_cartfile
-    run! "cd SampleApps/CarthageTest"
-    sh "sh carthage.sh update"
+    File.write("SampleApps/CarthageTest/Cartfile", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
+    sh "cd SampleApps/CarthageTest && sh carthage.sh update"
     run! "xcodebuild -project 'SampleApps/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
 
     # Clean up
