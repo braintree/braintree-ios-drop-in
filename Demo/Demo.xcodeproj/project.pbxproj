@@ -27,8 +27,6 @@
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
-		8272877B924C846E64EAB7AC /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38603586774B24C433EE065D /* Pods_UITests.framework */; };
-		C4FB5BADCF203B2B26F9E373 /* Pods_All_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +54,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Demo.release.xcconfig"; path = "Target Support Files/Pods-All-Demo/Pods-All-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		38603586774B24C433EE065D /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D7A3256C5AF900F1A413 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D866256C5C4E00F1A413 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4245D867256C5C4E00F1A413 /* DemoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
@@ -78,18 +74,12 @@
 		4245D968256C627400F1A413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
-		7C60C37B4119D7299F6A4EE2 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51D256D73D5002904E6 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
 		8068E521256D73D5002904E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_EditMode_UITests.swift; sourceTree = "<group>"; };
 		8068E531256D7489002904E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		8CDBFE3BAB695CF6E1D0E75F /* Pods-All-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Demo.debug.xcconfig"; path = "Target Support Files/Pods-All-Demo/Pods-All-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		B4F67689ED383BC55464B120 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		E34F541B3233BFC44ED4931A /* Pods-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.debug.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */,
-				C4FB5BADCF203B2B26F9E373 /* Pods_All_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8272877B924C846E64EAB7AC /* Pods_UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +107,6 @@
 				4245D7A5256C5AF900F1A413 /* Demo */,
 				8068E51E256D73D5002904E6 /* UITests */,
 				4245D7A4256C5AF900F1A413 /* Products */,
-				4365BAA64EC40596BEA8A066 /* Pods */,
 				D29CC413D438C2B9AD73E86C /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -206,20 +193,6 @@
 			path = "Merchant API Client";
 			sourceTree = SOURCE_ROOT;
 		};
-		4365BAA64EC40596BEA8A066 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B4F67689ED383BC55464B120 /* Pods-Demo.debug.xcconfig */,
-				7C60C37B4119D7299F6A4EE2 /* Pods-Demo.release.xcconfig */,
-				8CDBFE3BAB695CF6E1D0E75F /* Pods-All-Demo.debug.xcconfig */,
-				17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */,
-				E34F541B3233BFC44ED4931A /* Pods-UITests.debug.xcconfig */,
-				67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		8068E51E256D73D5002904E6 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,8 +209,6 @@
 			children = (
 				42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */,
 				8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */,
-				38603586774B24C433EE065D /* Pods_UITests.framework */,
-				665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -594,7 +565,6 @@
 		};
 		4245D7B8256C5AFC00F1A413 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CDBFE3BAB695CF6E1D0E75F /* Pods-All-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
@@ -616,7 +586,6 @@
 		};
 		4245D7B9256C5AFC00F1A413 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
@@ -638,7 +607,6 @@
 		};
 		8068E524256D73D5002904E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E34F541B3233BFC44ED4931A /* Pods-UITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
@@ -658,7 +626,6 @@
 		};
 		8068E525256D73D5002904E6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
