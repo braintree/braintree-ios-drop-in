@@ -1,0 +1,6 @@
+framework module BraintreePayPal {
+  umbrella header "BraintreePayPal.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module BraintreeThreeDSecure {
+  umbrella header "BraintreeThreeDSecure.h"
+
+  export *
+  module * { export * }
+}
