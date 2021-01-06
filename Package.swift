@@ -18,8 +18,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        //.package(name: "Braintree", url: "https://github.com/braintree/braintree_ios.git", from: "5.0.0-beta1")
-        .package(name: "Braintree", path: "/Users/scannillo/bt/braintree-ios")
+        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios.git", .branch("master"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
