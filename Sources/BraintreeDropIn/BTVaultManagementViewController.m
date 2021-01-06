@@ -159,7 +159,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
                                      };
         [self.apiClient POST:@""
                   parameters:[parameters copy]
-                    httpType:BTAPIClientHTTPTypeGraphQLAPI
+                    httpType:BTAPIClientHTTPTypeTempGraphQLAPI
                   completion:^(__unused BTJSON * _Nullable body, __unused NSHTTPURLResponse * _Nullable response, __unused NSError * _Nullable error)
          {
              [self loadConfiguration];

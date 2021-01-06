@@ -10,15 +10,15 @@ NS_ASSUME_NONNULL_BEGIN
 @class BTHTTP;
 @class BTAnalyticsService;
 
-typedef NS_ENUM(NSInteger, BTAPIClientHTTPType) {
+typedef NS_ENUM(NSInteger, BTAPIClientHTTPTypeTemp) {
     /// Use the Gateway
-    BTAPIClientHTTPTypeGateway = 0,
+    BTAPIClientHTTPTypeTempGateway = 0,
 
     /// Use the Braintree API
-    BTAPIClientHTTPTypeBraintreeAPI,
+    BTAPIClientHTTPTypeTempBraintreeAPI,
 
     /// Use the GraphQL API
-    BTAPIClientHTTPTypeGraphQLAPI,
+    BTAPIClientHTTPTypeTempGraphQLAPI,
 };
 
 @interface BTAPIClient (Internal)
@@ -42,12 +42,12 @@ typedef NS_ENUM(NSInteger, BTAPIClientHTTPType) {
 
 - (void)GET:(NSString *)path
  parameters:(nullable NSDictionary <NSString *, NSString *> *)parameters
-   httpType:(BTAPIClientHTTPType)httpType
+   httpType:(BTAPIClientHTTPTypeTemp)httpType
  completion:(nullable void(^)(BTJSON * _Nullable body, NSHTTPURLResponse * _Nullable response, NSError * _Nullable error))completionBlock;
 
 - (void)POST:(NSString *)path
   parameters:(nullable NSDictionary *)parameters
-    httpType:(BTAPIClientHTTPType)httpType
+    httpType:(BTAPIClientHTTPTypeTemp)httpType
   completion:(nullable void(^)(BTJSON * _Nullable body, NSHTTPURLResponse * _Nullable response, NSError * _Nullable error))completionBlock;
 
 @end
