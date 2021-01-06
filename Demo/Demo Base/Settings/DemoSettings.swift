@@ -1,5 +1,5 @@
 import BraintreeDropIn
-import Braintree
+//import Braintree
 
 enum DemoEnvironment: Int {
     case sandbox

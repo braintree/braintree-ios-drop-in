@@ -1,6 +1,6 @@
 import UIKit
 import InAppSettingsKit
-import Braintree
+import BraintreeDropIn
 
 class DemoBaseViewController: UIViewController {
     

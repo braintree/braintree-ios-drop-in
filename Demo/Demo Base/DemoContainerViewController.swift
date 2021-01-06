@@ -1,5 +1,5 @@
 import BraintreeDropIn
-import Braintree
+//import Braintree
 import InAppSettingsKit
 
 class DemoContainerViewController: UIViewController {

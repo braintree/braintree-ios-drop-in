@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,12 +21,13 @@
 		4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */; };
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
 		4245D969256C627400F1A413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4245D968256C627400F1A413 /* Assets.xcassets */; };
-		42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */; };
-		42ACD39E257989E9000BE57C /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
+		80B1CA5E25A6552800DC90D0 /* BraintreeUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B1CA5D25A6552800DC90D0 /* BraintreeUIKit */; };
+		80B1CA6025A6552800DC90D0 /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80B1CA5F25A6552800DC90D0 /* BraintreeDropIn */; };
+		80B1CA7825A6593C00DC90D0 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B1CA7725A6593C00DC90D0 /* InAppSettingsKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,20 +39,6 @@
 			remoteInfo = Demo;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		42ACD39F257989E9000BE57C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				42ACD39E257989E9000BE57C /* BraintreeDropIn.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4245D7A3256C5AF900F1A413 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */,
+				80B1CA5E25A6552800DC90D0 /* BraintreeUIKit in Frameworks */,
+				80B1CA7825A6593C00DC90D0 /* InAppSettingsKit in Frameworks */,
+				80B1CA6025A6552800DC90D0 /* BraintreeDropIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,18 +209,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4245D7B7256C5AFC00F1A413 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				E4CDA044D3220EAB74C55BA4 /* [CP] Check Pods Manifest.lock */,
 				4245D79F256C5AF900F1A413 /* Sources */,
 				4245D7A0256C5AF900F1A413 /* Frameworks */,
 				4245D7A1256C5AF900F1A413 /* Resources */,
-				77C2BB2986B8D51ACDF4A9F8 /* [CP] Embed Pods Frameworks */,
-				42ACD39F257989E9000BE57C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Demo;
+			packageProductDependencies = (
+				80B1CA5D25A6552800DC90D0 /* BraintreeUIKit */,
+				80B1CA5F25A6552800DC90D0 /* BraintreeDropIn */,
+				80B1CA7725A6593C00DC90D0 /* InAppSettingsKit */,
+			);
 			productName = Demo;
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -240,7 +231,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8068E526256D73D5002904E6 /* Build configuration list for PBXNativeTarget "UITests" */;
 			buildPhases = (
-				FC71F2C8B9283237F7D6B335 /* [CP] Check Pods Manifest.lock */,
 				8068E519256D73D5002904E6 /* Sources */,
 				8068E51A256D73D5002904E6 /* Frameworks */,
 				8068E51B256D73D5002904E6 /* Resources */,
@@ -283,6 +273,10 @@
 				cs,
 			);
 			mainGroup = 4245D79A256C5AF900F1A413;
+			packageReferences = (
+				80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */,
+				80B1CA7625A6593C00DC90D0 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
+			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -316,70 +310,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		77C2BB2986B8D51ACDF4A9F8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-All-Demo/Pods-All-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-All-Demo/Pods-All-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-All-Demo/Pods-All-Demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4CDA044D3220EAB74C55BA4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-All-Demo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC71F2C8B9283237F7D6B335 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4245D79F256C5AF900F1A413 /* Sources */ = {
@@ -674,6 +604,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = ../;
+			requirement = {
+				branch = "spm-support";
+				kind = branch;
+			};
+		};
+		80B1CA7625A6593C00DC90D0 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80B1CA5D25A6552800DC90D0 /* BraintreeUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */;
+			productName = BraintreeUIKit;
+		};
+		80B1CA5F25A6552800DC90D0 /* BraintreeDropIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */;
+			productName = BraintreeDropIn;
+		};
+		80B1CA7725A6593C00DC90D0 /* InAppSettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80B1CA7625A6593C00DC90D0 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
+			productName = InAppSettingsKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4245D79B256C5AF900F1A413 /* Project object */;
 }
