@@ -2,24 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "BraintreeDropIn",
-        "repositoryURL": "/Users/scannillo/bt/braintree-ios-drop-in",
-        "state": {
-          "branch": "spm-support",
-          "revision": "2fbf353b3a34cf926248b7a181bc259b19b0ab13",
-          "version": null
-        }
-      },
-      {
-        "package": "Braintree",
-        "repositoryURL": "https://github.com/braintree/braintree_ios.git",
-        "state": {
-          "branch": "master",
-          "revision": "acf23311388bc6be10f9a1b7740c77fa3a42c1f5",
-          "version": null
-        }
-      },
-      {
         "package": "InAppSettingsKit",
         "repositoryURL": "https://github.com/futuretap/InAppSettingsKit.git",
         "state": {

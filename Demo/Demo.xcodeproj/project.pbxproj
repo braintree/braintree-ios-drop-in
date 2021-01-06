@@ -25,8 +25,6 @@
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
-		80B1CA5E25A6552800DC90D0 /* BraintreeUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B1CA5D25A6552800DC90D0 /* BraintreeUIKit */; };
-		80B1CA6025A6552800DC90D0 /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80B1CA5F25A6552800DC90D0 /* BraintreeDropIn */; };
 		80B1CA7825A6593C00DC90D0 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B1CA7725A6593C00DC90D0 /* InAppSettingsKit */; };
 /* End PBXBuildFile section */
 
@@ -74,9 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B1CA5E25A6552800DC90D0 /* BraintreeUIKit in Frameworks */,
 				80B1CA7825A6593C00DC90D0 /* InAppSettingsKit in Frameworks */,
-				80B1CA6025A6552800DC90D0 /* BraintreeDropIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +215,6 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				80B1CA5D25A6552800DC90D0 /* BraintreeUIKit */,
-				80B1CA5F25A6552800DC90D0 /* BraintreeDropIn */,
 				80B1CA7725A6593C00DC90D0 /* InAppSettingsKit */,
 			);
 			productName = Demo;
@@ -274,7 +268,6 @@
 			);
 			mainGroup = 4245D79A256C5AF900F1A413;
 			packageReferences = (
-				80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */,
 				80B1CA7625A6593C00DC90D0 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
 			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
@@ -606,14 +599,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = ../;
-			requirement = {
-				branch = "spm-support";
-				kind = branch;
-			};
-		};
 		80B1CA7625A6593C00DC90D0 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
@@ -625,16 +610,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		80B1CA5D25A6552800DC90D0 /* BraintreeUIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */;
-			productName = BraintreeUIKit;
-		};
-		80B1CA5F25A6552800DC90D0 /* BraintreeDropIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 80B1CA5C25A6552800DC90D0 /* XCRemoteSwiftPackageReference "." */;
-			productName = BraintreeDropIn;
-		};
 		80B1CA7725A6593C00DC90D0 /* InAppSettingsKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 80B1CA7625A6593C00DC90D0 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
