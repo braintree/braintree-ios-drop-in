@@ -1,4 +1,0 @@
-framework module PayPalDataCollector {
-  header "PayPalDataCollector-Swift.h"
-  requires objc
-}

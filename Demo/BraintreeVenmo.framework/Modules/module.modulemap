@@ -1,6 +1,0 @@
-framework module BraintreeVenmo {
-  umbrella header "BraintreeVenmo.h"
-
-  export *
-  module * { export * }
-}
