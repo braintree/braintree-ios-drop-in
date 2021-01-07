@@ -14,7 +14,6 @@
 		4245D883256C5C4E00F1A413 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86A256C5C4E00F1A413 /* DemoBaseViewController.swift */; };
 		4245D884256C5C4E00F1A413 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86B256C5C4E00F1A413 /* ViewHelpers.swift */; };
 		4245D885256C5C4E00F1A413 /* DemoDropInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86C256C5C4E00F1A413 /* DemoDropInViewController.swift */; };
-		4245D886256C5C4E00F1A413 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4245D86D256C5C4E00F1A413 /* README.md */; };
 		4245D887256C5C4E00F1A413 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4245D86F256C5C4E00F1A413 /* Main.strings */; };
 		4245D888256C5C4E00F1A413 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4245D871256C5C4E00F1A413 /* InfoPlist.strings */; };
 		4245D889256C5C4E00F1A413 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4245D874256C5C4E00F1A413 /* BTUI.strings */; };
@@ -356,7 +355,6 @@
 				4245D889256C5C4E00F1A413 /* BTUI.strings in Resources */,
 				4245D888256C5C4E00F1A413 /* InfoPlist.strings in Resources */,
 				4245D969256C627400F1A413 /* Assets.xcassets in Resources */,
-				4245D886256C5C4E00F1A413 /* README.md in Resources */,
 				4245D87F256C5C4E00F1A413 /* Settings.bundle in Resources */,
 				42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */,
 			);

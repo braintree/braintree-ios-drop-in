@@ -277,7 +277,13 @@ Next, read the [**full documentation**](https://developers.braintreepayments.com
 
 ## Demo
 
-A demo app is included in project. To run it, run `pod install` and then open `BraintreeDropIn.xcworkspace` in Xcode.
+A demo app is included in project. To run it:
+
+```
+cd Demo
+../carthage.sh bootstrap
+open BraintreeDropIn.xcworkspace
+```
 
 ## Help
 
