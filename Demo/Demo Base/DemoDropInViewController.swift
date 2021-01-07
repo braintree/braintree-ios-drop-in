@@ -1,8 +1,6 @@
 import UIKit
 import PassKit
 import BraintreeDropIn
-// TODO: Investigate exposing BraintreeApplePay through BraintreeDropIn
-import BraintreeApplePay
 
 class DemoDropInViewController: DemoBaseViewController {
     
