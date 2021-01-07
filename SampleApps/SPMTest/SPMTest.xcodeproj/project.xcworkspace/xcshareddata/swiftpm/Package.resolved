@@ -3,20 +3,20 @@
     "pins": [
       {
         "package": "BraintreeDropIn",
-        "repositoryURL": "/Users/scannillo/bt/braintree-ios-drop-in",
+        "repositoryURL": "https://github.com/braintree/braintree-ios-drop-in.git",
         "state": {
           "branch": "spm-support",
-          "revision": "d5d3963114e37979e5e9a0830d284db66c756e40",
+          "revision": "59e775b6e139a791d4ae7b77691e6a9b9cc1ae72",
           "version": null
         }
       },
       {
         "package": "Braintree",
-        "repositoryURL": "https://github.com/braintree/braintree_ios.git",
+        "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
-          "branch": null,
-          "revision": "2ca43a867806ceee4cf2e12bcf4095f6ce2109a6",
-          "version": "5.0.0-beta1"
+          "branch": "master",
+          "revision": "88b362daffd2e69c8a8bc95bbf7700a51f861495",
+          "version": null
         }
       }
     ]
