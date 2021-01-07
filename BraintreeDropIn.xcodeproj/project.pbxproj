@@ -39,6 +39,17 @@
 		53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */; };
 		800FC5E325802B5600DEE132 /* BTUIKMasterCardVectorArtView.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FC5E125802B5600DEE132 /* BTUIKMasterCardVectorArtView.m */; };
 		800FC5E425802B5600DEE132 /* BTUIKMasterCardVectorArtView.h in Headers */ = {isa = PBXBuildFile; fileRef = 800FC5E225802B5600DEE132 /* BTUIKMasterCardVectorArtView.h */; };
+		80501C2B25A7C38700ADE32C /* BraintreeApplePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F9125A77B150057ECFE /* BraintreeApplePay.framework */; };
+		80501C2C25A7C38700ADE32C /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8A25A77B150057ECFE /* BraintreeCard.framework */; };
+		80501C2D25A7C38700ADE32C /* BraintreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8B25A77B150057ECFE /* BraintreeCore.framework */; };
+		80501C2E25A7C38700ADE32C /* BraintreePaymentFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8D25A77B150057ECFE /* BraintreePaymentFlow.framework */; };
+		80501C2F25A7C38700ADE32C /* BraintreePayPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8C25A77B150057ECFE /* BraintreePayPal.framework */; };
+		80501C3025A7C38700ADE32C /* BraintreeThreeDSecure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F9025A77B150057ECFE /* BraintreeThreeDSecure.framework */; };
+		80501C3125A7C38700ADE32C /* BraintreeUnionPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8E25A77B150057ECFE /* BraintreeUnionPay.framework */; };
+		80501C3225A7C38700ADE32C /* BraintreeVenmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8725A77B150057ECFE /* BraintreeVenmo.framework */; };
+		80501C3325A7C38700ADE32C /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8F25A77B150057ECFE /* CardinalMobile.framework */; };
+		80501C3425A7C38700ADE32C /* PayPalDataCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8825A77B150057ECFE /* PayPalDataCollector.framework */; };
+		80501C3525A7C38700ADE32C /* PPRiskMagnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F8925A77B150057ECFE /* PPRiskMagnes.framework */; };
 		8068E585256D9C64002904E6 /* BTAPIClient_Internal_Category.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		8068E589256D9C68002904E6 /* BTUIKBarButtonItem_Internal_Declaration.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A03FC5AB215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03FC5A9215AD10B00E3DF95 /* BTUIKCardholderNameFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -427,6 +438,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				42ACD3A025798A03000BE57C /* BraintreeDropIn.framework in Frameworks */,
+				80501C2B25A7C38700ADE32C /* BraintreeApplePay.framework in Frameworks */,
+				80501C2C25A7C38700ADE32C /* BraintreeCard.framework in Frameworks */,
+				80501C2D25A7C38700ADE32C /* BraintreeCore.framework in Frameworks */,
+				80501C2E25A7C38700ADE32C /* BraintreePaymentFlow.framework in Frameworks */,
+				80501C2F25A7C38700ADE32C /* BraintreePayPal.framework in Frameworks */,
+				80501C3025A7C38700ADE32C /* BraintreeThreeDSecure.framework in Frameworks */,
+				80501C3125A7C38700ADE32C /* BraintreeUnionPay.framework in Frameworks */,
+				80501C3225A7C38700ADE32C /* BraintreeVenmo.framework in Frameworks */,
+				80501C3325A7C38700ADE32C /* CardinalMobile.framework in Frameworks */,
+				80501C3425A7C38700ADE32C /* PayPalDataCollector.framework in Frameworks */,
+				80501C3525A7C38700ADE32C /* PPRiskMagnes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +939,7 @@
 				A5411A181D8A1F090041BE92 /* Sources */,
 				A5411A191D8A1F090041BE92 /* Frameworks */,
 				A5411A1A1D8A1F090041BE92 /* Resources */,
+				80501C2725A7C31F00ADE32C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1046,6 +1069,25 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		42621F0025A76E2E0057ECFE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+				"$(SRCROOT)/Demo/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+		80501C2725A7C31F00ADE32C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1363,6 +1405,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1417,6 +1463,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
