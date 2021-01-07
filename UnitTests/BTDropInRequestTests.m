@@ -1,10 +1,10 @@
 #import <XCTest/XCTest.h>
 
-#import <BraintreeDropIn/BTDropInRequest.h>
-#import <Braintree/BTPostalAddress.h>
-#import <Braintree/BraintreePayPal.h>
-#import <Braintree/BraintreePaymentFlow.h>
-#import <Braintree/BraintreeThreeDSecure.h>
+#import <BraintreeDropIn/BraintreeDropIn.h>
+#import <BraintreeCore/BTPostalAddress.h>
+#import <BraintreePayPal/BraintreePayPal.h>
+#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
+#import <BraintreeThreeDSecure/BraintreeThreeDSecure.h>
 
 @interface BTDropInRequestTests : XCTestCase
 

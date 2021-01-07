@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BTPaymentSelectionViewController.h"
-#import "BTConfiguration.h"
+#import <BraintreeCore/BTConfiguration.h>
 #import "UnitTests-Swift.h"
 
 @interface BTPaymentSelectionViewController ()
