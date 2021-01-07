@@ -1,5 +1,6 @@
 # Braintree iOS Drop-In SDK
 
+[![Swift Package Manager compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/BraintreeDropIn.svg?style=flat)](https://cocoapods.org/pods/BraintreeDropIn)
 
@@ -11,19 +12,25 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 **The Braintree iOS Drop-In SDK requires Xcode 12+**. It permits a deployment target of iOS 12.0 or higher.
 
-# What's new
-- All new UI and integration for Drop-In
-- Fetch a customer's payment method without showing UI
-- UI elements, art, helpers and localization are now accessible
-- Added Apple Pay and UnionPay support to Drop-In
-- Customizable appearance
-- And more...
-
-Please create an [issue](https://github.com/braintree/braintree-ios-drop-in/issues) with any comments or concerns.
-
 ## Getting Started
 
-We recommend using either [CocoaPods](https://github.com/CocoaPods/CocoaPods) or [Carthage](https://github.com/Carthage/Carthage) to integrate the Braintree SDK with your project.
+We recommend using [Swift Package Manager](https://swift.org/package-manager/), [CocoaPods](https://github.com/CocoaPods/CocoaPods), or [Carthage](https://github.com/Carthage/Carthage) to integrate the Braintree Drop-In SDK with your project.
+
+### Swift Package Manager (v9 beta)
+_This feature is only available in v9.0.0-beta1._
+
+To add the `BraintreeDropIn` package to your Xcode project, select File > Swift Packages > Add Package Dependency and enter `https://github.com/braintree/braintree-ios-drop-in` as the repository URL. Tick the checkbox for `BraintreeDropIn`.
+
+If you look at your app target, you will see that the `BraintreeDropIn` library is automatically linked as a framework to your app (see General > Frameworks, Libraries, and Embedded Content).
+
+In your app's source code files, use the following import syntax to include Braintree's libraries. For example:
+```
+import BraintreeDropIn
+```
+
+The following Braintree Drop-In libraries offer official Swift Package Manager support:
+* `BraintreeDropIn`
+* `BraintreeUIKit`
 
 ### CocoaPods
 
@@ -50,21 +57,18 @@ Add `github "braintree/braintree-ios-drop-in"` to your `Cartfile`, and [add the 
 You will need the following frameworks at a minimum:
 
 ```
+BraintreeApplePay.framework
 BraintreeDropIn.framework
 BraintreeUIKit.framework
 BraintreeCard.framework
 BraintreeCore.framework
 BraintreePaymentFlow.framework
 BraintreePayPal.framework
+BraintreeThreeDSecure.framework
+BraintreeUnionPay.framework
+BraintreeVenmo.framework
 PayPalDataCollector.framework
-PayPalOneTouch.framework
-PayPalUtils.framework
-```
-
-For Apple Pay, you must add the following framework in addition to PassKit:
-
-```
-BraintreeApplePay.framework
+PPRiskMagnes.framework
 ```
 
 For 3DS 2.0, you must add the following framework:
@@ -110,11 +114,6 @@ func showDropIn(clientTokenOrTokenizationKey: String) {
 ```
 
 ### Apple Pay + Drop-In
-
-Make sure the following is included in your Podfile:
-```
-pod 'Braintree/Apple-Pay'
-```
 
 Apple Pay is enabled by default in Drop-In. Unless you opt out, by setting `showApplePayPaymentOption = false`, Drop-In will show Apple Pay as a payment option as long as it is enabled in the control panel. Below is an example of hiding the Apple Pay button if the device can't make Apple Pay payments using certain card networks:
 
@@ -217,12 +216,7 @@ BTUIKAppearance.sharedInstance().primaryTextColor = UIColor.green
 
 ### BraintreeUIKit
 
-`BraintreeUIKit` is our new framework that makes our UI classes public allowing you to create custom checkout experiences. This includes `localization`, `vector art`, `form fields` and other utils you might need when working with payments. `BraintreeUIKit` has no dependencies on other Braintree frameworks.
-
-To get the standalone `BraintreeUIKit` framework, add the following to your Podfile:
-```
-pod 'BraintreeDropIn/UIKit'
-```
+`BraintreeUIKit` makes our UI classes public, allowing you to create custom checkout experiences. This includes `localization`, `vector art`, `form fields` and other utils you might need when working with payments. `BraintreeUIKit` has no dependencies on other Braintree frameworks.
 
 ```swift
 // Example: Get a Visa card icon
@@ -238,42 +232,9 @@ favoriteColorFormField.textField.placeholder = "Favorite Color"
 
 Take a look at `BTCardFormViewController.m` to see examples of using the form fields and their delegates.
 
-### URL Query Scheme Whitelist
-
-If your app is compiled with iOS 9 SDK and integrates payment options with an app-switch workflow (Venmo, PayPal), you must add URL schemes to the whitelist in your application's plist.
-
-If your app supports payments from PayPal:
-* `com.paypal.ppclient.touch.v1`
-* `com.paypal.ppclient.touch.v2`
-
-If your app supports payments from Venmo:
-* `com.venmo.touch.v2`
-
-For example, if your app supports PayPal, you could add the following:
-```
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>com.paypal.ppclient.touch.v1</string>
-    <string>com.paypal.ppclient.touch.v2</string>
-  </array>
-```
-
-There is a new `UIApplicationDelegate` method that you may implement on iOS 9:
-```
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
-```
-Implementing this method is optional. If you do not implement it, the deprecated equivalent will still be called; otherwise, it will not.
-
-In either case, you still need to implement the deprecated equivalent in order to support iOS 8 or earlier:
-```
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-```
-
 ### More Information
 
 Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
-
-Next, read the [**full documentation**](https://developers.braintreepayments.com/ios/sdk/client) for information about integration options, such as Drop-In UI, custom payment button, and credit card tokenization.
 
 ## Demo
 
@@ -289,8 +250,8 @@ open BraintreeDropIn.xcworkspace
 
 * Read the headers
 * [Read the docs](https://developers.braintreepayments.com/ios/sdk/client)
-* Find a bug? [Open an issue](https://github.com/braintree/braintree_ios/issues)
-* Want to contribute? [Check out contributing guidelines](CONTRIBUTING.md) and [submit a pull request](https://help.github.com/articles/creating-a-pull-request).
+* Find a bug? [Open an issue](https://github.com/braintree/braintree-ios-drop-in/issues)
+* Want to contribute? [submit a pull request](https://help.github.com/articles/creating-a-pull-request).
 
 ## Feedback
 
@@ -299,7 +260,7 @@ The Braintree iOS Drop-In SDK is in active development, we welcome your feedback
 Here are a few ways to get in touch:
 
 * [GitHub Issues](https://github.com/braintree/braintree-ios-drop-in/issues) - For generally applicable issues and feedback
-* [Braintree Support](https://articles.braintreepayments.com/) / support@braintreepayments.com - for personal support at any phase of integration
+* [Braintree Support](https://help.braintreepayments.com) - For personal support at any phase of integration
 
 ## License
 
