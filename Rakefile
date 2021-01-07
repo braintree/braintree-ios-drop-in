@@ -63,7 +63,7 @@ class << self
     ios_version_specifier = ",OS=#{ios_version}" if !ios_version.nil?
     options = default_options.merge(options)
     build_settings = options[:build_settings].map{|k,v| "#{k}='#{v}'"}.join(" ")
-    return "set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration '#{configuration}' -scheme '#{scheme}' -destination 'name=iPhone 11,platform=iOS Simulator#{ios_version_specifier}' #{build_settings} #{command} #{output_redirect} | ./Pods/xcbeautify/xcbeautify"
+    return "set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration '#{configuration}' -scheme '#{scheme}' -destination 'name=iPhone 11,platform=iOS Simulator#{ios_version_specifier}' #{build_settings} #{command} #{output_redirect} | xcpretty"
   end
 
 end
