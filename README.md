@@ -23,11 +23,6 @@ To add the `BraintreeDropIn` package to your Xcode project, select File > Swift 
 
 If you look at your app target, you will see that the `BraintreeDropIn` library is automatically linked as a framework to your app (see General > Frameworks, Libraries, and Embedded Content).
 
-In your app's source code files, use the following import syntax to include Braintree's libraries. For example:
-```
-import BraintreeDropIn
-```
-
 The following Braintree Drop-In libraries offer official Swift Package Manager support:
 * `BraintreeDropIn`
 * `BraintreeUIKit`
@@ -39,12 +34,6 @@ Add to your `Podfile`:
 pod 'BraintreeDropIn'
 ```
 Then run `pod install`.
-
-Customize your integration by specifying additional components. For example, to add Apple Pay support:
-```
-pod 'BraintreeDropIn'
-pod 'Braintree/Apple-Pay'
-```
 
 See our [`Podspec`](BraintreeDropIn.podspec) for more information.
 
@@ -79,12 +68,11 @@ CardinalMobile.framework
 
 ## Documentation
 
-### Import BraintreeDropIn and Braintree
-Add the import statements to any class where you are using Braintree.
+### Import BraintreeDropIn
+Add the below import statement to any class where you are using BraintreeDropIn.
 
 ```
 import BraintreeDropIn
-import Braintree
 ```
 
 ### Show Drop-In
