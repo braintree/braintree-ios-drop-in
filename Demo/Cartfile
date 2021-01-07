@@ -1,1 +1,1 @@
-git "file:///Users/sestevens/bt/braintree-ios" "remove-spmtest"
+github "https://github.com/braintree/braintree_ios.git" "remove-spmtest"
