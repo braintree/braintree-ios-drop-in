@@ -6,6 +6,17 @@ FOUNDATION_EXPORT double BraintreeDropInVersionNumber;
 //! Project version string for BraintreeUI.
 FOUNDATION_EXPORT const unsigned char BraintreeDropInVersionString[];
 
+// TODO: Investigate how BraintreeDropIn exposes BraintreeCard & BraintreeCore, since they aren't listed here.
+#ifdef COCOAPODS
+#import <Braintree/BraintreeApplePay.h>
+#import <Braintree/BraintreeUnionPay.h>
+#import <Braintree/BraintreeVenmo.h>
+#else
+#import <BraintreeApplePay/BraintreeApplePay.h>
+#import <BraintreeUnionPay/BraintreeUnionPay.h>
+#import <BraintreeVenmo/BraintreeVenmo.h>
+#endif
+
 #import <BraintreeDropIn/BTCardFormViewController.h>
 #import <BraintreeDropIn/BTDropInController.h>
 #import <BraintreeDropIn/BTDropInResult.h>
