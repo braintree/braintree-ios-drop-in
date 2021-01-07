@@ -70,7 +70,7 @@ end
 
 namespace :spec do
   def run_test_scheme! scheme, ios_version = nil, output_redirect = nil
-    run! xcodebuild(scheme, 'test', 'Release', ios_version, {}, output_redirect)
+    run! xcodebuild(scheme, 'test', 'Debug', ios_version, {}, output_redirect)
   end
 
   desc 'Run unit tests'
