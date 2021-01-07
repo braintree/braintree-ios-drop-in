@@ -94,7 +94,7 @@ end
 namespace :demo do
   desc 'Verify that the demo app builds successfully'
   task :build do
-    run! xcodebuild('DropInDemo', 'build', 'Release', nil)
+    run! xcodebuild('Demo', 'build', 'Debug', nil)
   end
 end
 
