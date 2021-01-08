@@ -15,7 +15,7 @@ jobs:
       - name: Install Carthage dependencies
         run: cd Demo && ../carthage.sh bootstrap
       - name: Run Unit Tests
-        run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Release' -scheme 'UnitTests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
+        run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UnitTests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
   ui_test_job:
     name: UI Tests
     runs-on: macOS-latest
@@ -30,4 +30,4 @@ jobs:
       - name: Install Carthage dependencies
         run: cd Demo && ../carthage.sh bootstrap
       - name: Run UI Tests
-        run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Release' -scheme 'UITests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
+        run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UITests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
