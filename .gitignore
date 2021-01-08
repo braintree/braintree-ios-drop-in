@@ -31,6 +31,7 @@ SampleApps/CarthageTest/Cartfile.resolved
 # Swift Package Manager
 .build
 .swiftpm
+SampleApps/SPMTest/SPMTest.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 appledocs
 
