@@ -10,17 +10,6 @@ NS_ASSUME_NONNULL_BEGIN
 @class BTHTTP;
 @class BTAnalyticsService;
 
-typedef NS_ENUM(NSInteger, BTAPIClientHTTPTypeTemp) {
-    /// Use the Gateway
-    BTAPIClientHTTPTypeTempGateway = 0,
-
-    /// Use the Braintree API
-    BTAPIClientHTTPTypeTempBraintreeAPI,
-
-    /// Use the GraphQL API
-    BTAPIClientHTTPTypeTempGraphQLAPI,
-};
-
 @interface BTAPIClient (Internal)
 
 @property (nonatomic, copy, nullable) NSString *tokenizationKey;
@@ -39,16 +28,6 @@ typedef NS_ENUM(NSInteger, BTAPIClientHTTPTypeTemp) {
 /// This prevents copyWithSource:integration: from sending a duplicate event. It can also be used
 /// to suppress excessive network chatter during testing.
 - (nullable instancetype)initWithAuthorization:(NSString *)authorization sendAnalyticsEvent:(BOOL)sendAnalyticsEvent;
-
-- (void)GET:(NSString *)path
- parameters:(nullable NSDictionary <NSString *, NSString *> *)parameters
-   httpType:(BTAPIClientHTTPTypeTemp)httpType
- completion:(nullable void(^)(BTJSON * _Nullable body, NSHTTPURLResponse * _Nullable response, NSError * _Nullable error))completionBlock;
-
-- (void)POST:(NSString *)path
-  parameters:(nullable NSDictionary *)parameters
-    httpType:(BTAPIClientHTTPTypeTemp)httpType
-  completion:(nullable void(^)(BTJSON * _Nullable body, NSHTTPURLResponse * _Nullable response, NSError * _Nullable error))completionBlock;
 
 @end
 
