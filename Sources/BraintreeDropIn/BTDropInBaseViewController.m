@@ -1,4 +1,4 @@
-#import <BraintreeDropIn/BTDropInBaseViewController.h> //syntax should be same for all since pod name is same as module name
+#import <BraintreeDropIn/BTDropInBaseViewController.h>
 #import "BTAPIClient_Internal_Category.h"
 
 #if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
