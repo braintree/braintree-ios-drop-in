@@ -27,7 +27,7 @@ The following Braintree Drop-In libraries offer official Swift Package Manager s
 * `BraintreeDropIn`
 * `BraintreeUIKit`
 
-To use the the `BraintreeDropIn` library via SPM, you must manually include the `CardinalMobile.framework`.
+To offer ThreeDSecure with `BraintreeDropIn` via SPM, you must manually include the `CardinalMobile.framework`.
 
 #### Manually including the CardinalMobile framework
 

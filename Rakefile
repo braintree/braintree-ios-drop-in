@@ -94,6 +94,7 @@ end
 namespace :demo_app do
   desc 'Verify that the demo app builds successfully'
   task :build_demo do
+    # TODO: Investigate running demo app in Release mode
     run! xcodebuild('Demo', 'build', 'Debug', nil)
   end
 end

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,11 +35,11 @@
 		42621F7525A774F90057ECFE /* BraintreeVenmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6225A774F90057ECFE /* BraintreeVenmo.framework */; };
 		42621F7725A774F90057ECFE /* BraintreePaymentFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6325A774F90057ECFE /* BraintreePaymentFlow.framework */; };
 		42621F7925A774FA0057ECFE /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6425A774F90057ECFE /* CardinalMobile.framework */; };
+		4287A19B25A8F2F2007E1EC0 /* InAppSettingsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4287A19A25A8F2F2007E1EC0 /* InAppSettingsKit.framework */; };
 		42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
-		8085D8C925A66B0100C2A3E9 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8085D8C825A66B0100C2A3E9 /* InAppSettingsKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +99,7 @@
 		42621F6225A774F90057ECFE /* BraintreeVenmo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeVenmo.framework; path = Carthage/Build/iOS/BraintreeVenmo.framework; sourceTree = "<group>"; };
 		42621F6325A774F90057ECFE /* BraintreePaymentFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreePaymentFlow.framework; path = Carthage/Build/iOS/BraintreePaymentFlow.framework; sourceTree = "<group>"; };
 		42621F6425A774F90057ECFE /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardinalMobile.framework; path = Carthage/Build/iOS/CardinalMobile.framework; sourceTree = "<group>"; };
+		4287A19A25A8F2F2007E1EC0 /* InAppSettingsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InAppSettingsKit.framework; path = Carthage/Build/iOS/InAppSettingsKit.framework; sourceTree = "<group>"; };
 		42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8068E51D256D73D5002904E6 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8085D8C925A66B0100C2A3E9 /* InAppSettingsKit in Frameworks */,
 				42621F7525A774F90057ECFE /* BraintreeVenmo.framework in Frameworks */,
 				42621F6D25A774F90057ECFE /* BraintreeCard.framework in Frameworks */,
 				42621F7125A774F90057ECFE /* BraintreePayPal.framework in Frameworks */,
@@ -126,6 +126,7 @@
 				42621F7325A774F90057ECFE /* BraintreeCore.framework in Frameworks */,
 				42621F6B25A774F90057ECFE /* PayPalDataCollector.framework in Frameworks */,
 				42621F6725A774F90057ECFE /* BraintreeThreeDSecure.framework in Frameworks */,
+				4287A19B25A8F2F2007E1EC0 /* InAppSettingsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +246,7 @@
 		80AD3CDD25A6689F00B2762C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4287A19A25A8F2F2007E1EC0 /* InAppSettingsKit.framework */,
 				42621F5A25A774F90057ECFE /* BraintreeApplePay.framework */,
 				42621F5E25A774F90057ECFE /* BraintreeCard.framework */,
 				42621F6125A774F90057ECFE /* BraintreeCore.framework */,
@@ -281,7 +283,6 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				8085D8C825A66B0100C2A3E9 /* InAppSettingsKit */,
 			);
 			productName = Demo;
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
@@ -334,7 +335,6 @@
 			);
 			mainGroup = 4245D79A256C5AF900F1A413;
 			packageReferences = (
-				8085D8C725A66B0100C2A3E9 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
 			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
 			projectDirPath = "";
@@ -698,25 +698,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8085D8C725A66B0100C2A3E9 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.8;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8085D8C825A66B0100C2A3E9 /* InAppSettingsKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8085D8C725A66B0100C2A3E9 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
-			productName = InAppSettingsKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4245D79B256C5AF900F1A413 /* Project object */;
 }
