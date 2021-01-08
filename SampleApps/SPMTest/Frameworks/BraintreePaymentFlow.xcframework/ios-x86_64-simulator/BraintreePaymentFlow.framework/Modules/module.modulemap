@@ -1,6 +1,0 @@
-framework module BraintreePaymentFlow {
-  umbrella header "BraintreePaymentFlow.h"
-
-  export *
-  module * { export * }
-}

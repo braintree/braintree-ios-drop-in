@@ -15,7 +15,23 @@
 		800FC594257FF3E200DEE132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC592257FF3E200DEE132 /* LaunchScreen.storyboard */; };
 		80501C1925A7B82000ADE32C /* BraintreeUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80501C1825A7B82000ADE32C /* BraintreeUIKit */; };
 		80501C1B25A7B82000ADE32C /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80501C1A25A7B82000ADE32C /* BraintreeDropIn */; };
+		80A8C40A25A8CF91003A68F5 /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */; };
+		80A8C40B25A8CF91003A68F5 /* CardinalMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		80A8C40C25A8CF91003A68F5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				80A8C40B25A8CF91003A68F5 /* CardinalMobile.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		800FC584257FF3E000DEE132 /* SPMTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPMTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +42,7 @@
 		800FC590257FF3E200DEE132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		800FC593257FF3E200DEE132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		800FC595257FF3E200DEE132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardinalMobile.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +52,7 @@
 			files = (
 				80501C1925A7B82000ADE32C /* BraintreeUIKit in Frameworks */,
 				80501C1B25A7B82000ADE32C /* BraintreeDropIn in Frameworks */,
+				80A8C40A25A8CF91003A68F5 /* CardinalMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +62,7 @@
 		800FC57B257FF3E000DEE132 = {
 			isa = PBXGroup;
 			children = (
+				80A8C40725A8CF77003A68F5 /* Frameworks */,
 				800FC586257FF3E000DEE132 /* SPMTest */,
 				800FC585257FF3E000DEE132 /* Products */,
 			);
@@ -71,6 +90,14 @@
 			path = SPMTest;
 			sourceTree = "<group>";
 		};
+		80A8C40725A8CF77003A68F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,6 +108,7 @@
 				800FC580257FF3E000DEE132 /* Sources */,
 				800FC581257FF3E000DEE132 /* Frameworks */,
 				800FC582257FF3E000DEE132 /* Resources */,
+				80A8C40C25A8CF91003A68F5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,6 +327,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SPMTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,6 +340,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -318,6 +351,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SPMTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,6 +364,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
