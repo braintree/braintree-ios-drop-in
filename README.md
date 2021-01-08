@@ -31,13 +31,15 @@ To use the the `BraintreeDropIn` library via SPM, you must manually include the 
 
 #### Manually including the CardinalMobile framework
 
-1. Locate `CardinalMobile.framework` in the Braintree Swift Package dependency
+1. Locate `CardinalMobile.framework` in the Braintree Swift Package dependency.
+    <br/><br/>
     ![image](image_assets/locate_cardinal_mobile_framework.png)
-1. Right click on the `CardinalMobile.framework` to `Show in Finder`
+1. Right click on the `CardinalMobile.framework` to `Show in Finder`.
 1. Drag the `CardinalMobile.framework` into your app's Framework group in Xcode. Check the box to `Copy items if needed`.
+    <br/><br/>
     ![image](image_assets/copy_cardinal_mobile_framework.png)
-1. Open your project's settings by selecting your app target in the General tab
-    * Under the _Frameworks, Libraries, and Embedded Content_ section, make sure `CardinalMobile.framework` is set to “Embed & Sign”
+1. Open your project's settings by selecting your app target in the General tab. Under the _Frameworks, Libraries, and Embedded Content_ section, make sure `CardinalMobile.framework` is set to “Embed & Sign”.
+    <br/><br/>
     ![image](image_assets/link_frameworks.png)
 
 ### CocoaPods
