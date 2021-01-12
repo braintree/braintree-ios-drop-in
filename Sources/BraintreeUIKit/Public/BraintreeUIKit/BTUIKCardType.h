@@ -1,6 +1,10 @@
 #import <UIKit/UIKit.h>
 
-#import "BTUIKLocalizedString.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#else
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#endif
 
 /// Immutable card type
 @interface BTUIKCardType : NSObject

@@ -1,4 +1,8 @@
-#import "BTUIKCardExpirationValidator.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKCardExpirationValidator.h>
+#else
+#import <BraintreeUIKit/BTUIKCardExpirationValidator.h>
+#endif
 
 #ifdef __IPHONE_8_0
 #define kBTNSGregorianCalendarIdentifier NSCalendarIdentifierGregorian

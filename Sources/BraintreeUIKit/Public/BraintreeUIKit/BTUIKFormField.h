@@ -1,5 +1,10 @@
 #import <UIKit/UIKit.h>
-#import "BTUIKTextField.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKTextField.h>
+#else
+#import <BraintreeUIKit/BTUIKTextField.h>
+#endif
 
 @protocol BTUIKFormFieldDelegate;
 

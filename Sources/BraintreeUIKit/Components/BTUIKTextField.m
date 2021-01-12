@@ -1,7 +1,14 @@
-#import "BTUIKTextField.h"
-#import "BTUIKInputAccessoryToolbar.h"
-#import "BTUIKAppearance.h"
-#import "BTUIKViewUtil.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeDropIn/BTUIKTextField.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeUIKit/BTUIKTextField.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
+#endif
 
 @interface BTUIKTextField () <UITextFieldDelegate>
 @property (nonatomic, copy) NSString *previousText;

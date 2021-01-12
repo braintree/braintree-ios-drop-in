@@ -1,7 +1,12 @@
 #import <UIKit/UIKit.h>
 
-#import "BTUIKCardType.h"
-#import "BTUIKUtil.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKCardType.h>
+#import <BraintreeDropIn/BTUIKUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKCardType.h>
+#import <BraintreeUIKit/BTUIKUtil.h>
+#endif
 
 #define kDefaultFormatSpaceIndices @[@4, @8, @12, @16]
 #define kDefaultCvvLength          3

@@ -1,5 +1,10 @@
-#import "BTUIKFormField.h"
-#import "BTUIKExpiryInputView.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKExpiryInputView.h>
+#import <BraintreeDropIn/BTUIKFormField.h>
+#else
+#import <BraintreeUIKit/BTUIKExpiryInputView.h>
+#import <BraintreeUIKit/BTUIKFormField.h>
+#endif
 
 /// @class Form field to collect an expiration date.
 @interface BTUIKExpiryFormField : BTUIKFormField <BTUIKExpiryInputViewDelegate>

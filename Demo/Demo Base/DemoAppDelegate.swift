@@ -1,5 +1,4 @@
 import BraintreeDropIn
-import Braintree
 
 @UIApplicationMain
 class DemoAppDelegate: UIResponder, UIApplicationDelegate {

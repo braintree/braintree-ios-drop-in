@@ -1,5 +1,10 @@
-#import "BTUIKCardExpiryFormat.h"
-#import "BTUIKUtil.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKCardExpiryFormat.h>
+#import <BraintreeDropIn/BTUIKUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
+#import <BraintreeUIKit/BTUIKUtil.h>
+#endif
 
 @implementation BTUIKCardExpiryFormat
 

@@ -1,5 +1,10 @@
-#import "BTUIKAppearance.h"
-#import "UIColor+BTUIK.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/UIColor+BTUIK.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/UIColor+BTUIK.h>
+#endif
 
 @interface BTUIKAppearance ()
 

@@ -1,13 +1,13 @@
-#import "BTPaymentSelectionViewController.h"
+#import <BraintreeDropIn/BTPaymentSelectionViewController.h>
 #import "BTUIPaymentMethodCollectionViewCell.h"
-#import "BTDropInController.h"
+#import <BraintreeDropIn/BTDropInController.h>
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
-#if __has_include("BraintreeUIKit.h")
-#import "BraintreeUIKit.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif

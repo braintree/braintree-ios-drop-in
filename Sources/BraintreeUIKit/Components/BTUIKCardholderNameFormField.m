@@ -1,5 +1,10 @@
-#import "BTUIKCardholderNameFormField.h"
-#import "BTUIKLocalizedString.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKCardholderNameFormField.h>
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#else
+#import <BraintreeUIKit/BTUIKCardholderNameFormField.h>
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#endif
 
 @implementation BTUIKCardholderNameFormField
 

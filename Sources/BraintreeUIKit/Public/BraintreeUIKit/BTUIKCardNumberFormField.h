@@ -1,5 +1,10 @@
-#import "BTUIKFormField.h"
-#import "BTUIKCardType.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKCardType.h>
+#import <BraintreeDropIn/BTUIKFormField.h>
+#else
+#import <BraintreeUIKit/BTUIKCardType.h>
+#import <BraintreeUIKit/BTUIKFormField.h>
+#endif
 
 @protocol BTUIKCardNumberFormFieldDelegate;
 

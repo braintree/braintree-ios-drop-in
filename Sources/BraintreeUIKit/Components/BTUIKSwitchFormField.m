@@ -1,6 +1,12 @@
-#import "BTUIKSwitchFormField.h"
-#import "BTUIKViewUtil.h"
-#import "BTUIKAppearance.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKSwitchFormField.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKSwitchFormField.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
+#endif
 
 @interface BTUIKSwitchFormField ()
 

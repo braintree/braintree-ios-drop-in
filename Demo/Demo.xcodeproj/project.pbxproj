@@ -14,21 +14,32 @@
 		4245D883256C5C4E00F1A413 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86A256C5C4E00F1A413 /* DemoBaseViewController.swift */; };
 		4245D884256C5C4E00F1A413 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86B256C5C4E00F1A413 /* ViewHelpers.swift */; };
 		4245D885256C5C4E00F1A413 /* DemoDropInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86C256C5C4E00F1A413 /* DemoDropInViewController.swift */; };
-		4245D886256C5C4E00F1A413 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4245D86D256C5C4E00F1A413 /* README.md */; };
 		4245D887256C5C4E00F1A413 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4245D86F256C5C4E00F1A413 /* Main.strings */; };
 		4245D888256C5C4E00F1A413 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4245D871256C5C4E00F1A413 /* InfoPlist.strings */; };
 		4245D889256C5C4E00F1A413 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4245D874256C5C4E00F1A413 /* BTUI.strings */; };
 		4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */; };
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
 		4245D969256C627400F1A413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4245D968256C627400F1A413 /* Assets.xcassets */; };
-		42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */; };
-		42ACD39E257989E9000BE57C /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42621F2825A770FB0057ECFE /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F2625A770FB0057ECFE /* BraintreeDropIn.framework */; };
+		42621F2925A770FB0057ECFE /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F2625A770FB0057ECFE /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42621F2A25A770FB0057ECFE /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F2725A770FB0057ECFE /* BraintreeUIKit.framework */; };
+		42621F2B25A770FB0057ECFE /* BraintreeUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F2725A770FB0057ECFE /* BraintreeUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42621F6525A774F90057ECFE /* BraintreeApplePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F5A25A774F90057ECFE /* BraintreeApplePay.framework */; };
+		42621F6725A774F90057ECFE /* BraintreeThreeDSecure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F5B25A774F90057ECFE /* BraintreeThreeDSecure.framework */; };
+		42621F6925A774F90057ECFE /* BraintreeUnionPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F5C25A774F90057ECFE /* BraintreeUnionPay.framework */; };
+		42621F6B25A774F90057ECFE /* PayPalDataCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F5D25A774F90057ECFE /* PayPalDataCollector.framework */; };
+		42621F6D25A774F90057ECFE /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F5E25A774F90057ECFE /* BraintreeCard.framework */; };
+		42621F6F25A774F90057ECFE /* PPRiskMagnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F5F25A774F90057ECFE /* PPRiskMagnes.framework */; };
+		42621F7125A774F90057ECFE /* BraintreePayPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6025A774F90057ECFE /* BraintreePayPal.framework */; };
+		42621F7325A774F90057ECFE /* BraintreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6125A774F90057ECFE /* BraintreeCore.framework */; };
+		42621F7525A774F90057ECFE /* BraintreeVenmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6225A774F90057ECFE /* BraintreeVenmo.framework */; };
+		42621F7725A774F90057ECFE /* BraintreePaymentFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6325A774F90057ECFE /* BraintreePaymentFlow.framework */; };
+		42621F7925A774FA0057ECFE /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42621F6425A774F90057ECFE /* CardinalMobile.framework */; };
+		4287A19B25A8F2F2007E1EC0 /* InAppSettingsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4287A19A25A8F2F2007E1EC0 /* InAppSettingsKit.framework */; };
 		42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
-		8272877B924C846E64EAB7AC /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38603586774B24C433EE065D /* Pods_UITests.framework */; };
-		C4FB5BADCF203B2B26F9E373 /* Pods_All_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		42ACD39F257989E9000BE57C /* Embed Frameworks */ = {
+		80B1CA9D25A65F1200DC90D0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				42ACD39E257989E9000BE57C /* BraintreeDropIn.framework in Embed Frameworks */,
+				42621F2B25A770FB0057ECFE /* BraintreeUIKit.framework in Embed Frameworks */,
+				42621F2925A770FB0057ECFE /* BraintreeDropIn.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,8 +68,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Demo.release.xcconfig"; path = "Target Support Files/Pods-All-Demo/Pods-All-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		38603586774B24C433EE065D /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D7A3256C5AF900F1A413 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D866256C5C4E00F1A413 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4245D867256C5C4E00F1A413 /* DemoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
@@ -76,20 +86,26 @@
 		4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDropInView.swift; sourceTree = "<group>"; };
 		4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPIClient.swift; sourceTree = "<group>"; };
 		4245D968256C627400F1A413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42621F2625A770FB0057ECFE /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42621F2725A770FB0057ECFE /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42621F5A25A774F90057ECFE /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = Carthage/Build/iOS/BraintreeApplePay.framework; sourceTree = "<group>"; };
+		42621F5B25A774F90057ECFE /* BraintreeThreeDSecure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeThreeDSecure.framework; path = Carthage/Build/iOS/BraintreeThreeDSecure.framework; sourceTree = "<group>"; };
+		42621F5C25A774F90057ECFE /* BraintreeUnionPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUnionPay.framework; path = Carthage/Build/iOS/BraintreeUnionPay.framework; sourceTree = "<group>"; };
+		42621F5D25A774F90057ECFE /* PayPalDataCollector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PayPalDataCollector.framework; path = Carthage/Build/iOS/PayPalDataCollector.framework; sourceTree = "<group>"; };
+		42621F5E25A774F90057ECFE /* BraintreeCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCard.framework; path = Carthage/Build/iOS/BraintreeCard.framework; sourceTree = "<group>"; };
+		42621F5F25A774F90057ECFE /* PPRiskMagnes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PPRiskMagnes.framework; path = Carthage/Build/iOS/PPRiskMagnes.framework; sourceTree = "<group>"; };
+		42621F6025A774F90057ECFE /* BraintreePayPal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreePayPal.framework; path = Carthage/Build/iOS/BraintreePayPal.framework; sourceTree = "<group>"; };
+		42621F6125A774F90057ECFE /* BraintreeCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCore.framework; path = Carthage/Build/iOS/BraintreeCore.framework; sourceTree = "<group>"; };
+		42621F6225A774F90057ECFE /* BraintreeVenmo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeVenmo.framework; path = Carthage/Build/iOS/BraintreeVenmo.framework; sourceTree = "<group>"; };
+		42621F6325A774F90057ECFE /* BraintreePaymentFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreePaymentFlow.framework; path = Carthage/Build/iOS/BraintreePaymentFlow.framework; sourceTree = "<group>"; };
+		42621F6425A774F90057ECFE /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardinalMobile.framework; path = Carthage/Build/iOS/CardinalMobile.framework; sourceTree = "<group>"; };
+		4287A19A25A8F2F2007E1EC0 /* InAppSettingsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InAppSettingsKit.framework; path = Carthage/Build/iOS/InAppSettingsKit.framework; sourceTree = "<group>"; };
 		42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
-		7C60C37B4119D7299F6A4EE2 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51D256D73D5002904E6 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
 		8068E521256D73D5002904E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_EditMode_UITests.swift; sourceTree = "<group>"; };
 		8068E531256D7489002904E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		8CDBFE3BAB695CF6E1D0E75F /* Pods-All-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Demo.debug.xcconfig"; path = "Target Support Files/Pods-All-Demo/Pods-All-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		B4F67689ED383BC55464B120 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		E34F541B3233BFC44ED4931A /* Pods-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.debug.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +113,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ACD39D257989E9000BE57C /* BraintreeDropIn.framework in Frameworks */,
-				C4FB5BADCF203B2B26F9E373 /* Pods_All_Demo.framework in Frameworks */,
+				42621F7525A774F90057ECFE /* BraintreeVenmo.framework in Frameworks */,
+				42621F6D25A774F90057ECFE /* BraintreeCard.framework in Frameworks */,
+				42621F7125A774F90057ECFE /* BraintreePayPal.framework in Frameworks */,
+				42621F2A25A770FB0057ECFE /* BraintreeUIKit.framework in Frameworks */,
+				42621F2825A770FB0057ECFE /* BraintreeDropIn.framework in Frameworks */,
+				42621F6525A774F90057ECFE /* BraintreeApplePay.framework in Frameworks */,
+				42621F6925A774F90057ECFE /* BraintreeUnionPay.framework in Frameworks */,
+				42621F7725A774F90057ECFE /* BraintreePaymentFlow.framework in Frameworks */,
+				42621F6F25A774F90057ECFE /* PPRiskMagnes.framework in Frameworks */,
+				42621F7925A774FA0057ECFE /* CardinalMobile.framework in Frameworks */,
+				42621F7325A774F90057ECFE /* BraintreeCore.framework in Frameworks */,
+				42621F6B25A774F90057ECFE /* PayPalDataCollector.framework in Frameworks */,
+				42621F6725A774F90057ECFE /* BraintreeThreeDSecure.framework in Frameworks */,
+				4287A19B25A8F2F2007E1EC0 /* InAppSettingsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8272877B924C846E64EAB7AC /* Pods_UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,11 +143,10 @@
 		4245D79A256C5AF900F1A413 = {
 			isa = PBXGroup;
 			children = (
+				80AD3CDD25A6689F00B2762C /* Frameworks */,
 				4245D7A5256C5AF900F1A413 /* Demo */,
 				8068E51E256D73D5002904E6 /* UITests */,
 				4245D7A4256C5AF900F1A413 /* Products */,
-				4365BAA64EC40596BEA8A066 /* Pods */,
-				D29CC413D438C2B9AD73E86C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,20 +232,6 @@
 			path = "Merchant API Client";
 			sourceTree = SOURCE_ROOT;
 		};
-		4365BAA64EC40596BEA8A066 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B4F67689ED383BC55464B120 /* Pods-Demo.debug.xcconfig */,
-				7C60C37B4119D7299F6A4EE2 /* Pods-Demo.release.xcconfig */,
-				8CDBFE3BAB695CF6E1D0E75F /* Pods-All-Demo.debug.xcconfig */,
-				17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */,
-				E34F541B3233BFC44ED4931A /* Pods-UITests.debug.xcconfig */,
-				67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		8068E51E256D73D5002904E6 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,13 +243,23 @@
 			path = UITests;
 			sourceTree = "<group>";
 		};
-		D29CC413D438C2B9AD73E86C /* Frameworks */ = {
+		80AD3CDD25A6689F00B2762C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42ACD39C257989E9000BE57C /* BraintreeDropIn.framework */,
-				8068E4DF256D7087002904E6 /* BraintreeDropIn.framework */,
-				38603586774B24C433EE065D /* Pods_UITests.framework */,
-				665FD7562C7D97A488E7D5C1 /* Pods_All_Demo.framework */,
+				4287A19A25A8F2F2007E1EC0 /* InAppSettingsKit.framework */,
+				42621F5A25A774F90057ECFE /* BraintreeApplePay.framework */,
+				42621F5E25A774F90057ECFE /* BraintreeCard.framework */,
+				42621F6125A774F90057ECFE /* BraintreeCore.framework */,
+				42621F6325A774F90057ECFE /* BraintreePaymentFlow.framework */,
+				42621F6025A774F90057ECFE /* BraintreePayPal.framework */,
+				42621F5B25A774F90057ECFE /* BraintreeThreeDSecure.framework */,
+				42621F5C25A774F90057ECFE /* BraintreeUnionPay.framework */,
+				42621F6225A774F90057ECFE /* BraintreeVenmo.framework */,
+				42621F6425A774F90057ECFE /* CardinalMobile.framework */,
+				42621F5D25A774F90057ECFE /* PayPalDataCollector.framework */,
+				42621F5F25A774F90057ECFE /* PPRiskMagnes.framework */,
+				42621F2625A770FB0057ECFE /* BraintreeDropIn.framework */,
+				42621F2725A770FB0057ECFE /* BraintreeUIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,18 +271,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4245D7B7256C5AFC00F1A413 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				E4CDA044D3220EAB74C55BA4 /* [CP] Check Pods Manifest.lock */,
 				4245D79F256C5AF900F1A413 /* Sources */,
 				4245D7A0256C5AF900F1A413 /* Frameworks */,
 				4245D7A1256C5AF900F1A413 /* Resources */,
-				77C2BB2986B8D51ACDF4A9F8 /* [CP] Embed Pods Frameworks */,
-				42ACD39F257989E9000BE57C /* Embed Frameworks */,
+				80B1CA9D25A65F1200DC90D0 /* Embed Frameworks */,
+				42621F5225A771990057ECFE /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Demo;
+			packageProductDependencies = (
+			);
 			productName = Demo;
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -269,7 +292,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8068E526256D73D5002904E6 /* Build configuration list for PBXNativeTarget "UITests" */;
 			buildPhases = (
-				FC71F2C8B9283237F7D6B335 /* [CP] Check Pods Manifest.lock */,
 				8068E519256D73D5002904E6 /* Sources */,
 				8068E51A256D73D5002904E6 /* Frameworks */,
 				8068E51B256D73D5002904E6 /* Resources */,
@@ -312,6 +334,8 @@
 				cs,
 			);
 			mainGroup = 4245D79A256C5AF900F1A413;
+			packageReferences = (
+			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -331,7 +355,6 @@
 				4245D889256C5C4E00F1A413 /* BTUI.strings in Resources */,
 				4245D888256C5C4E00F1A413 /* InfoPlist.strings in Resources */,
 				4245D969256C627400F1A413 /* Assets.xcassets in Resources */,
-				4245D886256C5C4E00F1A413 /* README.md in Resources */,
 				4245D87F256C5C4E00F1A413 /* Settings.bundle in Resources */,
 				42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */,
 			);
@@ -347,66 +370,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		77C2BB2986B8D51ACDF4A9F8 /* [CP] Embed Pods Frameworks */ = {
+		42621F5225A771990057ECFE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-All-Demo/Pods-All-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-All-Demo/Pods-All-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-All-Demo/Pods-All-Demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4CDA044D3220EAB74C55BA4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-All-Demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC71F2C8B9283237F7D6B335 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -594,12 +575,17 @@
 		};
 		4245D7B8256C5AFC00F1A413 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CDBFE3BAB695CF6E1D0E75F /* Pods-All-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Braintree-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,17 +597,23 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
 		4245D7B9256C5AFC00F1A413 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17044B24741E7C1ABBA2E30A /* Pods-All-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Braintree-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,12 +625,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
 		8068E524256D73D5002904E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E34F541B3233BFC44ED4931A /* Pods-UITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;
@@ -658,7 +650,6 @@
 		};
 		8068E525256D73D5002904E6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67220E9B5ACC61F79374417F /* Pods-UITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43253H4X22;

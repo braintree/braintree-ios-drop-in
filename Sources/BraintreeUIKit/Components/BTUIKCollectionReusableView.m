@@ -1,5 +1,10 @@
 #import "BTUIKCollectionReusableView.h"
-#import "BTUIKAppearance.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
 
 @implementation BTUIKCollectionReusableView
 

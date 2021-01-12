@@ -1,7 +1,14 @@
-#import "BTUIKMobileNumberFormField.h"
-#import "BTUIKTextField.h"
-#import "BTUIKInputAccessoryToolbar.h"
-#import "BTUIKLocalizedString.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import <BraintreeDropIn/BTUIKMobileNumberFormField.h>
+#import <BraintreeDropIn/BTUIKTextField.h>
+#else
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#import <BraintreeUIKit/BTUIKMobileNumberFormField.h>
+#import <BraintreeUIKit/BTUIKTextField.h>
+#endif
 
 @implementation BTUIKMobileNumberFormField
 

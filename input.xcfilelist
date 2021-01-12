@@ -1,0 +1,11 @@
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreeApplePay.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreeCard.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreeCore.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreePaymentFlow.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreePayPal.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreeThreeDSecure.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreeUnionPay.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/BraintreeVenmo.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/CardinalMobile.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/PayPalDataCollector.framework
+$(SRCROOT)/Demo/Carthage/Build/iOS/PPRiskMagnes.framework

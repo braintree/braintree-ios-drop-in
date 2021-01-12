@@ -1,5 +1,4 @@
 import XCTest
-import Braintree
 import BraintreeDropIn
 
 class BTPaymentMethodNonceDropInTests: XCTestCase {

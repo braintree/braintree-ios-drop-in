@@ -1,7 +1,14 @@
-#import "BTUIKSecurityCodeFormField.h"
-#import "BTUIKTextField.h"
-#import "BTUIKInputAccessoryToolbar.h"
-#import "BTUIKLocalizedString.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import <BraintreeDropIn/BTUIKSecurityCodeFormField.h>
+#import <BraintreeDropIn/BTUIKTextField.h>
+#else
+#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#import <BraintreeUIKit/BTUIKSecurityCodeFormField.h>
+#import <BraintreeUIKit/BTUIKTextField.h>
+#endif
 
 @interface BTUIKSecurityCodeFormField ()
 

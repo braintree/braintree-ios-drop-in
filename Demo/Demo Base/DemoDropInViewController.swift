@@ -1,7 +1,6 @@
 import UIKit
 import PassKit
 import BraintreeDropIn
-import Braintree
 
 class DemoDropInViewController: DemoBaseViewController {
     

@@ -1,4 +1,4 @@
-#import "BTDropInResult.h"
+#import <BraintreeDropIn/BTDropInResult.h>
 #import "BTAPIClient_Internal_Category.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
@@ -7,8 +7,9 @@
 #else
 #import <BraintreeCore/BraintreeCore.h>
 #endif
-#if __has_include("BraintreeUIKit.h")
-#import "BraintreeUIKit.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif

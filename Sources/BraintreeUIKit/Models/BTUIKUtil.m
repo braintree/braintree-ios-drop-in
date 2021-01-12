@@ -1,4 +1,8 @@
-#import "BTUIKUtil.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKUtil.h>
+#endif
 
 @implementation BTUIKUtil
 

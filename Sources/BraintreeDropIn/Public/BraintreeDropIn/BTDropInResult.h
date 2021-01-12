@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
-#if __has_include("BTUIKPaymentOptionType.h")
-#import "BTUIKPaymentOptionType.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif

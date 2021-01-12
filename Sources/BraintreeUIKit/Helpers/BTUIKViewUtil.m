@@ -1,4 +1,9 @@
-#import "BTUIKViewUtil.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKViewUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKViewUtil.h>
+#endif
+
 #import "BTUIKMasterCardVectorArtView.h"
 #import "BTUIKJCBVectorArtView.h"
 #import "BTUIKMaestroVectorArtView.h"

@@ -1,9 +1,17 @@
-#import "BTUIKExpiryInputView.h"
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
-#import "BTUIKAppearance.h"
-#import "BTUIKLocalizedString.h"
-#import "BTUIKViewUtil.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKExpiryInputView.h>
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKExpiryInputView.h>
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
+#endif
 
 #define BT_EXPIRY_FULL_PADDING 10
 #define BT_EXPIRY_SECTION_HEADER_HEIGHT 12

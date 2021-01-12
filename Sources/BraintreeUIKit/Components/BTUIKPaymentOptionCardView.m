@@ -1,6 +1,12 @@
-#import "BTUIKPaymentOptionCardView.h"
-#import "BTUIKVectorArtView.h"
-#import "BTUIKAppearance.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKPaymentOptionCardView.h>
+#import <BraintreeDropIn/BTUIKVectorArtView.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKPaymentOptionCardView.h>
+#import <BraintreeUIKit/BTUIKVectorArtView.h>
+#endif
 
 @interface BTUIKPaymentOptionCardView()
 

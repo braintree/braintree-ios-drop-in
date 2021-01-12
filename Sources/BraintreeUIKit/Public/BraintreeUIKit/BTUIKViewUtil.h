@@ -1,7 +1,14 @@
 #import <UIKit/UIKit.h>
-#import "BTUIKCardType.h"
-#import "BTUIKPaymentOptionType.h"
-#import "BTUIKVisualAssetType.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKCardType.h>
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTUIKVisualAssetType.h>
+#else
+#import <BraintreeUIKit/BTUIKCardType.h>
+#import <BraintreeUIKit/BTUIKPaymentOptionType.h>
+#import <BraintreeUIKit/BTUIKVisualAssetType.h>
+#endif
 
 @class BTUIKVectorArtView;
 

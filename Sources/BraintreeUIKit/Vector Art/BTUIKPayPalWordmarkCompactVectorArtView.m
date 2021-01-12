@@ -1,5 +1,10 @@
 #import "BTUIKPayPalWordmarkCompactVectorArtView.h"
-#import "BTUIKAppearance.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#endif
 
 @interface BTUIKPayPalWordmarkCompactVectorArtView ()
 @property (nonatomic, assign) BOOL includePadding;

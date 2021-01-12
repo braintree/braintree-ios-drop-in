@@ -1,5 +1,10 @@
 #import <UIKit/UIKit.h>
-#import "BTUIKVectorArtView.h"
+
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKVectorArtView.h>
+#else
+#import <BraintreeUIKit/BTUIKVectorArtView.h>
+#endif
 
 @interface BTUIKPayPalWordmarkVectorArtView : BTUIKVectorArtView
 

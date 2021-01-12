@@ -1,4 +1,8 @@
-#import "BTUIKLocalizedString.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#else
+#import <BraintreeUIKit/BTUIKLocalizedString.h>
+#endif
 
 @implementation BTUIKLocalizedString
 

@@ -1,7 +1,15 @@
-#import "BTUIKCardListLabel.h"
-#import "BTUIKPaymentOptionCardView.h"
-#import "BTUIKViewUtil.h"
-#import "BTUIKAppearance.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKCardListLabel.h>
+#import <BraintreeDropIn/BTUIKPaymentOptionCardView.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKCardListLabel.h>
+#import <BraintreeUIKit/BTUIKPaymentOptionCardView.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
+#endif
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface BTUIKCardListLabel ()

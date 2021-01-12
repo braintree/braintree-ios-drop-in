@@ -1,7 +1,14 @@
-#import "BTUIKFormField.h"
-#import "BTUIKVectorArtView.h"
-#import "BTUIKViewUtil.h"
-#import "BTUIKAppearance.h"
+#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKFormField.h>
+#import <BraintreeDropIn/BTUIKVectorArtView.h>
+#import <BraintreeDropIn/BTUIKViewUtil.h>
+#else
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKFormField.h>
+#import <BraintreeUIKit/BTUIKVectorArtView.h>
+#import <BraintreeUIKit/BTUIKViewUtil.h>
+#endif
 
 @interface BTUIKFormField ()<BTUIKTextFieldEditDelegate>
 
