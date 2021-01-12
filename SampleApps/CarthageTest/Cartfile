@@ -1,1 +1,1 @@
-git "file:///Users/scannillo/bt/braintree-ios-drop-in" "spm-support"
+github "https://github.com/braintree/braintree-ios-drop-in.git" "master"
