@@ -7,5 +7,6 @@ $(SRCROOT)/Carthage/Build/iOS/BraintreeThreeDSecure.framework
 $(SRCROOT)/Carthage/Build/iOS/BraintreeUnionPay.framework
 $(SRCROOT)/Carthage/Build/iOS/BraintreeVenmo.framework
 $(SRCROOT)/Carthage/Build/iOS/CardinalMobile.framework
+$(SRCROOT)/Carthage/Build/iOS/InAppSettingsKit.framework
 $(SRCROOT)/Carthage/Build/iOS/PayPalDataCollector.framework
 $(SRCROOT)/Carthage/Build/iOS/PPRiskMagnes.framework
