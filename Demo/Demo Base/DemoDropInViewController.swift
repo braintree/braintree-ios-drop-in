@@ -150,7 +150,7 @@ class DemoDropInViewController: DemoBaseViewController {
         if let nonce = result?.paymentMethod {
             let paymentMethodType = BTUIKViewUtil.paymentOptionType(forPaymentInfoType: nonce.type)
             demoView.paymentMethodTypeIcon.paymentOptionType = paymentMethodType
-            demoView.paymentMethodTypeLabel.text = result?.paymentDescription
+            demoView.paymentMethodTypeLabel.text = "desc" // result?.paymentDescription
         }
         demoView.updatePaymentMethodConstraints()
     }
