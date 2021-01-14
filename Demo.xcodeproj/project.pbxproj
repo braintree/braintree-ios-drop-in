@@ -380,12 +380,12 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"$(SRCROOT)/input.xcfilelist",
+				"$(SRCROOT)/demo-input.xcfilelist",
 			);
 			inputPaths = (
 			);
 			outputFileListPaths = (
-				"$(SRCROOT)/output.xcfilelist",
+				"$(SRCROOT)/demo-output.xcfilelist",
 			);
 			outputPaths = (
 			);
