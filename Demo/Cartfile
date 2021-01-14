@@ -1,2 +1,0 @@
-github "https://github.com/braintree/braintree_ios.git" "remove-spmtest"
-github "https://github.com/futuretap/InAppSettingsKit.git" ~> 3.0
