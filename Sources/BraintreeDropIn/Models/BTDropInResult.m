@@ -46,7 +46,7 @@
 }
 
 - (NSString *)paymentDescription {
-    return @"desc"; // self.paymentMethod.paymentDescription;
+    return self.paymentMethod.paymentDescription;
 }
 
 @end
