@@ -16,9 +16,11 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 1. [Getting Started](#getting-started)
 1. [Documentation](#documentation)
+1. [Versions](#versions)
 1. [Demo App](#demo)
 1. [Help](#help)
 1. [Feedback](#feedback)
+1. [License](#license)
 
 ## Getting Started
 
