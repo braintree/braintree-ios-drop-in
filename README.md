@@ -252,9 +252,9 @@ Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/s
 
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](http://developers.braintreepayments.com/guides/client-sdk/deprecation-policy).
 
+<!-- TODO: Add v9 beta version when ready for release -->
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
-| 9.x.x | Beta | March 2021 | TBA | TBA |
 | 8.x.x | Active | Februrary 2020 | TBA | TBA |
 
 ## Demo
