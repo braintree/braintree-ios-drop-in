@@ -12,6 +12,14 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 **The Braintree iOS Drop-In SDK requires Xcode 12+**. It permits a deployment target of iOS 12.0 or higher.
 
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+1. [Documentation](#documentation)
+1. [Demo App](#demo)
+1. [Help](#help)
+1. [Feedback](#feedback)
+
 ## Getting Started
 
 We recommend using [Swift Package Manager](https://swift.org/package-manager/), [CocoaPods](https://github.com/CocoaPods/CocoaPods), or [Carthage](https://github.com/Carthage/Carthage) to integrate the Braintree Drop-In SDK with your project.
