@@ -1,1 +1,1 @@
-github "braintree/braintree-ios-drop-in"
+git "file:///Users/sestevens/bt/braintree-ios-drop-in" "carthage-investigation"
