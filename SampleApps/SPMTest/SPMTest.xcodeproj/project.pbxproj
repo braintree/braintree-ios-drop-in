@@ -13,10 +13,10 @@
 		800FC58F257FF3E000DEE132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC58D257FF3E000DEE132 /* Main.storyboard */; };
 		800FC591257FF3E200DEE132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800FC590257FF3E200DEE132 /* Assets.xcassets */; };
 		800FC594257FF3E200DEE132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC592257FF3E200DEE132 /* LaunchScreen.storyboard */; };
-		80501C1925A7B82000ADE32C /* BraintreeUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80501C1825A7B82000ADE32C /* BraintreeUIKit */; };
-		80501C1B25A7B82000ADE32C /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80501C1A25A7B82000ADE32C /* BraintreeDropIn */; };
 		80A8C40A25A8CF91003A68F5 /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */; };
 		80A8C40B25A8CF91003A68F5 /* CardinalMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80D57F3225BA2ECC0087046B /* BraintreeUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80D57F3125BA2ECC0087046B /* BraintreeUIKit */; };
+		80D57F3425BA2ECC0087046B /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80D57F3325BA2ECC0087046B /* BraintreeDropIn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,9 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80501C1925A7B82000ADE32C /* BraintreeUIKit in Frameworks */,
-				80501C1B25A7B82000ADE32C /* BraintreeDropIn in Frameworks */,
+				80D57F3225BA2ECC0087046B /* BraintreeUIKit in Frameworks */,
 				80A8C40A25A8CF91003A68F5 /* CardinalMobile.framework in Frameworks */,
+				80D57F3425BA2ECC0087046B /* BraintreeDropIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +116,8 @@
 			);
 			name = SPMTest;
 			packageProductDependencies = (
-				80501C1825A7B82000ADE32C /* BraintreeUIKit */,
-				80501C1A25A7B82000ADE32C /* BraintreeDropIn */,
+				80D57F3125BA2ECC0087046B /* BraintreeUIKit */,
+				80D57F3325BA2ECC0087046B /* BraintreeDropIn */,
 			);
 			productName = SPMTest;
 			productReference = 800FC584257FF3E000DEE132 /* SPMTest.app */;
@@ -147,7 +147,7 @@
 			);
 			mainGroup = 800FC57B257FF3E000DEE132;
 			packageReferences = (
-				80501C1725A7B82000ADE32C /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
+				80D57F3025BA2ECC0087046B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
 			);
 			productRefGroup = 800FC585257FF3E000DEE132 /* Products */;
 			projectDirPath = "";
@@ -392,25 +392,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		80501C1725A7B82000ADE32C /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
+		80D57F3025BA2ECC0087046B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in.git";
+			repositoryURL = "git@github.com:braintree/braintree-ios-drop-in.git";
 			requirement = {
-				branch = "spm-support";
+				branch = "next-major-version";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		80501C1825A7B82000ADE32C /* BraintreeUIKit */ = {
+		80D57F3125BA2ECC0087046B /* BraintreeUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 80501C1725A7B82000ADE32C /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
+			package = 80D57F3025BA2ECC0087046B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
 			productName = BraintreeUIKit;
 		};
-		80501C1A25A7B82000ADE32C /* BraintreeDropIn */ = {
+		80D57F3325BA2ECC0087046B /* BraintreeDropIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 80501C1725A7B82000ADE32C /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
+			package = 80D57F3025BA2ECC0087046B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
 			productName = BraintreeDropIn;
 		};
 /* End XCSwiftPackageProductDependency section */
