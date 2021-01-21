@@ -12,6 +12,16 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 **The Braintree iOS Drop-In SDK requires Xcode 12+**. It permits a deployment target of iOS 12.0 or higher.
 
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+1. [Documentation](#documentation)
+1. [Versions](#versions)
+1. [Demo App](#demo)
+1. [Help](#help)
+1. [Feedback](#feedback)
+1. [License](#license)
+
 ## Getting Started
 
 We recommend using [Swift Package Manager](https://swift.org/package-manager/), [CocoaPods](https://github.com/CocoaPods/CocoaPods), or [Carthage](https://github.com/Carthage/Carthage) to integrate the Braintree Drop-In SDK with your project.
@@ -247,6 +257,15 @@ Take a look at `BTCardFormViewController.m` to see examples of using the form fi
 ### More Information
 
 Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
+
+## Versions
+
+This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](http://developers.braintreepayments.com/guides/client-sdk/deprecation-policy).
+
+<!-- TODO: Add v9 beta version when ready for release -->
+| Major version number | Status | Released | Deprecated | Unsupported |
+| -------------------- | ------ | -------- | ---------- | ----------- |
+| 8.x.x | Active | Februrary 2020 | TBA | TBA |
 
 ## Demo
 
