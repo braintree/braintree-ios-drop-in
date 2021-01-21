@@ -12,7 +12,14 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode_12.3.app
       - name: Install xcpretty
         run: gem install xcpretty
-      - name: Install Carthage dependencies
+      - name: Cache Carthage dependencies
+        id: cache-carthage-deps
+        uses: actions/cache@v2
+        with:
+          path: Carthage
+          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+      - name: Install Carthage Dependencies
+        if: steps.cache-carthage-deps.outputs.cache-hit != 'true'
         run: ./carthage.sh bootstrap
       - name: Run Unit Tests
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UnitTests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
@@ -33,8 +40,6 @@ jobs:
         with:
           path: Carthage
           key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-carthage-
       - name: Install Carthage Dependencies
         if: steps.cache-carthage-deps.outputs.cache-hit != 'true'
         run: ./carthage.sh bootstrap
