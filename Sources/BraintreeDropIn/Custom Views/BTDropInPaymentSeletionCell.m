@@ -1,6 +1,6 @@
 #import "BTDropInPaymentSeletionCell.h"
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/UIColor+BTUIK.h>
 #else
 #import <BraintreeUIKit/UIColor+BTUIK.h>

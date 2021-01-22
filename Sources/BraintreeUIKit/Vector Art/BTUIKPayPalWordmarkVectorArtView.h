@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKVectorArtView.h>
 #else
 #import <BraintreeUIKit/BTUIKVectorArtView.h>

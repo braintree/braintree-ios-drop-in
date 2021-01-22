@@ -1,5 +1,5 @@
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
+#ifdef COCOAPODS
+#import <Braintree/BraintreeCore.h>
 #else
 #import <BraintreeCore/BraintreeCore.h>
 #endif

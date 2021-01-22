@@ -2,13 +2,15 @@
 #import "BTAPIClient_Internal_Category.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BraintreeUIKit.h>
+#import <Braintree/BraintreeCore.h>
 #else
+#import <BraintreeUIKit/BraintreeUIKit.h>
 #import <BraintreeCore/BraintreeCore.h>
 #endif
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>

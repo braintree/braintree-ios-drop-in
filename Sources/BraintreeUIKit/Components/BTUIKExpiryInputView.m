@@ -1,7 +1,7 @@
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKAppearance.h>
 #import <BraintreeDropIn/BTUIKExpiryInputView.h>
 #import <BraintreeDropIn/BTUIKLocalizedString.h>

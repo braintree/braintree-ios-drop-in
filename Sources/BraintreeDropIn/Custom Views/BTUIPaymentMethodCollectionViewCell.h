@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
-#if __has_include("BTPaymentMethodNonce.h")
-#import "BTPaymentMethodNonce.h"
+#ifdef COCOAPODS
+#import <Braintree/BTPaymentMethodNonce.h>
 #else
 #import <BraintreeCore/BTPaymentMethodNonce.h>
 #endif

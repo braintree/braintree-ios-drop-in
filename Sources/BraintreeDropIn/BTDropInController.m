@@ -4,28 +4,19 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTAPIClient_Internal_Category.h"
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
-#else
-#import <BraintreeCore/BraintreeCore.h>
-#endif
-#if __has_include("BraintreeCard.h")
-#import "BraintreeCard.h"
-#import "BraintreeUnionPay.h"
-#else
-#import <BraintreeCard/BraintreeCard.h>
-#import <BraintreeUnionPay/BraintreeUnionPay.h>
-#endif
-#if __has_include("BraintreePaymentFlow.h")
-#import "BraintreePaymentFlow.h"
-#else
-#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
-#endif
 
 #ifdef COCOAPODS
+#import <Braintree/BraintreeCard.h>
+#import <Braintree/BraintreeCore.h>
+#import <Braintree/BraintreePaymentFlow.h>
 #import <Braintree/BTThreeDSecureResult.h>
+#import <Braintree/BraintreeUnionPay.h>
 #else
+#import <BraintreeCard/BraintreeCard.h>
+#import <BraintreeCore/BraintreeCore.h>
+#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
 #import <BraintreeThreeDSecure/BTThreeDSecureResult.h>
+#import <BraintreeUnionPay/BraintreeUnionPay.h>
 #endif
 
 #define BT_ANIMATION_SLIDE_SPEED 0.35

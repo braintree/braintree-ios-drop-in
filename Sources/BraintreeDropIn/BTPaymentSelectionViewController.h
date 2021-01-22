@@ -1,15 +1,11 @@
 #import <BraintreeDropIn/BTDropInController.h>
 #import "BTDropInBaseViewController.h"
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
-
 #ifdef COCOAPODS
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #import <Braintree/BTVenmoDriver.h>
 #else
+#import <BraintreeUIKit/BraintreeUIKit.h>
 #import <BraintreeVenmo/BTVenmoDriver.h>
 #endif
 

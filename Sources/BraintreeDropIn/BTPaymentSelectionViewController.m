@@ -6,33 +6,17 @@
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/BraintreeUIKit.h>
+#import <Braintree/BraintreeCard.h>
+#import <Braintree/BraintreePayPal.h>
+#import <Braintree/BraintreeVenmo.h>
+#import <Braintree/BraintreeApplePay.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
-
-#if __has_include("BraintreeCard.h")
-#import "BraintreeCard.h"
-#else
 #import <BraintreeCard/BraintreeCard.h>
-#endif
-
-#if __has_include("BraintreePayPal.h")
-#import "BraintreePayPal.h"
-#else
 #import <BraintreePayPal/BraintreePayPal.h>
-#endif
-
-#if __has_include("BraintreeVenmo.h")
-#import "BraintreeVenmo.h"
-#else
 #import <BraintreeVenmo/BraintreeVenmo.h>
-#endif
-
-#if __has_include("BraintreeApplePay.h")
-#import "BraintreeApplePay.h"
-#elif __has_include(<BraintreeApplePay/BraintreeApplePay.h>)
 #import <BraintreeApplePay/BraintreeApplePay.h>
 #endif
 

@@ -1,4 +1,4 @@
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKCardholderNameFormField.h>
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
 #else
