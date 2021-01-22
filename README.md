@@ -273,7 +273,7 @@ A demo app is included in project. To run it:
 
 ```
 cd Demo
-../carthage.sh bootstrap
+./carthage.sh bootstrap
 open BraintreeDropIn.xcworkspace
 ```
 

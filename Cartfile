@@ -1,1 +1,1 @@
-github "braintree/braintree_ios" "remove-spmtest"
+github "braintree/braintree_ios" == 5.0.0-beta2
