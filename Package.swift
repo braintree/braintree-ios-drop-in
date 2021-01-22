@@ -34,6 +34,7 @@ let package = Package(
                 .product(name: "BraintreeThreeDSecure", package: "Braintree"),
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
                 .product(name: "BraintreeVenmo", package: "Braintree"),
+                .product(name: "PPRiskMagnes", package: "Braintree"),
                 .target(name: "BraintreeUIKit")
             ],
             exclude: ["Info.plist"],
