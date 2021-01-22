@@ -15,6 +15,16 @@
 
 @implementation BTPaymentSelectionViewControllerTests
 
+- (void)test_initWithAPIClient_setsAllProperties {
+    BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
+    MockAPIClient *mockAPIClient = [[MockAPIClient alloc] initWithAuthorization: @"development_client_key"];
+    BTPaymentSelectionViewController *selectionVC = [[BTPaymentSelectionViewController alloc] initWithAPIClient:mockAPIClient request:dropInRequest];
+
+    XCTAssertNotNil(selectionVC.venmoDriver);
+    XCTAssertNotNil(selectionVC.apiClient);
+    XCTAssertNotNil(selectionVC.dropInRequest);
+}
+
 - (void)test_configurationLoaded_hasCreditCardsInSupportedCardTypes {
     NSError *error = nil;
     NSDictionary *configurationJSON = @{

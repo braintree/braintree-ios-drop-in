@@ -73,9 +73,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (instancetype)initWithAPIClient:(BTAPIClient *)apiClient request:(BTDropInRequest *)request {
-    self = [super init];
+    self = [super initWithAPIClient:apiClient request:request];
     if (self) {
-        self.venmoDriver = [[BTVenmoDriver alloc] initWithAPIClient: self.apiClient];
+        _venmoDriver = [[BTVenmoDriver alloc] initWithAPIClient: self.apiClient];
     }
     return self;
 }
