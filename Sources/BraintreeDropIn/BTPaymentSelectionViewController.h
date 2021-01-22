@@ -1,10 +1,16 @@
-#import <BraintreeDropIn/BTDropInBaseViewController.h>
 #import <BraintreeDropIn/BTDropInController.h>
+#import "BTDropInBaseViewController.h"
 
 #if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
 #import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
+#endif
+
+#ifdef COCOAPODS
+#import <Braintree/BTVenmoDriver.h>
+#else
+#import <BraintreeVenmo/BTVenmoDriver.h>
 #endif
 
 @class BTPaymentMethodNonce;
@@ -19,6 +25,8 @@
 
 /// The delegate
 @property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTAppSwitchDelegate, BTViewControllerPresentingDelegate> delegate;
+
+@property (nonatomic, strong) BTVenmoDriver *venmoDriver;
 
 /// The desired height when rendering the view in a sheet.
 - (float)sheetHeight;

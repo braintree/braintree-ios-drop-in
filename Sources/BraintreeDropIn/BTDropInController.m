@@ -1,6 +1,7 @@
 #import <BraintreeDropIn/BTDropInController.h>
-#import <BraintreeDropIn/BTVaultManagementViewController.h>
-#import <BraintreeDropIn/BTCardFormViewController.h>
+#import "BTVaultManagementViewController.h"
+#import "BTCardFormViewController.h"
+#import "BTPaymentSelectionViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTAPIClient_Internal_Category.h"
 #if __has_include("BraintreeCore.h")

@@ -15,6 +15,16 @@
 
 @implementation BTPaymentSelectionViewControllerTests
 
+- (void)test_initWithAPIClient_setsAllProperties {
+    BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];
+    MockAPIClient *mockAPIClient = [[MockAPIClient alloc] initWithAuthorization: @"development_client_key"];
+    BTPaymentSelectionViewController *selectionVC = [[BTPaymentSelectionViewController alloc] initWithAPIClient:mockAPIClient request:dropInRequest];
+
+    XCTAssertNotNil(selectionVC.venmoDriver);
+    XCTAssertNotNil(selectionVC.apiClient);
+    XCTAssertNotNil(selectionVC.dropInRequest);
+}
+
 - (void)test_configurationLoaded_hasCreditCardsInSupportedCardTypes {
     NSError *error = nil;
     NSDictionary *configurationJSON = @{
@@ -60,10 +70,10 @@
     BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
     paymentSelectionVC.configuration = configuration;
 
-    FakeApplication *fakeApplication = [[FakeApplication alloc] init];
-    paymentSelectionVC.application = fakeApplication;
-    NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
-    fakeApplication.canOpenURLWhitelist = @[venmoURL];
+    MockAPIClient *mockAPIClient = [[MockAPIClient alloc] initWithAuthorization:@""];
+    MockVenmoDriver *mockVenmoDriver = [[MockVenmoDriver alloc] initWithAPIClient:mockAPIClient];
+    mockVenmoDriver._isiOSAppAvailableForAppSwitch = YES;
+    paymentSelectionVC.venmoDriver = mockVenmoDriver;
 
     NSError *error = nil;
     [paymentSelectionVC configurationLoaded:configuration error:error];

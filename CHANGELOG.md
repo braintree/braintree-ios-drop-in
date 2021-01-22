@@ -7,6 +7,11 @@
   * Bump minimum supported deployment target to iOS 12.0
   * Require Braintree ~> 5.0.0-beta
   * BraintreeApplePay, BraintreeVenmo and BraintreeUnionPay are now required dependencies
+  * Make headers private:
+    * `BTCardFormViewController`
+    * `BTDropInBaseViewController`
+    * `BTPaymentSelectionViewController`
+    * `BTVaultManagementViewController`
 
 ## 8.1.2 (2020-11-30)
 

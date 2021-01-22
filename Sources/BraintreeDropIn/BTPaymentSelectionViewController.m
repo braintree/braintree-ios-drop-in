@@ -1,6 +1,6 @@
-#import <BraintreeDropIn/BTPaymentSelectionViewController.h>
-#import "BTUIPaymentMethodCollectionViewCell.h"
 #import <BraintreeDropIn/BTDropInController.h>
+#import "BTPaymentSelectionViewController.h"
+#import "BTUIPaymentMethodCollectionViewCell.h"
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
@@ -22,6 +22,12 @@
 #import "BraintreePayPal.h"
 #else
 #import <BraintreePayPal/BraintreePayPal.h>
+#endif
+
+#if __has_include("BraintreeVenmo.h")
+#import "BraintreeVenmo.h"
+#else
+#import <BraintreeVenmo/BraintreeVenmo.h>
 #endif
 
 #if __has_include("BraintreeApplePay.h")
@@ -56,11 +62,20 @@
 
 static BOOL _vaultedCardAppearAnalyticSent = NO;
 
+// Used for unit testing
 - (id)init {
     self = [super init];
     if (self) {
         self.paymentMethodNonces = @[];
         self.paymentOptionsData = @[@(BTUIKPaymentOptionTypePayPal), @(BTUIKPaymentOptionTypeUnknown)];
+    }
+    return self;
+}
+
+- (instancetype)initWithAPIClient:(BTAPIClient *)apiClient request:(BTDropInRequest *)request {
+    self = [super initWithAPIClient:apiClient request:request];
+    if (self) {
+        _venmoDriver = [[BTVenmoDriver alloc] initWithAPIClient: self.apiClient];
     }
     return self;
 }
@@ -231,13 +246,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypePayPal)];
             }
 
-            BTJSON *venmoAccessToken = self.configuration.json[@"payWithVenmo"][@"accessToken"];
-            if ([[BTTokenizationService sharedService] isTypeAvailable:@"Venmo"] && venmoAccessToken.isString && !self.dropInRequest.venmoDisabled) {
-                NSURLComponents *components = [NSURLComponents componentsWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
-                BOOL isVenmoAppInstalled = [self.application canOpenURL:components.URL];
-                if (isVenmoAppInstalled) {
-                    [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
-                }
+            if (!self.dropInRequest.venmoDisabled && self.venmoDriver.isiOSAppAvailableForAppSwitch && self.configuration.isVenmoEnabled) {
+                [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
             }
 
             NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
@@ -497,16 +507,15 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             }];
         }
     } else if (cell.type == BTUIKPaymentOptionTypeVenmo) {
-        NSMutableDictionary *options = [NSMutableDictionary dictionary];
-        options[@"vault"] = [NSNumber numberWithBool:self.dropInRequest.vaultVenmo];
         if (self.delegate != nil) {
-            options[BTTokenizationServiceViewPresentingDelegateOption] = self.delegate;
+            self.venmoDriver.appSwitchDelegate = self.delegate;
         }
+
         [self showLoadingScreen:YES];
-        [[BTTokenizationService sharedService] tokenizeType:@"Venmo" options:options withAPIClient:self.apiClient completion:^(BTPaymentMethodNonce * _Nullable paymentMethodNonce, NSError * _Nullable error) {
+        [self.venmoDriver authorizeAccountAndVault:self.dropInRequest.vaultVenmo completion:^(BTVenmoAccountNonce * _Nullable venmoAccountNonce, NSError * _Nullable error) {
             [self showLoadingScreen:NO];
-            if (self.delegate && (paymentMethodNonce != nil || error != nil)) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:paymentMethodNonce error:error];
+            if (self.delegate && (venmoAccountNonce != nil || error != nil)) {
+                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:venmoAccountNonce error:error];
             }
         }];
     } else if(cell.type == BTUIKPaymentOptionTypeApplePay) {

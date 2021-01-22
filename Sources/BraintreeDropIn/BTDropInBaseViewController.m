@@ -1,4 +1,4 @@
-#import <BraintreeDropIn/BTDropInBaseViewController.h>
+#import "BTDropInBaseViewController.h"
 #import "BTAPIClient_Internal_Category.h"
 
 #if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
