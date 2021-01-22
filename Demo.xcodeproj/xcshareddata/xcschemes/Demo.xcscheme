@@ -60,7 +60,7 @@
                BlueprintIdentifier = "A5411A1B1D8A1F090041BE92"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:../BraintreeDropIn.xcodeproj">
+               ReferencedContainer = "container:BraintreeDropIn.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
