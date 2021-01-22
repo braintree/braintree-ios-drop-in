@@ -1,4 +1,4 @@
-#import <BraintreeDropIn/BTVaultManagementViewController.h>
+#import "BTVaultManagementViewController.h"
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"

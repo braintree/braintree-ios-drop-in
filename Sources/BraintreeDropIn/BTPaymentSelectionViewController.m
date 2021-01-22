@@ -1,6 +1,6 @@
-#import <BraintreeDropIn/BTPaymentSelectionViewController.h>
-#import "BTUIPaymentMethodCollectionViewCell.h"
 #import <BraintreeDropIn/BTDropInController.h>
+#import "BTPaymentSelectionViewController.h"
+#import "BTUIPaymentMethodCollectionViewCell.h"
 #import "BTDropInPaymentSeletionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
