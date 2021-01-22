@@ -1,5 +1,9 @@
 name: Tests
-on: [pull_request]
+on:
+  push:
+    branches:
+      - next-major-version
+  pull_request:
 jobs:
   unit_test_job:
     name: Unit
