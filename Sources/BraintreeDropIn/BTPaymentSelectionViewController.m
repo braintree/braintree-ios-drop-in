@@ -31,10 +31,8 @@
 #endif
 
 #if __has_include("BraintreeApplePay.h")
-#define __BT_APPLE_PAY
 #import "BraintreeApplePay.h"
 #elif __has_include(<BraintreeApplePay/BraintreeApplePay.h>)
-#define __BT_APPLE_PAY
 #import <BraintreeApplePay/BraintreeApplePay.h>
 #endif
 
@@ -260,12 +258,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 }
             }
 
-#ifdef __BT_APPLE_PAY
-            BTJSON *applePayConfiguration = self.configuration.json[@"applePay"];
-            if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled && self.configuration.canMakeApplePayPayments) {
+            if (self.configuration.isApplePayEnabled && !self.dropInRequest.applePayDisabled && self.configuration.canMakeApplePayPayments) {
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
             }
-#endif
 
             self.paymentOptionsData = [activePaymentOptions copy];
             [self.savedPaymentMethodsCollectionView reloadData];
@@ -518,7 +513,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:venmoAccountNonce error:error];
             }
         }];
-    } else if(cell.type == BTUIKPaymentOptionTypeApplePay) {
+    } else if (cell.type == BTUIKPaymentOptionTypeApplePay) {
         if (self.delegate) {
             [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeApplePay nonce:nil error:nil];
         }
