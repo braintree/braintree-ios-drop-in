@@ -108,7 +108,7 @@ namespace :carthage do
     run! "git commit -m 'Remove SPMTest app to avoid Carthage timeout'"
 
     # Build Carthage demo app
-    File.write("SampleApps/CarthageTest/Cartfile", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
+    File.write("SampleApps/CarthageTest/Cartfile.private", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
     sh "cd SampleApps/CarthageTest && sh ../../carthage.sh update"
     success = run "xcodebuild -project 'SampleApps/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
 
