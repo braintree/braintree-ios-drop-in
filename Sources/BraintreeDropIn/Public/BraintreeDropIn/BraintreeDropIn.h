@@ -17,9 +17,6 @@ FOUNDATION_EXPORT const unsigned char BraintreeDropInVersionString[];
 #import <BraintreeVenmo/BraintreeVenmo.h>
 #endif
 
-#import <BraintreeDropIn/BTCardFormViewController.h>
 #import <BraintreeDropIn/BTDropInController.h>
 #import <BraintreeDropIn/BTDropInResult.h>
-#import <BraintreeDropIn/BTPaymentSelectionViewController.h>
-#import <BraintreeDropIn/BTVaultManagementViewController.h>
 #import <BraintreeDropIn/BTDropInRequest.h>
