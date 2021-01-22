@@ -60,10 +60,10 @@
     BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
     paymentSelectionVC.configuration = configuration;
 
-    FakeApplication *fakeApplication = [[FakeApplication alloc] init];
-    paymentSelectionVC.application = fakeApplication;
-    NSURL *venmoURL = [NSURL URLWithString:@"com.venmo.touch.v2://x-callback-url/vzero/auth"];
-    fakeApplication.canOpenURLWhitelist = @[venmoURL];
+    MockAPIClient *mockAPIClient = [[MockAPIClient alloc] initWithAuthorization:@""];
+    MockVenmoDriver *mockVenmoDriver = [[MockVenmoDriver alloc] initWithAPIClient:mockAPIClient];
+    mockVenmoDriver._isiOSAppAvailableForAppSwitch = YES;
+    paymentSelectionVC.venmoDriver = mockVenmoDriver;
 
     NSError *error = nil;
     [paymentSelectionVC configurationLoaded:configuration error:error];
