@@ -1,63 +1,61 @@
-# Braintree-iOS Development Notes
+# Braintree iOS Drop-in Development Notes
 
-This document outlines development practices that we follow internally while developing this SDK.
+This document outlines development practices that we follow while developing this SDK.
 
 ## Development Merchant Server
 
-The included demo app utilizes a test merchant server hosted on heroku ([https://braintree-sample-merchant.herokuapp.com](https://braintree-sample-merchant.herokuapp.com)). It
-produces client tokens that point to Braintree's Sandbox Environment.
+The included demo app utilizes a [sandbox sample merchant server](https://braintree-sample-merchant.herokuapp.com) hosted on Heroku.
 
 ## Tests
 
-There are a number of test targets for each section of the project. You can run all tests on the command line with `bundle && rake spec:all`. 
+There are a number of test targets for each section of the project.
 
 It's a good idea to run `rake`, which runs all unit tests, before committing.
 
-The integration tests require a full Braintree stack running on localhost.
+Use the following commands to run tests:
+* UI tests: `bundle && rake spec:ui`
+* Unit tests: `bundle && rake spec:unit`
+* All tests: `bundle && rake spec:all`
 
-## Architecture
+## Importing Header Files
 
-See [Frameworks](Frameworks.markdown) for an overview of the components that comprise this SDK.
+To maintain support for CocoaPods, Swift Package Manager, and Carthage, our Objective-C import statements need specific attention.
 
-## Environmental Assumptions
+CocoaPods creates a single BraintreeDropIn framework out of its subpsecs, whereas SPM, Carthage, and manual integrations treat each module as a separate framework, i.e., BraintreeUIKit & BraintreeDropIn.
 
-* See [Requirements](https://developers.braintreepayments.com/guides/client-sdk/setup/ios/v4#requirements)
-* iPhone and iPad of all sizes and resolutions and the Simulator
-* CocoaPods
-* `BT` namespace is reserved for Braintree
-* Host app does not integrate the [PayPal iOS SDK](https://github.com/paypal/paypal-ios-sdk)
-* Host app does not integrate with the Kount SDK
-* Host app does not integrate with [card.io](https://www.card.io/)
-* Host app has a secure, authenticated server with a [Braintree server-side integration](https://developers.braintreepayments.com/ios/start/hello-server)
+SPM & Carthage use:
+`#import <BraintreeDropIn/BraintreeDropIn.h>`
+`#import <BraintreeUIKit/BraintreeUIKit.h>`
+`#import <BraintreeCore/BraintreeCore.h>`
 
-## Committing
+CocoaPods uses:
+`#import <BraintreeDropIn/BraintreeDropIn.h>`
+`#import <BraintreeDropIn/BraintreeUIKit.h>`
+`#import <Braintree/BraintreeCore.h>`
 
-* Commits should be small but atomic. Tests should always be passing; the product should always function appropriately.
-* Commit messages should be concise and descriptive.
-* Commit messages may reference the trello board by ID or URL. (Sorry, these are not externally viewable.)
+Public headers for each module must live in the directory `Public/<MODULE_NAME>`. This allows SPM to use the same import syntax as Carthage (e.g., `<BraintreeUIKit/BraintreUIKit.h>`).
 
-## Deployment and Code Organization
+We use if-else preprocessor directives to satisfy each dependency manager. See the below example for importing a **public header file**.
 
-* Code on master is assumed to be in a relatively good state at all times
-  * Tests should be passing, all demo apps should run
-  * Functionality and user experience should be cohesive
-  * Dead code should be kept to a minimum
-* Versioned deployments are tagged with their version numbers
-  * Version numbers conform to [SEMVER](http://semver.org)
-  * These versions are more heavily tested
-  * We will provide support for these versions and commit to maintaining backwards compatibility on our servers
-* Pull requests are welcome
-  * Feel free to create an issue on GitHub before investing development time
-* As needed, the Braintree team may develop features privately
-  * If our internal and public branches get out of sync, we will reconcile this with merges (as opposed to rebasing)
-  * In general, we will try to develop in the open as much as possible
+```objc
+#import <BraintreeDropIn/BTDropInRequest.h> // all package managers, since Pod name same as subspec name
 
-## Releasing
+#ifdef COCOAPODS // CocoaPods
+#import <BraintreeDropIn/BraintreeUIKit.h>
+#else // SPM or Carthage
+#import <BraintreeUIKit/BraintreeUIKit.h>
+#endif
+```
 
-The release process is self-documented in a number of rake tasks.
+To import a Braintree framework written in **Swift** into an Objective-C file, use the following syntax:
+```objc
+#ifdef COCOAPODS // CocoaPods
+#import <BraintreeDropIn/BraintreeDropIn-Swift.h>
 
-To release a new version of the SDK publicly, invoke an incantation that looks like this:
+#elif SWIFT_PACKAGE // SPM
+@import YourNewSwiftFramework;
 
-```sh
-rake release && rake publish && rake distribute
+#else // Carthage
+#import <YourNewSwiftFramework/YourNewSwiftFramework-Swift.h>
+#endif
 ```
