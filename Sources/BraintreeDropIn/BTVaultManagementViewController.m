@@ -4,15 +4,12 @@
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
-#if __has_include("BraintreeCore.h")
-#import "BraintreeCore.h"
-#else
-#import <BraintreeCore/BraintreeCore.h>
-#endif
-#if __has_include("BraintreeCard.h")
-#import "BraintreeCard.h"
+#ifdef COCOAPODS
+#import <Braintree/BraintreeCard.h>
+#import <Braintree/BraintreeCore.h>
 #else
 #import <BraintreeCard/BraintreeCard.h>
+#import <BraintreeCore/BraintreeCore.h>
 #endif
 
 @interface BTVaultManagementViewController ()

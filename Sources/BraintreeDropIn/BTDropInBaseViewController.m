@@ -1,7 +1,7 @@
 #import "BTDropInBaseViewController.h"
 #import "BTAPIClient_Internal_Category.h"
 
-#if __has_include(<BraintreeDropIn/BraintreeUIKit.h>)
+#ifdef COCOAPODS
 #import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>

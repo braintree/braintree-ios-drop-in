@@ -1,6 +1,6 @@
 #import <BraintreeDropIn/BTDropInRequest.h>
-#if __has_include("BraintreeCore.h")
-#import "BTPostalAddress.h"
+#ifdef COCOAPODS
+#import <Braintree/BTPostalAddress.h>
 #else
 #import <BraintreeCore/BTPostalAddress.h>
 #endif
