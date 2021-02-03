@@ -224,7 +224,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     NSMutableArray *activePaymentOptions = [@[] mutableCopy];
     if (!error) {
         [self fetchPaymentMethodsOnCompletion:^{
-            if ([self.configuration.json[@"paypalEnabled"] isTrue] && !self.dropInRequest.paypalDisabled) {
+            if ([self.configuration.isPayPalEnabled && !self.dropInRequest.paypalDisabled) {
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypePayPal)];
             }
 

@@ -261,8 +261,7 @@
     if (!error) {
         self.collapsed = YES;
         self.unionPayEnabledMerchant = NO;
-        BTJSON *unionPayJSON = self.configuration.json[@"unionPay"];
-        if (![unionPayJSON isError] && [unionPayJSON[@"enabled"] isTrue] && !self.apiClient.tokenizationKey) {
+        if (self.configuration.isUnionPayEnabled && !self.apiClient.tokenizationKey) {
             self.unionPayEnabledMerchant = YES;
             [self.cardNumberField setAccessoryViewHidden:NO animated:NO];
         }
