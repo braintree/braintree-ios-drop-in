@@ -53,7 +53,7 @@ class DemoDropInViewController: DemoBaseViewController {
         dropInRequest.allowVaultCardOverride = DemoSettings.allowVaultCardOverrideSetting
         
         if ProcessInfo.processInfo.arguments.contains("-PayPalOneTime") {
-            dropInRequest.payPalRequest = BTPayPalRequest(amount: "4.77")
+            dropInRequest.payPalRequest = BTPayPalCheckoutRequest(amount: "4.77")
         }
         
         if DemoSettings.threeDSecureRequiredStatus == .required {
@@ -72,7 +72,7 @@ class DemoDropInViewController: DemoBaseViewController {
             threeDSecureRequest.amount = 10.32
             threeDSecureRequest.versionRequested = DemoSettings.threeDSecureRequestedVersion
             threeDSecureRequest.email = "test@example.com"
-            threeDSecureRequest.shippingMethod = "01"
+            threeDSecureRequest.shippingMethod = .sameDay
             threeDSecureRequest.billingAddress = billingAddress
             
             dropInRequest.threeDSecureVerification = true
