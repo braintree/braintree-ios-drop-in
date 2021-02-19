@@ -20,9 +20,7 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 @interface BTDropInRequest : NSObject <NSCopying>
 
-/// Optional: Specify the options for the PayPal flow. If not present, a default vault flow will be used.
-///
-/// Note: The checkout flow is used when an amount is set on the `payPalRequest`.
+/// Optional: Specify the options for the PayPal flow using either BTPayPalCheckoutRequest or BTPayPalVaultRequest. If not present, a default vault flow will be used.
 @property (nonatomic, strong, nullable) BTPayPalRequest *payPalRequest;
 
 /// Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.

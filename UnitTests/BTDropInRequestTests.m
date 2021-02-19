@@ -39,7 +39,7 @@
 
     BTDropInRequest *originalRequest = [BTDropInRequest new];
     
-    originalRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"10.01"];
+    originalRequest.payPalRequest = [[BTPayPalCheckoutRequest alloc] initWithAmount:@"10.01"];
     originalRequest.applePayDisabled = YES;
     originalRequest.paypalDisabled = YES;
     originalRequest.venmoDisabled = YES;

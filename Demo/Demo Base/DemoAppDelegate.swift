@@ -14,7 +14,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         appearanceProxy.barStyle = .blackTranslucent
 
         registerUserDefaults()
-        BTAppSwitch.setReturnURLScheme(BraintreeDemoAppDelegatePaymentsURLScheme)
+        BTAppContextSwitcher.setReturnURLScheme(BraintreeDemoAppDelegatePaymentsURLScheme)
         
         let rootViewController = DemoContainerViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
@@ -26,7 +26,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         guard url.scheme?.lowercased() == BraintreeDemoAppDelegatePaymentsURLScheme.lowercased() else { return true }
-        return BTAppSwitch.handleOpen(url)
+        return BTAppContextSwitcher.handleOpenURL(url)
     }
     
     private func registerUserDefaults() {

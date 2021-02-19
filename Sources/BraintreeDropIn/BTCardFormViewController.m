@@ -292,10 +292,11 @@
         return nil;
     }
     
-    BTCard *card = [[BTCard alloc] initWithNumber:self.cardNumberField.number
-                                  expirationMonth:self.expirationDateField.expirationMonth
-                                   expirationYear:self.expirationDateField.expirationYear
-                                              cvv:self.securityCodeField.securityCode];
+    BTCard *card = [[BTCard alloc] init];
+    card.number = self.cardNumberField.number;
+    card.expirationMonth = self.expirationDateField.expirationMonth;
+    card.expirationYear = self.expirationDateField.expirationYear;
+    card.cvv = self.securityCodeField.securityCode;
     
     if ([self.requiredFields containsObject:self.postalCodeField]) {
         card.postalCode = self.postalCodeField.postalCode;

@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSArray *paymentMethodNonces;
 
 /// The delegate
-@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTAppSwitchDelegate, BTViewControllerPresentingDelegate> delegate;
+@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate> delegate;
 
 @property (nonatomic, strong) BTVenmoDriver *venmoDriver;
 

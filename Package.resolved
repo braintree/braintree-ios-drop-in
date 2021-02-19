@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Braintree",
+        "repositoryURL": "https://github.com/braintree/braintree_ios",
+        "state": {
+          "branch": null,
+          "revision": "aad28da50166a25c3a82e3b6a7dc013a641d649a",
+          "version": "5.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

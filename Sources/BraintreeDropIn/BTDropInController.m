@@ -30,7 +30,7 @@
 @interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
 
-@interface BTDropInController () <BTAppSwitchDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate>
+@interface BTDropInController () <BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -455,19 +455,7 @@
     return UIBarPositionTop;
 }
 
-#pragma mark BTAppSwitchDelegate
-
-- (void)appSwitcherWillPerformAppSwitch:(__unused id)appSwitcher {
-    // No action
-}
-
-- (void)appSwitcherWillProcessPaymentInfo:(__unused id)appSwitcher {
-    // No action
-}
-
-- (void)appSwitcher:(__unused id)appSwitcher didPerformSwitchToTarget:(__unused BTAppSwitchTarget)target {
-    // No action
-}
+#pragma mark BTViewControllerPresentingDelegate
 
 - (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
     // Needed for iPad
