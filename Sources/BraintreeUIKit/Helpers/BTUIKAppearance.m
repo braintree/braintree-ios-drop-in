@@ -149,7 +149,7 @@ static BTUIKAppearance *sharedTheme;
 }
 
 - (UIColor *)navigationBarTitleTextColor {
-    return _navigationBarTitleTextColor != nil ? _navigationBarTitleTextColor : _primaryTextColor;
+    return _navigationBarTitleTextColor ?: _primaryTextColor;
 }
 
 @end

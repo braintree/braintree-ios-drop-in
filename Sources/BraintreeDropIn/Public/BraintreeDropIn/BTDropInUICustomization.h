@@ -37,11 +37,11 @@ typedef NS_ENUM(NSInteger, BTDropInColorScheme) {
 /// Bar color
 @property (nonatomic, strong) UIColor *barBackgroundColor;
 
-/// Font family
-@property (nonatomic, strong) NSString *fontFamily;
+/// Font family. When not set, system font will be used.
+@property (nonatomic, strong, nullable) NSString *fontFamily;
 
-/// Bold font family
-@property (nonatomic, strong) NSString *boldFontFamily;
+/// Bold font family. When not set, bold system font will be used.
+@property (nonatomic, strong, nullable) NSString *boldFontFamily;
 
 /// Sheet background color
 @property (nonatomic, strong) UIColor *formBackgroundColor;
@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, BTDropInColorScheme) {
 
 /// Navigation title text color
 /// Defaults to nil. When not set, navigation titles will use primaryTextColor
-@property (nonatomic, strong) UIColor *navigationBarTitleTextColor;
+@property (nonatomic, strong, nullable) UIColor *navigationBarTitleTextColor;
 
 /// Secondary text color
 @property (nonatomic, strong) UIColor *secondaryTextColor;

@@ -32,6 +32,7 @@
                 _switchOnTintColor = UIColor.greenColor;
                 _keyboardAppearance = UIKeyboardAppearanceLight;
                 break;
+
             case BTDropInColorSchemeDark:
                 _barBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
                 _formBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
@@ -50,6 +51,7 @@
                 _switchOnTintColor = UIColor.greenColor;
                 _keyboardAppearance = UIKeyboardAppearanceDark;
                 break;
+
             default: // dynamic
                 if (@available(iOS 13, *)) {
                     _barBackgroundColor = UIColor.systemBackgroundColor;

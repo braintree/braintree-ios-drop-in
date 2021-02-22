@@ -1,7 +1,7 @@
 import XCTest
 
 class BTUIKAppearanceTests: XCTestCase {
-    
+
     func testNavigationTitleTextColor_defaultsToPrimaryTextColor_whenNotSet() {
         BTUIKAppearance.sharedInstance().primaryTextColor = UIColor.purple
         BTUIKAppearance.sharedInstance().navigationBarTitleTextColor = nil;
@@ -17,16 +17,16 @@ class BTUIKAppearanceTests: XCTestCase {
     func testStyledNavigationTitleLabel_returnsLabelWithCorrectColor() {
         BTUIKAppearance.sharedInstance().primaryTextColor = UIColor.white
         BTUIKAppearance.sharedInstance().navigationBarTitleTextColor = UIColor.green
-        XCTAssertEqual(BTUIKAppearance.styledNavigationTitleLabel().textColor, UIColor.green);
+        XCTAssertEqual(BTUIKAppearance.styledNavigationTitleLabel().textColor, UIColor.green)
     }
 
     func testSettingFontFamily_returnsCorrectFont() {
-        BTUIKAppearance.sharedInstance().fontFamily = "Verdana";
-        XCTAssertEqual(BTUIKAppearance.sharedInstance().font.fontName, "Verdana");
+        BTUIKAppearance.sharedInstance().fontFamily = "Verdana"
+        XCTAssertEqual(BTUIKAppearance.sharedInstance().font.fontName, "Verdana")
     }
 
     func testSettingBoldFontFamily_returnsCorrectBoldFont() {
-        BTUIKAppearance.sharedInstance().boldFontFamily = "Courier-Bold";
-        XCTAssertEqual(BTUIKAppearance.sharedInstance().boldFont.fontName, "Courier-Bold");
+        BTUIKAppearance.sharedInstance().boldFontFamily = "Courier-Bold"
+        XCTAssertEqual(BTUIKAppearance.sharedInstance().boldFont.fontName, "Courier-Bold")
     }
 }
