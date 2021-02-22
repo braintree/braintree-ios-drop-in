@@ -12,6 +12,7 @@
     * `BTDropInBaseViewController`
     * `BTPaymentSelectionViewController`
     * `BTVaultManagementViewController`
+  * Add `BTDropInUICustomization`, which replaces `BTUIKAppearance` for customizing UI
 
 ## 8.1.2 (2020-11-30)
 
