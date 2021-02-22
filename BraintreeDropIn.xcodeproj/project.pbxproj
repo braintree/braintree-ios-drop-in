@@ -20,6 +20,7 @@
 		4237D7B925E42D97006F6CE3 /* BTUIKAppearance+DropIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4237D7B725E42D97006F6CE3 /* BTUIKAppearance+DropIn.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4237D7BA25E42D97006F6CE3 /* BTUIKAppearance+DropIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7B825E42D97006F6CE3 /* BTUIKAppearance+DropIn.m */; };
 		4237D7C525E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */; };
+		4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
 		42A115D625B0C35A0008C29B /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A115CB25B0C35A0008C29B /* BraintreeCard.framework */; };
@@ -255,6 +256,7 @@
 		4237D7B725E42D97006F6CE3 /* BTUIKAppearance+DropIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTUIKAppearance+DropIn.h"; sourceTree = "<group>"; };
 		4237D7B825E42D97006F6CE3 /* BTUIKAppearance+DropIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BTUIKAppearance+DropIn.m"; sourceTree = "<group>"; };
 		4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BTUIKAppearance+DropInTests.swift"; sourceTree = "<group>"; };
+		4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInControllerTests.swift; sourceTree = "<group>"; };
 		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 			isa = PBXGroup;
 			children = (
 				034D31991E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m */,
+				4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */,
 				0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */,
 				03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */,
 				4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */,
@@ -1214,6 +1217,7 @@
 				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
 				A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */,
 				8005E86625BB34B5003EC2AC /* MockAPIClient.swift in Sources */,
+				4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */,
 				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
 				425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */,
 				03B793AD1DAD61B500F54B1B /* BTDropInResultTests.m in Sources */,

@@ -2,6 +2,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Braintree Drop-in color scheme
 typedef NS_ENUM(NSInteger, BTDropInColorScheme) {
     /// Light color palette
     BTDropInColorSchemeLight,

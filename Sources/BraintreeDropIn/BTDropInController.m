@@ -72,7 +72,8 @@
             self.modalPresentationStyle = UIModalPresentationCustom;
         }
 
-        [[BTUIKAppearance sharedInstance] configureWithUICustomization:request.uiCustomization];
+        BTDropInUICustomization *defaultCustomization = [[BTDropInUICustomization alloc] initWithColorScheme:BTDropInColorSchemeLight];
+        [[BTUIKAppearance sharedInstance] configureWithUICustomization:request.uiCustomization ?: defaultCustomization];
         
         self.useBlur = !UIAccessibilityIsReduceTransparencyEnabled();
         if (![BTUIKAppearance sharedInstance].useBlurs) {
