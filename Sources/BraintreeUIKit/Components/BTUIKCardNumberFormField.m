@@ -54,12 +54,12 @@
         
         NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION)
                                                                                          attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
-                                                                                                      NSFontAttributeName:[[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize]}];
+                                                                                                      NSFontAttributeName:[BTUIKAppearance sharedInstance].headlineFont}];
         [self.validateButton setAttributedTitle:normalValidateButtonString
                                        forState:UIControlStateNormal];
         NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION)
                                                                                            attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
-                                                                                                        NSFontAttributeName:[[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize]}];
+                                                                                                        NSFontAttributeName:[BTUIKAppearance sharedInstance].headlineFont}];
         [self.validateButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
 
         [self.validateButton sizeToFit];

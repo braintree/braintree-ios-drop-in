@@ -21,10 +21,6 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 @property (nonatomic, strong) NSString *fontFamily;
 /// Bold font family
 @property (nonatomic, strong) NSString *boldFontFamily;
-// Font, defaults to system font
-@property (nonatomic, strong, readonly) UIFont *font;
-// Bold font, defaults to system bold font
-@property (nonatomic, strong, readonly) UIFont *boldFont;
 /// Sheet background color
 @property (nonatomic, strong) UIColor *formBackgroundColor;
 /// Form field background color
@@ -67,11 +63,16 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 /// Appearance style of keyboards associated with text fields
 @property (nonatomic) UIKeyboardAppearance keyboardAppearance;
 
+@property (nonatomic, strong, readonly) UIFont *bodyFont;
+@property (nonatomic, strong, readonly) UIFont *headlineFont;
+@property (nonatomic, strong, readonly) UIFont *subheadlineFont;
+@property (nonatomic, strong, readonly) UIFont *captionFont;
+@property (nonatomic, strong, readonly) UIFont *titleFont;
+
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]
 + (void)styleLabelPrimary:(UILabel *)label;
 + (void)styleLabelBoldPrimary:(UILabel *)label;
-+ (void)styleSmallLabelBoldPrimary:(UILabel *)label;
 + (void)styleSmallLabelPrimary:(UILabel *)label;
 + (void)styleLabelSecondary:(UILabel *)label;
 + (void)styleLargeLabelSecondary:(UILabel *)label;

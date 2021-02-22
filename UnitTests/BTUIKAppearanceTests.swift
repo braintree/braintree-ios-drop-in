@@ -20,13 +20,16 @@ class BTUIKAppearanceTests: XCTestCase {
         XCTAssertEqual(BTUIKAppearance.styledNavigationTitleLabel().textColor, UIColor.green)
     }
 
-    func testSettingFontFamily_returnsCorrectFont() {
+    func testSettingFontFamily_returnsCorrectFonts() {
         BTUIKAppearance.sharedInstance().fontFamily = "Verdana"
-        XCTAssertEqual(BTUIKAppearance.sharedInstance().font.fontName, "Verdana")
+        XCTAssertEqual(BTUIKAppearance.sharedInstance()?.bodyFont, UIFont(name: "Verdana", size: UIFont.labelFontSize))
+        XCTAssertEqual(BTUIKAppearance.sharedInstance()?.subheadlineFont, UIFont(name: "Verdana", size: UIFont.systemFontSize))
+        XCTAssertEqual(BTUIKAppearance.sharedInstance()?.captionFont, UIFont(name: "Verdana", size: UIFont.smallSystemFontSize))
+        XCTAssertEqual(BTUIKAppearance.sharedInstance()?.titleFont, UIFont(name: "Verdana", size: 24))
     }
 
     func testSettingBoldFontFamily_returnsCorrectBoldFont() {
         BTUIKAppearance.sharedInstance().boldFontFamily = "Courier-Bold"
-        XCTAssertEqual(BTUIKAppearance.sharedInstance().boldFont.fontName, "Courier-Bold")
+        XCTAssertEqual(BTUIKAppearance.sharedInstance()?.headlineFont, UIFont(name: "Courier-Bold", size: UIFont.labelFontSize))
     }
 }

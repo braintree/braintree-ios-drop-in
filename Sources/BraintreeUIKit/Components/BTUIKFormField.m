@@ -211,7 +211,7 @@
     
     NSMutableAttributedString *mutableText = [[NSMutableAttributedString alloc] initWithAttributedString:self.textField.attributedText];
     [mutableText addAttributes:@{NSForegroundColorAttributeName: textColor,
-                                 NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
+                                 NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}
                          range:NSMakeRange(0, mutableText.length)];
     
     UITextRange *currentRange = self.textField.selectedTextRange;

@@ -68,11 +68,11 @@
     
     NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText
                                                                                      attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
-                                                                                                  NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}];
+                                                                                                  NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}];
     [self.resendSmsButton setAttributedTitle:normalValidateButtonString forState:UIControlStateNormal];
     NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText
                                                                                        attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
-                                                                                                    NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}];
+                                                                                                    NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}];
     [self.resendSmsButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
     
     [self.resendSmsButton sizeToFit];

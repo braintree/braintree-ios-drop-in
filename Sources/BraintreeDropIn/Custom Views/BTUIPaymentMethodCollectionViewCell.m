@@ -35,7 +35,7 @@
         [self.contentView addSubview:self.paymentOptionCardView];
 
         self.titleLabel = [[UILabel alloc] init];
-        [BTUIKAppearance styleSmallLabelBoldPrimary:self.titleLabel];
+        [BTUIKAppearance styleSmallLabelPrimary:self.titleLabel];
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.titleLabel.text = @"";
         self.titleLabel.textAlignment = NSTextAlignmentCenter;

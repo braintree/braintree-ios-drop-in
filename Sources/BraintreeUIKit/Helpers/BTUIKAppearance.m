@@ -8,8 +8,11 @@
 
 @interface BTUIKAppearance ()
 
-@property (nonatomic, strong) UIFont *font;
-@property (nonatomic, strong) UIFont *boldFont;
+@property (nonatomic, strong) UIFont *bodyFont;
+@property (nonatomic, strong) UIFont *headlineFont;
+@property (nonatomic, strong) UIFont *subheadlineFont;
+@property (nonatomic, strong) UIFont *captionFont;
+@property (nonatomic, strong) UIFont *titleFont;
 
 @end
 
@@ -28,19 +31,25 @@ static BTUIKAppearance *sharedTheme;
 
 - (void)setFontFamily:(NSString *)fontFamily {
     _fontFamily = fontFamily;
-    if (fontFamily != nil) {
-        _font = [UIFont fontWithName:fontFamily size:10.0];
+    if (fontFamily && [UIFont fontWithName:fontFamily size:10.0]) {
+        _bodyFont = [UIFont fontWithName:fontFamily size:UIFont.labelFontSize];
+        _subheadlineFont = [UIFont fontWithName:fontFamily size:UIFont.systemFontSize];
+        _captionFont = [UIFont fontWithName:fontFamily size:UIFont.smallSystemFontSize];
+        _titleFont = [UIFont fontWithName:fontFamily size:24];
     } else {
-        _font = [UIFont systemFontOfSize:10.0];
+        _bodyFont = [UIFont systemFontOfSize:UIFont.labelFontSize];
+        _subheadlineFont = [UIFont systemFontOfSize:UIFont.systemFontSize];
+        _captionFont = [UIFont systemFontOfSize:UIFont.smallSystemFontSize];
+        _titleFont = [UIFont systemFontOfSize:24];
     }
 }
 
 - (void)setBoldFontFamily:(NSString *)boldFontFamily {
     _boldFontFamily = boldFontFamily;
-    if (boldFontFamily != nil) {
-        _boldFont = [UIFont fontWithName:boldFontFamily size:10.0];
+    if (boldFontFamily && [UIFont fontWithName:boldFontFamily size:10.0]) {
+        _headlineFont = [UIFont fontWithName:boldFontFamily size:UIFont.labelFontSize];
     } else {
-        _boldFont = [UIFont boldSystemFontOfSize:10.0];
+        _headlineFont = [UIFont boldSystemFontOfSize:UIFont.labelFontSize];
     }
 }
 
@@ -49,37 +58,32 @@ static BTUIKAppearance *sharedTheme;
 }
 
 + (void)styleLabelPrimary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize];
+    label.font = [BTUIKAppearance sharedInstance].bodyFont;
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleLabelBoldPrimary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize];
-    label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
-}
-
-+ (void)styleSmallLabelBoldPrimary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.smallSystemFontSize];
+    label.font = [BTUIKAppearance sharedInstance].headlineFont;
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleSmallLabelPrimary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.smallSystemFontSize];
+    label.font = [BTUIKAppearance sharedInstance].captionFont;
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleLabelSecondary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.smallSystemFontSize];
+    label.font = [BTUIKAppearance sharedInstance].captionFont;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
 + (void)styleLargeLabelSecondary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize];
+    label.font = [BTUIKAppearance sharedInstance].bodyFont;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
 + (void)styleSystemLabelSecondary:(UILabel *)label {
-    label.font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.systemFontSize];
+    label.font = [BTUIKAppearance sharedInstance].subheadlineFont;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
@@ -87,7 +91,7 @@ static BTUIKAppearance *sharedTheme;
     UILabel *tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
     tlabel.textAlignment = NSTextAlignmentCenter;
     tlabel.textColor = [BTUIKAppearance sharedInstance].navigationBarTitleTextColor;
-    tlabel.font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize];
+    tlabel.font = [BTUIKAppearance sharedInstance].headlineFont; // TODO: - we don't want this to scale
     tlabel.backgroundColor = UIColor.clearColor;
     tlabel.adjustsFontSizeToFitWidth = YES;
     tlabel.numberOfLines = 2;
