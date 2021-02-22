@@ -1,4 +1,4 @@
-#import <Foundation/Foundation.h>
+#import <BraintreeDropIn/BTDropInUICustomization.h>
 
 #ifdef COCOAPODS
 #import <Braintree/BTPostalAddress.h>
@@ -72,6 +72,9 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Optional: Whether or not to vault the Venmo payment method upon tokenization, must be set to `false` when using a client token without a `customerId`.
 /// Defaults to true
 @property (nonatomic, assign) BOOL vaultVenmo;
+
+/// Optional: Customization options for Braintree Drop-in's user interface.
+@property (nonatomic, strong, nullable) BTDropInUICustomization *uiCustomization;
 
 @end
 

@@ -108,9 +108,9 @@ class DemoSettings {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoAllowVaultCardOverrideSetting")
     }
     
-    static var colorSchemeSetting: BTUIKColorScheme {
+    static var colorSchemeSetting: BTDropInColorScheme {
         get {
-            return BTUIKColorScheme(rawValue: UserDefaults.standard.integer(forKey: "BraintreeDemoColorSchemeSetting")) ?? .light
+            return BTDropInColorScheme(rawValue: UserDefaults.standard.integer(forKey: "BraintreeDemoColorSchemeSetting")) ?? .light
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: "BraintreeDemoColorSchemeSetting")
