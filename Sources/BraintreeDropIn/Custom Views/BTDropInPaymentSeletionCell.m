@@ -30,6 +30,7 @@
         self.label = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelPrimary:self.label];
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
+        self.label.numberOfLines = 0;
         [self.labelContainer addSubview:self.label];
 
         self.detailLabel = [[UILabel alloc] init];
@@ -74,6 +75,9 @@
 - (void)applyConstraints {
     [self.label removeConstraints:self.label.constraints];
     NSDictionary* viewBindings = @{@"contentView":self.contentView, @"label":self.label, @"iconView":self.iconView, @"bottomBorder":self.bottomBorder, @"detailLabel":self.detailLabel, @"labelContainer":self.labelContainer};
+
+    [self.label.topAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.topAnchor].active = YES;
+    [self.label.bottomAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.bottomAnchor].active = YES;
 
     [self.labelContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label][detailLabel]|"
                                                                              options:0

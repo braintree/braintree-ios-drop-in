@@ -162,7 +162,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     self.savedPaymentMethodsCollectionView.backgroundColor = [UIColor clearColor];
     self.savedPaymentMethodsCollectionView.showsHorizontalScrollIndicator = NO;
     heightConstraint = [self.savedPaymentMethodsCollectionView.heightAnchor constraintEqualToConstant:SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT + [BTUIKAppearance verticalFormSpace]];
-    // Setting the prioprity is necessary to avoid autolayout errors when UIStackView rotates
+    // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
     heightConstraint.priority = UILayoutPriorityDefaultHigh;
     heightConstraint.active = YES;
     [self.stackView addArrangedSubview:self.savedPaymentMethodsCollectionView];
@@ -348,7 +348,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (float)sheetHeight {
-    return self.paymentMethodNonces.count == 0 ? 280 : 470;
+    return self.paymentMethodNonces.count == 0 ? 280 : 470; // TODO: - modify this so that sheet height can grow based on dynamic type?
 }
 
 - (void)vaultedPaymentsEditButtonPressed {
@@ -492,7 +492,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
-    return 44.0;
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark UITableViewDataSource
