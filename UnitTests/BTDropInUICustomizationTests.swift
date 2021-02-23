@@ -5,7 +5,7 @@ class BTDropInUICustomizationTests: XCTestCase {
     func testInit_withLightColorScheme() {
         let uiCustomization = BTDropInUICustomization(colorScheme: .light)
 
-        XCTAssertEqual(uiCustomization.useBlurs, true)
+        XCTAssertTrue(uiCustomization.useBlurs)
         XCTAssertEqual(uiCustomization.postalCodeFormFieldKeyboardType, .default)
 
         XCTAssertEqual(uiCustomization.barBackgroundColor, UIColor.white)
@@ -34,7 +34,7 @@ class BTDropInUICustomizationTests: XCTestCase {
     func testInit_withDarkColorScheme() {
         let uiCustomization = BTDropInUICustomization(colorScheme: .dark)
 
-        XCTAssertEqual(uiCustomization.useBlurs, true)
+        XCTAssertTrue(uiCustomization.useBlurs)
         XCTAssertEqual(uiCustomization.postalCodeFormFieldKeyboardType, .default)
 
         XCTAssertEqual(uiCustomization.barBackgroundColor, UIColor.btuik_color(fromHex:"222222", alpha:1.0))
@@ -62,28 +62,26 @@ class BTDropInUICustomizationTests: XCTestCase {
     func testInit_withDynamicColorScheme_whenSystemIsInLightMode() {
         if #available(iOS 13, *) {
             let uiCustomization = BTDropInUICustomization(colorScheme: .dynamic)
-            let appearance = BTUIKAppearance.sharedInstance()
-            appearance?.configure(with: uiCustomization)
 
-            XCTAssertEqual(appearance?.useBlurs, true)
-            XCTAssertEqual(appearance?.postalCodeFormFieldKeyboardType, .default);
+            XCTAssertTrue(uiCustomization.useBlurs)
+            XCTAssertEqual(uiCustomization.postalCodeFormFieldKeyboardType, .default);
 
-            XCTAssertEqual(appearance?.barBackgroundColor, UIColor.systemBackground)
-            XCTAssertEqual(appearance?.formBackgroundColor, UIColor.systemGroupedBackground)
-            XCTAssertEqual(appearance?.formFieldBackgroundColor, UIColor.secondarySystemGroupedBackground)
-            XCTAssertEqual(appearance?.primaryTextColor, UIColor.label)
-            XCTAssertEqual(appearance?.secondaryTextColor, UIColor.secondaryLabel)
-            XCTAssertEqual(appearance?.placeholderTextColor, UIColor.placeholderText)
-            XCTAssertEqual(appearance?.lineColor, UIColor.separator)
-            XCTAssertEqual(appearance?.blurStyle, .systemMaterial)
-            XCTAssertEqual(appearance?.activityIndicatorViewStyle, .medium)
+            XCTAssertEqual(uiCustomization.barBackgroundColor, UIColor.systemBackground)
+            XCTAssertEqual(uiCustomization.formBackgroundColor, UIColor.systemGroupedBackground)
+            XCTAssertEqual(uiCustomization.formFieldBackgroundColor, UIColor.secondarySystemGroupedBackground)
+            XCTAssertEqual(uiCustomization.primaryTextColor, UIColor.label)
+            XCTAssertEqual(uiCustomization.secondaryTextColor, UIColor.secondaryLabel)
+            XCTAssertEqual(uiCustomization.placeholderTextColor, UIColor.placeholderText)
+            XCTAssertEqual(uiCustomization.lineColor, UIColor.separator)
+            XCTAssertEqual(uiCustomization.blurStyle, .systemMaterial)
+            XCTAssertEqual(uiCustomization.activityIndicatorViewStyle, .medium)
 
-            XCTAssertEqual(appearance?.overlayColor, UIColor.black.withAlphaComponent(0.5))
-            XCTAssertEqual(appearance?.tintColor, UIColor.systemBlue)
-            XCTAssertEqual(appearance?.disabledColor, UIColor.systemGray)
-            XCTAssertEqual(appearance?.errorForegroundColor, UIColor.systemRed)
-            XCTAssertEqual(appearance?.switchThumbTintColor, UIColor.white)
-            XCTAssertEqual(appearance?.switchOnTintColor, UIColor.systemGreen)
+            XCTAssertEqual(uiCustomization.overlayColor, UIColor.black.withAlphaComponent(0.5))
+            XCTAssertEqual(uiCustomization.tintColor, UIColor.systemBlue)
+            XCTAssertEqual(uiCustomization.disabledColor, UIColor.systemGray)
+            XCTAssertEqual(uiCustomization.errorForegroundColor, UIColor.systemRed)
+            XCTAssertEqual(uiCustomization.switchThumbTintColor, UIColor.white)
+            XCTAssertEqual(uiCustomization.switchOnTintColor, UIColor.systemGreen)
 
             XCTAssertNil(uiCustomization.fontFamily)
             XCTAssertNil(uiCustomization.boldFontFamily)
