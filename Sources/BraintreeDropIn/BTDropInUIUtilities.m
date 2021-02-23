@@ -30,6 +30,7 @@
     UIStackView *newStackView = [self newStackView];
     UILabel *errorLabel = [UILabel new];
     errorLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    errorLabel.numberOfLines = 0;
     [BTUIKAppearance styleSmallLabelPrimary:errorLabel];
     errorLabel.textColor = [BTUIKAppearance sharedInstance].errorForegroundColor;
     errorLabel.text = errorText;

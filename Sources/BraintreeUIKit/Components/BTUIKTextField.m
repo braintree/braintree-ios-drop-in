@@ -19,6 +19,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.hideCaret = NO;
+        self.adjustsFontForContentSizeCategory = YES;
     }
     return self;
 }

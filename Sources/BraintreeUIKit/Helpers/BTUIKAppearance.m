@@ -25,31 +25,37 @@ static BTUIKAppearance *sharedTheme;
 
 + (void)styleLabelPrimary:(UILabel *)label {
     label.font = [BTUIKAppearance sharedInstance].bodyFont;
+    label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleLabelBoldPrimary:(UILabel *)label {
     label.font = [BTUIKAppearance sharedInstance].headlineFont;
+    label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleSmallLabelPrimary:(UILabel *)label {
     label.font = [BTUIKAppearance sharedInstance].captionFont;
+    label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
 }
 
 + (void)styleLabelSecondary:(UILabel *)label {
     label.font = [BTUIKAppearance sharedInstance].captionFont;
+    label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
 + (void)styleLargeLabelSecondary:(UILabel *)label {
     label.font = [BTUIKAppearance sharedInstance].bodyFont;
+    label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
 + (void)styleSystemLabelSecondary:(UILabel *)label {
     label.font = [BTUIKAppearance sharedInstance].subheadlineFont;
+    label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
 
