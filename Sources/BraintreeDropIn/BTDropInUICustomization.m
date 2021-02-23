@@ -97,6 +97,20 @@
     }
 }
 
+- (UIFont *)staticBodyFont {
+    UIFont *customFont;
+    if (self.fontFamily) {
+        customFont = [UIFont fontWithName:self.fontFamily size:UIFont.labelFontSize];
+    }
+
+    if (customFont) {
+        return customFont;
+    } else {
+        return [UIFont systemFontOfSize:UIFont.labelFontSize];
+    }
+}
+
+
 - (UIFont *)headlineFont {
     UIFont *customFont;
     if (self.boldFontFamily) {
@@ -115,6 +129,19 @@
         } else {
             return [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
         }
+    }
+}
+
+- (UIFont *)staticHeadlineFont {
+    UIFont *customFont;
+    if (self.boldFontFamily) {
+        customFont = [UIFont fontWithName:self.boldFontFamily size:UIFont.labelFontSize];
+    }
+
+    if (customFont) {
+        return customFont;
+    } else {
+        return [UIFont boldSystemFontOfSize:UIFont.labelFontSize];
     }
 }
 
@@ -160,24 +187,29 @@
     }
 }
 
-- (UIFont *)titleFont {
+- (UIFont *)staticCaptionFont {
+    UIFont *customFont;
+    if (self.fontFamily) {
+        customFont = [UIFont fontWithName:self.fontFamily size:UIFont.smallSystemFontSize];
+    }
+
+    if (customFont) {
+        return customFont;
+    } else {
+        return [UIFont systemFontOfSize:UIFont.smallSystemFontSize];
+    }
+}
+
+- (UIFont *)staticTitleFont {
     UIFont *customFont;
     if (self.fontFamily) {
         customFont = [UIFont fontWithName:self.fontFamily size:24];
     }
 
     if (customFont) {
-        if (self.disableDynamicType) {
-            return customFont;
-        } else {
-            return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleTitle2] scaledFontForFont:customFont];
-        }
+        return customFont;
     } else {
-        if (self.disableDynamicType) {
-            return [UIFont systemFontOfSize:24];
-        } else {
-            return [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
-        }
+        return [UIFont systemFontOfSize:24];
     }
 }
 

@@ -50,18 +50,12 @@
         [self setAccessoryViewHidden:YES animated:NO];
         
         self.validateButton = [UIButton new];
-        [self.validateButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
-        
-        NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION)
-                                                                                         attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
-                                                                                                      NSFontAttributeName:[BTUIKAppearance sharedInstance].headlineFont}];
-        [self.validateButton setAttributedTitle:normalValidateButtonString
-                                       forState:UIControlStateNormal];
-        NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(NEXT_ACTION)
-                                                                                           attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
-                                                                                                        NSFontAttributeName:[BTUIKAppearance sharedInstance].headlineFont}];
-        [self.validateButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
 
+        [self.validateButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
+        [self.validateButton setTitleColor:[BTUIKAppearance sharedInstance].tintColor forState:UIControlStateNormal];
+        [self.validateButton setTitleColor:[BTUIKAppearance sharedInstance].disabledColor forState:UIControlStateDisabled];
+
+        self.validateButton.titleLabel.font = [BTUIKAppearance sharedInstance].staticHeadlineFont;
         [self.validateButton sizeToFit];
         [self.validateButton layoutIfNeeded];
         [self.validateButton addTarget:self action:@selector(validateButtonPressed) forControlEvents:UIControlEventTouchUpInside];

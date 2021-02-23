@@ -87,17 +87,10 @@
                                                                  options:0
                                                                  metrics:metrics
                                                                    views:viewBindings]];
-    if (hasFormLabel) {
-        [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(PADDING)-[formLabel(<=0@1)]-[textField]"
-                                                                                            options:0
-                                                                                            metrics:metrics
-                                                                                              views:viewBindings]];
-    } else {
-        [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(PADDING)-[textField]"
-                                                                                            options:0
-                                                                                            metrics:metrics
-                                                                                              views:viewBindings]];
-    }
+    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(PADDING)-[formLabel(<=0@1)]-[textField]"
+                                                                                        options:0
+                                                                                        metrics:metrics
+                                                                                          views:viewBindings]];
     
     if (self.accessoryView && !self.accessoryView.hidden) {
         [self.layoutConstraints addObjectsFromArray:@[[NSLayoutConstraint constraintWithItem:self.accessoryView

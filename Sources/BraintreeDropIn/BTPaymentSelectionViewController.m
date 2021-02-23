@@ -132,18 +132,13 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     self.vaultedPaymentsEditButton = [UIButton new];
     self.vaultedPaymentsEditButton.hidden = YES;
-    NSAttributedString *normalVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION)
-                                                                                          attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
-                                                                                                       NSFontAttributeName:[BTUIKAppearance sharedInstance].subheadlineFont}];
-    [self.vaultedPaymentsEditButton setAttributedTitle:normalVaultedPaymentsEditButton forState:UIControlStateNormal];
-    NSAttributedString *highlightVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION)
-                                                                                             attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].highlightedTintColor,
-                                                                                                          NSFontAttributeName:[BTUIKAppearance sharedInstance].subheadlineFont}];
-    [self.vaultedPaymentsEditButton setAttributedTitle:highlightVaultedPaymentsEditButton forState:UIControlStateHighlighted];
-    NSAttributedString *disabledVaultedPaymentsEditButton = [[NSAttributedString alloc] initWithString:BTUIKLocalizedString(EDIT_ACTION)
-                                                                                            attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
-                                                                                                         NSFontAttributeName:[BTUIKAppearance sharedInstance].subheadlineFont}];
-    [self.vaultedPaymentsEditButton setAttributedTitle:disabledVaultedPaymentsEditButton forState:UIControlStateDisabled];
+
+    [self.vaultedPaymentsEditButton setTitle:BTUIKLocalizedString(EDIT_ACTION) forState:UIControlStateNormal];
+    [self.vaultedPaymentsEditButton setTitleColor:[BTUIKAppearance sharedInstance].tintColor forState:UIControlStateNormal];
+    [self.vaultedPaymentsEditButton setTitleColor:[BTUIKAppearance sharedInstance].highlightedTintColor forState:UIControlStateHighlighted];
+    [self.vaultedPaymentsEditButton setTitleColor:[BTUIKAppearance sharedInstance].disabledColor forState:UIControlStateDisabled];
+    self.vaultedPaymentsEditButton.titleLabel.font = [BTUIKAppearance sharedInstance].staticBodyFont;
+
     [self.vaultedPaymentsEditButton sizeToFit];
     [self.vaultedPaymentsEditButton layoutIfNeeded];
     [self.vaultedPaymentsEditButton addTarget:self action:@selector(vaultedPaymentsEditButtonPressed) forControlEvents:UIControlEventTouchUpInside];

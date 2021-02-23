@@ -66,10 +66,13 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 @property (nonatomic) BOOL disableDynamicType;
 
 @property (nonatomic, strong) UIFont *bodyFont;
+@property (nonatomic, strong) UIFont *staticBodyFont;
 @property (nonatomic, strong) UIFont *headlineFont;
+@property (nonatomic, strong) UIFont *staticHeadlineFont;
 @property (nonatomic, strong) UIFont *subheadlineFont;
 @property (nonatomic, strong) UIFont *captionFont;
-@property (nonatomic, strong) UIFont *titleFont;
+@property (nonatomic, strong) UIFont *staticCaptionFont;
+@property (nonatomic, strong) UIFont *staticTitleFont;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]

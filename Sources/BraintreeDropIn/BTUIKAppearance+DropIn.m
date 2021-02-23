@@ -26,10 +26,13 @@
     [BTUIKAppearance sharedInstance].keyboardAppearance = uiCustomization.keyboardAppearance;
     [BTUIKAppearance sharedInstance].disableDynamicType = uiCustomization.disableDynamicType;
     [BTUIKAppearance sharedInstance].bodyFont = uiCustomization.bodyFont;
+    [BTUIKAppearance sharedInstance].staticBodyFont = uiCustomization.staticBodyFont;
     [BTUIKAppearance sharedInstance].headlineFont = uiCustomization.headlineFont;
+    [BTUIKAppearance sharedInstance].staticHeadlineFont = uiCustomization.staticHeadlineFont;
     [BTUIKAppearance sharedInstance].subheadlineFont = uiCustomization.subheadlineFont;
     [BTUIKAppearance sharedInstance].captionFont = uiCustomization.captionFont;
-    [BTUIKAppearance sharedInstance].titleFont = uiCustomization.titleFont;
+    [BTUIKAppearance sharedInstance].staticCaptionFont = uiCustomization.staticCaptionFont;
+    [BTUIKAppearance sharedInstance].staticTitleFont = uiCustomization.staticTitleFont;
 }
 
 @end

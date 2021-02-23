@@ -54,7 +54,7 @@ static BTUIKAppearance *sharedTheme;
 }
 
 + (void)styleSystemLabelSecondary:(UILabel *)label {
-    label.font = [BTUIKAppearance sharedInstance].subheadlineFont;
+    label.font = [BTUIKAppearance sharedInstance].staticBodyFont;
     label.adjustsFontForContentSizeCategory = YES;
     label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
 }
@@ -63,7 +63,7 @@ static BTUIKAppearance *sharedTheme;
     UILabel *tlabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 40)];
     tlabel.textAlignment = NSTextAlignmentCenter;
     tlabel.textColor = [BTUIKAppearance sharedInstance].navigationBarTitleTextColor;
-    tlabel.font = [BTUIKAppearance sharedInstance].headlineFont; // TODO: - we don't want this to scale
+    tlabel.font = [BTUIKAppearance sharedInstance].staticHeadlineFont;
     tlabel.backgroundColor = UIColor.clearColor;
     tlabel.adjustsFontSizeToFitWidth = YES;
     tlabel.numberOfLines = 2;

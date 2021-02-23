@@ -15,7 +15,7 @@
         self.label = [[UILabel alloc] init];
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
         self.label.textAlignment = NSTextAlignmentCenter;
-        self.label.font = [BTUIKAppearance sharedInstance].captionFont;
+        self.label.font = [BTUIKAppearance sharedInstance].staticCaptionFont;
         self.label.textColor = [BTUIKAppearance sharedInstance].secondaryTextColor;
         [self addSubview:self.label];
         
