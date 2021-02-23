@@ -1,4 +1,4 @@
-#import "BTDropInUICustomization.h"
+#import "BTDropInUICustomization_Internal.h"
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/UIColor+BTUIK.h>
@@ -74,6 +74,111 @@
     }
 
     return self;
+}
+
+- (UIFont *)bodyFont {
+    UIFont *customFont;
+    if (self.fontFamily) {
+        customFont = [UIFont fontWithName:self.fontFamily size:UIFont.labelFontSize];
+    }
+
+    if (customFont) {
+        if (self.disableDynamicType) {
+            return customFont;
+        } else {
+            return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleBody] scaledFontForFont:customFont];
+        }
+    } else {
+        if (self.disableDynamicType) {
+            return [UIFont systemFontOfSize:UIFont.labelFontSize];
+        } else {
+            return [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        }
+    }
+}
+
+- (UIFont *)headlineFont {
+    UIFont *customFont;
+    if (self.boldFontFamily) {
+        customFont = [UIFont fontWithName:self.boldFontFamily size:UIFont.labelFontSize];
+    }
+
+    if (customFont) {
+        if (self.disableDynamicType) {
+            return customFont;
+        } else {
+            return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleHeadline] scaledFontForFont:customFont];
+        }
+    } else {
+        if (self.disableDynamicType) {
+            return [UIFont boldSystemFontOfSize:UIFont.labelFontSize];
+        } else {
+            return [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+        }
+    }
+}
+
+- (UIFont *)subheadlineFont {
+    UIFont *customFont;
+    if (self.fontFamily) {
+        customFont = [UIFont fontWithName:self.fontFamily size:UIFont.systemFontSize];
+    }
+
+    if (customFont) {
+        if (self.disableDynamicType) {
+            return customFont;
+        } else {
+            return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleSubheadline] scaledFontForFont:customFont];
+        }
+    } else {
+        if (self.disableDynamicType) {
+            return [UIFont systemFontOfSize:UIFont.systemFontSize];
+        } else {
+            return [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        }
+    }
+}
+
+- (UIFont *)captionFont {
+    UIFont *customFont;
+    if (self.fontFamily) {
+        customFont = [UIFont fontWithName:self.fontFamily size:UIFont.smallSystemFontSize];
+    }
+
+    if (customFont) {
+        if (self.disableDynamicType) {
+            return customFont;
+        } else {
+            return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleCaption1] scaledFontForFont:customFont];
+        }
+    } else {
+        if (self.disableDynamicType) {
+            return [UIFont systemFontOfSize:UIFont.smallSystemFontSize];
+        } else {
+            return [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+        }
+    }
+}
+
+- (UIFont *)titleFont {
+    UIFont *customFont;
+    if (self.fontFamily) {
+        customFont = [UIFont fontWithName:self.fontFamily size:24];
+    }
+
+    if (customFont) {
+        if (self.disableDynamicType) {
+            return customFont;
+        } else {
+            return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleTitle2] scaledFontForFont:customFont];
+        }
+    } else {
+        if (self.disableDynamicType) {
+            return [UIFont systemFontOfSize:24];
+        } else {
+            return [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
+        }
+    }
 }
 
 @end

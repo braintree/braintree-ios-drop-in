@@ -6,16 +6,6 @@
 #import <BraintreeUIKit/UIColor+BTUIK.h>
 #endif
 
-@interface BTUIKAppearance ()
-
-@property (nonatomic, strong) UIFont *bodyFont;
-@property (nonatomic, strong) UIFont *headlineFont;
-@property (nonatomic, strong) UIFont *subheadlineFont;
-@property (nonatomic, strong) UIFont *captionFont;
-@property (nonatomic, strong) UIFont *titleFont;
-
-@end
-
 @implementation BTUIKAppearance
 
 static BTUIKAppearance *sharedTheme;
@@ -27,30 +17,6 @@ static BTUIKAppearance *sharedTheme;
     });
     
     return sharedTheme;
-}
-
-- (void)setFontFamily:(NSString *)fontFamily {
-    _fontFamily = fontFamily;
-    if (fontFamily && [UIFont fontWithName:fontFamily size:10.0]) {
-        _bodyFont = [UIFont fontWithName:fontFamily size:UIFont.labelFontSize];
-        _subheadlineFont = [UIFont fontWithName:fontFamily size:UIFont.systemFontSize];
-        _captionFont = [UIFont fontWithName:fontFamily size:UIFont.smallSystemFontSize];
-        _titleFont = [UIFont fontWithName:fontFamily size:24];
-    } else {
-        _bodyFont = [UIFont systemFontOfSize:UIFont.labelFontSize];
-        _subheadlineFont = [UIFont systemFontOfSize:UIFont.systemFontSize];
-        _captionFont = [UIFont systemFontOfSize:UIFont.smallSystemFontSize];
-        _titleFont = [UIFont systemFontOfSize:24];
-    }
-}
-
-- (void)setBoldFontFamily:(NSString *)boldFontFamily {
-    _boldFontFamily = boldFontFamily;
-    if (boldFontFamily && [UIFont fontWithName:boldFontFamily size:10.0]) {
-        _headlineFont = [UIFont fontWithName:boldFontFamily size:UIFont.labelFontSize];
-    } else {
-        _headlineFont = [UIFont boldSystemFontOfSize:UIFont.labelFontSize];
-    }
 }
 
 - (UIColor *)highlightedTintColor {

@@ -22,6 +22,7 @@
 		4237D7C525E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */; };
 		4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */; };
 		4237D7D525E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */; };
+		4237D7E325E56178006F6CE3 /* BTDropInUICustomization_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4237D7E225E56178006F6CE3 /* BTDropInUICustomization_Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
 		42A115D625B0C35A0008C29B /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A115CB25B0C35A0008C29B /* BraintreeCard.framework */; };
@@ -259,6 +260,7 @@
 		4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BTUIKAppearance+DropInTests.swift"; sourceTree = "<group>"; };
 		4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInControllerTests.swift; sourceTree = "<group>"; };
 		4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInUICustomizationTests.swift; sourceTree = "<group>"; };
+		4237D7E225E56178006F6CE3 /* BTDropInUICustomization_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTDropInUICustomization_Internal.h; sourceTree = "<group>"; };
 		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -789,6 +791,7 @@
 				A56C41A71D8335C7000DFFAB /* BTDropInBaseViewController.h */,
 				A56C41881D833568000DFFAB /* BTDropInBaseViewController.m */,
 				A56C41891D833568000DFFAB /* BTDropInController.m */,
+				4237D7E225E56178006F6CE3 /* BTDropInUICustomization_Internal.h */,
 				4237D7A325E42844006F6CE3 /* BTDropInUICustomization.m */,
 				A56C418A1D833568000DFFAB /* BTDropInUIUtilities.h */,
 				A56C418B1D833568000DFFAB /* BTDropInUIUtilities.m */,
@@ -937,6 +940,7 @@
 				A56C41B11D8335C7000DFFAB /* BTDropInRequest.h in Headers */,
 				A56C41B21D8335C7000DFFAB /* BTDropInResult.h in Headers */,
 				8068E585256D9C64002904E6 /* BTAPIClient_Internal_Category.h in Headers */,
+				4237D7E325E56178006F6CE3 /* BTDropInUICustomization_Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

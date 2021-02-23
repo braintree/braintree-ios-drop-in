@@ -63,11 +63,13 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 /// Appearance style of keyboards associated with text fields
 @property (nonatomic) UIKeyboardAppearance keyboardAppearance;
 
-@property (nonatomic, strong, readonly) UIFont *bodyFont;
-@property (nonatomic, strong, readonly) UIFont *headlineFont;
-@property (nonatomic, strong, readonly) UIFont *subheadlineFont;
-@property (nonatomic, strong, readonly) UIFont *captionFont;
-@property (nonatomic, strong, readonly) UIFont *titleFont;
+@property (nonatomic) BOOL disableDynamicType;
+
+@property (nonatomic, strong) UIFont *bodyFont;
+@property (nonatomic, strong) UIFont *headlineFont;
+@property (nonatomic, strong) UIFont *subheadlineFont;
+@property (nonatomic, strong) UIFont *captionFont;
+@property (nonatomic, strong) UIFont *titleFont;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]

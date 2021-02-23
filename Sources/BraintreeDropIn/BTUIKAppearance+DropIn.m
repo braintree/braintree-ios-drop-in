@@ -24,6 +24,12 @@
     [BTUIKAppearance sharedInstance].switchOnTintColor = uiCustomization.switchOnTintColor;
     [BTUIKAppearance sharedInstance].switchThumbTintColor = uiCustomization.switchThumbTintColor;
     [BTUIKAppearance sharedInstance].keyboardAppearance = uiCustomization.keyboardAppearance;
+    [BTUIKAppearance sharedInstance].disableDynamicType = uiCustomization.disableDynamicType;
+    [BTUIKAppearance sharedInstance].bodyFont = uiCustomization.bodyFont;
+    [BTUIKAppearance sharedInstance].headlineFont = uiCustomization.headlineFont;
+    [BTUIKAppearance sharedInstance].subheadlineFont = uiCustomization.subheadlineFont;
+    [BTUIKAppearance sharedInstance].captionFont = uiCustomization.captionFont;
+    [BTUIKAppearance sharedInstance].titleFont = uiCustomization.titleFont;
 }
 
 @end

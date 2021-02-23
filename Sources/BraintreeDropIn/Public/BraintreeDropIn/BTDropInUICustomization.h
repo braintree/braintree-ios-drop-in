@@ -92,6 +92,8 @@ typedef NS_ENUM(NSInteger, BTDropInColorScheme) {
 /// Appearance style of keyboards associated with text fields
 @property (nonatomic) UIKeyboardAppearance keyboardAppearance;
 
+/// Defaults to false. Disabling this feature is highly discouraged, as it prevents users from adjusting Drop-in's text size to fit their needs.
+@property (nonatomic) BOOL disableDynamicType;
 
 @end
 

@@ -26,6 +26,8 @@ class BTUIKAppearance_DropInTests: XCTestCase {
         uiCustomization.blurStyle = .light
         uiCustomization.activityIndicatorViewStyle = .gray
 
+        uiCustomization.disableDynamicType = true
+
         let appearance = BTUIKAppearance.sharedInstance()
         appearance?.configure(with: uiCustomization)
 
