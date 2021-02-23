@@ -5,3 +5,4 @@
 #import "BraintreeDropIn.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 #import "BTUIKAppearance+DropIn.h"
+#import "BraintreeUIKit.h"

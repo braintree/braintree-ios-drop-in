@@ -1,7 +1,7 @@
 import XCTest
 import BraintreeDropIn
 
-class BTPaymentMethodNonceDropInTests: XCTestCase {
+class BTPaymentMethodNonce_DropInTests: XCTestCase {
 
     func testPaymentDescription_whenCardNonceWithLastTwo() {
         class MockCardNonce: BTCardNonce {

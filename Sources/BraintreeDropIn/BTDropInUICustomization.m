@@ -76,6 +76,8 @@
     return self;
 }
 
+// TODO: - remove these font methods in favor of UIFont extension methods
+
 - (UIFont *)bodyFont {
     UIFont *customFont;
     if (self.fontFamily) {

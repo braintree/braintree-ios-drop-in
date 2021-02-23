@@ -25,11 +25,12 @@
     [BTUIKAppearance sharedInstance].switchThumbTintColor = uiCustomization.switchThumbTintColor;
     [BTUIKAppearance sharedInstance].keyboardAppearance = uiCustomization.keyboardAppearance;
     [BTUIKAppearance sharedInstance].disableDynamicType = uiCustomization.disableDynamicType;
+    // TODO: - Use UIFont extension methods here
     [BTUIKAppearance sharedInstance].bodyFont = uiCustomization.bodyFont;
     [BTUIKAppearance sharedInstance].staticBodyFont = uiCustomization.staticBodyFont;
     [BTUIKAppearance sharedInstance].headlineFont = uiCustomization.headlineFont;
     [BTUIKAppearance sharedInstance].staticHeadlineFont = uiCustomization.staticHeadlineFont;
-    [BTUIKAppearance sharedInstance].subheadlineFont = uiCustomization.subheadlineFont;
+    [BTUIKAppearance sharedInstance].subheadlineFont = uiCustomization.subheadlineFont; // TODO: - we can get rid of this; it isn't used
     [BTUIKAppearance sharedInstance].captionFont = uiCustomization.captionFont;
     [BTUIKAppearance sharedInstance].staticCaptionFont = uiCustomization.staticCaptionFont;
     [BTUIKAppearance sharedInstance].staticTitleFont = uiCustomization.staticTitleFont;
