@@ -192,15 +192,8 @@
 
     self.formFields = @[self.cardNumberField, self.cardholderNameField, self.expirationDateField, self.securityCodeField, self.postalCodeField, self.mobileCountryCodeField, self.mobilePhoneField];
 
-    for (NSUInteger i = 0; i < self.formFields.count; i++) {
-        BTUIKFormField *formField = self.formFields[i];
+    for (BTUIKFormField *formField in self.formFields) {
         [self.stackView addArrangedSubview:formField];
-        
-        NSLayoutConstraint* heightConstraint = [formField.heightAnchor constraintEqualToConstant:[BTUIKAppearance formCellHeight]];
-        // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
-        heightConstraint.priority = UILayoutPriorityDefaultHigh;
-        heightConstraint.active = YES;
-        
         [formField updateConstraints];
     }
     

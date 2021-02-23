@@ -46,6 +46,7 @@
         self.formLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.formLabel.text = @"";
         self.formLabel.accessibilityElementsHidden = YES;
+        self.formLabel.numberOfLines = 0;
         [self addSubview:self.formLabel];
 
         [self.formLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
@@ -78,15 +79,16 @@
     
     BOOL hasFormLabel = (self.formLabel.text.length > 0);
     
-    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField]|"
+    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(PADDING)-[textField]-(PADDING)-|"
                                                                  options:0
                                                                  metrics:metrics
                                                                    views:viewBindings]];
 
-    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[formLabel]|"
+    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(PADDING)-[formLabel]-(PADDING)-|"
                                                                  options:0
                                                                  metrics:metrics
                                                                    views:viewBindings]];
+    
     [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(PADDING)-[formLabel(<=0@1)]-[textField]"
                                                                                         options:0
                                                                                         metrics:metrics
@@ -100,8 +102,6 @@
                                                                                  attribute:NSLayoutAttributeCenterY
                                                                                 multiplier:1.0f
                                                                                   constant:0.0f]]];
-        
-      ;
         
         [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[textField]-[accessoryView]-(PADDING)-|"
                                                                                             options:0

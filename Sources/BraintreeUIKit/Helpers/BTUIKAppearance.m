@@ -111,7 +111,6 @@ static BTUIKAppearance *sharedTheme;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMetrics = @{@"HORIZONTAL_FORM_PADDING":@([BTUIKAppearance horizontalFormContentPadding]),
-                          @"FORM_CELL_HEIGHT":@([BTUIKAppearance formCellHeight]),
                           @"VERTICAL_FORM_SPACE":@([BTUIKAppearance verticalFormSpace]),
                           @"VERTICAL_FORM_SPACE_TIGHT":@([BTUIKAppearance verticalFormSpaceTight]),
                           @"VERTICAL_SECTION_SPACE":@([BTUIKAppearance verticalSectionSpace]),
