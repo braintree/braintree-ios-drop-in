@@ -118,7 +118,7 @@ class BTDropInUICustomizationTests: XCTestCase {
         XCTAssertEqual(appearance?.bodyFont, UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont(name: "Helvetica", size: UIFont.labelFontSize)!))
         XCTAssertEqual(appearance?.headlineFont, UIFontMetrics(forTextStyle: .headline).scaledFont(for: UIFont(name: "Helvetica-Bold", size: UIFont.labelFontSize)!))
         XCTAssertEqual(appearance?.captionFont, UIFontMetrics(forTextStyle: .caption1).scaledFont(for: UIFont(name: "Helvetica", size: UIFont.smallSystemFontSize)!))
-        XCTAssertEqual(appearance?.staticTitleFont, UIFontMetrics(forTextStyle: .title2).scaledFont(for: UIFont(name: "Helvetica", size: 24)!)) // TODO investigate test failure
+        XCTAssertEqual(appearance?.staticTitleFont, UIFont(name: "Helvetica", size: 24))
     }
 
     func testSystemFonts_withDynamicTypeDisabled() {
@@ -143,6 +143,6 @@ class BTDropInUICustomizationTests: XCTestCase {
         XCTAssertEqual(appearance?.bodyFont, UIFont.preferredFont(forTextStyle: .body))
         XCTAssertEqual(appearance?.headlineFont, UIFont.preferredFont(forTextStyle: .headline))
         XCTAssertEqual(appearance?.captionFont, UIFont.preferredFont(forTextStyle: .caption1))
-        XCTAssertEqual(appearance?.staticTitleFont, UIFont.preferredFont(forTextStyle: .title2)) // TODO investigate test failure
+        XCTAssertEqual(appearance?.staticTitleFont, UIFont.systemFont(ofSize: 24))
     }
 }
