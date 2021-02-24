@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BTPaymentSelectionViewController.h"
+#import "BTUIKAppearance+DropIn.h"
 #import <BraintreeCore/BTConfiguration.h>
 #import "UnitTests-Swift.h"
 
@@ -14,6 +15,12 @@
 @end
 
 @implementation BTPaymentSelectionViewControllerTests
+
+- (void)setUp {
+    [super setUp];
+    BTDropInUICustomization *uiCustomization = [[BTDropInUICustomization alloc] initWithColorScheme:BTDropInColorSchemeLight];
+    [[BTUIKAppearance sharedInstance] configureWithUICustomization:uiCustomization];
+}
 
 - (void)test_initWithAPIClient_setsAllProperties {
     BTDropInRequest *dropInRequest = [[BTDropInRequest alloc] init];

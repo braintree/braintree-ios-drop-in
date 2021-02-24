@@ -21,91 +21,9 @@ static BTUIKAppearance *sharedTheme;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedTheme = [BTUIKAppearance new];
-        [sharedTheme setDefaultProperties];
-        [sharedTheme setLightColors];
     });
     
     return sharedTheme;
-}
-
-- (void)setDefaultProperties {
-    sharedTheme.font = [UIFont systemFontOfSize:10];
-    sharedTheme.boldFont = [UIFont boldSystemFontOfSize:10];
-    sharedTheme.useBlurs = YES;
-    sharedTheme.postalCodeFormFieldKeyboardType = UIKeyboardTypeDefault;
-}
-
-- (void)setLightColors {
-    sharedTheme.barBackgroundColor = UIColor.whiteColor;
-    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"EFEFF4" alpha:1.0];
-    sharedTheme.formFieldBackgroundColor =  UIColor.whiteColor;
-    sharedTheme.primaryTextColor = UIColor.blackColor;
-    sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
-    sharedTheme.placeholderTextColor = UIColor.lightGrayColor;
-    sharedTheme.lineColor = [UIColor btuik_colorFromHex:@"BFBFBF" alpha:1.0];
-    sharedTheme.blurStyle = UIBlurEffectStyleExtraLight;
-    sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    [sharedTheme setDefaultColors];
-}
-
-- (void)setDarkColors {
-    sharedTheme.barBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
-    sharedTheme.formBackgroundColor = [UIColor btuik_colorFromHex:@"222222" alpha:1.0];
-    sharedTheme.formFieldBackgroundColor = [UIColor btuik_colorFromHex:@"333333" alpha:1.0];
-    sharedTheme.primaryTextColor = UIColor.whiteColor;
-    sharedTheme.secondaryTextColor = [UIColor btuik_colorFromHex:@"999999" alpha:1.0];
-    sharedTheme.placeholderTextColor = [UIColor btuik_colorFromHex:@"8E8E8E" alpha:1.0];
-    sharedTheme.lineColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
-    sharedTheme.blurStyle = UIBlurEffectStyleDark;
-    sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-    [sharedTheme setDefaultColors];
-}
-
-- (void)setDynamicColors {
-    if (@available(iOS 13, *)) {
-        sharedTheme.barBackgroundColor = UIColor.systemBackgroundColor;
-        sharedTheme.formBackgroundColor = UIColor.systemGroupedBackgroundColor;
-        sharedTheme.formFieldBackgroundColor = UIColor.secondarySystemGroupedBackgroundColor;
-        sharedTheme.primaryTextColor = UIColor.labelColor;
-        sharedTheme.secondaryTextColor = UIColor.secondaryLabelColor;
-        sharedTheme.placeholderTextColor = UIColor.placeholderTextColor;
-        sharedTheme.lineColor = UIColor.separatorColor;
-        sharedTheme.blurStyle = UIBlurEffectStyleSystemMaterial;
-        sharedTheme.activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
-        
-        sharedTheme.overlayColor = [UIColor.blackColor colorWithAlphaComponent:0.5];
-        sharedTheme.tintColor = UIColor.systemBlueColor;
-        sharedTheme.disabledColor = UIColor.systemGrayColor;
-        sharedTheme.errorForegroundColor = UIColor.systemRedColor;
-        sharedTheme.switchThumbTintColor =  UIColor.whiteColor;
-        sharedTheme.switchOnTintColor = UIColor.systemGreenColor;
-    }
-}
-
-- (void)setDefaultColors {
-    sharedTheme.overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
-    sharedTheme.tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
-    sharedTheme.disabledColor = UIColor.lightGrayColor;
-    sharedTheme.errorForegroundColor = [UIColor btuik_colorFromHex:@"ff3b30" alpha:1.0];
-    sharedTheme.switchThumbTintColor =  UIColor.whiteColor;
-    sharedTheme.switchOnTintColor = UIColor.greenColor;
-}
-
-- (void)setColorScheme:(enum BTUIKColorScheme)colorScheme {
-    _colorScheme = colorScheme;
-    switch (colorScheme) {
-        case BTUIKColorSchemeLight:
-            [sharedTheme setLightColors];
-            sharedTheme.keyboardAppearance = UIKeyboardAppearanceLight;
-            break;
-        case BTUIKColorSchemeDark:
-            [sharedTheme setDarkColors];
-            sharedTheme.keyboardAppearance = UIKeyboardAppearanceDark;
-            break;
-        case BTUIKColorSchemeDynamic:
-            [sharedTheme setDynamicColors];
-            break;
-    }
 }
 
 - (void)setFontFamily:(NSString *)fontFamily {
@@ -231,7 +149,7 @@ static BTUIKAppearance *sharedTheme;
 }
 
 - (UIColor *)navigationBarTitleTextColor {
-    return _navigationBarTitleTextColor != nil ? _navigationBarTitleTextColor : _primaryTextColor;
+    return _navigationBarTitleTextColor ?: _primaryTextColor;
 }
 
 @end

@@ -4,6 +4,7 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTAPIClient_Internal_Category.h"
+#import "BTUIKAppearance+DropIn.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>
@@ -70,6 +71,9 @@
             self.transitioningDelegate = self;
             self.modalPresentationStyle = UIModalPresentationCustom;
         }
+
+        BTDropInUICustomization *defaultCustomization = [[BTDropInUICustomization alloc] initWithColorScheme:BTDropInColorSchemeLight];
+        [[BTUIKAppearance sharedInstance] configureWithUICustomization:request.uiCustomization ?: defaultCustomization];
         
         self.useBlur = !UIAccessibilityIsReduceTransparencyEnabled();
         if (![BTUIKAppearance sharedInstance].useBlurs) {

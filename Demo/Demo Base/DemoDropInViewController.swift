@@ -39,9 +39,10 @@ class DemoDropInViewController: DemoBaseViewController {
     // MARK: - Button Handlers
     
     @objc func presentDropInController() {
-        BTUIKAppearance.sharedInstance()?.colorScheme = DemoSettings.colorSchemeSetting
+        let uiCustomization = BTDropInUICustomization(colorScheme: DemoSettings.colorSchemeSetting)
         
         let dropInRequest = BTDropInRequest()
+        dropInRequest.uiCustomization = uiCustomization
         dropInRequest.vaultManager = !ProcessInfo.processInfo.arguments.contains("-DisableEditMode")
         BTUIKLocalizedString.setCustomTranslations(["cs"])
         
@@ -139,7 +140,7 @@ class DemoDropInViewController: DemoBaseViewController {
     }
     
     @objc func updateColorScheme(_ segmentedControl: UISegmentedControl) {
-        DemoSettings.colorSchemeSetting = BTUIKColorScheme(rawValue: segmentedControl.selectedSegmentIndex)!
+        DemoSettings.colorSchemeSetting = BTDropInColorScheme(rawValue: segmentedControl.selectedSegmentIndex)!
     }
     
     // MARK: - Helper Methods
