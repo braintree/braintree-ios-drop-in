@@ -51,6 +51,8 @@
         NSDictionary* viewBindings = @{@"contentView":self.contentView, @"paymentOptionCardView":self.paymentOptionCardView, @"titleLabel":self.titleLabel,
             @"descriptionLabel":self.descriptionLabel};
 
+        [self.widthAnchor constraintEqualToConstant:[BTUIKAppearance largeIconWidth]].active = YES;
+
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|"
                                                                      options:0
                                                                      metrics:[BTUIKAppearance metrics]

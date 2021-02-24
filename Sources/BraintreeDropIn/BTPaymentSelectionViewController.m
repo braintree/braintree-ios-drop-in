@@ -148,6 +148,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     _vaultedCardAppearAnalyticSent = NO;
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setEstimatedItemSize:CGSizeMake(100.0, 100.0)];
     [flowLayout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
     self.savedPaymentMethodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.savedPaymentMethodsCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -391,10 +392,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     cell.accessibilityLabel = [NSString stringWithFormat:@"%@-%@", typeString, paymentInfo.paymentDescription];
 
     return cell;
-}
-
-- (CGSize)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView layout:(__unused UICollectionViewLayout *)savedPaymentMethodsCollectionViewLayout sizeForItemAtIndexPath:(__unused NSIndexPath *)indexPath {
-    return CGSizeMake(SAVED_PAYMENT_METHODS_COLLECTION_WIDTH, SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT);
 }
 
 #pragma mark collection view cell paddings
