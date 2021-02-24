@@ -69,7 +69,6 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 @property (nonatomic, strong) UIFont *staticBodyFont;
 @property (nonatomic, strong) UIFont *headlineFont;
 @property (nonatomic, strong) UIFont *staticHeadlineFont;
-@property (nonatomic, strong) UIFont *subheadlineFont;
 @property (nonatomic, strong) UIFont *captionFont;
 @property (nonatomic, strong) UIFont *staticCaptionFont;
 @property (nonatomic, strong) UIFont *staticTitleFont;

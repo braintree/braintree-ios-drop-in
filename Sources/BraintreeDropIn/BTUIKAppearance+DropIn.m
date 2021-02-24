@@ -1,5 +1,11 @@
 #import "BTUIKAppearance+DropIn.h"
 
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BraintreeUIKit.h>
+#else
+#import <BraintreeUIKit/BraintreeUIKit.h>
+#endif
+
 @implementation BTUIKAppearance (DropIn)
 
 - (void)configureWithUICustomization:(BTDropInUICustomization *)uiCustomization {
@@ -25,15 +31,14 @@
     [BTUIKAppearance sharedInstance].switchThumbTintColor = uiCustomization.switchThumbTintColor;
     [BTUIKAppearance sharedInstance].keyboardAppearance = uiCustomization.keyboardAppearance;
     [BTUIKAppearance sharedInstance].disableDynamicType = uiCustomization.disableDynamicType;
-    // TODO: - Use UIFont extension methods here
-    [BTUIKAppearance sharedInstance].bodyFont = uiCustomization.bodyFont;
-    [BTUIKAppearance sharedInstance].staticBodyFont = uiCustomization.staticBodyFont;
-    [BTUIKAppearance sharedInstance].headlineFont = uiCustomization.headlineFont;
-    [BTUIKAppearance sharedInstance].staticHeadlineFont = uiCustomization.staticHeadlineFont;
-    [BTUIKAppearance sharedInstance].subheadlineFont = uiCustomization.subheadlineFont; // TODO: - we can get rid of this; it isn't used
-    [BTUIKAppearance sharedInstance].captionFont = uiCustomization.captionFont;
-    [BTUIKAppearance sharedInstance].staticCaptionFont = uiCustomization.staticCaptionFont;
-    [BTUIKAppearance sharedInstance].staticTitleFont = uiCustomization.staticTitleFont;
+
+    [BTUIKAppearance sharedInstance].bodyFont = [UIFont bodyFontForFontFamily:uiCustomization.fontFamily useStaticSize:uiCustomization.disableDynamicType];
+    [BTUIKAppearance sharedInstance].staticBodyFont = [UIFont bodyFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
+    [BTUIKAppearance sharedInstance].headlineFont = [UIFont headlineFontForFontFamily:uiCustomization.boldFontFamily useStaticSize:uiCustomization.disableDynamicType];
+    [BTUIKAppearance sharedInstance].staticHeadlineFont = [UIFont headlineFontForFontFamily:uiCustomization.boldFontFamily useStaticSize:YES];
+    [BTUIKAppearance sharedInstance].captionFont = [UIFont captionFontForFontFamily:uiCustomization.fontFamily useStaticSize:uiCustomization.disableDynamicType];
+    [BTUIKAppearance sharedInstance].staticCaptionFont = [UIFont captionFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
+    [BTUIKAppearance sharedInstance].staticTitleFont = [UIFont titleFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
 }
 
 @end
