@@ -148,7 +148,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     _vaultedCardAppearAnalyticSent = NO;
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setEstimatedItemSize:CGSizeMake(100.0, 100.0)];
+    [flowLayout setEstimatedItemSize:CGSizeMake(SAVED_PAYMENT_METHODS_COLLECTION_WIDTH, SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT)];
     [flowLayout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
     self.savedPaymentMethodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.savedPaymentMethodsCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
