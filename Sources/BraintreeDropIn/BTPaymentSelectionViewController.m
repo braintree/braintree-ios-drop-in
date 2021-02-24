@@ -343,7 +343,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (float)sheetHeight {
-    return self.paymentMethodNonces.count == 0 ? 280 : 470; // TODO: - modify this so that sheet height can grow based on dynamic type?
+    // This is basic, but keeps the payment selection VC looking pretty much the same for standard font & good for large fonts.
+    // TODO : - We have to figure out if we will also be scaling the vaulted payment method collection view cells with large text; if so - this won't do.
+    float tableViewContentHeight = self.paymentOptionsTableView.contentSize.height;
+    return self.paymentMethodNonces.count == 0 ? tableViewContentHeight + 150 : tableViewContentHeight + 340;
 }
 
 - (void)vaultedPaymentsEditButtonPressed {
