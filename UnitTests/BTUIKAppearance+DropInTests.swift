@@ -55,4 +55,70 @@ class BTUIKAppearance_DropInTests: XCTestCase {
         XCTAssertEqual(appearance?.blurStyle, .light)
         XCTAssertEqual(appearance?.activityIndicatorViewStyle, .gray)
     }
+
+    func testConfigure_withCustomFonts_andDynamicTypeDisabled_setsFonts() {
+        let uiCustomization = BTDropInUICustomization(colorScheme: .light)
+        uiCustomization.fontFamily = "Helvetica"
+        uiCustomization.boldFontFamily = "Helvetica-Bold"
+        uiCustomization.disableDynamicType = true
+
+        let appearance = BTUIKAppearance.sharedInstance()
+        appearance?.configure(with: uiCustomization)
+
+        XCTAssertEqual(appearance?.bodyFont, UIFont(name: "Helvetica", size: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.staticBodyFont, UIFont(name: "Helvetica", size: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.headlineFont, UIFont(name: "Helvetica-Bold", size: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.staticHeadlineFont, UIFont(name: "Helvetica-Bold", size: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.captionFont, UIFont(name: "Helvetica", size: UIFont.smallSystemFontSize))
+        XCTAssertEqual(appearance?.staticCaptionFont, UIFont(name: "Helvetica", size: UIFont.smallSystemFontSize))
+        XCTAssertEqual(appearance?.staticTitleFont, UIFont(name: "Helvetica", size: 24))
+    }
+
+    func testConfigure_withCustomFonts_andDynamicTypeEnabled_setsFonts() {
+        let uiCustomization = BTDropInUICustomization(colorScheme: .light)
+        uiCustomization.fontFamily = "Helvetica"
+        uiCustomization.boldFontFamily = "Helvetica-Bold"
+
+        let appearance = BTUIKAppearance.sharedInstance()
+        appearance?.configure(with: uiCustomization)
+
+        XCTAssertEqual(appearance?.bodyFont, UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont(name: "Helvetica", size: UIFont.labelFontSize)!))
+        XCTAssertEqual(appearance?.staticBodyFont, UIFont(name: "Helvetica", size: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.headlineFont, UIFontMetrics(forTextStyle: .headline).scaledFont(for: UIFont(name: "Helvetica-Bold", size: UIFont.labelFontSize)!))
+        XCTAssertEqual(appearance?.staticHeadlineFont, UIFont(name: "Helvetica-Bold", size: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.captionFont, UIFontMetrics(forTextStyle: .caption1).scaledFont(for: UIFont(name: "Helvetica", size: UIFont.smallSystemFontSize)!))
+        XCTAssertEqual(appearance?.staticCaptionFont, UIFont(name: "Helvetica", size: UIFont.smallSystemFontSize))
+        XCTAssertEqual(appearance?.staticTitleFont, UIFont(name: "Helvetica", size: 24))
+    }
+
+    func testConfigure_withoutCustomFonts_andDynamicTypeDisabled_setsFonts() {
+        let uiCustomization = BTDropInUICustomization(colorScheme: .light)
+        uiCustomization.disableDynamicType = true
+
+        let appearance = BTUIKAppearance.sharedInstance()
+        appearance?.configure(with: uiCustomization)
+
+        XCTAssertEqual(appearance?.bodyFont, UIFont.systemFont(ofSize: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.staticBodyFont, UIFont.systemFont(ofSize: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.headlineFont, UIFont.boldSystemFont(ofSize: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.staticHeadlineFont, UIFont.boldSystemFont(ofSize: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.captionFont, UIFont.systemFont(ofSize: UIFont.smallSystemFontSize))
+        XCTAssertEqual(appearance?.staticCaptionFont, UIFont.systemFont(ofSize: UIFont.smallSystemFontSize))
+        XCTAssertEqual(appearance?.staticTitleFont, UIFont.systemFont(ofSize: 24))
+    }
+
+    func testConfigure_withoutCustomFonts_andDynamicTypeEnabled_setsFonts() {
+        let uiCustomization = BTDropInUICustomization(colorScheme: .light)
+
+        let appearance = BTUIKAppearance.sharedInstance()
+        appearance?.configure(with: uiCustomization)
+
+        XCTAssertEqual(appearance?.bodyFont, UIFont.preferredFont(forTextStyle: .body))
+        XCTAssertEqual(appearance?.staticBodyFont, UIFont.systemFont(ofSize: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.headlineFont, UIFont.preferredFont(forTextStyle: .headline))
+        XCTAssertEqual(appearance?.staticHeadlineFont, UIFont.boldSystemFont(ofSize: UIFont.labelFontSize))
+        XCTAssertEqual(appearance?.captionFont, UIFont.preferredFont(forTextStyle: .caption1))
+        XCTAssertEqual(appearance?.staticCaptionFont, UIFont.systemFont(ofSize: UIFont.smallSystemFontSize))
+        XCTAssertEqual(appearance?.staticTitleFont, UIFont.systemFont(ofSize: 24))
+    }
 }
