@@ -194,12 +194,10 @@
 
     for (BTUIKFormField *formField in self.formFields) {
         [self.stackView addArrangedSubview:formField];
-        [formField updateConstraints];
     }
     
-    self.cardNumberField.formLabel.text = @"";
-    [self.cardNumberField updateConstraints];
-    
+    self.cardNumberField.labelText = @"";
+
     self.cardholderNameField.hidden = YES;
     self.expirationDateField.hidden = YES;
     self.securityCodeField.hidden = YES;

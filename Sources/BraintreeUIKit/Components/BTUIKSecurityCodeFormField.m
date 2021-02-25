@@ -20,7 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textField.accessibilityLabel = BTUIKLocalizedString(SECURITY_CODE_LABEL);
-        self.formLabel.text = BTUIKLocalizedString(SECURITY_CODE_LABEL);
+        self.labelText = BTUIKLocalizedString(SECURITY_CODE_LABEL);
         self.textField.placeholder = BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER);
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }

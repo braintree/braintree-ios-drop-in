@@ -12,7 +12,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textField.accessibilityLabel = BTUIKLocalizedString(CARDHOLDER_NAME_LABEL);
-        self.formLabel.text = BTUIKLocalizedString(CARDHOLDER_NAME_LABEL);
+        self.labelText = BTUIKLocalizedString(CARDHOLDER_NAME_LABEL);
 
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;

@@ -34,15 +34,13 @@
 @property (nonatomic, copy) NSString *text;
 /// The text field
 @property (nonatomic, strong) BTUIKTextField* textField;
-/// The label
-@property (nonatomic, strong) UILabel* formLabel;
+/// The text to display in the form field's label
+@property (nonatomic, strong) NSString *labelText;
 /// The accessory view shown opposite the label
 @property (nonatomic, strong) UIView *accessoryView;
 
 /// Updates the appearance of the form field (e.g if it is invalid it will appear with error colors)
 - (void)updateAppearance;
-/// Update constraints
-- (void)updateConstraints;
 /// Set the accessory view visibility
 /// @param hidden The desired hidden state
 /// @param animated Whether to animate when updating the visibility

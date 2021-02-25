@@ -14,6 +14,8 @@
 
 @property (nonatomic, copy) NSString *previousTextFieldText;
 @property (nonatomic, strong) NSMutableArray *layoutConstraints;
+@property (nonatomic, strong) UILabel* formLabel;
+@property (nonatomic, strong) UIStackView *stackView;
 
 @end
 
@@ -28,9 +30,8 @@
         BTUIKTextField *textField = [BTUIKTextField new];
         textField.editDelegate = self;
         _textField = textField;
-        self.textField.translatesAutoresizingMaskIntoConstraints = NO;
         self.textField.borderStyle = UITextBorderStyleNone;
-        self.textField.backgroundColor = [UIColor clearColor];
+        self.textField.backgroundColor = UIColor.clearColor;
         self.textField.opaque = NO;
         self.textField.adjustsFontSizeToFitWidth = YES;
         self.textField.returnKeyType = UIReturnKeyNext;
@@ -40,10 +41,9 @@
         [self.textField addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
         self.textField.delegate = self;
         [self addSubview:self.textField];
-        
+
         self.formLabel = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelBoldPrimary:self.formLabel];
-        self.formLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.formLabel.text = @"";
         self.formLabel.accessibilityElementsHidden = YES;
         self.formLabel.numberOfLines = 0;
@@ -57,73 +57,57 @@
         
         [self setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
         self.opaque = NO;
-        
-        [self updateConstraints];
+
+        self.stackView = [[UIStackView alloc] initWithArrangedSubviews:@[self.formLabel, self.textField]];
+        self.stackView.alignment = UIStackViewAlignmentFill;
+        self.stackView.distribution = UIStackViewDistributionFill;
+        self.stackView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.stackView.layoutMarginsRelativeArrangement = YES;
+        self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
+        [self addSubview:self.stackView];
+
+        if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory)) {
+            self.stackView.axis = UILayoutConstraintAxisVertical;
+            self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignment];
+        } else {
+            self.stackView.axis = UILayoutConstraintAxisHorizontal;
+            self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignmentInverse];
+        }
+
+        [self.stackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
+        [self.stackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
+        [self.stackView.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
+        [self.stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
     }
     return self;
 }
 
-- (void)updateConstraints {
-    if (self.layoutConstraints != nil) {
-        [self removeConstraints:self.layoutConstraints];
-    }
-    self.layoutConstraints = [NSMutableArray array];
-    
-    NSMutableDictionary* viewBindings = [@{@"view":self, @"textField":self.textField, @"formLabel": self.formLabel} mutableCopy];
-    
-    if (self.accessoryView) {
-        viewBindings[@"accessoryView"] = self.accessoryView;
-    }
-    
-    NSDictionary* metrics = @{@"PADDING":@15};
-    
-    BOOL hasFormLabel = (self.formLabel.text.length > 0);
-    
-    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(PADDING)-[textField]-(PADDING)-|"
-                                                                 options:0
-                                                                 metrics:metrics
-                                                                   views:viewBindings]];
+- (void)setLabelText:(NSString *)labelText {
+    _labelText = labelText;
+    self.formLabel.text = labelText;
+    [self updateTextAlignment];
+}
 
-    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(PADDING)-[formLabel]-(PADDING)-|"
-                                                                 options:0
-                                                                 metrics:metrics
-                                                                   views:viewBindings]];
-    
-    [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(PADDING)-[formLabel(<=0@1)]-[textField]"
-                                                                                        options:0
-                                                                                        metrics:metrics
-                                                                                          views:viewBindings]];
-    
-    if (self.accessoryView && !self.accessoryView.hidden) {
-        [self.layoutConstraints addObjectsFromArray:@[[NSLayoutConstraint constraintWithItem:self.accessoryView
-                                                                                 attribute:NSLayoutAttributeCenterY
-                                                                                 relatedBy:NSLayoutRelationEqual
-                                                                                    toItem:self
-                                                                                 attribute:NSLayoutAttributeCenterY
-                                                                                multiplier:1.0f
-                                                                                  constant:0.0f]]];
-        
-        [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[textField]-[accessoryView]-(PADDING)-|"
-                                                                                            options:0
-                                                                                            metrics:metrics
-                                                                                              views:viewBindings]];
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (previousTraitCollection.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory) {
+        if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory)) {
+            self.stackView.axis = UILayoutConstraintAxisVertical;
+        } else {
+            self.stackView.axis = UILayoutConstraintAxisHorizontal;
+        }
+
+        [self updateTextAlignment];
+    }
+}
+
+- (void)updateTextAlignment {
+    BOOL isAccessibilityFontSize = UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory);
+    if (self.formLabel.text.length && !isAccessibilityFontSize) {
+        self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignmentInverse];
     } else {
-        [self.layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[textField]-(PADDING)-|"
-                                                                                            options:0
-                                                                                            metrics:metrics
-                                                                                              views:viewBindings]];
+        self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignment];
     }
-
-    NSArray *contraintsToAdd = [self.layoutConstraints copy];
-
-    [self addConstraints:contraintsToAdd];
-    
-    NSTextAlignment newAlignment = hasFormLabel ? [BTUIKViewUtil naturalTextAlignmentInverse] : [BTUIKViewUtil naturalTextAlignment];
-    if (newAlignment != self.textField.textAlignment) {
-        self.textField.textAlignment = newAlignment;
-    }
-
-    [super updateConstraints];
 }
 
 - (void)textFieldDidBeginEditing:(__unused UITextField *)textField {
@@ -330,26 +314,23 @@
         _accessoryView = nil;
     }
     _accessoryView = accessoryView;
+    self.textField.rightView = self.accessoryView;
+    self.textField.rightViewMode = UITextFieldViewModeAlways;
     self.accessoryView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:self.accessoryView];
     [self.accessoryView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self.accessoryView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    [self updateConstraints];
 }
 
 - (void)setAccessoryViewHidden:(BOOL)hidden animated:(__unused BOOL)animated {
     if (self.accessoryView == nil) {
-        [self updateConstraints];
         return;
     }
     if (animated) {
         [UIView animateWithDuration:0.1 animations:^{
             self.accessoryView.hidden = hidden;
-            [self updateConstraints];
         }];
     } else {
         self.accessoryView.hidden = hidden;
-        [self updateConstraints];
     }
 }
 
