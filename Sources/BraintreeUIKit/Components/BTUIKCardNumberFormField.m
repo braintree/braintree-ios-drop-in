@@ -43,8 +43,9 @@
         self.hint = [BTUIKPaymentOptionCardView new];
         self.hint.paymentOptionType = BTUIKPaymentOptionTypeUnknown;
         self.hint.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.hint addConstraint:[NSLayoutConstraint constraintWithItem:self.hint attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:[BTUIKAppearance smallIconHeight]]];
-        [self.hint addConstraint:[NSLayoutConstraint constraintWithItem:self.hint attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:[BTUIKAppearance smallIconWidth]]];
+
+        [self.hint.widthAnchor constraintEqualToConstant:[BTUIKAppearance smallIconWidth]].active = YES;
+        [self.hint.heightAnchor constraintEqualToConstant:[BTUIKAppearance smallIconHeight]].active = YES;
         
         self.accessoryView = self.hint;
         [self setAccessoryViewHidden:YES animated:NO];
