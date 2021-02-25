@@ -71,7 +71,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
     
-    self.view.translatesAutoresizingMaskIntoConstraints = false;
     self.view.backgroundColor = [UIColor clearColor];
     
     self.scrollView = [[UIScrollView alloc] init];
@@ -86,20 +85,20 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     
     self.stackView = [self newStackView];
     [self.scrollViewContentWrapper addSubview:self.stackView];
-    
+
     self.view.translatesAutoresizingMaskIntoConstraints = false;
     self.view.backgroundColor = [UIColor clearColor];
-    
+
     NSDictionary *viewBindings = @{@"stackView": self.stackView,
                                    @"scrollView": self.scrollView,
                                    @"scrollViewContentWrapper": self.scrollViewContentWrapper};
-    
+
     [self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
     [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
-    
+
     [self.scrollView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollViewContentWrapper]|"
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
@@ -108,17 +107,17 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[stackView]|"
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(VERTICAL_SECTION_SPACE)-[stackView]-(VERTICAL_FORM_SPACE_TIGHT)-|"
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
-    
+
     NSLayoutConstraint *heightConstraint;
     self.vaultedPaymentsHeader = [self sectionHeaderLabelWithString:BTUIKLocalizedString(RECENT_LABEL)];
     self.vaultedPaymentsHeader.translatesAutoresizingMaskIntoConstraints = NO;
@@ -148,8 +147,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     _vaultedCardAppearAnalyticSent = NO;
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setEstimatedItemSize:CGSizeMake(SAVED_PAYMENT_METHODS_COLLECTION_WIDTH, SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT)];
-    [flowLayout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
+    flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+
     self.savedPaymentMethodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     self.savedPaymentMethodsCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
     self.savedPaymentMethodsCollectionView.delegate = self;
@@ -174,7 +174,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [self.paymentOptionsLabelContainerStackView addArrangedSubview:self.paymentOptionsHeader];
     [self addSpacerToStackView:self.paymentOptionsLabelContainerStackView size:[BTUIKAppearance verticalFormSpaceTight] beforeView:nil];
     [self.stackView addArrangedSubview:self.paymentOptionsLabelContainerStackView];
-    
+
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.paymentOptionsTableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
     self.paymentOptionsTableView.backgroundColor = [UIColor clearColor];
@@ -186,7 +186,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [self.paymentOptionsTableView setAlwaysBounceVertical:NO];
 
     [self.stackView addArrangedSubview:self.paymentOptionsTableView];
-    
+
     [self loadConfiguration];
 }
 
@@ -208,7 +208,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     if ([keyPath isEqualToString:@"contentSize"]) {
         [self.paymentOptionsTableView removeConstraints:self.paymentOptionsTableView.constraints];
         NSLayoutConstraint *heightConstraint = [self.paymentOptionsTableView.heightAnchor constraintEqualToConstant:self.paymentOptionsTableView.contentSize.height];
-        // Setting the prioprity is necessary to avoid autolayout errors when UIStackView rotates
+        // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
         heightConstraint.priority = UILayoutPriorityDefaultHigh;
         heightConstraint.active = YES;
     } else {
@@ -344,8 +344,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (float)sheetHeight {
-    // This is basic, but keeps the payment selection VC looking pretty much the same for standard font & good for large fonts.
-    // TODO : - We have to figure out if we will also be scaling the vaulted payment method collection view cells with large text; if so - this won't do.
     float tableViewContentHeight = self.paymentOptionsTableView.contentSize.height;
     return self.paymentMethodNonces.count == 0 ? tableViewContentHeight + 150 : tableViewContentHeight + 340;
 }

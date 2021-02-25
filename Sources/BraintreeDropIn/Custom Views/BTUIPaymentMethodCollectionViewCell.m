@@ -15,8 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self removeConstraints:self.constraints];
-        [self.contentView removeConstraints:self.contentView.constraints];
+        self.translatesAutoresizingMaskIntoConstraints = NO;
         self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 
         self.paymentOptionCardView = [[BTUIKPaymentOptionCardView alloc] init];
@@ -48,40 +47,32 @@
         self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.descriptionLabel];
 
-        NSDictionary* viewBindings = @{@"contentView":self.contentView, @"paymentOptionCardView":self.paymentOptionCardView, @"titleLabel":self.titleLabel,
-            @"descriptionLabel":self.descriptionLabel};
+        NSLayoutConstraint *widthConstraint = [self.widthAnchor constraintEqualToConstant:[BTUIKAppearance largeIconWidth] + 5];
+        widthConstraint.priority = UILayoutPriorityDefaultHigh;
+        widthConstraint.active = YES;
 
-        [self.widthAnchor constraintEqualToConstant:[BTUIKAppearance largeIconWidth]].active = YES;
+        [self.contentView.widthAnchor constraintEqualToAnchor:self.widthAnchor].active = YES;
+        [self.contentView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
+        [self.contentView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
 
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|"
-                                                                     options:0
-                                                                     metrics:[BTUIKAppearance metrics]
-                                                                       views:viewBindings]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|"
-                                                                     options:0
-                                                                     metrics:[BTUIKAppearance metrics]
-                                                                       views:viewBindings]];
-
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[paymentOptionCardView(LARGE_ICON_WIDTH)]"
-                                                                                 options:0
-                                                                                 metrics:[BTUIKAppearance metrics]
-                                                                                   views:viewBindings]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[titleLabel]|"
-                                                                                 options:0
-                                                                                 metrics:[BTUIKAppearance metrics]
-                                                                                   views:viewBindings]];
-        
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[descriptionLabel]|"
-                                                                                 options:0
-                                                                                 metrics:[BTUIKAppearance metrics]
-                                                                                   views:viewBindings]];
-        
-        
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[paymentOptionCardView(LARGE_ICON_HEIGHT)]-(HORIZONTAL_FORM_PADDING)-[titleLabel][descriptionLabel]-(>=1)-|"
-                                                                                 options:0
-                                                                                 metrics:[BTUIKAppearance metrics]
-                                                                                   views:viewBindings]];
+        [self.paymentOptionCardView.widthAnchor constraintEqualToConstant:[BTUIKAppearance largeIconWidth]].active = YES;
+        [self.paymentOptionCardView.heightAnchor constraintEqualToConstant:[BTUIKAppearance largeIconHeight]].active = YES;
         [self.paymentOptionCardView.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = YES;
+        [self.paymentOptionCardView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
+
+        [self.titleLabel.widthAnchor constraintEqualToAnchor:self.contentView.widthAnchor].active = YES;
+        [self.titleLabel.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = YES;
+        [self.titleLabel.topAnchor constraintEqualToAnchor:self.paymentOptionCardView.bottomAnchor
+                                                  constant:[BTUIKAppearance horizontalFormContentPadding]].active = YES;
+
+        [self.descriptionLabel.widthAnchor constraintEqualToAnchor:self.contentView.widthAnchor].active = YES;
+        [self.descriptionLabel.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = YES;
+        [self.descriptionLabel.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor].active = YES;
+        [self.descriptionLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
+
+        NSLayoutConstraint *heightConstraint = [self.heightAnchor constraintEqualToAnchor:self.contentView.heightAnchor];
+        heightConstraint.priority = UILayoutPriorityDefaultHigh;
+        heightConstraint.active = YES;
     }
     return self;
 }
