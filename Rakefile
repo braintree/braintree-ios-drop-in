@@ -14,7 +14,7 @@ desc "Run internal release process"
 task :release => %w[release:assumptions sanity_checks release:check_working_directory release:bump_version release:lint_podspec carthage:create_binaries release:tag]
 
 desc "Publish code and pod to public github.com"
-task :publish => %w[publish:push publish:create_github_release publish:push_pod]
+task :publish => %w[publish:push publish:create_github_release publish:push_pod docs_publish]
 
 SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
@@ -225,5 +225,48 @@ namespace :publish do
   task :create_github_release do
     run! "gh release create #{current_version} BraintreeDropIn.framework.zip -t #{current_version} -n '#{changelog_entries}'"
     run! "rm -rf BraintreeDropIn.framework.zip"
+  end
+end
+
+def jazzy_command
+  %W[jazzy
+      --objc
+      --author Braintree
+      --author_url http://braintreepayments.com
+      --github_url https://github.com/braintree/braintree-ios-drop-in
+      --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/8.1.2
+      --theme fullwidth
+      --output docs_output
+      --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
+  ].join(' ')
+end
+
+desc "Generate documentation via jazzy and push to GH"
+task :docs_publish => %w[docs:generate docs:publish docs:clean]
+
+namespace :docs do
+
+  desc "Generate docs with jazzy"
+  task :generate do
+    run! 'rm -rf docs_output'
+    run(jazzy_command)
+    run! 'cp -R Images docs_output/Images' # copy images used in README
+    puts "Generated HTML documentation at docs_output"
+  end
+
+  task :publish do
+    run 'git branch -D gh-pages'
+    run! 'git add docs_output'
+    run! 'git commit -m "Publish docs to github pages"'
+    puts "Generating git subtree, this will take a moment..."
+    run! 'git subtree split --prefix docs_output -b gh-pages'
+    run! "git push -f #{PUBLIC_REMOTE_NAME} gh-pages:gh-pages"
+  end
+
+  task :clean do
+    run! 'git reset HEAD~'
+    run! 'git branch -D gh-pages'
+    puts "Published docs to gh-pages branch"
+    run! 'rm -rf docs_output'
   end
 end
