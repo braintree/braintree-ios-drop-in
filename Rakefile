@@ -236,37 +236,30 @@ def jazzy_command
       --github_url https://github.com/braintree/braintree-ios-drop-in
       --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/#{current_version}
       --theme fullwidth
-      --output docs_output
+      --output #{current_version}
       --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
   ].join(' ')
 end
 
 desc "Generate documentation via jazzy and push to GH"
-task :docs_publish => %w[docs:generate docs:publish docs:clean]
+task :docs_publish => %w[docs:generate docs:publish]
 
 namespace :docs do
 
   desc "Generate docs with jazzy"
   task :generate do
-    run! 'rm -rf docs_output'
     run(jazzy_command)
-    run! 'cp -R Images docs_output/Images' # copy images used in README
-    puts "Generated HTML documentation at docs_output"
+    run! "cp -R Images #{current_version}/Images" # copy images used in README
+    puts "Generated HTML documentation"
   end
 
   task :publish do
-    run 'git branch -D gh-pages'
-    run! 'git add docs_output'
-    run! 'git commit -m "Publish docs to github pages"'
-    puts "Generating git subtree, this will take a moment..."
-    run! 'git subtree split --prefix docs_output -b gh-pages'
-    run! "git push -f #{PUBLIC_REMOTE_NAME} gh-pages:gh-pages"
-  end
-
-  task :clean do
-    run! 'git reset HEAD~'
-    run! 'git branch -D gh-pages'
-    puts "Published docs to gh-pages branch"
-    run! 'rm -rf docs_output'
+    run! "git checkout gh-pages"
+    run! "ln -sfn #{current_version} current" # update symlink to current version
+    run! "git add current #{current_version}"
+    run! "git commit -m 'Publish #{current_version} docs to github pages'"
+    run! "git push"
+    run! "git checkout -"
+    puts "Published docs to github pages"
   end
 end
