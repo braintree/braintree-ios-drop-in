@@ -234,7 +234,7 @@ def jazzy_command
       --author Braintree
       --author_url http://braintreepayments.com
       --github_url https://github.com/braintree/braintree-ios-drop-in
-      --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/8.1.2
+      --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/#{current_version}
       --theme fullwidth
       --output docs_output
       --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
