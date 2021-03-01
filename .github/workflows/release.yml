@@ -14,15 +14,19 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Use Xcode 12.4
         run: sudo xcode-select -switch /Applications/Xcode_12.4.app
 
-      # Check for unreleased section in changelog
       - name: Check for unreleased section in changelog
         run: grep "## unreleased" CHANGELOG.md || (echo "::error::No unreleased section found in CHANGELOG"; exit 1)
 
-      # Update the version number
-      - name: Update version
+      - name: Set git username and email
+        run: |
+          git config user.name braintreeps
+          git config user.email code@getbraintree.com
+
+      - name: Update version, add tag and push
         run: |
           today=$(date +'%Y-%m-%d')
           sed -i '' 's/## unreleased.*/## '"${{ github.event.inputs.version }}"' ('"$today"')/' CHANGELOG.md
@@ -34,22 +38,15 @@ jobs:
           plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'BraintreeUIKit/Info.plist'
           plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'BraintreeUIKit/Info.plist'
 
-      # Tag the new version and push changes
-      - name: Tag and push new version
-        run: |
-          git config user.name braintreeps
-          git config user.email code@getbraintree.com
           git add .
           git commit -m 'Bump version to ${{ github.event.inputs.version }}'
           git tag ${{ github.event.inputs.version }} -a -m 'Release ${{ github.event.inputs.version }}'
-          git push origin tag ${{ github.event.inputs.version }}
+          git push origin HEAD ${{ github.event.inputs.version }}
 
-      # Save changelog entries to a file
-      - name: Extract changelog entries
+      - name: Save changelog entries to a file
         run: |
           sed -e '1,/##/d' -e '/##/,$d' CHANGELOG.md > changelog_entries.md
 
-      # Create the release on GitHub
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
@@ -62,14 +59,12 @@ jobs:
           draft: false
           prerelease: false
 
-      # Create pre-built binaries for Carthage
-      - name: Create Carthage binaries
+      - name: Create Carthage pre-built binaries
         run: |
           carthage build --no-skip-current
           carthage archive "BraintreeDropIn" "BraintreeUIKit" --output BraintreeDropIn.framework.zip
 
-      # Add binaries to the GitHub release
-      - name: Upload Carthage binaries
+      - name: Upload Carthage pre-built binaries to GitHub release
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
@@ -80,16 +75,14 @@ jobs:
           asset_name: BraintreeDropIn.framework.zip
           asset_content_type: application/zip
 
-      # Publish to CocoaPods
       - name: Publish to CocoaPods
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: pod trunk push BraintreeDropIn.podspec
 
-      # Publish reference docs
       - name: Publish reference docs
-        run: gem install jazzy
         run: |
+          gem install jazzy
           jazzy \
             --objc \
             --author Braintree \
@@ -99,9 +92,8 @@ jobs:
             --theme fullwidth \
             --output ${{ github.event.inputs.version }} \
             --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
-        run: |
           git checkout gh-pages
-          ls -sfn ${{ github.event.inputs.version }} current
+          ln -sfn ${{ github.event.inputs.version }} current
           git add current ${{ github.event.inputs.version }}
           git commit -m "Publish ${{ github.event.inputs.version }} docs to github pages"
           git push
