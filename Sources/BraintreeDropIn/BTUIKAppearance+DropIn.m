@@ -1,5 +1,11 @@
 #import "BTUIKAppearance+DropIn.h"
 
+#ifdef COCOAPODS
+#import <BraintreeDropIn/BraintreeUIKit.h>
+#else
+#import <BraintreeUIKit/BraintreeUIKit.h>
+#endif
+
 @implementation BTUIKAppearance (DropIn)
 
 - (void)configureWithUICustomization:(BTDropInUICustomization *)uiCustomization {
@@ -24,6 +30,15 @@
     [BTUIKAppearance sharedInstance].switchOnTintColor = uiCustomization.switchOnTintColor;
     [BTUIKAppearance sharedInstance].switchThumbTintColor = uiCustomization.switchThumbTintColor;
     [BTUIKAppearance sharedInstance].keyboardAppearance = uiCustomization.keyboardAppearance;
+    [BTUIKAppearance sharedInstance].disableDynamicType = uiCustomization.disableDynamicType;
+
+    [BTUIKAppearance sharedInstance].bodyFont = [UIFont bodyFontForFontFamily:uiCustomization.fontFamily useStaticSize:uiCustomization.disableDynamicType];
+    [BTUIKAppearance sharedInstance].staticBodyFont = [UIFont bodyFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
+    [BTUIKAppearance sharedInstance].headlineFont = [UIFont headlineFontForFontFamily:uiCustomization.boldFontFamily useStaticSize:uiCustomization.disableDynamicType];
+    [BTUIKAppearance sharedInstance].staticHeadlineFont = [UIFont headlineFontForFontFamily:uiCustomization.boldFontFamily useStaticSize:YES];
+    [BTUIKAppearance sharedInstance].captionFont = [UIFont captionFontForFontFamily:uiCustomization.fontFamily useStaticSize:uiCustomization.disableDynamicType];
+    [BTUIKAppearance sharedInstance].staticCaptionFont = [UIFont captionFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
+    [BTUIKAppearance sharedInstance].staticTitleFont = [UIFont titleFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
 }
 
 @end

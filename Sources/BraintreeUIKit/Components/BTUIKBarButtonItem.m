@@ -23,9 +23,9 @@
 - (void)updateTitleTextAttributes {
     UIFont *font;
     if (self.bold) {
-        font = [[BTUIKAppearance sharedInstance].boldFont fontWithSize:UIFont.labelFontSize];
+        font = [BTUIKAppearance sharedInstance].staticHeadlineFont;
     } else {
-        font = [[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize];
+        font = [BTUIKAppearance sharedInstance].staticBodyFont;
     }
 
     [self setTitleTextAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].tintColor,

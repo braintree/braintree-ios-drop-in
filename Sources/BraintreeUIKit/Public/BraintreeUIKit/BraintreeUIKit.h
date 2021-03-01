@@ -12,6 +12,7 @@ FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 #import <BraintreeDropIn/BTUIKTextField.h>
 #import <BraintreeDropIn/BTUIKCardNumberFormField.h>
 #import <BraintreeDropIn/UIColor+BTUIK.h>
+#import <BraintreeDropIn/UIFont+BTUIK.h>
 #import <BraintreeDropIn/BTUIKViewUtil.h>
 #import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 #import <BraintreeDropIn/BTUIKVectorArtView.h>
@@ -38,6 +39,7 @@ FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 #import <BraintreeUIKit/BTUIKTextField.h>
 #import <BraintreeUIKit/BTUIKCardNumberFormField.h>
 #import <BraintreeUIKit/UIColor+BTUIK.h>
+#import <BraintreeUIKit/UIFont+BTUIK.h>
 #import <BraintreeUIKit/BTUIKViewUtil.h>
 #import <BraintreeUIKit/BTUIKPaymentOptionType.h>
 #import <BraintreeUIKit/BTUIKVectorArtView.h>

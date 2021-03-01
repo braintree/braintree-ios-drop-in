@@ -132,7 +132,7 @@
 - (void)setUpViews {
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[BTDropInController.self]]
      setTitleTextAttributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
-                              NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
+                              NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}
      forState:UIControlStateNormal];
     if ([BTUIKAppearance sharedInstance].tintColor != nil) {
         self.view.tintColor = [BTUIKAppearance sharedInstance].tintColor;

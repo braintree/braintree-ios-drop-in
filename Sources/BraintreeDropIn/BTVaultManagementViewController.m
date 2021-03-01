@@ -180,7 +180,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 }
 
 -(CGFloat)tableView:(__unused UITableView *)tableView heightForRowAtIndexPath:(__unused NSIndexPath *)indexPath {
-    return 54.0;
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark UITableViewDataSource

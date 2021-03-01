@@ -29,6 +29,7 @@ class BTDropInUICustomizationTests: XCTestCase {
         XCTAssertNil(uiCustomization.fontFamily)
         XCTAssertNil(uiCustomization.boldFontFamily)
         XCTAssertNil(uiCustomization.navigationBarTitleTextColor)
+        XCTAssertFalse(uiCustomization.disableDynamicType)
     }
 
     func testInit_withDarkColorScheme() {
@@ -57,6 +58,7 @@ class BTDropInUICustomizationTests: XCTestCase {
         XCTAssertNil(uiCustomization.fontFamily)
         XCTAssertNil(uiCustomization.boldFontFamily)
         XCTAssertNil(uiCustomization.navigationBarTitleTextColor)
+        XCTAssertFalse(uiCustomization.disableDynamicType)
     }
 
     func testInit_withDynamicColorScheme_whenSystemIsInLightMode() {
@@ -86,6 +88,7 @@ class BTDropInUICustomizationTests: XCTestCase {
             XCTAssertNil(uiCustomization.fontFamily)
             XCTAssertNil(uiCustomization.boldFontFamily)
             XCTAssertNil(uiCustomization.navigationBarTitleTextColor)
+            XCTAssertFalse(uiCustomization.disableDynamicType)
         }
     }
 }

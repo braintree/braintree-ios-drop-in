@@ -1,4 +1,4 @@
-#import "BTDropInUICustomization.h"
+#import <BraintreeDropIn/BTDropInUICustomization.h>
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/UIColor+BTUIK.h>

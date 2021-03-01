@@ -19,6 +19,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.hideCaret = NO;
+        self.adjustsFontForContentSizeCategory = YES;
     }
     return self;
 }
@@ -27,7 +28,7 @@
     NSMutableAttributedString *mutablePlaceholder = [[NSMutableAttributedString alloc] initWithString:placeholder];
     [mutablePlaceholder beginEditing];
     [mutablePlaceholder addAttributes:@{NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].placeholderTextColor,
-                                        NSFontAttributeName:[[BTUIKAppearance sharedInstance].font fontWithSize:UIFont.labelFontSize]}
+                                        NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}
                                 range:NSMakeRange(0, [mutablePlaceholder length])];
     [mutablePlaceholder endEditing];
     

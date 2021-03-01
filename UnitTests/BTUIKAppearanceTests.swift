@@ -19,14 +19,4 @@ class BTUIKAppearanceTests: XCTestCase {
         BTUIKAppearance.sharedInstance().navigationBarTitleTextColor = UIColor.green
         XCTAssertEqual(BTUIKAppearance.styledNavigationTitleLabel().textColor, UIColor.green)
     }
-
-    func testSettingFontFamily_returnsCorrectFont() {
-        BTUIKAppearance.sharedInstance().fontFamily = "Verdana"
-        XCTAssertEqual(BTUIKAppearance.sharedInstance().font.fontName, "Verdana")
-    }
-
-    func testSettingBoldFontFamily_returnsCorrectBoldFont() {
-        BTUIKAppearance.sharedInstance().boldFontFamily = "Courier-Bold"
-        XCTAssertEqual(BTUIKAppearance.sharedInstance().boldFont.fontName, "Courier-Bold")
-    }
 }
