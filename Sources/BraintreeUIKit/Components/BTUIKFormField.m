@@ -52,7 +52,7 @@
         [self.formLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [self.formLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [self.textField setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-        
+
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedField)]];
         
         [self setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
@@ -66,7 +66,7 @@
         self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
         [self addSubview:self.stackView];
 
-        if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory)) {
+        if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
             self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignment];
         } else {
@@ -91,7 +91,7 @@
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
     if (previousTraitCollection.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory) {
-        if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory)) {
+        if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
         } else {
             self.stackView.axis = UILayoutConstraintAxisHorizontal;
@@ -102,7 +102,7 @@
 }
 
 - (void)updateTextAlignment {
-    BOOL isAccessibilityFontSize = UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory);
+    BOOL isAccessibilityFontSize = UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType;
     if (self.formLabel.text.length && !isAccessibilityFontSize) {
         self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignmentInverse];
     } else {
@@ -185,18 +185,9 @@
             self.textField.accessibilityLabel = [self stripInvalidAccessibilityFromString:currentAccessibilityLabel];
         }
     }
-    
-    NSMutableAttributedString *mutableText = [[NSMutableAttributedString alloc] initWithAttributedString:self.textField.attributedText];
-    [mutableText addAttributes:@{NSForegroundColorAttributeName: textColor,
-                                 NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}
-                         range:NSMakeRange(0, mutableText.length)];
-    
-    UITextRange *currentRange = self.textField.selectedTextRange;
-    
-    self.textField.attributedText = mutableText;
-    
-    // Reassign current selection range, since it gets cleared after attributedText assignment
-    self.textField.selectedTextRange = currentRange;
+
+    self.textField.textColor = textColor;
+    self.textField.font = [BTUIKAppearance sharedInstance].bodyFont;
 }
 
 #pragma mark - BTUITextFieldEditDelegate methods
