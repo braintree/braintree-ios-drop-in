@@ -5,7 +5,6 @@
 static NSArray *customTranslations;
 
 + (NSBundle *)localizationBundle {
-    static NSString * bundleName = @"Braintree-UIKit-Localization";
     if ([[NSLocale preferredLanguages] count] > 0) {
         NSString *language = [[NSLocale preferredLanguages] firstObject];
         // Ignore region portion of local ID
@@ -16,12 +15,15 @@ static NSArray *customTranslations;
         }
     }
 
+    NSString *bundleName = @"Braintree-UIKit-Localization";
     NSString *localizationBundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
     if (!localizationBundlePath) {
-        localizationBundlePath = [[NSBundle bundleForClass:[self class]] pathForResource:bundleName ofType:@"bundle"];
+        localizationBundlePath = [[NSBundle bundleForClass:self.class] pathForResource:bundleName ofType:@"bundle"];
     }
-    
-    return localizationBundlePath ? [NSBundle bundleWithPath:localizationBundlePath] : [NSBundle mainBundle];
+
+    // CocoaPods creates "Braintree-UIKit-Localization.bundle", so we check for that first.
+    // If not found, use the BraintreeUIKit bundle, which is where Carthage will find the localized strings.
+    return localizationBundlePath ? [NSBundle bundleWithPath:localizationBundlePath] : [NSBundle bundleForClass:self.class];
 }
 
 + (NSString *)localizationTable {
