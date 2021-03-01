@@ -14,7 +14,7 @@
 
 @property (nonatomic, copy) NSString *previousTextFieldText;
 @property (nonatomic, strong) NSMutableArray *layoutConstraints;
-@property (nonatomic, strong) UILabel* formLabel;
+@property (nonatomic, strong) UILabel *formLabel;
 @property (nonatomic, strong) UIStackView *stackView;
 
 @end
