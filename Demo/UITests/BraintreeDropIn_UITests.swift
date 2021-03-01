@@ -62,9 +62,9 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••11"])
+        waitForElementToAppear(app.staticTexts["1111"])
 
-        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
+        XCTAssertTrue(app.staticTexts["1111"].exists)
     }
 
     func testDropIn_cardInput_showsInvalidState_withInvalidCardNumber() {
@@ -303,9 +303,9 @@ class BraintreeDropIn_CardholderNameAvailable_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••11"])
+        waitForElementToAppear(app.staticTexts["1111"])
 
-        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
+        XCTAssertTrue(app.staticTexts["1111"].exists)
 
     }
 }
@@ -401,9 +401,9 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••11"])
+        waitForElementToAppear(app.staticTexts["1111"])
 
-        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
+        XCTAssertTrue(app.staticTexts["1111"].exists)
     }
 }
 
@@ -449,9 +449,9 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••11"])
+        waitForElementToAppear(app.staticTexts["1111"])
 
-        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
+        XCTAssertTrue(app.staticTexts["1111"].exists)
     }
 
     func testDropIn_nonUnionPayCardNumber_showsNextButton() {
@@ -739,9 +739,9 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
 
         app.buttons["Submit"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••11"])
+        waitForElementToAppear(app.staticTexts["1111"])
 
-        XCTAssertTrue(app.staticTexts["••• ••11"].exists)
+        XCTAssertTrue(app.staticTexts["1111"].exists)
 
         waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()

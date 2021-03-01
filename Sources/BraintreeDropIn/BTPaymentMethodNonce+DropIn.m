@@ -16,7 +16,7 @@
 
 - (NSString *)paymentDescription {
     if ([self isKindOfClass:[BTCardNonce class]]) {
-        return [NSString stringWithFormat:@"••• ••%@", ((BTCardNonce *)self).lastTwo ?: @""];
+        return ((BTCardNonce *)self).lastFour;
     } else if ([self isKindOfClass:[BTPayPalAccountNonce class]]) {
         return ((BTPayPalAccountNonce *)self).email;
     } else if ([self isKindOfClass:[BTVenmoAccountNonce class]]) {
