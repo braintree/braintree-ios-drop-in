@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Fix localizations for Carthage integrations (fixes #272)
+
 ## 8.1.2 (2020-11-30)
 
 * Exclude arm64 simulator architectures via Podspec (fixes #233)
