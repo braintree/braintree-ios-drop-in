@@ -32,7 +32,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textField.accessibilityLabel = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
-        self.formLabel.text = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
+        self.labelText = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
         self.expiryInputView = [BTUIKExpiryInputView new];
         self.expiryInputView.delegate = self;

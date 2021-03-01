@@ -20,7 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textField.accessibilityLabel = BTUIKLocalizedString(POSTAL_CODE_PLACEHOLDER);
-        self.formLabel.text = BTUIKLocalizedString(POSTAL_CODE_PLACEHOLDER);
+        self.labelText = BTUIKLocalizedString(POSTAL_CODE_PLACEHOLDER);
         self.textField.placeholder = @"12345";
         self.textField.keyboardType = [BTUIKAppearance sharedInstance].postalCodeFormFieldKeyboardType;
 

@@ -22,6 +22,7 @@
 
 @interface BTUIKCardNumberFormField ()
 @property (nonatomic, strong) BTUIKPaymentOptionCardView *hint;
+@property (nonatomic, strong) UIView *hintContainer;
 @property (nonatomic, strong) UIButton *validateButton;
 @property (nonatomic, strong) UIActivityIndicatorView *loadingView;
 
@@ -37,16 +38,25 @@
         self.state = BTUIKCardNumberFormFieldStateDefault;
         self.textField.accessibilityLabel = BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
         self.textField.placeholder = BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
-        self.formLabel.text = @"";
+        self.labelText = @"";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
         
         self.hint = [BTUIKPaymentOptionCardView new];
         self.hint.paymentOptionType = BTUIKPaymentOptionTypeUnknown;
         self.hint.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.hint addConstraint:[NSLayoutConstraint constraintWithItem:self.hint attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:[BTUIKAppearance smallIconHeight]]];
-        [self.hint addConstraint:[NSLayoutConstraint constraintWithItem:self.hint attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:[BTUIKAppearance smallIconWidth]]];
-        
-        self.accessoryView = self.hint;
+
+        [self.hint.widthAnchor constraintEqualToConstant:[BTUIKAppearance smallIconWidth]].active = YES;
+        [self.hint.heightAnchor constraintEqualToConstant:[BTUIKAppearance smallIconHeight]].active = YES;
+
+        self.hintContainer = [UIView new];
+        [self.hintContainer addSubview:self.hint];
+
+        [self.hintContainer.widthAnchor constraintEqualToAnchor:self.hint.widthAnchor constant:10].active = YES;
+        [self.hintContainer.heightAnchor constraintEqualToAnchor:self.hint.heightAnchor].active = YES;
+        [self.hint.leadingAnchor constraintEqualToAnchor:self.hintContainer.leadingAnchor constant:10].active = YES;
+        [self.hint.centerYAnchor constraintEqualToAnchor:self.hintContainer.centerYAnchor].active = YES;
+
+        self.accessoryView = self.hintContainer;
         [self setAccessoryViewHidden:YES animated:NO];
         
         self.validateButton = [UIButton new];
@@ -132,7 +142,7 @@
     self.textField.text = _number;
     [super textFieldDidBeginEditing:textField];
     self.displayAsValid = self.valid || (!self.isValidLength && self.isPotentiallyValid);
-    self.formLabel.text = @"";
+    self.labelText = @"";
     [UIView transitionWithView:self
                       duration:0.2
                        options:UIViewAnimationOptionTransitionCrossDissolve
@@ -142,7 +152,6 @@
                         } else {
                             [self setAccessoryViewHidden:YES animated:YES];
                         }
-                        [self updateConstraints];
                         [self updateAppearance];
                         
                         if (self.isPotentiallyValid) {
@@ -154,7 +163,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.displayAsValid = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) || (_cardType != nil && [_cardType validNumber:_number]);
-    self.formLabel.text = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
+    self.labelText = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTUIKLocalizedString(CARD_NUMBER_PLACEHOLDER);
     [UIView animateWithDuration:0.2 animations:^{
         if ([self isShowingValidateButton]) {
             [self setAccessoryViewHidden:NO animated:NO];
@@ -169,16 +178,14 @@
             NSString *lastFour = [self.number substringFromIndex: [self.number length] - 4];
             self.textField.text = [NSString stringWithFormat:@"•••• %@", lastFour];
         }
-        [self updateConstraints];
         [self updateAppearance];
     }];
 }
 
 - (void)resetFormField {
-    self.formLabel.text = @"";
+    self.labelText = @"";
     self.textField.text = @"";
     [self setAccessoryViewHidden:YES animated:NO];
-    [self updateConstraints];
     [self updateAppearance];
 }
 
@@ -190,8 +197,8 @@
     }
     _state = state;
     if (self.state == BTUIKCardNumberFormFieldStateDefault) {
-        self.accessoryView = self.hint;
-        [self setAccessoryViewHidden:(self.formLabel.text.length <= 0) animated:YES];
+        self.accessoryView = self.hintContainer;
+        [self setAccessoryViewHidden:(self.labelText.length <= 0) animated:YES];
     } else if (self.state == BTUIKCardNumberFormFieldStateLoading) {
         self.accessoryView = self.loadingView;
         [self setAccessoryViewHidden:NO animated:YES];
