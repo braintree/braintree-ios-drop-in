@@ -22,6 +22,7 @@
 
 @interface BTUIKCardNumberFormField ()
 @property (nonatomic, strong) BTUIKPaymentOptionCardView *hint;
+@property (nonatomic, strong) UIView *hintContainer;
 @property (nonatomic, strong) UIButton *validateButton;
 @property (nonatomic, strong) UIActivityIndicatorView *loadingView;
 
@@ -46,8 +47,16 @@
 
         [self.hint.widthAnchor constraintEqualToConstant:[BTUIKAppearance smallIconWidth]].active = YES;
         [self.hint.heightAnchor constraintEqualToConstant:[BTUIKAppearance smallIconHeight]].active = YES;
-        
-        self.accessoryView = self.hint;
+
+        self.hintContainer = [UIView new];
+        [self.hintContainer addSubview:self.hint];
+
+        [self.hintContainer.widthAnchor constraintEqualToAnchor:self.hint.widthAnchor constant:10].active = YES;
+        [self.hintContainer.heightAnchor constraintEqualToAnchor:self.hint.heightAnchor].active = YES;
+        [self.hint.leadingAnchor constraintEqualToAnchor:self.hintContainer.leadingAnchor constant:10].active = YES;
+        [self.hint.centerYAnchor constraintEqualToAnchor:self.hintContainer.centerYAnchor].active = YES;
+
+        self.accessoryView = self.hintContainer;
         [self setAccessoryViewHidden:YES animated:NO];
         
         self.validateButton = [UIButton new];
@@ -188,7 +197,7 @@
     }
     _state = state;
     if (self.state == BTUIKCardNumberFormFieldStateDefault) {
-        self.accessoryView = self.hint;
+        self.accessoryView = self.hintContainer;
         [self setAccessoryViewHidden:(self.labelText.length <= 0) animated:YES];
     } else if (self.state == BTUIKCardNumberFormFieldStateLoading) {
         self.accessoryView = self.loadingView;
