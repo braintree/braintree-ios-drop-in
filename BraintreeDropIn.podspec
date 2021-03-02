@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   DESC
   s.homepage         = "https://www.braintreepayments.com/how-braintree-works"
   s.documentation_url = "https://developers.braintreepayments.com/ios/start/hello-client"
-  s.screenshots      = ["https://github.com/braintree/braintree-ios-drop-in/blob/master/Images/client-sdk-ios-series-light.png", "https://github.com/braintree/braintree-ios-drop-in/blob/master/Images/client-sdk-ios-series-dark.png"]
+  s.screenshots      = ["https://github.com/braintree/braintree-ios-drop-in/raw/master/Images/client-sdk-ios-series-light.png", "https://github.com/braintree/braintree-ios-drop-in/raw/master/Images/client-sdk-ios-series-dark.png"]
   s.license          = "MIT"
   s.author           = { "Braintree" => "code@getbraintree.com" }
   s.source           = { :git => "https://github.com/braintree/braintree-ios-drop-in.git", :tag => s.version.to_s }
