@@ -273,7 +273,7 @@ In either case, you still need to implement the deprecated equivalent in order t
 
 Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
 
-Next, read the [**full documentation**](https://developers.braintreepayments.com/ios/sdk/client) for information about integration options, such as Drop-In UI, custom payment button, and credit card tokenization.
+Also see our [**reference documentation**](https://braintree.github.io/braintree-ios-drop-in/current/).
 
 ## Demo
 
