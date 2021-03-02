@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UILabel* descriptionLabel;
 @property (nonatomic, strong) BTPaymentMethodNonce* paymentMethodNonce;
 
++ (CGSize)dynamicSize;
+
 @end

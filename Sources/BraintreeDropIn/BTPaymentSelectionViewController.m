@@ -118,7 +118,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
 
-    NSLayoutConstraint *heightConstraint;
     self.vaultedPaymentsHeader = [self sectionHeaderLabelWithString:BTUIKLocalizedString(RECENT_LABEL)];
     self.vaultedPaymentsHeader.translatesAutoresizingMaskIntoConstraints = NO;
 
@@ -147,7 +146,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     _vaultedCardAppearAnalyticSent = NO;
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
+    flowLayout.itemSize = BTUIPaymentMethodCollectionViewCell.dynamicSize;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
     self.savedPaymentMethodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
@@ -157,7 +156,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [self.savedPaymentMethodsCollectionView registerClass:[BTUIPaymentMethodCollectionViewCell class] forCellWithReuseIdentifier:@"BTUIPaymentMethodCollectionViewCellIdentifier"];
     self.savedPaymentMethodsCollectionView.backgroundColor = [UIColor clearColor];
     self.savedPaymentMethodsCollectionView.showsHorizontalScrollIndicator = NO;
-    heightConstraint = [self.savedPaymentMethodsCollectionView.heightAnchor constraintEqualToConstant:SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT + [BTUIKAppearance verticalFormSpace]];
+
+    NSLayoutConstraint *heightConstraint;
+    heightConstraint = [self.savedPaymentMethodsCollectionView.heightAnchor constraintEqualToConstant:BTUIPaymentMethodCollectionViewCell.dynamicSize.height];
     // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
     heightConstraint.priority = UILayoutPriorityDefaultHigh;
     heightConstraint.active = YES;
@@ -345,7 +346,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (float)sheetHeight {
     float tableViewContentHeight = self.paymentOptionsTableView.contentSize.height;
-    return self.paymentMethodNonces.count == 0 ? tableViewContentHeight + 150 : tableViewContentHeight + 340;
+    float collectionViewContentHeight = self.savedPaymentMethodsCollectionView.contentSize.height;
+    return self.paymentMethodNonces.count == 0 ? tableViewContentHeight + 150 : tableViewContentHeight + collectionViewContentHeight + 140;
 }
 
 - (void)vaultedPaymentsEditButtonPressed {

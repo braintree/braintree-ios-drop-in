@@ -82,4 +82,14 @@
     self.alpha = highlighted ? 0.5 : 1.0;
 }
 
++ (CGSize)dynamicSize {
+    BTUIPaymentMethodCollectionViewCell *sizingCell = [[BTUIPaymentMethodCollectionViewCell alloc] initWithFrame:CGRectZero];
+    sizingCell.titleLabel.text = BTUIKLocalizedString(PAYPAL);
+    sizingCell.descriptionLabel.text = BTUIKLocalizedString(PAYPAL);
+    [sizingCell layoutIfNeeded];
+    CGFloat height = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+
+    return CGSizeMake([BTUIKAppearance largeIconWidth] + 5, height);
+}
+
 @end
