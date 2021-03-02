@@ -26,6 +26,10 @@
 		4237D7F625E5BCA3006F6CE3 /* UIFont+BTUIK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7F425E5BCA3006F6CE3 /* UIFont+BTUIK.m */; };
 		4237D7FE25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
+		425867D125EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 425867CF25EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h */; };
+		425867D225EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425867D025EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m */; };
+		425867DB25EF024400D5F160 /* BTPaymentSelectionHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 425867D925EF024400D5F160 /* BTPaymentSelectionHeaderView.h */; };
+		425867DC25EF024400D5F160 /* BTPaymentSelectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425867DA25EF024400D5F160 /* BTPaymentSelectionHeaderView.m */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
 		42A115D625B0C35A0008C29B /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A115CB25B0C35A0008C29B /* BraintreeCard.framework */; };
 		42A115D725B0C35A0008C29B /* PayPalDataCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A115CC25B0C35A0008C29B /* PayPalDataCollector.framework */; };
@@ -266,6 +270,10 @@
 		4237D7F425E5BCA3006F6CE3 /* UIFont+BTUIK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+BTUIK.m"; sourceTree = "<group>"; };
 		4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+BTUIKTests.swift"; sourceTree = "<group>"; };
 		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
+		425867CF25EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTVaultedPaymentMethodsTableViewCell.h; sourceTree = "<group>"; };
+		425867D025EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTVaultedPaymentMethodsTableViewCell.m; sourceTree = "<group>"; };
+		425867D925EF024400D5F160 /* BTPaymentSelectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTPaymentSelectionHeaderView.h; sourceTree = "<group>"; };
+		425867DA25EF024400D5F160 /* BTPaymentSelectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionHeaderView.m; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		42A115CB25B0C35A0008C29B /* BraintreeCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCard.framework; path = Carthage/Build/iOS/BraintreeCard.framework; sourceTree = "<group>"; };
@@ -834,8 +842,12 @@
 				A56C419A1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m */,
 				A56C419B1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.h */,
 				A56C419C1D8335BB000DFFAB /* BTEnrollmentVerificationViewController.m */,
+				425867D925EF024400D5F160 /* BTPaymentSelectionHeaderView.h */,
+				425867DA25EF024400D5F160 /* BTPaymentSelectionHeaderView.m */,
 				A56C419D1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h */,
 				A56C419E1D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m */,
+				425867CF25EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h */,
+				425867D025EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -942,8 +954,10 @@
 				A56C419F1D8335BB000DFFAB /* BTDropInPaymentSeletionCell.h in Headers */,
 				A56C41A31D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.h in Headers */,
 				4237D7B925E42D97006F6CE3 /* BTUIKAppearance+DropIn.h in Headers */,
+				425867D125EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h in Headers */,
 				A56C41911D833568000DFFAB /* BTDropInUIUtilities.h in Headers */,
 				A56C41B01D8335C7000DFFAB /* BTDropInController.h in Headers */,
+				425867DB25EF024400D5F160 /* BTPaymentSelectionHeaderView.h in Headers */,
 				A56C41B11D8335C7000DFFAB /* BTDropInRequest.h in Headers */,
 				A56C41B21D8335C7000DFFAB /* BTDropInResult.h in Headers */,
 				8068E585256D9C64002904E6 /* BTAPIClient_Internal_Category.h in Headers */,
@@ -1248,11 +1262,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A56C41971D833597000DFFAB /* BTDropInRequest.m in Sources */,
+				425867D225EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m in Sources */,
 				A56C41A01D8335BB000DFFAB /* BTDropInPaymentSeletionCell.m in Sources */,
 				4237D7A525E42844006F6CE3 /* BTDropInUICustomization.m in Sources */,
 				4237D7BA25E42D97006F6CE3 /* BTUIKAppearance+DropIn.m in Sources */,
 				A56C41941D833568000DFFAB /* BTVaultManagementViewController.m in Sources */,
 				A56C41A41D8335BB000DFFAB /* BTUIPaymentMethodCollectionViewCell.m in Sources */,
+				425867DC25EF024400D5F160 /* BTPaymentSelectionHeaderView.m in Sources */,
 				4225EA58257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m in Sources */,
 				A56C41921D833568000DFFAB /* BTDropInUIUtilities.m in Sources */,
 				A56C418E1D833568000DFFAB /* BTCardFormViewController.m in Sources */,
