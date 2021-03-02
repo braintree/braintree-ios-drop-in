@@ -527,9 +527,9 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         waitForElementToBeHittable(app.buttons["Confirm"])
         app.buttons["Confirm"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••32"])
+        waitForElementToAppear(app.staticTexts["1232"])
 
-        XCTAssertTrue(app.staticTexts["••• ••32"].exists)
+        XCTAssertTrue(app.staticTexts["1232"].exists)
     }
 
 }
@@ -872,9 +872,9 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••00"])
+        waitForElementToAppear(app.staticTexts["1000"])
 
-        XCTAssertTrue(app.staticTexts["••• ••00"].exists)
+        XCTAssertTrue(app.staticTexts["1000"].exists)
 
         waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
@@ -920,9 +920,9 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         app.buttons["SUBMIT"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••91"])
+        waitForElementToAppear(app.staticTexts["1091"])
 
-        XCTAssertTrue(app.staticTexts["••• ••91"].exists)
+        XCTAssertTrue(app.staticTexts["1091"].exists)
 
         waitForElementToBeHittable(app.buttons["Complete Purchase"])
         app.buttons["Complete Purchase"].forceTapElement()
@@ -1009,9 +1009,9 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
 
         app.buttons["SUBMIT"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["••• ••91"])
+        waitForElementToAppear(app.staticTexts["1091"])
 
-        XCTAssertTrue(app.staticTexts["••• ••91"].exists)
+        XCTAssertTrue(app.staticTexts["1091"].exists)
     }
 }
 
