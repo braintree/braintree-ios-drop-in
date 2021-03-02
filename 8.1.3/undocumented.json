@@ -1,0 +1,1174 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTCardFormViewController.h",
+      "line": 16,
+      "symbol": "BTCardFormViewController.delegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTCardFormViewController.h",
+      "line": 53,
+      "symbol": "BTCardFormViewControllerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTCardFormViewController.h",
+      "line": 55,
+      "symbol": "BTCardFormViewControllerDelegate.-cardTokenizationCompleted:error:sender:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInController.h",
+      "line": 16,
+      "symbol": "BTDropInControllerHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInController.h",
+      "line": 42,
+      "symbol": "BTDropInControllerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInController.h",
+      "line": 44,
+      "symbol": "BTDropInControllerDelegate.-reloadDropInData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInRequest.h",
+      "line": 7,
+      "symbol": "BTFormFieldSetting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInRequest.h",
+      "line": 7,
+      "symbol": "BTFormFieldSetting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInRequest.h",
+      "line": 8,
+      "symbol": "BTFormFieldSetting.BTFormFieldDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInRequest.h",
+      "line": 9,
+      "symbol": "BTFormFieldSetting.BTFormFieldOptional",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInRequest.h",
+      "line": 10,
+      "symbol": "BTFormFieldSetting.BTFormFieldRequired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInRequest.h",
+      "line": 13,
+      "symbol": "BTDropInRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInResult.h",
+      "line": 12,
+      "symbol": "BTDropInResult",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTDropInResult.h",
+      "line": 14,
+      "symbol": "BTDropInResultFetchHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTPaymentSelectionViewController.h",
+      "line": 28,
+      "symbol": "BTPaymentSelectionViewControllerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BTVaultManagementViewController.h",
+      "line": 17,
+      "symbol": "BTVaultManagementViewController.delegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BraintreeDropIn.h",
+      "line": 4,
+      "symbol": "BraintreeDropInVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeDropIn/Public/BraintreeDropIn.h",
+      "line": 7,
+      "symbol": "BraintreeDropInVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 3,
+      "symbol": "BTUIKAppearance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 5,
+      "symbol": "BTUIKColorScheme",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 5,
+      "symbol": "BTUIKColorScheme",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 6,
+      "symbol": "BTUIKColorScheme.BTUIKColorSchemeLight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 7,
+      "symbol": "BTUIKColorScheme.BTUIKColorSchemeDark",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 8,
+      "symbol": "BTUIKColorScheme.BTUIKColorSchemeDynamic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 25,
+      "symbol": "BTUIKAppearance.font",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 27,
+      "symbol": "BTUIKAppearance.boldFont",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 73,
+      "symbol": "BTUIKAppearance.+styleLabelBoldPrimary:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 74,
+      "symbol": "BTUIKAppearance.+styleSmallLabelBoldPrimary:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 75,
+      "symbol": "BTUIKAppearance.+styleSmallLabelPrimary:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 76,
+      "symbol": "BTUIKAppearance.+styleLabelSecondary:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 77,
+      "symbol": "BTUIKAppearance.+styleLargeLabelSecondary:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 78,
+      "symbol": "BTUIKAppearance.+styleSystemLabelSecondary:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 79,
+      "symbol": "BTUIKAppearance.+styledNavigationTitleLabel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 81,
+      "symbol": "BTUIKAppearance.+horizontalFormContentPadding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 82,
+      "symbol": "BTUIKAppearance.+formCellHeight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 83,
+      "symbol": "BTUIKAppearance.+verticalFormSpace",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 84,
+      "symbol": "BTUIKAppearance.+verticalFormSpaceTight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 85,
+      "symbol": "BTUIKAppearance.+verticalSectionSpace",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 86,
+      "symbol": "BTUIKAppearance.+smallIconWidth",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 87,
+      "symbol": "BTUIKAppearance.+smallIconHeight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 88,
+      "symbol": "BTUIKAppearance.+largeIconWidth",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 89,
+      "symbol": "BTUIKAppearance.+largeIconHeight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKAppearance.h",
+      "line": 90,
+      "symbol": "BTUIKAppearance.+metrics",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpirationValidator.h",
+      "line": 5,
+      "symbol": "BTUIKCardExpirationValidator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpirationValidator.h",
+      "line": 7,
+      "symbol": "BTUIKCardExpirationValidator.+month:year:validForDate:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpiryFormat.h",
+      "line": 3,
+      "symbol": "BTUIKCardExpiryFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpiryFormat.h",
+      "line": 4,
+      "symbol": "BTUIKCardExpiryFormat.value",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpiryFormat.h",
+      "line": 5,
+      "symbol": "BTUIKCardExpiryFormat.cursorLocation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpiryFormat.h",
+      "line": 6,
+      "symbol": "BTUIKCardExpiryFormat.backspace",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardExpiryFormat.h",
+      "line": 8,
+      "symbol": "BTUIKCardExpiryFormat.-formattedValue:cursorLocation:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardNumberFormField.h",
+      "line": 14,
+      "symbol": "BTUIKCardNumberFormFieldState.BTUIKCardNumberFormFieldStateDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardNumberFormField.h",
+      "line": 15,
+      "symbol": "BTUIKCardNumberFormFieldState.BTUIKCardNumberFormFieldStateValidate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardNumberFormField.h",
+      "line": 16,
+      "symbol": "BTUIKCardNumberFormFieldState.BTUIKCardNumberFormFieldStateLoading",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardNumberFormField.h",
+      "line": 37,
+      "symbol": "BTUIKCardNumberFormFieldDelegate.-validateButtonPressed:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardType.h",
+      "line": 33,
+      "symbol": "BTUIKCardType.-formatNumber:kerning:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKCardholderNameFormField.h",
+      "line": 3,
+      "symbol": "BTUIKCardholderNameFormField",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKExpiryInputView.h",
+      "line": 21,
+      "symbol": "BTUIKExpiryInputViewDelegate.-expiryInputViewDidChange:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 5,
+      "symbol": "BTUIKLocalizedString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 9,
+      "symbol": "BTUIKLocalizedString.+setCustomTranslations:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 11,
+      "symbol": "BTUIKLocalizedString.+insertIntoLocalizedString:replacement:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 13,
+      "symbol": "BTUIKLocalizedString.+insertIntoLocalizedString:replacement:token:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 17,
+      "symbol": "BTUIKLocalizedString.+CARD_DETAILS_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 18,
+      "symbol": "BTUIKLocalizedString.+ENTER_CARD_DETAILS_HELP_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 19,
+      "symbol": "BTUIKLocalizedString.+VALID_CARD_ERROR_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 20,
+      "symbol": "BTUIKLocalizedString.+CARD_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 21,
+      "symbol": "BTUIKLocalizedString.+CARD_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 22,
+      "symbol": "BTUIKLocalizedString.+EXPIRATION_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 23,
+      "symbol": "BTUIKLocalizedString.+EXPIRATION_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 24,
+      "symbol": "BTUIKLocalizedString.+CVV_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 25,
+      "symbol": "BTUIKLocalizedString.+CVV_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 26,
+      "symbol": "BTUIKLocalizedString.+POSTAL_CODE_HELP_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 27,
+      "symbol": "BTUIKLocalizedString.+POSTAL_CODE_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 28,
+      "symbol": "BTUIKLocalizedString.+POSTAL_CODE_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 29,
+      "symbol": "BTUIKLocalizedString.+COUNTRY_CODE_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 30,
+      "symbol": "BTUIKLocalizedString.+COUNTRY_CODE_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 31,
+      "symbol": "BTUIKLocalizedString.+MOBILE_NUMBER_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 32,
+      "symbol": "BTUIKLocalizedString.+MOBILE_NUMBER_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 33,
+      "symbol": "BTUIKLocalizedString.+ENROLLMENT_WITH_SMS_HELP_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 34,
+      "symbol": "BTUIKLocalizedString.+SMS_CODE_REQUIRED",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 35,
+      "symbol": "BTUIKLocalizedString.+SMS_CODE_INVALID",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 37,
+      "symbol": "BTUIKLocalizedString.+CANCEL_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 38,
+      "symbol": "BTUIKLocalizedString.+RETRY_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 39,
+      "symbol": "BTUIKLocalizedString.+CONTINUE_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 40,
+      "symbol": "BTUIKLocalizedString.+ADD_CARD_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 41,
+      "symbol": "BTUIKLocalizedString.+DONE_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 42,
+      "symbol": "BTUIKLocalizedString.+EDIT_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 43,
+      "symbol": "BTUIKLocalizedString.+NEXT_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 44,
+      "symbol": "BTUIKLocalizedString.+TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 45,
+      "symbol": "BTUIKLocalizedString.+EDIT_PAYMENT_METHOD",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 46,
+      "symbol": "BTUIKLocalizedString.+THERE_WAS_AN_ERROR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 47,
+      "symbol": "BTUIKLocalizedString.+REVIEW_AND_TRY_AGAIN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 48,
+      "symbol": "BTUIKLocalizedString.+INVALID_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 49,
+      "symbol": "BTUIKLocalizedString.+YEAR_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 50,
+      "symbol": "BTUIKLocalizedString.+MONTH_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 51,
+      "symbol": "BTUIKLocalizedString.+OTHER_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 52,
+      "symbol": "BTUIKLocalizedString.+CREDIT_OR_DEBIT_CARD_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 53,
+      "symbol": "BTUIKLocalizedString.+RECENT_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 54,
+      "symbol": "BTUIKLocalizedString.+SELECT_PAYMENT_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 55,
+      "symbol": "BTUIKLocalizedString.+CONFIRM_ENROLLMENT_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 56,
+      "symbol": "BTUIKLocalizedString.+CONFIRM_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 57,
+      "symbol": "BTUIKLocalizedString.+ENTER_SMS_CODE_SENT_HELP_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 58,
+      "symbol": "BTUIKLocalizedString.+SMS_CODE_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 59,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_GENERIC_CARD",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 60,
+      "symbol": "BTUIKLocalizedString.+MOBILE_COUNTRY_CODE_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 61,
+      "symbol": "BTUIKLocalizedString.+SECURITY_CODE_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 62,
+      "symbol": "BTUIKLocalizedString.+CVV_FIELD_PLACEHOLDER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 63,
+      "symbol": "BTUIKLocalizedString.+CVC_FIELD_PLACEHOLDER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 64,
+      "symbol": "BTUIKLocalizedString.+CID_FIELD_PLACEHOLDER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 65,
+      "symbol": "BTUIKLocalizedString.+CVN_FIELD_PLACEHOLDER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 66,
+      "symbol": "BTUIKLocalizedString.+POSTAL_CODE_PLACEHOLDER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 67,
+      "symbol": "BTUIKLocalizedString.+MOBILE_NUMBER_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 68,
+      "symbol": "BTUIKLocalizedString.+EXPIRATION_DATE_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 69,
+      "symbol": "BTUIKLocalizedString.+CARD_NUMBER_PLACEHOLDER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 70,
+      "symbol": "BTUIKLocalizedString.+EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 71,
+      "symbol": "BTUIKLocalizedString.+EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 72,
+      "symbol": "BTUIKLocalizedString.+CARDHOLDER_NAME_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 73,
+      "symbol": "BTUIKLocalizedString.+SAVE_CARD_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 75,
+      "symbol": "BTUIKLocalizedString.+PAYPAL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 76,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_AMERICAN_EXPRESS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 77,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_DISCOVER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 78,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_DINERS_CLUB",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 79,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_MASTER_CARD",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 80,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_VISA",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 81,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_JCB",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 82,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_MAESTRO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 83,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_UNION_PAY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 84,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_HIPER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 85,
+      "symbol": "BTUIKLocalizedString.+CARD_TYPE_HIPERCARD",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 86,
+      "symbol": "BTUIKLocalizedString.+BRANDING_COINBASE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 87,
+      "symbol": "BTUIKLocalizedString.+BRANDING_VENMO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 88,
+      "symbol": "BTUIKLocalizedString.+BRANDING_APPLE_PAY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 89,
+      "symbol": "BTUIKLocalizedString.+USE_DIFFERENT_PHONE_NUMBER_ACTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 90,
+      "symbol": "BTUIKLocalizedString.+CARD_NOT_ACCEPTED_ERROR_LABEL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 94,
+      "symbol": "BTUIKLocalizedString.+DEV_SAMPLE_SMS_CODE_TITLE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKLocalizedString.h",
+      "line": 95,
+      "symbol": "BTUIKLocalizedString.+DEV_SAMPLE_SMS_CODE_INFO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 3,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 4,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeAMEX",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 5,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeDinersClub",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 6,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeDiscover",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 7,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeMasterCard",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 8,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeVisa",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 9,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeJCB",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 10,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeLaser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 11,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeMaestro",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 12,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeUnionPay",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 13,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeHiper",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 14,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeHipercard",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 15,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeSolo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 16,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeSwitch",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 17,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeUKMaestro",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 18,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypePayPal",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 19,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeCoinbase",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 20,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeVenmo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKPaymentOptionType.h",
+      "line": 21,
+      "symbol": "BTUIKPaymentOptionType.BTUIKPaymentOptionTypeApplePay",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKSwitchFormField.h",
+      "line": 5,
+      "symbol": "BTUIKSwitchFormField",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKSwitchFormField.h",
+      "line": 7,
+      "symbol": "BTUIKSwitchFormField.-initWithTitle:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKTextField.h",
+      "line": 12,
+      "symbol": "BTUIKTextField.hideCaret",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKUtil.h",
+      "line": 3,
+      "symbol": "BTUIKUtil",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKViewUtil.h",
+      "line": 77,
+      "symbol": "BTUIKViewUtil.+vectorArtViewForVisualAssetType:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKVisualAssetType.h",
+      "line": 4,
+      "symbol": "BTUIKVisualAssetType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKVisualAssetType.h",
+      "line": 4,
+      "symbol": "BTUIKVisualAssetType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKVisualAssetType.h",
+      "line": 5,
+      "symbol": "BTUIKVisualAssetType.BTUIKVisualAssetTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKVisualAssetType.h",
+      "line": 6,
+      "symbol": "BTUIKVisualAssetType.BTUIKVisualAssetTypeCVVBack",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BTUIKVisualAssetType.h",
+      "line": 7,
+      "symbol": "BTUIKVisualAssetType.BTUIKVisualAssetTypeCVVFront",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BraintreeUIKit.h",
+      "line": 4,
+      "symbol": "BraintreeUIKitVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/BraintreeUIKit.h",
+      "line": 7,
+      "symbol": "BraintreeUIKitVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/scannillo/bt/braintree-ios-drop-in/BraintreeUIKit/Public/UIColor+BTUIK.h",
+      "line": 3,
+      "symbol": "UIColor(BTUIK)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/scannillo/bt/braintree-ios-drop-in"
+}
