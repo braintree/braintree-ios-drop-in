@@ -3,20 +3,14 @@ import BraintreeDropIn
 
 class BTPaymentMethodNonce_DropInTests: XCTestCase {
 
-    func testPaymentDescription_whenCardNonceWithLastTwo() {
+    func testPaymentDescription_whenCardNonceWithLastFour() {
         class MockCardNonce: BTCardNonce {
-            override var lastTwo: String? { "11" }
+            override var lastFour: String? { "1111" }
         }
 
         let cardNonce = MockCardNonce()
 
-        XCTAssertEqual("••• ••11", cardNonce.paymentDescription)
-    }
-
-    func testPaymentDescription_whenCardNonceWithoutLastTwo() {
-        let cardNonce = BTCardNonce()
-
-        XCTAssertEqual("••• ••", cardNonce.paymentDescription)
+        XCTAssertEqual("1111", cardNonce.paymentDescription)
     }
 
     func testPaymentDescription_whenPayPalNonce() {

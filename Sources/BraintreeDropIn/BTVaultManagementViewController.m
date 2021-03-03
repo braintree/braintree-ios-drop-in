@@ -129,11 +129,8 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     BTPaymentMethodNonce *paymentMethod = self.paymentMethodNonces[indexPath.row];
     BTUIKPaymentOptionType option = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:paymentMethod.type];
 
-    cell.detailLabel.text = @"";
-    NSString *typeString = paymentMethod.type;
-
     cell.detailLabel.text = paymentMethod.paymentDescription;
-    cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString]];
+    cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
     cell.iconView.paymentOptionType = option;
     cell.type = option;
 
