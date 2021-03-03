@@ -157,8 +157,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     self.savedPaymentMethodsCollectionView.backgroundColor = [UIColor clearColor];
     self.savedPaymentMethodsCollectionView.showsHorizontalScrollIndicator = NO;
 
-    NSLayoutConstraint *heightConstraint;
-    heightConstraint = [self.savedPaymentMethodsCollectionView.heightAnchor constraintEqualToConstant:BTUIPaymentMethodCollectionViewCell.dynamicSize.height];
+    NSLayoutConstraint *heightConstraint = [self.savedPaymentMethodsCollectionView.heightAnchor constraintEqualToConstant:BTUIPaymentMethodCollectionViewCell.dynamicSize.height + [BTUIKAppearance verticalFormSpace]];
     // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
     heightConstraint.priority = UILayoutPriorityDefaultHigh;
     heightConstraint.active = YES;
