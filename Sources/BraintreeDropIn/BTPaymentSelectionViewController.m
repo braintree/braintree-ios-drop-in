@@ -6,6 +6,7 @@
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 #import "BTVaultedPaymentMethodsTableViewCell.h"
+#import "BTPaymentSelectionHeaderView.h"
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BraintreeUIKit.h>
@@ -25,9 +26,10 @@
 #define SAVED_PAYMENT_METHODS_COLLECTION_WIDTH 105
 #define SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT 165
 
-@interface BTPaymentSelectionViewController ()
+@interface BTPaymentSelectionViewController () <BTPaymentSelectionHeaderViewDelegate, BTVaultedPaymentMethodsTableViewCellDelegate>
 @property (nonatomic, strong) NSArray *paymentOptionsData;
 @property (nonatomic, strong) UITableView *paymentOptionsTableView;
+@property (nonatomic, strong) NSLayoutConstraint *heightConstraint;
 @property (nonatomic, strong) id application;
 @end
 
@@ -54,6 +56,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (void)viewDidLoad {
+    NSLog(@"VIEW DID LOAD");
     [super viewDidLoad];
 
     self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION)
@@ -62,16 +65,17 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                                                                                action:nil];
 
     self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
-    self.view.translatesAutoresizingMaskIntoConstraints = false;
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
     self.view.backgroundColor = UIColor.clearColor;
 
     _vaultedCardAppearAnalyticSent = NO;
 
-    self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.paymentOptionsTableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
     self.paymentOptionsTableView.backgroundColor = UIColor.clearColor;
-    [self.paymentOptionsTableView registerClass:[BTDropInPaymentSeletionCell class] forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
-    [self.paymentOptionsTableView registerClass:[BTVaultedPaymentMethodsTableViewCell class] forCellReuseIdentifier:@"BTVaultedPaymentMethodsTableViewCell"];
+    [self.paymentOptionsTableView registerClass:BTDropInPaymentSeletionCell.class forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
+    [self.paymentOptionsTableView registerClass:BTVaultedPaymentMethodsTableViewCell.class forCellReuseIdentifier:@"BTVaultedPaymentMethodsTableViewCell"];
+    [self.paymentOptionsTableView registerClass:BTPaymentSelectionHeaderView.class forHeaderFooterViewReuseIdentifier:@"BTPaymentSelectionHeaderView"];
     self.paymentOptionsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.paymentOptionsTableView.delegate = self;
     self.paymentOptionsTableView.dataSource = self;
@@ -79,11 +83,24 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [self.paymentOptionsTableView setAlwaysBounceVertical:NO];
     [self.view addSubview:self.paymentOptionsTableView];
 
-    [self.paymentOptionsTableView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
-    [self.paymentOptionsTableView.heightAnchor constraintEqualToAnchor:self.view.heightAnchor].active = YES;
-    [self.paymentOptionsTableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [self.paymentOptionsTableView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
+    self.heightConstraint = [self.view.heightAnchor constraintEqualToConstant:150];
+    // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
+    self.heightConstraint.priority = UILayoutPriorityDefaultHigh;
+
+    [NSLayoutConstraint activateConstraints:@[
+        self.heightConstraint,
+        [self.paymentOptionsTableView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
+        [self.paymentOptionsTableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+        [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
+
     [self loadConfiguration];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"VIEW WILL APPEAR");
 }
 
 - (void)loadConfiguration {
@@ -93,6 +110,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)showLoadingScreen:(BOOL)show {
     [super showLoadingScreen:show];
+    self.paymentOptionsTableView.hidden = show;
 }
 
 - (void)dealloc {
@@ -101,11 +119,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary <NSString *, id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"contentSize"]) {
-        [self.paymentOptionsTableView removeConstraints:self.paymentOptionsTableView.constraints];
-        NSLayoutConstraint *heightConstraint = [self.paymentOptionsTableView.heightAnchor constraintEqualToConstant:self.paymentOptionsTableView.contentSize.height];
-        // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
-        heightConstraint.priority = UILayoutPriorityDefaultHigh;
-        heightConstraint.active = YES;
+        self.heightConstraint.constant = self.paymentOptionsTableView.contentSize.height;
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -197,17 +211,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     return NO;
 }
 
-- (UILabel *)sectionHeaderLabelWithString:(NSString*)string {
-    UILabel *sectionLabel = [UILabel new];
-    sectionLabel.text = [string uppercaseString];
-    sectionLabel.textAlignment = NSTextAlignmentNatural;
-    [BTUIKAppearance styleSystemLabelSecondary:sectionLabel];
-    return sectionLabel;
-}
-
 - (float)sheetHeight {
-    // TODO: - adjust this or get rid of it entirely? Can the view set its own height?
-    return self.paymentOptionsTableView.contentSize.height + 150;
+    CGFloat height = MAX(self.paymentOptionsTableView.contentSize.height, 150);
+    NSLog(@"SHEET HEIGHT: %f", height);
+    return height;
 }
 
 - (void)vaultedPaymentsEditButtonPressed {
@@ -238,6 +245,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
         BTVaultedPaymentMethodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         cell.paymentMethodNonces = self.paymentMethodNonces;
+        cell.delegate = self;
         return cell;
     } else {
         static NSString *simpleTableIdentifier = @"BTDropInPaymentSeletionCell";
@@ -317,16 +325,49 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.paymentMethodNonces.count == 0) {
+        return CGFLOAT_MIN; // hide the header if there's only one section
+    } else {
+        return 35;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (self.paymentMethodNonces.count == 0) {
         return nil;
-    } else if (section == 0) {
-        // TODO: - add header view with edit button, but only show edit button if requested on BTDropInRequest
-        return BTUIKLocalizedString(RECENT_LABEL);
-    } else if (section == 1) {
-        return BTUIKLocalizedString(OTHER_LABEL);
+    }
+
+    BTPaymentSelectionHeaderView *headerView = (BTPaymentSelectionHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"BTPaymentSelectionHeaderView"];
+    if (section == 0) {
+        headerView.title = BTUIKLocalizedString(RECENT_LABEL);
+        headerView.buttonText = BTUIKLocalizedString(EDIT_ACTION);
+        headerView.delegate = self;
     } else {
-        return nil;
+        headerView.title = BTUIKLocalizedString(OTHER_LABEL);
+    }
+    return headerView;
+}
+
+#pragma mark BTPaymentMethodSelectionHeaderViewDelegate
+
+- (void)didTapButtonOnHeaderView:(BTPaymentSelectionHeaderView *)headerView {
+    if ([self.delegate respondsToSelector:@selector(editPaymentMethods:)]){
+        [self.delegate performSelector:@selector(editPaymentMethods:) withObject:self];
+    }
+}
+
+#pragma mark BTVaultedPaymentMethodsTableViewCellDelegate
+
+- (void)vaultedPaymentMethodsTableViewCell:(BTVaultedPaymentMethodsTableViewCell *)cell didSelectNonce:(BTPaymentMethodNonce *)nonce {
+    if (self.delegate) {
+        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:nonce.type]
+                                                         nonce:nonce
+                                                         error:nil];
+
+        if ([nonce isKindOfClass:BTCardNonce.class]) {
+            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
+        }
     }
 }
 

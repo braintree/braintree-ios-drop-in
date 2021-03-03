@@ -141,7 +141,7 @@
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].overlayColor;
     self.view.userInteractionEnabled = YES;
     
-    
+
     self.contentView = [[UIView alloc] init];
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     self.contentView.backgroundColor = self.useBlur ? [UIColor clearColor] : [BTUIKAppearance sharedInstance].formBackgroundColor;

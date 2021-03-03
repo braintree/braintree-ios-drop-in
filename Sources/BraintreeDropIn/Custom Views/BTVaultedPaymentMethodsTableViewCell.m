@@ -36,15 +36,16 @@
 
         [self.contentView addSubview:self.collectionView];
 
-        [self.collectionView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
-        [self.collectionView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
-        [self.collectionView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor].active = YES;
-        [self.collectionView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor].active = YES;
-
-        NSLayoutConstraint *heightConstraint = [self.collectionView.heightAnchor constraintEqualToConstant:BTUIPaymentMethodCollectionViewCell.dynamicSize.height];
+        NSLayoutConstraint *heightConstraint = [self.collectionView.heightAnchor constraintEqualToConstant:BTUIPaymentMethodCollectionViewCell.dynamicSize.height + [BTUIKAppearance verticalFormSpace]];
         heightConstraint.priority = UILayoutPriorityDefaultHigh;
-        heightConstraint.active = YES;
 
+        [NSLayoutConstraint activateConstraints:@[
+            heightConstraint,
+            [self.collectionView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor],
+            [self.collectionView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor],
+            [self.collectionView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor],
+            [self.collectionView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor]
+        ]];
     }
 
     return self;
@@ -52,12 +53,8 @@
 
 #pragma mark UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView *)collectionView {
-    return 1;
-}
-
-- (NSInteger)collectionView:(__unused UICollectionView *)collectionView numberOfItemsInSection:(__unused NSInteger)section {
-    return [self.paymentMethodNonces count];
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.paymentMethodNonces.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,33 +76,25 @@
 
 #pragma mark UICollectionViewDelegateFlowLayout
 
-- (UIEdgeInsets)collectionView:(__unused UICollectionView*)collectionView layout:(__unused UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(__unused NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
 }
 
-- (CGFloat)collectionView:(__unused UICollectionView *)collectionView layout:(__unused UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(__unused NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return SAVED_PAYMENT_METHODS_COLLECTION_SPACING;
 }
 
-- (CGFloat)collectionView:(__unused UICollectionView *)collectionView layout:(__unused UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(__unused NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return SAVED_PAYMENT_METHODS_COLLECTION_SPACING;
 }
 
 #pragma mark UICollectionViewDelegate
 
-- (void)collectionView:(__unused UICollectionView *)collectionView didSelectItemAtIndexPath:(__unused NSIndexPath *)indexPath {
-    // TODO: - implement
-//    BTUIPaymentMethodCollectionViewCell *cell = (BTUIPaymentMethodCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-//    if (self.delegate) {
-//        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type]
-//                                                         nonce:cell.paymentMethodNonce
-//                                                         error:nil];
-//
-//        if ([cell.paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
-//            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
-//        }
-//    }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegate) {
+        BTPaymentMethodNonce *nonce = self.paymentMethodNonces[indexPath.row];
+        [self.delegate vaultedPaymentMethodsTableViewCell:self didSelectNonce:nonce];
+    }
 }
-
 
 @end
