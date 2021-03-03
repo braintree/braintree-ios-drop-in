@@ -56,7 +56,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (void)viewDidLoad {
-    NSLog(@"VIEW DID LOAD");
     [super viewDidLoad];
 
     self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION)
@@ -96,11 +95,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     ]];
 
     [self loadConfiguration];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSLog(@"VIEW WILL APPEAR");
 }
 
 - (void)loadConfiguration {
@@ -213,7 +207,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (float)sheetHeight {
     CGFloat height = MAX(self.paymentOptionsTableView.contentSize.height, 150);
-    NSLog(@"SHEET HEIGHT: %f", height);
     return height;
 }
 
