@@ -30,7 +30,6 @@
         self.label = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelPrimary:self.label];
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
-        self.label.numberOfLines = 0;
         [self.labelContainer addSubview:self.label];
 
         self.detailLabel = [[UILabel alloc] init];
@@ -77,7 +76,7 @@
     NSDictionary* viewBindings = @{@"contentView":self.contentView, @"label":self.label, @"iconView":self.iconView, @"bottomBorder":self.bottomBorder, @"detailLabel":self.detailLabel, @"labelContainer":self.labelContainer};
 
     [self.label.topAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.topAnchor].active = YES;
-    [self.label.bottomAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.bottomAnchor].active = YES;
+    [self.detailLabel.bottomAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.bottomAnchor].active = YES;
 
     [self.labelContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label][detailLabel]|"
                                                                              options:0
@@ -120,7 +119,7 @@
                                                                 multiplier:1.0f
                                                                   constant:0.0f]];
 
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(HORIZONTAL_FORM_PADDING)-[iconView(ICON_WIDTH)]-(HORIZONTAL_FORM_PADDING)-[labelContainer]|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(HORIZONTAL_FORM_PADDING)-[iconView(ICON_WIDTH)]-(HORIZONTAL_FORM_PADDING)-[labelContainer]-|"
                                                                              options:0
                                                                              metrics:[BTUIKAppearance metrics]
                                                                                views:viewBindings]];
