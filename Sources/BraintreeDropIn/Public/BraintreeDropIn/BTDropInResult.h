@@ -23,7 +23,13 @@ typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NS
 /// A UIView (BTUIKPaymentOptionCardView) that represents the payment option
 @property (nonatomic, readonly) UIView *paymentIcon;
 
-/// A description of the payment option (e.g `••• ••11`)
+/**
+ * A description of the payment option.
+ * For cards, the last four digits of the card number.
+ * For PayPal, the email address associated with the account.
+ * For Venmo, the username associated with the account.
+ * For Apple Pay, the text "Apple Pay".
+ */
 @property (nonatomic, readonly) NSString *paymentDescription;
 
 /// The payment method nonce
