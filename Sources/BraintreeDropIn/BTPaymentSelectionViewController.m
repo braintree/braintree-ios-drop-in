@@ -94,8 +94,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
         [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
     ]];
-
-    [self loadConfiguration];
 }
 
 - (void)loadConfiguration {
