@@ -35,10 +35,10 @@
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
-@property (nonatomic, strong) UIToolbar *btToolbar;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *contentClippingView;
 @property (nonatomic, strong) BTPaymentSelectionViewController *paymentSelectionViewController;
+@property (nonatomic, strong) UINavigationController *paymentSelectionNavigationController;
 @property (nonatomic, strong) NSLayoutConstraint *contentViewTopConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *contentViewBottomConstraint;
 @property (nonatomic) BOOL useBlur;
@@ -156,17 +156,6 @@
     self.contentClippingView.backgroundColor = [UIColor clearColor];
     self.contentClippingView.clipsToBounds = YES;
     
-    self.btToolbar = [[UIToolbar alloc] init];
-    self.btToolbar.delegate = self;
-    self.btToolbar.userInteractionEnabled = YES;
-    self.btToolbar.barStyle = UIBarStyleDefault;
-    self.btToolbar.translucent = YES;
-    self.btToolbar.backgroundColor = [UIColor clearColor];
-    [self.btToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    self.btToolbar.barTintColor = [UIColor clearColor];
-    self.btToolbar.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addSubview:self.btToolbar];
-    
     UIBlurEffect *contentEffect = [UIBlurEffect effectWithStyle:[BTUIKAppearance sharedInstance].blurStyle];
     self.blurredContentBackgroundView = [[UIVisualEffectView alloc] initWithEffect:contentEffect];
     self.blurredContentBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -178,21 +167,21 @@
 - (void)setUpChildViewControllers {
     self.paymentSelectionViewController = [[BTPaymentSelectionViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
     self.paymentSelectionViewController.delegate = self;
-    [self.contentClippingView addSubview:self.paymentSelectionViewController.view];
-    self.paymentSelectionViewController.view.hidden = YES;
-    self.paymentSelectionViewController.navigationItem.leftBarButtonItem.target = self;
-    self.paymentSelectionViewController.navigationItem.leftBarButtonItem.action = @selector(cancelHit:);
+    self.paymentSelectionNavigationController = [[UINavigationController alloc] initWithRootViewController:self.paymentSelectionViewController];
+    self.paymentSelectionNavigationController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    self.paymentSelectionNavigationController.view.hidden = YES;
+
+    [self.contentClippingView addSubview:self.paymentSelectionNavigationController.view];
 }
 
 - (void)setUpConstraints {
     NSDictionary *viewBindings = @{
                                    @"view": self,
-                                   @"toolbar": self.btToolbar,
                                    @"contentView": self.contentView,
                                    @"contentClippingView":self.contentClippingView,
-                                   @"paymentSelectionViewController":self.paymentSelectionViewController.view
+                                   @"paymentSelectionView":self.paymentSelectionNavigationController.view
                                    };
-    
+
     NSDictionary *metrics = @{@"BT_HALF_SHEET_MARGIN":@([self sheetInset])};
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(BT_HALF_SHEET_MARGIN)-[contentView]-(BT_HALF_SHEET_MARGIN)-|"
@@ -206,12 +195,12 @@
     self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor];
     self.contentViewBottomConstraint.active = YES;
 
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[paymentSelectionViewController]|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[paymentSelectionView]|"
                                                                       options:0
                                                                       metrics:metrics
                                                                         views:viewBindings]];
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[paymentSelectionViewController]|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[paymentSelectionView]|"
                                                                       options:0
                                                                       metrics:metrics
                                                                         views:viewBindings]];
@@ -229,10 +218,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.configuration = configuration;
             if (!error) {
-                self.paymentSelectionViewController.view.hidden = NO;
-                self.paymentSelectionViewController.view.alpha = 1.0;
-                [self updateToolbarForViewController:self.paymentSelectionViewController];
-                
+                self.paymentSelectionNavigationController.view.hidden = NO;
+                self.paymentSelectionNavigationController.view.alpha = 1.0;
+
                 NSArray *supportedCardTypes = [configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
                 NSMutableArray *paymentOptionTypes = [NSMutableArray new];
                 for (NSString *supportedCardType in supportedCardTypes) {
@@ -252,14 +240,6 @@
 }
 
 #pragma mark - View management and actions
-
-- (void)cancelHit:(__unused id)sender {
-    BTDropInResult *result = [[BTDropInResult alloc] init];
-    result.cancelled = YES;
-    if (self.handler) {
-        self.handler(self, result, nil);
-    }
-}
 
 - (void)cardTokenizationCompleted:(BTPaymentMethodNonce *)tokenizedCard error:(NSError *)error sender:(BTCardFormViewController *)sender {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -319,22 +299,6 @@
     next();
 }
 
-- (void)updateToolbarForViewController:(UIViewController*)viewController {
-    UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
-    titleLabel.text = viewController.title ? viewController.title : @"";
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    [titleLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    [titleLabel sizeToFit];
-    UIBarButtonItem *barTitle = [[UIBarButtonItem alloc] initWithCustomView:titleLabel];
-    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    fixed.width = 1.0;
-    UIBarButtonItem *leftItem = viewController.navigationItem.leftBarButtonItem ? viewController.navigationItem.leftBarButtonItem : fixed;
-    UIBarButtonItem *rightItem = viewController.navigationItem.rightBarButtonItem ? viewController.navigationItem.rightBarButtonItem : fixed;
-    [self.btToolbar setItems:@[leftItem, flex, barTitle, flex, rightItem] animated:YES];
-    [self.btToolbar invalidateIntrinsicContentSize];
-}
-
 - (void)showCardForm:(__unused id)sender {
     BTCardFormViewController* vd = [[BTCardFormViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
     vd.supportedCardTypes = self.displayCardTypes;
@@ -355,9 +319,6 @@
 }
 
 - (void)flexViewAnimated:(BOOL)animated{
-    [self.btToolbar removeFromSuperview];
-    [self.contentView addSubview:self.btToolbar];
-
     self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
 
     [self applyContentViewConstraints];
@@ -377,20 +338,14 @@
 }
 
 - (void)applyContentViewConstraints {
-    NSDictionary *viewBindings = @{@"toolbar": self.btToolbar,
-                                   @"contentClippingView": self.contentClippingView};
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[toolbar]|"
-                                                                      options:0
-                                                                      metrics:nil
-                                                                        views:viewBindings]];
+    NSDictionary *viewBindings = @{@"contentClippingView": self.contentClippingView};
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentClippingView]|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:viewBindings]];
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[toolbar][contentClippingView]|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentClippingView]|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:viewBindings]];
@@ -398,8 +353,8 @@
 
 - (void)resetDropInState {
     self.configuration = nil;
-    self.paymentSelectionViewController.view.hidden = NO;
-    self.paymentSelectionViewController.view.alpha = 1.0;
+    self.paymentSelectionNavigationController.view.hidden = NO;
+    self.paymentSelectionNavigationController.view.alpha = 1.0;
 }
 
 - (BOOL)isFullScreen {
@@ -452,13 +407,6 @@
     return UIStatusBarAnimationSlide;
 }
 
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-    if (bar == self.btToolbar && self.isFullScreen && ![self isFormSheet]) {
-        return UIBarPositionTopAttached;
-    }
-    return UIBarPositionTop;
-}
-
 #pragma mark BTViewControllerPresentingDelegate
 
 - (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
@@ -489,6 +437,14 @@
         if (self.handler != nil) {
             self.handler(self, nil, error);
         }
+    }
+}
+
+- (void)cancelButtonPressedOnPaymentSelectionViewController:(BTPaymentSelectionViewController *)viewController {
+    BTDropInResult *result = [[BTDropInResult alloc] init];
+    result.cancelled = YES;
+    if (self.handler) {
+        self.handler(self, result, nil);
     }
 }
 

@@ -39,12 +39,10 @@
         [self.contentView addSubview:self.button];
 
         [self.label.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:[BTUIKAppearance horizontalFormContentPadding]].active = YES;
-        [self.label.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = YES;
         [self.label.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
         [self.label.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
 
         [self.button.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-[BTUIKAppearance horizontalFormContentPadding]].active = YES;
-        [self.button.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = YES;
         [self.button.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
         [self.button.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
     }

@@ -60,17 +60,23 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION)
                                                                                 style:UIBarButtonItemStylePlain
-                                                                               target:nil
-                                                                               action:nil];
+                                                                               target:self
+                                                                               action:@selector(cancelButtonPressed:)];
 
-    self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
+    titleLabel.text = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 2;
+    [titleLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [titleLabel sizeToFit];
+    self.navigationItem.titleView = titleLabel;
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = UIColor.clearColor;
 
     _vaultedCardAppearAnalyticSent = NO;
 
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    [self.paymentOptionsTableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
     self.paymentOptionsTableView.backgroundColor = UIColor.clearColor;
     [self.paymentOptionsTableView registerClass:BTDropInPaymentSeletionCell.class forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
     [self.paymentOptionsTableView registerClass:BTVaultedPaymentMethodsTableViewCell.class forCellReuseIdentifier:@"BTVaultedPaymentMethodsTableViewCell"];
@@ -82,12 +88,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [self.paymentOptionsTableView setAlwaysBounceVertical:NO];
     [self.view addSubview:self.paymentOptionsTableView];
 
-    self.heightConstraint = [self.view.heightAnchor constraintEqualToConstant:150];
-    // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
-    self.heightConstraint.priority = UILayoutPriorityDefaultHigh;
-
     [NSLayoutConstraint activateConstraints:@[
-        self.heightConstraint,
         [self.paymentOptionsTableView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
         [self.paymentOptionsTableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
         [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
@@ -107,16 +108,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     self.paymentOptionsTableView.hidden = show;
 }
 
-- (void)dealloc {
-    [self.paymentOptionsTableView removeObserver:self forKeyPath:@"contentSize"];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary <NSString *, id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"contentSize"]) {
-        self.heightConstraint.constant = self.paymentOptionsTableView.contentSize.height;
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
+- (void)cancelButtonPressed:(UIButton *)sender {
+    [self.delegate cancelButtonPressedOnPaymentSelectionViewController:self];
 }
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(NSError *)error {
@@ -206,8 +199,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (float)sheetHeight {
-    CGFloat height = MAX(self.paymentOptionsTableView.contentSize.height, 150);
-    return height;
+    return MAX(self.paymentOptionsTableView.contentSize.height, 150) + 50;
 }
 
 - (void)vaultedPaymentsEditButtonPressed {
