@@ -71,7 +71,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
 
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; // make nav bar clear
     self.view.backgroundColor = UIColor.clearColor;
 
     _vaultedCardAppearAnalyticSent = NO;
@@ -91,7 +91,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [NSLayoutConstraint activateConstraints:@[
         [self.paymentOptionsTableView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
         [self.paymentOptionsTableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
-        [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
         [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
     ]];
 }
