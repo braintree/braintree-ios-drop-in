@@ -28,8 +28,8 @@
 
 @interface BTPaymentSelectionViewController () <BTPaymentSelectionHeaderViewDelegate, BTVaultedPaymentMethodsTableViewCellDelegate>
 @property (nonatomic, strong) NSArray *paymentOptionsData;
+@property (nonatomic, readonly) BOOL hasVaultedPaymentMethods;
 @property (nonatomic, strong) UITableView *paymentOptionsTableView;
-@property (nonatomic, strong) NSLayoutConstraint *heightConstraint;
 @property (nonatomic, strong) id application;
 @end
 
@@ -138,10 +138,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
             self.paymentOptionsData = [activePaymentOptions copy];
             [self.paymentOptionsTableView reloadData];
-            if (self.paymentMethodNonces.count > 0) {
-                // TODO: - is this necessary?
-//                [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
-
+            if (self.hasVaultedPaymentMethods) {
                 [self sendVaultedCardAppearAnalytic];
             }
             [self showLoadingScreen:NO];
@@ -160,6 +157,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         _application = [UIApplication sharedApplication];
     }
     return _application;
+}
+
+- (BOOL)hasVaultedPaymentMethods {
+    return self.paymentMethodNonces.count > 0;
 }
 
 #pragma mark - Helpers
@@ -219,11 +220,11 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 #pragma mark UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(__unused UITableView *)tableView {
-    return self.paymentMethodNonces.count > 0 ? 2 : 1;
+    return self.hasVaultedPaymentMethods ? 2 : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && self.paymentMethodNonces.count > 0) {
+    if (indexPath.section == 0 && self.hasVaultedPaymentMethods) {
         static NSString *identifier = @"BTVaultedPaymentMethodsTableViewCell";
 
         BTVaultedPaymentMethodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
@@ -301,23 +302,23 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(__unused UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0 && self.paymentMethodNonces.count > 0) {
+    if (section == 0 && self.hasVaultedPaymentMethods) {
         return 1;
     } else {
-        return [self.paymentOptionsData count];
+        return self.paymentOptionsData.count;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.paymentMethodNonces.count == 0) {
-        return CGFLOAT_MIN; // hide the header if there's only one section
-    } else {
+    if (self.hasVaultedPaymentMethods) {
         return 35;
+    } else {
+        return CGFLOAT_MIN; // hide the header
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (self.paymentMethodNonces.count == 0) {
+    if (!self.hasVaultedPaymentMethods) {
         return nil;
     }
 

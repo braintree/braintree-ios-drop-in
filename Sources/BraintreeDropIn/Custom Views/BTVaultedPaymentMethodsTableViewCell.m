@@ -54,6 +54,9 @@
 - (void)setPaymentMethodNonces:(NSArray<BTPaymentMethodNonce *> *)paymentMethodNonces {
     _paymentMethodNonces = paymentMethodNonces;
     [self.collectionView reloadData];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight)
+                                        animated:NO];
 }
 
 #pragma mark UICollectionViewDataSource
