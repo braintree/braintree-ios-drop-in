@@ -7,7 +7,7 @@
 #endif
 
 @interface BTDropInPaymentSeletionCell()
-@property (nonatomic, strong) UIView *labelContainer;
+@property (nonatomic, strong) UIStackView *labelContainer;
 @end
 
 @implementation BTDropInPaymentSeletionCell
@@ -22,7 +22,9 @@
         self.layoutMargins = UIEdgeInsetsZero;
         self.preservesSuperviewLayoutMargins = NO;
 
-        self.labelContainer = [UIView new];
+        self.labelContainer = [UIStackView new];
+        self.labelContainer.axis = UILayoutConstraintAxisVertical;
+        self.labelContainer.spacing = 5;
         self.labelContainer.translatesAutoresizingMaskIntoConstraints = NO;
         self.labelContainer.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:self.labelContainer];
@@ -30,12 +32,12 @@
         self.label = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelPrimary:self.label];
         self.label.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.labelContainer addSubview:self.label];
+        [self.labelContainer addArrangedSubview:self.label];
 
         self.detailLabel = [[UILabel alloc] init];
         [BTUIKAppearance styleLabelSecondary:self.detailLabel];
         self.detailLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.labelContainer addSubview:self.detailLabel];
+        [self.labelContainer addArrangedSubview:self.detailLabel];
 
         self.iconView = [BTUIKPaymentOptionCardView new];
         self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -75,23 +77,8 @@
     [self.label removeConstraints:self.label.constraints];
     NSDictionary* viewBindings = @{@"contentView":self.contentView, @"label":self.label, @"iconView":self.iconView, @"bottomBorder":self.bottomBorder, @"detailLabel":self.detailLabel, @"labelContainer":self.labelContainer};
 
-    [self.label.topAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.topAnchor].active = YES;
-    [self.detailLabel.bottomAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.bottomAnchor].active = YES;
-
-    [self.labelContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label][detailLabel]|"
-                                                                             options:0
-                                                                             metrics:[BTUIKAppearance metrics]
-                                                                               views:viewBindings]];
-
-    [self.labelContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[label]|"
-                                                                                options:0
-                                                                                metrics:[BTUIKAppearance metrics]
-                                                                                  views:viewBindings]];
-
-    [self.labelContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[detailLabel]|"
-                                                                                options:0
-                                                                                metrics:[BTUIKAppearance metrics]
-                                                                                  views:viewBindings]];
+    [self.labelContainer.topAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.topAnchor].active = YES;
+    [self.labelContainer.bottomAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.bottomAnchor].active = YES;
 
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[bottomBorder(0.5)]|"
                                                                              options:0
@@ -104,14 +91,6 @@
                                                                                views:viewBindings]];
 
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.iconView
-                                                                 attribute:NSLayoutAttributeCenterY
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self.contentView
-                                                                 attribute:NSLayoutAttributeCenterY
-                                                                multiplier:1.0f
-                                                                  constant:0.0f]];
-
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.labelContainer
                                                                  attribute:NSLayoutAttributeCenterY
                                                                  relatedBy:NSLayoutRelationEqual
                                                                     toItem:self.contentView
