@@ -326,8 +326,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     BTPaymentSelectionHeaderView *headerView = (BTPaymentSelectionHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"BTPaymentSelectionHeaderView"];
     if (section == 0) {
         headerView.title = BTUIKLocalizedString(RECENT_LABEL);
-        headerView.buttonText = BTUIKLocalizedString(EDIT_ACTION);
-        headerView.delegate = self;
+        if (self.dropInRequest.vaultManager) {
+            headerView.buttonText = BTUIKLocalizedString(EDIT_ACTION);
+            headerView.delegate = self;
+        }
     } else {
         headerView.title = BTUIKLocalizedString(OTHER_LABEL);
     }
