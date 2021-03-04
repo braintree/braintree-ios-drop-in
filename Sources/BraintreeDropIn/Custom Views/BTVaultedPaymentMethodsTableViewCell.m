@@ -51,6 +51,11 @@
     return self;
 }
 
+- (void)setPaymentMethodNonces:(NSArray<BTPaymentMethodNonce *> *)paymentMethodNonces {
+    _paymentMethodNonces = paymentMethodNonces;
+    [self.collectionView reloadData];
+}
+
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
