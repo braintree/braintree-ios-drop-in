@@ -9,8 +9,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Use Xcode 12.4
         run: sudo xcode-select -switch /Applications/Xcode_12.4.app
-      - name: Install CocoaPod dependencies
-        run: pod install
       - name: Run pod lib lint
         run: pod lib lint
   spm:
