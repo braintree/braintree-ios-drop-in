@@ -38,6 +38,9 @@
 /// @param error The error that occured during tokenization of a new payment method.
 - (void) selectionCompletedWithPaymentMethodType:(BTUIKPaymentOptionType) type nonce:(BTPaymentMethodNonce *)nonce error:(NSError *)error;
 
+/// Called on the delegate when the cancel button is pressed
+///
+/// @param viewController The BTPaymentSelectionViewController
 - (void)cancelButtonPressedOnPaymentSelectionViewController:(BTPaymentSelectionViewController *)viewController;
 
 /// Called on the delegate when the value return by BTPaymentSelectionViewController:sheetHeight has changed
