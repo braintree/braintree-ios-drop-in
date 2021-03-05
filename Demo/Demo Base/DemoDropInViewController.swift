@@ -27,8 +27,6 @@ class DemoDropInViewController: DemoBaseViewController {
         super.viewDidLoad()
         
         demoView.setUpSubviews()
-        demoView.updatePaymentMethodConstraints()
-                
         demoView.dropInButton.addTarget(self, action: #selector(presentDropInController), for: .touchUpInside)
         demoView.purchaseButton.addTarget(self, action: #selector(completePurchase), for: .touchUpInside)
         demoView.colorSchemeSegmentedControl.addTarget(self, action: #selector(updateColorScheme(_:)), for: .valueChanged)
@@ -152,8 +150,8 @@ class DemoDropInViewController: DemoBaseViewController {
             let paymentMethodType = BTUIKViewUtil.paymentOptionType(forPaymentInfoType: nonce.type)
             demoView.paymentMethodTypeIcon.paymentOptionType = paymentMethodType
             demoView.paymentMethodTypeLabel.text = result?.paymentDescription
+            demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
         }
-        demoView.updatePaymentMethodConstraints()
     }
     
     func fetchPaymentMethods() {
@@ -183,9 +181,9 @@ class DemoDropInViewController: DemoBaseViewController {
         demoView.paymentMethodTypeIcon.isHidden = false
         demoView.paymentMethodTypeIcon.paymentOptionType = .applePay
         demoView.paymentMethodTypeLabel.text = NSLocalizedString("Apple Pay", comment: "")
-        
+        demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
+
         didSelectApplePay = true
-        demoView.updatePaymentMethodConstraints()
     }
 }
 
