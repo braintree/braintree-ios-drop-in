@@ -52,6 +52,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     self.label.text = nil;
+    self.button.titleLabel.text = nil;
     self.button.hidden = YES;
 }
 

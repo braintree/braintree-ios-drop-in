@@ -993,8 +993,8 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
     }
 
     func testDropIn_threeDSecure_2_challengeFlow_withVaultedPaymentMethod() {
-        waitForElementToBeHittable(app.collectionViews.cells.firstMatch)
-        app.collectionViews.cells.firstMatch.tap()
+        waitForElementToAppear(app.tables.firstMatch.staticTexts["Visa"])
+        app.cells.firstMatch.staticTexts["Visa"].tap()
 
         XCTAssertTrue(app.activityIndicators.firstMatch.exists)
         XCTAssertEqual(0, app.cells.count)
