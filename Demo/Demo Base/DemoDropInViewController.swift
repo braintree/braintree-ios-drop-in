@@ -26,7 +26,6 @@ class DemoDropInViewController: DemoBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        demoView.setUpSubviews()
         demoView.dropInButton.addTarget(self, action: #selector(presentDropInController), for: .touchUpInside)
         demoView.purchaseButton.addTarget(self, action: #selector(completePurchase), for: .touchUpInside)
         demoView.colorSchemeSegmentedControl.addTarget(self, action: #selector(updateColorScheme(_:)), for: .valueChanged)

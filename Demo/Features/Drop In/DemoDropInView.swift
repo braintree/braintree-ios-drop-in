@@ -7,8 +7,6 @@ class DemoDropInView: UIView {
     var dropInButton = UIButton()
     var purchaseButton = UIButton()
     var colorSchemeSegmentedControl = UISegmentedControl()
-
-    private var checkoutConstraints: [NSLayoutConstraint] = []
     
     private var secondaryLabelColor: UIColor = {
         if #available(iOS 13, *) {
@@ -18,7 +16,9 @@ class DemoDropInView: UIView {
         }
     }()
     
-    func setUpSubviews() {
+    init() {
+        super.init(frame: CGRect.zero)
+
         let cartLabel = UILabel()
         cartLabel.text = NSLocalizedString("CART", comment: "")
         cartLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
@@ -102,5 +102,9 @@ class DemoDropInView: UIView {
             paymentMethodTypeIcon.widthAnchor.constraint(equalToConstant: 45),
             paymentMethodTypeIcon.heightAnchor.constraint(equalToConstant: 29)
         ])
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
