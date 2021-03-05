@@ -1,7 +1,7 @@
 #import <BraintreeDropIn/BTDropInController.h>
 #import "BTPaymentSelectionViewController.h"
 #import "BTUIPaymentMethodCollectionViewCell.h"
-#import "BTDropInPaymentSeletionCell.h"
+#import "BTDropInPaymentSelectionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
@@ -78,7 +78,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.paymentOptionsTableView.backgroundColor = UIColor.clearColor;
-    [self.paymentOptionsTableView registerClass:BTDropInPaymentSeletionCell.class forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
+    [self.paymentOptionsTableView registerClass:BTDropInPaymentSelectionCell.class forCellReuseIdentifier:@"BTDropInPaymentSelectionCell"];
     [self.paymentOptionsTableView registerClass:BTVaultedPaymentMethodsTableViewCell.class forCellReuseIdentifier:@"BTVaultedPaymentMethodsTableViewCell"];
     [self.paymentOptionsTableView registerClass:BTPaymentSelectionHeaderView.class forHeaderFooterViewReuseIdentifier:@"BTPaymentSelectionHeaderView"];
     self.paymentOptionsTableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -232,9 +232,9 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         cell.delegate = self;
         return cell;
     } else {
-        static NSString *simpleTableIdentifier = @"BTDropInPaymentSeletionCell";
+        static NSString *simpleTableIdentifier = @"BTDropInPaymentSelectionCell";
 
-        BTDropInPaymentSeletionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+        BTDropInPaymentSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
 
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -253,11 +253,11 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (![[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:BTDropInPaymentSeletionCell.class]) {
+    if (![[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:BTDropInPaymentSelectionCell.class]) {
         return;
     }
 
-    BTDropInPaymentSeletionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    BTDropInPaymentSelectionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.type == BTUIKPaymentOptionTypeUnknown) {
         if ([self.delegate respondsToSelector:@selector(showCardForm:)]){
             [self.delegate performSelector:@selector(showCardForm:) withObject:self];
