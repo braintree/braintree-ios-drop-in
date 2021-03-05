@@ -8,7 +8,7 @@
 
 Welcome to Braintree's Drop-In SDK for iOS!
 
-![Drop-in light theme](Docs/client-sdk-ios-series-light.png "Drop-in light theme")
+![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
 
 **The Braintree iOS Drop-In SDK requires Xcode 12+**. It permits a deployment target of iOS 12.0 or higher.
 
@@ -69,7 +69,7 @@ pod 'BraintreeDropIn'
 ```
 Then run `pod install`.
 
-See our [`Podspec`](BraintreeDropIn.podspec) for more information.
+See our [`Podspec`](https://github.com/braintree/braintree-ios-drop-in/blob/master/BraintreeDropIn.podspec) for more information.
 
 *Note:* If you are using version 8.x.x of the Braintree Drop-In iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
 
@@ -196,7 +196,7 @@ request.vaultManager = true
 
 If your user already has an existing payment method, you may not need to show the Drop-In payment picker. You can check if they have an existing payment method using `BTDropInResult:fetchDropInResultForAuthorization`. Note that the handler will only return a result when using a client token that was created with a `customer_id`. `BTDropInResult` makes it easy to get a description and icon of the payment method.
 
-![Example payment method icon and description](Docs/saved-single-payment-method.png "Example payment method icon and description")
+![Example payment method icon and description](Images/saved-single-payment-method.png "Example payment method icon and description")
 
 ```swift
 func fetchExistingPaymentMethod(clientToken: String) {
@@ -226,7 +226,7 @@ Drop-In is fully customizable, but we also provide `Light`, `Dark` and `Dynamic`
 BTUIKAppearance.sharedInstance().colorScheme = .dynamic
 ```
 
-![Drop-in dark theme](Docs/client-sdk-ios-series-dark.png "Drop-in dark theme")
+![Drop-in dark theme](Images/client-sdk-ios-series-dark.png "Drop-in dark theme")
 
 ### Customization
 
@@ -257,6 +257,8 @@ Take a look at `BTCardFormViewController.m` to see examples of using the form fi
 ### More Information
 
 Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
+
+Also see our [**reference documentation**](https://braintree.github.io/braintree-ios-drop-in/current/).
 
 ## Versions
 
@@ -295,4 +297,4 @@ Here are a few ways to get in touch:
 
 ## License
 
-The Braintree iOS Drop-In SDK is open source and available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+The Braintree iOS Drop-In SDK is open source and available under the MIT license. See the [LICENSE](https://github.com/braintree/braintree-ios-drop-in/blob/master/LICENSE) file for more info.

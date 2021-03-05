@@ -16,6 +16,10 @@
   * Enable dynamic type by default. This can be disabled with the `disableDynamicType` property on `BTDropInUICustomization`.
   * Show last four digits of vaulted cards, instead of "••• ••11", which truncates in larger fonts.
 
+## 8.1.3 (2021-03-02)
+
+* Fix localizations for Carthage integrations (fixes #272)
+
 ## 8.1.2 (2020-11-30)
 
 * Exclude arm64 simulator architectures via Podspec (fixes #233)

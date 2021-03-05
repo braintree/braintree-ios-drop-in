@@ -1,0 +1,99 @@
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release"
+        required: true
+jobs:
+  release:
+    name: Release
+    runs-on: macOS-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Xcode 12.4
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
+
+      - name: Check for unreleased section in changelog
+        run: grep "## unreleased" CHANGELOG.md || (echo "::error::No unreleased section found in CHANGELOG"; exit 1)
+
+      - name: Set git username and email
+        run: |
+          git config user.name braintreeps
+          git config user.email code@getbraintree.com
+
+      - name: Update version, add tag and push
+        run: |
+          today=$(date +'%Y-%m-%d')
+          sed -i '' 's/## unreleased.*/## '"${{ github.event.inputs.version }}"' ('"$today"')/' CHANGELOG.md
+          sed -i '' 's/\(s\.version *= *\).*/\1"'"${{ github.event.inputs.version }}"'\"/' BraintreeDropIn.podspec
+          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'DropInDemo/Supporting Files/Braintree-Demo-Info.plist'
+          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'DropInDemo/Supporting Files/Braintree-Demo-Info.plist'
+          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'BraintreeDropIn/Info.plist'
+          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'BraintreeDropIn/Info.plist'
+          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'BraintreeUIKit/Info.plist'
+          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'BraintreeUIKit/Info.plist'
+
+          git add .
+          git commit -m 'Bump version to ${{ github.event.inputs.version }}'
+          git tag ${{ github.event.inputs.version }} -a -m 'Release ${{ github.event.inputs.version }}'
+          git push origin HEAD ${{ github.event.inputs.version }}
+
+      - name: Save changelog entries to a file
+        run: |
+          sed -e '1,/##/d' -e '/##/,$d' CHANGELOG.md > changelog_entries.md
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          release_name: ${{ github.event.inputs.version }}
+          body_path: changelog_entries.md
+          draft: false
+          prerelease: false
+
+      - name: Create Carthage pre-built binaries
+        run: |
+          carthage build --no-skip-current
+          carthage archive "BraintreeDropIn" "BraintreeUIKit" --output BraintreeDropIn.framework.zip
+
+      - name: Upload Carthage pre-built binaries to GitHub release
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: BraintreeDropIn.framework.zip
+          asset_name: BraintreeDropIn.framework.zip
+          asset_content_type: application/zip
+
+      - name: Publish to CocoaPods
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: pod trunk push BraintreeDropIn.podspec
+
+      - name: Publish reference docs
+        run: |
+          gem install jazzy
+          jazzy \
+            --objc \
+            --author Braintree \
+            --author_url http://braintreepayments.com \
+            --github_url https://github.com/braintree/braintree-ios-drop-in \
+            --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/${{ github.event.inputs.version }} \
+            --theme fullwidth \
+            --output ${{ github.event.inputs.version }} \
+            --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
+          git checkout gh-pages
+          ln -sfn ${{ github.event.inputs.version }} current
+          git add current ${{ github.event.inputs.version }}
+          git commit -m "Publish ${{ github.event.inputs.version }} docs to github pages"
+          git push
