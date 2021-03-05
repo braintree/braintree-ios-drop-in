@@ -1,4 +1,8 @@
-#import "UIFont+BTUIK.h"
+#ifdef COCOAPODS
+#import <BraintreeDropIn/UIFont+BTUIK.h>
+#else
+#import <BraintreeUIKit/UIFont+BTUIK.h>
+#endif
 
 @implementation UIFont (BTUIK)
 
