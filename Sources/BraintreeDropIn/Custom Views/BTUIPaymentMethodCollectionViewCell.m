@@ -15,7 +15,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.translatesAutoresizingMaskIntoConstraints = NO;
         self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 
         self.paymentOptionCardView = [[BTUIKPaymentOptionCardView alloc] init];
@@ -47,11 +46,7 @@
         self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.descriptionLabel];
 
-        NSLayoutConstraint *widthConstraint = [self.widthAnchor constraintEqualToConstant:[BTUIKAppearance largeIconWidth] + 5];
-        widthConstraint.priority = UILayoutPriorityDefaultHigh;
-        widthConstraint.active = YES;
-
-        [self.contentView.widthAnchor constraintEqualToAnchor:self.widthAnchor].active = YES;
+        [self.contentView.widthAnchor constraintEqualToConstant:[BTUIKAppearance largeIconWidth] + 5].active = YES;
         [self.contentView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
         [self.contentView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
 
@@ -69,10 +64,6 @@
         [self.descriptionLabel.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = YES;
         [self.descriptionLabel.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor].active = YES;
         [self.descriptionLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
-
-        NSLayoutConstraint *heightConstraint = [self.heightAnchor constraintEqualToAnchor:self.contentView.heightAnchor];
-        heightConstraint.priority = UILayoutPriorityDefaultHigh;
-        heightConstraint.active = YES;
     }
     return self;
 }
@@ -80,6 +71,16 @@
 -(void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     self.alpha = highlighted ? 0.5 : 1.0;
+}
+
++ (CGSize)dynamicSize {
+    BTUIPaymentMethodCollectionViewCell *sizingCell = [[BTUIPaymentMethodCollectionViewCell alloc] initWithFrame:CGRectZero];
+    sizingCell.titleLabel.text = BTUIKLocalizedString(PAYPAL);
+    sizingCell.descriptionLabel.text = BTUIKLocalizedString(PAYPAL);
+    [sizingCell layoutIfNeeded];
+    CGFloat height = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+
+    return CGSizeMake([BTUIKAppearance largeIconWidth] + 5, height);
 }
 
 @end

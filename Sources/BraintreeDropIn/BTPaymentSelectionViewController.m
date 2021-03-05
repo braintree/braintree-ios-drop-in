@@ -1,10 +1,12 @@
 #import <BraintreeDropIn/BTDropInController.h>
 #import "BTPaymentSelectionViewController.h"
 #import "BTUIPaymentMethodCollectionViewCell.h"
-#import "BTDropInPaymentSeletionCell.h"
+#import "BTDropInPaymentSelectionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
+#import "BTVaultedPaymentMethodsTableViewCell.h"
+#import "BTPaymentSelectionHeaderView.h"
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BraintreeUIKit.h>
@@ -24,19 +26,10 @@
 #define SAVED_PAYMENT_METHODS_COLLECTION_WIDTH 105
 #define SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT 165
 
-@interface BTPaymentSelectionViewController ()
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *scrollViewContentWrapper;
-@property (nonatomic, strong) UIStackView *stackView;
-@property (nonatomic, strong) UIStackView *paymentOptionsLabelContainerStackView;
-@property (nonatomic, strong) UIStackView *vaultedPaymentsLabelContainerStackView;
+@interface BTPaymentSelectionViewController () <BTPaymentSelectionHeaderViewDelegate, BTVaultedPaymentMethodsTableViewCellDelegate>
 @property (nonatomic, strong) NSArray *paymentOptionsData;
+@property (nonatomic, readonly) BOOL hasVaultedPaymentMethods;
 @property (nonatomic, strong) UITableView *paymentOptionsTableView;
-@property (nonatomic, strong) NSLayoutConstraint *savedPaymentMethodsCollectionViewConstraint;
-@property (nonatomic, strong) UILabel *paymentOptionsHeader;
-@property (nonatomic, strong) UILabel *vaultedPaymentsHeader;
-@property (nonatomic, strong) UIButton *vaultedPaymentsEditButton;
-@property (nonatomic, strong) UICollectionView *savedPaymentMethodsCollectionView;
 @property (nonatomic, strong) id application;
 @end
 
@@ -64,130 +57,43 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:nil action:nil];
 
-    self.title = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
-    
-    self.view.backgroundColor = [UIColor clearColor];
-    
-    self.scrollView = [[UIScrollView alloc] init];
-    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.scrollView setAlwaysBounceVertical:NO];
-    self.scrollView.scrollEnabled = YES;
-    [self.view addSubview:self.scrollView];
-    
-    self.scrollViewContentWrapper = [[UIView alloc] init];
-    self.scrollViewContentWrapper.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.scrollView addSubview:self.scrollViewContentWrapper];
-    
-    self.stackView = [self newStackView];
-    [self.scrollViewContentWrapper addSubview:self.stackView];
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION)
+                                                                                style:UIBarButtonItemStylePlain
+                                                                               target:self
+                                                                               action:@selector(cancelButtonPressed:)];
 
-    self.view.translatesAutoresizingMaskIntoConstraints = false;
-    self.view.backgroundColor = [UIColor clearColor];
+    UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
+    titleLabel.text = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 2;
+    [titleLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [titleLabel sizeToFit];
+    self.navigationItem.titleView = titleLabel;
 
-    NSDictionary *viewBindings = @{@"stackView": self.stackView,
-                                   @"scrollView": self.scrollView,
-                                   @"scrollViewContentWrapper": self.scrollViewContentWrapper};
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; // make nav bar clear
+    self.view.backgroundColor = UIColor.clearColor;
 
-    [self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
-    [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
-
-    [self.scrollView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
-    [self.scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollViewContentWrapper]|"
-                                                                      options:0
-                                                                      metrics:[BTUIKAppearance metrics]
-                                                                        views:viewBindings]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollViewContentWrapper(scrollView)]|"
-                                                                      options:0
-                                                                      metrics:[BTUIKAppearance metrics]
-                                                                        views:viewBindings]];
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[stackView]|"
-                                                                      options:0
-                                                                      metrics:[BTUIKAppearance metrics]
-                                                                        views:viewBindings]];
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(VERTICAL_SECTION_SPACE)-[stackView]-(VERTICAL_FORM_SPACE_TIGHT)-|"
-                                                                      options:0
-                                                                      metrics:[BTUIKAppearance metrics]
-                                                                        views:viewBindings]];
-
-    NSLayoutConstraint *heightConstraint;
-    self.vaultedPaymentsHeader = [self sectionHeaderLabelWithString:BTUIKLocalizedString(RECENT_LABEL)];
-    self.vaultedPaymentsHeader.translatesAutoresizingMaskIntoConstraints = NO;
-
-    self.vaultedPaymentsLabelContainerStackView = [self newStackView];
-    self.vaultedPaymentsLabelContainerStackView.axis  = UILayoutConstraintAxisHorizontal;
-    self.vaultedPaymentsLabelContainerStackView.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
-    self.vaultedPaymentsLabelContainerStackView.layoutMarginsRelativeArrangement = true;
-
-    [self.vaultedPaymentsLabelContainerStackView addArrangedSubview:self.vaultedPaymentsHeader];
-
-    self.vaultedPaymentsEditButton = [UIButton new];
-    self.vaultedPaymentsEditButton.hidden = YES;
-
-    [self.vaultedPaymentsEditButton setTitle:BTUIKLocalizedString(EDIT_ACTION) forState:UIControlStateNormal];
-    [self.vaultedPaymentsEditButton setTitleColor:[BTUIKAppearance sharedInstance].tintColor forState:UIControlStateNormal];
-    [self.vaultedPaymentsEditButton setTitleColor:[BTUIKAppearance sharedInstance].highlightedTintColor forState:UIControlStateHighlighted];
-    [self.vaultedPaymentsEditButton setTitleColor:[BTUIKAppearance sharedInstance].disabledColor forState:UIControlStateDisabled];
-    self.vaultedPaymentsEditButton.titleLabel.font = [BTUIKAppearance sharedInstance].staticBodyFont;
-
-    [self.vaultedPaymentsEditButton sizeToFit];
-    [self.vaultedPaymentsEditButton layoutIfNeeded];
-    [self.vaultedPaymentsEditButton addTarget:self action:@selector(vaultedPaymentsEditButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.vaultedPaymentsLabelContainerStackView addArrangedSubview:self.vaultedPaymentsEditButton];
-
-    [self.stackView addArrangedSubview:self.vaultedPaymentsLabelContainerStackView];
     _vaultedCardAppearAnalyticSent = NO;
 
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-
-    self.savedPaymentMethodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    self.savedPaymentMethodsCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.savedPaymentMethodsCollectionView.delegate = self;
-    self.savedPaymentMethodsCollectionView.dataSource = self;
-    [self.savedPaymentMethodsCollectionView registerClass:[BTUIPaymentMethodCollectionViewCell class] forCellWithReuseIdentifier:@"BTUIPaymentMethodCollectionViewCellIdentifier"];
-    self.savedPaymentMethodsCollectionView.backgroundColor = [UIColor clearColor];
-    self.savedPaymentMethodsCollectionView.showsHorizontalScrollIndicator = NO;
-    heightConstraint = [self.savedPaymentMethodsCollectionView.heightAnchor constraintEqualToConstant:SAVED_PAYMENT_METHODS_COLLECTION_HEIGHT + [BTUIKAppearance verticalFormSpace]];
-    // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
-    heightConstraint.priority = UILayoutPriorityDefaultHigh;
-    heightConstraint.active = YES;
-    [self.stackView addArrangedSubview:self.savedPaymentMethodsCollectionView];
-
-    self.paymentOptionsHeader = [self sectionHeaderLabelWithString:BTUIKLocalizedString(OTHER_LABEL)];
-    self.paymentOptionsHeader.translatesAutoresizingMaskIntoConstraints = NO;
-
-    self.paymentOptionsLabelContainerStackView = [self newStackView];
-    self.paymentOptionsLabelContainerStackView.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
-
-    self.paymentOptionsLabelContainerStackView.layoutMarginsRelativeArrangement = true;
-
-    [self.paymentOptionsLabelContainerStackView addArrangedSubview:self.paymentOptionsHeader];
-    [self addSpacerToStackView:self.paymentOptionsLabelContainerStackView size:[BTUIKAppearance verticalFormSpaceTight] beforeView:nil];
-    [self.stackView addArrangedSubview:self.paymentOptionsLabelContainerStackView];
-
-    self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    [self.paymentOptionsTableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
-    self.paymentOptionsTableView.backgroundColor = [UIColor clearColor];
-    [self.paymentOptionsTableView registerClass:[BTDropInPaymentSeletionCell class] forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
+    self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.paymentOptionsTableView.backgroundColor = UIColor.clearColor;
+    [self.paymentOptionsTableView registerClass:BTDropInPaymentSelectionCell.class forCellReuseIdentifier:@"BTDropInPaymentSelectionCell"];
+    [self.paymentOptionsTableView registerClass:BTVaultedPaymentMethodsTableViewCell.class forCellReuseIdentifier:@"BTVaultedPaymentMethodsTableViewCell"];
+    [self.paymentOptionsTableView registerClass:BTPaymentSelectionHeaderView.class forHeaderFooterViewReuseIdentifier:@"BTPaymentSelectionHeaderView"];
     self.paymentOptionsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.paymentOptionsTableView.delegate = self;
     self.paymentOptionsTableView.dataSource = self;
     self.paymentOptionsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.paymentOptionsTableView setAlwaysBounceVertical:NO];
+    [self.view addSubview:self.paymentOptionsTableView];
 
-    [self.stackView addArrangedSubview:self.paymentOptionsTableView];
-
-    [self loadConfiguration];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.paymentOptionsTableView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
+        [self.paymentOptionsTableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+        [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+        [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
 }
 
 - (void)loadConfiguration {
@@ -197,23 +103,11 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)showLoadingScreen:(BOOL)show {
     [super showLoadingScreen:show];
-    self.stackView.hidden = show;
+    self.paymentOptionsTableView.hidden = show;
 }
 
-- (void)dealloc {
-    [self.paymentOptionsTableView removeObserver:self forKeyPath:@"contentSize"];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary <NSString *, id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"contentSize"]) {
-        [self.paymentOptionsTableView removeConstraints:self.paymentOptionsTableView.constraints];
-        NSLayoutConstraint *heightConstraint = [self.paymentOptionsTableView.heightAnchor constraintEqualToConstant:self.paymentOptionsTableView.contentSize.height];
-        // Setting the priority is necessary to avoid autolayout errors when UIStackView rotates
-        heightConstraint.priority = UILayoutPriorityDefaultHigh;
-        heightConstraint.active = YES;
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
+- (void)cancelButtonPressed:(UIButton *)sender {
+    [self.delegate cancelButtonPressedOnPaymentSelectionViewController:self];
 }
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(NSError *)error {
@@ -243,18 +137,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             }
 
             self.paymentOptionsData = [activePaymentOptions copy];
-            [self.savedPaymentMethodsCollectionView reloadData];
             [self.paymentOptionsTableView reloadData];
-            if (self.paymentMethodNonces.count == 0) {
-                self.savedPaymentMethodsCollectionView.hidden = YES;
-                self.paymentOptionsLabelContainerStackView.hidden = YES;
-                self.vaultedPaymentsLabelContainerStackView.hidden = YES;
-            } else {
-                self.savedPaymentMethodsCollectionView.hidden = NO;
-                self.paymentOptionsLabelContainerStackView.hidden = NO;
-                self.vaultedPaymentsLabelContainerStackView.hidden = NO;
-                [self.savedPaymentMethodsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:([BTUIKViewUtil isLanguageLayoutDirectionRightToLeft] ? UICollectionViewScrollPositionLeft : UICollectionViewScrollPositionRight) animated:NO];
-
+            if (self.hasVaultedPaymentMethods) {
                 [self sendVaultedCardAppearAnalytic];
             }
             [self showLoadingScreen:NO];
@@ -273,6 +157,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         _application = [UIApplication sharedApplication];
     }
     return _application;
+}
+
+- (BOOL)hasVaultedPaymentMethods {
+    return self.paymentMethodNonces.count > 0;
 }
 
 #pragma mark - Helpers
@@ -294,7 +182,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         if (error) {
             // no action
         } else {
-            self.vaultedPaymentsEditButton.hidden = !self.dropInRequest.vaultManager;
             self.paymentMethodNonces = [paymentMethodNonces copy];
             if (completionBlock) {
                 completionBlock();
@@ -310,42 +197,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     return NO;
 }
 
-- (UIStackView *)newStackView {
-    UIStackView *stackView = [[UIStackView alloc] init];
-    stackView.translatesAutoresizingMaskIntoConstraints = NO;
-    stackView.axis  = UILayoutConstraintAxisVertical;
-    stackView.distribution  = UIStackViewDistributionFill;
-    stackView.alignment = UIStackViewAlignmentFill;
-    stackView.spacing = 0;
-    return stackView;
-}
-
-- (UILabel *)sectionHeaderLabelWithString:(NSString*)string {
-    UILabel *sectionLabel = [UILabel new];
-    sectionLabel.text = [string uppercaseString];
-    sectionLabel.textAlignment = NSTextAlignmentNatural;
-    [BTUIKAppearance styleSystemLabelSecondary:sectionLabel];
-    return sectionLabel;
-}
-
-- (UIView *)addSpacerToStackView:(UIStackView *)stackView size:(CGFloat)spacerSize beforeView:(UIView * _Nullable )view {
-    NSInteger indexOfView = view != nil ? [stackView.arrangedSubviews indexOfObject:view] : NSNotFound;
-    UIView* spacer = [[UIView alloc] init];
-    spacer.translatesAutoresizingMaskIntoConstraints = NO;
-    if (indexOfView != NSNotFound) {
-        [stackView insertArrangedSubview:spacer atIndex:indexOfView];
-    } else {
-        [stackView insertArrangedSubview:spacer atIndex:stackView.arrangedSubviews.count];
-    }
-    NSLayoutConstraint* heightConstraint = [spacer.heightAnchor constraintEqualToConstant:spacerSize];
-    heightConstraint.priority = UILayoutPriorityDefaultHigh;
-    heightConstraint.active = true;
-    return spacer;
-}
-
 - (float)sheetHeight {
-    float tableViewContentHeight = self.paymentOptionsTableView.contentSize.height;
-    return self.paymentMethodNonces.count == 0 ? tableViewContentHeight + 150 : tableViewContentHeight + 340;
+    return MAX(self.paymentOptionsTableView.contentSize.height, 150) + 50;
 }
 
 - (void)vaultedPaymentsEditButtonPressed {
@@ -364,89 +217,47 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     }
 }
 
-#pragma mark - Protocol conformance
-#pragma mark UICollectionViewDelegate
-
-- (NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView {
-    return 1;
-}
-
-- (NSInteger)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView numberOfItemsInSection:(__unused NSInteger)section {
-    return [self.paymentMethodNonces count];
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)savedPaymentMethodsCollectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    BTUIPaymentMethodCollectionViewCell* cell = [savedPaymentMethodsCollectionView dequeueReusableCellWithReuseIdentifier:@"BTUIPaymentMethodCollectionViewCellIdentifier" forIndexPath:indexPath];
-    BTPaymentMethodNonce *paymentInfo = self.paymentMethodNonces[indexPath.row];
-    cell.paymentMethodNonce = paymentInfo;
-    NSString *typeString = paymentInfo.type;
-    
-    cell.highlighted = NO;
-    cell.descriptionLabel.text = paymentInfo.paymentDescription;
-    cell.titleLabel.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString]];
-    cell.paymentOptionCardView.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString];
-
-    cell.isAccessibilityElement = YES;
-    cell.accessibilityLabel = [NSString stringWithFormat:@"%@-%@", typeString, paymentInfo.paymentDescription];
-
-    return cell;
-}
-
-#pragma mark collection view cell paddings
-
-- (UIEdgeInsets)collectionView:(__unused UICollectionView*)savedPaymentMethodsCollectionView layout:(__unused UICollectionViewLayout *)savedPaymentMethodsCollectionViewLayout insetForSectionAtIndex:(__unused NSInteger)section {
-    return UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
-}
-
-- (CGFloat)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView layout:(__unused UICollectionViewLayout*)savedPaymentMethodsCollectionViewLayout minimumInteritemSpacingForSectionAtIndex:(__unused NSInteger)section {
-    return SAVED_PAYMENT_METHODS_COLLECTION_SPACING;
-}
-
-- (CGFloat)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView layout:(__unused UICollectionViewLayout*)savedPaymentMethodsCollectionViewLayout minimumLineSpacingForSectionAtIndex:(__unused NSInteger)section {
-    return SAVED_PAYMENT_METHODS_COLLECTION_SPACING;
-}
-
-- (void)collectionView:(__unused UICollectionView *)savedPaymentMethodsCollectionView didSelectItemAtIndexPath:(__unused NSIndexPath *)indexPath {
-    BTUIPaymentMethodCollectionViewCell *cell = (BTUIPaymentMethodCollectionViewCell*)[savedPaymentMethodsCollectionView cellForItemAtIndexPath:indexPath];
-    if (self.delegate) {
-        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:cell.paymentMethodNonce.type]
-                                                         nonce:cell.paymentMethodNonce
-                                                         error:nil];
-
-        if ([cell.paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
-            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
-        }
-    }
-}
-
 #pragma mark UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(__unused UITableView *)tableView {
-    return 1;
+    return self.hasVaultedPaymentMethods ? 2 : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"BTDropInPaymentSeletionCell";
+    if (indexPath.section == 0 && self.hasVaultedPaymentMethods) {
+        static NSString *identifier = @"BTVaultedPaymentMethodsTableViewCell";
 
-    BTDropInPaymentSeletionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+        BTVaultedPaymentMethodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.paymentMethodNonces = self.paymentMethodNonces;
+        cell.delegate = self;
+        return cell;
+    } else {
+        static NSString *simpleTableIdentifier = @"BTDropInPaymentSelectionCell";
 
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    BTUIKPaymentOptionType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
+        BTDropInPaymentSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
 
-    cell.detailLabel.text = @"";
-    cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
-    if (option == BTUIKPaymentOptionTypeUnknown) {
-        cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        BTUIKPaymentOptionType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
+
+        cell.detailLabel.text = @"";
+        cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
+        if (option == BTUIKPaymentOptionTypeUnknown) {
+            cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
+        }
+        cell.iconView.paymentOptionType = option;
+        cell.type = option;
+
+        return cell;
     }
-    cell.iconView.paymentOptionType = option;
-    cell.type = option;
-
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BTDropInPaymentSeletionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (![[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:BTDropInPaymentSelectionCell.class]) {
+        return;
+    }
+
+    BTDropInPaymentSelectionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.type == BTUIKPaymentOptionTypeUnknown) {
         if ([self.delegate respondsToSelector:@selector(showCardForm:)]){
             [self.delegate performSelector:@selector(showCardForm:) withObject:self];
@@ -490,8 +301,60 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 #pragma mark UITableViewDataSource
 
-- (NSInteger)tableView:(__unused UITableView *)tableView numberOfRowsInSection:(__unused NSInteger)section {
-    return [self.paymentOptionsData count];
+- (NSInteger)tableView:(__unused UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0 && self.hasVaultedPaymentMethods) {
+        return 1;
+    } else {
+        return self.paymentOptionsData.count;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.hasVaultedPaymentMethods) {
+        return 35;
+    } else {
+        return CGFLOAT_MIN; // hide the header
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (!self.hasVaultedPaymentMethods) {
+        return nil;
+    }
+
+    BTPaymentSelectionHeaderView *headerView = (BTPaymentSelectionHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"BTPaymentSelectionHeaderView"];
+    if (section == 0) {
+        headerView.title = BTUIKLocalizedString(RECENT_LABEL);
+        if (self.dropInRequest.vaultManager) {
+            headerView.buttonText = BTUIKLocalizedString(EDIT_ACTION);
+            headerView.delegate = self;
+        }
+    } else {
+        headerView.title = BTUIKLocalizedString(OTHER_LABEL);
+    }
+    return headerView;
+}
+
+#pragma mark BTPaymentMethodSelectionHeaderViewDelegate
+
+- (void)didTapButtonOnHeaderView:(BTPaymentSelectionHeaderView *)headerView {
+    if ([self.delegate respondsToSelector:@selector(editPaymentMethods:)]){
+        [self.delegate performSelector:@selector(editPaymentMethods:) withObject:self];
+    }
+}
+
+#pragma mark BTVaultedPaymentMethodsTableViewCellDelegate
+
+- (void)vaultedPaymentMethodsTableViewCell:(BTVaultedPaymentMethodsTableViewCell *)cell didSelectNonce:(BTPaymentMethodNonce *)nonce {
+    if (self.delegate) {
+        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:nonce.type]
+                                                         nonce:nonce
+                                                         error:nil];
+
+        if ([nonce isKindOfClass:BTCardNonce.class]) {
+            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
+        }
+    }
 }
 
 @end

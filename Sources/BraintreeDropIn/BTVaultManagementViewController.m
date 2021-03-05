@@ -1,5 +1,5 @@
 #import "BTVaultManagementViewController.h"
-#import "BTDropInPaymentSeletionCell.h"
+#import "BTDropInPaymentSelectionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
@@ -40,7 +40,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.paymentOptionsTableView.backgroundColor = [UIColor clearColor];
-    [self.paymentOptionsTableView registerClass:[BTDropInPaymentSeletionCell class] forCellReuseIdentifier:@"BTDropInPaymentSeletionCell"];
+    [self.paymentOptionsTableView registerClass:[BTDropInPaymentSelectionCell class] forCellReuseIdentifier:@"BTDropInPaymentSelectionCell"];
     self.paymentOptionsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.paymentOptionsTableView.delegate = self;
     self.paymentOptionsTableView.dataSource = self;
@@ -120,9 +120,9 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"BTDropInPaymentSeletionCell";
+    static NSString *simpleTableIdentifier = @"BTDropInPaymentSelectionCell";
 
-    BTDropInPaymentSeletionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+    BTDropInPaymentSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
 
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;

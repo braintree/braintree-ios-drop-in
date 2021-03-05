@@ -6,7 +6,7 @@
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
-@interface BTDropInPaymentSeletionCell : UITableViewCell
+@interface BTDropInPaymentSelectionCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel* label;
 @property (nonatomic, strong) UILabel* detailLabel;

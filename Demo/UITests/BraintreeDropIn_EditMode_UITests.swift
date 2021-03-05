@@ -23,15 +23,15 @@ class BraintreeDropIn_EditMode_UITests: XCTestCase {
     }
 
     func testDropIn_canDisplay_editScreen() {
-        self.waitForElementToBeHittable(app.buttons["Edit"])
-        app.buttons["Edit"].forceTapElement()
+        self.waitForElementToAppear(app.buttons["Edit"])
+        app.buttons["Edit"].firstMatch.forceTapElement()
 
         self.waitForElementToAppear(app.staticTexts["Edit Payment Methods"])
     }
 
     func testDropIn_editScreen_returnsToPaymentSelection() {
-        self.waitForElementToBeHittable(app.buttons["Edit"])
-        app.buttons["Edit"].forceTapElement()
+        self.waitForElementToAppear(app.buttons["Edit"])
+        app.buttons["Edit"].firstMatch.forceTapElement()
 
         self.waitForElementToBeHittable(app.buttons["Done"])
         app.buttons["Done"].forceTapElement()
