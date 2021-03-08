@@ -44,14 +44,19 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
+
+    UIStackView *smsSentHeader = [BTDropInUIUtilities newStackView];
+    smsSentHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
+    smsSentHeader.layoutMarginsRelativeArrangement = YES;
+
     self.smsSentLabel = [UILabel new];
     self.smsSentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsSentLabel.textAlignment = NSTextAlignmentCenter;
     NSString *fullMobileNumber = [NSString stringWithFormat:@"+%@ %@", self.mobileCountryCode, self.mobilePhoneNumber];
     self.smsSentLabel.text = [BTUIKLocalizedString insertIntoLocalizedString:BTUIKLocalizedString(ENTER_SMS_CODE_SENT_HELP_LABEL) replacement:fullMobileNumber];
     self.smsSentLabel.numberOfLines = 0;
-    [self.view addSubview:self.smsSentLabel];
     [BTUIKAppearance styleLargeLabelSecondary:self.smsSentLabel];
+    [smsSentHeader addArrangedSubview:self.smsSentLabel];
 
     self.smsTextField = [BTUIKFormField new];
     self.smsTextField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -81,11 +86,11 @@
 
     self.stackView = [BTDropInUIUtilities newStackView];
 
-    [self.stackView addArrangedSubview:self.smsSentLabel];
+    [self.stackView addArrangedSubview:smsSentHeader];
     [self.stackView addArrangedSubview:self.smsTextField];
     [self.stackView addArrangedSubview:self.resendSmsButton];
 
-    [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.smsSentLabel size:[BTUIKAppearance verticalFormSpace]];
+    [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:smsSentHeader size:[BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.smsTextField size:[BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.resendSmsButton size:[BTUIKAppearance verticalFormSpaceTight]];
 
@@ -94,12 +99,7 @@
     self.smsErrorView = [BTDropInUIUtilities newStackViewForError:BTUIKLocalizedString(SMS_CODE_INVALID)];
     [self smsErrorHidden:YES];
 
-    NSDictionary* viewBindings = @{
-                                   @"smsSentLabel": self.smsSentLabel,
-                                   @"smsTextField": self.smsTextField,
-                                   @"resendSmsButton": self.resendSmsButton,
-                                   @"stackView": self.stackView,
-                                   };
+    NSDictionary* viewBindings = @{@"stackView": self.stackView};
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[stackView]" options:0 metrics:[BTUIKAppearance metrics] views:viewBindings]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[stackView]|" options:0 metrics:[BTUIKAppearance metrics] views:viewBindings]];
