@@ -9,11 +9,10 @@ jobs:
     name: Unit
     runs-on: macOS-latest
     steps:
-      # Checks out a copy of your repository
       - name: Checkout repository
-        uses: actions/checkout@v1
-      - name: Use Xcode 12.3
-        run: sudo xcode-select -switch /Applications/Xcode_12.3.app
+        uses: actions/checkout@v2
+      - name: Use Xcode 12.4
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
       - name: Install xcpretty
         run: gem install xcpretty
       - name: Cache Carthage dependencies
@@ -31,11 +30,10 @@ jobs:
     name: UI
     runs-on: macOS-latest
     steps:
-      # Checks out a copy of your repository
       - name: Checkout repository
-        uses: actions/checkout@v1
-      - name: Use Xcode 12.3
-        run: sudo xcode-select -switch /Applications/Xcode_12.3.app
+        uses: actions/checkout@v2
+      - name: Use Xcode 12.4
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
       - name: Install xcpretty
         run: gem install xcpretty
       - name: Cache Carthage dependencies
