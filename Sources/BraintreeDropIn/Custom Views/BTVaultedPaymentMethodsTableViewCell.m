@@ -2,7 +2,7 @@
 #import "BTUIPaymentMethodCollectionViewCell.h"
 
 #ifdef COCOAPODS
-#import <Braintree/BraintreeUIKit.h>
+#import <BraintreeDropIn/BraintreeUIKit.h>
 #else
 #import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
