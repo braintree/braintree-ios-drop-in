@@ -55,7 +55,7 @@ class DemoDropInView: UIView {
         cartStackView.axis = .vertical
         cartStackView.spacing = 10
 
-        dropInButton.setTitle(NSLocalizedString("Select Payment Method", comment: ""), for: .normal)
+        dropInButton.setTitle(NSLocalizedString("Add Payment Method", comment: ""), for: .normal)
         dropInButton.setTitleColor(tintColor, for: .normal)
 
         purchaseButton.setTitle(NSLocalizedString("Complete Purchase", comment: ""), for: .normal)
