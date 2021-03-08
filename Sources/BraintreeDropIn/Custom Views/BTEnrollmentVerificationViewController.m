@@ -38,7 +38,6 @@
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
 
-    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     BTUIKBarButtonItem *confirmButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CONFIRM_ACTION) style:UIBarButtonItemStyleDone target:self action:@selector(confirm)];
     confirmButton.bold = YES;
     self.navigationItem.rightBarButtonItem = confirmButton;
@@ -89,8 +88,6 @@
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.smsSentLabel size:[BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.smsTextField size:[BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.resendSmsButton size:[BTUIKAppearance verticalFormSpaceTight]];
-
-    [self.smsTextField.heightAnchor constraintEqualToConstant:[BTUIKAppearance formCellHeight]].active = YES;
 
     [self.view addSubview:self.stackView];
 
