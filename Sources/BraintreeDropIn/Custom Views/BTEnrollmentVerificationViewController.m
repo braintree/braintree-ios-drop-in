@@ -69,16 +69,12 @@
     self.resendSmsButton = [UIButton new];
     self.resendSmsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.resendSmsButton setTitle:smsButtonText forState:UIControlStateNormal];
-    
-    NSAttributedString *normalValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText
-                                                                                     attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].tintColor,
-                                                                                                  NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}];
-    [self.resendSmsButton setAttributedTitle:normalValidateButtonString forState:UIControlStateNormal];
-    NSAttributedString *disabledValidateButtonString = [[NSAttributedString alloc] initWithString:smsButtonText
-                                                                                       attributes:@{NSForegroundColorAttributeName:[BTUIKAppearance sharedInstance].disabledColor,
-                                                                                                    NSFontAttributeName:[BTUIKAppearance sharedInstance].bodyFont}];
-    [self.resendSmsButton setAttributedTitle:disabledValidateButtonString forState:UIControlStateDisabled];
-    
+
+    [self.resendSmsButton setTitleColor:[BTUIKAppearance sharedInstance].tintColor forState:UIControlStateNormal];
+    [self.resendSmsButton setTitleColor:[BTUIKAppearance sharedInstance].disabledColor forState:UIControlStateDisabled];
+
+    self.resendSmsButton.titleLabel.font = [BTUIKAppearance sharedInstance].staticHeadlineFont;
+
     [self.resendSmsButton sizeToFit];
     [self.resendSmsButton layoutIfNeeded];
     [self.resendSmsButton addTarget:self action:@selector(resendTapped) forControlEvents:UIControlEventTouchUpInside];
