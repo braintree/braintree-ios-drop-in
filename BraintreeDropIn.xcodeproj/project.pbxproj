@@ -246,7 +246,6 @@
 		030D982E1DC9357500161899 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D982F1DC9357C00161899 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D98301DC9358500161899 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/BTUI.strings; sourceTree = "<group>"; };
-		030D98311DC9359100161899 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/BTUI.strings; sourceTree = "<group>"; };
 		030D98321DC935A000161899 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BTUI.strings"; sourceTree = "<group>"; };
 		030D98331DC935B200161899 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BTUI.strings"; sourceTree = "<group>"; };
 		030D98351DC9363500161899 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BTUI.strings; sourceTree = "<group>"; };
