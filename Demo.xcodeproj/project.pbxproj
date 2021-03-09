@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,7 +29,6 @@
 		42A8E9F425B0EDDA00439904 /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E125B0EDDA00439904 /* BraintreeCard.framework */; };
 		42A8E9F625B0EDDA00439904 /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */; };
 		42A8E9F825B0EDDA00439904 /* PPRiskMagnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */; };
-		42A8E9FA25B0EDDA00439904 /* InAppSettingsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E425B0EDDA00439904 /* InAppSettingsKit.framework */; };
 		42A8E9FC25B0EDDB00439904 /* PayPalDataCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E525B0EDDA00439904 /* PayPalDataCollector.framework */; };
 		42A8E9FE25B0EDEA00439904 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */; };
 		42A8E9FF25B0EDEA00439904 /* BraintreeUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,6 +38,8 @@
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
+		80A630D725F7DC93004E912D /* InAppSettingsKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630D625F7DC93004E912D /* InAppSettingsKit.xcframework */; };
+		80A630D825F7DC93004E912D /* InAppSettingsKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630D625F7DC93004E912D /* InAppSettingsKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				42A8E9FF25B0EDEA00439904 /* BraintreeUIKit.framework in Embed Frameworks */,
+				80A630D825F7DC93004E912D /* InAppSettingsKit.xcframework in Embed Frameworks */,
 				42A8EA0225B0EDED00439904 /* BraintreeDropIn.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -148,6 +150,7 @@
 		8068E521256D73D5002904E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_EditMode_UITests.swift; sourceTree = "<group>"; };
 		8068E531256D7489002904E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		80A630D625F7DC93004E912D /* InAppSettingsKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InAppSettingsKit.xcframework; path = Carthage/Build/InAppSettingsKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +160,8 @@
 			files = (
 				42A8E9F425B0EDDA00439904 /* BraintreeCard.framework in Frameworks */,
 				42A8E9EC25B0EDDA00439904 /* BraintreeVenmo.framework in Frameworks */,
+				80A630D725F7DC93004E912D /* InAppSettingsKit.xcframework in Frameworks */,
 				42A8E9FE25B0EDEA00439904 /* BraintreeUIKit.framework in Frameworks */,
-				42A8E9FA25B0EDDA00439904 /* InAppSettingsKit.framework in Frameworks */,
 				42A8E9F025B0EDDA00439904 /* BraintreeThreeDSecure.framework in Frameworks */,
 				42A8E9FC25B0EDDB00439904 /* PayPalDataCollector.framework in Frameworks */,
 				42A8E9EE25B0EDDA00439904 /* BraintreePayPal.framework in Frameworks */,
@@ -291,6 +294,7 @@
 		80AD3CDD25A6689F00B2762C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80A630D625F7DC93004E912D /* InAppSettingsKit.xcframework */,
 				42A8E9DC25B0EDDA00439904 /* BraintreeApplePay.framework */,
 				42A8E9E125B0EDDA00439904 /* BraintreeCard.framework */,
 				42A8E9DA25B0EDDA00439904 /* BraintreeCore.framework */,
