@@ -271,11 +271,10 @@ This SDK abides by our Client SDK Deprecation Policy. For more information on th
 
 ## Demo
 
-A demo app is included in project. To run it:
+A demo app is included in this project. To run it, you will need Carthage [0.37.0](https://github.com/Carthage/Carthage):
 
 ```
-cd Demo
-./carthage.sh bootstrap
+carthage bootstrap --use-xcframeworks --no-use-binaries
 open BraintreeDropIn.xcworkspace
 ```
 
