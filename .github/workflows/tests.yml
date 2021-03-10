@@ -20,7 +20,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: Carthage
-          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}-2
       - name: Install Carthage Dependencies
         if: steps.cache-carthage-deps.outputs.cache-hit != 'true'
         run: ./carthage.sh bootstrap
@@ -41,7 +41,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: Carthage
-          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}-2
       - name: Install Carthage Dependencies
         if: steps.cache-carthage-deps.outputs.cache-hit != 'true'
         run: ./carthage.sh bootstrap
