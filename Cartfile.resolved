@@ -1,4 +1,4 @@
 binary "https://assets.braintreegateway.com/mobile/ios/carthage-frameworks/cardinal-mobile/CardinalMobile.json" "2.2.5"
 binary "https://assets.braintreegateway.com/mobile/ios/carthage-frameworks/pp-risk-magnes/PPRiskMagnes.json" "5.0.1"
-github "braintree/braintree_ios" "5.0.0"
+github "braintree/braintree_ios" "5.1.0"
 github "futuretap/InAppSettingsKit" "3.3"

@@ -36,6 +36,7 @@
         self.textField.adjustsFontSizeToFitWidth = YES;
         self.textField.returnKeyType = UIReturnKeyNext;
         self.textField.keyboardAppearance = [BTUIKAppearance sharedInstance].keyboardAppearance;
+        self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignment];
         [self.textField addTarget:self action:@selector(fieldContentDidChange) forControlEvents:UIControlEventEditingChanged];
         [self.textField addTarget:self action:@selector(editingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
         [self.textField addTarget:self action:@selector(editingDidEnd) forControlEvents:UIControlEventEditingDidEnd];
@@ -68,10 +69,8 @@
 
         if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
-            self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignment];
         } else {
             self.stackView.axis = UILayoutConstraintAxisHorizontal;
-            self.textField.textAlignment = [BTUIKViewUtil naturalTextAlignmentInverse];
         }
 
         [self.stackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
