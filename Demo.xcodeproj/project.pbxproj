@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,22 +19,13 @@
 		4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */; };
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
 		4245D969256C627400F1A413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4245D968256C627400F1A413 /* Assets.xcassets */; };
-		42A8E9E625B0EDDA00439904 /* BraintreeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9DA25B0EDDA00439904 /* BraintreeCore.framework */; };
-		42A8E9E825B0EDDA00439904 /* BraintreeUnionPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9DB25B0EDDA00439904 /* BraintreeUnionPay.framework */; };
-		42A8E9EA25B0EDDA00439904 /* BraintreeApplePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9DC25B0EDDA00439904 /* BraintreeApplePay.framework */; };
-		42A8E9EC25B0EDDA00439904 /* BraintreeVenmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9DD25B0EDDA00439904 /* BraintreeVenmo.framework */; };
-		42A8E9EE25B0EDDA00439904 /* BraintreePayPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9DE25B0EDDA00439904 /* BraintreePayPal.framework */; };
-		42A8E9F025B0EDDA00439904 /* BraintreeThreeDSecure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9DF25B0EDDA00439904 /* BraintreeThreeDSecure.framework */; };
-		42A8E9F225B0EDDA00439904 /* BraintreePaymentFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E025B0EDDA00439904 /* BraintreePaymentFlow.framework */; };
-		42A8E9F425B0EDDA00439904 /* BraintreeCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E125B0EDDA00439904 /* BraintreeCard.framework */; };
-		42A8E9F625B0EDDA00439904 /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */; };
-		42A8E9F825B0EDDA00439904 /* PPRiskMagnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */; };
-		42A8E9FA25B0EDDA00439904 /* InAppSettingsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E425B0EDDA00439904 /* InAppSettingsKit.framework */; };
-		42A8E9FC25B0EDDB00439904 /* PayPalDataCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E525B0EDDA00439904 /* PayPalDataCollector.framework */; };
 		42A8E9FE25B0EDEA00439904 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */; };
 		42A8E9FF25B0EDEA00439904 /* BraintreeUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42A8EA0125B0EDED00439904 /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D425B0EDB400439904 /* BraintreeDropIn.framework */; };
 		42A8EA0225B0EDED00439904 /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D425B0EDB400439904 /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42C574F525FA82F8008B3681 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C574F425FA82F8008B3681 /* InAppSettingsKit */; };
+		42C574FA25FA832A008B3681 /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */; };
+		42C574FB25FA832A008B3681 /* CardinalMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
@@ -60,6 +51,7 @@
 			files = (
 				42A8E9FF25B0EDEA00439904 /* BraintreeUIKit.framework in Embed Frameworks */,
 				42A8EA0225B0EDED00439904 /* BraintreeDropIn.framework in Embed Frameworks */,
+				42C574FB25FA832A008B3681 /* CardinalMobile.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,19 +147,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42A8E9F425B0EDDA00439904 /* BraintreeCard.framework in Frameworks */,
-				42A8E9EC25B0EDDA00439904 /* BraintreeVenmo.framework in Frameworks */,
 				42A8E9FE25B0EDEA00439904 /* BraintreeUIKit.framework in Frameworks */,
-				42A8E9FA25B0EDDA00439904 /* InAppSettingsKit.framework in Frameworks */,
-				42A8E9F025B0EDDA00439904 /* BraintreeThreeDSecure.framework in Frameworks */,
-				42A8E9FC25B0EDDB00439904 /* PayPalDataCollector.framework in Frameworks */,
-				42A8E9EE25B0EDDA00439904 /* BraintreePayPal.framework in Frameworks */,
-				42A8E9F625B0EDDA00439904 /* CardinalMobile.framework in Frameworks */,
-				42A8E9F825B0EDDA00439904 /* PPRiskMagnes.framework in Frameworks */,
-				42A8E9EA25B0EDDA00439904 /* BraintreeApplePay.framework in Frameworks */,
-				42A8E9F225B0EDDA00439904 /* BraintreePaymentFlow.framework in Frameworks */,
-				42A8E9E825B0EDDA00439904 /* BraintreeUnionPay.framework in Frameworks */,
-				42A8E9E625B0EDDA00439904 /* BraintreeCore.framework in Frameworks */,
+				42C574F525FA82F8008B3681 /* InAppSettingsKit in Frameworks */,
+				42C574FA25FA832A008B3681 /* CardinalMobile.framework in Frameworks */,
 				42A8EA0125B0EDED00439904 /* BraintreeDropIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,7 +301,6 @@
 				4245D79F256C5AF900F1A413 /* Sources */,
 				4245D7A0256C5AF900F1A413 /* Frameworks */,
 				4245D7A1256C5AF900F1A413 /* Resources */,
-				42621F5225A771990057ECFE /* ShellScript */,
 				42A8EA0025B0EDEA00439904 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -328,6 +309,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
+				42C574F425FA82F8008B3681 /* InAppSettingsKit */,
 			);
 			productName = Demo;
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
@@ -401,6 +383,7 @@
 			);
 			mainGroup = 4245D79A256C5AF900F1A413;
 			packageReferences = (
+				42C574F325FA82F8008B3681 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
 			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
 			projectDirPath = "";
@@ -433,28 +416,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		42621F5225A771990057ECFE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"$(SRCROOT)/demo-input.xcfilelist",
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-				"$(SRCROOT)/demo-output.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4245D79F256C5AF900F1A413 /* Sources */ = {
@@ -799,6 +760,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		42C574F325FA82F8008B3681 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		42C574F425FA82F8008B3681 /* InAppSettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C574F325FA82F8008B3681 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
+			productName = InAppSettingsKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4245D79B256C5AF900F1A413 /* Project object */;
 }
