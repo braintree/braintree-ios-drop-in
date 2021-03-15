@@ -15,6 +15,7 @@
   * Add `BTDropInUICustomization`, which replaces `BTUIKAppearance` for customizing UI
   * Enable dynamic type by default. This can be disabled with the `disableDynamicType` property on `BTDropInUICustomization`.
   * Show last four digits of vaulted cards, instead of "••• ••11", which truncates in larger fonts.
+  * Remove support for Turkish localization
 
 ## 8.1.3 (2021-03-02)
 
