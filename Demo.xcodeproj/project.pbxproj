@@ -140,8 +140,6 @@
 		428DB1BA25F2D6B900B7EF7E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		428DB1BB25F2D6BF00B7EF7E /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
 		428DB1BC25F2D6BF00B7EF7E /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		428DB1BD25F2D6C400B7EF7E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
-		428DB1BE25F2D6C400B7EF7E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		428DB1BF25F2D6CA00B7EF7E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		428DB1C025F2D6CA00B7EF7E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		428DB1C125F2D6D100B7EF7E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -443,7 +441,6 @@
 				ru,
 				sv,
 				th,
-				tr,
 				"zh-Hans",
 				"zh-Hant",
 				ar,
@@ -542,7 +539,6 @@
 				428DB1B725F2D6B300B7EF7E /* ru */,
 				428DB1B925F2D6B900B7EF7E /* sv */,
 				428DB1BB25F2D6BF00B7EF7E /* th */,
-				428DB1BD25F2D6C400B7EF7E /* tr */,
 				428DB1BF25F2D6CA00B7EF7E /* zh-Hans */,
 				428DB1C125F2D6D100B7EF7E /* zh-Hant */,
 				428DB1C325F2D6D700B7EF7E /* ar */,
@@ -573,7 +569,6 @@
 				428DB1B825F2D6B300B7EF7E /* ru */,
 				428DB1BA25F2D6B900B7EF7E /* sv */,
 				428DB1BC25F2D6BF00B7EF7E /* th */,
-				428DB1BE25F2D6C400B7EF7E /* tr */,
 				428DB1C025F2D6CA00B7EF7E /* zh-Hans */,
 				428DB1C225F2D6D100B7EF7E /* zh-Hant */,
 				428DB1C425F2D6D700B7EF7E /* ar */,
