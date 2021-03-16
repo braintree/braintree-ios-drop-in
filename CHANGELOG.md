@@ -1,5 +1,10 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Cards
+  * Fix crash on slow network connections fixes (#243)
+
 ## 8.1.3 (2021-03-02)
 
 * Fix localizations for Carthage integrations (fixes #272)

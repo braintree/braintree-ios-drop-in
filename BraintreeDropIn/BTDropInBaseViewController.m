@@ -19,7 +19,7 @@
 - (instancetype)initWithAPIClient:(BTAPIClient *)apiClient request:(BTDropInRequest *)request
 {
     if (self = [super init]) {
-        self.apiClient = [apiClient copyWithSource:apiClient.metadata.source integration:BTClientMetadataIntegrationDropIn2];
+        self.apiClient = apiClient;
         _dropInRequest = request;
     }
     return self;

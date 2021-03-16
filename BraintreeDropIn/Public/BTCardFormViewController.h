@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable, readonly) BTCardCapabilities *cardCapabilities;
 
 /// The card network types supported by this merchant
-@property (nonatomic, copy) NSArray *supportedCardTypes;
+@property (nonatomic, copy) NSArray<NSNumber *> *supportedCardTypes;
 
 /// Resets the state of the form fields
 - (void)resetForm;
