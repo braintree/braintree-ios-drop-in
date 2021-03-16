@@ -3,7 +3,7 @@
 ## unreleased
 
 * Cards
-  * Fix crash on slow network connections fixes (#243)
+  * Fix crash on slow network connections (fixes #243)
 
 ## 8.1.3 (2021-03-02)
 
