@@ -8,7 +8,6 @@ FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 
 #ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKFormField.h>
-#import <BraintreeDropIn/BTUIKExpiryInputView.h>
 #import <BraintreeDropIn/BTUIKTextField.h>
 #import <BraintreeDropIn/BTUIKCardNumberFormField.h>
 #import <BraintreeDropIn/UIColor+BTUIK.h>
@@ -36,7 +35,6 @@ FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 #import <BraintreeDropIn/BTUIKExpirationDatePicker.h>
 #else
 #import <BraintreeUIKit/BTUIKFormField.h>
-#import <BraintreeUIKit/BTUIKExpiryInputView.h>
 #import <BraintreeUIKit/BTUIKTextField.h>
 #import <BraintreeUIKit/BTUIKCardNumberFormField.h>
 #import <BraintreeUIKit/UIColor+BTUIK.h>

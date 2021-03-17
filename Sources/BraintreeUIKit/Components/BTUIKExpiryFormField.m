@@ -27,7 +27,6 @@
 #define BTUIKCardExpiryPlaceholderTwoDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR)
 
 @interface BTUIKExpiryFormField () <BTUIKExpirationDatePickerDelegate>
-@property (nonatomic, strong) BTUIKExpiryInputView *expiryInputView;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @end
 
@@ -39,7 +38,6 @@
         self.textField.accessibilityLabel = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         self.labelText = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
-        self.expiryInputView.delegate = self;
         self.dateFormatter = [NSDateFormatter new];
         self.dateFormatter.dateFormat = @"MMyyyy";
 
@@ -148,7 +146,7 @@
     
     NSString *formattedValue;
     NSUInteger formattedCursorLocation;
-    
+
     BTUIKCardExpiryFormat *format = [[BTUIKCardExpiryFormat alloc] init];
     format.value = self.textField.text;
     format.cursorLocation = [self.textField offsetFromPosition:self.textField.beginningOfDocument toPosition:self.textField.selectedTextRange.start];
@@ -187,8 +185,6 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    self.expiryInputView.selectedYear = self.expirationYear.intValue;
-    self.expiryInputView.selectedMonth = self.expirationMonth.intValue;
     [super textFieldDidBeginEditing:textField];
     self.displayAsValid = YES;
     
@@ -207,16 +203,6 @@
     NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:numericNewText];
     
     return [self dateIsValid:updatedText];
-}
-
-#pragma mark BTUIKExpiryInputViewDelegate
-
-- (void)expiryInputViewDidChange:(BTUIKExpiryInputView *)expiryInputView {
-    if (expiryInputView.selectedYear > 0) {
-        self.expirationDate = [NSString stringWithFormat:@"%02li%04li", (long)expiryInputView.selectedMonth, (long)expiryInputView.selectedYear];
-    } else {
-        self.expirationDate = [NSString stringWithFormat:@"%02li", (long)expiryInputView.selectedMonth];
-    }
 }
 
 #pragma mark BTUIKExpirationDatePickerDelegate

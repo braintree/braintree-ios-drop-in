@@ -82,9 +82,6 @@
 		A52901691D8903A600032220 /* BTUIKCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */; };
 		A529016B1D8903A600032220 /* BTUIKCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */; };
 		A529016D1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */; };
-		A529016E1D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */; };
-		A52901701D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */; };
-		A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */; };
 		A52901741D8903A600032220 /* BTUIKFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DA1D8903A600032220 /* BTUIKFormField.m */; };
 		A52901761D8903A600032220 /* BTUIKInputAccessoryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */; };
 		A52901781D8903A600032220 /* BTUIKMobileCountryCodeFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */; };
@@ -110,7 +107,6 @@
 		A52901991D8903A600032220 /* BTUIKCardNumberFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A529019A1D8903A600032220 /* BTUIKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010A1D8903A600032220 /* BTUIKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A529019B1D8903A600032220 /* BTUIKExpiryFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A529019C1D8903A600032220 /* BTUIKExpiryInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A529019D1D8903A600032220 /* BTUIKFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010D1D8903A600032220 /* BTUIKFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A529019E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A529019F1D8903A600032220 /* BTUIKLocalizedString.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010F1D8903A600032220 /* BTUIKLocalizedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -348,9 +344,6 @@
 		A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCollectionReusableView.h; sourceTree = "<group>"; };
 		A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCollectionReusableView.m; sourceTree = "<group>"; };
 		A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryFormField.m; sourceTree = "<group>"; };
-		A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryInputCollectionViewCell.h; sourceTree = "<group>"; };
-		A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryInputCollectionViewCell.m; sourceTree = "<group>"; };
-		A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryInputView.m; sourceTree = "<group>"; };
 		A52900DA1D8903A600032220 /* BTUIKFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKFormField.m; sourceTree = "<group>"; };
 		A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKInputAccessoryToolbar.m; sourceTree = "<group>"; };
 		A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMobileCountryCodeFormField.m; sourceTree = "<group>"; };
@@ -376,7 +369,6 @@
 		A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardNumberFormField.h; sourceTree = "<group>"; };
 		A529010A1D8903A600032220 /* BTUIKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardType.h; sourceTree = "<group>"; };
 		A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryFormField.h; sourceTree = "<group>"; };
-		A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryInputView.h; sourceTree = "<group>"; };
 		A529010D1D8903A600032220 /* BTUIKFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKFormField.h; sourceTree = "<group>"; };
 		A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKInputAccessoryToolbar.h; sourceTree = "<group>"; };
 		A529010F1D8903A600032220 /* BTUIKLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLocalizedString.h; sourceTree = "<group>"; };
@@ -565,7 +557,6 @@
 				A529010A1D8903A600032220 /* BTUIKCardType.h */,
 				42C69B44260284A300DD8713 /* BTUIKExpirationDatePicker.h */,
 				A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */,
-				A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */,
 				A529010D1D8903A600032220 /* BTUIKFormField.h */,
 				A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */,
 				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
@@ -641,9 +632,6 @@
 				A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */,
 				42C69B45260284A300DD8713 /* BTUIKExpirationDatePicker.m */,
 				A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */,
-				A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */,
-				A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */,
-				A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */,
 				A52900DA1D8903A600032220 /* BTUIKFormField.m */,
 				A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */,
 				A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */,
@@ -944,12 +932,10 @@
 				A52901B71D8903A700032220 /* BTUIKCoinbaseWordmarkVectorArtView.h in Headers */,
 				A52901C31D8903A700032220 /* BTUIKDiscoverVectorArtView.h in Headers */,
 				A52901691D8903A600032220 /* BTUIKCollectionReusableView.h in Headers */,
-				A529016E1D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h in Headers */,
 				A52901961D8903A600032220 /* BTUIKCardExpirationValidator.h in Headers */,
 				A52901E01D8903A700032220 /* BTUIKVenmoMonogramCardView.h in Headers */,
 				A52901C61D8903A700032220 /* BTUIKJCBVectorArtView.h in Headers */,
 				53E78BE022248A29000388D3 /* BTUIKHipercardVectorArtView.h in Headers */,
-				A529019C1D8903A600032220 /* BTUIKExpiryInputView.h in Headers */,
 				A52901E91D8903A700032220 /* BTUIKLargeAmExVectorArtView.h in Headers */,
 				A52901F51D8903A700032220 /* BTUIKLargeDiscoverVectorArtView.h in Headers */,
 				A52901A11D8903A600032220 /* BTUIKMobileNumberFormField.h in Headers */,
@@ -1197,7 +1183,6 @@
 				53E78BE322248A29000388D3 /* BTUIKHipercardVectorArtView.m in Sources */,
 				A52901F41D8903A700032220 /* BTUIKLargeDinersClubVectorArtView.m in Sources */,
 				A529017C1D8903A600032220 /* BTUIKPaymentOptionCardView.m in Sources */,
-				A52901701D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m in Sources */,
 				53E78BEF22248FD9000388D3 /* BTUIKHiperVectorArtView.m in Sources */,
 				A529016D1D8903A600032220 /* BTUIKExpiryFormField.m in Sources */,
 				A52901CB1D8903A700032220 /* BTUIKMaestroVectorArtView.m in Sources */,
@@ -1221,7 +1206,6 @@
 				53E78BEB22248BFE000388D3 /* BTUIKLargeHipercardVectorArtView.m in Sources */,
 				A52901B01D8903A700032220 /* BTUIKApplePayMarkVectorArtView.m in Sources */,
 				A52901911D8903A600032220 /* BTUIKCardType.m in Sources */,
-				A52901721D8903A600032220 /* BTUIKExpiryInputView.m in Sources */,
 				A529020C1D8903A700032220 /* BTUIKLargeVectorArtView.m in Sources */,
 				A52901641D8903A600032220 /* BTUIKBarButtonItem.m in Sources */,
 				A52901FA1D8903A700032220 /* BTUIKLargeJCBVectorArtView.m in Sources */,
