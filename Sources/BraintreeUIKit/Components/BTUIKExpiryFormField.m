@@ -6,6 +6,8 @@
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
 #import <BraintreeDropIn/BTUIKTextField.h>
 #import <BraintreeDropIn/BTUIKUtil.h>
+#import <BraintreeDropIn/BTUIKAppearance.h>
+#import <BraintreeDropIn/BTUIKExpirationDatePicker.h>
 #else
 #import <BraintreeUIKit/BTUIKCardExpirationValidator.h>
 #import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
@@ -14,6 +16,8 @@
 #import <BraintreeUIKit/BTUIKLocalizedString.h>
 #import <BraintreeUIKit/BTUIKTextField.h>
 #import <BraintreeUIKit/BTUIKUtil.h>
+#import <BraintreeUIKit/BTUIKAppearance.h>
+#import <BraintreeUIKit/BTUIKExpirationDatePicker.h>
 #endif
 
 #define BTUIKCardExpiryFieldYYYYPrefix @"20"
@@ -22,8 +26,9 @@
 #define BTUIKCardExpiryPlaceholderFourDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR)
 #define BTUIKCardExpiryPlaceholderTwoDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR)
 
-@interface BTUIKExpiryFormField ()
+@interface BTUIKExpiryFormField () <BTUIKExpirationDatePickerDelegate>
 @property (nonatomic, strong) BTUIKExpiryInputView *expiryInputView;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @end
 
 @implementation BTUIKExpiryFormField
@@ -34,11 +39,13 @@
         self.textField.accessibilityLabel = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         self.labelText = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
-        self.expiryInputView = [BTUIKExpiryInputView new];
         self.expiryInputView.delegate = self;
-        // Use custom date picker, but fall back to number pad keyboard if inputView is set to nil
-        self.textField.keyboardType = UIKeyboardTypeNumberPad;
-        self.textField.inputView = self.expiryInputView;
+        self.dateFormatter = [NSDateFormatter new];
+        self.dateFormatter.dateFormat = @"MMyyyy";
+
+        BTUIKExpirationDatePicker *datePicker = [[BTUIKExpirationDatePicker alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 216)];
+        datePicker.delegate = self;
+        self.textField.inputView = datePicker;
     }
     return self;
 }
@@ -202,10 +209,6 @@
     return [self dateIsValid:updatedText];
 }
 
-- (BOOL)entryComplete {
-    return [super entryComplete] && ![self.expirationYear isEqualToString:BTUIKCardExpiryFieldYYYYPrefix];
-}
-
 #pragma mark BTUIKExpiryInputViewDelegate
 
 - (void)expiryInputViewDidChange:(BTUIKExpiryInputView *)expiryInputView {
@@ -214,6 +217,12 @@
     } else {
         self.expirationDate = [NSString stringWithFormat:@"%02li", (long)expiryInputView.selectedMonth];
     }
+}
+
+#pragma mark BTUIKExpirationDatePickerDelegate
+
+- (void)expirationDatePicker:(BTUIKExpirationDatePicker *)picker didSelectDate:(NSDate *)date {
+    self.expirationDate = [self.dateFormatter stringFromDate:date];
 }
 
 @end

@@ -33,6 +33,7 @@ FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 #import <BraintreeDropIn/BTUIKCardExpiryFormat.h>
 #import <BraintreeDropIn/BTUIKVisualAssetType.h>
 #import <BraintreeDropIn/BTUIKSwitchFormField.h>
+#import <BraintreeDropIn/BTUIKExpirationDatePicker.h>
 #else
 #import <BraintreeUIKit/BTUIKFormField.h>
 #import <BraintreeUIKit/BTUIKExpiryInputView.h>
@@ -60,4 +61,5 @@ FOUNDATION_EXPORT const unsigned char BraintreeUIKitVersionString[];
 #import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
 #import <BraintreeUIKit/BTUIKVisualAssetType.h>
 #import <BraintreeUIKit/BTUIKSwitchFormField.h>
+#import <BraintreeUIKit/BTUIKExpirationDatePicker.h>
 #endif

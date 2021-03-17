@@ -733,10 +733,6 @@
         if (cardType != nil && formField.text.length >= cardType.maxNumberLength) {
             [self validateButtonPressed:formField];
         }
-    } else if (formField == self.expirationDateField && formField.text.length > 0) {
-        if (formField.text.length >= 5) {
-            [self advanceFocusFromField:formField];
-        }
     } else if (formField == self.securityCodeField && formField.text.length > 0) {
         BTUIKCardType *cardType = self.cardNumberField.cardType;
         if (cardType != nil && formField.text.length >= cardType.validCvvLength) {
