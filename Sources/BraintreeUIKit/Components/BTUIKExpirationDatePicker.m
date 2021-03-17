@@ -8,6 +8,10 @@
 @property (strong, nonatomic) NSDateFormatter *yearFormatter;
 @end
 
+// TODO: Automatically scroll to closest valid date if user selects an invalid date.
+// TODO: Test in various languages (esp. right-to-left languages)
+// TODO: Test on iPad, rotating between landscape and portrait, etc.
+
 @implementation BTUIKExpirationDatePicker
 
 - (instancetype)initWithFrame:(CGRect)frame {

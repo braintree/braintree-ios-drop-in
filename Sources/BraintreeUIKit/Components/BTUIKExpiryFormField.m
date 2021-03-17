@@ -146,7 +146,7 @@
     
     NSString *formattedValue;
     NSUInteger formattedCursorLocation;
-
+    // TODO: - Remove the formatting logic and update the date formatter to include a slash. We'll also need to disable pasting into the text field so that users can't paste invalid text.
     BTUIKCardExpiryFormat *format = [[BTUIKCardExpiryFormat alloc] init];
     format.value = self.textField.text;
     format.cursorLocation = [self.textField offsetFromPosition:self.textField.beginningOfDocument toPosition:self.textField.selectedTextRange.start];
