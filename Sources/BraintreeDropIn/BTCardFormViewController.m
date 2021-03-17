@@ -509,13 +509,23 @@
 - (void)cardNumberErrorHidden:(BOOL)hidden errorString:(NSString *)errorString {
     NSInteger indexOfCardNumberFormField = [self.stackView.arrangedSubviews indexOfObject:self.cardNumberField];
     if (indexOfCardNumberFormField != NSNotFound && !hidden) {
-        [self.stackView insertArrangedSubview:self.cardNumberErrorView atIndex:indexOfCardNumberFormField + 1];
         UILabel *errorLabel = self.cardNumberErrorView.arrangedSubviews.firstObject;
         errorLabel.text = errorString;
         errorLabel.accessibilityLabel = errorString;
         errorLabel.accessibilityHint = BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN);
-        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,
-                                        errorLabel);
+        [self.stackView insertArrangedSubview:self.cardNumberErrorView atIndex:indexOfCardNumberFormField + 1];
+        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, errorLabel);
+        [self.view layoutIfNeeded];
+
+        // scroll so that error view is visible, if needed
+        CGFloat scrollViewBottom = self.scrollView.frame.size.height - self.scrollView.contentInset.bottom;
+        CGRect errorViewRect = [self.view convertRect:self.cardNumberErrorView.frame fromView:self.stackView];
+        CGFloat errorViewBottom = errorViewRect.origin.y + errorViewRect.size.height;
+        CGFloat diff = errorViewBottom - scrollViewBottom;
+
+        if (diff > 0) {
+            [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentOffset.y + diff) animated:YES];
+        }
     } else if (self.cardNumberErrorView.superview != nil && hidden) {
         [self.cardNumberErrorView removeFromSuperview];
     }
