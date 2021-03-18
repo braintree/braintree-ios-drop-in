@@ -6,7 +6,6 @@
 
 /// @class Form field to collect an expiration date.
 @interface BTUIKExpiryFormField : BTUIKFormField
-// TODO: - make sure the expiration month and expiration year properties are being set correctly
 /// The expiration month
 @property (nonatomic, strong, nullable, readonly) NSString *expirationMonth;
 
