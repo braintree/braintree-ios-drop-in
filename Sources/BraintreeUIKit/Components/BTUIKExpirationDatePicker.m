@@ -1,14 +1,17 @@
 #import "BTUIKExpirationDatePicker.h"
 #import "BTUIKAppearance.h"
 
+#define MONTH 0
+#define YEAR 1
+
 @interface BTUIKExpirationDatePicker () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (strong, nonatomic) UIPickerView *pickerView;
 @property (strong, nonatomic) NSCalendar *calendar;
 @property (strong, nonatomic) NSDateFormatter *monthFormatter;
 @property (strong, nonatomic) NSDateFormatter *yearFormatter;
+@property (strong, nonatomic) NSDateComponents *currentDateComponents;
 @end
 
-// TODO: Automatically scroll to closest valid date if user selects an invalid date.
 // TODO: Test in various languages (esp. right-to-left languages)
 // TODO: Test on iPad, rotating between landscape and portrait, etc.
 
@@ -22,8 +25,6 @@
         self.pickerView.delegate = self;
         self.pickerView.translatesAutoresizingMaskIntoConstraints = NO;
         self.pickerView.backgroundColor = BTUIKAppearance.sharedInstance.formBackgroundColor;
-        [self.pickerView selectRow:0 inComponent:0 animated:NO];
-        [self.pickerView selectRow:0 inComponent:1 animated:NO];
         [self addSubview:self.pickerView];
 
         [NSLayoutConstraint activateConstraints:@[
@@ -38,26 +39,24 @@
         self.monthFormatter.dateFormat = @"MM - MMMM";
         self.yearFormatter = [NSDateFormatter new];
         self.yearFormatter.dateFormat = @"yyyy";
+        self.currentDateComponents = [self.calendar components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate new]];
+
+        [self.pickerView selectRow:self.currentDateComponents.month - 1 inComponent:MONTH animated:NO];
+        [self.pickerView selectRow:0 inComponent:YEAR animated:NO];
     }
     return self;
 }
 
 - (NSString *)formattedMonthForRow:(NSInteger)row {
-    NSDate *date = [self.calendar dateBySettingUnit:NSCalendarUnitMonth
-                                              value:row + 1
-                                             ofDate:[NSDate new]
-                                            options:0];
-
-    return [self.monthFormatter stringFromDate:date];
+    NSDateComponents *components = [NSDateComponents new];
+    components.month = row + 1;
+    return [self.monthFormatter stringFromDate:[self.calendar dateFromComponents:components]];
 }
 
 - (NSString *)formattedYearForRow:(NSInteger)row {
-    NSDate *date = [self.calendar dateByAddingUnit:NSCalendarUnitYear
-                                                value:row
-                                               toDate:[NSDate new]
-                                              options:0];
-
-    return [self.yearFormatter stringFromDate:date];
+    NSDateComponents *components = [NSDateComponents new];
+    components.year = row + self.currentDateComponents.year;
+    return [self.yearFormatter stringFromDate:[self.calendar dateFromComponents:components]];
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -67,7 +66,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if (component == 0) {
+    if (component == MONTH) {
         return 12;
     } else {
         return 20;
@@ -75,7 +74,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (component == 0) {
+    if (component == MONTH) {
         return [self formattedMonthForRow:row];
     } else {
         return [self formattedYearForRow:row];
@@ -85,13 +84,15 @@
 #pragma mark - UIPickerViewDelegate
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSInteger month = [pickerView selectedRowInComponent:0] + 1;
-    NSInteger year = [pickerView selectedRowInComponent:1];
+    NSInteger monthRow = [pickerView selectedRowInComponent:MONTH];
+    NSInteger yearRow = [pickerView selectedRowInComponent:YEAR];
 
-    NSDate *date = [self.calendar dateBySettingUnit:NSCalendarUnitMonth value:month ofDate:[NSDate new] options:0];
-    date = [self.calendar dateByAddingUnit:NSCalendarUnitYear value:year toDate:date options:0];
+    NSDateComponents *selectedDateComponents = [NSDateComponents new];
+    selectedDateComponents.year = yearRow + self.currentDateComponents.year;
+    selectedDateComponents.month = monthRow + 1;
 
-    [self.delegate expirationDatePicker:self didSelectDate:date];
+    NSDate *selectedDate = [self.calendar dateFromComponents:selectedDateComponents];
+    [self.delegate expirationDatePicker:self didSelectDate:selectedDate];
 }
 
 @end
