@@ -17,6 +17,11 @@
   * Show last four digits of vaulted cards, instead of "••• ••11", which truncates in larger fonts.
   * Remove support for Turkish localization
 
+## unreleased
+
+* Cards
+  * Fix crash on slow network connections (fixes #243)
+
 ## 8.1.3 (2021-03-02)
 
 * Fix localizations for Carthage integrations (fixes #272)
