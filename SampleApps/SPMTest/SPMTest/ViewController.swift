@@ -17,6 +17,4 @@ class ViewController: UIViewController {
 
         present(dropInController!, animated: true)
     }
-    
 }
-
