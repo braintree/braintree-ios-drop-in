@@ -1,6 +1,5 @@
 import UIKit
 import BraintreeDropIn
-import BraintreeUIKit
 
 class ViewController: UIViewController {
 
