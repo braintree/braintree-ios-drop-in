@@ -682,7 +682,7 @@
 #pragma mark FormField Delegate Methods
 
 - (void)validateButtonPressed:(__unused BTUIKFormField *)formField {
-    NSNumber *cardType = [NSNumber numberWithInt:[BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType]];
+    NSNumber *cardType = @([BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType]);
     BOOL cardSupported = [self.supportedCardTypes containsObject:cardType];
 
     if (!cardSupported) {
