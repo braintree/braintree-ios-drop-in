@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
     s.public_header_files = "Sources/BraintreeUIKit/Public/BraintreeUIKit/*.h"
     s.frameworks = "UIKit"
     s.resource_bundles = {
-      "Braintree-UIKit-Localization" => ["Sources/BraintreeUIKit/Localization/*.lproj"] }
+      "Braintree-UIKit-Localization" => ["Sources/BraintreeUIKit/Resources/*.lproj"] }
   end
 
   # https://github.com/CocoaPods/CocoaPods/issues/10065#issuecomment-694266259
