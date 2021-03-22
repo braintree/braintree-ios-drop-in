@@ -19,8 +19,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Use Xcode 12.4
         run: sudo xcode-select -switch /Applications/Xcode_12.4.app
-      - name: Install xcpretty
-        run: gem install xcpretty
       - name: Use current branch
         run: sed -i '' 's/branch = .*/branch = \"'"$GITHUB_HEAD_REF"'\";/' SampleApps/SPMTest/SPMTest.xcodeproj/project.pbxproj
       - name: Run swift package resolve
