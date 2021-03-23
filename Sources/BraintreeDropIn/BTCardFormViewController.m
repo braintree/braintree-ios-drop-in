@@ -135,7 +135,7 @@
     [self resetForm];
     [self showLoadingScreen:YES];
     [self loadConfiguration];
-    
+
     self.firstResponderFormField = self.cardNumberField;
 }
 
@@ -455,7 +455,7 @@
 
 - (void)advanceFocusFromField:(BTUIKFormField *)currentField {
     NSUInteger currentIdx = [self.requiredFields indexOfObject:currentField];
-    if (currentIdx < [self.requiredFields count] - 1) {
+    if (currentIdx != NSNotFound && currentIdx < self.requiredFields.count - 1) {
         [[self.requiredFields objectAtIndex:currentIdx + 1] becomeFirstResponder];
     }
 }
@@ -675,30 +675,32 @@
 #pragma mark FormField Delegate Methods
 
 - (void)validateButtonPressed:(__unused BTUIKFormField *)formField {
-    BTUIKCardType *cardType = self.cardNumberField.cardType;
-    BOOL cardSupported = NO;
-    for (id object in self.supportedCardTypes) {
-        BTUIKPaymentOptionType supportedCardType = ((NSNumber*)object).intValue;
-        if ( supportedCardType == [BTUIKViewUtil paymentMethodTypeForCardType:cardType]) {
-            cardSupported = YES;
-            break;
-        }
-    }
+    NSNumber *cardType = [NSNumber numberWithInt:[BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType]];
+    BOOL cardSupported = [self.supportedCardTypes containsObject:cardType];
+
     if (!cardSupported) {
         [self cardNumberErrorHidden:NO errorString:BTUIKLocalizedString(CARD_NOT_ACCEPTED_ERROR_LABEL)];
         return;
     }
-    
-    if (!self.unionPayEnabledMerchant) {
-        [self cardNumberErrorHidden:formField.valid];
-        if (formField.valid) {
-            self.cardNumberField.state = BTUIKCardNumberFormFieldStateDefault;
-            self.collapsed = NO;
-            [self advanceFocusFromField:formField];
-        }
-    } else {
-        [self fetchCardCapabilities];
+
+    if (!formField.valid) {
+        [self cardNumberErrorHidden:NO];
+        return;
     }
+
+    if (!self.configuration) {
+        self.cardNumberField.state = BTUIKCardNumberFormFieldStateLoading;
+        return;
+    }
+
+    if (self.unionPayEnabledMerchant) {
+        [self fetchCardCapabilities];
+        return;
+    }
+
+    self.cardNumberField.state = BTUIKCardNumberFormFieldStateDefault;
+    self.collapsed = NO;
+    [self advanceFocusFromField:formField];
 }
 
 - (void)formFieldDidBeginEditing:(__unused BTUIKFormField *)formField {

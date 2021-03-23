@@ -18,6 +18,11 @@
   * Remove support for Turkish localization
   * Use number pad for expiration date input on card form
 
+## unreleased
+
+* Cards
+  * Fix crash on slow network connections (fixes #243)
+
 ## 8.1.3 (2021-03-02)
 
 * Fix localizations for Carthage integrations (fixes #272)
