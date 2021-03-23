@@ -166,8 +166,9 @@
     }
     
     [self updatePlaceholder];
-    
-    self.displayAsValid = ((self.textField.text.length != 5 && self.textField.text.length != 7) || self.valid);
+
+    // Always display as valid if fewer than 7 characters entered
+    self.displayAsValid = self.textField.text.length != 7 || self.valid;
 
     [self updateAppearance];
     [self.delegate formFieldDidChange:self];
