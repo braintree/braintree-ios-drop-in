@@ -7,7 +7,6 @@
 #import <BraintreeDropIn/BTUIKTextField.h>
 #import <BraintreeDropIn/BTUIKUtil.h>
 #import <BraintreeDropIn/BTUIKAppearance.h>
-#import <BraintreeDropIn/BTUIKExpirationDatePicker.h>
 #else
 #import <BraintreeUIKit/BTUIKCardExpirationValidator.h>
 #import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
@@ -17,7 +16,6 @@
 #import <BraintreeUIKit/BTUIKTextField.h>
 #import <BraintreeUIKit/BTUIKUtil.h>
 #import <BraintreeUIKit/BTUIKAppearance.h>
-#import <BraintreeUIKit/BTUIKExpirationDatePicker.h>
 #endif
 
 #define BTUIKCardExpiryFieldYYYYPrefix @"20"
@@ -25,10 +23,6 @@
 
 #define BTUIKCardExpiryPlaceholderFourDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR)
 #define BTUIKCardExpiryPlaceholderTwoDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR)
-
-@interface BTUIKExpiryFormField () <BTUIKExpirationDatePickerDelegate>
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
-@end
 
 @implementation BTUIKExpiryFormField
 
@@ -38,12 +32,7 @@
         self.textField.accessibilityLabel = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         self.labelText = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
-        self.dateFormatter = [NSDateFormatter new];
-        self.dateFormatter.dateFormat = @"MMyyyy";
-
-        BTUIKExpirationDatePicker *datePicker = [[BTUIKExpirationDatePicker alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 216)];
-        datePicker.delegate = self;
-        self.textField.inputView = datePicker;
+        self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
     return self;
 }
@@ -203,12 +192,6 @@
     NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:numericNewText];
     
     return [self dateIsValid:updatedText];
-}
-
-#pragma mark BTUIKExpirationDatePickerDelegate
-
-- (void)expirationDatePicker:(BTUIKExpirationDatePicker *)picker didSelectDate:(NSDate *)date {
-    self.expirationDate = [self.dateFormatter stringFromDate:date];
 }
 
 @end
