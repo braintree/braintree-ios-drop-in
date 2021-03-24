@@ -35,8 +35,6 @@ jobs:
           plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'DropInDemo/Supporting Files/Braintree-Demo-Info.plist'
           plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'BraintreeDropIn/Info.plist'
           plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'BraintreeDropIn/Info.plist'
-          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'BraintreeUIKit/Info.plist'
-          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'BraintreeUIKit/Info.plist'
 
           git add .
           git commit -m 'Bump version to ${{ github.event.inputs.version }}'
@@ -62,7 +60,7 @@ jobs:
       - name: Create Carthage pre-built binaries
         run: |
           carthage build --no-skip-current
-          carthage archive "BraintreeDropIn" "BraintreeUIKit" --output BraintreeDropIn.framework.zip
+          carthage archive "BraintreeDropIn" --output BraintreeDropIn.framework.zip
 
       - name: Upload Carthage pre-built binaries to GitHub release
         id: upload-release-asset

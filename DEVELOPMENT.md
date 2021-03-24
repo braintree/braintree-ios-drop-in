@@ -19,43 +19,15 @@ Use the following commands to run tests:
 
 ## Importing Header Files
 
-To maintain support for CocoaPods, Swift Package Manager, and Carthage, our Objective-C import statements need specific attention.
-
-CocoaPods creates a single BraintreeDropIn framework out of its subpsecs, whereas SPM, Carthage, and manual integrations treat each module as a separate framework, i.e., BraintreeUIKit & BraintreeDropIn.
-
-SPM & Carthage use:
-`#import <BraintreeDropIn/BraintreeDropIn.h>`
-`#import <BraintreeUIKit/BraintreeUIKit.h>`
-`#import <BraintreeCore/BraintreeCore.h>`
-
-CocoaPods uses:
-`#import <BraintreeDropIn/BraintreeDropIn.h>`
-`#import <BraintreeDropIn/BraintreeUIKit.h>`
-`#import <Braintree/BraintreeCore.h>`
-
-Public headers for each module must live in the directory `Public/<MODULE_NAME>`. This allows SPM to use the same import syntax as Carthage (e.g., `<BraintreeUIKit/BraintreUIKit.h>`).
-
-We use if-else preprocessor directives to satisfy each dependency manager. See the below example for importing a **public header file**.
-
+Example: importing a public header file
 ```objc
-#import <BraintreeDropIn/BTDropInRequest.h> // all package managers, since Pod name same as subspec name
-
-#ifdef COCOAPODS // CocoaPods
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else // SPM or Carthage
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import <BraintreeDropIn/BTDropInRequest.h>
 ```
 
-To import a Braintree framework written in **Swift** into an Objective-C file, use the following syntax:
+Example: importing an internal header file
 ```objc
-#ifdef COCOAPODS // CocoaPods
-#import <BraintreeDropIn/BraintreeDropIn-Swift.h>
-
-#elif SWIFT_PACKAGE // SPM
-@import YourNewSwiftFramework;
-
-#else // Carthage
-#import <YourNewSwiftFramework/YourNewSwiftFramework-Swift.h>
-#endif
+#import "BTUIKAppearance.h"
 ```
+
+For more information on how header imports work for each package manager, see the [DEVELOPMENT guide](https://github.com/braintree/braintree_ios/blob/master/DEVELOPMENT.md#importing-header-files) in Braintree iOS.
+

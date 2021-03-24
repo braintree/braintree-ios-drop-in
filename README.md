@@ -12,6 +12,8 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 **The Braintree iOS Drop-In SDK requires Xcode 12+**. It permits a deployment target of iOS 12.0 or higher.
 
+<!--TODO: Update README for v9 major version changes -->
+
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
@@ -33,9 +35,7 @@ To add the `BraintreeDropIn` package to your Xcode project, select File > Swift 
 
 If you look at your app target, you will see that the `BraintreeDropIn` library is automatically linked as a framework to your app (see General > Frameworks, Libraries, and Embedded Content).
 
-The following Braintree Drop-In libraries offer official Swift Package Manager support:
-* `BraintreeDropIn`
-* `BraintreeUIKit`
+The `BraintreeDropIn` library offers Swift Package Manager support.
 
 To offer ThreeDSecure with `BraintreeDropIn` via SPM, you must manually include the `CardinalMobile.framework`.
 
@@ -82,7 +82,6 @@ You will need the following frameworks at a minimum:
 ```
 BraintreeApplePay.framework
 BraintreeDropIn.framework
-BraintreeUIKit.framework
 BraintreeCard.framework
 BraintreeCore.framework
 BraintreePaymentFlow.framework
@@ -216,7 +215,7 @@ func fetchExistingPaymentMethod(clientToken: String) {
 
 ### Localization
 
-Drop-In is currently localized for [23 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/BraintreeUIKit/Localization).
+Drop-In is currently localized for [23 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/Sources/BraintreeDropIn/Resources).
 
 ### Color Schemes
 
@@ -235,24 +234,6 @@ Use `BTUIKAppearance` to customize the appearance of Drop-In and other Braintree
 // Example
 BTUIKAppearance.sharedInstance().primaryTextColor = UIColor.green
 ```
-
-### BraintreeUIKit
-
-`BraintreeUIKit` makes our UI classes public, allowing you to create custom checkout experiences. This includes `localization`, `vector art`, `form fields` and other utils you might need when working with payments. `BraintreeUIKit` has no dependencies on other Braintree frameworks.
-
-```swift
-// Example: Get a Visa card icon
-let visaIcon = BTUIKPaymentOptionCardView()
-visaIcon.paymentOptionType = BTUIKPaymentOptionType.visa
-
-// Example: Create a generic form field and prepare it for autolayout
-let favoriteColorFormField = BTUIKFormField()
-favoriteColorFormField.translatesAutoresizingMaskIntoConstraints = false
-favoriteColorFormField.textField.placeholder = "Favorite Color"
-// ... add the form field to your view and use auto layout to position it
-```
-
-Take a look at `BTCardFormViewController.m` to see examples of using the form fields and their delegates.
 
 ### More Information
 
