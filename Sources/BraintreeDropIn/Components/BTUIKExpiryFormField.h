@@ -1,10 +1,5 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKExpiryInputView.h>
-#import <BraintreeDropIn/BTUIKFormField.h>
-#else
-#import <BraintreeUIKit/BTUIKExpiryInputView.h>
-#import <BraintreeUIKit/BTUIKFormField.h>
-#endif
+#import "BTUIKExpiryInputView.h"
+#import "BTUIKFormField.h"
 
 /// @class Form field to collect an expiration date.
 @interface BTUIKExpiryFormField : BTUIKFormField <BTUIKExpiryInputViewDelegate>

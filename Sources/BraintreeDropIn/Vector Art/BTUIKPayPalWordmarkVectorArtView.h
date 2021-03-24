@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKVectorArtView.h>
-#else
-#import <BraintreeUIKit/BTUIKVectorArtView.h>
-#endif
+#import "BTUIKVectorArtView.h"
 
 @interface BTUIKPayPalWordmarkVectorArtView : BTUIKVectorArtView
 

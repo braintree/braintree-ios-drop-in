@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKTextField.h>
-#else
-#import <BraintreeUIKit/BTUIKTextField.h>
-#endif
+#import "BTUIKTextField.h"
 
 @protocol BTUIKFormFieldDelegate;
 

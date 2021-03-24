@@ -1,5 +1,5 @@
 #import "BTUIKCardExpiryFormat.h"
-#import "BraintreeDropIn/BTUIKUtil.h"
+#import "BTUIKUtil.h"
 
 @implementation BTUIKCardExpiryFormat
 

@@ -1,14 +1,7 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKInputAccessoryToolbar.h>
+#import "BTUIKInputAccessoryToolbar.h"
+#import "BTUIKMobileCountryCodeFormField.h"
+#import "BTUIKTextField.h"
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
-#import <BraintreeDropIn/BTUIKMobileCountryCodeFormField.h>
-#import <BraintreeDropIn/BTUIKTextField.h>
-#else
-#import <BraintreeUIKit/BTUIKInputAccessoryToolbar.h>
-#import <BraintreeUIKit/BTUIKLocalizedString.h>
-#import <BraintreeUIKit/BTUIKMobileCountryCodeFormField.h>
-#import <BraintreeUIKit/BTUIKTextField.h>
-#endif
 
 @implementation BTUIKMobileCountryCodeFormField
 

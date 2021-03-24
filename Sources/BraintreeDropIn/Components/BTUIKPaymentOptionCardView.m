@@ -1,12 +1,6 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKAppearance.h>
-#import <BraintreeDropIn/BTUIKPaymentOptionCardView.h>
-#import <BraintreeDropIn/BTUIKVectorArtView.h>
-#else
-#import <BraintreeUIKit/BTUIKAppearance.h>
-#import <BraintreeUIKit/BTUIKPaymentOptionCardView.h>
-#import <BraintreeUIKit/BTUIKVectorArtView.h>
-#endif
+#import "BTUIKAppearance.h"
+#import "BTUIKPaymentOptionCardView.h"
+#import "BTUIKVectorArtView.h"
 
 @interface BTUIKPaymentOptionCardView()
 

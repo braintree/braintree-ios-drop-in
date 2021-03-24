@@ -1,8 +1,4 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKFormField.h>
-#else
-#import <BraintreeUIKit/BTUIKFormField.h>
-#endif
+#import "BTUIKFormField.h"
 
 @interface BTUIKCardholderNameFormField : BTUIKFormField
 

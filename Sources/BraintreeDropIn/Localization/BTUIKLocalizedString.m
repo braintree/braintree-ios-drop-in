@@ -1,8 +1,4 @@
-#ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
-#else
-#import <BraintreeUIKit/BTUIKLocalizedString.h>
-#endif
 
 @implementation BTUIKLocalizedString
 

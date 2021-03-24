@@ -1,12 +1,6 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
-#import <BraintreeDropIn/BTUIKViewUtil.h>
-#else
-#import <BraintreeUIKit/BTUIKPaymentOptionType.h>
-#import <BraintreeUIKit/BTUIKViewUtil.h>
-#endif
+#import "BTUIKPaymentOptionType.h"
+#import "BTUIKViewUtil.h"
 
 /// @class A UIView containing the BTUIKVectorArtView for a BTUIKPaymentOptionType within a light border.
 @interface BTUIKPaymentOptionCardView : UIView

@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
-#else
-#import <BraintreeUIKit/BTUIKPaymentOptionType.h>
-#endif
+#import "BTUIKPaymentOptionType.h"
 
 /// @class A UILabel that contains images representing multiple BTUIKPaymentOptionType's
 @interface BTUIKCardListLabel : UILabel

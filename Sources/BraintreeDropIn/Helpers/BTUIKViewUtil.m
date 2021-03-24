@@ -1,8 +1,4 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKViewUtil.h>
-#else
-#import <BraintreeUIKit/BTUIKViewUtil.h>
-#endif
+#import "BTUIKViewUtil.h"
 
 #import "BTUIKMasterCardVectorArtView.h"
 #import "BTUIKJCBVectorArtView.h"

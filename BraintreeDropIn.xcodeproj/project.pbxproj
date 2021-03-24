@@ -547,12 +547,12 @@
 		42CEF78C25782EF1000B5A44 /* BraintreeDropIn */ = {
 			isa = PBXGroup;
 			children = (
-				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
 				A56C41A51D8335C7000DFFAB /* BraintreeDropIn.h */,
 				A56C41A81D8335C7000DFFAB /* BTDropInController.h */,
 				A56C41A91D8335C7000DFFAB /* BTDropInRequest.h */,
 				A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */,
 				4237D7A225E42844006F6CE3 /* BTDropInUICustomization.h */,
+				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
 			);
 			path = BraintreeDropIn;
 			sourceTree = "<group>";

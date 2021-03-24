@@ -1,10 +1,5 @@
 #import "BTUIKBarButtonItem.h"
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKAppearance.h>
-#else
-#import <BraintreeUIKit/BTUIKAppearance.h>
-#endif
+#import "BTUIKAppearance.h"
 
 @implementation BTUIKBarButtonItem
 

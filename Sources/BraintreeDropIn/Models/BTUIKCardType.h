@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
-#else
-#import <BraintreeUIKit/BTUIKLocalizedString.h>
-#endif
 
 /// Immutable card type
 @interface BTUIKCardType : NSObject

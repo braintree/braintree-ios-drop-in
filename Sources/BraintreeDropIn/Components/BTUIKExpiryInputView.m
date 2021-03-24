@@ -1,17 +1,9 @@
 #import "BTUIKExpiryInputCollectionViewCell.h"
 #import "BTUIKCollectionReusableView.h"
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKAppearance.h>
-#import <BraintreeDropIn/BTUIKExpiryInputView.h>
+#import "BTUIKAppearance.h"
+#import "BTUIKExpiryInputView.h"
+#import "BTUIKViewUtil.h"
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
-#import <BraintreeDropIn/BTUIKViewUtil.h>
-#else
-#import <BraintreeUIKit/BTUIKAppearance.h>
-#import <BraintreeUIKit/BTUIKExpiryInputView.h>
-#import <BraintreeUIKit/BTUIKLocalizedString.h>
-#import <BraintreeUIKit/BTUIKViewUtil.h>
-#endif
 
 #define BT_EXPIRY_FULL_PADDING 10
 #define BT_EXPIRY_SECTION_HEADER_HEIGHT 12

@@ -1,10 +1,5 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKCardType.h>
-#import <BraintreeDropIn/BTUIKFormField.h>
-#else
-#import <BraintreeUIKit/BTUIKCardType.h>
-#import <BraintreeUIKit/BTUIKFormField.h>
-#endif
+#import "BTUIKCardType.h"
+#import "BTUIKFormField.h"
 
 @protocol BTUIKCardNumberFormFieldDelegate;
 

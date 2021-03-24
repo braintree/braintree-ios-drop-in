@@ -1,10 +1,12 @@
 #import "BTDropInBaseViewController.h"
 
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import "BTUIKCardNumberFormField.h"
+#import "BTUIKCardholderNameFormField.h"
+#import "BTUIKExpiryFormField.h"
+#import "BTUIKSecurityCodeFormField.h"
+#import "BTUIKPostalCodeFormField.h"
+#import "BTUIKMobileCountryCodeFormField.h"
+#import "BTUIKMobileNumberFormField.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

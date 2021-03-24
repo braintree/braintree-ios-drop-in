@@ -1,8 +1,4 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKFormField.h>
-#else
-#import <BraintreeUIKit/BTUIKFormField.h>
-#endif
+#import "BTUIKFormField.h"
 
 /// @class Form field to collect a mobile country code
 @interface BTUIKSecurityCodeFormField : BTUIKFormField
