@@ -1,10 +1,6 @@
 #import "BTUIPaymentMethodCollectionViewCell.h"
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import "BTUIKPaymentOptionCardView.h"
+#import "BTUIKAppearance.h"
 
 #define LARGE_ICON_INNER_PADDING 10.0
 #define LARGE_ICON_CORNER_RADIUS 20.0

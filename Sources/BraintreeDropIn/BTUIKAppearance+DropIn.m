@@ -1,10 +1,6 @@
 #import "BTUIKAppearance+DropIn.h"
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import "BTUIKAppearance.h"
+#import "UIFont+BTUIK.h"
 
 @implementation BTUIKAppearance (DropIn)
 

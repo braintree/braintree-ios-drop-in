@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "BTUIKPaymentOptionType.h"
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 
 /// @class A UILabel that contains images representing multiple BTUIKPaymentOptionType's
 @interface BTUIKCardListLabel : UILabel

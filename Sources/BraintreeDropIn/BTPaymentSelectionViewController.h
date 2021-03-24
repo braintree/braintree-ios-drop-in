@@ -1,11 +1,10 @@
 #import <BraintreeDropIn/BTDropInController.h>
 #import "BTDropInBaseViewController.h"
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 
 #ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
 #import <Braintree/BTVenmoDriver.h>
 #else
-#import <BraintreeUIKit/BraintreeUIKit.h>
 #import <BraintreeVenmo/BTVenmoDriver.h>
 #endif
 

@@ -1,5 +1,6 @@
 #import "BTDropInPaymentSelectionCell.h"
 #import "UIColor+BTUIK.h"
+#import "BTUIKAppearance.h"
 
 @interface BTDropInPaymentSelectionCell()
 @property (nonatomic, strong) UIStackView *labelContainer;

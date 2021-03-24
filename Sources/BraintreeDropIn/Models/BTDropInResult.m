@@ -1,19 +1,13 @@
 #import <BraintreeDropIn/BTDropInResult.h>
 #import "BTAPIClient_Internal_Category.h"
 #import "BTPaymentMethodNonce+DropIn.h"
+#import "BTUIKViewUtil.h"
+#import "BTUIKVectorArtView.h" // todo - do we need?
 
 #ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
 #import <Braintree/BraintreeCore.h>
 #else
-#import <BraintreeUIKit/BraintreeUIKit.h>
 #import <BraintreeCore/BraintreeCore.h>
-#endif
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
 #endif
 
 @implementation BTDropInResult

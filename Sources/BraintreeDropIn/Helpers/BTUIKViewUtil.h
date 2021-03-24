@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "BTUIKCardType.h"
-#import "BTUIKPaymentOptionType.h"
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 #import "BTUIKVisualAssetType.h"
 
 @class BTUIKVectorArtView;

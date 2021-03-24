@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,6 +6,10 @@
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTDropInUIUtilities.h"
+#import "BTUIKAppearance.h"
+#import "BTUIKSwitchFormField.h"
+#import "BTUIKCardListLabel.h"
+#import "BTUIKViewUtil.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>

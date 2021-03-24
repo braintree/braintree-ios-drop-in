@@ -7,15 +7,14 @@
 #import "BTPaymentMethodNonce+DropIn.h"
 #import "BTVaultedPaymentMethodsTableViewCell.h"
 #import "BTPaymentSelectionHeaderView.h"
+#import "BTUIKAppearance.h"
 
 #ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
 #import <Braintree/BraintreeCard.h>
 #import <Braintree/BraintreePayPal.h>
 #import <Braintree/BraintreeVenmo.h>
 #import <Braintree/BraintreeApplePay.h>
 #else
-#import <BraintreeUIKit/BraintreeUIKit.h>
 #import <BraintreeCard/BraintreeCard.h>
 #import <BraintreePayPal/BraintreePayPal.h>
 #import <BraintreeVenmo/BraintreeVenmo.h>
