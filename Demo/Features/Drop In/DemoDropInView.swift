@@ -1,9 +1,22 @@
 import BraintreeDropIn
 
 class DemoDropInView: UIView {
-    
-    var paymentMethodTypeIcon = UIView()
+
+    var paymentMethodTypeIcon : UIView? {
+        didSet {
+            paymentMethodTypeIcon?.widthAnchor.constraint(equalToConstant: 45).isActive = true
+            paymentMethodTypeIcon?.heightAnchor.constraint(equalToConstant: 29).isActive = true
+            if let oldIcon = oldValue {
+                self.paymentMethodStackView.removeArrangedSubview(oldIcon)
+                oldIcon.removeFromSuperview()
+            }
+            if let icon = paymentMethodTypeIcon {
+                self.paymentMethodStackView.insertArrangedSubview(icon, at: 0)
+            }
+        }
+    }
     var paymentMethodTypeLabel = UILabel()
+    var paymentMethodStackView = UIStackView()
     var dropInButton = UIButton()
     var purchaseButton = UIButton()
     var colorSchemeSegmentedControl = UISegmentedControl()
@@ -39,10 +52,9 @@ class DemoDropInView: UIView {
         paymentMethodHeaderLabel.textColor = secondaryLabelColor
         paymentMethodHeaderLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
 
-        paymentMethodTypeIcon.isHidden = true
         paymentMethodTypeLabel.isHidden = true
 
-        let paymentMethodStackView = UIStackView(arrangedSubviews: [paymentMethodTypeIcon, paymentMethodTypeLabel])
+        paymentMethodStackView = UIStackView(arrangedSubviews: [paymentMethodTypeLabel])
         paymentMethodStackView.axis = .horizontal
         paymentMethodStackView.spacing = 8
 
@@ -98,9 +110,7 @@ class DemoDropInView: UIView {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
             stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
-            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            paymentMethodTypeIcon.widthAnchor.constraint(equalToConstant: 45),
-            paymentMethodTypeIcon.heightAnchor.constraint(equalToConstant: 29)
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
     }
 

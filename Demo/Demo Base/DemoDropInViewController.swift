@@ -86,12 +86,9 @@ class DemoDropInViewController: DemoBaseViewController {
             
             if result.isCancelled {
                 self.progressBlock?("Cancelled🎲")
-            } else if result.paymentOptionType == .applePay {
-                self.progressBlock?("Ready for checkout...")
-                self.setupApplePay()
             } else {
+                self.didSelectApplePay = (result.paymentOptionType == .applePay)
                 self.progressBlock?("Ready for checkout...")
-                self.didSelectApplePay = false
                 self.selectedNonce = result.paymentMethod
                 self.updatePaymentMethodNonce(result)
             }
@@ -144,12 +141,9 @@ class DemoDropInViewController: DemoBaseViewController {
 
     func updatePaymentMethodNonce(_ result: BTDropInResult?) {
         demoView.paymentMethodTypeLabel.isHidden = (result?.paymentMethod == nil)
-        demoView.paymentMethodTypeIcon.isHidden = (result?.paymentMethod == nil)
         demoView.paymentMethodTypeLabel.text = result?.paymentDescription
         demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
-        if let icon = result?.paymentIcon {
-            demoView.paymentMethodTypeIcon = icon
-        }
+        demoView.paymentMethodTypeIcon = result?.paymentIcon
     }
     
     func fetchPaymentMethods() {
@@ -164,24 +158,12 @@ class DemoDropInViewController: DemoBaseViewController {
             }
             
             self.progressBlock?("Ready for checkout...")
-            if result.paymentOptionType == .applePay {
-                self.setupApplePay()
-            } else {
-                self.didSelectApplePay = false
-                self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(result)
-            }
+            self.didSelectApplePay = (result.paymentOptionType == .applePay)
+            self.selectedNonce = result.paymentMethod
+            self.updatePaymentMethodNonce(result)
         }
     }
-    
-    func setupApplePay() {
-        demoView.paymentMethodTypeLabel.isHidden = false
-        demoView.paymentMethodTypeIcon.isHidden = false
-        demoView.paymentMethodTypeLabel.text = NSLocalizedString("Apple Pay", comment: "")
-        demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
 
-        didSelectApplePay = true
-    }
 }
 
 // MARK: - PKPaymentAuthorizationControllerDelegate
