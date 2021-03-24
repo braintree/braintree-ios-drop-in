@@ -18,6 +18,7 @@
   * Remove support for Turkish localization
   * Use number pad for expiration date input on card form
   * Require two-digit year for expiration date instead of four-digit year
+  * Remove Carthage support
 
 ## unreleased
 
