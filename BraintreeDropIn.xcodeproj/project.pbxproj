@@ -527,6 +527,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4295626726053C9F003680BD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A52900E81D8903A600032220 /* BTUI.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		42CEF6E42577FAD5000B5A44 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +621,7 @@
 		A52900CE1D8903A600032220 /* BraintreeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4295626726053C9F003680BD /* Resources */,
 				A52900CF1D8903A600032220 /* Components */,
 				A52900E21D8903A600032220 /* Helpers */,
 				A529003A1D88FB5100032220 /* Info.plist */,
@@ -665,7 +674,6 @@
 		A52900E61D8903A600032220 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				A52900E81D8903A600032220 /* BTUI.strings */,
 				A52900E71D8903A600032220 /* BTUIKLocalizedString.m */,
 			);
 			path = Localization;
@@ -1300,7 +1308,6 @@
 				030D982E1DC9357500161899 /* ru */,
 				030D982F1DC9357C00161899 /* sv */,
 				030D98301DC9358500161899 /* th */,
-				030D98311DC9359100161899 /* tr */,
 				030D98321DC935A000161899 /* zh-Hans */,
 				030D98331DC935B200161899 /* zh-Hant */,
 				030D98351DC9363500161899 /* ar */,

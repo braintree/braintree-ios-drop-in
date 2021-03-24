@@ -19,15 +19,18 @@ static NSArray *customTranslations;
         }
     }
 
+#ifdef COCOAPODS
     NSString *bundleName = @"Braintree-UIKit-Localization";
-    NSString *localizationBundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
+    NSString *localizationBundlePath = [NSBundle.mainBundle pathForResource:bundleName ofType:@"bundle"];
     if (!localizationBundlePath) {
         localizationBundlePath = [[NSBundle bundleForClass:self.class] pathForResource:bundleName ofType:@"bundle"];
     }
-
-    // CocoaPods creates "Braintree-UIKit-Localization.bundle", so we check for that first.
-    // If not found, use the BraintreeUIKit bundle, which is where Carthage will find the localized strings.
-    return localizationBundlePath ? [NSBundle bundleWithPath:localizationBundlePath] : [NSBundle bundleForClass:self.class];
+    return [NSBundle bundleWithPath:localizationBundlePath];
+#elif SWIFT_PACKAGE
+    return SWIFTPM_MODULE_BUNDLE;
+#else
+    return [NSBundle bundleForClass:self.class];
+#endif
 }
 
 + (NSString *)localizationTable {

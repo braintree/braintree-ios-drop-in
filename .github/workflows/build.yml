@@ -23,5 +23,7 @@ jobs:
         run: sed -i '' 's/branch = .*/branch = \"'"$GITHUB_HEAD_REF"'\";/' SampleApps/SPMTest/SPMTest.xcodeproj/project.pbxproj
       - name: Run swift package resolve
         run: cd SampleApps/SPMTest && swift package resolve
+      - name: Run UI Tests
+        run: xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' -sdk 'iphonesimulator' -destination 'name=iPhone 11,platform=iOS Simulator' test | xcpretty
       - name: Build & archive SPMTest
-        run: xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
