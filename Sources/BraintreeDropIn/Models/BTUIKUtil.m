@@ -1,8 +1,4 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKUtil.h>
-#else
-#import <BraintreeUIKit/BTUIKUtil.h>
-#endif
+#import "BTUIKUtil.h"
 
 @implementation BTUIKUtil
 

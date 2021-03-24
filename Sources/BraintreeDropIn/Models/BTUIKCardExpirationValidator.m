@@ -1,8 +1,4 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKCardExpirationValidator.h>
-#else
-#import <BraintreeUIKit/BTUIKCardExpirationValidator.h>
-#endif
+#import "BTUIKCardExpirationValidator.h"
 
 #ifdef __IPHONE_8_0
 #define kBTNSGregorianCalendarIdentifier NSCalendarIdentifierGregorian

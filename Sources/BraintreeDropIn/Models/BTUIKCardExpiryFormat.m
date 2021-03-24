@@ -1,10 +1,5 @@
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKCardExpiryFormat.h>
-#import <BraintreeDropIn/BTUIKUtil.h>
-#else
-#import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
-#import <BraintreeUIKit/BTUIKUtil.h>
-#endif
+#import "BTUIKCardExpiryFormat.h"
+#import "BraintreeDropIn/BTUIKUtil.h"
 
 @implementation BTUIKCardExpiryFormat
 
