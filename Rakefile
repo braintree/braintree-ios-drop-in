@@ -20,10 +20,7 @@ SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
 DEMO_PLIST = "DropInDemo/Supporting Files/Braintree-Demo-Info.plist"
 DROPIN_FRAMEWORKS_PLIST = "BraintreeDropIn/Info.plist"
-UIKIT_FRAMEWORKS_PLIST = "BraintreeUIKit/Info.plist"
 PUBLIC_REMOTE_NAME = "origin"
-
-bt_modules = ["BraintreeDropIn", "BraintreeUIKit"]
 
 class << self
   def run cmd
@@ -124,7 +121,7 @@ namespace :carthage do
   task :create_binaries do
     run! "rm -rf SampleApps/SPMTest" # Remove SPMTest app to prevent Carthage timeout
     sh "sh carthage.sh build --no-skip-current"
-    sh "sh carthage.sh archive #{bt_modules.join(" ")} --output Braintree.framework.zip"
+    sh "sh carthage.sh archive BraintreeDropIn --output Braintree.framework.zip"
     run! "git co master SampleApps/SPMTest" # Restore SPMTest app
     say "Create binaries for Carthage complete."
   end
@@ -186,11 +183,11 @@ namespace :release do
     podspec.gsub!(/(s\.version\s*=\s*)"#{SEMVER}"/, "\\1\"#{version}\"")
     File.open(PODSPEC, "w") { |f| f.puts podspec }
 
-    [DEMO_PLIST, DROPIN_FRAMEWORKS_PLIST, UIKIT_FRAMEWORKS_PLIST].each do |plist|
+    [DEMO_PLIST, DROPIN_FRAMEWORKS_PLIST].each do |plist|
       run! "plutil -replace CFBundleVersion -string #{current_version} -- '#{plist}'"
       run! "plutil -replace CFBundleShortVersionString -string #{current_version} -- '#{plist}'"
     end
-    run "git commit -m 'Bump pod version to #{version}' -- #{PODSPEC} Podfile.lock '#{DEMO_PLIST}' '#{DROPIN_FRAMEWORKS_PLIST}' '#{UIKIT_FRAMEWORKS_PLIST}'"
+    run "git commit -m 'Bump pod version to #{version}' -- #{PODSPEC} Podfile.lock '#{DEMO_PLIST}' '#{DROPIN_FRAMEWORKS_PLIST}'"
   end
 
   desc  "Lint podspec."
