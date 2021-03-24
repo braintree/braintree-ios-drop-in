@@ -40,7 +40,9 @@ let package = Package(
                 .headerSearchPath("."),
                 .headerSearchPath("Components"),
                 .headerSearchPath("Vector Art"),
-                .headerSearchPath("Vector Art/Large")
+                .headerSearchPath("Vector Art/Large"),
+                .headerSearchPath("Helpers"),
+                .headerSearchPath("Models")
             ]
         )
     ]
