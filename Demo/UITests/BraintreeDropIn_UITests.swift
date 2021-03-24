@@ -290,9 +290,10 @@ class BraintreeDropIn_CardholderNameAvailable_UITests: XCTestCase {
         cardholderNameTextField.forceTapElement()
         cardholderNameTextField.typeText("\n")
 
-        waitForElementToBeHittable(app.staticTexts[Date.nextYear])
-        app.staticTexts["11"].forceTapElement()
-        app.staticTexts[Date.nextYear].forceTapElement()
+        let expirationDateTextField = elementsQuery.textFields["Expiration Date"]
+        waitForElementToBeHittable(expirationDateTextField)
+        expirationDateTextField.forceTapElement()
+        expirationDateTextField.typeText("11/\(Date.nextYear)")
 
         let securityCodeField = elementsQuery.textFields["CVV"]
         waitForElementToBeHittable(securityCodeField)
@@ -359,9 +360,10 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
         cardholderNameTextField.forceTapElement()
         cardholderNameTextField.typeText("\n")
 
-        waitForElementToBeHittable(app.staticTexts[Date.nextYear])
-        app.staticTexts["11"].forceTapElement()
-        app.staticTexts[Date.nextYear].forceTapElement()
+        let expirationDateTextField = elementsQuery.textFields["Expiration Date"]
+        waitForElementToBeHittable(expirationDateTextField)
+        expirationDateTextField.forceTapElement()
+        expirationDateTextField.typeText("11/\(Date.nextYear)")
 
         let securityCodeField = elementsQuery.textFields["CVV"]
         waitForElementToBeHittable(securityCodeField)
@@ -388,9 +390,10 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
         cardholderNameField.forceTapElement()
         cardholderNameField.typeText("First Last\n")
 
-        waitForElementToBeHittable(app.staticTexts[Date.nextYear])
-        app.staticTexts["11"].forceTapElement()
-        app.staticTexts[Date.nextYear].forceTapElement()
+        let expirationDateTextField = elementsQuery.textFields["Expiration Date"]
+        waitForElementToBeHittable(expirationDateTextField)
+        expirationDateTextField.forceTapElement()
+        expirationDateTextField.typeText("11/\(Date.nextYear)")
 
         let securityCodeField = elementsQuery.textFields["CVV"]
         waitForElementToBeHittable(securityCodeField)
