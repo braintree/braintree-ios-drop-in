@@ -745,8 +745,8 @@
         if (cardType != nil && formField.text.length >= cardType.maxNumberLength) {
             [self validateButtonPressed:formField];
         }
-    } else if (formField == self.expirationDateField && formField.text.length > 0) {
-        if (formField.text.length >= 5) {
+    } else if (formField == self.expirationDateField) {
+        if (self.expirationDateField.text.length == 5 && self.expirationDateField.valid) {
             [self advanceFocusFromField:formField];
         }
     } else if (formField == self.securityCodeField && formField.text.length > 0) {

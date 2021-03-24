@@ -16,15 +16,7 @@
 #import <BraintreeUIKit/BTUIKUtil.h>
 #endif
 
-#define BTUIKCardExpiryFieldYYYYPrefix @"20"
 #define BTUIKCardExpiryFieldComponentSeparator @"/"
-
-#define BTUIKCardExpiryPlaceholderFourDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR)
-#define BTUIKCardExpiryPlaceholderTwoDigitYear BTUIKLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR)
-
-@interface BTUIKExpiryFormField ()
-@property (nonatomic, strong) BTUIKExpiryInputView *expiryInputView;
-@end
 
 @implementation BTUIKExpiryFormField
 
@@ -34,11 +26,7 @@
         self.textField.accessibilityLabel = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         self.labelText = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
-        self.expiryInputView = [BTUIKExpiryInputView new];
-        self.expiryInputView.delegate = self;
-        // Use custom date picker, but fall back to number pad keyboard if inputView is set to nil
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
-        self.textField.inputView = self.expiryInputView;
     }
     return self;
 }
@@ -65,7 +53,7 @@
 #pragma mark - Private methods
 
 - (void)updatePlaceholder {
-    NSString *placeholder = BTUIKLocalizedString(EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR);
+    NSString *placeholder = BTUIKLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR);
     [self setThemedPlaceholder:placeholder];
 }
 
@@ -92,26 +80,10 @@
 
 #pragma mark - Helpers
 
-- (BOOL)dateCouldEndWithFourDigitYear:(NSString *)expirationDate {
-    NSArray *expirationComponents = [expirationDate componentsSeparatedByString:BTUIKCardExpiryFieldComponentSeparator];
-    NSString *yearComponent = [expirationComponents count] >= 2 ? expirationComponents[1] : nil;
-    return (yearComponent && yearComponent.length >= 2 && [[yearComponent substringToIndex:2] isEqualToString:BTUIKCardExpiryFieldYYYYPrefix]);
-}
-
 // Returns YES if date is either a valid date or can have digits appended to make one. It does not contain any expiration
 // date validation.
 - (BOOL)dateIsValid:(NSString *)date {
-    NSArray *dateComponents = [date componentsSeparatedByString:BTUIKCardExpiryFieldComponentSeparator];
-    
-    NSString *yearComponent;
-    if (dateComponents.count >= 2) {
-        yearComponent = dateComponents[1];
-    } else {
-        yearComponent = date.length >= 4 ? [date substringWithRange:NSMakeRange(2, date.length - 2)] : nil;
-    }
-    
-    BOOL couldEndWithFourDigitYear = yearComponent && yearComponent.length >= 2 && [[yearComponent substringToIndex:2] isEqualToString:BTUIKCardExpiryFieldYYYYPrefix];
-    if (couldEndWithFourDigitYear ? date.length > 7 : date.length > 5) {
+    if (date.length > 5) {
         return NO;
     }
     
@@ -120,10 +92,10 @@
     NSString *monthStr = [updatedNumberText substringToIndex:MIN((NSUInteger)2, updatedNumberText.length)];
     if (monthStr.length > 0) {
         NSInteger month = [monthStr integerValue];
-        if(month < 0 || 12 < month) {
+        if (month < 0 || month > 12) {
             return NO;
         }
-        if(monthStr.length >= 2 && month == 0) {
+        if (monthStr.length >= 2 && month == 0) {
             return NO;
         }
     }
@@ -141,7 +113,6 @@
     
     NSString *formattedValue;
     NSUInteger formattedCursorLocation;
-    
     BTUIKCardExpiryFormat *format = [[BTUIKCardExpiryFormat alloc] init];
     format.value = self.textField.text;
     format.cursorLocation = [self.textField offsetFromPosition:self.textField.beginningOfDocument toPosition:self.textField.selectedTextRange.start];
@@ -167,21 +138,21 @@
     self.textField.selectedTextRange = newRange;
     
     NSArray *expirationComponents = [self.textField.text componentsSeparatedByString:BTUIKCardExpiryFieldComponentSeparator];
-    if(expirationComponents.count == 2 && (self.textField.text.length == 3 || self.textField.text.length == 5 || self.textField.text.length == 7)) {
+    if (expirationComponents.count == 2 && (self.textField.text.length == 3 || self.textField.text.length == 5)) {
         _expirationMonth = expirationComponents[0];
         _expirationYear = expirationComponents[1];
     }
     
     [self updatePlaceholder];
-    
-    self.displayAsValid = ((self.textField.text.length != 5 && self.textField.text.length != 7) || self.valid);
-    
+
+    // Always display as valid if fewer than 5 characters entered
+    self.displayAsValid = self.textField.text.length != 5 || self.valid;
+
+    [self updateAppearance];
     [self.delegate formFieldDidChange:self];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    self.expiryInputView.selectedYear = self.expirationYear.intValue;
-    self.expiryInputView.selectedMonth = self.expirationMonth.intValue;
     [super textFieldDidBeginEditing:textField];
     self.displayAsValid = YES;
     
@@ -190,6 +161,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.displayAsValid = self.textField.text.length == 0 || self.valid;
+    [self updateAppearance];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)newText {
@@ -200,20 +172,6 @@
     NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:numericNewText];
     
     return [self dateIsValid:updatedText];
-}
-
-- (BOOL)entryComplete {
-    return [super entryComplete] && ![self.expirationYear isEqualToString:BTUIKCardExpiryFieldYYYYPrefix];
-}
-
-#pragma mark BTUIKExpiryInputViewDelegate
-
-- (void)expiryInputViewDidChange:(BTUIKExpiryInputView *)expiryInputView {
-    if (expiryInputView.selectedYear > 0) {
-        self.expirationDate = [NSString stringWithFormat:@"%02li%04li", (long)expiryInputView.selectedMonth, (long)expiryInputView.selectedYear];
-    } else {
-        self.expirationDate = [NSString stringWithFormat:@"%02li", (long)expiryInputView.selectedMonth];
-    }
 }
 
 @end
