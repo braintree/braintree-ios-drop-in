@@ -2,7 +2,7 @@
 #import "BTAPIClient_Internal_Category.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 #import "BTUIKViewUtil.h"
-#import "BTUIKVectorArtView.h" // todo - do we need?
+#import "BTUIKVectorArtView.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCore.h>
