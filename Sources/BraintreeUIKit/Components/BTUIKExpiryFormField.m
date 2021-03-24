@@ -6,7 +6,6 @@
 #import <BraintreeDropIn/BTUIKLocalizedString.h>
 #import <BraintreeDropIn/BTUIKTextField.h>
 #import <BraintreeDropIn/BTUIKUtil.h>
-#import <BraintreeDropIn/BTUIKAppearance.h>
 #else
 #import <BraintreeUIKit/BTUIKCardExpirationValidator.h>
 #import <BraintreeUIKit/BTUIKCardExpiryFormat.h>
@@ -15,7 +14,6 @@
 #import <BraintreeUIKit/BTUIKLocalizedString.h>
 #import <BraintreeUIKit/BTUIKTextField.h>
 #import <BraintreeUIKit/BTUIKUtil.h>
-#import <BraintreeUIKit/BTUIKAppearance.h>
 #endif
 
 #define BTUIKCardExpiryFieldComponentSeparator @"/"
