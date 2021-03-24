@@ -148,7 +148,6 @@
 		428DB1CA25F2D84100B7EF7E /* zh-Hant-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-HK"; path = "zh-Hant-HK.lproj/Main.strings"; sourceTree = "<group>"; };
 		428DB1CB25F2D84100B7EF7E /* zh-Hant-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-HK"; path = "zh-Hant-HK.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		42A8E9D425B0EDB400439904 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A8E9DA25B0EDDA00439904 /* BraintreeCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeCore.framework; path = Carthage/Build/iOS/BraintreeCore.framework; sourceTree = "<group>"; };
 		42A8E9DB25B0EDDA00439904 /* BraintreeUnionPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeUnionPay.framework; path = Carthage/Build/iOS/BraintreeUnionPay.framework; sourceTree = "<group>"; };
 		42A8E9DC25B0EDDA00439904 /* BraintreeApplePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BraintreeApplePay.framework; path = Carthage/Build/iOS/BraintreeApplePay.framework; sourceTree = "<group>"; };
@@ -350,7 +349,6 @@
 				42A8E9E525B0EDDA00439904 /* PayPalDataCollector.framework */,
 				42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */,
 				42A8E9D425B0EDB400439904 /* BraintreeDropIn.framework */,
-				42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
