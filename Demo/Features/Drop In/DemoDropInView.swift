@@ -2,7 +2,7 @@ import BraintreeDropIn
 
 class DemoDropInView: UIView {
     
-    var paymentMethodTypeIcon = BTUIKPaymentOptionCardView()
+    var paymentMethodTypeIcon = UIView()
     var paymentMethodTypeLabel = UILabel()
     var dropInButton = UIButton()
     var purchaseButton = UIButton()

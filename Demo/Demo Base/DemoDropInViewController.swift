@@ -145,11 +145,10 @@ class DemoDropInViewController: DemoBaseViewController {
     func updatePaymentMethodNonce(_ result: BTDropInResult?) {
         demoView.paymentMethodTypeLabel.isHidden = (result?.paymentMethod == nil)
         demoView.paymentMethodTypeIcon.isHidden = (result?.paymentMethod == nil)
-        if let nonce = result?.paymentMethod {
-            let paymentMethodType = BTUIKViewUtil.paymentOptionType(forPaymentInfoType: nonce.type)
-            demoView.paymentMethodTypeIcon.paymentOptionType = paymentMethodType
-            demoView.paymentMethodTypeLabel.text = result?.paymentDescription
-            demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
+        demoView.paymentMethodTypeLabel.text = result?.paymentDescription
+        demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
+        if let icon = result?.paymentIcon {
+            demoView.paymentMethodTypeIcon = icon
         }
     }
     
@@ -178,7 +177,6 @@ class DemoDropInViewController: DemoBaseViewController {
     func setupApplePay() {
         demoView.paymentMethodTypeLabel.isHidden = false
         demoView.paymentMethodTypeIcon.isHidden = false
-        demoView.paymentMethodTypeIcon.paymentOptionType = .applePay
         demoView.paymentMethodTypeLabel.text = NSLocalizedString("Apple Pay", comment: "")
         demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
 
