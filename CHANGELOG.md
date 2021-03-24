@@ -5,7 +5,7 @@
 * Add support for Swift Package Manager (resolves #155)
 * Breaking changes
   * Bump minimum supported deployment target to iOS 12.0
-  * Require Braintree ~> 5.0.0
+  * Require Braintree ~> 5.3.0
   * BraintreeApplePay, BraintreeVenmo and BraintreeUnionPay are now required dependencies
   * Make headers private:
     * `BTCardFormViewController`

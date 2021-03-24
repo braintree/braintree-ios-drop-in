@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		428DB19025F2C49E00B7EF7E /* BraintreeUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 428DB18F25F2C49E00B7EF7E /* BraintreeUIKit */; };
-		428DB19225F2C49E00B7EF7E /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 428DB19125F2C49E00B7EF7E /* BraintreeDropIn */; };
+		42349001260B9FBA0006D38B /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 42349000260B9FBA0006D38B /* BraintreeDropIn */; };
 		42D4DF5C2605415000C8005C /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D4DF5B2605415000C8005C /* UITests.swift */; };
 		800FC588257FF3E000DEE132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FC587257FF3E000DEE132 /* AppDelegate.swift */; };
 		800FC58A257FF3E000DEE132 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FC589257FF3E000DEE132 /* SceneDelegate.swift */; };
@@ -16,8 +15,6 @@
 		800FC58F257FF3E000DEE132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC58D257FF3E000DEE132 /* Main.storyboard */; };
 		800FC591257FF3E200DEE132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800FC590257FF3E200DEE132 /* Assets.xcassets */; };
 		800FC594257FF3E200DEE132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC592257FF3E200DEE132 /* LaunchScreen.storyboard */; };
-		80A8C40A25A8CF91003A68F5 /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */; };
-		80A8C40B25A8CF91003A68F5 /* CardinalMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8C40825A8CF90003A68F5 /* CardinalMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,20 +26,6 @@
 			remoteInfo = SPMTest;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		80A8C40C25A8CF91003A68F5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				80A8C40B25A8CF91003A68F5 /* CardinalMobile.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		42D4DF592605415000C8005C /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,9 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				428DB19025F2C49E00B7EF7E /* BraintreeUIKit in Frameworks */,
-				80A8C40A25A8CF91003A68F5 /* CardinalMobile.framework in Frameworks */,
-				428DB19225F2C49E00B7EF7E /* BraintreeDropIn in Frameworks */,
+				42349001260B9FBA0006D38B /* BraintreeDropIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +141,6 @@
 				800FC580257FF3E000DEE132 /* Sources */,
 				800FC581257FF3E000DEE132 /* Frameworks */,
 				800FC582257FF3E000DEE132 /* Resources */,
-				80A8C40C25A8CF91003A68F5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,8 +148,7 @@
 			);
 			name = SPMTest;
 			packageProductDependencies = (
-				428DB18F25F2C49E00B7EF7E /* BraintreeUIKit */,
-				428DB19125F2C49E00B7EF7E /* BraintreeDropIn */,
+				42349000260B9FBA0006D38B /* BraintreeDropIn */,
 			);
 			productName = SPMTest;
 			productReference = 800FC584257FF3E000DEE132 /* SPMTest.app */;
@@ -204,7 +183,7 @@
 			);
 			mainGroup = 800FC57B257FF3E000DEE132;
 			packageReferences = (
-				428DB18E25F2C49E00B7EF7E /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
+				42348FFF260B9FBA0006D38B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
 			);
 			productRefGroup = 800FC585257FF3E000DEE132 /* Products */;
 			projectDirPath = "";
@@ -526,25 +505,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		428DB18E25F2C49E00B7EF7E /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
+		42348FFF260B9FBA0006D38B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in.git";
 			requirement = {
-				branch = "spm-localization";
+				branch = "braintree-5.3.0";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		428DB18F25F2C49E00B7EF7E /* BraintreeUIKit */ = {
+		42349000260B9FBA0006D38B /* BraintreeDropIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 428DB18E25F2C49E00B7EF7E /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
-			productName = BraintreeUIKit;
-		};
-		428DB19125F2C49E00B7EF7E /* BraintreeDropIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 428DB18E25F2C49E00B7EF7E /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
+			package = 42348FFF260B9FBA0006D38B /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
 			productName = BraintreeDropIn;
 		};
 /* End XCSwiftPackageProductDependency section */
