@@ -16,7 +16,7 @@ static NSArray *customTranslations;
     }
 
 #ifdef COCOAPODS
-    NSString *bundleName = @"Braintree-UIKit-Localization";
+    NSString *bundleName = @"BraintreeDropIn-Localization";
     NSString *localizationBundlePath = [NSBundle.mainBundle pathForResource:bundleName ofType:@"bundle"];
     if (!localizationBundlePath) {
         localizationBundlePath = [[NSBundle bundleForClass:self.class] pathForResource:bundleName ofType:@"bundle"];
