@@ -19,8 +19,6 @@
 		4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */; };
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
 		4245D969256C627400F1A413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4245D968256C627400F1A413 /* Assets.xcassets */; };
-		42A8E9FE25B0EDEA00439904 /* BraintreeUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */; };
-		42A8E9FF25B0EDEA00439904 /* BraintreeUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42CEF6DE2577F90A000B5A44 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
@@ -75,7 +73,6 @@
 				80C117E025FFC859004F734C /* BraintreeCore.xcframework in Embed Frameworks */,
 				80C117DE25FFC859004F734C /* BraintreeCard.xcframework in Embed Frameworks */,
 				80C117F125FFC85C004F734C /* PPRiskMagnes.framework in Embed Frameworks */,
-				42A8E9FF25B0EDEA00439904 /* BraintreeUIKit.framework in Embed Frameworks */,
 				80C117E425FFC859004F734C /* BraintreePayPal.xcframework in Embed Frameworks */,
 				80C117EF25FFC85C004F734C /* CardinalMobile.framework in Embed Frameworks */,
 				80C117EA25FFC859004F734C /* BraintreeVenmo.xcframework in Embed Frameworks */,
@@ -151,7 +148,6 @@
 		428DB1CA25F2D84100B7EF7E /* zh-Hant-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-HK"; path = "zh-Hant-HK.lproj/Main.strings"; sourceTree = "<group>"; };
 		428DB1CB25F2D84100B7EF7E /* zh-Hant-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-HK"; path = "zh-Hant-HK.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		42A8E9D425B0EDB400439904 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardinalMobile.framework; path = Carthage/Build/iOS/CardinalMobile.framework; sourceTree = "<group>"; };
 		42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PPRiskMagnes.framework; path = Carthage/Build/iOS/PPRiskMagnes.framework; sourceTree = "<group>"; };
 		42CEF6DD2577F90A000B5A44 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Supporting Files/Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -191,7 +187,6 @@
 				80C117EE25FFC85C004F734C /* CardinalMobile.framework in Frameworks */,
 				80C117E925FFC859004F734C /* BraintreeVenmo.xcframework in Frameworks */,
 				80C117E525FFC859004F734C /* BraintreeThreeDSecure.xcframework in Frameworks */,
-				42A8E9FE25B0EDEA00439904 /* BraintreeUIKit.framework in Frameworks */,
 				8075165F25F7E8F9007DEFA1 /* BraintreeDropIn.framework in Frameworks */,
 				80C117EB25FFC859004F734C /* PayPalDataCollector.xcframework in Frameworks */,
 				80C117E725FFC859004F734C /* BraintreeUnionPay.xcframework in Frameworks */,
@@ -334,7 +329,6 @@
 				42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */,
 				42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */,
 				42A8E9D425B0EDB400439904 /* BraintreeDropIn.framework */,
-				42A8E9D525B0EDB400439904 /* BraintreeUIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -1,10 +1,5 @@
 #import "BTPaymentSelectionHeaderView.h"
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import "BTUIKAppearance.h"
 
 @interface BTPaymentSelectionHeaderView ()
 

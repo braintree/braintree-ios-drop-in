@@ -11,10 +11,6 @@ let package = Package(
         .library(
             name: "BraintreeDropIn",
             targets: ["BraintreeDropIn"]
-        ),
-        .library(
-            name: "BraintreeUIKit",
-            targets: ["BraintreeUIKit"]
         )
     ],
     dependencies: [
@@ -35,24 +31,18 @@ let package = Package(
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
                 .product(name: "BraintreeVenmo", package: "Braintree"),
                 .product(name: "PPRiskMagnes", package: "Braintree"),
-                .product(name: "CardinalMobile", package: "Braintree"),
-                .target(name: "BraintreeUIKit")
+                .product(name: "CardinalMobile", package: "Braintree")
             ],
             exclude: ["Info.plist"],
             publicHeadersPath: "Public",
             cSettings: [
                 .headerSearchPath("Custom Views"),
-                .headerSearchPath(".")
-            ]
-        ),
-        .target(
-            name: "BraintreeUIKit",
-            exclude: ["Info.plist"],
-            publicHeadersPath: "Public",
-            cSettings: [
+                .headerSearchPath("."),
                 .headerSearchPath("Components"),
                 .headerSearchPath("Vector Art"),
-                .headerSearchPath("Vector Art/Large")
+                .headerSearchPath("Vector Art/Large"),
+                .headerSearchPath("Helpers"),
+                .headerSearchPath("Models")
             ]
         )
     ]

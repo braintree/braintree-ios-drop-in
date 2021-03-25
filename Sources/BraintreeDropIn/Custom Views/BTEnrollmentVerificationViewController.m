@@ -1,6 +1,8 @@
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTDropInUIUtilities.h"
+#import "BTUIKAppearance.h"
+#import <BraintreeDropIn/BTUIKLocalizedString.h>
 
 @interface BTEnrollmentVerificationViewController ()
 

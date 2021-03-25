@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BTUIKViewUtil.h"
-#import "BTUIKPaymentOptionType.h"
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 #import "BTUIKVisualAssetType.h"
 #import "BTUIKCVVBackVectorArtView.h"
 #import "BTUIKCVVFrontVectorArtView.h"

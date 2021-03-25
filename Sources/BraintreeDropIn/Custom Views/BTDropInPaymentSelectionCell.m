@@ -1,10 +1,6 @@
 #import "BTDropInPaymentSelectionCell.h"
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/UIColor+BTUIK.h>
-#else
-#import <BraintreeUIKit/UIColor+BTUIK.h>
-#endif
+#import "UIColor+BTUIK.h"
+#import "BTUIKAppearance.h"
 
 @interface BTDropInPaymentSelectionCell()
 @property (nonatomic, strong) UIStackView *labelContainer;
