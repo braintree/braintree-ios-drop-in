@@ -159,8 +159,10 @@ class DemoDropInViewController: DemoBaseViewController {
             
             self.progressBlock?("Ready for checkout...")
             self.didSelectApplePay = (result.paymentOptionType == .applePay)
-            self.selectedNonce = result.paymentMethod
-            self.updatePaymentMethodNonce(result)
+            if (result.paymentMethod != nil) {
+                self.selectedNonce = result.paymentMethod
+                self.updatePaymentMethodNonce(result)
+            }
         }
     }
 
