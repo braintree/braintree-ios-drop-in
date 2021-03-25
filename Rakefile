@@ -11,7 +11,7 @@ desc "Run default set of tasks"
 task :spec => %w[spec:all]
 
 desc "Run internal release process"
-task :release => %w[release:assumptions build_demo_apps release:check_working_directory release:bump_version release:lint_podspec carthage:create_binaries release:tag]
+task :release => %w[release:assumptions build_demo_apps release:check_working_directory release:bump_version release:lint_podspec release:tag]
 
 desc "Publish code and pod to public github.com"
 task :publish => %w[publish:push publish:create_github_release publish:push_pod docs_publish]
@@ -99,37 +99,6 @@ namespace :demo_app do
   end
 end
 
-desc 'Carthage tasks'
-namespace :carthage do
-  task :build_demo do
-    # Remove SPMTest app to prevent Carthage timeout
-    run! "rm -rf SampleApps/SPMTest"
-    run! "git add SampleApps"
-    run! "git commit -m 'Remove SPMTest app to avoid Carthage timeout'"
-
-    # Build Carthage demo app
-    File.write("SampleApps/CarthageTest/Cartfile.private", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
-    sh "cd SampleApps/CarthageTest && sh ../../carthage.sh update"
-    success = run "xcodebuild -project 'SampleApps/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
-
-    # Clean up
-    run! "rm -rf ~/Library/Developers/Xcode/DerivedData"
-    run! "rm SampleApps/CarthageTest/Cartfile.resolved && rm -rf SampleApps/CarthageTest/Carthage"
-    run! "git checkout SampleApps/CarthageTest"
-    run! "git reset --hard HEAD^"
-    fail "xcodebuild command for CarthageTest app returned non-zero exit code" unless success
-  end
-
-  desc "Create BraintreeDropIn.framework.zip for Carthage."
-  task :create_binaries do
-    run! "rm -rf SampleApps/SPMTest" # Remove SPMTest app to prevent Carthage timeout
-    sh "sh carthage.sh build --no-skip-current"
-    sh "sh carthage.sh archive #{bt_modules.join(" ")} --output Braintree.framework.zip"
-    run! "git co master SampleApps/SPMTest" # Restore SPMTest app
-    say "Create binaries for Carthage complete."
-  end
-end
-
 desc 'SPM tasks'
 namespace :spm do
   def update_xcodeproj
@@ -154,7 +123,7 @@ namespace :spm do
 end
 
 desc 'Build demo apps per package manager'
-task :build_demo_apps => %w[demo_app:build_demo carthage:build_demo spm:build_demo]
+task :build_demo_apps => %w[demo_app:build_demo spm:build_demo]
 
 namespace :release do
   desc "Print out pre-release checklist"

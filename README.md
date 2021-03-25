@@ -1,7 +1,6 @@
 # Braintree iOS Drop-In SDK
 
 [![Swift Package Manager compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/BraintreeDropIn.svg?style=flat)](https://cocoapods.org/pods/BraintreeDropIn)
 
 ![GitHub Actions CI](https://github.com/braintree/braintree-ios-drop-in/workflows/CI/badge.svg)
@@ -24,7 +23,7 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 ## Getting Started
 
-We recommend using [Swift Package Manager](https://swift.org/package-manager/), [CocoaPods](https://github.com/CocoaPods/CocoaPods), or [Carthage](https://github.com/Carthage/Carthage) to integrate the Braintree Drop-In SDK with your project.
+We recommend using [Swift Package Manager](https://swift.org/package-manager/) or [CocoaPods](https://github.com/CocoaPods/CocoaPods) to integrate the Braintree Drop-In SDK with your project.
 
 ### Swift Package Manager (v9 beta)
 _This feature is only available in v9.0.0-beta1._
@@ -72,33 +71,6 @@ Then run `pod install`.
 See our [`Podspec`](https://github.com/braintree/braintree-ios-drop-in/blob/master/BraintreeDropIn.podspec) for more information.
 
 *Note:* If you are using version 8.x.x of the Braintree Drop-In iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
-
-### Carthage
-
-Add `github "braintree/braintree-ios-drop-in"` to your `Cartfile`, and [add the frameworks to your project](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
-
-You will need the following frameworks at a minimum:
-
-```
-BraintreeApplePay.framework
-BraintreeDropIn.framework
-BraintreeUIKit.framework
-BraintreeCard.framework
-BraintreeCore.framework
-BraintreePaymentFlow.framework
-BraintreePayPal.framework
-BraintreeThreeDSecure.framework
-BraintreeUnionPay.framework
-BraintreeVenmo.framework
-PayPalDataCollector.framework
-PPRiskMagnes.framework
-```
-
-For 3DS 2.0, you must add the following framework:
-
-```
-CardinalMobile.framework
-```
 
 ## Documentation
 
