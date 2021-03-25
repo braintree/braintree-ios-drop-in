@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423BD4EE260D199600D111E6 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4ED260D199600D111E6 /* InAppSettingsKit */; };
 		4245D87F256C5C4E00F1A413 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4245D866256C5C4E00F1A413 /* Settings.bundle */; };
 		4245D880256C5C4E00F1A413 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D867256C5C4E00F1A413 /* DemoSettings.swift */; };
 		4245D881256C5C4E00F1A413 /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D868256C5C4E00F1A413 /* DemoAppDelegate.swift */; };
@@ -25,30 +26,6 @@
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
 		8075165F25F7E8F9007DEFA1 /* BraintreeDropIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8075165E25F7E8F9007DEFA1 /* BraintreeDropIn.framework */; };
 		8075166025F7E8F9007DEFA1 /* BraintreeDropIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8075165E25F7E8F9007DEFA1 /* BraintreeDropIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80A630D725F7DC93004E912D /* InAppSettingsKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630D625F7DC93004E912D /* InAppSettingsKit.xcframework */; };
-		80A630D825F7DC93004E912D /* InAppSettingsKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630D625F7DC93004E912D /* InAppSettingsKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117DB25FFC858004F734C /* BraintreeApplePay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DA25F7E0AE004E912D /* BraintreeApplePay.xcframework */; };
-		80C117DC25FFC858004F734C /* BraintreeApplePay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DA25F7E0AE004E912D /* BraintreeApplePay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117DD25FFC859004F734C /* BraintreeCard.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630E025F7E0AE004E912D /* BraintreeCard.xcframework */; };
-		80C117DE25FFC859004F734C /* BraintreeCard.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630E025F7E0AE004E912D /* BraintreeCard.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117DF25FFC859004F734C /* BraintreeCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630E425F7E0AE004E912D /* BraintreeCore.xcframework */; };
-		80C117E025FFC859004F734C /* BraintreeCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630E425F7E0AE004E912D /* BraintreeCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117E125FFC859004F734C /* BraintreePaymentFlow.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DB25F7E0AE004E912D /* BraintreePaymentFlow.xcframework */; };
-		80C117E225FFC859004F734C /* BraintreePaymentFlow.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DB25F7E0AE004E912D /* BraintreePaymentFlow.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117E325FFC859004F734C /* BraintreePayPal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DD25F7E0AE004E912D /* BraintreePayPal.xcframework */; };
-		80C117E425FFC859004F734C /* BraintreePayPal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DD25F7E0AE004E912D /* BraintreePayPal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117E525FFC859004F734C /* BraintreeThreeDSecure.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DC25F7E0AE004E912D /* BraintreeThreeDSecure.xcframework */; };
-		80C117E625FFC859004F734C /* BraintreeThreeDSecure.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DC25F7E0AE004E912D /* BraintreeThreeDSecure.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117E725FFC859004F734C /* BraintreeUnionPay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DF25F7E0AE004E912D /* BraintreeUnionPay.xcframework */; };
-		80C117E825FFC859004F734C /* BraintreeUnionPay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DF25F7E0AE004E912D /* BraintreeUnionPay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117E925FFC859004F734C /* BraintreeVenmo.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DE25F7E0AE004E912D /* BraintreeVenmo.xcframework */; };
-		80C117EA25FFC859004F734C /* BraintreeVenmo.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630DE25F7E0AE004E912D /* BraintreeVenmo.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117EB25FFC859004F734C /* PayPalDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630FF25F7E0B1004E912D /* PayPalDataCollector.xcframework */; };
-		80C117EC25FFC859004F734C /* PayPalDataCollector.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A630FF25F7E0B1004E912D /* PayPalDataCollector.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117EE25FFC85C004F734C /* CardinalMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */; };
-		80C117EF25FFC85C004F734C /* CardinalMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E225B0EDDA00439904 /* CardinalMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80C117F025FFC85C004F734C /* PPRiskMagnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */; };
-		80C117F125FFC85C004F734C /* PPRiskMagnes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42A8E9E325B0EDDA00439904 /* PPRiskMagnes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,19 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				80C117DC25FFC858004F734C /* BraintreeApplePay.xcframework in Embed Frameworks */,
-				80C117E225FFC859004F734C /* BraintreePaymentFlow.xcframework in Embed Frameworks */,
-				80C117E025FFC859004F734C /* BraintreeCore.xcframework in Embed Frameworks */,
-				80C117DE25FFC859004F734C /* BraintreeCard.xcframework in Embed Frameworks */,
-				80C117F125FFC85C004F734C /* PPRiskMagnes.framework in Embed Frameworks */,
-				80C117E425FFC859004F734C /* BraintreePayPal.xcframework in Embed Frameworks */,
-				80C117EF25FFC85C004F734C /* CardinalMobile.framework in Embed Frameworks */,
-				80C117EA25FFC859004F734C /* BraintreeVenmo.xcframework in Embed Frameworks */,
-				80C117E625FFC859004F734C /* BraintreeThreeDSecure.xcframework in Embed Frameworks */,
-				80A630D825F7DC93004E912D /* InAppSettingsKit.xcframework in Embed Frameworks */,
 				8075166025F7E8F9007DEFA1 /* BraintreeDropIn.framework in Embed Frameworks */,
-				80C117EC25FFC859004F734C /* PayPalDataCollector.xcframework in Embed Frameworks */,
-				80C117E825FFC859004F734C /* BraintreeUnionPay.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,19 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80C117DB25FFC858004F734C /* BraintreeApplePay.xcframework in Frameworks */,
-				80C117E125FFC859004F734C /* BraintreePaymentFlow.xcframework in Frameworks */,
-				80C117DF25FFC859004F734C /* BraintreeCore.xcframework in Frameworks */,
-				80C117DD25FFC859004F734C /* BraintreeCard.xcframework in Frameworks */,
-				80C117F025FFC85C004F734C /* PPRiskMagnes.framework in Frameworks */,
-				80A630D725F7DC93004E912D /* InAppSettingsKit.xcframework in Frameworks */,
-				80C117E325FFC859004F734C /* BraintreePayPal.xcframework in Frameworks */,
-				80C117EE25FFC85C004F734C /* CardinalMobile.framework in Frameworks */,
-				80C117E925FFC859004F734C /* BraintreeVenmo.xcframework in Frameworks */,
-				80C117E525FFC859004F734C /* BraintreeThreeDSecure.xcframework in Frameworks */,
 				8075165F25F7E8F9007DEFA1 /* BraintreeDropIn.framework in Frameworks */,
-				80C117EB25FFC859004F734C /* PayPalDataCollector.xcframework in Frameworks */,
-				80C117E725FFC859004F734C /* BraintreeUnionPay.xcframework in Frameworks */,
+				423BD4EE260D199600D111E6 /* InAppSettingsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +305,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
+				423BD4ED260D199600D111E6 /* InAppSettingsKit */,
 			);
 			productName = Demo;
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
@@ -423,6 +378,7 @@
 			);
 			mainGroup = 4245D79A256C5AF900F1A413;
 			packageReferences = (
+				423BD4EC260D199600D111E6 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
 			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
 			projectDirPath = "";
@@ -684,7 +640,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supporting Files/Braintree-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -711,7 +666,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supporting Files/Braintree-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -797,6 +751,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		423BD4EC260D199600D111E6 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		423BD4ED260D199600D111E6 /* InAppSettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 423BD4EC260D199600D111E6 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
+			productName = InAppSettingsKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4245D79B256C5AF900F1A413 /* Project object */;
 }
