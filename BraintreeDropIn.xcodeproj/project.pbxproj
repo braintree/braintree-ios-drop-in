@@ -74,6 +74,7 @@
 		4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */; };
 		4237D7D525E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */; };
 		4237D7FE25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */; };
+		423BD4C3260D0E8100D111E6 /* BTDropInResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BD4C2260D0E8100D111E6 /* BTDropInResultTests.swift */; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425867D125EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 425867CF25EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h */; };
 		425867D225EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425867D025EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m */; };
@@ -274,6 +275,7 @@
 		4237D7F325E5BCA3006F6CE3 /* UIFont+BTUIK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+BTUIK.h"; sourceTree = "<group>"; };
 		4237D7F425E5BCA3006F6CE3 /* UIFont+BTUIK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+BTUIK.m"; sourceTree = "<group>"; };
 		4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+BTUIKTests.swift"; sourceTree = "<group>"; };
+		423BD4C2260D0E8100D111E6 /* BTDropInResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInResultTests.swift; sourceTree = "<group>"; };
 		4245DAF2256C721D00F1A413 /* FakeApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplication.swift; sourceTree = "<group>"; };
 		425867CF25EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTVaultedPaymentMethodsTableViewCell.h; sourceTree = "<group>"; };
 		425867D025EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTVaultedPaymentMethodsTableViewCell.m; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */,
 				0358590A203E09E200FCE1B7 /* BTDropInRequestTests.m */,
 				03B793AC1DAD61B500F54B1B /* BTDropInResultTests.m */,
+				423BD4C2260D0E8100D111E6 /* BTDropInResultTests.swift */,
 				4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */,
 				4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */,
 				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
@@ -1056,6 +1059,7 @@
 				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
 				A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */,
 				8005E86625BB34B5003EC2AC /* MockAPIClient.swift in Sources */,
+				423BD4C3260D0E8100D111E6 /* BTDropInResultTests.swift in Sources */,
 				4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */,
 				A50ED7A61D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m in Sources */,
 				425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */,
