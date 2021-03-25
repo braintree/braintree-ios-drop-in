@@ -36,30 +36,6 @@ If you look at your app target, you will see that the `BraintreeDropIn` library 
 
 The `BraintreeDropIn` library offers Swift Package Manager support.
 
-To offer ThreeDSecure with `BraintreeDropIn` via SPM, you must manually include the `CardinalMobile.framework`.
-
-#### Manually including the CardinalMobile framework
-
-1. Locate `CardinalMobile.framework` in the Braintree Swift Package dependency.
-    <details><summary>Screenshot</summary>
-    
-    ![image](image_assets/locate_cardinal_mobile_framework.png)
-    
-    </details>
-1. Right click on the `CardinalMobile.framework` to `Show in Finder`.
-1. Drag the `CardinalMobile.framework` into your app's Framework group in Xcode. Check the box to `Copy items if needed`.
-    <details><summary>Screenshot</summary>
-    
-    ![image](image_assets/copy_cardinal_mobile_framework.png)
-    
-    </details>
-1. Open your project's settings by selecting your app target in the General tab. Under the _Frameworks, Libraries, and Embedded Content_ section, make sure `CardinalMobile.framework` is set to “Embed & Sign”.
-    <details><summary>Screenshot</summary>
-    
-    ![image](image_assets/link_frameworks.png)
-    
-    </details>
-
 ### CocoaPods
 
 Add to your `Podfile`:
@@ -188,24 +164,45 @@ func fetchExistingPaymentMethod(clientToken: String) {
 
 ### Localization
 
-Drop-In is currently localized for [23 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/Sources/BraintreeDropIn/Resources).
+Drop-In is currently localized for [22 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/Sources/BraintreeDropIn/Resources).
 
 ### Color Schemes
 
 Drop-In is fully customizable, but we also provide `Light`, `Dark` and `Dynamic` color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. The `Dynamic` scheme is only available in iOS 13 or higher. Drop-In will use the `Light` color scheme by default.
 ```swift
-// Set the theme before initializing Drop-In
-BTUIKAppearance.sharedInstance().colorScheme = .dynamic
+let uiCustomization = BTDropInUICustomization(colorScheme: .dark)
+
+let dropInRequest = BTDropInRequest()
+dropInRequest.uiCustomization = uiCustomization
 ```
 
 ![Drop-in dark theme](Images/client-sdk-ios-series-dark.png "Drop-in dark theme")
 
 ### Customization
 
-Use `BTUIKAppearance` to customize the appearance of Drop-In and other BraintreeUIKit classes.
+Use `BTDropInUICustomization` to customize the appearance of Drop-In.
+
 ```swift
-// Example
-BTUIKAppearance.sharedInstance().primaryTextColor = UIColor.green
+let uiCustomization = BTDropInUICustomization(colorScheme: .dynamic)
+uiCustomization.fontFamily = "Helvetica"
+uiCustomization.boldFontFamily = "Helvetica Bold"
+
+let dropInRequest = BTDropInRequest()
+dropInRequest.uiCustomization = uiCustomization
+```
+
+### Accessibility
+
+#### Dynamic Type
+
+Dynamic type is enabled by default for both system and custom fonts. We strongly encourage you to leave this feature on, but if you wish to disable it, you may do so by setting `disableDynamicType` to `true` on `BTDropInUICustomization`.
+
+```swift
+let uiCustomization = BTDropInUICustomization(colorScheme: .light)
+uiCustomization.disableDynamicType = true
+
+let dropInRequest = BTDropInRequest()
+dropInRequest.uiCustomization = uiCustomization
 ```
 
 ### More Information
@@ -218,10 +215,13 @@ Also see our [**reference documentation**](https://braintree.github.io/braintree
 
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](http://developers.braintreepayments.com/guides/client-sdk/deprecation-policy).
 
-<!-- TODO: Add v9 beta version when ready for release -->
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
+| 9.x.x | Beta | March 2021 | TBA | TBA |
 | 8.x.x | Active | Februrary 2020 | TBA | TBA |
+| 7.x.x | Inactive | December 2018 | TBA | TBA |
+
+Versions 6 and below are unsupported.
 
 ## Demo
 
