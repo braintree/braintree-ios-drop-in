@@ -10,7 +10,7 @@ about: Create a report to help us improve
  - Environment: [e.g. Sandbox or Production]
  - iOS Version: [e.g. iOS 13.0]
  - Device [e.g. iPhone 6s]
- - Integration type & version [e.g. CocoaPods 1.1.1, Carthage 0.18.1]
+ - Integration type & version [e.g. CocoaPods 1.1.1, Carthage 0.37.0, Swift Package Manager 5.1]
 
 **Describe the bug**
 Description of what the bug is. Please include as many details as possible.
