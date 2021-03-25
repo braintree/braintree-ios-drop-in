@@ -225,12 +225,7 @@ This SDK abides by our Client SDK Deprecation Policy. For more information on th
 
 ## Demo
 
-A demo app is included in this project. To run it, you will need Carthage [0.37.0](https://github.com/Carthage/Carthage):
-
-```
-carthage bootstrap --use-xcframeworks --no-use-binaries
-open BraintreeDropIn.xcworkspace
-```
+A demo app is included in this project. It uses Swift Package Manager to fetch dependencies. This should happen automatically, but if needed you can go to File -> Swift Packages -> Resolve Package Versions to download dependencies.
 
 ## Help
 
