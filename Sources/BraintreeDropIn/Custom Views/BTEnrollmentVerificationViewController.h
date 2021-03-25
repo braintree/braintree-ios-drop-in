@@ -1,10 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "BTDropInBaseViewController.h"
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import "BTUIKFormField.h"
 
 @interface BTEnrollmentVerificationViewController : BTDropInBaseViewController <UITextFieldDelegate, BTUIKFormFieldDelegate>
 typedef void (^BTEnrollmentHandler)(NSString* authCode, BOOL resendSms);

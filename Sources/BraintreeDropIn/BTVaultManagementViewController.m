@@ -3,6 +3,7 @@
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTPaymentMethodNonce+DropIn.h"
+#import "BTUIKAppearance.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>

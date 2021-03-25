@@ -1,10 +1,6 @@
 #import <UIKit/UIKit.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BraintreeUIKit.h>
-#else
-#import <BraintreeUIKit/BraintreeUIKit.h>
-#endif
+#import "BTUIKPaymentOptionCardView.h"
+#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
 
 @interface BTDropInPaymentSelectionCell : UITableViewCell
 

@@ -1,4 +1,5 @@
 #import "BTDropInUIUtilities.h"
+#import "BTUIKAppearance.h"
 
 @implementation BTDropInUIUtilities
 

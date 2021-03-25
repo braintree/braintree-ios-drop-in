@@ -1,10 +1,5 @@
 #import <BraintreeDropIn/BTDropInUICustomization.h>
-
-#ifdef COCOAPODS
-#import <BraintreeDropIn/BTUIKAppearance.h>
-#else
-#import <BraintreeUIKit/BTUIKAppearance.h>
-#endif
+#import "BTUIKAppearance.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
