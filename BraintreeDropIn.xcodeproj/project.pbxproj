@@ -330,9 +330,6 @@
 		A52900D41D8903A600032220 /* BTUIKCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCollectionReusableView.h; sourceTree = "<group>"; };
 		A52900D51D8903A600032220 /* BTUIKCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKCollectionReusableView.m; sourceTree = "<group>"; };
 		A52900D61D8903A600032220 /* BTUIKExpiryFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryFormField.m; sourceTree = "<group>"; };
-		A52900D71D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryInputCollectionViewCell.h; sourceTree = "<group>"; };
-		A52900D81D8903A600032220 /* BTUIKExpiryInputCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryInputCollectionViewCell.m; sourceTree = "<group>"; };
-		A52900D91D8903A600032220 /* BTUIKExpiryInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKExpiryInputView.m; sourceTree = "<group>"; };
 		A52900DA1D8903A600032220 /* BTUIKFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKFormField.m; sourceTree = "<group>"; };
 		A52900DB1D8903A600032220 /* BTUIKInputAccessoryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKInputAccessoryToolbar.m; sourceTree = "<group>"; };
 		A52900DC1D8903A600032220 /* BTUIKMobileCountryCodeFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMobileCountryCodeFormField.m; sourceTree = "<group>"; };
@@ -357,7 +354,6 @@
 		A52901091D8903A600032220 /* BTUIKCardNumberFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardNumberFormField.h; sourceTree = "<group>"; };
 		A529010A1D8903A600032220 /* BTUIKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKCardType.h; sourceTree = "<group>"; };
 		A529010B1D8903A600032220 /* BTUIKExpiryFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryFormField.h; sourceTree = "<group>"; };
-		A529010C1D8903A600032220 /* BTUIKExpiryInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKExpiryInputView.h; sourceTree = "<group>"; };
 		A529010D1D8903A600032220 /* BTUIKFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKFormField.h; sourceTree = "<group>"; };
 		A529010E1D8903A600032220 /* BTUIKInputAccessoryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKInputAccessoryToolbar.h; sourceTree = "<group>"; };
 		A529010F1D8903A600032220 /* BTUIKLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKLocalizedString.h; sourceTree = "<group>"; };

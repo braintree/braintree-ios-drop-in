@@ -42,15 +42,19 @@ extension XCUIElement {
 }
 
 extension Date {
-    static func getNextYear() -> String {
+    static let nextYear: String = {
         let date = Date()
-        let calendar = Calendar.init(identifier: .gregorian)
-        return String(calendar.component(.year, from: date) + 1)
-    }
+        let calendar = Calendar(identifier: .gregorian)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy"
+        return dateFormatter.string(from: calendar.date(byAdding: .year, value: 1, to: date)!)
+    }()
 
-    static func getThreeYearsFromNow() -> String {
+    static let threeYearsFromNow: String = {
         let date = Date()
-        let calendar = Calendar.init(identifier: .gregorian)
-        return String(calendar.component(.year, from: date) + 3)
-    }
+        let calendar = Calendar(identifier: .gregorian)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy"
+        return dateFormatter.string(from: calendar.date(byAdding: .year, value: 3, to: date)!)
+    }()
 }

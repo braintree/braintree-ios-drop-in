@@ -1,9 +1,7 @@
-#import "BTUIKExpiryInputView.h"
 #import "BTUIKFormField.h"
 
 /// @class Form field to collect an expiration date.
-@interface BTUIKExpiryFormField : BTUIKFormField <BTUIKExpiryInputViewDelegate>
-
+@interface BTUIKExpiryFormField : BTUIKFormField
 /// The expiration month
 @property (nonatomic, strong, nullable, readonly) NSString *expirationMonth;
 
