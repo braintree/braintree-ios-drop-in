@@ -71,9 +71,6 @@
 		423490B8260BA7680006D38B /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4237D7A425E42844006F6CE3 /* BTDropInUICustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4237D7A225E42844006F6CE3 /* BTDropInUICustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4237D7A525E42844006F6CE3 /* BTDropInUICustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7A325E42844006F6CE3 /* BTDropInUICustomization.m */; };
-		4237D7B925E42D97006F6CE3 /* BTUIKAppearance+DropIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4237D7B725E42D97006F6CE3 /* BTUIKAppearance+DropIn.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		4237D7BA25E42D97006F6CE3 /* BTUIKAppearance+DropIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7B825E42D97006F6CE3 /* BTUIKAppearance+DropIn.m */; };
-		4237D7C525E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */; };
 		4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */; };
 		4237D7D525E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */; };
 		4237D7FE25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */; };
@@ -272,9 +269,6 @@
 		4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BTPaymentMethodNonce+DropInTests.swift"; sourceTree = "<group>"; };
 		4237D7A225E42844006F6CE3 /* BTDropInUICustomization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTDropInUICustomization.h; sourceTree = "<group>"; };
 		4237D7A325E42844006F6CE3 /* BTDropInUICustomization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDropInUICustomization.m; sourceTree = "<group>"; };
-		4237D7B725E42D97006F6CE3 /* BTUIKAppearance+DropIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTUIKAppearance+DropIn.h"; sourceTree = "<group>"; };
-		4237D7B825E42D97006F6CE3 /* BTUIKAppearance+DropIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BTUIKAppearance+DropIn.m"; sourceTree = "<group>"; };
-		4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BTUIKAppearance+DropInTests.swift"; sourceTree = "<group>"; };
 		4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInControllerTests.swift; sourceTree = "<group>"; };
 		4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTDropInUICustomizationTests.swift; sourceTree = "<group>"; };
 		4237D7F325E5BCA3006F6CE3 /* UIFont+BTUIK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+BTUIK.h"; sourceTree = "<group>"; };
@@ -722,7 +716,6 @@
 				4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */,
 				4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */,
 				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
-				4237D7C425E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift */,
 				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
 				034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */,
 				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
@@ -774,8 +767,6 @@
 				4225EA57257EC36300923CE3 /* BTPaymentMethodNonce+DropIn.m */,
 				A56C41AB1D8335C7000DFFAB /* BTPaymentSelectionViewController.h */,
 				A56C418C1D833568000DFFAB /* BTPaymentSelectionViewController.m */,
-				4237D7B725E42D97006F6CE3 /* BTUIKAppearance+DropIn.h */,
-				4237D7B825E42D97006F6CE3 /* BTUIKAppearance+DropIn.m */,
 				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
 				A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */,
 				A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */,
@@ -899,7 +890,6 @@
 				80BBEFF0260BC77E005D646D /* BTUIKCoinbaseWordmarkVectorArtView.h in Headers */,
 				80BBF00E260BC77E005D646D /* BTUIKMaestroVectorArtView.h in Headers */,
 				4234906A260BA5800006D38B /* BTUIKExpiryFormField.h in Headers */,
-				4237D7B925E42D97006F6CE3 /* BTUIKAppearance+DropIn.h in Headers */,
 				42349069260BA5800006D38B /* BTUIKSwitchFormField.h in Headers */,
 				4234905F260BA5800006D38B /* BTUIKFormField.h in Headers */,
 				80BBF016260BC77E005D646D /* BTUIKPayPalMonogramCardView.h in Headers */,
@@ -1061,7 +1051,6 @@
 				8005E86125BB32A6003EC2AC /* MockVenmoDriver.swift in Sources */,
 				034D319A1E8EEC4B0056F5AA /* BTDropInBaseViewControllerTests.m in Sources */,
 				4237D7D525E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift in Sources */,
-				4237D7C525E43016006F6CE3 /* BTUIKAppearance+DropInTests.swift in Sources */,
 				4237D7FE25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift in Sources */,
 				034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */,
 				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
@@ -1100,7 +1089,6 @@
 				80BBEFA9260BC75C005D646D /* BTUIKLargeDinersClubVectorArtView.m in Sources */,
 				80BBF017260BC77E005D646D /* BTUIKApplePayMarkVectorArtView.m in Sources */,
 				80BBF005260BC77E005D646D /* BTUIKHipercardVectorArtView.m in Sources */,
-				4237D7BA25E42D97006F6CE3 /* BTUIKAppearance+DropIn.m in Sources */,
 				80BBEFB7260BC75C005D646D /* BTUIKLargeVenmoMonogramCardView.m in Sources */,
 				A56C41941D833568000DFFAB /* BTVaultManagementViewController.m in Sources */,
 				80BBEFBB260BC75C005D646D /* BTUIKLargeHipercardVectorArtView.m in Sources */,
