@@ -65,4 +65,4 @@ dropInRequest.uiCustomization = uiCustomization
 
 ## Drop-in Result
 
-The `cancelled` property on `BTDropInResult` has been changed to `canceled`.
+The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
