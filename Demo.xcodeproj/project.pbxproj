@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		422BB077260E3071007EF855 /* braintree-ios-drop-in */ = {isa = PBXFileReference; lastKnownFileType = text; path = .; name = "braintree-ios-drop-in"; sourceTree = SOURCE_ROOT; };
+		421F783C260E37EE003F99B5 /* braintree-ios-drop-in */ = {isa = PBXFileReference; lastKnownFileType = text; path = .; name = "braintree-ios-drop-in"; sourceTree = SOURCE_ROOT; };
 		4245D7A3256C5AF900F1A413 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245D866256C5C4E00F1A413 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4245D867256C5C4E00F1A413 /* DemoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettings.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		4245D7A5256C5AF900F1A413 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				422BB077260E3071007EF855 /* braintree-ios-drop-in */,
+				421F783C260E37EE003F99B5 /* braintree-ios-drop-in */,
 				4245D864256C5C4E00F1A413 /* Demo Base */,
 				4245D877256C5C4E00F1A413 /* DropInDemo.entitlements */,
 				4245D87A256C5C4E00F1A413 /* Features */,
