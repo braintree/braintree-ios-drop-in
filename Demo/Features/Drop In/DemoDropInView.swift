@@ -19,8 +19,7 @@ class DemoDropInView: UIView {
     var paymentMethodStackView = UIStackView()
     var dropInButton = UIButton()
     var purchaseButton = UIButton()
-    var colorSchemeSegmentedControl = UISegmentedControl()
-    
+
     private var secondaryLabelColor: UIColor = {
         if #available(iOS 13, *) {
             return UIColor.secondaryLabel
@@ -74,31 +73,10 @@ class DemoDropInView: UIView {
         purchaseButton.backgroundColor = tintColor
         purchaseButton.layer.cornerRadius = 4.0
 
-        let colorSchemeLabel = UILabel()
-        colorSchemeLabel.text = NSLocalizedString("COLOR SCHEME", comment: "")
-        colorSchemeLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-        colorSchemeLabel.textColor = secondaryLabelColor
-
-        var colorSchemes = ["Light", "Dark"]
-        if #available(iOS 13, *) {
-            colorSchemes += ["Dynamic"]
-        }
-        
-        colorSchemeSegmentedControl = UISegmentedControl(items: colorSchemes)
-        colorSchemeSegmentedControl.selectedSegmentIndex = DemoSettings.colorSchemeSetting.rawValue
-
-        let colorSchemeStackView = UIStackView(arrangedSubviews: [
-            colorSchemeLabel,
-            colorSchemeSegmentedControl
-        ])
-        colorSchemeStackView.axis = .vertical
-        colorSchemeStackView.spacing = 10
-
         let stackView = UIStackView(arrangedSubviews: [
             cartStackView,
             dropInButton,
-            purchaseButton,
-            colorSchemeStackView
+            purchaseButton
         ])
         stackView.axis = .vertical
         stackView.spacing = 20

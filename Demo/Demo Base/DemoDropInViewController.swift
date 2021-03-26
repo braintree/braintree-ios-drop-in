@@ -28,7 +28,6 @@ class DemoDropInViewController: DemoBaseViewController {
         
         demoView.dropInButton.addTarget(self, action: #selector(presentDropInController), for: .touchUpInside)
         demoView.purchaseButton.addTarget(self, action: #selector(completePurchase), for: .touchUpInside)
-        demoView.colorSchemeSegmentedControl.addTarget(self, action: #selector(updateColorScheme(_:)), for: .valueChanged)
         
         fetchPaymentMethods()
     }
@@ -131,10 +130,6 @@ class DemoDropInViewController: DemoBaseViewController {
             completionBlock?(self.selectedNonce)
             transactionBlock?()
         }
-    }
-    
-    @objc func updateColorScheme(_ segmentedControl: UISegmentedControl) {
-        DemoSettings.colorSchemeSetting = BTDropInColorScheme(rawValue: segmentedControl.selectedSegmentIndex)!
     }
     
     // MARK: - Helper Methods
