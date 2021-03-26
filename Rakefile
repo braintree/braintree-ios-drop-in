@@ -18,8 +18,8 @@ task :publish => %w[publish:push publish:create_github_release publish:push_pod 
 
 SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
-DEMO_PLIST = "DropInDemo/Supporting Files/Braintree-Demo-Info.plist"
-DROPIN_FRAMEWORKS_PLIST = "BraintreeDropIn/Info.plist"
+DEMO_PLIST = "Demo/Demo/Supporting Files/Braintree-Demo-Info.plist"
+DROPIN_FRAMEWORKS_PLIST = "Sources/BraintreeDropIn/Info.plist"
 PUBLIC_REMOTE_NAME = "origin"
 
 class << self
@@ -213,7 +213,7 @@ def jazzy_command
       --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/#{current_version}
       --theme fullwidth
       --output #{current_version}
-      --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
+      --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)/Sources/BraintreeDropIn/Public
   ].join(' ')
 end
 
