@@ -20,6 +20,7 @@
   * Use number pad for expiration date input on card form
   * Require two-digit year for expiration date instead of four-digit year
   * Remove Carthage support
+  * Change spelling of `cancelled` property on `BTDropInResult` to `canceled`
 
 ## unreleased
 

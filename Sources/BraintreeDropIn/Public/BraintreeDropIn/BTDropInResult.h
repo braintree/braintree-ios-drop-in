@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NSError * _Nullable error);
 
 /// True if the modal was dismissed without selecting a payment method
-@property (nonatomic, assign, getter=isCancelled) BOOL cancelled;
+@property (nonatomic, assign, getter=isCanceled) BOOL canceled;
 
 /// The type of the payment option
 @property (nonatomic, assign) BTUIKPaymentOptionType paymentOptionType;

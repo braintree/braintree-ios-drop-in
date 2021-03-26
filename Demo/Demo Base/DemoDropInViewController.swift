@@ -84,8 +84,8 @@ class DemoDropInViewController: DemoBaseViewController {
                 return
             }
             
-            if result.isCancelled {
-                self.progressBlock?("Cancelled🎲")
+            if result.isCanceled {
+                self.progressBlock?("Canceled 🎲")
             } else {
                 self.didSelectApplePay = (result.paymentOptionType == .applePay)
                 self.progressBlock?("Ready for checkout...")

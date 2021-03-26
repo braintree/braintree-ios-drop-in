@@ -12,6 +12,7 @@ _Documentation for v9 will be published to https://developers.braintreepayments.
 1. [Carthage](#carthage)
 1. [UI Customization](#ui-customization)
 1. [Accessibility](#accessibility)
+1. [Drop-in Result](#drop-in-result)
 
 ## Supported Versions
 
@@ -61,3 +62,7 @@ uiCustomization.disableDynamicType = true
 let dropInRequest = BTDropInRequest()
 dropInRequest.uiCustomization = uiCustomization
 ```
+
+## Drop-in Result
+
+The `cancelled` property on `BTDropInResult` has been changed to `canceled`.
