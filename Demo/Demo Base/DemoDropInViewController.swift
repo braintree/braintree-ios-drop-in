@@ -140,7 +140,6 @@ class DemoDropInViewController: DemoBaseViewController {
     // MARK: - Helper Methods
 
     func updatePaymentMethodNonce(_ result: BTDropInResult?) {
-        demoView.paymentMethodTypeLabel.isHidden = (result?.paymentMethod == nil)
         demoView.paymentMethodTypeLabel.text = result?.paymentDescription
         demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
         demoView.paymentMethodTypeIcon = result?.paymentIcon

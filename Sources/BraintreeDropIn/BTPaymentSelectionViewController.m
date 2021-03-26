@@ -4,7 +4,6 @@
 #import "BTDropInPaymentSelectionCell.h"
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
-#import "BTPaymentMethodNonce+DropIn.h"
 #import "BTVaultedPaymentMethodsTableViewCell.h"
 #import "BTPaymentSelectionHeaderView.h"
 #import "BTUIKAppearance.h"

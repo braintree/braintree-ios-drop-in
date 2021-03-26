@@ -52,8 +52,6 @@ class DemoDropInView: UIView {
         paymentMethodHeaderLabel.textColor = secondaryLabelColor
         paymentMethodHeaderLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
 
-        paymentMethodTypeLabel.isHidden = true
-
         paymentMethodStackView = UIStackView(arrangedSubviews: [paymentMethodTypeLabel])
         paymentMethodStackView.axis = .horizontal
         paymentMethodStackView.spacing = 8
