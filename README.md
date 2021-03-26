@@ -93,7 +93,12 @@ let canMakePayments = PKPaymentAuthorizationViewController.canMakePayments() && 
 request.applePayDisabled = !canMakePayments
 ```
 
-**Important** If your customer selected Apple Pay as their preferred payment method then `result.paymentOptionType == .ApplePay` and the `result.paymentMethod` will be `nil`. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce - you will still need to do that at the appropriate time in your app. Use `BTApplePayClient` to tokenize the customer's Apple Pay information - [view our official docs for more information](https://developers.braintreepayments.com/guides/apple-pay/client-side/ios/v4).
+**Important:** If your customer selects Apple Pay as their preferred payment method then `result.paymentOptionType == .applePay` and the `result.paymentMethod` will be `nil`. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce. After you receive the `BTDropInResult`, you will need to:
+1) Display a `PKPaymentButton`.
+2) Present a `PKPaymentAuthorizationViewController` when the customer taps the button.
+3) Tokenize the `PKPayment` and send the resulting nonce to your server to create a transaction.
+
+Use `BTApplePayClient` to tokenize the customer's Apple Pay information - [view our official docs for more information](https://developers.braintreepayments.com/guides/apple-pay/client-side/ios/v5).
 
 ### 3D-Secure + Drop-In
 
