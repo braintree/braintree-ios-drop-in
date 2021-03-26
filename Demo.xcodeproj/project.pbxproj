@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4221CD56260E66D30025F6AD /* DemoPurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221CD55260E66D30025F6AD /* DemoPurchaseButton.swift */; };
 		422B6327260E4D3C00CAE202 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B62EE260E4D3C00CAE202 /* Main.strings */; };
 		422B6328260E4D3C00CAE202 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B62F0260E4D3C00CAE202 /* InfoPlist.strings */; };
 		422B6329260E4D3C00CAE202 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B630D260E4D3C00CAE202 /* BTUI.strings */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		421F783C260E37EE003F99B5 /* braintree-ios-drop-in */ = {isa = PBXFileReference; lastKnownFileType = text; name = "braintree-ios-drop-in"; path = .; sourceTree = SOURCE_ROOT; };
+		4221CD55260E66D30025F6AD /* DemoPurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPurchaseButton.swift; sourceTree = "<group>"; };
 		422B62EF260E4D3C00CAE202 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		422B62F1260E4D3C00CAE202 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		422B62F2260E4D3C00CAE202 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.strings; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				4245D86A256C5C4E00F1A413 /* DemoBaseViewController.swift */,
 				4245D869256C5C4E00F1A413 /* DemoContainerViewController.swift */,
 				4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */,
+				4221CD55260E66D30025F6AD /* DemoPurchaseButton.swift */,
 				4245D86C256C5C4E00F1A413 /* DemoDropInViewController.swift */,
 				4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */,
 				4245D865256C5C4E00F1A413 /* Settings */,
@@ -363,6 +366,7 @@
 				4245D882256C5C4E00F1A413 /* DemoContainerViewController.swift in Sources */,
 				4245D880256C5C4E00F1A413 /* DemoSettings.swift in Sources */,
 				4245D883256C5C4E00F1A413 /* DemoBaseViewController.swift in Sources */,
+				4221CD56260E66D30025F6AD /* DemoPurchaseButton.swift in Sources */,
 				4245D884256C5C4E00F1A413 /* ViewHelpers.swift in Sources */,
 				4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */,
 				4245D881256C5C4E00F1A413 /* DemoAppDelegate.swift in Sources */,
