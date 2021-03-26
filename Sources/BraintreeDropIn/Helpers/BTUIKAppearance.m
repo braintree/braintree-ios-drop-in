@@ -1,5 +1,6 @@
 #import "BTUIKAppearance.h"
 #import "UIColor+BTUIK.h"
+#import "UIFont+BTUIK.h"
 
 @implementation BTUIKAppearance
 
@@ -12,6 +13,39 @@ static BTUIKAppearance *sharedTheme;
     });
     
     return sharedTheme;
+}
+
+- (void)configureWithUICustomization:(BTDropInUICustomization *)uiCustomization {
+    self.overlayColor = uiCustomization.overlayColor;
+    self.tintColor = uiCustomization.tintColor;
+    self.barBackgroundColor = uiCustomization.barBackgroundColor;
+    self.fontFamily = uiCustomization.fontFamily;
+    self.boldFontFamily = uiCustomization.boldFontFamily;
+    self.formBackgroundColor = uiCustomization.formBackgroundColor;
+    self.formFieldBackgroundColor = uiCustomization.formFieldBackgroundColor;
+    self.primaryTextColor = uiCustomization.primaryTextColor;
+    self.navigationBarTitleTextColor = uiCustomization.navigationBarTitleTextColor;
+    self.secondaryTextColor = uiCustomization.secondaryTextColor;
+    self.disabledColor = uiCustomization.disabledColor;
+    self.placeholderTextColor = uiCustomization.placeholderTextColor;
+    self.lineColor = uiCustomization.lineColor;
+    self.errorForegroundColor = uiCustomization.errorForegroundColor;
+    self.blurStyle = uiCustomization.blurStyle;
+    self.activityIndicatorViewStyle = uiCustomization.activityIndicatorViewStyle;
+    self.useBlurs = uiCustomization.useBlurs;
+    self.postalCodeFormFieldKeyboardType = uiCustomization.postalCodeFormFieldKeyboardType;
+    self.switchOnTintColor = uiCustomization.switchOnTintColor;
+    self.switchThumbTintColor = uiCustomization.switchThumbTintColor;
+    self.keyboardAppearance = uiCustomization.keyboardAppearance;
+    self.disableDynamicType = uiCustomization.disableDynamicType;
+
+    self.bodyFont = [UIFont bodyFontForFontFamily:uiCustomization.fontFamily useStaticSize:uiCustomization.disableDynamicType];
+    self.staticBodyFont = [UIFont bodyFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
+    self.headlineFont = [UIFont headlineFontForFontFamily:uiCustomization.boldFontFamily useStaticSize:uiCustomization.disableDynamicType];
+    self.staticHeadlineFont = [UIFont headlineFontForFontFamily:uiCustomization.boldFontFamily useStaticSize:YES];
+    self.captionFont = [UIFont captionFontForFontFamily:uiCustomization.fontFamily useStaticSize:uiCustomization.disableDynamicType];
+    self.staticCaptionFont = [UIFont captionFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
+    self.staticTitleFont = [UIFont titleFontForFontFamily:uiCustomization.fontFamily useStaticSize:YES];
 }
 
 - (UIColor *)highlightedTintColor {

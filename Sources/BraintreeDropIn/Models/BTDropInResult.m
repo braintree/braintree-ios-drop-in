@@ -42,7 +42,11 @@
 }
 
 - (NSString *)paymentDescription {
-    return self.paymentMethod.paymentDescription;
+    if (self.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
+        return @"Apple Pay";
+    } else {
+        return self.paymentMethod.paymentDescription;
+    }
 }
 
 @end

@@ -1,3 +1,4 @@
+#import <BraintreeDropIn/BTDropInUICustomization.h>
 #import <UIKit/UIKit.h>
 
 @interface BTUIKAppearance : NSObject
@@ -72,6 +73,8 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 @property (nonatomic, strong) UIFont *captionFont;
 @property (nonatomic, strong) UIFont *staticCaptionFont;
 @property (nonatomic, strong) UIFont *staticTitleFont;
+
+- (void)configureWithUICustomization:(BTDropInUICustomization *)uiCustomization;
 
 /// Sets the color (primary or secondary) and font with family and size (large or small)
 /// These properties are on the [BTUIKAppearance sharedInstance]

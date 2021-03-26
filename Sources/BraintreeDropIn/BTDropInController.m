@@ -4,7 +4,7 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTAPIClient_Internal_Category.h"
-#import "BTUIKAppearance+DropIn.h"
+#import "BTUIKAppearance.h"
 #import "BTUIKViewUtil.h"
 
 #ifdef COCOAPODS
