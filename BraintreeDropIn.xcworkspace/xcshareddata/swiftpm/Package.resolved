@@ -2,8 +2,17 @@
   "object": {
     "pins": [
       {
+        "package": "BraintreeDropIn",
+        "repositoryURL": "https://github.com/braintree/braintree-ios-drop-in.git",
+        "state": {
+          "branch": "next-major-version",
+          "revision": "61b3db7ea979597c69bc5e5fb60f27c9c79e1364",
+          "version": null
+        }
+      },
+      {
         "package": "Braintree",
-        "repositoryURL": "https://github.com/braintree/braintree_ios.git",
+        "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
           "branch": null,
           "revision": "6a1a28421b1ce65ec9a3cd834f1e5794c3a85d7d",

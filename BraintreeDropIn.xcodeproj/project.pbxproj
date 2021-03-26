@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -77,14 +77,6 @@
 		4237D7CD25E44C49006F6CE3 /* BTDropInControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7CC25E44C49006F6CE3 /* BTDropInControllerTests.swift */; };
 		4237D7D525E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7D425E45EC0006F6CE3 /* BTDropInUICustomizationTests.swift */; };
 		4237D7FE25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */; };
-		423BD4D7260D17F300D111E6 /* BraintreeThreeDSecure in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4D6260D17F300D111E6 /* BraintreeThreeDSecure */; };
-		423BD4D9260D17F300D111E6 /* BraintreeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4D8260D17F300D111E6 /* BraintreeApplePay */; };
-		423BD4DB260D17F300D111E6 /* BraintreePayPal in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4DA260D17F300D111E6 /* BraintreePayPal */; };
-		423BD4DD260D17F300D111E6 /* PPRiskMagnes in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4DC260D17F300D111E6 /* PPRiskMagnes */; };
-		423BD4DF260D17F300D111E6 /* CardinalMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4DE260D17F300D111E6 /* CardinalMobile */; };
-		423BD4E1260D17F300D111E6 /* BraintreeUnionPay in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4E0260D17F300D111E6 /* BraintreeUnionPay */; };
-		423BD4E3260D17F300D111E6 /* BraintreeVenmo in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4E2260D17F300D111E6 /* BraintreeVenmo */; };
-		423BD4E5260D17F300D111E6 /* BraintreeCard in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4E4260D17F300D111E6 /* BraintreeCard */; };
 		4245DAF3256C721D00F1A413 /* FakeApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245DAF2256C721D00F1A413 /* FakeApplication.swift */; };
 		425867D125EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 425867CF25EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h */; };
 		425867D225EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425867D025EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.m */; };
@@ -425,14 +417,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423BD4E3260D17F300D111E6 /* BraintreeVenmo in Frameworks */,
-				423BD4DD260D17F300D111E6 /* PPRiskMagnes in Frameworks */,
-				423BD4D7260D17F300D111E6 /* BraintreeThreeDSecure in Frameworks */,
-				423BD4E5260D17F300D111E6 /* BraintreeCard in Frameworks */,
-				423BD4D9260D17F300D111E6 /* BraintreeApplePay in Frameworks */,
-				423BD4DF260D17F300D111E6 /* CardinalMobile in Frameworks */,
-				423BD4E1260D17F300D111E6 /* BraintreeUnionPay in Frameworks */,
-				423BD4DB260D17F300D111E6 /* BraintreePayPal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,14 +866,6 @@
 			);
 			name = BraintreeDropIn;
 			packageProductDependencies = (
-				423BD4D6260D17F300D111E6 /* BraintreeThreeDSecure */,
-				423BD4D8260D17F300D111E6 /* BraintreeApplePay */,
-				423BD4DA260D17F300D111E6 /* BraintreePayPal */,
-				423BD4DC260D17F300D111E6 /* PPRiskMagnes */,
-				423BD4DE260D17F300D111E6 /* CardinalMobile */,
-				423BD4E0260D17F300D111E6 /* BraintreeUnionPay */,
-				423BD4E2260D17F300D111E6 /* BraintreeVenmo */,
-				423BD4E4260D17F300D111E6 /* BraintreeCard */,
 			);
 			productName = BraintreeDropIn;
 			productReference = A56C416A1D833348000DFFAB /* BraintreeDropIn.framework */;
@@ -954,7 +930,6 @@
 			);
 			mainGroup = A56C41601D833348000DFFAB;
 			packageReferences = (
-				423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */,
 			);
 			productRefGroup = A56C416B1D833348000DFFAB /* Products */;
 			projectDirPath = "";
@@ -1171,11 +1146,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1220,11 +1191,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1325,8 +1292,7 @@
 				INFOPLIST_FILE = "$(TARGET_TYPE)/$(PRODUCT_NAME)/Supporting Files/$(PRODUCT_NAME)-Info.plist";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGET_TYPE = Specs;
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -1384,11 +1350,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/BraintreeDropIn/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.BraintreeDropIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1443,11 +1405,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/BraintreeDropIn/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.BraintreeDropIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1491,60 +1449,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/braintree/braintree_ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		423BD4D6260D17F300D111E6 /* BraintreeThreeDSecure */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = BraintreeThreeDSecure;
-		};
-		423BD4D8260D17F300D111E6 /* BraintreeApplePay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = BraintreeApplePay;
-		};
-		423BD4DA260D17F300D111E6 /* BraintreePayPal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = BraintreePayPal;
-		};
-		423BD4DC260D17F300D111E6 /* PPRiskMagnes */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = PPRiskMagnes;
-		};
-		423BD4DE260D17F300D111E6 /* CardinalMobile */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = CardinalMobile;
-		};
-		423BD4E0260D17F300D111E6 /* BraintreeUnionPay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = BraintreeUnionPay;
-		};
-		423BD4E2260D17F300D111E6 /* BraintreeVenmo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = BraintreeVenmo;
-		};
-		423BD4E4260D17F300D111E6 /* BraintreeCard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423BD4D5260D17F300D111E6 /* XCRemoteSwiftPackageReference "braintree_ios" */;
-			productName = BraintreeCard;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A56C41611D833348000DFFAB /* Project object */;
 }
