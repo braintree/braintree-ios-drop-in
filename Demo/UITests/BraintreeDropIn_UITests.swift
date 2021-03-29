@@ -752,8 +752,8 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
 
         XCTAssertTrue(app.staticTexts["1111"].exists)
 
-        waitForElementToBeHittable(app.buttons["Complete Purchase"])
-        app.buttons["Complete Purchase"].forceTapElement()
+        waitForElementToBeHittable(app.buttons["Purchase"])
+        app.buttons["Purchase"].forceTapElement()
 
         let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
 
@@ -888,8 +888,8 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         XCTAssertTrue(app.staticTexts["1000"].exists)
 
-        waitForElementToBeHittable(app.buttons["Complete Purchase"])
-        app.buttons["Complete Purchase"].forceTapElement()
+        waitForElementToBeHittable(app.buttons["Purchase"])
+        app.buttons["Purchase"].forceTapElement()
 
         let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
 
@@ -937,8 +937,8 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         XCTAssertTrue(app.staticTexts["1091"].exists)
 
-        waitForElementToBeHittable(app.buttons["Complete Purchase"])
-        app.buttons["Complete Purchase"].forceTapElement()
+        waitForElementToBeHittable(app.buttons["Purchase"])
+        app.buttons["Purchase"].forceTapElement()
 
         let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
 

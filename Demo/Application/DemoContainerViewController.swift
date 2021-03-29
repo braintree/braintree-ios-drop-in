@@ -22,7 +22,7 @@ class DemoContainerViewController: UIViewController {
             current.completionBlock = completionBlock
             current.transactionBlock = tappedStatus
             
-            updateStatusItem("Presenting \(current.self)")
+            updateStatusItem("Presenting \(type(of: current))")
             title = current.title
             
             addChild(current)

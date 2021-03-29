@@ -2,7 +2,7 @@ import UIKit
 import PassKit
 import BraintreeDropIn
 
-class DemoDropInViewController: DemoBaseViewController {
+class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
     
     private var demoView = DemoDropInView()
     
@@ -13,6 +13,7 @@ class DemoDropInViewController: DemoBaseViewController {
     override init(authorization: String) {
         self.authorization = authorization
         super.init(authorization: authorization)
+        self.title = NSLocalizedString("Checkout", comment: "")
     }
     
     required init?(coder: NSCoder) {
@@ -21,21 +22,19 @@ class DemoDropInViewController: DemoBaseViewController {
     
     override func loadView() {
         view = demoView
+        demoView.delegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        demoView.dropInButton.addTarget(self, action: #selector(presentDropInController), for: .touchUpInside)
-        demoView.purchaseButton.addTarget(self, action: #selector(completePurchase), for: .touchUpInside)
-        demoView.colorSchemeSegmentedControl.addTarget(self, action: #selector(updateColorScheme(_:)), for: .valueChanged)
-        
-        fetchPaymentMethods()
+        if !DemoSettings.useTokenizationKey {
+            fetchPaymentMethods()
+        }
     }
     
-    // MARK: - Button Handlers
+    // MARK: - DemoDropInViewDelegate
     
-    @objc func presentDropInController() {
+    func demoViewDidTapDropInButton(_ view: DemoDropInView) {
         let uiCustomization = BTDropInUICustomization(colorScheme: DemoSettings.colorSchemeSetting)
         
         let dropInRequest = BTDropInRequest()
@@ -90,7 +89,7 @@ class DemoDropInViewController: DemoBaseViewController {
                 self.didSelectApplePay = (result.paymentOptionType == .applePay)
                 self.progressBlock?("Ready for checkout...")
                 self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(result)
+                self.demoView.result = result
             }
             
             dropInController.dismiss(animated: true, completion: nil)
@@ -104,7 +103,7 @@ class DemoDropInViewController: DemoBaseViewController {
         present(dropIn, animated: true, completion: nil)
     }
     
-    @objc func completePurchase() {
+    func demoViewDidTapPurchaseButton(_ view: DemoDropInView) {
         if didSelectApplePay {
             guard let merchantIdentifier = DemoSettings.applePayMerchantIdentifier else {
                 progressBlock?("Direct Apple Pay integration does not support custom environments in this Demo App")
@@ -133,17 +132,7 @@ class DemoDropInViewController: DemoBaseViewController {
         }
     }
     
-    @objc func updateColorScheme(_ segmentedControl: UISegmentedControl) {
-        DemoSettings.colorSchemeSetting = BTDropInColorScheme(rawValue: segmentedControl.selectedSegmentIndex)!
-    }
-    
     // MARK: - Helper Methods
-
-    func updatePaymentMethodNonce(_ result: BTDropInResult?) {
-        demoView.paymentMethodTypeLabel.text = result?.paymentDescription
-        demoView.dropInButton.setTitle(NSLocalizedString("Change Payment Method", comment: ""), for: .normal)
-        demoView.paymentMethodTypeIcon = result?.paymentIcon
-    }
     
     func fetchPaymentMethods() {
         progressBlock?("Fetching customer's payment methods...")
@@ -160,7 +149,7 @@ class DemoDropInViewController: DemoBaseViewController {
             self.didSelectApplePay = (result.paymentOptionType == .applePay)
             if (result.paymentMethod != nil) {
                 self.selectedNonce = result.paymentMethod
-                self.updatePaymentMethodNonce(result)
+                self.demoView.result = result
             }
         }
     }

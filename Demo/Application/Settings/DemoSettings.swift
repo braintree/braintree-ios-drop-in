@@ -66,10 +66,6 @@ class DemoSettings {
         return BTThreeDSecureVersion(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureVersionDefaultsKey)) ?? .version2
     }
     
-    static var useModalPresentation: Bool {
-        return UserDefaults.standard.bool(forKey: "BraintreeDemoChooserViewControllerShouldUseModalPresentationDefaultsKey")
-    }
-    
     static var customerPresent: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoCustomerPresent")
     }
