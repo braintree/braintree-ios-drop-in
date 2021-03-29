@@ -31,10 +31,10 @@ jobs:
           today=$(date +'%Y-%m-%d')
           sed -i '' 's/## unreleased.*/## '"${{ github.event.inputs.version }}"' ('"$today"')/' CHANGELOG.md
           sed -i '' 's/\(s\.version *= *\).*/\1"'"${{ github.event.inputs.version }}"'\"/' BraintreeDropIn.podspec
-          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'DropInDemo/Supporting Files/Braintree-Demo-Info.plist'
-          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'DropInDemo/Supporting Files/Braintree-Demo-Info.plist'
-          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'BraintreeDropIn/Info.plist'
-          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'BraintreeDropIn/Info.plist'
+          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'Demo/Demo/Supporting Files/Braintree-Demo-Info.plist'
+          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'Demo/Demo/Supporting Files/Braintree-Demo-Info.plist'
+          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'Sources/BraintreeDropIn/Info.plist'
+          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'Sources/BraintreeDropIn/Info.plist'
 
           git add .
           git commit -m 'Bump version to ${{ github.event.inputs.version }}'
@@ -73,7 +73,8 @@ jobs:
             --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/${{ github.event.inputs.version }} \
             --theme fullwidth \
             --output ${{ github.event.inputs.version }} \
-            --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
+            --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)/Sources/BraintreeDropIn/Public
+          cp -R Images ${{ github.event.inputs.version }}/Images
           git checkout gh-pages
           ln -sfn ${{ github.event.inputs.version }} current
           git add current ${{ github.event.inputs.version }}
