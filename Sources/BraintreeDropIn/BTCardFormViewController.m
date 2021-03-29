@@ -360,6 +360,7 @@
     self.navigationItem.rightBarButtonItem = addButton;
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem.accessibilityHint = BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN);
     
     for (BTUIKFormField *formField in self.formFields) {
         formField.text = @"";
@@ -452,8 +453,10 @@
 - (void)updateSubmitButton {
     if (!self.collapsed && [self isFormValid]) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
+        self.navigationItem.rightBarButtonItem.accessibilityHint = nil;
     } else {
         self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.accessibilityHint = BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN);
     }
 }
 

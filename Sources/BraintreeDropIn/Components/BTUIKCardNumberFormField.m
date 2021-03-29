@@ -75,6 +75,11 @@
 
 - (void)updateValidationButton {
     self.validateButton.enabled = _number.length > 13;
+    if (self.validateButton.enabled) {
+        self.validateButton.accessibilityHint = nil;
+    } else {
+        self.validateButton.accessibilityHint = BTUIKLocalizedString(VALID_CARD_ERROR_LABEL);
+    }
 }
 
 - (BOOL)valid {
