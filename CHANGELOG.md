@@ -22,7 +22,7 @@
   * Remove Carthage support
   * Change spelling of `isCancelled` property on `BTDropInResult` to `isCanceled`
 
-## unreleased
+## 8.1.4 (2021-03-25)
 
 * Cards
   * Fix crash on slow network connections (fixes #243)
