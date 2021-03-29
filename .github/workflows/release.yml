@@ -31,8 +31,8 @@ jobs:
           today=$(date +'%Y-%m-%d')
           sed -i '' 's/## unreleased.*/## '"${{ github.event.inputs.version }}"' ('"$today"')/' CHANGELOG.md
           sed -i '' 's/\(s\.version *= *\).*/\1"'"${{ github.event.inputs.version }}"'\"/' BraintreeDropIn.podspec
-          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'Demo/Demo/Supporting Files/Braintree-Demo-Info.plist'
-          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'Demo/Demo/Supporting Files/Braintree-Demo-Info.plist'
+          plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'Demo/Application/Supporting Files/Braintree-Demo-Info.plist'
+          plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'Demo/Application/Supporting Files/Braintree-Demo-Info.plist'
           plutil -replace CFBundleVersion -string ${{ github.event.inputs.version }} -- 'Sources/BraintreeDropIn/Info.plist'
           plutil -replace CFBundleShortVersionString -string ${{ github.event.inputs.version }} -- 'Sources/BraintreeDropIn/Info.plist'
 
