@@ -13,17 +13,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Use Xcode 12.4
         run: sudo xcode-select -switch /Applications/Xcode_12.4.app
-      - name: Install xcpretty
-        run: gem install xcpretty
-      - name: Cache Carthage dependencies
-        id: cache-carthage-deps
-        uses: actions/cache@v2
-        with:
-          path: Carthage
-          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}-3
-      - name: Install Carthage Dependencies
-        if: steps.cache-carthage-deps.outputs.cache-hit != 'true'
-        run: carthage bootstrap --use-xcframeworks --no-use-binaries
       - name: Run Unit Tests
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UnitTests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
   ui_test_job:
@@ -34,16 +23,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Use Xcode 12.4
         run: sudo xcode-select -switch /Applications/Xcode_12.4.app
-      - name: Install xcpretty
-        run: gem install xcpretty
-      - name: Cache Carthage dependencies
-        id: cache-carthage-deps
-        uses: actions/cache@v2
-        with:
-          path: Carthage
-          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}-3
-      - name: Install Carthage Dependencies
-        if: steps.cache-carthage-deps.outputs.cache-hit != 'true'
-        run: carthage bootstrap --use-xcframeworks --no-use-binaries
       - name: Run UI Tests
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UITests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
