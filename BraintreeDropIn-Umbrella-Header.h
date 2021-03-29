@@ -1,1 +1,1 @@
-#import "BraintreeDropIn/Public/BraintreeDropIn.h"
+#import <BraintreeDropIn/BraintreeDropIn.h>
