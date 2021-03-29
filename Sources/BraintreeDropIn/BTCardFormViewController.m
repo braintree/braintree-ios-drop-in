@@ -464,6 +464,15 @@
     NSUInteger currentIdx = [self.requiredFields indexOfObject:currentField];
     if (currentIdx != NSNotFound && currentIdx < self.requiredFields.count - 1) {
         [[self.requiredFields objectAtIndex:currentIdx + 1] becomeFirstResponder];
+
+        // TODO: Why do we need a delay of 2 seconds in order for this to work? It should not be this difficult.
+        dispatch_queue_t q_background = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+        double delayInSeconds = 0.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            UIAccessibilityPostNotification(UIAccessibilityElementFocusedNotification, [self.requiredFields objectAtIndex:currentIdx + 1].textField);
+        });
+
     }
 }
 
