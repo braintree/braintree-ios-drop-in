@@ -1,5 +1,27 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased (9.0.0-beta1)
+
+* Add support for Swift Package Manager (resolves #155)
+* Breaking changes
+  * Bump minimum supported deployment target to iOS 12.0
+  * Require Braintree ~> 5.3.0
+  * BraintreeApplePay, BraintreeVenmo and BraintreeUnionPay are now required dependencies
+  * Make headers private:
+    * `BTCardFormViewController`
+    * `BTDropInBaseViewController`
+    * `BTPaymentSelectionViewController`
+    * `BTVaultManagementViewController`
+  * Add `BTDropInUICustomization`, which replaces `BTUIKAppearance` for customizing UI
+  * Enable Dynamic Type by default. This can be disabled with the `disableDynamicType` property on `BTDropInUICustomization`.
+  * Show last four digits of vaulted cards, instead of "••• ••11", which truncates in larger fonts.
+  * Remove support for Turkish localization
+  * Remove `BraintreeUIKit` framework
+  * Use number pad for expiration date input on card form
+  * Require two-digit year for expiration date instead of four-digit year
+  * Remove Carthage support
+  * Change spelling of `isCancelled` property on `BTDropInResult` to `isCanceled`
+
 ## 8.1.4 (2021-03-25)
 
 * Cards

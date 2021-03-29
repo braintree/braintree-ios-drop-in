@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Environment</string>
+			<key>Key</key>
+			<string>BraintreeDemoSettingsEnvironmentDefaultsKey</string>
+			<key>DefaultValue</key>
+			<integer>0</integer>
+			<key>ShortTitles</key>
+			<array>
+				<string>Sandbox</string>
+				<string>Production</string>
+				<string>Custom (enter below)</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>Sandbox (braintree-sample-merchant)</string>
+				<string>Production (executive-sample-merchant)</string>
+				<string>Custom (URL on previous screen)</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Custom Base URL</string>
+			<key>Key</key>
+			<string>BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentRight</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Use Tokenization Key</string>
+			<key>Key</key>
+			<string>BraintreeDemoUseTokenizationKey</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Customer</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Include Customer in Client Token</string>
+			<key>Key</key>
+			<string>BraintreeDemoCustomerPresent</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Customer ID (Random if Blank)</string>
+			<key>Key</key>
+			<string>BraintreeDemoCustomerIdentifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>3D Secure</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>FooterText</key>
+			<string>This setting determines whether successful 3DS verification is required in order to complete a transaction.
+
+The default option requires successful verification only if 3DS verification was attempted.</string>
+			<key>Title</key>
+			<string>Require for Transactions</string>
+			<key>Key</key>
+			<string>BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey</string>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>DefaultValue</key>
+			<integer>0</integer>
+			<key>Titles</key>
+			<array>
+				<string>Default (Required if 3DS attempted)</string>
+				<string>Required</string>
+				<string>Optional</string>
+			</array>
+			<key>ShortTitles</key>
+			<array>
+				<string>Default</string>
+				<string>Required</string>
+				<string>Optional</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>3DS Requested Version</string>
+			<key>Key</key>
+			<string>BraintreeDemoSettingsThreeDSecureVersionDefaultsKey</string>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>DefaultValue</key>
+			<integer>1</integer>
+			<key>Titles</key>
+			<array>
+				<string>Legacy</string>
+				<string>2.0</string>
+			</array>
+			<key>ShortTitles</key>
+			<array>
+				<string>Legacy</string>
+				<string>2.0</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>UI Customization</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Color Scheme</string>
+			<key>Key</key>
+			<string>BraintreeDemoColorSchemeSetting</string>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<string>2</string>
+			</array>
+			<key>DefaultValue</key>
+			<integer>0</integer>
+			<key>Titles</key>
+			<array>
+				<string>Light</string>
+				<string>Dark</string>
+				<string>Dynamic (iOS 13+)</string>
+			</array>
+			<key>ShortTitles</key>
+			<array>
+				<string>Light</string>
+				<string>Dark</string>
+				<string>Dynamic</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

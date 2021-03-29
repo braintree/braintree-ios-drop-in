@@ -1,0 +1,3 @@
+@objc class MockAPIClient: BTAPIClient {
+
+}

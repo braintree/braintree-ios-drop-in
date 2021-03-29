@@ -23,6 +23,14 @@ DerivedData
 # CocoaPods
 Pods
 
+# Carthage
+Carthage/
+
+# Swift Package Manager
+.build
+.swiftpm
+SampleApps/SPMTest/SPMTest.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
 appledocs
 
 # This file is needed for signing the ipa with our enterprise cert;
@@ -34,5 +42,3 @@ EverybodyVenmo.mobileprovision
 .hockeyapp
 
 *.pid
-
-Carthage/

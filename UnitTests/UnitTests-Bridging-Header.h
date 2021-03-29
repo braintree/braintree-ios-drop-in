@@ -3,4 +3,7 @@
 //
 
 #import "BraintreeDropIn.h"
-#import "BraintreePaymentFlow.h"
+#import "BTPaymentMethodNonce+DropIn.h"
+#import "BTUIKAppearance.h"
+#import "UIFont+BTUIK.h"
+#import "UIColor+BTUIK.h"

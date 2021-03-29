@@ -1,9 +1,10 @@
 #import <XCTest/XCTest.h>
 
-#import "BTDropInRequest.h"
-#import "BTPostalAddress.h"
-#import "BraintreePayPal.h"
-#import "BraintreePaymentFlow.h"
+#import <BraintreeDropIn/BraintreeDropIn.h>
+#import <BraintreeCore/BTPostalAddress.h>
+#import <BraintreePayPal/BraintreePayPal.h>
+#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
+#import <BraintreeThreeDSecure/BraintreeThreeDSecure.h>
 
 @interface BTDropInRequestTests : XCTestCase
 
@@ -38,7 +39,7 @@
 
     BTDropInRequest *originalRequest = [BTDropInRequest new];
     
-    originalRequest.payPalRequest = [[BTPayPalRequest alloc] initWithAmount:@"10.01"];
+    originalRequest.payPalRequest = [[BTPayPalCheckoutRequest alloc] initWithAmount:@"10.01"];
     originalRequest.applePayDisabled = YES;
     originalRequest.paypalDisabled = YES;
     originalRequest.venmoDisabled = YES;

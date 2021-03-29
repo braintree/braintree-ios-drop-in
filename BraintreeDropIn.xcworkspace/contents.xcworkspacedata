@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BraintreeDropIn.xcodeproj">
+      location = "group:Demo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:BraintreeDropIn.xcodeproj">
    </FileRef>
 </Workspace>

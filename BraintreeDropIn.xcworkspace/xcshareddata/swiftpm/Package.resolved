@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Braintree",
+        "repositoryURL": "https://github.com/braintree/braintree_ios",
+        "state": {
+          "branch": null,
+          "revision": "6a1a28421b1ce65ec9a3cd834f1e5794c3a85d7d",
+          "version": "5.3.0"
+        }
+      },
+      {
+        "package": "InAppSettingsKit",
+        "repositoryURL": "https://github.com/futuretap/InAppSettingsKit.git",
+        "state": {
+          "branch": null,
+          "revision": "3a5a389f8a69da20fff3f471e2584e98a1a0e5ac",
+          "version": "3.1.8"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

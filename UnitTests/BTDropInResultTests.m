@@ -1,5 +1,6 @@
 #import <XCTest/XCTest.h>
 #import "BTDropInResult.h"
+#import <BraintreePayPal/BraintreePayPal.h>
 
 @interface BTDropInResultTests : XCTestCase
 

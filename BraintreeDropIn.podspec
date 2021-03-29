@@ -16,31 +16,23 @@ Pod::Spec.new do |s|
   s.author           = { "Braintree" => "code@getbraintree.com" }
   s.source           = { :git => "https://github.com/braintree/braintree-ios-drop-in.git", :tag => s.version.to_s }
 
-  s.platform         = :ios, "9.0"
+  s.platform         = :ios, "12.0"
   s.requires_arc     = true
   s.compiler_flags = "-Wall -Werror -Wextra"
+  s.swift_version = "5.1"
 
-  s.default_subspecs = %w[DropIn]
-
-  s.subspec "DropIn" do |s|
-    s.source_files  = "BraintreeDropIn/**/*.{h,m}"
-    s.public_header_files = "BraintreeDropIn/Public/*.h"
-    s.frameworks = "UIKit"
-    s.dependency "Braintree/Card", "~> 4.32"
-    s.dependency "Braintree/Core", "~> 4.32"
-    s.dependency "Braintree/UnionPay", "~> 4.32"
-    s.dependency "Braintree/PaymentFlow", "~> 4.32"
-    s.dependency "Braintree/PayPal", "~> 4.32"
-    s.dependency "BraintreeDropIn/UIKit"
-  end
-
-  s.subspec "UIKit" do |s|
-    s.source_files  = "BraintreeUIKit/**/*.{h,m}"
-    s.public_header_files = "BraintreeUIKit/Public/*.h"
-    s.frameworks = "UIKit"
-    s.resource_bundles = {
-      "Braintree-UIKit-Localization" => ["BraintreeUIKit/Localization/*.lproj"] }
-  end
+  s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
+  s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
+  s.frameworks = "UIKit"
+  s.dependency "Braintree/ApplePay", "~> 5.3"
+  s.dependency "Braintree/Card", "~> 5.3"
+  s.dependency "Braintree/Core", "~> 5.3"
+  s.dependency "Braintree/UnionPay", "~> 5.3"
+  s.dependency "Braintree/PayPal", "~> 5.3"
+  s.dependency "Braintree/ThreeDSecure", "~> 5.3"
+  s.dependency "Braintree/Venmo", "~> 5.3"
+  s.resource_bundles = {
+    "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"] }
 
   # https://github.com/CocoaPods/CocoaPods/issues/10065#issuecomment-694266259
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }

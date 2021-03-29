@@ -5,25 +5,22 @@ require 'bundler'
 Bundler.require
 HighLine.color_scheme = HighLine::SampleColorScheme.new
 
-task :default => %w[sanity_checks spec]
+task :default => %w[spec:all]
 
 desc "Run default set of tasks"
 task :spec => %w[spec:all]
 
 desc "Run internal release process"
-task :release => %w[release:assumptions sanity_checks release:check_working_directory release:bump_version release:lint_podspec carthage:create_binaries release:tag]
+task :release => %w[release:assumptions build_demo_apps release:check_working_directory release:bump_version release:lint_podspec release:tag]
 
 desc "Publish code and pod to public github.com"
 task :publish => %w[publish:push publish:create_github_release publish:push_pod docs_publish]
 
 SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
-DEMO_PLIST = "DropInDemo/Supporting Files/Braintree-Demo-Info.plist"
-DROPIN_FRAMEWORKS_PLIST = "BraintreeDropIn/Info.plist"
-UIKIT_FRAMEWORKS_PLIST = "BraintreeUIKit/Info.plist"
+DEMO_PLIST = "Demo/Demo/Supporting Files/Braintree-Demo-Info.plist"
+DROPIN_FRAMEWORKS_PLIST = "Sources/BraintreeDropIn/Info.plist"
 PUBLIC_REMOTE_NAME = "origin"
-
-bt_modules = ["BraintreeDropIn", "BraintreeUIKit"]
 
 class << self
   def run cmd
@@ -63,14 +60,14 @@ class << self
     ios_version_specifier = ",OS=#{ios_version}" if !ios_version.nil?
     options = default_options.merge(options)
     build_settings = options[:build_settings].map{|k,v| "#{k}='#{v}'"}.join(" ")
-    return "set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration '#{configuration}' -scheme '#{scheme}' -destination 'name=iPhone 11,platform=iOS Simulator#{ios_version_specifier}' #{build_settings} #{command} #{output_redirect} | ./Pods/xcbeautify/xcbeautify"
+    return "set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration '#{configuration}' -scheme '#{scheme}' -destination 'name=iPhone 11,platform=iOS Simulator#{ios_version_specifier}' #{build_settings} #{command} #{output_redirect} | xcpretty"
   end
 
 end
 
 namespace :spec do
   def run_test_scheme! scheme, ios_version = nil, output_redirect = nil
-    run! xcodebuild(scheme, 'test', 'Release', ios_version, {}, output_redirect)
+    run! xcodebuild(scheme, 'test', 'Debug', ios_version, {}, output_redirect)
   end
 
   desc 'Run unit tests'
@@ -91,60 +88,39 @@ namespace :spec do
   task :all => %w[spec:unit spec:ui]
 end
 
-namespace :demo do
+namespace :demo_app do
   desc 'Verify that the demo app builds successfully'
-  task :build do
-    run! xcodebuild('DropInDemo', 'build', 'Release', nil)
+  task :build_demo do
+    # TODO: Investigate running demo app in Release mode
+    run! xcodebuild('Demo', 'build', 'Debug', nil)
   end
 end
 
-desc 'Run Carthage update'
-namespace :carthage do
-  def generate_cartfile
-    run! 'mkdir -p BuildTest'
-    File.write("BuildTest/Cartfile", "git \"file://#{Dir.pwd}\" \"#{current_branch}\"")
+desc 'SPM tasks'
+namespace :spm do
+  def update_xcodeproj
+    project_file = "SampleApps/SPMTest/SPMTest.xcodeproj/project.pbxproj"
+    proj = File.read(project_file)
+    proj.gsub!(/(repositoryURL = )(.*);/, "\\1\"file://#{Dir.pwd}/\";")
+    proj.gsub!(/(branch = )(.*);/, "\\1\"#{current_branch}\";")
+    File.open(project_file, "w") { |f| f.puts proj }
   end
 
-  task :generate do
-    generate_cartfile
-  end
+  task :build_demo do
+    update_xcodeproj
 
-  task :clean do
-    run! 'rm -rf BuildTest/Carthage && rm -rf Carthage && rm BuildTest/Cartfile && rm BuildTest/Cartfile.resolved && rm -rf ~/Library/Developers/Xcode/DerivedData'
-  end
+    # Build SPM demo app
+    run! "cd SampleApps/SPMTest && swift package resolve"
+    run! "xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build"
 
-  task :test do
-    run! "rm -rf Carthage"
-    run! "rm -rf BuildTest"
-    generate_cartfile
-    run! "cd BuildTest && carthage update"
-    run! "mv BuildTest/Carthage #{Dir.pwd}"
-    run! "xcodebuild -project 'DropInDemo/CarthageTest/CarthageTest.xcodeproj' -scheme 'CarthageTest' clean build"
-  end
-
-  desc "Create BraintreeDropIn.framework.zip for Carthage."
-  task :create_binaries do
-    run! "carthage.sh build --no-skip-current"
-    run! "carthage.sh archive #{bt_modules.join(" ")} --output BraintreeDropIn.framework.zip"
-    say "Create binaries for Carthage complete."
+    # Clean up
+    run! 'rm -rf ~/Library/Developers/Xcode/DerivedData'
+    run! 'git checkout SampleApps/SPMTest'
   end
 end
 
-desc 'Run all sanity checks'
-task :sanity_checks => %w[sanity_checks:pending_specs sanity_checks:build_demo sanity_checks:carthage_test]
-
-namespace :sanity_checks do
-  desc 'Check for pending tests'
-  task :pending_specs do
-    #TODO Update for UI Tests
-  end
-
-  desc 'Verify that all demo apps Build successfully'
-  task :build_demo => 'demo:build'
-
-  desc 'Verify that Carthage builds successfully'
-  task :carthage_test => %w[carthage:test carthage:clean]
-end
+desc 'Build demo apps per package manager'
+task :build_demo_apps => %w[demo_app:build_demo spm:build_demo]
 
 namespace :release do
   desc "Print out pre-release checklist"
@@ -176,11 +152,11 @@ namespace :release do
     podspec.gsub!(/(s\.version\s*=\s*)"#{SEMVER}"/, "\\1\"#{version}\"")
     File.open(PODSPEC, "w") { |f| f.puts podspec }
 
-    [DEMO_PLIST, DROPIN_FRAMEWORKS_PLIST, UIKIT_FRAMEWORKS_PLIST].each do |plist|
+    [DEMO_PLIST, DROPIN_FRAMEWORKS_PLIST].each do |plist|
       run! "plutil -replace CFBundleVersion -string #{current_version} -- '#{plist}'"
       run! "plutil -replace CFBundleShortVersionString -string #{current_version} -- '#{plist}'"
     end
-    run "git commit -m 'Bump pod version to #{version}' -- #{PODSPEC} Podfile.lock '#{DEMO_PLIST}' '#{DROPIN_FRAMEWORKS_PLIST}' '#{UIKIT_FRAMEWORKS_PLIST}'"
+    run "git commit -m 'Bump pod version to #{version}' -- #{PODSPEC} Podfile.lock '#{DEMO_PLIST}' '#{DROPIN_FRAMEWORKS_PLIST}'"
   end
 
   desc  "Lint podspec."
@@ -237,7 +213,7 @@ def jazzy_command
       --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/#{current_version}
       --theme fullwidth
       --output #{current_version}
-      --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)
+      --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)/Sources/BraintreeDropIn/Public
   ].join(' ')
 end
 
