@@ -24,6 +24,8 @@
         self.availablePaymentOptionAttachments = @[];
 
         self.availablePaymentOptions = @[];
+
+        self.accessibilityTraits = UIAccessibilityTraitImage;
     }
     return self;
 }
@@ -57,11 +59,11 @@
     for (NSUInteger i = 0; i < self.availablePaymentOptions.count; i++) {
         NSTextAttachment *composeAttachment = [NSTextAttachment new];
         BTUIKPaymentOptionType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
+        composeAttachment.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
         hint.paymentOptionType = paymentOption;
         [hint setNeedsLayout];
         [hint layoutIfNeeded];
         UIImage *composeImage = [self imageWithView:hint];
-        composeImage.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
         [attachments addObject:composeAttachment];
         composeAttachment.image = composeImage;
         [at appendAttributedString:[NSAttributedString attributedStringWithAttachment:composeAttachment]];
@@ -87,13 +89,6 @@
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         attachment.image = image;
-
-        // Update accessibility label for highlighted cards
-        if (paymentOption == option) {
-            image.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
-        } else if (paymentOption == BTUIKPaymentOptionTypeUnknown) {
-            image.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:((NSNumber*)self.availablePaymentOptions[i]).intValue];
-        }
     }
     self.emphasisedPaymentOption = paymentOption;
     [self setNeedsDisplay];
