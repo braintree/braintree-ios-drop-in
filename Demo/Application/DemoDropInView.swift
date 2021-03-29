@@ -115,7 +115,7 @@ class DemoDropInView: UIView {
             purchaseButton = PKPaymentButton(paymentButtonType: .checkout, paymentButtonStyle: .black)
         default:
             purchaseButton = DemoPurchaseButton()
-            purchaseButton.isEnabled = (result != nil && !result!.isCancelled)
+            purchaseButton.isEnabled = (result != nil && !result!.isCanceled)
         }
 
         purchaseButton.translatesAutoresizingMaskIntoConstraints = false
