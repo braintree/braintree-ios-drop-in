@@ -18,7 +18,7 @@ task :publish => %w[publish:push publish:create_github_release publish:push_pod 
 
 SEMVER = /\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?/
 PODSPEC = "BraintreeDropIn.podspec"
-DEMO_PLIST = "Demo/Demo/Supporting Files/Braintree-Demo-Info.plist"
+DEMO_PLIST = "Demo/Application/Supporting Files/Braintree-Demo-Info.plist"
 DROPIN_FRAMEWORKS_PLIST = "Sources/BraintreeDropIn/Info.plist"
 PUBLIC_REMOTE_NAME = "origin"
 
