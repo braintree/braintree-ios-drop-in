@@ -53,7 +53,7 @@ Delete any code that used `BTUIKAppearance` to customize Drop-in's UI.
 
 #### Dynamic Type
 
-In v9, dynamic type is enabled by default for both system and custom fonts. We strongly encourage you to leave this feature on, but if you need to disable it, you may do so by setting `disableDynamicType` to `true` on `BTDropInUICustomization`.
+In v9, Dynamic Type is enabled by default for both system and custom fonts. We strongly encourage you to leave this feature on, but if you need to disable it, you may do so by setting `disableDynamicType` to `true` on `BTDropInUICustomization`.
 
 ```swift
 let uiCustomization = BTDropInUICustomization(colorScheme: .light)
