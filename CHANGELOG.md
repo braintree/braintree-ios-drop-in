@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased (9.0.0-beta1)
+## 9.0.0-beta1 (2021-03-29)
 
 * Add support for Swift Package Manager (resolves #155)
 * Breaking changes
