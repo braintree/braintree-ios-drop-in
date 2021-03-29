@@ -22,10 +22,10 @@ class BraintreeDropIn_TokenizationKey_CardForm_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_dismissesWhenCancelled() {
+    func testDropIn_dismissesWhenCanceled() {
         waitForElementToBeHittable(app.buttons["Cancel"])
         app.buttons["Cancel"].forceTapElement()
-        XCTAssertTrue(app.buttons["Cancelled🎲"].exists)
+        XCTAssertTrue(app.buttons["Canceled 🎲"].exists)
     }
 
     func testDropIn_displaysPaymentOptions_applePay_card_payPal() {
@@ -796,8 +796,8 @@ class BraintreeDropIn_ThreeDSecure_UITests: XCTestCase {
         waitForElementToBeHittable(app.buttons["Cancel"])
         app.buttons["Cancel"].forceTapElement()
 
-        waitForElementToAppear(app.buttons["Cancelled🎲"])
-        XCTAssertTrue(app.buttons["Cancelled🎲"].exists)
+        waitForElementToAppear(app.buttons["Canceled 🎲"])
+        XCTAssertTrue(app.buttons["Canceled 🎲"].exists)
     }
 
     func testDropIn_threeDSecure_tokenizationError_showsAlert() {
@@ -981,8 +981,8 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         waitForElementToBeHittable(app.buttons["Cancel"])
         app.buttons["Cancel"].forceTapElement()
 
-        waitForElementToAppear(app.buttons["Cancelled🎲"])
-        XCTAssertTrue(app.buttons["Cancelled🎲"].exists)
+        waitForElementToAppear(app.buttons["Canceled 🎲"])
+        XCTAssertTrue(app.buttons["Canceled 🎲"].exists)
     }
 }
 

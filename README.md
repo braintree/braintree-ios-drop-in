@@ -68,8 +68,8 @@ func showDropIn(clientTokenOrTokenizationKey: String) {
     { (controller, result, error) in
         if (error != nil) {
             print("ERROR")
-        } else if (result?.isCancelled == true) {
-            print("CANCELLED")
+        } else if (result?.isCanceled == true) {
+            print("CANCELED")
         } else if let result = result {
             // Use the BTDropInResult properties to update your UI
             let selectedPaymentOptionType = result.paymentOptionType

@@ -250,7 +250,7 @@
                 result.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:tokenizedCard.type];
                 result.paymentMethod = tokenizedCard;
             } else if (error == nil) {
-                result.cancelled = YES;
+                result.canceled = YES;
             }
             [sender dismissViewControllerAnimated:YES completion:^{
                 if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureVerification) {
@@ -443,7 +443,7 @@
 
 - (void)cancelButtonPressedOnPaymentSelectionViewController:(BTPaymentSelectionViewController *)viewController {
     BTDropInResult *result = [[BTDropInResult alloc] init];
-    result.cancelled = YES;
+    result.canceled = YES;
     if (self.handler) {
         self.handler(self, result, nil);
     }
