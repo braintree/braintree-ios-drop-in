@@ -61,7 +61,7 @@
         [self addSubview:self.stackView];
 
         self.textField.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.textField.heightAnchor constraintGreaterThanOrEqualToConstant:44].active = YES;
+        [self.textField.heightAnchor constraintGreaterThanOrEqualToConstant:BTUIKAppearance.minimumHitArea].active = YES;
 
         if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;

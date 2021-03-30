@@ -89,7 +89,7 @@
     [self.stackView addArrangedSubview:self.resendSmsButton];
 
     self.resendSmsButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.resendSmsButton.heightAnchor constraintGreaterThanOrEqualToConstant:44].active = YES;
+    [self.resendSmsButton.heightAnchor constraintGreaterThanOrEqualToConstant:BTUIKAppearance.minimumHitArea].active = YES;
 
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:smsSentHeader size:[BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.smsTextField size:[BTUIKAppearance verticalFormSpace]];
