@@ -165,17 +165,10 @@
 
 - (void)updateAppearance {
     UIColor *textColor;
-    NSString *currentAccessibilityLabel = self.textField.accessibilityLabel;
     if (!self.displayAsValid){
         textColor = [BTUIKAppearance sharedInstance].errorForegroundColor;
-        if (currentAccessibilityLabel != nil) {
-            self.textField.accessibilityLabel = [self addInvalidAccessibilityToString:currentAccessibilityLabel];
-        }
     } else {
         textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
-        if (currentAccessibilityLabel != nil) {
-            self.textField.accessibilityLabel = [self stripInvalidAccessibilityFromString:currentAccessibilityLabel];
-        }
     }
 
     self.textField.textColor = textColor;
@@ -277,16 +270,6 @@
 
 - (BOOL)hasText {
     return [self.textField hasText];
-}
-
-#pragma mark Accessibility Helpers
-
-- (NSString *)stripInvalidAccessibilityFromString:(NSString *)str {
-    return [str stringByReplacingOccurrencesOfString:@"Invalid: " withString:@""];
-}
-
-- (NSString *)addInvalidAccessibilityToString:(NSString *)str {
-    return [NSString stringWithFormat:@"Invalid: %@", [self stripInvalidAccessibilityFromString:str]];
 }
 
 #pragma mark Accessory View Helpers

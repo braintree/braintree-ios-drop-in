@@ -218,12 +218,8 @@
     return self.state == BTUIKCardNumberFormFieldStateValidate;
 }
 
-- (BOOL)isValidCardType {
-    return self.cardType != nil || _number.length == 0;
-}
-
 - (BOOL)isPotentiallyValid {
-    return [BTUIKCardType cardTypeForNumber:self.number] != nil;
+    return self.cardType != nil || self.number.length == 0;
 }
 
 - (BOOL)isValidLength {
