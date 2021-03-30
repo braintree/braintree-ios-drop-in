@@ -57,13 +57,18 @@
         self.stackView.distribution = UIStackViewDistributionFill;
         self.stackView.translatesAutoresizingMaskIntoConstraints = NO;
         self.stackView.layoutMarginsRelativeArrangement = YES;
-        self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
+
         [self addSubview:self.stackView];
+
+        self.textField.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.textField.heightAnchor constraintGreaterThanOrEqualToConstant:44].active = YES;
 
         if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
         } else {
             self.stackView.axis = UILayoutConstraintAxisHorizontal;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(0, 15, 0, 15);
         }
 
         [self.stackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
@@ -85,8 +90,10 @@
     if (previousTraitCollection.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory) {
         if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
         } else {
             self.stackView.axis = UILayoutConstraintAxisHorizontal;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(0, 15, 0, 15);
         }
 
         [self updateTextAlignment];
