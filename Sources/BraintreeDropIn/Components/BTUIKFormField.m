@@ -289,7 +289,6 @@
     _accessoryView = accessoryView;
     self.textField.rightView = self.accessoryView;
     self.textField.rightViewMode = UITextFieldViewModeAlways;
-    self.accessoryView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.accessoryView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self.accessoryView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
 }
