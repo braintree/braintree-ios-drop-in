@@ -23,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.accessibilityViewIsModal = YES;
+    self.view.accessibilityViewIsModal = YES;
+
     self.activityIndicatorWrapperView = [[UIView alloc] init];
     self.activityIndicatorWrapperView.backgroundColor = [UIColor clearColor];
     self.activityIndicatorWrapperView.hidden = YES;

@@ -74,7 +74,8 @@
     cell.paymentOptionCardView.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString];
 
     cell.isAccessibilityElement = YES;
-    cell.accessibilityLabel = [NSString stringWithFormat:@"%@-%@", typeString, paymentInfo.paymentDescription];
+    cell.accessibilityLabel = [NSString stringWithFormat:@"%@ %@", typeString, paymentInfo.paymentDescription];
+    cell.accessibilityTraits = UIAccessibilityTraitButton;
 
     return cell;
 }

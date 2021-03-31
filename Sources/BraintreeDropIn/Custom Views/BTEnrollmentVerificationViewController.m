@@ -44,6 +44,7 @@
     confirmButton.bold = YES;
     self.navigationItem.rightBarButtonItem = confirmButton;
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem.accessibilityHint = BTUIKLocalizedString(SMS_CODE_REQUIRED);
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
 
@@ -119,8 +120,10 @@
 - (void)formFieldDidChange:(BTUIKFormField *)formField {
     if (formField.text.length > 0) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
+        self.navigationItem.rightBarButtonItem.accessibilityHint = nil;
     } else {
         self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.accessibilityHint = BTUIKLocalizedString(SMS_CODE_REQUIRED);
     }
 }
 

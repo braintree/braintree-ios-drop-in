@@ -3,6 +3,7 @@
 ## unreleased
 
 * Accessibility
+  * VoiceOver improvements
   * Fix color contrast ratios
   * Increase hit area for several buttons
 
