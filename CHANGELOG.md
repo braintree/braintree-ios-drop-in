@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
+
 ## 9.0.0-beta1 (2021-03-29)
 
 * Add support for Swift Package Manager (resolves #155)

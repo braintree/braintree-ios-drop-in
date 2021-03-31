@@ -78,6 +78,7 @@
 		425867DB25EF024400D5F160 /* BTPaymentSelectionHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 425867D925EF024400D5F160 /* BTPaymentSelectionHeaderView.h */; };
 		425867DC25EF024400D5F160 /* BTPaymentSelectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425867DA25EF024400D5F160 /* BTPaymentSelectionHeaderView.m */; };
 		425B83982347D3990015D1A4 /* BTUIKAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */; };
+		42D53E782614DA3600D19615 /* BTUIKCardholderNameFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D53E772614DA3600D19615 /* BTUIKCardholderNameFormFieldTests.swift */; };
 		8005E86125BB32A6003EC2AC /* MockVenmoDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8005E86025BB32A6003EC2AC /* MockVenmoDriver.swift */; };
 		8005E86625BB34B5003EC2AC /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8005E86525BB34B5003EC2AC /* MockAPIClient.swift */; };
 		8068E585256D9C64002904E6 /* BTAPIClient_Internal_Category.h in Headers */ = {isa = PBXBuildFile; fileRef = A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -233,6 +234,7 @@
 		425867DA25EF024400D5F160 /* BTPaymentSelectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTPaymentSelectionHeaderView.m; sourceTree = "<group>"; };
 		425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKAppearanceTests.swift; sourceTree = "<group>"; };
 		42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		42D53E772614DA3600D19615 /* BTUIKCardholderNameFormFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUIKCardholderNameFormFieldTests.swift; sourceTree = "<group>"; };
 		53E78BDC22248A29000388D3 /* BTUIKHipercardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKHipercardVectorArtView.h; sourceTree = "<group>"; };
 		53E78BDF22248A29000388D3 /* BTUIKHipercardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKHipercardVectorArtView.m; sourceTree = "<group>"; };
 		53E78BE422248BC3000388D3 /* BTUIKLargeHiperVectorArtView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKLargeHiperVectorArtView.h; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				4225EA86257EC59600923CE3 /* BTPaymentMethodNonce+DropInTests.swift */,
 				A50ED7A51D8AF8C400A78EF0 /* BTPaymentSelectionViewControllerTests.m */,
 				425B83972347D3990015D1A4 /* BTUIKAppearanceTests.swift */,
+				42D53E772614DA3600D19615 /* BTUIKCardholderNameFormFieldTests.swift */,
 				034B5C12203CDFD0001A01DE /* BTUIKCardListLabelTests.m */,
 				A5672DAB1DC9369D0058485E /* BTUIKCardTypeTests.m */,
 				A50ED7A71D8B02AF00A78EF0 /* BTUIKViewUtilTests.m */,
@@ -626,8 +629,8 @@
 				A5411A201D8A1F090041BE92 /* Info.plist */,
 				8005E86525BB34B5003EC2AC /* MockAPIClient.swift */,
 				8005E86025BB32A6003EC2AC /* MockVenmoDriver.swift */,
-				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
 				4237D7FD25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift */,
+				42A10AD8230EE4D600892302 /* UnitTests-Bridging-Header.h */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -960,6 +963,7 @@
 				4237D7FE25E5BF8D006F6CE3 /* UIFont+BTUIKTests.swift in Sources */,
 				034B5C13203CDFD0001A01DE /* BTUIKCardListLabelTests.m in Sources */,
 				A50ED7A81D8B02AF00A78EF0 /* BTUIKViewUtilTests.m in Sources */,
+				42D53E782614DA3600D19615 /* BTUIKCardholderNameFormFieldTests.swift in Sources */,
 				A5672DAC1DC9369D0058485E /* BTUIKCardTypeTests.m in Sources */,
 				8005E86625BB34B5003EC2AC /* MockAPIClient.swift in Sources */,
 				423BD4C3260D0E8100D111E6 /* BTDropInResultTests.swift in Sources */,
