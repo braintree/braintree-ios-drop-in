@@ -3,6 +3,7 @@
 #import "BTPaymentMethodNonce+DropIn.h"
 #import "BTUIKViewUtil.h"
 #import "BTUIKVectorArtView.h"
+#import "BTUIKPaymentOptionCardView.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCore.h>
@@ -38,7 +39,9 @@
 }
 
 - (UIView *)paymentIcon {
-    return [BTUIKViewUtil vectorArtViewForPaymentOptionType:self.paymentOptionType];
+    BTUIKPaymentOptionCardView *paymentOptionCardView = [BTUIKPaymentOptionCardView new];
+    paymentOptionCardView.paymentOptionType = self.paymentOptionType;
+    return paymentOptionCardView;
 }
 
 - (NSString *)paymentDescription {
