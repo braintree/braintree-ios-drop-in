@@ -2,7 +2,12 @@
 
 ## unreleased
 
-* Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
+* Accessibility
+  * VoiceOver improvements
+  * Fix color contrast ratios
+  * Increase hit area for several buttons
+* Card form
+  * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
 
 ## 9.0.0-beta1 (2021-03-29)
 

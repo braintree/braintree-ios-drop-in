@@ -75,6 +75,11 @@
 
 - (void)updateValidationButton {
     self.validateButton.enabled = _number.length > 13;
+    if (self.validateButton.enabled) {
+        self.validateButton.accessibilityHint = nil;
+    } else {
+        self.validateButton.accessibilityHint = BTUIKLocalizedString(VALID_CARD_ERROR_LABEL);
+    }
 }
 
 - (BOOL)valid {
@@ -213,12 +218,8 @@
     return self.state == BTUIKCardNumberFormFieldStateValidate;
 }
 
-- (BOOL)isValidCardType {
-    return self.cardType != nil || _number.length == 0;
-}
-
 - (BOOL)isPotentiallyValid {
-    return [BTUIKCardType cardTypeForNumber:self.number] != nil;
+    return self.cardType != nil || self.number.length == 0;
 }
 
 - (BOOL)isValidLength {

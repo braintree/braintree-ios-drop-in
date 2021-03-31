@@ -57,13 +57,18 @@
         self.stackView.distribution = UIStackViewDistributionFill;
         self.stackView.translatesAutoresizingMaskIntoConstraints = NO;
         self.stackView.layoutMarginsRelativeArrangement = YES;
-        self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
+
         [self addSubview:self.stackView];
+
+        self.textField.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.textField.heightAnchor constraintGreaterThanOrEqualToConstant:BTUIKAppearance.minimumHitArea].active = YES;
 
         if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
         } else {
             self.stackView.axis = UILayoutConstraintAxisHorizontal;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(0, 15, 0, 15);
         }
 
         [self.stackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
@@ -85,8 +90,10 @@
     if (previousTraitCollection.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory) {
         if (UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory) && ![BTUIKAppearance sharedInstance].disableDynamicType) {
             self.stackView.axis = UILayoutConstraintAxisVertical;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(15, 15, 15, 15);
         } else {
             self.stackView.axis = UILayoutConstraintAxisHorizontal;
+            self.stackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(0, 15, 0, 15);
         }
 
         [self updateTextAlignment];
@@ -165,17 +172,10 @@
 
 - (void)updateAppearance {
     UIColor *textColor;
-    NSString *currentAccessibilityLabel = self.textField.accessibilityLabel;
     if (!self.displayAsValid){
         textColor = [BTUIKAppearance sharedInstance].errorForegroundColor;
-        if (currentAccessibilityLabel != nil) {
-            self.textField.accessibilityLabel = [self addInvalidAccessibilityToString:currentAccessibilityLabel];
-        }
     } else {
         textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
-        if (currentAccessibilityLabel != nil) {
-            self.textField.accessibilityLabel = [self stripInvalidAccessibilityFromString:currentAccessibilityLabel];
-        }
     }
 
     self.textField.textColor = textColor;
@@ -277,16 +277,6 @@
 
 - (BOOL)hasText {
     return [self.textField hasText];
-}
-
-#pragma mark Accessibility Helpers
-
-- (NSString *)stripInvalidAccessibilityFromString:(NSString *)str {
-    return [str stringByReplacingOccurrencesOfString:@"Invalid: " withString:@""];
-}
-
-- (NSString *)addInvalidAccessibilityToString:(NSString *)str {
-    return [NSString stringWithFormat:@"Invalid: %@", [self stripInvalidAccessibilityFromString:str]];
 }
 
 #pragma mark Accessory View Helpers
