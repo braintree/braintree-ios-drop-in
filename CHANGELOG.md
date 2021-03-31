@@ -5,7 +5,11 @@
 * Accessibility
   * VoiceOver improvements
   * Fix color contrast ratios
-  * Increase hit area for several buttons
+* Increase hit area for several buttons
+* Localization
+  * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
+  * Remove `insertIntoLocalizedString` methods
+  * Remove translation string static helper methods
 
 ## 9.0.0-beta1 (2021-03-29)
 
