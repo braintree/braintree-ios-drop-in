@@ -11,7 +11,7 @@
         self.textField.accessibilityLabel = BTUIKLocalizedString(MOBILE_NUMBER_LABEL);
         self.labelText = BTUIKLocalizedString(MOBILE_NUMBER_LABEL);
         self.textField.placeholder = @"00 0000 0000";
-        self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        self.textField.keyboardType = UIKeyboardTypePhonePad;
     }
     return self;
 }

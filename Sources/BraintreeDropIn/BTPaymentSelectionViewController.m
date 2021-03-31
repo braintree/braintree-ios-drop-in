@@ -309,7 +309,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (self.hasVaultedPaymentMethods) {
-        return 35;
+        return 44;
     } else {
         return CGFLOAT_MIN; // hide the header
     }
