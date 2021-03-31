@@ -103,7 +103,7 @@ static BTUIKAppearance *sharedTheme;
     return 15.0f;
 }
 
-+ (float)formCellHeight {
++ (float)minimumHitArea {
     return 44.0f;
 }
 

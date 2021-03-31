@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, BTUIKColorScheme) {
 + (UILabel *)styledNavigationTitleLabel;
 
 + (float)horizontalFormContentPadding;
-+ (float)formCellHeight;
++ (float)minimumHitArea;
 + (float)verticalFormSpace;
 + (float)verticalFormSpaceTight;
 + (float)verticalSectionSpace;

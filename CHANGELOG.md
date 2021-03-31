@@ -1,5 +1,11 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+
+* Accessibility
+  * Fix color contrast ratios
+  * Increase hit area for several buttons
+
 ## 9.0.0-beta1 (2021-03-29)
 
 * Add support for Swift Package Manager (resolves #155)
