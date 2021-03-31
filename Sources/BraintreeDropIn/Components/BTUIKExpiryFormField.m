@@ -4,7 +4,7 @@
 #import "BTUIKInputAccessoryToolbar.h"
 #import "BTUIKTextField.h"
 #import "BTUIKUtil.h"
-#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import "BTDropInLocalization_Internal.h"
 
 #define BTUIKCardExpiryFieldComponentSeparator @"/"
 
@@ -13,8 +13,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
-        self.labelText = BTUIKLocalizedString(EXPIRATION_DATE_LABEL);
+        self.textField.accessibilityLabel = BTDropInLocalization(EXPIRATION_DATE_LABEL);
+        self.labelText = BTDropInLocalization(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
@@ -43,7 +43,7 @@
 #pragma mark - Private methods
 
 - (void)updatePlaceholder {
-    NSString *placeholder = BTUIKLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR);
+    NSString *placeholder = BTDropInLocalization(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR);
     [self setThemedPlaceholder:placeholder];
 }
 

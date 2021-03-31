@@ -44,25 +44,25 @@
         return BTUIKPaymentOptionTypeUnknown;
     }
 
-    if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS)]) {
+    if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_AMERICAN_EXPRESS)]) {
         return BTUIKPaymentOptionTypeAMEX;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_VISA)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_VISA)]) {
         return BTUIKPaymentOptionTypeVisa;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_MASTER_CARD)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_MASTER_CARD)]) {
         return BTUIKPaymentOptionTypeMasterCard;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_DISCOVER)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_DISCOVER)]) {
         return BTUIKPaymentOptionTypeDiscover;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_JCB)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_JCB)]) {
         return BTUIKPaymentOptionTypeJCB;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_MAESTRO)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_MAESTRO)]) {
         return BTUIKPaymentOptionTypeMaestro;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_DINERS_CLUB)]) {
         return BTUIKPaymentOptionTypeDinersClub;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_UNION_PAY)]) {
         return BTUIKPaymentOptionTypeUnionPay;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_HIPER)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_HIPER)]) {
         return BTUIKPaymentOptionTypeHiper;
-    } else if ([cardType.brand isEqualToString:BTUIKLocalizedString(CARD_TYPE_HIPERCARD)]) {
+    } else if ([cardType.brand isEqualToString:BTDropInLocalization(CARD_TYPE_HIPERCARD)]) {
         return BTUIKPaymentOptionTypeHipercard;
     } else {
         return BTUIKPaymentOptionTypeUnknown;
@@ -72,43 +72,43 @@
 + (NSString *)nameForPaymentMethodType:(BTUIKPaymentOptionType)paymentMethodType {
     switch (paymentMethodType) {
         case BTUIKPaymentOptionTypeUnknown:
-            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+            return BTDropInLocalization(CARD_TYPE_GENERIC_CARD);
         case BTUIKPaymentOptionTypeAMEX:
-            return BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS);
+            return BTDropInLocalization(CARD_TYPE_AMERICAN_EXPRESS);
         case BTUIKPaymentOptionTypeDinersClub:
-            return BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB);
+            return BTDropInLocalization(CARD_TYPE_DINERS_CLUB);
         case BTUIKPaymentOptionTypeDiscover:
-            return BTUIKLocalizedString(CARD_TYPE_DISCOVER);
+            return BTDropInLocalization(CARD_TYPE_DISCOVER);
         case BTUIKPaymentOptionTypeMasterCard:
-            return BTUIKLocalizedString(CARD_TYPE_MASTER_CARD);
+            return BTDropInLocalization(CARD_TYPE_MASTER_CARD);
         case BTUIKPaymentOptionTypeVisa:
-            return BTUIKLocalizedString(CARD_TYPE_VISA);
+            return BTDropInLocalization(CARD_TYPE_VISA);
         case BTUIKPaymentOptionTypeJCB:
-            return BTUIKLocalizedString(CARD_TYPE_JCB);
+            return BTDropInLocalization(CARD_TYPE_JCB);
         case BTUIKPaymentOptionTypeLaser:
-            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+            return BTDropInLocalization(CARD_TYPE_GENERIC_CARD);
         case BTUIKPaymentOptionTypeMaestro:
-            return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
+            return BTDropInLocalization(CARD_TYPE_MAESTRO);
         case BTUIKPaymentOptionTypeUnionPay:
-            return BTUIKLocalizedString(CARD_TYPE_UNION_PAY);
+            return BTDropInLocalization(CARD_TYPE_UNION_PAY);
         case BTUIKPaymentOptionTypeHiper:
-            return BTUIKLocalizedString(CARD_TYPE_HIPER);
+            return BTDropInLocalization(CARD_TYPE_HIPER);
         case BTUIKPaymentOptionTypeHipercard:
-            return BTUIKLocalizedString(CARD_TYPE_HIPERCARD);
+            return BTDropInLocalization(CARD_TYPE_HIPERCARD);
         case BTUIKPaymentOptionTypeSolo:
-            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+            return BTDropInLocalization(CARD_TYPE_GENERIC_CARD);
         case BTUIKPaymentOptionTypeSwitch:
-            return BTUIKLocalizedString(CARD_TYPE_GENERIC_CARD);
+            return BTDropInLocalization(CARD_TYPE_GENERIC_CARD);
         case BTUIKPaymentOptionTypeUKMaestro:
-            return BTUIKLocalizedString(CARD_TYPE_MAESTRO);
+            return BTDropInLocalization(CARD_TYPE_MAESTRO);
         case BTUIKPaymentOptionTypePayPal:
-            return BTUIKLocalizedString(PAYPAL);
+            return BTDropInLocalization(PAYPAL);
         case BTUIKPaymentOptionTypeCoinbase:
-            return BTUIKLocalizedString(BRANDING_COINBASE);
+            return BTDropInLocalization(BRANDING_COINBASE);
         case BTUIKPaymentOptionTypeVenmo:
-            return BTUIKLocalizedString(BRANDING_VENMO);
+            return BTDropInLocalization(BRANDING_VENMO);
         case BTUIKPaymentOptionTypeApplePay:
-            return BTUIKLocalizedString(BRANDING_APPLE_PAY);
+            return BTDropInLocalization(BRANDING_APPLE_PAY);
     }
 }
 

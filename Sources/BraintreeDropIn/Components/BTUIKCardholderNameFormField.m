@@ -1,13 +1,13 @@
 #import "BTUIKCardholderNameFormField.h"
-#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import "BTDropInLocalization_Internal.h"
 
 @implementation BTUIKCardholderNameFormField
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTUIKLocalizedString(CARDHOLDER_NAME_LABEL);
-        self.labelText = BTUIKLocalizedString(CARDHOLDER_NAME_LABEL);
+        self.textField.accessibilityLabel = BTDropInLocalization(CARDHOLDER_NAME_LABEL);
+        self.labelText = BTDropInLocalization(CARDHOLDER_NAME_LABEL);
 
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;

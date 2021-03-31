@@ -145,7 +145,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.title = BTUIKLocalizedString(CARD_DETAILS_LABEL);
+    self.title = BTDropInLocalization(CARD_DETAILS_LABEL);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -160,7 +160,7 @@
 
 - (void)setupForm {
     self.nextButton = [[UIButton alloc] init];
-    [self.nextButton setTitle:BTUIKLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
+    [self.nextButton setTitle:BTDropInLocalization(NEXT_ACTION) forState:UIControlStateNormal];
     self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.nextButton setTitleColor:self.view.tintColor forState:UIControlStateNormal];
     
@@ -188,7 +188,7 @@
     UILabel *cardNumberHeaderLabel = [[UILabel alloc] init];
     cardNumberHeaderLabel.numberOfLines = 0;
     cardNumberHeaderLabel.textAlignment = NSTextAlignmentCenter;
-    cardNumberHeaderLabel.text = BTUIKLocalizedString(ENTER_CARD_DETAILS_HELP_LABEL);
+    cardNumberHeaderLabel.text = BTDropInLocalization(ENTER_CARD_DETAILS_HELP_LABEL);
     [BTUIKAppearance styleLargeLabelSecondary:cardNumberHeaderLabel];
     [self.cardNumberHeader addArrangedSubview:cardNumberHeaderLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.cardNumberHeader beforeView:cardNumberHeaderLabel size: [BTUIKAppearance verticalFormSpace]];
@@ -239,14 +239,14 @@
     UILabel *enrollmentFooterLabel = [[UILabel alloc] init];
     enrollmentFooterLabel.numberOfLines = 0;
     enrollmentFooterLabel.textAlignment = [BTUIKViewUtil naturalTextAlignment];
-    enrollmentFooterLabel.text = BTUIKLocalizedString(ENROLLMENT_WITH_SMS_HELP_LABEL);
+    enrollmentFooterLabel.text = BTDropInLocalization(ENROLLMENT_WITH_SMS_HELP_LABEL);
     [BTUIKAppearance styleLabelSecondary:enrollmentFooterLabel];
     [self.enrollmentFooter addArrangedSubview:enrollmentFooterLabel];
     [BTDropInUIUtilities addSpacerToStackView:self.enrollmentFooter beforeView:enrollmentFooterLabel size: [BTUIKAppearance verticalFormSpaceTight]];
     self.enrollmentFooter.hidden = YES;
     [self.stackView addArrangedSubview:self.enrollmentFooter];
 
-    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] initWithTitle:BTUIKLocalizedString(SAVE_CARD_LABEL)];
+    self.shouldVaultCardSwitchField = [[BTUIKSwitchFormField alloc] initWithTitle:BTDropInLocalization(SAVE_CARD_LABEL)];
     self.shouldVaultCardSwitchField.hidden = YES;
     [self.stackView addArrangedSubview:self.shouldVaultCardSwitchField];
 }
@@ -354,13 +354,13 @@
 #pragma mark - Public methods
 
 - (void)resetForm {
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
-    BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(ADD_CARD_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalization(CANCEL_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
+    BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalization(ADD_CARD_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
     addButton.bold = YES;
     self.navigationItem.rightBarButtonItem = addButton;
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.navigationItem.rightBarButtonItem.accessibilityHint = BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN);
+    self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalization(REVIEW_AND_TRY_AGAIN);
     
     for (BTUIKFormField *formField in self.formFields) {
         formField.text = @"";
@@ -456,7 +456,7 @@
         self.navigationItem.rightBarButtonItem.accessibilityHint = nil;
     } else {
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        self.navigationItem.rightBarButtonItem.accessibilityHint = BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN);
+        self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalization(REVIEW_AND_TRY_AGAIN);
     }
 }
 
@@ -510,7 +510,7 @@
 }
 
 - (void)cardNumberErrorHidden:(BOOL)hidden {
-    [self cardNumberErrorHidden:hidden errorString:BTUIKLocalizedString(VALID_CARD_ERROR_LABEL)];
+    [self cardNumberErrorHidden:hidden errorString:BTDropInLocalization(VALID_CARD_ERROR_LABEL)];
 }
 
 - (void)cardNumberErrorHidden:(BOOL)hidden errorString:(NSString *)errorString {
@@ -519,7 +519,7 @@
         UILabel *errorLabel = self.cardNumberErrorView.arrangedSubviews.firstObject;
         errorLabel.text = errorString;
         errorLabel.accessibilityLabel = errorString;
-        errorLabel.accessibilityHint = BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN);
+        errorLabel.accessibilityHint = BTDropInLocalization(REVIEW_AND_TRY_AGAIN);
         [self.stackView insertArrangedSubview:self.cardNumberErrorView atIndex:indexOfCardNumberFormField + 1];
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, errorLabel);
         [self.view layoutIfNeeded];
@@ -568,8 +568,8 @@
             self.navigationItem.rightBarButtonItem = addCardButton;
 
             if (error != nil) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(CARD_DETAILS_LABEL) message:BTUIKLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalization(CARD_DETAILS_LABEL) message:BTDropInLocalization(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalization(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction: alertAction];
                 [navController presentViewController:alertController animated:YES completion:nil];
             } else {
@@ -668,8 +668,8 @@
             [self.navigationController pushViewController:enrollmentController animated:YES];
             BTJSON *environment = self.configuration.json[@"environment"];
             if(![environment isError] && [[environment asString] isEqualToString:@"sandbox"]) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTUIKLocalizedString(DEV_SAMPLE_SMS_CODE_TITLE) message:BTUIKLocalizedString(DEV_SAMPLE_SMS_CODE_INFO) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTUIKLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalization(DEV_SAMPLE_SMS_CODE_TITLE) message:BTDropInLocalization(DEV_SAMPLE_SMS_CODE_INFO) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalization(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction: alertAction];
                 [navController presentViewController:alertController animated:YES completion:nil];
             }
@@ -686,7 +686,7 @@
     BOOL cardSupported = [self.supportedCardTypes containsObject:cardType];
 
     if (!cardSupported) {
-        [self cardNumberErrorHidden:NO errorString:BTUIKLocalizedString(CARD_NOT_ACCEPTED_ERROR_LABEL)];
+        [self cardNumberErrorHidden:NO errorString:BTDropInLocalization(CARD_NOT_ACCEPTED_ERROR_LABEL)];
         return;
     }
 

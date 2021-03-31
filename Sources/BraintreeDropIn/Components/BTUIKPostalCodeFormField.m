@@ -3,16 +3,16 @@
 #import "BTUIKPostalCodeFormField.h"
 #import "BTUIKTextField.h"
 #import "BTUIKUtil.h"
-#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import "BTDropInLocalization_Internal.h"
 
 @implementation BTUIKPostalCodeFormField
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTUIKLocalizedString(POSTAL_CODE_LABEL);
-        self.labelText = BTUIKLocalizedString(POSTAL_CODE_LABEL);
-        self.textField.placeholder = BTUIKLocalizedString(POSTAL_CODE_PLACEHOLDER);
+        self.textField.accessibilityLabel = BTDropInLocalization(POSTAL_CODE_LABEL);
+        self.labelText = BTDropInLocalization(POSTAL_CODE_LABEL);
+        self.textField.placeholder = BTDropInLocalization(POSTAL_CODE_PLACEHOLDER);
         self.textField.keyboardType = [BTUIKAppearance sharedInstance].postalCodeFormFieldKeyboardType;
 
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;

@@ -71,8 +71,8 @@
 
 + (CGSize)dynamicSize {
     BTUIPaymentMethodCollectionViewCell *sizingCell = [[BTUIPaymentMethodCollectionViewCell alloc] initWithFrame:CGRectZero];
-    sizingCell.titleLabel.text = BTUIKLocalizedString(PAYPAL);
-    sizingCell.descriptionLabel.text = BTUIKLocalizedString(PAYPAL);
+    sizingCell.titleLabel.text = BTDropInLocalization(PAYPAL);
+    sizingCell.descriptionLabel.text = BTDropInLocalization(PAYPAL);
     [sizingCell layoutIfNeeded];
     CGFloat height = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 

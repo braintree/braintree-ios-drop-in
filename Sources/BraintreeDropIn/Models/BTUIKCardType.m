@@ -155,51 +155,51 @@
 
     dispatch_once(&p, ^{
 
-        BTUIKCardType *visa = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_VISA)
-                                                  securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
+        BTUIKCardType *visa = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_VISA)
+                                                  securityCodeName:BTDropInLocalization(CVV_FIELD_PLACEHOLDER)
                                                           prefixes:@[@"^4\\d*"]];
-        BTUIKCardType *mastercard = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MASTER_CARD)
-                                                        securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
+        BTUIKCardType *mastercard = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_MASTER_CARD)
+                                                        securityCodeName:BTDropInLocalization(CVC_FIELD_PLACEHOLDER)
                                                                 prefixes:@[@"^(5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[0-1]|2720)\\d*"]];
-        BTUIKCardType *discover = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_DISCOVER)
-                                                      securityCodeName:BTUIKLocalizedString(CID_FIELD_PLACEHOLDER)
+        BTUIKCardType *discover = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_DISCOVER)
+                                                      securityCodeName:BTDropInLocalization(CID_FIELD_PLACEHOLDER)
                                                               prefixes:@[@"^(6011|65|64[4-9]|622)\\d*"]];
-        BTUIKCardType *jcb = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_JCB)
-                                                 securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
+        BTUIKCardType *jcb = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_JCB)
+                                                 securityCodeName:BTDropInLocalization(CVV_FIELD_PLACEHOLDER)
                                                          prefixes:@[@"^35\\d*"]];
-        BTUIKCardType *amex = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_AMERICAN_EXPRESS)
-                                                  securityCodeName:BTUIKLocalizedString(CID_FIELD_PLACEHOLDER)
+        BTUIKCardType *amex = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_AMERICAN_EXPRESS)
+                                                  securityCodeName:BTDropInLocalization(CID_FIELD_PLACEHOLDER)
                                                           prefixes:@[@"^3[47]\\d*"]
                                                    relaxedPrefixes:nil
                                                 validNumberLengths:[NSIndexSet indexSetWithIndex:15]
                                                     validCvvLength:4
                                                       formatSpaces:@[@4, @10]];
-        BTUIKCardType *dinersClub = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_DINERS_CLUB)
-                                                        securityCodeName:BTUIKLocalizedString(CVV_FIELD_PLACEHOLDER)
+        BTUIKCardType *dinersClub = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_DINERS_CLUB)
+                                                        securityCodeName:BTDropInLocalization(CVV_FIELD_PLACEHOLDER)
                                                                 prefixes:@[@"^(36|38|30[0-5])\\d*"]
                                                          relaxedPrefixes:nil
                                                       validNumberLengths:[NSIndexSet indexSetWithIndex:14]
                                                           validCvvLength:3
                                                             formatSpaces:nil];
-        BTUIKCardType *maestro = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_MAESTRO)
-                                                     securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
+        BTUIKCardType *maestro = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_MAESTRO)
+                                                     securityCodeName:BTDropInLocalization(CVC_FIELD_PLACEHOLDER)
                                                              prefixes:@[@"^(5018|5020|5038|5[6-9]|6020|6304|6703|6759|676[1-3])\\d*"]
                                                       relaxedPrefixes:@[@"^6\\d*"]
                                                    validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(12, 8)]
                                                        validCvvLength:3
                                                          formatSpaces:nil];
-        BTUIKCardType *unionPay = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_UNION_PAY)
-                                                      securityCodeName:BTUIKLocalizedString(CVN_FIELD_PLACEHOLDER)
+        BTUIKCardType *unionPay = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_UNION_PAY)
+                                                      securityCodeName:BTDropInLocalization(CVN_FIELD_PLACEHOLDER)
                                                               prefixes:@[@"^62\\d*"]
                                                        relaxedPrefixes:nil
                                                     validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 4)]
                                                         validCvvLength:3
                                                           formatSpaces:nil];
-        BTUIKCardType *hiper = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_HIPER)
-                                                   securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
+        BTUIKCardType *hiper = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_HIPER)
+                                                   securityCodeName:BTDropInLocalization(CVC_FIELD_PLACEHOLDER)
                                                            prefixes:@[@"^637(095|568|599|609|612)\\d*"]];
-        BTUIKCardType *hipercard = [[BTUIKCardType alloc] initWithBrand:BTUIKLocalizedString(CARD_TYPE_HIPERCARD)
-                                                       securityCodeName:BTUIKLocalizedString(CVC_FIELD_PLACEHOLDER)
+        BTUIKCardType *hipercard = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalization(CARD_TYPE_HIPERCARD)
+                                                       securityCodeName:BTDropInLocalization(CVC_FIELD_PLACEHOLDER)
                                                                prefixes:@[@"^606282\\d*"]];
 
         _allCards = @[visa, mastercard, discover, amex, dinersClub, jcb, mastercard, maestro, unionPay, hiper, hipercard];

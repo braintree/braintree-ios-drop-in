@@ -1,16 +1,13 @@
 #import <Foundation/Foundation.h>
+#import <BraintreeDropIn/BTDropInLocalization.h>
 
-#define BTUIKLocalizedString(KEY) [BTUIKLocalizedString KEY]
+#define BTDropInLocalization(KEY) [BTDropInLocalization KEY]
 
-@interface BTUIKLocalizedString : NSObject
+@interface BTDropInLocalization (Internal)
 
 #pragma mark Localization helpers
 
-+ (void)setCustomTranslations:(NSArray *)locales;
-
 + (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement;
-
-+ (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token;
 
 #pragma mark Localizations
 
@@ -94,5 +91,6 @@
 
 + (NSString *)DEV_SAMPLE_SMS_CODE_TITLE;
 + (NSString *)DEV_SAMPLE_SMS_CODE_INFO;
+
 
 @end

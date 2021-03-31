@@ -56,13 +56,13 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTUIKLocalizedString(CANCEL_ACTION)
+    self.navigationItem.leftBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalization(CANCEL_ACTION)
                                                                                 style:UIBarButtonItemStylePlain
                                                                                target:self
                                                                                action:@selector(cancelButtonPressed:)];
 
     UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
-    titleLabel.text = BTUIKLocalizedString(SELECT_PAYMENT_LABEL);
+    titleLabel.text = BTDropInLocalization(SELECT_PAYMENT_LABEL);
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.numberOfLines = 2;
     [titleLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
@@ -241,7 +241,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         cell.detailLabel.text = @"";
         cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
         if (option == BTUIKPaymentOptionTypeUnknown) {
-            cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
+            cell.label.text = BTDropInLocalization(CREDIT_OR_DEBIT_CARD_LABEL);
         }
         cell.iconView.paymentOptionType = option;
         cell.type = option;
@@ -322,13 +322,13 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     BTPaymentSelectionHeaderView *headerView = (BTPaymentSelectionHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"BTPaymentSelectionHeaderView"];
     if (section == 0) {
-        headerView.title = BTUIKLocalizedString(RECENT_LABEL);
+        headerView.title = BTDropInLocalization(RECENT_LABEL);
         if (self.dropInRequest.vaultManager) {
-            headerView.buttonText = BTUIKLocalizedString(EDIT_ACTION);
+            headerView.buttonText = BTDropInLocalization(EDIT_ACTION);
             headerView.delegate = self;
         }
     } else {
-        headerView.title = BTUIKLocalizedString(OTHER_LABEL);
+        headerView.title = BTDropInLocalization(OTHER_LABEL);
     }
     return headerView;
 }
