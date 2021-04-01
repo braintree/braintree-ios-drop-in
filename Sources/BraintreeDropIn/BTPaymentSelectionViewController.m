@@ -180,7 +180,23 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         if (error) {
             // no action
         } else {
-            self.paymentMethodNonces = [paymentMethodNonces copy];
+            NSMutableArray* vaultedNoncesForDropIn = [NSMutableArray new];
+            for (BTPaymentMethodNonce *nonce in self.paymentMethodNonces) {
+                if ([nonce isKindOfClass: [BTCardNonce class]] && !self.dropInRequest.cardDisabled && self.configuration.supportedCardTypes.count > 0) {
+                    [vaultedNoncesForDropIn addObject:nonce];
+                } else if ([nonce isKindOfClass: [BTPayPalAccountNonce class]] && !self.dropInRequest.paypalDisabled && self.configuration.isPayPalEnabled) {
+                    [vaultedNoncesForDropIn addObject:nonce];
+                } else if ([nonce isKindOfClass: [BTVenmoAccountNonce class]] && !self.dropInRequest.venmoDisabled && self.configuration.isVenmoEnabled) {
+                    [vaultedNoncesForDropIn addObject:nonce];
+                } else if ([nonce isKindOfClass: [BTApplePayCardNonce class]] && !self.dropInRequest.applePayDisabled && self.configuration.isApplePayEnabled) {
+                    [vaultedNoncesForDropIn addObject:nonce];
+                } else {
+                    [vaultedNoncesForDropIn addObject:nonce];
+                }
+            }
+
+            self.paymentMethodNonces = [vaultedNoncesForDropIn copy];
+
             if (completionBlock) {
                 completionBlock();
             }
