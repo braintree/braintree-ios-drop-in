@@ -7,6 +7,7 @@
 #import "BTVaultedPaymentMethodsTableViewCell.h"
 #import "BTPaymentSelectionHeaderView.h"
 #import "BTUIKAppearance.h"
+#import "BTConfiguration+DropIn.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>
@@ -120,8 +121,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
             }
 
-            NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
-            for (NSString *supportedCardType in supportedCardTypes) {
+            for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
                 BTUIKPaymentOptionType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
                 if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:paymentOptionType] && !self.dropInRequest.cardDisabled) {
                     // Add credit cards if they are supported
