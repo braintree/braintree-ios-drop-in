@@ -24,6 +24,7 @@
 		4245D885256C5C4E00F1A413 /* DemoDropInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D86C256C5C4E00F1A413 /* DemoDropInViewController.swift */; };
 		4245D88C256C5C4F00F1A413 /* DemoDropInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */; };
 		4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */; };
+		805384C9261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
@@ -109,6 +110,7 @@
 		4245D877256C5C4E00F1A413 /* DropInDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = DropInDemo.entitlements; sourceTree = "<group>"; };
 		4245D87C256C5C4E00F1A413 /* DemoDropInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDropInView.swift; sourceTree = "<group>"; };
 		4245D87E256C5C4E00F1A413 /* DemoMerchantAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMerchantAPIClient.swift; sourceTree = "<group>"; };
+		805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_Localization_UITests.swift; sourceTree = "<group>"; };
 		8068E51D256D73D5002904E6 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
 		8068E521256D73D5002904E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,10 +212,11 @@
 		8068E51E256D73D5002904E6 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */,
-				8068E521256D73D5002904E6 /* Info.plist */,
 				8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */,
+				805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */,
+				8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */,
 				8068E531256D7489002904E6 /* Helpers.swift */,
+				8068E521256D73D5002904E6 /* Info.plist */,
 			);
 			name = UITests;
 			path = Demo/UITests;
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */,
+				805384C9261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift in Sources */,
 				8068E532256D7489002904E6 /* Helpers.swift in Sources */,
 				8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */,
 			);
