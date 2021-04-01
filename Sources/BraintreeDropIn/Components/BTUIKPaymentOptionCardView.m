@@ -16,8 +16,8 @@
         self.vectorArtSize = BTUIKVectorArtSizeRegular;
         self.cornerRadius = 4.0;
         self.innerPadding = 0.0;
-        self.borderWidth = 0.5;
-        self.borderColor = [BTUIKAppearance sharedInstance].lineColor;
+        self.borderWidth = 0.75;
+        self.borderColor = UIColor.blackColor;
         self.clipsToBounds = YES;
         self.backgroundColor = [UIColor whiteColor];
     }
