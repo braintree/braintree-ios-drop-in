@@ -13,8 +13,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTDropInLocalization(EXPIRATION_DATE_LABEL);
-        self.labelText = BTDropInLocalization(EXPIRATION_DATE_LABEL);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(EXPIRATION_DATE_LABEL);
+        self.labelText = BTDropInLocalizedString(EXPIRATION_DATE_LABEL);
         [self updatePlaceholder];
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
@@ -43,7 +43,7 @@
 #pragma mark - Private methods
 
 - (void)updatePlaceholder {
-    NSString *placeholder = BTDropInLocalization(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR);
+    NSString *placeholder = BTDropInLocalizedString(EXPIRY_PLACEHOLDER_TWO_DIGIT_YEAR);
     [self setThemedPlaceholder:placeholder];
 }
 

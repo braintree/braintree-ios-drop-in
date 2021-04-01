@@ -8,8 +8,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTDropInLocalization(MOBILE_COUNTRY_CODE_LABEL);
-        self.labelText = BTDropInLocalization(MOBILE_COUNTRY_CODE_LABEL);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(MOBILE_COUNTRY_CODE_LABEL);
+        self.labelText = BTDropInLocalizedString(MOBILE_COUNTRY_CODE_LABEL);
         self.textField.placeholder = @"+65";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }

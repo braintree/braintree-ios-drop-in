@@ -10,9 +10,9 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTDropInLocalization(POSTAL_CODE_LABEL);
-        self.labelText = BTDropInLocalization(POSTAL_CODE_LABEL);
-        self.textField.placeholder = BTDropInLocalization(POSTAL_CODE_PLACEHOLDER);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(POSTAL_CODE_LABEL);
+        self.labelText = BTDropInLocalizedString(POSTAL_CODE_LABEL);
+        self.textField.placeholder = BTDropInLocalizedString(POSTAL_CODE_PLACEHOLDER);
         self.textField.keyboardType = [BTUIKAppearance sharedInstance].postalCodeFormFieldKeyboardType;
 
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;

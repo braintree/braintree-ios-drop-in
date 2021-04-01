@@ -6,8 +6,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTDropInLocalization(CARDHOLDER_NAME_LABEL);
-        self.labelText = BTDropInLocalization(CARDHOLDER_NAME_LABEL);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(CARDHOLDER_NAME_LABEL);
+        self.labelText = BTDropInLocalizedString(CARDHOLDER_NAME_LABEL);
 
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;

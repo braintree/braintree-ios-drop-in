@@ -12,9 +12,9 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTDropInLocalization(SECURITY_CODE_LABEL);
-        self.labelText = BTDropInLocalization(SECURITY_CODE_LABEL);
-        self.textField.placeholder = BTDropInLocalization(CVV_FIELD_PLACEHOLDER);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(SECURITY_CODE_LABEL);
+        self.labelText = BTDropInLocalizedString(SECURITY_CODE_LABEL);
+        self.textField.placeholder = BTDropInLocalizedString(CVV_FIELD_PLACEHOLDER);
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
     return self;

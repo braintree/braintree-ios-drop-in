@@ -36,8 +36,8 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
-    self.navigationItem.rightBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalization(DONE_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
-    self.title = BTDropInLocalization(EDIT_PAYMENT_METHOD);
+    self.navigationItem.rightBarButtonItem = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalizedString(DONE_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped)];
+    self.title = BTDropInLocalizedString(EDIT_PAYMENT_METHOD);
 
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.paymentOptionsTableView.backgroundColor = [UIColor clearColor];
@@ -161,8 +161,8 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
              if (error) {
                  [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.failed"];
                  dispatch_async(dispatch_get_main_queue(), ^{
-                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTDropInLocalization(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
-                     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalization(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTDropInLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
+                     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
                      [alertController addAction: alertAction];
                      [self presentViewController:alertController animated:YES completion:nil];
                  });

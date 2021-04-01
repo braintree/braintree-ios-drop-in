@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = BTDropInLocalization(CONFIRM_ENROLLMENT_LABEL);
+    self.title = BTDropInLocalizedString(CONFIRM_ENROLLMENT_LABEL);
     
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
     self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
@@ -40,11 +40,11 @@
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
 
-    BTUIKBarButtonItem *confirmButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalization(CONFIRM_ACTION) style:UIBarButtonItemStyleDone target:self action:@selector(confirm)];
+    BTUIKBarButtonItem *confirmButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalizedString(CONFIRM_ACTION) style:UIBarButtonItemStyleDone target:self action:@selector(confirm)];
     confirmButton.bold = YES;
     self.navigationItem.rightBarButtonItem = confirmButton;
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalization(SMS_CODE_REQUIRED);
+    self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalizedString(SMS_CODE_REQUIRED);
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
 
@@ -56,7 +56,7 @@
     self.smsSentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsSentLabel.textAlignment = NSTextAlignmentCenter;
     NSString *fullMobileNumber = [NSString stringWithFormat:@"+%@ %@", self.mobileCountryCode, self.mobilePhoneNumber];
-    self.smsSentLabel.text = [BTUIKLocalizedString insertIntoLocalizedString:BTDropInLocalization(ENTER_SMS_CODE_SENT_HELP_LABEL) replacement:fullMobileNumber];
+    self.smsSentLabel.text = [BTDropInLocalization insertIntoLocalizedString:BTDropInLocalizedString(ENTER_SMS_CODE_SENT_HELP_LABEL) replacement:fullMobileNumber];
     self.smsSentLabel.numberOfLines = 0;
     [BTUIKAppearance styleLargeLabelSecondary:self.smsSentLabel];
     [smsSentHeader addArrangedSubview:self.smsSentLabel];
@@ -64,11 +64,11 @@
     self.smsTextField = [BTUIKFormField new];
     self.smsTextField.translatesAutoresizingMaskIntoConstraints = NO;
     self.smsTextField.textField.keyboardType = UIKeyboardTypeNumberPad;
-    self.smsTextField.textField.placeholder = BTDropInLocalization(SMS_CODE_LABEL);
+    self.smsTextField.textField.placeholder = BTDropInLocalizedString(SMS_CODE_LABEL);
     self.smsTextField.delegate = self;
     [self.view addSubview:self.smsTextField];
     
-    NSString *smsButtonText = BTDropInLocalization(USE_DIFFERENT_PHONE_NUMBER_ACTION);
+    NSString *smsButtonText = BTDropInLocalizedString(USE_DIFFERENT_PHONE_NUMBER_ACTION);
     self.resendSmsButton = [UIButton new];
     self.resendSmsButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.resendSmsButton setTitle:smsButtonText forState:UIControlStateNormal];
@@ -98,7 +98,7 @@
 
     [self.view addSubview:self.stackView];
 
-    self.smsErrorView = [BTDropInUIUtilities newStackViewForError:BTDropInLocalization(SMS_CODE_INVALID)];
+    self.smsErrorView = [BTDropInUIUtilities newStackViewForError:BTDropInLocalizedString(SMS_CODE_INVALID)];
     [self smsErrorHidden:YES];
 
     NSDictionary* viewBindings = @{@"stackView": self.stackView};
@@ -123,7 +123,7 @@
         self.navigationItem.rightBarButtonItem.accessibilityHint = nil;
     } else {
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalization(SMS_CODE_REQUIRED);
+        self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalizedString(SMS_CODE_REQUIRED);
     }
 }
 

@@ -8,8 +8,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.textField.accessibilityLabel = BTDropInLocalization(MOBILE_NUMBER_LABEL);
-        self.labelText = BTDropInLocalization(MOBILE_NUMBER_LABEL);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(MOBILE_NUMBER_LABEL);
+        self.labelText = BTDropInLocalizedString(MOBILE_NUMBER_LABEL);
         self.textField.placeholder = @"00 0000 0000";
         self.textField.keyboardType = UIKeyboardTypePhonePad;
     }

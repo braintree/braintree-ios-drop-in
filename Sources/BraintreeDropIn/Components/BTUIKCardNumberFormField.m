@@ -25,8 +25,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.state = BTUIKCardNumberFormFieldStateDefault;
-        self.textField.accessibilityLabel = BTDropInLocalization(CARD_NUMBER_PLACEHOLDER);
-        self.textField.placeholder = BTDropInLocalization(CARD_NUMBER_PLACEHOLDER);
+        self.textField.accessibilityLabel = BTDropInLocalizedString(CARD_NUMBER_PLACEHOLDER);
+        self.textField.placeholder = BTDropInLocalizedString(CARD_NUMBER_PLACEHOLDER);
         self.labelText = @"";
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
         
@@ -50,7 +50,7 @@
         
         self.validateButton = [UIButton new];
 
-        [self.validateButton setTitle:BTDropInLocalization(NEXT_ACTION) forState:UIControlStateNormal];
+        [self.validateButton setTitle:BTDropInLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
         [self.validateButton setTitleColor:[BTUIKAppearance sharedInstance].tintColor forState:UIControlStateNormal];
         [self.validateButton setTitleColor:[BTUIKAppearance sharedInstance].disabledColor forState:UIControlStateDisabled];
 
@@ -78,7 +78,7 @@
     if (self.validateButton.enabled) {
         self.validateButton.accessibilityHint = nil;
     } else {
-        self.validateButton.accessibilityHint = BTDropInLocalization(VALID_CARD_ERROR_LABEL);
+        self.validateButton.accessibilityHint = BTDropInLocalizedString(VALID_CARD_ERROR_LABEL);
     }
 }
 
@@ -157,7 +157,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.displayAsValid = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) || (_cardType != nil && [_cardType validNumber:_number]);
-    self.labelText = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTDropInLocalization(CARD_NUMBER_PLACEHOLDER);
+    self.labelText = self.number.length == 0 || (![self isValidLength] && self.state == BTUIKCardNumberFormFieldStateValidate) ? @"" : BTDropInLocalizedString(CARD_NUMBER_PLACEHOLDER);
     [UIView animateWithDuration:0.2 animations:^{
         if ([self isShowingValidateButton]) {
             [self setAccessoryViewHidden:NO animated:NO];

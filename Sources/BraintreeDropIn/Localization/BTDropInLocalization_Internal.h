@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <BraintreeDropIn/BTDropInLocalization.h>
 
-#define BTDropInLocalization(KEY) [BTDropInLocalization KEY]
+#define BTDropInLocalizedString(KEY) [BTDropInLocalization KEY]
 
 @interface BTDropInLocalization (Internal)
 

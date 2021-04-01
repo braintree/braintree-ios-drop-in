@@ -1,6 +1,6 @@
 #import "BTDropInLocalization_Internal.h"
 
-@implementation BTUDropInLocalizedString
+@implementation BTDropInLocalization
 
 static NSArray *customTranslations;
 
