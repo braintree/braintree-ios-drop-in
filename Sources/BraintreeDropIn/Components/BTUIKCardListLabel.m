@@ -55,7 +55,8 @@
     NSMutableArray *attachments = [NSMutableArray new];
     BTUIKPaymentOptionCardView *hint = [BTUIKPaymentOptionCardView new];
     hint.frame = CGRectMake(0, 0, [BTUIKAppearance smallIconWidth], [BTUIKAppearance smallIconHeight]);
-
+    hint.borderColor = UIColor.systemGrayColor;
+    
     for (NSUInteger i = 0; i < self.availablePaymentOptions.count; i++) {
         NSTextAttachment *composeAttachment = [NSTextAttachment new];
         BTUIKPaymentOptionType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;

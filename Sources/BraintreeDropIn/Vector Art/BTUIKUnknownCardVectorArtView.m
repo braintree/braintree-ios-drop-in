@@ -4,7 +4,7 @@
 
 - (void)drawArt {
     //// Color Declarations
-    UIColor* fillColor7 = [UIColor colorWithRed: 0.551 green: 0.551 blue: 0.551 alpha: 1];
+    UIColor* fillColor7 = UIColor.blackColor;
     
     //// Bezier Drawing
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];

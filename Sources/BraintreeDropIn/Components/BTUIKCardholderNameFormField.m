@@ -22,12 +22,24 @@
 }
 
 - (BOOL)valid {
-    if (self.isRequired) {
-        return [self.cardholderName stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet].length > 0;
+    NSString *cardholderName = [self.cardholderName stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+
+    if (self.isRequired && cardholderName.length == 0) {
+        return NO;
     }
-    else {
-        return YES;
+
+    // A string with ONLY numbers, hypens and whitespace may be a card number.
+    // Consider this invalid to avoid leaking unencrypted card numbers to merchant.
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[\\d\\s-]+$"];
+    if ([predicate evaluateWithObject:cardholderName]) {
+        return NO;
     }
+
+    if (cardholderName.length > 255) {
+        return NO;
+    }
+
+    return YES;
 }
 
 #pragma mark - UITextFieldDelegate

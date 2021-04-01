@@ -10,6 +10,10 @@
   * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
   * Remove `insertIntoLocalizedString` methods
   * Remove translation string static helper methods
+  * Increase hit area for several buttons
+* Fix iOS 13 UI bug where "Next" button overlapped with card number text field
+* Card form
+  * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
 
 ## 9.0.0-beta1 (2021-03-29)
 

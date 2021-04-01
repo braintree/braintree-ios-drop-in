@@ -40,7 +40,6 @@
 @property (nonatomic, strong) UIStackView *cardNumberErrorView;
 @property (nonatomic, strong) UIStackView *cardNumberHeader;
 @property (nonatomic, strong) UIStackView *enrollmentFooter;
-@property (nonatomic, strong) UIButton *nextButton;
 @property (nonatomic, strong) NSArray <BTUIKFormField *> *formFields;
 @property (nonatomic, strong) NSMutableArray <BTUIKFormField *> *requiredFields;
 @property (nonatomic, strong) NSMutableArray <BTUIKFormField *> *optionalFields;
@@ -160,11 +159,6 @@
 #pragma mark - Setup
 
 - (void)setupForm {
-    self.nextButton = [[UIButton alloc] init];
-    [self.nextButton setTitle:BTDropInLocalizedString(NEXT_ACTION) forState:UIControlStateNormal];
-    self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.nextButton setTitleColor:self.view.tintColor forState:UIControlStateNormal];
-    
     self.cardNumberField = [[BTUIKCardNumberFormField alloc] init];
     self.cardNumberField.delegate = self;
     self.cardNumberField.cardNumberDelegate = self;
