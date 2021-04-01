@@ -8,6 +8,7 @@
 #import "BTPaymentSelectionHeaderView.h"
 #import "BTUIKAppearance.h"
 #import "BTConfiguration+DropIn.h"
+#import "BTPaymentMethodNonce+DropIn.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>
@@ -181,16 +182,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             // no action
         } else {
             NSMutableArray* vaultedNoncesForDropIn = [NSMutableArray new];
-            for (BTPaymentMethodNonce *nonce in self.paymentMethodNonces) {
-                if ([nonce isKindOfClass: [BTCardNonce class]] && !self.dropInRequest.cardDisabled && self.configuration.supportedCardTypes.count > 0) {
-                    [vaultedNoncesForDropIn addObject:nonce];
-                } else if ([nonce isKindOfClass: [BTPayPalAccountNonce class]] && !self.dropInRequest.paypalDisabled && self.configuration.isPayPalEnabled) {
-                    [vaultedNoncesForDropIn addObject:nonce];
-                } else if ([nonce isKindOfClass: [BTVenmoAccountNonce class]] && !self.dropInRequest.venmoDisabled && self.configuration.isVenmoEnabled) {
-                    [vaultedNoncesForDropIn addObject:nonce];
-                } else if ([nonce isKindOfClass: [BTApplePayCardNonce class]] && !self.dropInRequest.applePayDisabled && self.configuration.isApplePayEnabled) {
-                    [vaultedNoncesForDropIn addObject:nonce];
-                } else {
+            for (BTPaymentMethodNonce *nonce in paymentMethodNonces) {
+                if ([nonce shouldDisplayVaultedNonceForRequest:self.dropInRequest config:self.configuration]) {
                     [vaultedNoncesForDropIn addObject:nonce];
                 }
             }

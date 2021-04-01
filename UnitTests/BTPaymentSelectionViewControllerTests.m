@@ -120,4 +120,35 @@
     XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
 }
 
+#pragma mark - paymentMethodNonces
+
+- (void)testPaymentMethodNonces_doesNotContainDisabledPaymentMethods {
+    BTDropInRequest *request = [BTDropInRequest new];
+    request.paypalDisabled = YES;
+
+    MockAPIClient *mockAPIClient = [[MockAPIClient alloc] initWithAuthorization: @"eyJ2ZXJzaW9uIjozLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiIxYzM5N2E5OGZmZGRkNDQwM2VjNzEzYWRjZTI3NTNiMzJlODc2MzBiY2YyN2M3NmM2OWVmZjlkMTE5MjljOTVkfGNyZWF0ZWRfYXQ9MjAxNy0wNC0wNVQwNjowNzowOC44MTUwOTkzMjUrMDAwMFx1MDAyNm1lcmNoYW50X2lkPWRjcHNweTJicndkanIzcW5cdTAwMjZwdWJsaWNfa2V5PTl3d3J6cWszdnIzdDRuYzgiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvZGNwc3B5MmJyd2RqcjNxbi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24ifQ=="];
+    mockAPIClient.vaultedPaymentMethodNonces = @[
+        [[BTPayPalAccountNonce alloc] init],
+        [[BTCardNonce alloc] init]
+    ];
+
+    BTPaymentSelectionViewController *selectionVC = [[BTPaymentSelectionViewController alloc] initWithAPIClient:mockAPIClient request:request];
+
+    NSDictionary *configurationJSON = @{
+        @"creditCards": @{
+                @"supportedCardTypes": @[@"Visa"]
+        },
+        @"paypalEnabled": @YES
+    };
+    BTJSON *json = [[BTJSON alloc] initWithData:[NSJSONSerialization dataWithJSONObject:configurationJSON
+                                                                                options:0
+                                                                                  error:nil]];
+    BTConfiguration *configuration = [[BTConfiguration alloc] initWithJSON:json];
+    selectionVC.configuration = configuration;
+    [selectionVC configurationLoaded:configuration error:nil];
+
+    XCTAssertEqual(selectionVC.paymentMethodNonces.count, 1);
+    XCTAssertTrue([selectionVC.paymentMethodNonces[0] isKindOfClass:BTCardNonce.class]);
+}
+
 @end
