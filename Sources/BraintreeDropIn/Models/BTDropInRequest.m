@@ -11,7 +11,6 @@
     self = [super init];
     if (self) {
         _vaultCard = YES;
-        _vaultVenmo = YES;
     }
 
     return self;
@@ -21,6 +20,7 @@
     BTDropInRequest *request = [BTDropInRequest new];
 
     request.payPalRequest = self.payPalRequest;
+    request.venmoRequest = self.venmoRequest;
     request.applePayDisabled = self.applePayDisabled;
     request.paypalDisabled = self.paypalDisabled;
     request.venmoDisabled = self.venmoDisabled;
@@ -32,7 +32,6 @@
     request.vaultManager = self.vaultManager;
     request.vaultCard = self.vaultCard;
     request.allowVaultCardOverride = self.allowVaultCardOverride;
-    request.vaultVenmo = self.vaultVenmo;
     return request;
 }
 

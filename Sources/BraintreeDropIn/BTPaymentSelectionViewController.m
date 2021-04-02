@@ -276,10 +276,14 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             }
         }];
     } else if (cell.type == BTUIKPaymentOptionTypeVenmo) {
+        BTVenmoRequest *venmoRequest = self.dropInRequest.venmoRequest;
+        if (venmoRequest == nil) {
+            venmoRequest = [[BTVenmoRequest alloc] init];
+            venmoRequest.vault = true;
+        }
+
         [self showLoadingScreen:YES];
-        BTVenmoRequest *request = [[BTVenmoRequest alloc] init];
-        request.vault = self.dropInRequest.vaultVenmo;
-        [self.venmoDriver tokenizeVenmoAccountWithVenmoRequest:request completion:^(BTVenmoAccountNonce * _Nullable venmoAccountNonce, NSError * _Nullable error) {
+        [self.venmoDriver tokenizeVenmoAccountWithVenmoRequest:venmoRequest completion:^(BTVenmoAccountNonce * _Nullable venmoAccountNonce, NSError * _Nullable error) {
             [self showLoadingScreen:NO];
             if (self.delegate && (venmoAccountNonce != nil || error != nil)) {
                 [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:venmoAccountNonce error:error];
