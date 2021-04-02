@@ -46,12 +46,13 @@ typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NS
 /// The payment method nonce
 @property (nonatomic, strong, nullable) BTPaymentMethodNonce *paymentMethod;
 
-/// Fetch a BTDropInResult without displaying or initializing a BTDropInController. Works with client tokens that
-/// were created with a `customer_id`.
+/// Fetch a `BTDropInResult` with the customer's most recently vaulted payment method.
+/// If the last payment method selected from Drop-in was Apple Pay, a `BTDropInResult` with
+/// `paymentOptionType == .applePay` will be returned in the completion block.
 ///
-/// @param authorization Your tokenization key or client token.
+/// @param clientToken Client token. Must be generated with a customer ID.
 /// @param handler The handler for callbacks.
-+ (void)fetchDropInResultForAuthorization:(NSString *)authorization handler:(BTDropInResultFetchHandler)handler;
++ (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken handler:(BTDropInResultFetchHandler)handler;
 
 @end
 

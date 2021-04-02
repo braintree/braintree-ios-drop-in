@@ -8,7 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, strong) NSUserDefaults *userDefaults;
 
 // Exposed for testing
-+ (void)fetchDropInResultWithAPIClient:(BTAPIClient * _Nullable)apiClient handler:(BTDropInResultFetchHandler)handler;
++ (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient handler:(BTDropInResultFetchHandler)handler;
 
 @end
 

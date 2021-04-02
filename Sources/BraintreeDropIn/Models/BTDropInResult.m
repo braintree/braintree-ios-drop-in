@@ -32,13 +32,13 @@ static NSUserDefaults *_userDefaults = nil;
     }
 }
 
-+ (void)fetchDropInResultForAuthorization:(NSString *)authorization handler:(BTDropInResultFetchHandler)handler {
-    BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:authorization sendAnalyticsEvent:NO];
++ (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken handler:(BTDropInResultFetchHandler)handler {
+    BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:clientToken sendAnalyticsEvent:NO];
     apiClient = [apiClient copyWithSource:apiClient.metadata.source integration:BTClientMetadataIntegrationDropIn2];
-    [BTDropInResult fetchDropInResultWithAPIClient:apiClient handler:handler];
+    [BTDropInResult mostRecentPaymentMethodForAPIClient:apiClient handler:handler];
 }
 
-+ (void)fetchDropInResultWithAPIClient:(BTAPIClient * _Nullable)apiClient handler:(BTDropInResultFetchHandler)handler {
++ (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient handler:(BTDropInResultFetchHandler)handler {
     BTUIKPaymentOptionType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
     if (lastSelectedPaymentOptionType == BTUIKPaymentOptionTypeApplePay) {
         BTDropInResult *result = [BTDropInResult new];
