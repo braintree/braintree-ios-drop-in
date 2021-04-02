@@ -64,7 +64,7 @@
 		4234908A260BA5D30006D38B /* UIColor+BTUIK.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E51D8903A600032220 /* UIColor+BTUIK.m */; };
 		42349091260BA5EF0006D38B /* BTUIKLocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E71D8903A600032220 /* BTUIKLocalizedString.m */; };
 		42349098260BA6000006D38B /* BTUIKLocalizedString.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010F1D8903A600032220 /* BTUIKLocalizedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		423490A1260BA64C0006D38B /* BTUIKPaymentOptionType.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		423490A1260BA64C0006D38B /* BTDropInPaymentMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901131D8903A600032220 /* BTDropInPaymentMethodType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		423490B8260BA7680006D38B /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4237D7A425E42844006F6CE3 /* BTDropInUICustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4237D7A225E42844006F6CE3 /* BTDropInUICustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4237D7A525E42844006F6CE3 /* BTDropInUICustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7A325E42844006F6CE3 /* BTDropInUICustomization.m */; };
@@ -288,7 +288,7 @@
 		A52901101D8903A600032220 /* BTUIKMobileCountryCodeFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMobileCountryCodeFormField.h; sourceTree = "<group>"; };
 		A52901111D8903A600032220 /* BTUIKMobileNumberFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMobileNumberFormField.h; sourceTree = "<group>"; };
 		A52901121D8903A600032220 /* BTUIKPaymentOptionCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPaymentOptionCardView.h; sourceTree = "<group>"; };
-		A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPaymentOptionType.h; sourceTree = "<group>"; };
+		A52901131D8903A600032220 /* BTDropInPaymentMethodType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDropInPaymentMethodType.h; sourceTree = "<group>"; };
 		A52901141D8903A600032220 /* BTUIKPostalCodeFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKPostalCodeFormField.h; sourceTree = "<group>"; };
 		A52901151D8903A600032220 /* BTUIKSecurityCodeFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKSecurityCodeFormField.h; sourceTree = "<group>"; };
 		A52901161D8903A600032220 /* BTUIKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKTextField.h; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 				A56C41AA1D8335C7000DFFAB /* BTDropInResult.h */,
 				4237D7A225E42844006F6CE3 /* BTDropInUICustomization.h */,
 				A529010F1D8903A600032220 /* BTUIKLocalizedString.h */,
-				A52901131D8903A600032220 /* BTUIKPaymentOptionType.h */,
+				A52901131D8903A600032220 /* BTDropInPaymentMethodType.h */,
 			);
 			path = BraintreeDropIn;
 			sourceTree = "<group>";
@@ -802,7 +802,7 @@
 				80BBEFA8260BC75C005D646D /* BTUIKLargeDinersClubVectorArtView.h in Headers */,
 				425867D125EEEEDA00D5F160 /* BTVaultedPaymentMethodsTableViewCell.h in Headers */,
 				80BBEFBA260BC75C005D646D /* BTUIKLargeVectorArtView.h in Headers */,
-				423490A1260BA64C0006D38B /* BTUIKPaymentOptionType.h in Headers */,
+				423490A1260BA64C0006D38B /* BTDropInPaymentMethodType.h in Headers */,
 				A56C41911D833568000DFFAB /* BTDropInUIUtilities.h in Headers */,
 				42349068260BA5800006D38B /* BTUIKBarButtonItem.h in Headers */,
 				80BBEFA7260BC75C005D646D /* BTUIKLargePayPalMonogramCardView.h in Headers */,

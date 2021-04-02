@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "BTUIKCardType.h"
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 #import "BTUIKVisualAssetType.h"
 
 @class BTUIKVectorArtView;
@@ -13,34 +13,34 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
     BTUIKVectorArtSizeLarge,
 };
 
-/// @class Utilities used by other views to get localized strings, a BTUIKPaymentOptionType or artwork
+/// @class Utilities used by other views to get localized strings, a BTDropInPaymentMethodType or artwork
 @interface BTUIKViewUtil : NSObject
 
-#pragma mark BTUIKPaymentOptionType Utilities
+#pragma mark BTDropInPaymentMethodType Utilities
 
-/// Get a BTUIKPaymentOptionType from a string
+/// Get a BTDropInPaymentMethodType from a string
 ///
 /// @param typeString string representing a payment option type (e.g `Visa` or `PayPal`)
-/// @return The BTUIKPaymentOptionType associated with the string if it can be found. Otherwise, BTUIKPaymentOptionTypeUnknown.
-+ (BTUIKPaymentOptionType)paymentOptionTypeForPaymentInfoType:(NSString *)typeString;
+/// @return The BTDropInPaymentMethodType associated with the string if it can be found. Otherwise, BTDropInPaymentMethodTypeUnknown.
++ (BTDropInPaymentMethodType)paymentOptionTypeForPaymentInfoType:(NSString *)typeString;
 
-/// Get a BTUIKPaymentOptionType from a BTUIKCardType
+/// Get a BTDropInPaymentMethodType from a BTUIKCardType
 ///
 /// @param cardType A BTUIKCardType that represents a card
-/// @return The BTUIKPaymentOptionType associated with the BTUIKCardType if it can be found. Otherwise, BTUIKPaymentOptionTypeUnknown.
-+ (BTUIKPaymentOptionType)paymentMethodTypeForCardType:(BTUIKCardType *)cardType;
+/// @return The BTDropInPaymentMethodType associated with the BTUIKCardType if it can be found. Otherwise, BTDropInPaymentMethodTypeUnknown.
++ (BTDropInPaymentMethodType)paymentMethodTypeForCardType:(BTUIKCardType *)cardType;
 
 /// Determine if the payment option is a credit card type.
 ///
-/// @param paymentOptionType A BTUIKPaymentOptionType
+/// @param paymentOptionType A BTDropInPaymentMethodType
 /// @return true if the payment option is a credit card type, false otherwise
-+ (BOOL)isPaymentOptionTypeACreditCard:(BTUIKPaymentOptionType)paymentOptionType;
++ (BOOL)isPaymentOptionTypeACreditCard:(BTDropInPaymentMethodType)paymentOptionType;
 
 /// Get a localized string for a payment option.
 ///
-/// @param paymentMethodType BTUIKPaymentOptionType
-/// @return The localized string for the BTUIKPaymentOptionType if one can be found. `Card` will be returned in the case of BTUIKPaymentOptionTypeUnknown.
-+ (NSString *)nameForPaymentMethodType:(BTUIKPaymentOptionType)paymentMethodType;
+/// @param paymentMethodType BTDropInPaymentMethodType
+/// @return The localized string for the BTDropInPaymentMethodType if one can be found. `Card` will be returned in the case of BTDropInPaymentMethodTypeUnknown.
++ (NSString *)nameForPaymentMethodType:(BTDropInPaymentMethodType)paymentMethodType;
 
 #pragma mark Helper Utilities
 
@@ -57,16 +57,16 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 
 /// Get a BTUIKVectorArtView for a payment option of BTUIKVectorArtIconSizeRegular.
 ///
-/// @param type BTUIKPaymentOptionType
-/// @return The BTUIKVectorArtView for the BTUIKPaymentOptionType if one can be found. Otherwise the art for a generic card.
-+ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTUIKPaymentOptionType)type;
+/// @param type BTDropInPaymentMethodType
+/// @return The BTUIKVectorArtView for the BTDropInPaymentMethodType if one can be found. Otherwise the art for a generic card.
++ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTDropInPaymentMethodType)type;
 
 /// Get a BTUIKVectorArtView for a payment option.
 ///
-/// @param type BTUIKPaymentOptionType
+/// @param type BTDropInPaymentMethodType
 /// @param size The BTUIKVectorArtSize (Regular or Large)
-/// @return The BTUIKVectorArtView for the BTUIKPaymentOptionType if one can be found. Otherwise the art for a generic card.
-+ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTUIKPaymentOptionType)type size:(BTUIKVectorArtSize)size;
+/// @return The BTUIKVectorArtView for the BTDropInPaymentMethodType if one can be found. Otherwise the art for a generic card.
++ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTDropInPaymentMethodType)type size:(BTUIKVectorArtSize)size;
 
 /*!
  @brief Get a BTUIKVectorArtView for a visual asset.

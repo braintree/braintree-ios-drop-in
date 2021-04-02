@@ -61,9 +61,9 @@
                                                       constant:0]];
 }
 
-- (void)setPaymentOptionType:(BTUIKPaymentOptionType)paymentOptionType {
+- (void)setPaymentOptionType:(BTDropInPaymentMethodType)paymentOptionType {
     _paymentOptionType = paymentOptionType;
-    self.borderWidth = self.paymentOptionType == BTUIKPaymentOptionTypeApplePay ? 0.0 : self.borderWidth;
+    self.borderWidth = self.paymentOptionType == BTDropInPaymentMethodTypeApplePay ? 0.0 : self.borderWidth;
     self.imageView = [BTUIKViewUtil vectorArtViewForPaymentOptionType:self.paymentOptionType size:self.vectorArtSize];
 }
 

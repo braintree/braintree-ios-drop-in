@@ -1,13 +1,13 @@
 #import <UIKit/UIKit.h>
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 
-/// @class A UILabel that contains images representing multiple BTUIKPaymentOptionType's
+/// @class A UILabel that contains images representing multiple BTDropInPaymentMethodType's
 @interface BTUIKCardListLabel : UILabel
 
-/// The array of BTUIKPaymentOptionType's to display
+/// The array of BTDropInPaymentMethodType's to display
 @property (nonatomic, copy) NSArray *availablePaymentOptions;
 
-/// The BTUIKPaymentOptionType to emphasize by fading all other payment methods included in availablePaymentOptions
-- (void)emphasizePaymentOption:(BTUIKPaymentOptionType)paymentOption;
+/// The BTDropInPaymentMethodType to emphasize by fading all other payment methods included in availablePaymentOptions
+- (void)emphasizePaymentOption:(BTDropInPaymentMethodType)paymentOption;
 
 @end

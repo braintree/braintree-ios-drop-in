@@ -110,7 +110,7 @@ class DemoDropInView: UIView {
     private func updatePurchaseButton(_ result: BTDropInResult? = nil) {
         purchaseButton?.removeFromSuperview()
 
-        switch result?.paymentOptionType {
+        switch result?.paymentMethodType {
         case .applePay:
             purchaseButton = PKPaymentButton(paymentButtonType: .checkout, paymentButtonStyle: .black)
         default:

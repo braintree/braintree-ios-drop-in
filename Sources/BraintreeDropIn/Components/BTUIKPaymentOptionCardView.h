@@ -1,12 +1,12 @@
 #import <UIKit/UIKit.h>
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 #import "BTUIKViewUtil.h"
 
-/// @class A UIView containing the BTUIKVectorArtView for a BTUIKPaymentOptionType within a light border.
+/// @class A UIView containing the BTUIKVectorArtView for a BTDropInPaymentMethodType within a light border.
 @interface BTUIKPaymentOptionCardView : UIView
 
-/// The BTUIKPaymentOptionType to display
-@property (nonatomic) BTUIKPaymentOptionType paymentOptionType;
+/// The BTDropInPaymentMethodType to display
+@property (nonatomic) BTDropInPaymentMethodType paymentOptionType;
 /// Defaults to 4.0
 @property (nonatomic) float cornerRadius;
 /// Inner padding between art and border. Defaults to 3
