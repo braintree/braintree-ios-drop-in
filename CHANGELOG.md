@@ -10,7 +10,7 @@
 * Card form
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
 * BTDropInResult
-  * Rename `paymentOptionType` property to `paymentMethodType`
+  * Rename `paymentOptionType` property to `paymentMethodType`; rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
 
 ## 9.0.0-beta1 (2021-03-29)
 
