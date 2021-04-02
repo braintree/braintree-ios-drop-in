@@ -253,7 +253,7 @@
                 result.canceled = YES;
             }
             [sender dismissViewControllerAnimated:YES completion:^{
-                if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureVerification) {
+                if ([self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
                     [self threeDSecureVerification:tokenizedCard];
                 } else {
                     self.handler(self, result, error);
@@ -268,9 +268,6 @@
     paymentFlowDriver.viewControllerPresentingDelegate = self;
 
     BTThreeDSecureRequest *request = self.dropInRequest.threeDSecureRequest;
-    if (!request) {
-        request = [[BTThreeDSecureRequest alloc] init];
-    }
     request.nonce = tokenizedCard.nonce;
 
     if (request.versionRequested == BTThreeDSecureVersion2) {

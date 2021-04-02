@@ -71,8 +71,6 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
             threeDSecureRequest.email = "test@example.com"
             threeDSecureRequest.shippingMethod = .sameDay
             threeDSecureRequest.billingAddress = billingAddress
-            
-            dropInRequest.threeDSecureVerification = true
             dropInRequest.threeDSecureRequest = threeDSecureRequest
         }
         
