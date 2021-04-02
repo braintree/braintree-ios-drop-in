@@ -122,8 +122,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
             NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
             for (NSString *supportedCardType in supportedCardTypes) {
-                BTDropInPaymentMethodType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
-                if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:paymentOptionType] && !self.dropInRequest.cardDisabled) {
+                BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
+                if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:paymentMethodType] && !self.dropInRequest.cardDisabled) {
                     // Add credit cards if they are supported
                     [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeUnknown)];
                     break;
@@ -243,7 +243,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         if (option == BTDropInPaymentMethodTypeUnknown) {
             cell.label.text = BTUIKLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
         }
-        cell.iconView.paymentOptionType = option;
+        cell.iconView.paymentMethodType = option;
         cell.type = option;
 
         return cell;
@@ -345,7 +345,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)vaultedPaymentMethodsTableViewCell:(BTVaultedPaymentMethodsTableViewCell *)cell didSelectNonce:(BTPaymentMethodNonce *)nonce {
     if (self.delegate) {
-        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:nonce.type]
+        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentMethodTypeForPaymentInfoType:nonce.type]
                                                          nonce:nonce
                                                          error:nil];
 

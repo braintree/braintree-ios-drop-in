@@ -61,7 +61,7 @@
         NSTextAttachment *composeAttachment = [NSTextAttachment new];
         BTDropInPaymentMethodType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
         composeAttachment.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
-        hint.paymentOptionType = paymentOption;
+        hint.paymentMethodType = paymentOption;
         [hint setNeedsLayout];
         [hint layoutIfNeeded];
         UIImage *composeImage = [self imageWithView:hint];

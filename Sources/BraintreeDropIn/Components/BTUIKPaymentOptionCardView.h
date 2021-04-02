@@ -6,7 +6,7 @@
 @interface BTUIKPaymentOptionCardView : UIView
 
 /// The BTDropInPaymentMethodType to display
-@property (nonatomic) BTDropInPaymentMethodType paymentOptionType;
+@property (nonatomic) BTDropInPaymentMethodType paymentMethodType;
 /// Defaults to 4.0
 @property (nonatomic) float cornerRadius;
 /// Inner padding between art and border. Defaults to 3

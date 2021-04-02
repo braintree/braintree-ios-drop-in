@@ -223,14 +223,14 @@
                 self.paymentSelectionNavigationController.view.alpha = 1.0;
 
                 NSArray *supportedCardTypes = [configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
-                NSMutableArray *paymentOptionTypes = [NSMutableArray new];
+                NSMutableArray *paymentMethodTypes = [NSMutableArray new];
                 for (NSString *supportedCardType in supportedCardTypes) {
-                    BTDropInPaymentMethodType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
-                    if (paymentOptionType != BTDropInPaymentMethodTypeUnknown) {
-                        [paymentOptionTypes addObject: @(paymentOptionType)];
+                    BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
+                    if (paymentMethodType != BTDropInPaymentMethodTypeUnknown) {
+                        [paymentMethodTypes addObject: @(paymentMethodType)];
                     }
                 }
-                self.displayCardTypes = paymentOptionTypes;
+                self.displayCardTypes = paymentMethodTypes;
             } else {
                 if (self.handler) {
                     self.handler(self, nil, error);
@@ -247,7 +247,7 @@
         if (self.handler) {
             BTDropInResult *result = [[BTDropInResult alloc] init];
             if (tokenizedCard != nil) {
-                result.paymentMethodType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:tokenizedCard.type];
+                result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:tokenizedCard.type];
                 result.paymentMethod = tokenizedCard;
             } else if (error == nil) {
                 result.canceled = YES;
@@ -284,7 +284,7 @@
         if (self.handler) {
             BTDropInResult *dropInResult = [[BTDropInResult alloc] init];
             if (threeDSecureResult.tokenizedCard != nil) {
-                dropInResult.paymentMethodType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
+                dropInResult.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
                 dropInResult.paymentMethod = threeDSecureResult.tokenizedCard;
             } else if (error != nil && error.code == BTPaymentFlowDriverErrorTypeCanceled) {
                 // Show the updated payment selection screen if the user canceled out of the 3DS challenge
@@ -427,7 +427,7 @@
             BTDropInResult *result = [BTDropInResult new];
             result.paymentMethodType = type;
             result.paymentMethod = nonce;
-            if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:result.paymentMethodType] && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
+            if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:result.paymentMethodType] && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
                 [self.paymentSelectionViewController showLoadingScreen:YES];
                 [self threeDSecureVerification:nonce];
             } else {

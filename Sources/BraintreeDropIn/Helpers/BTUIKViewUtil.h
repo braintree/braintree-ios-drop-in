@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 ///
 /// @param typeString string representing a payment option type (e.g `Visa` or `PayPal`)
 /// @return The BTDropInPaymentMethodType associated with the string if it can be found. Otherwise, BTDropInPaymentMethodTypeUnknown.
-+ (BTDropInPaymentMethodType)paymentOptionTypeForPaymentInfoType:(NSString *)typeString;
++ (BTDropInPaymentMethodType)paymentMethodTypeForPaymentInfoType:(NSString *)typeString;
 
 /// Get a BTDropInPaymentMethodType from a BTUIKCardType
 ///
@@ -32,9 +32,9 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 
 /// Determine if the payment option is a credit card type.
 ///
-/// @param paymentOptionType A BTDropInPaymentMethodType
+/// @param paymentMethodType A BTDropInPaymentMethodType
 /// @return true if the payment option is a credit card type, false otherwise
-+ (BOOL)isPaymentOptionTypeACreditCard:(BTDropInPaymentMethodType)paymentOptionType;
++ (BOOL)isPaymentMethodTypeACreditCard:(BTDropInPaymentMethodType)paymentMethodType;
 
 /// Get a localized string for a payment option.
 ///
@@ -59,14 +59,14 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
 ///
 /// @param type BTDropInPaymentMethodType
 /// @return The BTUIKVectorArtView for the BTDropInPaymentMethodType if one can be found. Otherwise the art for a generic card.
-+ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTDropInPaymentMethodType)type;
++ (BTUIKVectorArtView *)vectorArtViewForPaymentMethodType:(BTDropInPaymentMethodType)type;
 
 /// Get a BTUIKVectorArtView for a payment option.
 ///
 /// @param type BTDropInPaymentMethodType
 /// @param size The BTUIKVectorArtSize (Regular or Large)
 /// @return The BTUIKVectorArtView for the BTDropInPaymentMethodType if one can be found. Otherwise the art for a generic card.
-+ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTDropInPaymentMethodType)type size:(BTUIKVectorArtSize)size;
++ (BTUIKVectorArtView *)vectorArtViewForPaymentMethodType:(BTDropInPaymentMethodType)type size:(BTUIKVectorArtSize)size;
 
 /*!
  @brief Get a BTUIKVectorArtView for a visual asset.

@@ -118,7 +118,7 @@
 
 #pragma mark Icons
 
-+ (BTDropInPaymentMethodType)paymentOptionTypeForPaymentInfoType:(NSString *)typeString {
++ (BTDropInPaymentMethodType)paymentMethodTypeForPaymentInfoType:(NSString *)typeString {
     if ([typeString isEqualToString:@"Visa"]) {
         return BTDropInPaymentMethodTypeVisa;
     } else if ([typeString isEqualToString:@"MasterCard"]) {
@@ -160,8 +160,8 @@
     }
 }
 
-+ (BOOL)isPaymentOptionTypeACreditCard:(BTDropInPaymentMethodType)paymentOptionType {
-    switch(paymentOptionType) {
++ (BOOL)isPaymentMethodTypeACreditCard:(BTDropInPaymentMethodType)paymentMethodType {
+    switch(paymentMethodType) {
         case BTDropInPaymentMethodTypeVisa:
         case BTDropInPaymentMethodTypeMasterCard:
         case BTDropInPaymentMethodTypeDinersClub:
@@ -183,14 +183,14 @@
 }
 
 + (BTUIKVectorArtView *)vectorArtViewForPaymentInfoType:(NSString *)typeString {
-    return [self vectorArtViewForPaymentOptionType:[self.class paymentOptionTypeForPaymentInfoType:typeString]];
+    return [self vectorArtViewForPaymentMethodType:[self.class paymentMethodTypeForPaymentInfoType:typeString]];
 }
 
-+ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTDropInPaymentMethodType)type {
-    return [self vectorArtViewForPaymentOptionType:type size:BTUIKVectorArtSizeRegular];
++ (BTUIKVectorArtView *)vectorArtViewForPaymentMethodType:(BTDropInPaymentMethodType)type {
+    return [self vectorArtViewForPaymentMethodType:type size:BTUIKVectorArtSizeRegular];
 }
 
-+ (BTUIKVectorArtView *)vectorArtViewForPaymentOptionType:(BTDropInPaymentMethodType)type size:(BTUIKVectorArtSize)size {
++ (BTUIKVectorArtView *)vectorArtViewForPaymentMethodType:(BTDropInPaymentMethodType)type size:(BTUIKVectorArtSize)size {
     switch (type) {
         case BTDropInPaymentMethodTypeVisa:
             return size == BTUIKVectorArtSizeRegular ? [BTUIKVisaVectorArtView new] : [BTUIKLargeVisaVectorArtView new];
