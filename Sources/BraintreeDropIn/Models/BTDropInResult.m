@@ -32,18 +32,20 @@ static NSUserDefaults *_userDefaults = nil;
     }
 }
 
-+ (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken handler:(BTDropInResultFetchHandler)handler {
++ (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken
+                                   completion:(void (^)(BTDropInResult *result, NSError *error))completion {
     BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:clientToken sendAnalyticsEvent:NO];
     apiClient = [apiClient copyWithSource:apiClient.metadata.source integration:BTClientMetadataIntegrationDropIn2];
-    [BTDropInResult mostRecentPaymentMethodForAPIClient:apiClient handler:handler];
+    [BTDropInResult mostRecentPaymentMethodForAPIClient:apiClient completion:completion];
 }
 
-+ (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient handler:(BTDropInResultFetchHandler)handler {
++ (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient
+                                 completion:(void (^)(BTDropInResult *result, NSError *error))completion {
     BTUIKPaymentOptionType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
     if (lastSelectedPaymentOptionType == BTUIKPaymentOptionTypeApplePay) {
         BTDropInResult *result = [BTDropInResult new];
         result.paymentOptionType = lastSelectedPaymentOptionType;
-        handler(result, nil);
+        completion(result, nil);
         return;
     }
 
@@ -51,13 +53,13 @@ static NSUserDefaults *_userDefaults = nil;
         NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
                                                     code:BTDropInErrorTypeAuthorization
                                                 userInfo:@{NSLocalizedDescriptionKey: @"Invalid authorization"}];
-        handler(nil, error);
+        completion(nil, error);
         return;
     }
 
     [apiClient fetchPaymentMethodNonces:NO completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
         if (error) {
-            handler(nil, error);
+            completion(nil, error);
             return;
         }
 
@@ -69,7 +71,7 @@ static NSUserDefaults *_userDefaults = nil;
             result.paymentMethod = paymentMethod;
         }
 
-        handler(result, nil);
+        completion(result, nil);
     }];
 }
 
