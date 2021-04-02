@@ -12,7 +12,7 @@
 
 @implementation BTUIKViewUtilTests
 
-- (void)test_isPaymentOptionTypeACreditCard_validCreditCards {
+- (void)test_isPaymentMethodTypeACreditCard_validCreditCards {
     NSArray *validCreditCards = @[
                                   @(BTDropInPaymentMethodTypeAMEX),
                                   @(BTDropInPaymentMethodTypeDinersClub),
@@ -30,20 +30,20 @@
                                   @(BTDropInPaymentMethodTypeUKMaestro),
                                   ];
     for (NSNumber *creditCard in validCreditCards) {
-        XCTAssertTrue([BTUIKViewUtil isPaymentOptionTypeACreditCard:[creditCard integerValue]], @"Payment Option Type with integer value %@", creditCard);
+        XCTAssertTrue([BTUIKViewUtil isPaymentMethodTypeACreditCard:[creditCard integerValue]], @"Payment Option Type with integer value %@", creditCard);
     }
 }
 
-- (void)test_isPaymentOptionTypeACreditCard_notACreditCardType {
-    NSArray *notACreditCardPaymentOptionType = @[
+- (void)test_isPaymentMethodTypeACreditCard_notACreditCardType {
+    NSArray *notACreditCardPaymentMethodType = @[
                                   @(BTDropInPaymentMethodTypeUnknown),
                                   @(BTDropInPaymentMethodTypePayPal),
                                   @(BTDropInPaymentMethodTypeCoinbase),
                                   @(BTDropInPaymentMethodTypeVenmo),
                                   @(BTDropInPaymentMethodTypeApplePay),
                                   ];
-    for (NSNumber *notACreditCard in notACreditCardPaymentOptionType) {
-        XCTAssertFalse([BTUIKViewUtil isPaymentOptionTypeACreditCard:[notACreditCard integerValue]], @"Payment Option Type with integer value %@", notACreditCard);
+    for (NSNumber *notACreditCard in notACreditCardPaymentMethodType) {
+        XCTAssertFalse([BTUIKViewUtil isPaymentMethodTypeACreditCard:[notACreditCard integerValue]], @"Payment Option Type with integer value %@", notACreditCard);
     }
 }
 
