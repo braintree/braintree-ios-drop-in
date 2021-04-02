@@ -66,3 +66,27 @@ dropInRequest.uiCustomization = uiCustomization
 ## Drop-in Result
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
+
+The `fetch` method has been renamed to `mostRecentPaymentMethod`:
+
+```swift
+BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, error in
+	guard let result = result, error == nil else {
+    // either an error occurred or the customer doesn't have any vaulted payment methods
+    return
+  }
+
+	if result.paymentOptionType == .applePay {
+		// Apple Pay is the most recently selected option
+    // Note that result.paymentMethod will be nil in this case; display Apple Pay button and tokenize using `BTApplePayClient`
+	}
+
+  // Update your UI
+  let type = result.paymentOptionType
+  let icon = result.paymentIcon
+  let description = result.paymentDescription
+
+  // Use the payment method to transact
+  let paymentMethod = result.paymentMethod
+}
+```

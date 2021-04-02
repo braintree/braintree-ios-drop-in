@@ -145,25 +145,31 @@ let request =  BTDropInRequest()
 request.vaultManager = true
 ```
 
-### Fetch last used payment method
+### Fetch most recent payment method
 
-If your user already has an existing payment method, you may not need to show the Drop-In payment picker. You can check if they have an existing payment method using `BTDropInResult:fetchDropInResultForAuthorization`. Note that the handler will only return a result when using a client token that was created with a `customer_id`. `BTDropInResult` makes it easy to get a description and icon of the payment method.
+If your user already has an existing payment method, you may not need to show the Drop-In UI. You can check if they have an existing payment method using `BTDropInResult.mostRecentPaymentMethod`. Note that you must use a client token that was created with a `customer_id`. `BTDropInResult` makes it easy to get a description and icon of the payment method.
 
 ![Example payment method icon and description](Images/saved-single-payment-method.png "Example payment method icon and description")
 
 ```swift
-func fetchExistingPaymentMethod(clientToken: String) {
-    BTDropInResult.fetch(forAuthorization: clientToken, handler: { (result, error) in
-        if (error != nil) {
-            print("ERROR")
-        } else if let result = result {
-            // Use the BTDropInResult properties to update your UI
-            let selectedPaymentOptionType = result.paymentOptionType
-            let selectedPaymentMethod = result.paymentMethod
-            let selectedPaymentMethodIcon = result.paymentIcon
-            let selectedPaymentMethodDescription = result.paymentDescription
-        }
-    })
+BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, error in
+  guard let result = result, error == nil else {
+    // either an error occurred or the customer doesn't have any vaulted payment methods
+    return
+  }
+
+  if result.paymentOptionType == .applePay {
+    // Apple Pay is the most recently selected option
+    // Note that result.paymentMethod will be nil in this case; display Apple Pay button and tokenize using `BTApplePayClient`
+  }
+
+  // Update your UI
+  let type = result.paymentOptionType
+  let icon = result.paymentIcon
+  let description = result.paymentDescription
+
+  // Use the payment method to transact
+  let paymentMethod = result.paymentMethod
 }
 ```
 
