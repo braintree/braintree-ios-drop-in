@@ -13,6 +13,7 @@ _Documentation for v9 will be published to https://developers.braintreepayments.
 1. [UI Customization](#ui-customization)
 1. [Accessibility](#accessibility)
 1. [Drop-in Result](#drop-in-result)
+1. [Venmo](#venmo)
 
 ## Supported Versions
 
@@ -66,3 +67,18 @@ dropInRequest.uiCustomization = uiCustomization
 ## Drop-in Result
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
+
+## Venmo
+
+In v9, `BTDropInRequest` has a `venmoRequest` property that can be used to specify options for the Venmo flow. v9 also removes the `vaultVenmo` property. If you were previously using `vaultVenmo`, you should now use `venmoRequest.vault` instead.
+
+```swift
+let venmoRequest = BTVenmoRequest()
+venmoRequest.vault = true
+// set additional Venmo options as needed
+
+let dropInRequest = BTDropInRequest()
+dropInRequest.venmoRequest = venmoRequest
+```
+
+If you do not set `venmoRequest`, vaulting will be on by default during the Venmo flow.
