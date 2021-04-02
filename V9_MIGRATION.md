@@ -66,3 +66,5 @@ dropInRequest.uiCustomization = uiCustomization
 ## Drop-in Result
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
+
+The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`.
