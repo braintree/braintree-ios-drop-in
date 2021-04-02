@@ -13,6 +13,7 @@ _Documentation for v9 will be published to https://developers.braintreepayments.
 1. [UI Customization](#ui-customization)
 1. [Accessibility](#accessibility)
 1. [Drop-in Result](#drop-in-result)
+1. [3D Secure](#3d-secure)
 
 ## Supported Versions
 
@@ -66,3 +67,7 @@ dropInRequest.uiCustomization = uiCustomization
 ## Drop-in Result
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
+
+## 3D Secure
+
+v9 removes the `threeDSecureVerifcation` property from `BTDropInRequest`. 3DS will always be requested if `threeDSecureRequest` is not nil and 3DS is enabled in the Control Panel.

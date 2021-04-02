@@ -9,6 +9,8 @@
 * Fix iOS 13 UI bug where "Next" button overlapped with card number text field
 * Card form
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
+* 3D Secure
+  * Remove `threeDSecureVerification` from `BTDropInRequest`; 3DS will always be requested if `threeDSecure` request is not nil
 
 ## 9.0.0-beta1 (2021-03-29)
 

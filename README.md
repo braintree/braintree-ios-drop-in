@@ -100,13 +100,12 @@ request.applePayDisabled = !canMakePayments
 
 Use `BTApplePayClient` to tokenize the customer's Apple Pay information - [view our official docs for more information](https://developers.braintreepayments.com/guides/apple-pay/client-side/ios/v5).
 
-### 3D-Secure + Drop-In
+### 3D Secure + Drop-In
 
-The new Drop-In supports 3D-Secure verification. If you have enabled 3D-Secure in the control panel, enable it in the `BTDropInRequest` and set an amount. Then, create a `BTThreeDSecureRequest` object, setting as many fields on it as possible; the more fields that are set, the less likely it is that a user will be be presented with a challenge. Make sure to attach this object to the `BTDropInRequest` before use.
+The Drop-In supports 3D Secure verification. You must have 3D Secure enabled in the Control Panel. Create a `BTThreeDSecureRequest`, setting as many fields on it as possible; the more fields that are set, the less likely it is that a user will be be presented with a challenge. Set the `BTThreeDSecureRequest` on `BTDropInRequest`.
 
 ```swift
 let request = BTDropInRequest()
-request.threeDSecureVerification = true
 
 let threeDSecureRequest = BTThreeDSecureRequest()
 threeDSecureRequest.threeDSecureRequestDelegate = self
