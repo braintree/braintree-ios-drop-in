@@ -11,30 +11,65 @@
 #import <BraintreeCore/BraintreeCore.h>
 #endif
 
+NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResultErrorDomain";
+
 @implementation BTDropInResult
 
 #pragma mark - Prefetch BTDropInResult
 
+static NSUserDefaults *_userDefaults = nil;
+
++ (NSUserDefaults *)userDefaults {
+    if (_userDefaults == nil) {
+        _userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    return _userDefaults;
+}
+
++ (void)setUserDefaults:(NSUserDefaults *)userDefaults {
+    if (userDefaults != _userDefaults) {
+        _userDefaults = userDefaults;
+    }
+}
+
 + (void)fetchDropInResultForAuthorization:(NSString *)authorization handler:(BTDropInResultFetchHandler)handler {
-    BTUIKPaymentOptionType lastSelectedPaymentOptionType = [[NSUserDefaults standardUserDefaults] integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
-    __block BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:authorization sendAnalyticsEvent:NO];
+    BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:authorization sendAnalyticsEvent:NO];
     apiClient = [apiClient copyWithSource:apiClient.metadata.source integration:BTClientMetadataIntegrationDropIn2];
+    [BTDropInResult fetchDropInResultWithAPIClient:apiClient handler:handler];
+}
+
++ (void)fetchDropInResultWithAPIClient:(BTAPIClient * _Nullable)apiClient handler:(BTDropInResultFetchHandler)handler {
+    BTUIKPaymentOptionType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
+    if (lastSelectedPaymentOptionType == BTUIKPaymentOptionTypeApplePay) {
+        BTDropInResult *result = [BTDropInResult new];
+        result.paymentOptionType = lastSelectedPaymentOptionType;
+        handler(result, nil);
+        return;
+    }
+
+    if (!apiClient) {
+        NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
+                                                    code:BTDropInErrorTypeAuthorization
+                                                userInfo:@{NSLocalizedDescriptionKey: @"Invalid authorization"}];
+        handler(nil, error);
+        return;
+    }
 
     [apiClient fetchPaymentMethodNonces:NO completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
-        if (error != nil) {
+        if (error) {
             handler(nil, error);
-        } else {
-            BTDropInResult *result = [BTDropInResult new];
-            if (lastSelectedPaymentOptionType == BTUIKPaymentOptionTypeApplePay) {
-                result.paymentOptionType = lastSelectedPaymentOptionType;
-            } else if (paymentMethodNonces != nil && paymentMethodNonces.count > 0) {
-                BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
-                result.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:paymentMethod.type];
-                result.paymentMethod = paymentMethod;
-            }
-            handler(result, error);
+            return;
         }
-        apiClient = nil;
+
+        BTDropInResult *result;
+        if (paymentMethodNonces.count > 0) {
+            result = [BTDropInResult new];
+            BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
+            result.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:paymentMethod.type];
+            result.paymentMethod = paymentMethod;
+        }
+
+        handler(result, nil);
     }];
 }
 

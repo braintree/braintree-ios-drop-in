@@ -5,6 +5,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class BTPaymentMethodNonce;
 
+/**
+ Domain for Braintree Drop-in errors.
+ */
+extern NSString * const BTDropInErrorDomain;
+
+/**
+ Error codes associated with Braintree Drop-in.
+ */
+typedef NS_ENUM(NSInteger, BTDropInErrorType) {
+    /// Unknown error
+    BTDropInErrorTypeUnknown = 0,
+
+    /// The client token or tokenization key is invalid
+    BTDropInErrorTypeAuthorization,
+};
+
 @interface BTDropInResult : NSObject
 
 typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NSError * _Nullable error);
