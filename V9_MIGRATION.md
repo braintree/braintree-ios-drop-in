@@ -17,7 +17,7 @@ _Documentation for v9 will be published to https://developers.braintreepayments.
 
 ## Supported Versions
 
-v9 supports a minimum deployment target of iOS 12+. It requires the use of Xcode 12+ and Swift 5+.
+v9 supports a minimum deployment target of iOS 12+. It requires the use of Xcode 12+ and Swift 5.1+.
 
 ## Swift Package Manager
 
