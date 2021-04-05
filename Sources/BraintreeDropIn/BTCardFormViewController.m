@@ -368,7 +368,7 @@
     [self.cardNumberField resetFormField];
     self.cardNumberFooter.hidden = NO;
     self.cardNumberHeader.hidden = NO;
-    [self.cardList emphasizePaymentOption:BTUIKPaymentOptionTypeUnknown];
+    [self.cardList emphasizePaymentOption:BTDropInPaymentMethodTypeUnknown];
     self.shouldVaultCardSwitchField.switchControl.on = self.dropInRequest.vaultCard && self.apiClient.tokenizationKey == nil;
     [self updateFormBorders];
 }
@@ -737,7 +737,7 @@
     // Highlight card brand in card hint view according to BIN number
     if (self.collapsed && formField == self.cardNumberField) {
         [self cardNumberErrorHidden:YES];
-        BTUIKPaymentOptionType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType];
+        BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType];
         [self.cardList emphasizePaymentOption:paymentMethodType];
     }
     

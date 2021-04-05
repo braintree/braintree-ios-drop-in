@@ -1,0 +1,22 @@
+/// Credit card types
+typedef NS_ENUM(NSInteger, BTDropInPaymentMethodType) {
+    BTDropInPaymentMethodTypeUnknown = 0,
+    BTDropInPaymentMethodTypeAMEX,
+    BTDropInPaymentMethodTypeDinersClub,
+    BTDropInPaymentMethodTypeDiscover,
+    BTDropInPaymentMethodTypeMasterCard,
+    BTDropInPaymentMethodTypeVisa,
+    BTDropInPaymentMethodTypeJCB,
+    BTDropInPaymentMethodTypeLaser,
+    BTDropInPaymentMethodTypeMaestro,
+    BTDropInPaymentMethodTypeUnionPay,
+    BTDropInPaymentMethodTypeHiper,
+    BTDropInPaymentMethodTypeHipercard,
+    BTDropInPaymentMethodTypeSolo,
+    BTDropInPaymentMethodTypeSwitch,
+    BTDropInPaymentMethodTypeUKMaestro,
+    BTDropInPaymentMethodTypePayPal,
+    BTDropInPaymentMethodTypeCoinbase,
+    BTDropInPaymentMethodTypeVenmo,
+    BTDropInPaymentMethodTypeApplePay,
+};
