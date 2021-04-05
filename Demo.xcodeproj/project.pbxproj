@@ -32,6 +32,7 @@
 		428484BD2617BFD20093461D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428484BB2617BFD20093461D /* LaunchScreen.storyboard */; };
 		428484C62617C0140093461D /* AppSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428484C52617C0140093461D /* AppSwitcher.swift */; };
 		428484CB2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428484CA2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift */; };
+		805384C9261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
 		8068E532256D7489002904E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E531256D7489002904E6 /* Helpers.swift */; };
@@ -127,6 +128,7 @@
 		428484BE2617BFD20093461D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428484C52617C0140093461D /* AppSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSwitcher.swift; sourceTree = "<group>"; };
 		428484CA2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_Venmo_UITests.swift; sourceTree = "<group>"; };
+		805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_Localization_UITests.swift; sourceTree = "<group>"; };
 		8068E51D256D73D5002904E6 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_UITests.swift; sourceTree = "<group>"; };
 		8068E521256D73D5002904E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */,
 				8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */,
 				428484CA2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift */,
+				805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */,
 				8068E531256D7489002904E6 /* Helpers.swift */,
 				8068E521256D73D5002904E6 /* Info.plist */,
 			);
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */,
+				805384C9261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift in Sources */,
 				8068E532256D7489002904E6 /* Helpers.swift in Sources */,
 				428484CB2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift in Sources */,
 				8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */,
@@ -869,7 +873,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in.git";
 			requirement = {
-				branch = "next-major-version";
+				branch = master;
 				kind = branch;
 			};
 		};
