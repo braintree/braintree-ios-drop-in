@@ -86,13 +86,13 @@ class BTDropInResultTests: XCTestCase {
     }
 
     func testMostRecentPaymentMethod_whenLastSelectedPaymentTypeIsApplePay_returnsResultWithApplePay() {
-        BTDropInResult.userDefaults.set(BTUIKPaymentOptionType.applePay.rawValue, forKey: "BT_dropInLastSelectedPaymentMethodType")
+        BTDropInResult.userDefaults.set(BTDropInPaymentMethodType.applePay.rawValue, forKey: "BT_dropInLastSelectedPaymentMethodType")
 
         let mockAPIClient = MockAPIClient(authType: .clientToken)
 
         let expectation = self.expectation(description: "Calls completion with Apple Pay result")
         BTDropInResult.mostRecentPaymentMethod(for: mockAPIClient) { result, error in
-            XCTAssertEqual(result?.paymentOptionType, .applePay)
+            XCTAssertEqual(result?.paymentMethodType, .applePay)
             XCTAssertNil(error)
             expectation.fulfill()
         }
