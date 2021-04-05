@@ -6,13 +6,14 @@
   * VoiceOver improvements
   * Fix color contrast ratios
   * Increase hit area for several buttons
-* Localization
-  * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
-  * Remove `insertIntoLocalizedString` methods
-  * Remove translation string static helper methods
 * Fix iOS 13 UI bug where "Next" button overlapped with card number text field
 * Card form
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
+* Breaking changes
+  * Localization
+    * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
+    * Remove `insertIntoLocalizedString` methods
+    * Remove translation string static helper methods
 
 ## 9.0.0-beta1 (2021-03-29)
 
