@@ -14,6 +14,7 @@ _Documentation for v9 will be published to https://developers.braintreepayments.
 1. [Accessibility](#accessibility)
 1. [Drop-in Result](#drop-in-result)
 1. [Venmo](#venmo)
+1. [3D Secure](#3d-secure)
 
 ## Supported Versions
 
@@ -84,3 +85,7 @@ dropInRequest.venmoRequest = venmoRequest
 ```
 
 If you do not set `venmoRequest`, vaulting will be on by default during the Venmo flow.
+
+## 3D Secure
+
+v9 removes the `threeDSecureVerifcation` property from `BTDropInRequest`. 3DS will always be requested if `threeDSecureRequest` is not nil and 3DS is enabled in the Control Panel.
