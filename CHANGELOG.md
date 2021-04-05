@@ -19,6 +19,8 @@
   * BTDropInResult
     * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
     * Rename `paymentOptionType` property to `paymentMethodType`
+  * BTDropInPaymentMethodType
+    * Remove `BTDropInPaymentMethodTypeCoinbase`
 
 ## 9.0.0-beta1 (2021-03-29)
 
