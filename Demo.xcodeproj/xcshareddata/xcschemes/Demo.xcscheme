@@ -20,20 +20,6 @@
                ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5411A1B1D8A1F090041BE92"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
-               ReferencedContainer = "container:../BraintreeDropIn.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

@@ -40,6 +40,7 @@
     BTDropInRequest *originalRequest = [BTDropInRequest new];
     
     originalRequest.payPalRequest = [[BTPayPalCheckoutRequest alloc] initWithAmount:@"10.01"];
+    originalRequest.venmoRequest = [[BTVenmoRequest alloc] init];
     originalRequest.applePayDisabled = YES;
     originalRequest.paypalDisabled = YES;
     originalRequest.venmoDisabled = YES;
@@ -50,11 +51,11 @@
     originalRequest.vaultManager = YES;
     originalRequest.vaultCard = NO;
     originalRequest.allowVaultCardOverride = YES;
-    originalRequest.vaultVenmo = NO;
 
     BTDropInRequest *copiedRequest = [originalRequest copy];
     
     XCTAssertEqual(originalRequest.payPalRequest, copiedRequest.payPalRequest);
+    XCTAssertEqual(originalRequest.venmoRequest, copiedRequest.venmoRequest);
     XCTAssertEqual(originalRequest.applePayDisabled, copiedRequest.applePayDisabled);
     XCTAssertEqual(originalRequest.paypalDisabled, copiedRequest.paypalDisabled);
     XCTAssertEqual(originalRequest.venmoDisabled, copiedRequest.venmoDisabled);
@@ -64,7 +65,6 @@
     XCTAssertEqual(originalRequest.vaultManager, copiedRequest.vaultManager);
     XCTAssertEqual(originalRequest.vaultCard, copiedRequest.vaultCard);
     XCTAssertEqual(originalRequest.allowVaultCardOverride, copiedRequest.allowVaultCardOverride);
-    XCTAssertEqual(originalRequest.vaultVenmo, copiedRequest.vaultVenmo);
 
     XCTAssertEqual(originalRequest.threeDSecureRequest, copiedRequest.threeDSecureRequest);
     XCTAssertEqual(BTThreeDSecureVersion2, copiedRequest.threeDSecureRequest.versionRequested);

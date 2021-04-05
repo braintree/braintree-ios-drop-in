@@ -4,7 +4,7 @@ import BraintreeDropIn
 class DemoAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+
     private let BraintreeDemoAppDelegatePaymentsURLScheme = "com.braintreepayments.DropInDemo.payments"
     
     func application(_ application: UIApplication,

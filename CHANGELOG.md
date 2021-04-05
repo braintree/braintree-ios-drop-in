@@ -14,6 +14,9 @@
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
     * Remove `insertIntoLocalizedString` methods
     * Remove translation string static helper methods
+  * Venmo
+    * Add `venmoRequest` to `BTDropInRequest`
+    * Remove `vaultVenmo` property from `BTDropInRequest` (use `venmoRequest.vault` instead)
   * 3D Secure
     * Remove `threeDSecureVerification` from `BTDropInRequest`; 3DS will always be requested if `threeDSecure` request is not nil
   * BTDropInResult
