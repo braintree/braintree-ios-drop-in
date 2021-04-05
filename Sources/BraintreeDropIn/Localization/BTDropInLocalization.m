@@ -300,10 +300,6 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"CARD_TYPE_HIPERCARD", [self localizationTable], [self localizationBundle], @"Hipercard", @"CARD_TYPE_HIPERCARD");
 }
 
-+ (NSString *)BRANDING_COINBASE {
-    return NSLocalizedStringWithDefaultValue(@"BRANDING_COINBASE", [self localizationTable], [self localizationBundle], @"Coinbase", @"BRANDING_COINBASE");
-}
-
 + (NSString *)BRANDING_VENMO {
     return NSLocalizedStringWithDefaultValue(@"BRANDING_VENMO", [self localizationTable], [self localizationBundle], @"Venmo", @"BRANDING_VENMO");
 }

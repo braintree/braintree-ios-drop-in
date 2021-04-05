@@ -9,7 +9,6 @@
 #import "BTUIKDinersClubVectorArtView.h"
 #import "BTUIKAmExVectorArtView.h"
 #import "BTUIKPayPalMonogramCardView.h"
-#import "BTUIKCoinbaseMonogramCardView.h"
 #import "BTUIKVenmoMonogramCardView.h"
 #import "BTUIKUnionPayVectorArtView.h"
 #import "BTUIKHipercardVectorArtView.h"
@@ -24,7 +23,6 @@
 #import "BTUIKLargeDinersClubVectorArtView.h"
 #import "BTUIKLargeAmExVectorArtView.h"
 #import "BTUIKLargePayPalMonogramCardView.h"
-#import "BTUIKLargeCoinbaseMonogramCardView.h"
 #import "BTUIKLargeVenmoMonogramCardView.h"
 #import "BTUIKLargeUnionPayVectorArtView.h"
 #import "BTUIKLargeHiperVectorArtView.h"
@@ -103,8 +101,6 @@
             return BTDropInLocalizedString(CARD_TYPE_MAESTRO);
         case BTDropInPaymentMethodTypePayPal:
             return BTDropInLocalizedString(PAYPAL);
-        case BTDropInPaymentMethodTypeCoinbase:
-            return BTDropInLocalizedString(BRANDING_COINBASE);
         case BTDropInPaymentMethodTypeVenmo:
             return BTDropInLocalizedString(BRANDING_VENMO);
         case BTDropInPaymentMethodTypeApplePay:
@@ -123,8 +119,6 @@
         return BTDropInPaymentMethodTypeVisa;
     } else if ([typeString isEqualToString:@"MasterCard"]) {
         return BTDropInPaymentMethodTypeMasterCard;
-    } else if ([typeString isEqualToString:@"Coinbase"]) {
-        return BTDropInPaymentMethodTypeCoinbase;
     } else if ([typeString isEqualToString:@"PayPal"]) {
         return BTDropInPaymentMethodTypePayPal;
     } else if ([typeString isEqualToString:@"DinersClub"]) {
@@ -196,8 +190,6 @@
             return size == BTUIKVectorArtSizeRegular ? [BTUIKVisaVectorArtView new] : [BTUIKLargeVisaVectorArtView new];
         case BTDropInPaymentMethodTypeMasterCard:
             return size == BTUIKVectorArtSizeRegular ? [BTUIKMasterCardVectorArtView new] : [BTUIKLargeMasterCardVectorArtView new];
-        case BTDropInPaymentMethodTypeCoinbase:
-            return size == BTUIKVectorArtSizeRegular ? [BTUIKCoinbaseMonogramCardView new] : [BTUIKLargeCoinbaseMonogramCardView new];
         case BTDropInPaymentMethodTypePayPal:
             return size == BTUIKVectorArtSizeRegular ? [BTUIKPayPalMonogramCardView new] : [BTUIKLargePayPalMonogramCardView new];
         case BTDropInPaymentMethodTypeDinersClub:

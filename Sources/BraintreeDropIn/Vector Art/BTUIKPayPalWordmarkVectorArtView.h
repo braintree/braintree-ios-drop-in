@@ -5,7 +5,7 @@
 
 ///  Initializes a PayPal Wordmark with padding
 ///
-///  This view includes built-in padding to ensure consistent typographical baseline alignment with Venmo and Coinbase wordmarks.
+///  This view includes built-in padding to ensure consistent typographical baseline alignment with Venmo wordmark.
 ///
 ///  @return A PayPal Wordmark with padding
 - (instancetype)initWithPadding;
