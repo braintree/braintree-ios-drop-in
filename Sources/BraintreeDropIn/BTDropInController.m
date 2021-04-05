@@ -223,7 +223,7 @@
                 self.paymentSelectionNavigationController.view.hidden = NO;
                 self.paymentSelectionNavigationController.view.alpha = 1.0;
 
-                NSMutableArray *paymentOptionTypes = [NSMutableArray new];
+                NSMutableArray *paymentMethodTypes = [NSMutableArray new];
                 for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
                     BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
                     if (paymentMethodType != BTDropInPaymentMethodTypeUnknown) {
