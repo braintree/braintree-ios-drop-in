@@ -41,10 +41,10 @@ static NSUserDefaults *_userDefaults = nil;
 
 + (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient
                                  completion:(void (^)(BTDropInResult *result, NSError *error))completion {
-    BTUIKPaymentOptionType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
-    if (lastSelectedPaymentOptionType == BTUIKPaymentOptionTypeApplePay) {
+    BTDropInPaymentMethodType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
+    if (lastSelectedPaymentOptionType == BTDropInPaymentMethodTypeApplePay) {
         BTDropInResult *result = [BTDropInResult new];
-        result.paymentOptionType = lastSelectedPaymentOptionType;
+        result.paymentMethodType = lastSelectedPaymentOptionType;
         completion(result, nil);
         return;
     }
@@ -67,7 +67,7 @@ static NSUserDefaults *_userDefaults = nil;
         if (paymentMethodNonces.count > 0) {
             result = [BTDropInResult new];
             BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
-            result.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:paymentMethod.type];
+            result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:paymentMethod.type];
             result.paymentMethod = paymentMethod;
         }
 
