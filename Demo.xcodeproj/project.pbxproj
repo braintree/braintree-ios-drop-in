@@ -39,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		426A45DD261BA55100951A31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4245D79B256C5AF900F1A413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 428484AD2617BFD00093461D;
+			remoteInfo = MockVenmo;
+		};
 		8068E522256D73D5002904E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4245D79B256C5AF900F1A413 /* Project object */;
@@ -326,6 +333,7 @@
 			);
 			dependencies = (
 				8068E523256D73D5002904E6 /* PBXTargetDependency */,
+				426A45DE261BA55100951A31 /* PBXTargetDependency */,
 			);
 			name = UITests;
 			productName = UITests;
@@ -478,6 +486,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		426A45DE261BA55100951A31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 428484AD2617BFD00093461D /* MockVenmo */;
+			targetProxy = 426A45DD261BA55100951A31 /* PBXContainerItemProxy */;
+		};
 		8068E523256D73D5002904E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4245D7A2256C5AF900F1A413 /* Demo */;
