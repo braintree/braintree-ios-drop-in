@@ -1,6 +1,6 @@
 #import <BraintreeDropIn/BTDropInController.h>
 #import "BTDropInBaseViewController.h"
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 
 #ifdef COCOAPODS
 #import <Braintree/BTVenmoDriver.h>
@@ -32,10 +32,10 @@
 
 /// Called on the delegate when a payment method is selected
 ///
-/// @param type The BTUIKPaymentOptionType of the selected payment method
+/// @param type The BTDropInPaymentMethodType of the selected payment method
 /// @param nonce The BTPaymentMethodNonce of the selected payment method. @note This can be `nil` in the case of Apple Pay.
 /// @param error The error that occured during tokenization of a new payment method.
-- (void) selectionCompletedWithPaymentMethodType:(BTUIKPaymentOptionType) type nonce:(BTPaymentMethodNonce *)nonce error:(NSError *)error;
+- (void) selectionCompletedWithPaymentMethodType:(BTDropInPaymentMethodType) type nonce:(BTPaymentMethodNonce *)nonce error:(NSError *)error;
 
 /// Called on the delegate when the cancel button is pressed
 ///

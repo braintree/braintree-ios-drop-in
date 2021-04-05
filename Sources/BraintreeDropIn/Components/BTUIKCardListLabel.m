@@ -8,7 +8,7 @@
 @interface BTUIKCardListLabel ()
 
 @property (nonatomic, strong) NSArray *availablePaymentOptionAttachments;
-@property (nonatomic) BTUIKPaymentOptionType emphasisedPaymentOption;
+@property (nonatomic) BTDropInPaymentMethodType emphasisedPaymentOption;
 
 @end
 
@@ -20,7 +20,7 @@
         self.numberOfLines = 0;
         self.textAlignment = NSTextAlignmentCenter;
 
-        self.emphasisedPaymentOption = BTUIKPaymentOptionTypeUnknown;
+        self.emphasisedPaymentOption = BTDropInPaymentMethodTypeUnknown;
         self.availablePaymentOptionAttachments = @[];
 
         self.availablePaymentOptions = @[];
@@ -59,9 +59,9 @@
     
     for (NSUInteger i = 0; i < self.availablePaymentOptions.count; i++) {
         NSTextAttachment *composeAttachment = [NSTextAttachment new];
-        BTUIKPaymentOptionType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
+        BTDropInPaymentMethodType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
         composeAttachment.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
-        hint.paymentOptionType = paymentOption;
+        hint.paymentMethodType = paymentOption;
         [hint setNeedsLayout];
         [hint layoutIfNeeded];
         UIImage *composeImage = [self imageWithView:hint];
@@ -75,15 +75,15 @@
     self.availablePaymentOptionAttachments = attachments;
 }
 
-- (void)emphasizePaymentOption:(BTUIKPaymentOptionType)paymentOption {
+- (void)emphasizePaymentOption:(BTDropInPaymentMethodType)paymentOption {
     if (paymentOption == self.emphasisedPaymentOption) {
         return;
     }
 
     [self updateAppearance];
     for (NSUInteger i = 0; i < self.availablePaymentOptions.count; i++) {
-        BTUIKPaymentOptionType option = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
-        float newAlpha = (paymentOption == option || paymentOption == BTUIKPaymentOptionTypeUnknown) ? 1.0 : 0.25;
+        BTDropInPaymentMethodType option = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
+        float newAlpha = (paymentOption == option || paymentOption == BTDropInPaymentMethodTypeUnknown) ? 1.0 : 0.25;
         NSTextAttachment *attachment = self.availablePaymentOptionAttachments[i];
         UIGraphicsBeginImageContextWithOptions(attachment.image.size, NO, attachment.image.scale);
         [attachment.image drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:newAlpha];

@@ -40,7 +40,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     self = [super init];
     if (self) {
         self.paymentMethodNonces = @[];
-        self.paymentOptionsData = @[@(BTUIKPaymentOptionTypePayPal), @(BTUIKPaymentOptionTypeUnknown)];
+        self.paymentOptionsData = @[@(BTDropInPaymentMethodTypePayPal), @(BTDropInPaymentMethodTypeUnknown)];
     }
     return self;
 }
@@ -113,25 +113,25 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     if (!error) {
         [self fetchPaymentMethodsOnCompletion:^{
             if (self.configuration.isPayPalEnabled && !self.dropInRequest.paypalDisabled) {
-                [activePaymentOptions addObject:@(BTUIKPaymentOptionTypePayPal)];
+                [activePaymentOptions addObject:@(BTDropInPaymentMethodTypePayPal)];
             }
 
             if (!self.dropInRequest.venmoDisabled && self.venmoDriver.isiOSAppAvailableForAppSwitch && self.configuration.isVenmoEnabled) {
-                [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeVenmo)];
+                [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeVenmo)];
             }
 
             NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
             for (NSString *supportedCardType in supportedCardTypes) {
-                BTUIKPaymentOptionType paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:supportedCardType];
-                if ([BTUIKViewUtil isPaymentOptionTypeACreditCard:paymentOptionType] && !self.dropInRequest.cardDisabled) {
+                BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
+                if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:paymentMethodType] && !self.dropInRequest.cardDisabled) {
                     // Add credit cards if they are supported
-                    [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeUnknown)];
+                    [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeUnknown)];
                     break;
                 }
             }
 
             if (self.configuration.isApplePayEnabled && !self.dropInRequest.applePayDisabled && self.configuration.canMakeApplePayPayments) {
-                [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
+                [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeApplePay)];
             }
 
             self.paymentOptionsData = [activePaymentOptions copy];
@@ -236,14 +236,14 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-        BTUIKPaymentOptionType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
+        BTDropInPaymentMethodType option = ((NSNumber*)self.paymentOptionsData[indexPath.row]).intValue;
 
         cell.detailLabel.text = @"";
         cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
-        if (option == BTUIKPaymentOptionTypeUnknown) {
+        if (option == BTDropInPaymentMethodTypeUnknown) {
             cell.label.text = BTDropInLocalizedString(CREDIT_OR_DEBIT_CARD_LABEL);
         }
-        cell.iconView.paymentOptionType = option;
+        cell.iconView.paymentMethodType = option;
         cell.type = option;
 
         return cell;
@@ -256,11 +256,11 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     }
 
     BTDropInPaymentSelectionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.type == BTUIKPaymentOptionTypeUnknown) {
+    if (cell.type == BTDropInPaymentMethodTypeUnknown) {
         if ([self.delegate respondsToSelector:@selector(showCardForm:)]){
             [self.delegate performSelector:@selector(showCardForm:) withObject:self];
         }
-    } else if (cell.type == BTUIKPaymentOptionTypePayPal) {
+    } else if (cell.type == BTDropInPaymentMethodTypePayPal) {
         BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
 
         BTPayPalRequest *payPalRequest = self.dropInRequest.payPalRequest;
@@ -272,10 +272,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [driver tokenizePayPalAccountWithPayPalRequest:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error) {
             [self showLoadingScreen:NO];
             if (self.delegate && (tokenizedPayPalAccount != nil || error != nil)) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypePayPal nonce:tokenizedPayPalAccount error:error];
+                [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypePayPal nonce:tokenizedPayPalAccount error:error];
             }
         }];
-    } else if (cell.type == BTUIKPaymentOptionTypeVenmo) {
+    } else if (cell.type == BTDropInPaymentMethodTypeVenmo) {
         BTVenmoRequest *venmoRequest = self.dropInRequest.venmoRequest;
         if (venmoRequest == nil) {
             venmoRequest = [[BTVenmoRequest alloc] init];
@@ -286,12 +286,12 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [self.venmoDriver tokenizeVenmoAccountWithVenmoRequest:venmoRequest completion:^(BTVenmoAccountNonce * _Nullable venmoAccountNonce, NSError * _Nullable error) {
             [self showLoadingScreen:NO];
             if (self.delegate && (venmoAccountNonce != nil || error != nil)) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeVenmo nonce:venmoAccountNonce error:error];
+                [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypeVenmo nonce:venmoAccountNonce error:error];
             }
         }];
-    } else if (cell.type == BTUIKPaymentOptionTypeApplePay) {
+    } else if (cell.type == BTDropInPaymentMethodTypeApplePay) {
         if (self.delegate) {
-            [self.delegate selectionCompletedWithPaymentMethodType:BTUIKPaymentOptionTypeApplePay nonce:nil error:nil];
+            [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypeApplePay nonce:nil error:nil];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -349,7 +349,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)vaultedPaymentMethodsTableViewCell:(BTVaultedPaymentMethodsTableViewCell *)cell didSelectNonce:(BTPaymentMethodNonce *)nonce {
     if (self.delegate) {
-        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:nonce.type]
+        [self.delegate selectionCompletedWithPaymentMethodType:[BTUIKViewUtil paymentMethodTypeForPaymentInfoType:nonce.type]
                                                          nonce:nonce
                                                          error:nil];
 

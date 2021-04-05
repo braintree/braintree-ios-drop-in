@@ -68,6 +68,8 @@ dropInRequest.uiCustomization = uiCustomization
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
 
+The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`. The name of this enum has changed from `BTUIKPaymentOptionType` to `BTDropInPaymentMethodType`.
+
 ## Venmo
 
 In v9, `BTDropInRequest` has a `venmoRequest` property that can be used to specify options for the Venmo flow. v9 also removes the `vaultVenmo` property. If you were previously using `vaultVenmo`, you should now use `venmoRequest.vault` instead.

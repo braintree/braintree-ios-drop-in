@@ -70,8 +70,8 @@
 
     cell.highlighted = NO;
     cell.descriptionLabel.text = paymentInfo.paymentDescription;
-    cell.titleLabel.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString]];
-    cell.paymentOptionCardView.paymentOptionType = [BTUIKViewUtil paymentOptionTypeForPaymentInfoType:typeString];
+    cell.titleLabel.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentMethodTypeForPaymentInfoType:typeString]];
+    cell.paymentOptionCardView.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:typeString];
 
     cell.isAccessibilityElement = YES;
     cell.accessibilityLabel = [NSString stringWithFormat:@"%@ %@", typeString, paymentInfo.paymentDescription];
