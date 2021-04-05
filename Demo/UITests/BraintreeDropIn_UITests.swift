@@ -1029,28 +1029,6 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
     }
 }
 
-class BraintreeDropIn_Venmo_NotInstalled_UITests: XCTestCase {
-
-    var app: XCUIApplication!
-
-    override func setUp() {
-        super.setUp()
-        continueAfterFailure = false
-        app = XCUIApplication()
-        app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-TokenizationKey")
-        app.launch()
-        sleep(1)
-        waitForElementToBeHittable(app.buttons["Add Payment Method"])
-        app.buttons["Add Payment Method"].tap()
-    }
-
-    func testDropIn_venmo_doesNotShow_whenDisabled() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        XCTAssertFalse(app.staticTexts["Venmo"].exists)
-    }
-}
-
 class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
 
     var app: XCUIApplication!

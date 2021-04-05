@@ -3,10 +3,12 @@
 #ifdef COCOAPODS
 #import <Braintree/BTPostalAddress.h>
 #import <Braintree/BTPayPalRequest.h>
+#import <Braintree/BTVenmoRequest.h>
 #import <Braintree/BTThreeDSecureRequest.h>
 #else
 #import <BraintreeCore/BTPostalAddress.h>
 #import <BraintreePayPal/BTPayPalRequest.h>
+#import <BraintreeVenmo/BTVenmoRequest.h>
 #import <BraintreeThreeDSecure/BTThreeDSecureRequest.h>
 #endif
 
@@ -22,6 +24,9 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 /// Optional: Specify the options for the PayPal flow using either BTPayPalCheckoutRequest or BTPayPalVaultRequest. If not present, a default vault flow will be used.
 @property (nonatomic, strong, nullable) BTPayPalRequest *payPalRequest;
+
+/// Optional: Specify the options for the Venmo flow. If not present, a default vault flow will be used.
+@property (nonatomic, strong, nullable) BTVenmoRequest *venmoRequest;
 
 /// Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.
 @property (nonatomic, assign) BOOL applePayDisabled;
@@ -64,10 +69,6 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Optional: When true, the card form will include an option to let the customer decide not to vault the card.
 /// Defaults to false
 @property (nonatomic, assign) BOOL allowVaultCardOverride;
-
-/// Optional: Whether or not to vault the Venmo payment method upon tokenization, must be set to `false` when using a client token without a `customerId`.
-/// Defaults to true
-@property (nonatomic, assign) BOOL vaultVenmo;
 
 /// Optional: Customization options for Braintree Drop-in's user interface.
 @property (nonatomic, strong, nullable) BTDropInUICustomization *uiCustomization;

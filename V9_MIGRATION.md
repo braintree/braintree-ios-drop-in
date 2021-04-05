@@ -13,11 +13,12 @@ _Documentation for v9 will be published to https://developers.braintreepayments.
 1. [UI Customization](#ui-customization)
 1. [Accessibility](#accessibility)
 1. [Drop-in Result](#drop-in-result)
+1. [Venmo](#venmo)
 1. [3D Secure](#3d-secure)
 
 ## Supported Versions
 
-v9 supports a minimum deployment target of iOS 12+. It requires the use of Xcode 12+ and Swift 5+.
+v9 supports a minimum deployment target of iOS 12+. It requires the use of Xcode 12+ and Swift 5.1+.
 
 ## Swift Package Manager
 
@@ -93,6 +94,22 @@ BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, 
   let paymentMethod = result.paymentMethod
 }
 ```
+
+## Venmo
+
+In v9, `BTDropInRequest` has a `venmoRequest` property that can be used to specify options for the Venmo flow. v9 also removes the `vaultVenmo` property. If you were previously using `vaultVenmo`, you should now use `venmoRequest.vault` instead.
+
+```swift
+let venmoRequest = BTVenmoRequest()
+venmoRequest.vault = true
+// set additional Venmo options as needed
+
+let dropInRequest = BTDropInRequest()
+dropInRequest.venmoRequest = venmoRequest
+```
+
+If you do not set `venmoRequest`, vaulting will be on by default during the Venmo flow.
+
 ## 3D Secure
 
 v9 removes the `threeDSecureVerifcation` property from `BTDropInRequest`. 3DS will always be requested if `threeDSecureRequest` is not nil and 3DS is enabled in the Control Panel.
