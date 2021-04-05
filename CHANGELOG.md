@@ -14,6 +14,8 @@
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
     * Remove `insertIntoLocalizedString` methods
     * Remove translation string static helper methods
+  * 3D Secure
+    * Remove `threeDSecureVerification` from `BTDropInRequest`; 3DS will always be requested if `threeDSecure` request is not nil
   * BTDropInResult
     * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
     * Rename `paymentOptionType` property to `paymentMethodType`
