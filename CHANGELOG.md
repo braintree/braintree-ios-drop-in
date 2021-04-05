@@ -9,14 +9,14 @@
 * Fix iOS 13 UI bug where "Next" button overlapped with card number text field
 * Card form
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
-* Update `BTDropIn.fetch` method
-  * Rename to `BTDropIn.mostRecentPaymentMethod`
-  * Fix bug where this method would return an empty `BTDropInResult` instead of `nil` when the customer doesn't have any vaulted payment methods
 * Breaking changes
   * Localization
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
     * Remove `insertIntoLocalizedString` methods
     * Remove translation string static helper methods
+  * BTDropInResult
+    * Rename to `BTDropInResult.mostRecentPaymentMethod`
+    * Fix bug where fetching most recent payment methods would return an empty `BTDropInResult` instead of `nil` when the customer doesn't have any vaulted payment methods
 
 ## 9.0.0-beta1 (2021-03-29)
 
