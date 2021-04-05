@@ -16,6 +16,9 @@
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
     * Remove `insertIntoLocalizedString` methods
     * Remove translation string static helper methods
+  * BTDropInResult
+    * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
+    * Rename `paymentOptionType` property to `paymentMethodType`
 
 ## 9.0.0-beta1 (2021-03-29)
 

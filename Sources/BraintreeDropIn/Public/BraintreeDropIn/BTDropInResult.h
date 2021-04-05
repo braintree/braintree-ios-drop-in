@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import <BraintreeDropIn/BTUIKPaymentOptionType.h>
+#import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,7 +13,7 @@ typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NS
 @property (nonatomic, assign, getter=isCanceled) BOOL canceled;
 
 /// The type of the payment option
-@property (nonatomic, assign) BTUIKPaymentOptionType paymentOptionType;
+@property (nonatomic, assign) BTDropInPaymentMethodType paymentMethodType;
 
 /// A UIView (BTUIKPaymentOptionCardView) that represents the payment option
 @property (nonatomic, readonly) UIView *paymentIcon;

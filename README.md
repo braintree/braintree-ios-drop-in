@@ -72,7 +72,7 @@ func showDropIn(clientTokenOrTokenizationKey: String) {
             print("CANCELED")
         } else if let result = result {
             // Use the BTDropInResult properties to update your UI
-            let selectedPaymentOptionType = result.paymentOptionType
+            let selectedPaymentMethodType = result.paymentMethodType
             let selectedPaymentMethod = result.paymentMethod
             let selectedPaymentMethodIcon = result.paymentIcon
             let selectedPaymentMethodDescription = result.paymentDescription
@@ -85,7 +85,7 @@ func showDropIn(clientTokenOrTokenizationKey: String) {
 
 ### Apple Pay + Drop-In
 
-Apple Pay is enabled by default in Drop-In. Unless you opt out, by setting `showApplePayPaymentOption = false`, Drop-In will show Apple Pay as a payment option as long as it is enabled in the control panel. Below is an example of hiding the Apple Pay button if the device can't make Apple Pay payments using certain card networks:
+Apple Pay is enabled by default in Drop-In. Unless you opt out, by setting `applePayDisabled = true`, Drop-In will show Apple Pay as a payment option as long as it is enabled in the control panel. Below is an example of hiding the Apple Pay button if the device can't make Apple Pay payments using certain card networks:
 
 ```swift
 let request =  BTDropInRequest()
@@ -93,7 +93,7 @@ let canMakePayments = PKPaymentAuthorizationViewController.canMakePayments() && 
 request.applePayDisabled = !canMakePayments
 ```
 
-**Important:** If your customer selects Apple Pay as their preferred payment method then `result.paymentOptionType == .applePay` and the `result.paymentMethod` will be `nil`. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce. After you receive the `BTDropInResult`, you will need to:
+**Important:** If your customer selects Apple Pay as their preferred payment method then `result.paymentMethodType == .applePay` and the `result.paymentMethod` will be `nil`. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce. After you receive the `BTDropInResult`, you will need to:
 1) Display a `PKPaymentButton`.
 2) Present a `PKPaymentAuthorizationViewController` when the customer taps the button.
 3) Tokenize the `PKPayment` and send the resulting nonce to your server to create a transaction.
@@ -158,7 +158,7 @@ func fetchExistingPaymentMethod(clientToken: String) {
             print("ERROR")
         } else if let result = result {
             // Use the BTDropInResult properties to update your UI
-            let selectedPaymentOptionType = result.paymentOptionType
+            let selectedPaymentMethodType = result.paymentMethodType
             let selectedPaymentMethod = result.paymentMethod
             let selectedPaymentMethodIcon = result.paymentIcon
             let selectedPaymentMethodDescription = result.paymentDescription

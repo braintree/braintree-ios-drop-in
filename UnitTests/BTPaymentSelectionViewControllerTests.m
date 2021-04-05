@@ -46,7 +46,7 @@
     BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
     paymentSelectionVC.configuration = configuration;
     [paymentSelectionVC configurationLoaded:configuration error:error];
-    XCTAssertTrue([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeUnknown)]);
+    XCTAssertTrue([paymentSelectionVC.paymentOptionsData containsObject:@(BTDropInPaymentMethodTypeUnknown)]);
 }
 
 - (void)test_configurationLoaded_doesNotHaveCreditCardsInSupportedCardTypes {
@@ -62,7 +62,7 @@
     BTPaymentSelectionViewController *paymentSelectionVC = [[BTPaymentSelectionViewController alloc] init];
     paymentSelectionVC.configuration = configuration;
     [paymentSelectionVC configurationLoaded:configuration error:error];
-    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeUnknown)]);
+    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTDropInPaymentMethodTypeUnknown)]);
 }
 
 - (void)test_venmoAppInstalled_andMerchantConfiguredForVenmo_hasVenmoInSupportedTypes {
@@ -84,7 +84,7 @@
 
     NSError *error = nil;
     [paymentSelectionVC configurationLoaded:configuration error:error];
-    XCTAssertTrue([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
+    XCTAssertTrue([paymentSelectionVC.paymentOptionsData containsObject:@(BTDropInPaymentMethodTypeVenmo)]);
 }
 
 - (void)test_venmoAppInstalled_andMerchantNotConfiguredForVenmo_venmoNotInSupportedTypes {
@@ -100,7 +100,7 @@
 
     NSError *error = nil;
     [paymentSelectionVC configurationLoaded:configuration error:error];
-    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
+    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTDropInPaymentMethodTypeVenmo)]);
 }
 
 - (void)test_venmoAppNotInstalled_andMerchantConfiguredForVenmo_venmoNotInSupportedTypes {
@@ -117,7 +117,7 @@
     
     NSError *error = nil;
     [paymentSelectionVC configurationLoaded:configuration error:error];
-    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTUIKPaymentOptionTypeVenmo)]);
+    XCTAssertFalse([paymentSelectionVC.paymentOptionsData containsObject:@(BTDropInPaymentMethodTypeVenmo)]);
 }
 
 #pragma mark - paymentMethodNonces
