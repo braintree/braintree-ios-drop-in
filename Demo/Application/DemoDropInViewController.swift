@@ -139,9 +139,15 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
         didSelectApplePay = false
 
         BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, error in
-            guard let result = result, error == nil else {
+            guard error == nil else {
                 self.progressBlock?("Error: \(error!.localizedDescription)")
                 print("Error: \(error!)")
+                return
+            }
+
+            guard let result = result else {
+                self.progressBlock?("No vaulted payment methods")
+                print("No vaulted payment methods")
                 return
             }
             
