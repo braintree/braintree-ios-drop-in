@@ -31,7 +31,7 @@
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
         
         self.hint = [BTUIKPaymentOptionCardView new];
-        self.hint.paymentOptionType = BTUIKPaymentOptionTypeUnknown;
+        self.hint.paymentMethodType = BTDropInPaymentMethodTypeUnknown;
         self.hint.translatesAutoresizingMaskIntoConstraints = NO;
 
         [self.hint.widthAnchor constraintEqualToConstant:[BTUIKAppearance smallIconWidth]].active = YES;
@@ -227,8 +227,8 @@
 }
 
 - (void)updateCardHint {
-    BTUIKPaymentOptionType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardType];
-    self.hint.paymentOptionType = paymentMethodType;
+    BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardType];
+    self.hint.paymentMethodType = paymentMethodType;
 }
 
 @end

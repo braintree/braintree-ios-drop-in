@@ -61,10 +61,10 @@
                                                       constant:0]];
 }
 
-- (void)setPaymentOptionType:(BTUIKPaymentOptionType)paymentOptionType {
-    _paymentOptionType = paymentOptionType;
-    self.borderWidth = self.paymentOptionType == BTUIKPaymentOptionTypeApplePay ? 0.0 : self.borderWidth;
-    self.imageView = [BTUIKViewUtil vectorArtViewForPaymentOptionType:self.paymentOptionType size:self.vectorArtSize];
+- (void)setPaymentMethodType:(BTDropInPaymentMethodType)paymentMethodType {
+    _paymentMethodType = paymentMethodType;
+    self.borderWidth = self.paymentMethodType == BTDropInPaymentMethodTypeApplePay ? 0.0 : self.borderWidth;
+    self.imageView = [BTUIKViewUtil vectorArtViewForPaymentMethodType:self.paymentMethodType size:self.vectorArtSize];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {

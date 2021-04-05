@@ -11,20 +11,20 @@ class BTDropInResultTests: XCTestCase {
 
     // MARK: - paymentDescription
 
-    func testPaymentDescription_whenPaymentOptionTypeIsApplePay() {
+    func testPaymentDescription_whenPaymentMethodTypeIsApplePay() {
         let result = BTDropInResult()
-        result.paymentOptionType = .applePay
+        result.paymentMethodType = .applePay
         XCTAssertEqual(result.paymentDescription, "Apple Pay")
     }
 
-    func testPaymentDescription_whenPaymentOptionTypeIsNotApplePay() {
+    func testPaymentDescription_whenPaymentMethodTypeIsNotApplePay() {
         class MockPayPalAccountNonce: BTPayPalAccountNonce {
             override var email: String? { "hello@world.com" }
         }
 
         let result = BTDropInResult()
         result.paymentMethod = MockPayPalAccountNonce()
-        result.paymentOptionType = .payPal
+        result.paymentMethodType = .payPal
         XCTAssertEqual(result.paymentDescription, "hello@world.com")
     }
 

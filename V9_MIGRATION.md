@@ -67,6 +67,8 @@ dropInRequest.uiCustomization = uiCustomization
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
 
+The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`. The name of this enum has changed from `BTUIKPaymentOptionType` to `BTDropInPaymentMethodType`.
+
 The `fetch` method has been renamed to `mostRecentPaymentMethod`:
 
 ```swift
@@ -76,8 +78,8 @@ BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, 
     return
   }
 
-  if result.paymentOptionType == .applePay {
-    // Apple Pay is the most recently selected option
+  if result.paymentMethodType == .applePay {
+    // Apple Pay is the most recently selected payment method
     // Note that result.paymentMethod will be nil in this case; display Apple Pay button and tokenize using `BTApplePayClient`
   }
 

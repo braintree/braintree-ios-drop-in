@@ -77,12 +77,12 @@ static NSUserDefaults *_userDefaults = nil;
 
 - (UIView *)paymentIcon {
     BTUIKPaymentOptionCardView *paymentOptionCardView = [BTUIKPaymentOptionCardView new];
-    paymentOptionCardView.paymentOptionType = self.paymentOptionType;
+    paymentOptionCardView.paymentMethodType = self.paymentMethodType;
     return paymentOptionCardView;
 }
 
 - (NSString *)paymentDescription {
-    if (self.paymentOptionType == BTUIKPaymentOptionTypeApplePay) {
+    if (self.paymentMethodType == BTDropInPaymentMethodTypeApplePay) {
         return @"Apple Pay";
     } else {
         return self.paymentMethod.paymentDescription;
