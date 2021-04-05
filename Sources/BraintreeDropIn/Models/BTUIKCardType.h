@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import "BTDropInLocalization_Internal.h"
 
 /// Immutable card type
 @interface BTUIKCardType : NSObject

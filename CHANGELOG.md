@@ -11,6 +11,11 @@
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
 * Payment selection sheet
   * Fix bug where vaulted payment methods were shown even when the payment method was disabled on `BTDropInRequest` (fixes #179)
+* Breaking changes
+  * Localization
+    * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
+    * Remove `insertIntoLocalizedString` methods
+    * Remove translation string static helper methods
 
 ## 9.0.0-beta1 (2021-03-29)
 
