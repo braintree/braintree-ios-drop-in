@@ -35,11 +35,7 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false. Set to true to hide the Card option even if enabled for your account.
 @property (nonatomic, assign) BOOL cardDisabled;
 
-/// Optional: If true and an amount is set, ThreeDSecure will be used to verify new cards. ThreeDSecure must be enabled in the control panel.
-/// Defaults to false.
-@property (nonatomic, assign) BOOL threeDSecureVerification;
-
-/// Optional: Enable 3DS verification and specify options and additional information. If no amount is set, the `BTDropInRequest` `amount` will be used.
+/// Optional: Enable 3DS verification and specify options and additional information.
 ///
 /// Note: To encourage 3DS 2.0 flows, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
 @property (nonatomic, strong, nullable) BTThreeDSecureRequest *threeDSecureRequest;
