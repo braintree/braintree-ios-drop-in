@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42D4DF5C2605415000C8005C /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D4DF5B2605415000C8005C /* UITests.swift */; };
 		800FC588257FF3E000DEE132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FC587257FF3E000DEE132 /* AppDelegate.swift */; };
 		800FC58A257FF3E000DEE132 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FC589257FF3E000DEE132 /* SceneDelegate.swift */; };
 		800FC58C257FF3E000DEE132 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FC58B257FF3E000DEE132 /* ViewController.swift */; };
@@ -17,20 +16,7 @@
 		80BBF03F260BE2E0005D646D /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80BBF03E260BE2E0005D646D /* BraintreeDropIn */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		42D4DF5E2605415000C8005C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 800FC57C257FF3E000DEE132 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 800FC583257FF3E000DEE132;
-			remoteInfo = SPMTest;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		42D4DF592605415000C8005C /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		42D4DF5B2605415000C8005C /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
-		42D4DF5D2605415000C8005C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42D7B9632605294B00D226C8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		42D7B9642605294B00D226C8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		800FC584257FF3E000DEE132 /* SPMTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPMTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,13 +31,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		42D4DF562605415000C8005C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		800FC581257FF3E000DEE132 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,19 +42,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42D4DF5A2605415000C8005C /* UITests */ = {
-			isa = PBXGroup;
-			children = (
-				42D4DF5B2605415000C8005C /* UITests.swift */,
-				42D4DF5D2605415000C8005C /* Info.plist */,
-			);
-			path = UITests;
-			sourceTree = "<group>";
-		};
 		800FC57B257FF3E000DEE132 = {
 			isa = PBXGroup;
 			children = (
-				42D4DF5A2605415000C8005C /* UITests */,
 				80A8C40725A8CF77003A68F5 /* Frameworks */,
 				800FC586257FF3E000DEE132 /* SPMTest */,
 				800FC585257FF3E000DEE132 /* Products */,
@@ -86,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				800FC584257FF3E000DEE132 /* SPMTest.app */,
-				42D4DF592605415000C8005C /* UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,24 +84,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		42D4DF582605415000C8005C /* UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42D4DF602605415000C8005C /* Build configuration list for PBXNativeTarget "UITests" */;
-			buildPhases = (
-				42D4DF552605415000C8005C /* Sources */,
-				42D4DF562605415000C8005C /* Frameworks */,
-				42D4DF572605415000C8005C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				42D4DF5F2605415000C8005C /* PBXTargetDependency */,
-			);
-			name = UITests;
-			productName = UITests;
-			productReference = 42D4DF592605415000C8005C /* UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		800FC583257FF3E000DEE132 /* SPMTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 800FC598257FF3E200DEE132 /* Build configuration list for PBXNativeTarget "SPMTest" */;
@@ -163,10 +113,6 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					42D4DF582605415000C8005C = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 800FC583257FF3E000DEE132;
-					};
 					800FC583257FF3E000DEE132 = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -190,19 +136,11 @@
 			projectRoot = "";
 			targets = (
 				800FC583257FF3E000DEE132 /* SPMTest */,
-				42D4DF582605415000C8005C /* UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		42D4DF572605415000C8005C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		800FC582257FF3E000DEE132 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,14 +154,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		42D4DF552605415000C8005C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42D4DF5C2605415000C8005C /* UITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		800FC580257FF3E000DEE132 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,14 +165,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		42D4DF5F2605415000C8005C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 800FC583257FF3E000DEE132 /* SPMTest */;
-			targetProxy = 42D4DF5E2605415000C8005C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		800FC58D257FF3E000DEE132 /* Main.storyboard */ = {
@@ -266,46 +188,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		42D4DF612605415000C8005C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43253H4X22;
-				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SPMTest;
-			};
-			name = Debug;
-		};
-		42D4DF622605415000C8005C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43253H4X22;
-				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.braintreepayments.UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SPMTest;
-			};
-			name = Release;
-		};
 		800FC596257FF3E200DEE132 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -477,15 +359,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		42D4DF602605415000C8005C /* Build configuration list for PBXNativeTarget "UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42D4DF612605415000C8005C /* Debug */,
-				42D4DF622605415000C8005C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		800FC57F257FF3E000DEE132 /* Build configuration list for PBXProject "SPMTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
