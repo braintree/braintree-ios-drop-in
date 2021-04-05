@@ -67,4 +67,4 @@ dropInRequest.uiCustomization = uiCustomization
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
 
-The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`.
+The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`. The name of this enum has changed from `BTUIKPaymentOptionType` to `BTDropInPaymentMethodType`.
