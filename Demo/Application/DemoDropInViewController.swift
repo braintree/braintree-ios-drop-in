@@ -40,7 +40,7 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
         let dropInRequest = BTDropInRequest()
         dropInRequest.uiCustomization = uiCustomization
         dropInRequest.vaultManager = !ProcessInfo.processInfo.arguments.contains("-DisableEditMode")
-        BTUIKLocalizedString.setCustomTranslations(["cs"])
+        BTDropInLocalization.setCustomTranslations(["cs"])
         
         dropInRequest.paypalDisabled = DemoSettings.paypalDisabled
         dropInRequest.cardDisabled = ProcessInfo.processInfo.arguments.contains("-CardDisabled")

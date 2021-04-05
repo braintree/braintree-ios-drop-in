@@ -1,6 +1,6 @@
-#import <BraintreeDropIn/BTUIKLocalizedString.h>
+#import "BTDropInLocalization_Internal.h"
 
-@implementation BTUIKLocalizedString
+@implementation BTDropInLocalization
 
 static NSArray *customTranslations;
 
@@ -40,11 +40,7 @@ static NSArray *customTranslations;
 }
 
 + (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement {
-    return [self insertIntoLocalizedString:string replacement:replacement token:@"%s"];
-}
-
-+ (NSString *)insertIntoLocalizedString:(NSString *)string replacement:(NSString* )replacement token:(NSString *)token {
-    return [string stringByReplacingOccurrencesOfString:token withString:replacement];
+    return [string stringByReplacingOccurrencesOfString:@"%s" withString:replacement];
 }
 
 #pragma mark Localizations
