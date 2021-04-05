@@ -68,6 +68,8 @@ dropInRequest.uiCustomization = uiCustomization
 
 The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
 
+The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`. The name of this enum has changed from `BTUIKPaymentOptionType` to `BTDropInPaymentMethodType`.
+
 ## 3D Secure
 
 v9 removes the `threeDSecureVerifcation` property from `BTDropInRequest`. 3DS will always be requested if `threeDSecureRequest` is not nil and 3DS is enabled in the Control Panel.

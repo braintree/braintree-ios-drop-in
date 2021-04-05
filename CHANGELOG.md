@@ -16,6 +16,9 @@
     * Remove translation string static helper methods
   * 3D Secure
     * Remove `threeDSecureVerification` from `BTDropInRequest`; 3DS will always be requested if `threeDSecure` request is not nil
+  * BTDropInResult
+    * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
+    * Rename `paymentOptionType` property to `paymentMethodType`
 
 ## 9.0.0-beta1 (2021-03-29)
 
