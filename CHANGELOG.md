@@ -12,6 +12,11 @@
 * Update `BTDropIn.fetch` method
   * Rename to `BTDropIn.mostRecentPaymentMethod`
   * Fix bug where this method would return an empty `BTDropInResult` instead of `nil` when the customer doesn't have any vaulted payment methods
+* Breaking changes
+  * Localization
+    * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
+    * Remove `insertIntoLocalizedString` methods
+    * Remove translation string static helper methods
 
 ## 9.0.0-beta1 (2021-03-29)
 
