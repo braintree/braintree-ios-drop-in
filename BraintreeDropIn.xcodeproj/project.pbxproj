@@ -62,9 +62,9 @@
 		42349088260BA5D30006D38B /* BTUIKAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E31D8903A600032220 /* BTUIKAppearance.m */; };
 		42349089260BA5D30006D38B /* BTUIKViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E41D8903A600032220 /* BTUIKViewUtil.m */; };
 		4234908A260BA5D30006D38B /* UIColor+BTUIK.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E51D8903A600032220 /* UIColor+BTUIK.m */; };
-		423490A1260BA64C0006D38B /* BTDropInPaymentMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901131D8903A600032220 /* BTDropInPaymentMethodType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42349091260BA5EF0006D38B /* BTDropInLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A52900E71D8903A600032220 /* BTDropInLocalization.m */; };
 		42349098260BA6000006D38B /* BTDropInLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A529010F1D8903A600032220 /* BTDropInLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		423490A1260BA64C0006D38B /* BTDropInPaymentMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = A52901131D8903A600032220 /* BTDropInPaymentMethodType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		423490B8260BA7680006D38B /* BTUIKVisualAssetType.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AE59571DDE7E8C000B594C /* BTUIKVisualAssetType.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4237D7A425E42844006F6CE3 /* BTDropInUICustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4237D7A225E42844006F6CE3 /* BTDropInUICustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4237D7A525E42844006F6CE3 /* BTDropInUICustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4237D7A325E42844006F6CE3 /* BTDropInUICustomization.m */; };
@@ -896,10 +896,9 @@
 			};
 			buildConfigurationList = A56C41641D833348000DFFAB /* Build configuration list for PBXProject "BraintreeDropIn" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				en_AU,
