@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) BTConfiguration *configuration;
 
 /// Subclasses should override this method to be notified when the configuration is loaded
-- (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(__unused NSError *)error;
+- (void)configurationLoaded:(__unused BTConfiguration * _Nullable)configuration error:(__unused NSError * _Nullable)error;
 
 /// Load the configuration and then call `configurationLoaded:error:`
 - (void)loadConfiguration;
