@@ -5,9 +5,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class BTPaymentMethodNonce;
 
-@interface BTDropInResult : NSObject
+/**
+ Domain for Braintree Drop-in errors.
+ */
+extern NSString * const BTDropInErrorDomain;
 
-typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NSError * _Nullable error);
+/**
+ Error codes associated with Braintree Drop-in.
+ */
+typedef NS_ENUM(NSInteger, BTDropInErrorType) {
+    /// Unknown error
+    BTDropInErrorTypeUnknown = 0,
+
+    /// The client token or tokenization key is invalid
+    BTDropInErrorTypeAuthorization,
+};
+
+@interface BTDropInResult : NSObject
 
 /// True if the modal was dismissed without selecting a payment method
 @property (nonatomic, assign, getter=isCanceled) BOOL canceled;
@@ -30,12 +44,16 @@ typedef void (^BTDropInResultFetchHandler)(BTDropInResult * _Nullable result, NS
 /// The payment method nonce
 @property (nonatomic, strong, nullable) BTPaymentMethodNonce *paymentMethod;
 
-/// Fetch a BTDropInResult without displaying or initializing a BTDropInController. Works with client tokens that
-/// were created with a `customer_id`.
-///
-/// @param authorization Your tokenization key or client token.
-/// @param handler The handler for callbacks.
-+ (void)fetchDropInResultForAuthorization:(NSString *)authorization handler:(BTDropInResultFetchHandler)handler;
+/**
+ * Fetch a `BTDropInResult` with the customer's most recently vaulted payment method.
+ * If the last payment method selected from Drop-in was Apple Pay, a `BTDropInResult` with
+ * `paymentMethodType == .applePay` will be returned in the completion block.
+ *
+ * @param clientToken Client token. Must be generated with a customer ID.
+ * @param completion The completion block, which passes back a result or an error. Both result and error may be nil if the customer does not have any vaulted payment methods.
+ */
++ (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken
+                                   completion:(void (^)(BTDropInResult * _Nullable result, NSError * _Nullable error))completion;
 
 @end
 

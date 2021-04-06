@@ -71,6 +71,30 @@ The `isCancelled` property on `BTDropInResult` has been changed to `isCanceled`.
 
 The `paymentOptionType` property on `BTDropInResult` has been changed to `paymentMethodType`. The name of this enum has changed from `BTUIKPaymentOptionType` to `BTDropInPaymentMethodType`.
 
+The `fetch` method has been renamed to `mostRecentPaymentMethod`:
+
+```swift
+BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, error in
+  guard let result = result, error == nil else {
+    // either an error occurred or the customer doesn't have any vaulted payment methods
+    return
+  }
+
+  if result.paymentMethodType == .applePay {
+    // Apple Pay is the most recently selected payment method
+    // Note that result.paymentMethod will be nil in this case; display Apple Pay button and tokenize using `BTApplePayClient`
+  }
+
+  // Update your UI
+  let type = result.paymentMethodType
+  let icon = result.paymentIcon
+  let description = result.paymentDescription
+
+  // Use the payment method to transact
+  let paymentMethod = result.paymentMethod
+}
+```
+
 ## Venmo
 
 In v9, `BTDropInRequest` has a `venmoRequest` property that can be used to specify options for the Venmo flow. v9 also removes the `vaultVenmo` property. If you were previously using `vaultVenmo`, you should now use `venmoRequest.vault` instead.

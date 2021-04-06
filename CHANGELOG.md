@@ -22,6 +22,8 @@
   * 3D Secure
     * Remove `threeDSecureVerification` from `BTDropInRequest`; 3DS will always be requested if `threeDSecure` request is not nil
   * BTDropInResult
+    * Rename `BTDropInResult.fetch` to `BTDropInResult.mostRecentPaymentMethod`
+    * Fix bug where fetching most recent payment methods would return an empty `BTDropInResult` instead of `nil` when the customer doesn't have any vaulted payment methods
     * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
     * Rename `paymentOptionType` property to `paymentMethodType`
 

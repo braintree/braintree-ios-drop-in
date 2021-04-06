@@ -135,23 +135,26 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
     func fetchPaymentMethods() {
         progressBlock?("Fetching customer's payment methods...")
         didSelectApplePay = false
-        
-        BTDropInResult.fetch(forAuthorization: authorization) { (result, error) in
-            guard let result = result, error == nil else {
+
+        BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, error in
+            guard error == nil else {
                 self.progressBlock?("Error: \(error!.localizedDescription)")
                 print("Error: \(error!)")
+                return
+            }
+
+            guard let result = result else {
+                self.progressBlock?("No vaulted payment methods")
+                print("No vaulted payment methods")
                 return
             }
             
             self.progressBlock?("Ready for checkout...")
             self.didSelectApplePay = (result.paymentMethodType == .applePay)
-            if (result.paymentMethod != nil) {
-                self.selectedNonce = result.paymentMethod
-                self.demoView.result = result
-            }
+            self.selectedNonce = result.paymentMethod
+            self.demoView.result = result
         }
     }
-
 }
 
 // MARK: - PKPaymentAuthorizationControllerDelegate
