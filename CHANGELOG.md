@@ -6,9 +6,11 @@
   * VoiceOver improvements
   * Fix color contrast ratios
   * Increase hit area for several buttons
-* Fix iOS 13 UI bug where "Next" button overlapped with card number text field
 * Card form
+  * Fix iOS 13 UI bug where "Next" button overlapped with card number text field
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
+* Payment selection sheet
+  * Fix bug where vaulted payment methods were shown even when the payment method was disabled on `BTDropInRequest` (fixes #179)
 * Breaking changes
   * Localization
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`

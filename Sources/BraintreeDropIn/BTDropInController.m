@@ -6,6 +6,7 @@
 #import "BTAPIClient_Internal_Category.h"
 #import "BTUIKAppearance.h"
 #import "BTUIKViewUtil.h"
+#import "BTConfiguration+DropIn.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>
@@ -222,9 +223,8 @@
                 self.paymentSelectionNavigationController.view.hidden = NO;
                 self.paymentSelectionNavigationController.view.alpha = 1.0;
 
-                NSArray *supportedCardTypes = [configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
                 NSMutableArray *paymentMethodTypes = [NSMutableArray new];
-                for (NSString *supportedCardType in supportedCardTypes) {
+                for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
                     BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
                     if (paymentMethodType != BTDropInPaymentMethodTypeUnknown) {
                         [paymentMethodTypes addObject: @(paymentMethodType)];

@@ -40,7 +40,7 @@
         [self.button.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-[BTUIKAppearance horizontalFormContentPadding]].active = YES;
         [self.button.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
         [self.button.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
-        [self.button.widthAnchor constraintEqualToConstant:BTUIKAppearance.minimumHitArea].active = YES;
+        [self.button.widthAnchor constraintGreaterThanOrEqualToConstant:BTUIKAppearance.minimumHitArea].active = YES;
     }
     return self;
 }

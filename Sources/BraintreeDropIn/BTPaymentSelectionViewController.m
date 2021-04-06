@@ -7,6 +7,8 @@
 #import "BTVaultedPaymentMethodsTableViewCell.h"
 #import "BTPaymentSelectionHeaderView.h"
 #import "BTUIKAppearance.h"
+#import "BTConfiguration+DropIn.h"
+#import "BTPaymentMethodNonce+DropIn.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>
@@ -120,8 +122,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeVenmo)];
             }
 
-            NSArray *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asArray];
-            for (NSString *supportedCardType in supportedCardTypes) {
+            for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
                 BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
                 if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:paymentMethodType] && !self.dropInRequest.cardDisabled) {
                     // Add credit cards if they are supported
@@ -180,7 +181,15 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         if (error) {
             // no action
         } else {
-            self.paymentMethodNonces = [paymentMethodNonces copy];
+            NSMutableArray* vaultedNoncesForDropIn = [NSMutableArray new];
+            for (BTPaymentMethodNonce *nonce in paymentMethodNonces) {
+                if ([nonce shouldDisplayVaultedNonceForRequest:self.dropInRequest config:self.configuration]) {
+                    [vaultedNoncesForDropIn addObject:nonce];
+                }
+            }
+
+            self.paymentMethodNonces = [vaultedNoncesForDropIn copy];
+
             if (completionBlock) {
                 completionBlock();
             }
