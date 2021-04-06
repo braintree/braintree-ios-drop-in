@@ -18,9 +18,8 @@
     * Remove `threeDSecureVerification` from `BTDropInRequest`; 3DS will always be requested if `threeDSecure` request is not nil
   * BTDropInResult
     * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
+      * Remove the `.coinbase` enum case 
     * Rename `paymentOptionType` property to `paymentMethodType`
-  * BTDropInPaymentMethodType
-    * Remove `BTDropInPaymentMethodTypeCoinbase`
 
 ## 9.0.0-beta1 (2021-03-29)
 
