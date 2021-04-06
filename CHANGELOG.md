@@ -25,6 +25,7 @@
     * Rename `BTDropInResult.fetch` to `BTDropInResult.mostRecentPaymentMethod`
     * Fix bug where fetching most recent payment methods would return an empty `BTDropInResult` instead of `nil` when the customer doesn't have any vaulted payment methods
     * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
+      * Remove the `.coinbase` enum case 
     * Rename `paymentOptionType` property to `paymentMethodType`
 
 ## 9.0.0-beta1 (2021-03-29)

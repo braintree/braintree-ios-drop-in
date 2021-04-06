@@ -38,7 +38,6 @@
     NSArray *notACreditCardPaymentMethodType = @[
                                   @(BTDropInPaymentMethodTypeUnknown),
                                   @(BTDropInPaymentMethodTypePayPal),
-                                  @(BTDropInPaymentMethodTypeCoinbase),
                                   @(BTDropInPaymentMethodTypeVenmo),
                                   @(BTDropInPaymentMethodTypeApplePay),
                                   ];

@@ -16,7 +16,6 @@ typedef NS_ENUM(NSInteger, BTDropInPaymentMethodType) {
     BTDropInPaymentMethodTypeSwitch,
     BTDropInPaymentMethodTypeUKMaestro,
     BTDropInPaymentMethodTypePayPal,
-    BTDropInPaymentMethodTypeCoinbase,
     BTDropInPaymentMethodTypeVenmo,
     BTDropInPaymentMethodTypeApplePay,
 };
