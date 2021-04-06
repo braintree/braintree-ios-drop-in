@@ -85,13 +85,7 @@ func showDropIn(clientTokenOrTokenizationKey: String) {
 
 ### Apple Pay + Drop-In
 
-Apple Pay is enabled by default in Drop-In. Unless you opt out, by setting `applePayDisabled = true`, Drop-In will show Apple Pay as a payment option as long as it is enabled in the control panel. Below is an example of hiding the Apple Pay button if the device can't make Apple Pay payments using certain card networks:
-
-```swift
-let request =  BTDropInRequest()
-let canMakePayments = PKPaymentAuthorizationViewController.canMakePayments() && PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: [.amex, .visa, .masterCard])
-request.applePayDisabled = !canMakePayments
-```
+Apple Pay is enabled by default in Drop-In. Drop-In will show Apple Pay as a payment option as long as it is enabled in the control panel and the device supports it. To opt out, set `applePayDisabled = true` on your `BTDropInRequest`.
 
 **Important:** If your customer selects Apple Pay as their preferred payment method then `result.paymentMethodType == .applePay` and the `result.paymentMethod` will be `nil`. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce. After you receive the `BTDropInResult`, you will need to:
 1) Display a `PKPaymentButton`.

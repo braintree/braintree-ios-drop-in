@@ -131,7 +131,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 }
             }
 
-            if (self.configuration.isApplePayEnabled && !self.dropInRequest.applePayDisabled && self.configuration.canMakeApplePayPayments) {
+            if (self.configuration.isApplePayEnabled && !self.dropInRequest.applePayDisabled && [PKPaymentAuthorizationController canMakePayments]) {
                 [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeApplePay)];
             }
 
