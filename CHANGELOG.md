@@ -11,6 +11,7 @@
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
 * Payment selection sheet
   * Fix bug where vaulted payment methods were shown even when the payment method was disabled on `BTDropInRequest` (fixes #179)
+  * Fix bug where top of payment selection sheet was cut off on smaller phones using larger fonts
 * Breaking changes
   * Localization
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
