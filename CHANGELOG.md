@@ -27,6 +27,8 @@
     * Rename `BTUIKPaymentOptionType` enum to `BTDropInPaymentMethodType`
       * Remove the `.coinbase` enum case 
     * Rename `paymentOptionType` property to `paymentMethodType`
+  * Apple Pay
+    * Always show Apple Pay payment method option if device is capable of Apple Pay (fixes #232)
 
 ## 9.0.0-beta1 (2021-03-29)
 
