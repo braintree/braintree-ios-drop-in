@@ -78,6 +78,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     self.paymentOptionsTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.paymentOptionsTableView.backgroundColor = UIColor.clearColor;
+    [self.paymentOptionsTableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
     [self.paymentOptionsTableView registerClass:BTDropInPaymentSelectionCell.class forCellReuseIdentifier:@"BTDropInPaymentSelectionCell"];
     [self.paymentOptionsTableView registerClass:BTVaultedPaymentMethodsTableViewCell.class forCellReuseIdentifier:@"BTVaultedPaymentMethodsTableViewCell"];
     [self.paymentOptionsTableView registerClass:BTPaymentSelectionHeaderView.class forHeaderFooterViewReuseIdentifier:@"BTPaymentSelectionHeaderView"];
@@ -94,6 +95,18 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
         [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
     ]];
+}
+
+- (void)dealloc {
+    [self.paymentOptionsTableView removeObserver:self forKeyPath:@"contentSize"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary <NSString *, id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"contentSize"]) {
+        [self.delegate sheetHeightDidChange:self];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (void)loadConfiguration {
@@ -141,10 +154,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [self sendVaultedCardAppearAnalytic];
             }
             [self showLoadingScreen:NO];
-            [self.view layoutIfNeeded];
-            if (self.delegate) {
-                [self.delegate sheetHeightDidChange:self];
-            }
         }];
     }
 }

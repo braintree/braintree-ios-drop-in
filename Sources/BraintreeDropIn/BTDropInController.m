@@ -442,12 +442,14 @@
 }
 
 - (void)sheetHeightDidChange:(__unused BTPaymentSelectionViewController *)sender {
-    self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
-    self.contentViewBottomConstraint.constant = -[self sheetInset];
+    if (!self.isBeingDismissed) {
+        self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
+        self.contentViewBottomConstraint.constant = -[self sheetInset];
 
-    [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
-        [self.view layoutIfNeeded];
-    } completion:nil];
+        [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
 }
 
 #pragma mark BTDropInControllerDelegate
