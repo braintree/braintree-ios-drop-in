@@ -36,6 +36,8 @@ If you look at your app target, you will see that the `BraintreeDropIn` library 
 
 The `BraintreeDropIn` library offers Swift Package Manager support.
 
+_Note_: There is a [known SPM issue](https://forums.swift.org/t/swift-package-binary-framework-issue/41922) for packages with binary dependencies (ex: BraintreeDropIn) and app's with extensions. You can read the report on Swift Forums and follow [this workaround](https://github.com/braintree/braintree-ios-drop-in/issues/317#issuecomment-815005747).
+
 ### CocoaPods
 
 Add to your `Podfile`:
