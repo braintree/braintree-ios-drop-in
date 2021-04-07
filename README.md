@@ -34,7 +34,6 @@ To add the `BraintreeDropIn` package to your Xcode project, select File > Swift 
 
 If you look at your app target, you will see that the `BraintreeDropIn` library is automatically linked as a framework to your app (see General > Frameworks, Libraries, and Embedded Content).
 
-The `BraintreeDropIn` library offers Swift Package Manager support.
 
 _Note_: There is a [known SPM issue](https://forums.swift.org/t/swift-package-binary-framework-issue/41922) for apps with extensions that use Swift Packages with binary dependencies (ex: BraintreeDropIn). You can read the report on Swift Forums and follow [this workaround](https://github.com/braintree/braintree-ios-drop-in/issues/317#issuecomment-815005747).
 
