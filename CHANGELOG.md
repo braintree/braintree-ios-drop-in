@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.0.0 (2021-04-08)
 
 * Accessibility
   * VoiceOver improvements
