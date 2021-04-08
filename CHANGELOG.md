@@ -30,6 +30,8 @@
     * Rename `paymentOptionType` property to `paymentMethodType`
   * Apple Pay
     * Always show Apple Pay payment method option if device is capable of Apple Pay (fixes #232)
+    
+**Note**: Includes all changes in [9.0.0-beta1](https://github.com/braintree/braintree-ios-drop-in/releases/tag/9.0.0-beta1).
 
 ## 9.0.0-beta1 (2021-03-29)
 
