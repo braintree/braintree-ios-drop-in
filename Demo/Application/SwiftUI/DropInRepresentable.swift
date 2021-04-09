@@ -12,14 +12,9 @@ struct DropInRepresentable: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> BTDropInController {
-        let payPalRequest = BTPayPalCheckoutRequest(amount: "10.00")
-
         let request = BTDropInRequest()
-        request.payPalRequest = payPalRequest
-        request.applePayDisabled = true
-
-        let dropInController = BTDropInController(authorization: authorization, request: request, handler: handler)!
-        return dropInController
+        request.payPalRequest = BTPayPalCheckoutRequest(amount: "10.00")
+        return BTDropInController(authorization: authorization, request: request, handler: handler)!
     }
 
     func updateUIViewController(_ uiViewController: BTDropInController, context: UIViewControllerRepresentableContext<DropInRepresentable>) {
