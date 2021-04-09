@@ -41,7 +41,7 @@
 @property (nonatomic, strong) UIView *contentClippingView;
 @property (nonatomic, strong) BTPaymentSelectionViewController *paymentSelectionViewController;
 @property (nonatomic, strong) UINavigationController *paymentSelectionNavigationController;
-@property (nonatomic, strong) NSLayoutConstraint *contentViewTopConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *contentViewHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *contentViewBottomConstraint;
 @property (nonatomic) BOOL useBlur;
 @property (nonatomic, copy) NSArray *displayCardTypes;
@@ -101,12 +101,6 @@
     [self resetDropInState];
     [self loadConfiguration];
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
-    self.contentViewBottomConstraint.constant = -[self sheetInset];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -191,17 +185,17 @@
                                                                       metrics:metrics
                                                                         views:viewBindings]];
 
-    self.contentViewTopConstraint = [self.contentView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor];
-    self.contentViewTopConstraint.active = YES;
+    self.contentViewHeightConstraint = [self.contentView.heightAnchor constraintEqualToConstant:[self calculateContentViewHeightConstraintConstant]];
+    self.contentViewHeightConstraint.active = YES;
 
-    self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor];
+    self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-[self sheetInset]];
     self.contentViewBottomConstraint.active = YES;
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[paymentSelectionView]|"
                                                                       options:0
                                                                       metrics:metrics
                                                                         views:viewBindings]];
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[paymentSelectionView]|"
                                                                       options:0
                                                                       metrics:metrics
@@ -317,8 +311,6 @@
 }
 
 - (void)flexViewAnimated:(BOOL)animated{
-    self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
-
     [self applyContentViewConstraints];
     
     [self.view setNeedsUpdateConstraints];
@@ -355,14 +347,6 @@
     self.paymentSelectionNavigationController.view.alpha = 1.0;
 }
 
-// No half sheet when in landscape or FormSheet modes.
-- (BOOL)supportsHalfSheet {
-    if([BTUIKViewUtil isOrientationLandscape] || [self isFormSheet]) {
-        return false;
-    }
-    return true;
-}
-
 - (BOOL)isFormSheet {
     return self.modalPresentationStyle == UIModalPresentationFormSheet;
 }
@@ -371,12 +355,11 @@
     return CGRectGetHeight(self.view.safeAreaLayoutGuide.layoutFrame);
 }
 
-- (CGFloat)calculateContentViewTopConstraintConstant {
+- (CGFloat)calculateContentViewHeightConstraintConstant {
     if ([self isFormSheet]) {
-        return 0;
+        return [self safeAreaHeight];
     } else {
-        CGFloat topOffset = [self safeAreaHeight] - [self.paymentSelectionViewController sheetHeight] - [self sheetInset];
-        return MAX(BT_HALF_SHEET_MARGIN, topOffset);
+        return MIN([self safeAreaHeight], [self.paymentSelectionViewController sheetHeight]) - BT_HALF_SHEET_MARGIN;
     }
 }
 
@@ -443,8 +426,7 @@
 
 - (void)sheetHeightDidChange:(__unused BTPaymentSelectionViewController *)sender {
     if (!self.isBeingDismissed) {
-        self.contentViewTopConstraint.constant = [self calculateContentViewTopConstraintConstant];
-        self.contentViewBottomConstraint.constant = -[self sheetInset];
+        self.contentViewHeightConstraint.constant = [self calculateContentViewHeightConstraintConstant];
 
         [UIView animateWithDuration:BT_ANIMATION_TRANSITION_SPEED delay:0.0 usingSpringWithDamping:0.8 initialSpringVelocity:4 options:0 animations:^{
             [self.view layoutIfNeeded];
@@ -501,9 +483,7 @@
     [[transitionContext containerView] addSubview:toViewController.view];
 
     // Move content off screen so it can be animated in when it appears
-    CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]) + [BTUIKViewUtil statusBarHeight];
-    toViewController.contentViewBottomConstraint.constant = sh;
-    toViewController.contentViewTopConstraint.constant = sh;
+    toViewController.contentViewBottomConstraint.constant = [toViewController calculateContentViewHeightConstraintConstant];
     [toViewController.view setNeedsUpdateConstraints];
     [toViewController.view layoutIfNeeded];
     [toViewController flexViewAnimated:YES];
@@ -527,9 +507,7 @@
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     BTDropInController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
-    CGFloat sh = CGRectGetHeight([[UIScreen mainScreen] bounds]);
-    fromViewController.contentViewBottomConstraint.constant = sh;
-    fromViewController.contentViewTopConstraint.constant = sh;
+    fromViewController.contentViewBottomConstraint.constant = [fromViewController calculateContentViewHeightConstraintConstant];
     [fromViewController.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromViewController.view.alpha = 0;
