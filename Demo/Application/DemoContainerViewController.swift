@@ -1,5 +1,6 @@
 import BraintreeDropIn
 import InAppSettingsKit
+import SwiftUI
 
 class DemoContainerViewController: UIViewController {
     
@@ -11,25 +12,29 @@ class DemoContainerViewController: UIViewController {
         }
     }
     
-    private var currentViewController: DemoBaseViewController? {
+    private var currentViewController: UIViewController? {
         didSet {
-            guard let current = currentViewController else {
+            guard let currentVC = currentViewController else {
                 updateStatusItem("Demo not available")
+                return
+            }
+
+            updateStatusItem("Presenting \(type(of: currentVC))")
+            title = currentVC.title
+
+            addChild(currentVC)
+            view.addSubview(currentVC.view)
+
+            currentVC.view.pinToEdges(of: self)
+            currentVC.didMove(toParent: self)
+
+            guard let current = currentVC as? DemoBaseViewController else {
                 return
             }
 
             current.progressBlock = progressBlock
             current.completionBlock = completionBlock
             current.transactionBlock = tappedStatus
-            
-            updateStatusItem("Presenting \(type(of: current))")
-            title = current.title
-            
-            addChild(current)
-            view.addSubview(current.view)
-            
-            current.view.pinToEdges(of: self)
-            current.didMove(toParent: self)
         }
     }
     
@@ -114,13 +119,17 @@ class DemoContainerViewController: UIViewController {
         }
     }
 
-    func instantiateCurrentViewController(with authorization: String) -> DemoBaseViewController? {
-        guard let integrationClass = DemoSettings.currentIntegration.flatMap({ NSClassFromString($0) }) as? DemoBaseViewController.Type else {
-            print("\(String(describing: DemoSettings.currentIntegration)) is not a DemoBaseViewController")
-            return nil
+    func instantiateCurrentViewController(with authorization: String) -> UIViewController? {
+        switch DemoSettings.currentUIFramework {
+        case .uikit:
+            return DemoDropInViewController(authorization: authorization)
+        case .swiftui:
+            if #available(iOS 13, *) {
+                return UIHostingController(rootView: ContentView())
+            } else {
+                return nil
+            }
         }
-
-        return integrationClass.init(authorization: authorization)
     }
 
     func updateStatusItem(_ status: String) {

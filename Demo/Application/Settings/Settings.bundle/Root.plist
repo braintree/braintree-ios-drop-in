@@ -8,18 +8,20 @@
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
 			<key>Title</key>
-			<string>Integration</string>
+			<string>UI Framework</string>
 			<key>Key</key>
-			<string>BraintreeDemoSettingsIntegrationDefaultsKey</string>
+			<string>BraintreeDemoSettingsUIFrameworkDefaultsKey</string>
 			<key>DefaultValue</key>
-			<string>DemoDropInViewController</string>
+			<string>0</string>
 			<key>Titles</key>
 			<array>
-				<string>Demo</string>
+				<string>UIKit</string>
+				<string>SwiftUI</string>
 			</array>
 			<key>Values</key>
 			<array>
-				<string>DemoDropInViewController</string>
+				<string>0</string>
+				<string>1</string>
 			</array>
 		</dict>
 		<dict>
