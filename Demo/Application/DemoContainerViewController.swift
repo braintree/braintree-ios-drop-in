@@ -83,7 +83,7 @@ class DemoContainerViewController: UIViewController {
         title = NSLocalizedString("Braintree", comment: "")
         
         if let auth = DemoSettings.authorizationOverride {
-            currentViewController = DemoDropInViewController(authorization: auth)
+            currentViewController = instantiateCurrentViewController(with: auth)
         } else if DemoSettings.useTokenizationKey {
             updateStatusItem("Using Tokenization Key")
             
@@ -97,7 +97,7 @@ class DemoContainerViewController: UIViewController {
                 tokenizationKey = "development_testing_integration_merchant_id"
             }
             
-            currentViewController = DemoDropInViewController(authorization: tokenizationKey)
+            currentViewController = instantiateCurrentViewController(with: tokenizationKey)
         } else {
             updateStatusItem("Fetching Client Token...")
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -109,11 +109,20 @@ class DemoContainerViewController: UIViewController {
                     return
                 }
                 
-                self.currentViewController = DemoDropInViewController(authorization: token)
+                self.currentViewController = self.instantiateCurrentViewController(with: token)
             }
         }
     }
-    
+
+    func instantiateCurrentViewController(with authorization: String) -> DemoBaseViewController? {
+        guard let integrationClass = DemoSettings.currentIntegration.flatMap({ NSClassFromString($0) }) as? DemoBaseViewController.Type else {
+            print("\(String(describing: DemoSettings.currentIntegration)) is not a DemoBaseViewController")
+            return nil
+        }
+
+        return integrationClass.init(authorization: authorization)
+    }
+
     func updateStatusItem(_ status: String) {
         let button = statusItem?.customView as? UIButton
         button?.setTitle(status, for: .normal)

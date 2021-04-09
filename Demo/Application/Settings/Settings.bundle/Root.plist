@@ -8,6 +8,24 @@
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
 			<key>Title</key>
+			<string>Integration</string>
+			<key>Key</key>
+			<string>BraintreeDemoSettingsIntegrationDefaultsKey</string>
+			<key>DefaultValue</key>
+			<string>DemoDropInViewController</string>
+			<key>Titles</key>
+			<array>
+				<string>Demo</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>DemoDropInViewController</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
 			<string>Environment</string>
 			<key>Key</key>
 			<string>BraintreeDemoSettingsEnvironmentDefaultsKey</string>

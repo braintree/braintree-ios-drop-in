@@ -13,12 +13,17 @@ enum DemoThreeDSecureRequiredSetting: Int {
 }
 
 class DemoSettings {
-    
+
+    static let IntegrationDefaultsKey = "BraintreeDemoSettingsIntegrationDefaultsKey"
     static let EnvironmentDefaultsKey = "BraintreeDemoSettingsEnvironmentDefaultsKey"
     static let CustomEnvironmentURLDefaultsKey = "BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey"
     static let ThreeDSecureRequiredDefaultsKey = "BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey"
     static let ThreeDSecureVersionDefaultsKey = "BraintreeDemoSettingsThreeDSecureVersionDefaultsKey"
-    
+
+    static var currentIntegration: String? {
+        return UserDefaults.standard.string(forKey: IntegrationDefaultsKey).map { "Demo.\($0)" }
+    }
+
     static var currentEnvironment: DemoEnvironment {
         return DemoEnvironment(rawValue: UserDefaults.standard.integer(forKey: EnvironmentDefaultsKey)) ?? DemoEnvironment.sandbox
     }

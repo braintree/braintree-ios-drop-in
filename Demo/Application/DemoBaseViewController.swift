@@ -8,7 +8,7 @@ class DemoBaseViewController: UIViewController {
     var completionBlock: ((BTPaymentMethodNonce?) -> Void)?
     var transactionBlock: (() -> Void)?
     
-    init(authorization: String) {
+    required init(authorization: String) {
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -10,7 +10,7 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
     private var didSelectApplePay: Bool = false
     private var selectedNonce: BTPaymentMethodNonce?
     
-    override init(authorization: String) {
+    required init(authorization: String) {
         self.authorization = authorization
         super.init(authorization: authorization)
         self.title = NSLocalizedString("Checkout", comment: "")
