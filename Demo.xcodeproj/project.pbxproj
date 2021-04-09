@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4221CD56260E66D30025F6AD /* DemoPurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221CD55260E66D30025F6AD /* DemoPurchaseButton.swift */; };
 		4226FBB32620A61F006F45FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226FBB22620A61F006F45FE /* ContentView.swift */; };
+		4226FBB82620A765006F45FE /* DropInRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226FBB72620A765006F45FE /* DropInRepresentable.swift */; };
 		422B6327260E4D3C00CAE202 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B62EE260E4D3C00CAE202 /* Main.strings */; };
 		422B6328260E4D3C00CAE202 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B62F0260E4D3C00CAE202 /* InfoPlist.strings */; };
 		422B6329260E4D3C00CAE202 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B630D260E4D3C00CAE202 /* BTUI.strings */; };
@@ -60,6 +61,7 @@
 		421F783C260E37EE003F99B5 /* braintree-ios-drop-in */ = {isa = PBXFileReference; lastKnownFileType = text; name = "braintree-ios-drop-in"; path = .; sourceTree = SOURCE_ROOT; };
 		4221CD55260E66D30025F6AD /* DemoPurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPurchaseButton.swift; sourceTree = "<group>"; };
 		4226FBB22620A61F006F45FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4226FBB72620A765006F45FE /* DropInRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInRepresentable.swift; sourceTree = "<group>"; };
 		422B62EF260E4D3C00CAE202 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		422B62F1260E4D3C00CAE202 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		422B62F2260E4D3C00CAE202 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.strings; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				4226FBB22620A61F006F45FE /* ContentView.swift */,
+				4226FBB72620A765006F45FE /* DropInRepresentable.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				4245D881256C5C4E00F1A413 /* DemoAppDelegate.swift in Sources */,
 				4245D88D256C5C4F00F1A413 /* DemoMerchantAPIClient.swift in Sources */,
 				4245D885256C5C4E00F1A413 /* DemoDropInViewController.swift in Sources */,
+				4226FBB82620A765006F45FE /* DropInRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
