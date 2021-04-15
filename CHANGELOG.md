@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.0.0 (2021-04-08)
 
 * Accessibility
   * VoiceOver improvements
@@ -11,6 +11,7 @@
   * Add validation to cardholder name field to prevent users from accidentally inputting credit card numbers
 * Payment selection sheet
   * Fix bug where vaulted payment methods were shown even when the payment method was disabled on `BTDropInRequest` (fixes #179)
+  * Fix bug where top of payment selection sheet was cut off on smaller phones using larger fonts
 * Breaking changes
   * Localization
     * Rename `BTUIKLocalizedString` to `BTDropInLocalization`
@@ -29,6 +30,8 @@
     * Rename `paymentOptionType` property to `paymentMethodType`
   * Apple Pay
     * Always show Apple Pay payment method option if device is capable of Apple Pay (fixes #232)
+    
+**Note**: Includes all changes in [9.0.0-beta1](https://github.com/braintree/braintree-ios-drop-in/releases/tag/9.0.0-beta1).
 
 ## 9.0.0-beta1 (2021-03-29)
 

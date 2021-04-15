@@ -1,4 +1,4 @@
-# Braintree iOS Drop-in v9 Beta Migration Guide
+# Braintree iOS Drop-in v9 Migration Guide
 
 See the [CHANGELOG](/CHANGELOG.md) for a complete list of changes. This migration guide outlines the basics for updating your client integration from v8 to v9.
 

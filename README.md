@@ -1,17 +1,15 @@
-# Braintree iOS Drop-In SDK
+# Braintree iOS Drop-in SDK
 
 [![Swift Package Manager compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/BraintreeDropIn.svg?style=flat)](https://cocoapods.org/pods/BraintreeDropIn)
 
 ![GitHub Actions CI](https://github.com/braintree/braintree-ios-drop-in/workflows/CI/badge.svg)
 
-Welcome to Braintree's Drop-In SDK for iOS!
+Welcome to Braintree's Drop-in SDK for iOS!
 
 ![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
 
-**The Braintree iOS Drop-In SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 12+ and Swift 5.1+.
-
-<!--TODO: Update README for v9 major version changes -->
+**The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 12+ and Swift 5.1+.
 
 ## Table of Contents
 
@@ -25,10 +23,10 @@ Welcome to Braintree's Drop-In SDK for iOS!
 
 ## Getting Started
 
-We recommend using [Swift Package Manager](https://swift.org/package-manager/) or [CocoaPods](https://github.com/CocoaPods/CocoaPods) to integrate the Braintree Drop-In SDK with your project.
+We recommend using [Swift Package Manager](https://swift.org/package-manager/) or [CocoaPods](https://github.com/CocoaPods/CocoaPods) to integrate the Braintree Drop-in SDK with your project.
 
-### Swift Package Manager (v9 beta)
-_This feature is only available in v9.0.0-beta1._
+### Swift Package Manager
+_This feature is only available in v9._
 
 To add the `BraintreeDropIn` package to your Xcode project, select File > Swift Packages > Add Package Dependency and enter `https://github.com/braintree/braintree-ios-drop-in` as the repository URL. Tick the checkbox for `BraintreeDropIn`.
 
@@ -47,7 +45,7 @@ Then run `pod install`.
 
 See our [`Podspec`](https://github.com/braintree/braintree-ios-drop-in/blob/master/BraintreeDropIn.podspec) for more information.
 
-*Note:* If you are using version 8.x.x of the Braintree Drop-In iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
+*Note:* If you are using version 8.x.x of the Braintree Drop-in iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
 
 ## Documentation
 
@@ -58,7 +56,7 @@ Add the below import statement to any class where you are using BraintreeDropIn.
 import BraintreeDropIn
 ```
 
-### Show Drop-In
+### Show Drop-in
 
 Present `BTDropInController` to collect the customer's payment information and receive the `nonce` to send to your server. Saved payment methods will appear if you specified a `customer_id` when creating your client token.
 
@@ -84,9 +82,9 @@ func showDropIn(clientTokenOrTokenizationKey: String) {
 }
 ```
 
-### Apple Pay + Drop-In
+### Apple Pay + Drop-in
 
-Apple Pay is enabled by default in Drop-In. Drop-In will show Apple Pay as a payment option as long as it is enabled in the control panel and the device supports it. To opt out, set `applePayDisabled = true` on your `BTDropInRequest`.
+Apple Pay is enabled by default in Drop-in. Drop-in will show Apple Pay as a payment option as long as it is enabled in the control panel and the device supports it. To opt out, set `applePayDisabled = true` on your `BTDropInRequest`.
 
 **Important:** If your customer selects Apple Pay as their preferred payment method then `result.paymentMethodType == .applePay` and the `result.paymentMethod` will be `nil`. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce. After you receive the `BTDropInResult`, you will need to:
 1) Display a `PKPaymentButton`.
@@ -95,9 +93,9 @@ Apple Pay is enabled by default in Drop-In. Drop-In will show Apple Pay as a pay
 
 Use `BTApplePayClient` to tokenize the customer's Apple Pay information - [view our official docs for more information](https://developers.braintreepayments.com/guides/apple-pay/client-side/ios/v5).
 
-### 3D Secure + Drop-In
+### 3D Secure + Drop-in
 
-The Drop-In supports 3D Secure verification. You must have 3D Secure enabled in the Control Panel. Create a `BTThreeDSecureRequest`, setting as many fields on it as possible; the more fields that are set, the less likely it is that a user will be be presented with a challenge. Set the `BTThreeDSecureRequest` on `BTDropInRequest`.
+The Drop-in supports 3D Secure verification. You must have 3D Secure enabled in the Control Panel. Create a `BTThreeDSecureRequest`, setting as many fields on it as possible; the more fields that are set, the less likely it is that a user will be be presented with a challenge. Set the `BTThreeDSecureRequest` on `BTDropInRequest`.
 
 ```swift
 let request = BTDropInRequest()
@@ -141,7 +139,7 @@ request.vaultManager = true
 
 ### Fetch most recent payment method
 
-If your user already has an existing payment method, you may not need to show the Drop-In UI. You can check if they have an existing payment method using `BTDropInResult.mostRecentPaymentMethod`. Note that you must use a client token that was created with a `customer_id`. `BTDropInResult` makes it easy to get a description and icon of the payment method.
+If your user already has an existing payment method, you may not need to show the Drop-in UI. You can check if they have an existing payment method using `BTDropInResult.mostRecentPaymentMethod`. Note that you must use a client token that was created with a `customer_id`. `BTDropInResult` makes it easy to get a description and icon of the payment method.
 
 ![Example payment method icon and description](Images/saved-single-payment-method.png "Example payment method icon and description")
 
@@ -169,11 +167,11 @@ BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, 
 
 ### Localization
 
-Drop-In is currently localized for [22 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/Sources/BraintreeDropIn/Resources).
+Drop-in is currently localized for [22 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/Sources/BraintreeDropIn/Resources).
 
 ### Color Schemes
 
-Drop-In is fully customizable, but we also provide `Light`, `Dark` and `Dynamic` color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. The `Dynamic` scheme is only available in iOS 13 or higher. Drop-In will use the `Light` color scheme by default.
+Drop-in is fully customizable, but we also provide `Light`, `Dark` and `Dynamic` color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. The `Dynamic` scheme is only available in iOS 13 or higher. Drop-in will use the `Light` color scheme by default.
 ```swift
 let uiCustomization = BTDropInUICustomization(colorScheme: .dark)
 
@@ -185,7 +183,7 @@ dropInRequest.uiCustomization = uiCustomization
 
 ### Customization
 
-Use `BTDropInUICustomization` to customize the appearance of Drop-In.
+Use `BTDropInUICustomization` to customize the appearance of Drop-in.
 
 ```swift
 let uiCustomization = BTDropInUICustomization(colorScheme: .dynamic)
@@ -210,6 +208,10 @@ let dropInRequest = BTDropInRequest()
 dropInRequest.uiCustomization = uiCustomization
 ```
 
+#### VoiceOver
+
+Drop-in UI elements support VoiceOver.
+
 ### More Information
 
 Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
@@ -219,12 +221,11 @@ Also see our [**reference documentation**](https://braintree.github.io/braintree
 ## Versions
 
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](http://developers.braintreepayments.com/guides/client-sdk/deprecation-policy).
-<!-- TODO update this chart before v9 GA release -->
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
-| 9.x.x | Beta | March 2021 | TBA | TBA |
-| 8.x.x | Active | Februrary 2020 | TBA | TBA |
-| 7.x.x | Inactive | December 2018 | TBA | TBA |
+| 9.x.x | Active | April 2021 | TBA | TBA |
+| 8.x.x | Inactive | Februrary 2020 | April 2022 | TBA |
+| 7.x.x | Deprecated | December 2018 | April 2021 | April 2022 |
 
 Versions 6 and below are unsupported.
 
@@ -243,7 +244,7 @@ The demo app uses Swift Package Manager to fetch dependencies. Xcode will downlo
 
 ## Feedback
 
-The Braintree iOS Drop-In SDK is in active development, we welcome your feedback!
+The Braintree iOS Drop-in SDK is in active development, we welcome your feedback!
 
 Here are a few ways to get in touch:
 
@@ -252,4 +253,4 @@ Here are a few ways to get in touch:
 
 ## License
 
-The Braintree iOS Drop-In SDK is open source and available under the MIT license. See the [LICENSE](https://github.com/braintree/braintree-ios-drop-in/blob/master/LICENSE) file for more info.
+The Braintree iOS Drop-in SDK is open source and available under the MIT license. See the [LICENSE](https://github.com/braintree/braintree-ios-drop-in/blob/master/LICENSE) file for more info.
