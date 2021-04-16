@@ -53,18 +53,20 @@
 - (void)updateAppearance {
     NSMutableAttributedString *at = [[NSMutableAttributedString alloc] initWithString:@""];
     NSMutableArray *attachments = [NSMutableArray new];
-    BTUIKPaymentOptionCardView *hint = [BTUIKPaymentOptionCardView new];
-    hint.frame = CGRectMake(0, 0, [BTUIKAppearance smallIconWidth], [BTUIKAppearance smallIconHeight]);
-    hint.borderColor = UIColor.systemGrayColor;
-    
+    NSString *accessibilityLabel = [NSString stringWithFormat:@"%@: ", BTDropInLocalizedString(CARD_ICONS_LABEL)];
+    BTUIKPaymentOptionCardView *cardIconView = [BTUIKPaymentOptionCardView new];
+    cardIconView.frame = CGRectMake(0, 0, [BTUIKAppearance smallIconWidth], [BTUIKAppearance smallIconHeight]);
+    cardIconView.borderColor = UIColor.systemGrayColor;
+
     for (NSUInteger i = 0; i < self.availablePaymentOptions.count; i++) {
         NSTextAttachment *composeAttachment = [NSTextAttachment new];
         BTDropInPaymentMethodType paymentOption = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
-        composeAttachment.accessibilityLabel = [BTUIKViewUtil nameForPaymentMethodType:paymentOption];
-        hint.paymentMethodType = paymentOption;
-        [hint setNeedsLayout];
-        [hint layoutIfNeeded];
-        UIImage *composeImage = [self imageWithView:hint];
+        accessibilityLabel = [@[accessibilityLabel, [BTUIKViewUtil nameForPaymentMethodType:paymentOption]] componentsJoinedByString:@","];
+        
+        cardIconView.paymentMethodType = paymentOption;
+        [cardIconView setNeedsLayout];
+        [cardIconView layoutIfNeeded];
+        UIImage *composeImage = [self imageWithView:cardIconView];
         [attachments addObject:composeAttachment];
         composeAttachment.image = composeImage;
         [at appendAttributedString:[NSAttributedString attributedStringWithAttachment:composeAttachment]];
@@ -72,6 +74,7 @@
                                     initWithString: i < self.availablePaymentOptions.count - 1? @" " : @""]];
     }
     self.attributedText = at;
+    self.accessibilityLabel = accessibilityLabel;
     self.availablePaymentOptionAttachments = attachments;
 }
 

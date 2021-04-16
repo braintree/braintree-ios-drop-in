@@ -256,6 +256,10 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"POSTAL_CODE_LABEL", [self localizationTable], [self localizationBundle], @"Postal Code", @"POSTAL_CODE_LABEL");
 }
 
++ (NSString *)CARD_ICONS_LABEL {
+    return NSLocalizedStringWithDefaultValue(@"CARD_LIST_LABEL", [self localizationTable], [self localizationBundle], @"Supported card types", @"CARD_LIST_LABEL");
+}
+
 + (NSString *)PAYPAL {
     return NSLocalizedStringWithDefaultValue(@"PAYPAL", [self localizationTable], [self localizationBundle], @"PayPal", @"PAYPAL");
 }
