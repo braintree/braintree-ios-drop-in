@@ -8,6 +8,26 @@
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
 			<key>Title</key>
+			<string>UI Framework</string>
+			<key>Key</key>
+			<string>BraintreeDemoSettingsUIFrameworkDefaultsKey</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Titles</key>
+			<array>
+				<string>UIKit</string>
+				<string>SwiftUI</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
 			<string>Environment</string>
 			<key>Key</key>
 			<string>BraintreeDemoSettingsEnvironmentDefaultsKey</string>
