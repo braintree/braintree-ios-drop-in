@@ -9,6 +9,8 @@
 #import "BTUIKAppearance.h"
 #import "BTConfiguration+DropIn.h"
 #import "BTPaymentMethodNonce+DropIn.h"
+#import "BTPaymentSelectionPresentationController.h"
+#import "BTCardFormViewController.h"
 
 #ifdef COCOAPODS
 #import <Braintree/BraintreeCard.h>
@@ -31,6 +33,7 @@
 @property (nonatomic, readonly) BOOL hasVaultedPaymentMethods;
 @property (nonatomic, strong) UITableView *paymentOptionsTableView;
 @property (nonatomic, strong) id application;
+@property (nonatomic, strong) NSLayoutConstraint *heightConstraint;
 @end
 
 @implementation BTPaymentSelectionViewController
@@ -72,7 +75,15 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     self.navigationItem.titleView = titleLabel;
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; // make nav bar clear
-    self.view.backgroundColor = UIColor.clearColor;
+
+    BOOL useBlur = !UIAccessibilityIsReduceTransparencyEnabled() && BTUIKAppearance.sharedInstance.useBlurs;
+    self.view.backgroundColor = useBlur ? UIColor.clearColor : BTUIKAppearance.sharedInstance.formBackgroundColor;
+
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:BTUIKAppearance.sharedInstance.blurStyle];
+    UIVisualEffectView *blurredBackgroundView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    blurredBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    blurredBackgroundView.hidden = !useBlur;
+    [self.view addSubview:blurredBackgroundView];
 
     _vaultedCardAppearAnalyticSent = NO;
 
@@ -93,8 +104,16 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [self.paymentOptionsTableView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
         [self.paymentOptionsTableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
         [self.paymentOptionsTableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
-        [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        [self.paymentOptionsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
+        [blurredBackgroundView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
+        [blurredBackgroundView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+        [blurredBackgroundView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [blurredBackgroundView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
     ]];
+
+    self.heightConstraint = [self.paymentOptionsTableView.heightAnchor constraintEqualToConstant:150];
+    self.heightConstraint.priority = UILayoutPriorityDefaultHigh;
+    self.heightConstraint.active = YES;
 }
 
 - (void)dealloc {
@@ -103,7 +122,11 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary <NSString *, id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"contentSize"]) {
-        [self.delegate sheetHeightDidChange:self];
+        if (self.configuration) {
+            self.heightConstraint.constant = MAX(self.paymentOptionsTableView.contentSize.height, 150);
+            [self.navigationController.presentationController.containerView setNeedsLayout];
+            [self.navigationController.presentationController.containerView layoutIfNeeded];
+        }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -275,9 +298,25 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
     BTDropInPaymentSelectionCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.type == BTDropInPaymentMethodTypeUnknown) {
-        if ([self.delegate respondsToSelector:@selector(showCardForm:)]){
-            [self.delegate performSelector:@selector(showCardForm:) withObject:self];
+        BTCardFormViewController* cardForm = [[BTCardFormViewController alloc] initWithAPIClient:self.apiClient
+                                                                                         request:self.dropInRequest];
+
+        NSMutableArray *paymentMethodTypes = [NSMutableArray new];
+        for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
+            BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
+            if (paymentMethodType != BTDropInPaymentMethodTypeUnknown) {
+                [paymentMethodTypes addObject: @(paymentMethodType)];
+            }
         }
+        cardForm.supportedCardTypes = paymentMethodTypes;
+//        cardForm.delegate = self;
+        UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:cardForm];
+        if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            navController.modalPresentationStyle = UIModalPresentationPageSheet;
+        } else {
+            navController.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
+        [self presentViewController:navController animated:YES completion:nil];
     } else if (cell.type == BTDropInPaymentMethodTypePayPal) {
         BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
 
@@ -375,6 +414,15 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
         }
     }
+}
+
+#pragma mark UIViewControllerTransitioningDelegate
+
+- (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented
+                                                      presentingViewController:(UIViewController *)presenting
+                                                          sourceViewController:(__unused UIViewController *)source {
+    return [[BTPaymentSelectionPresentationController alloc] initWithPresentedViewController:presented
+                                                                    presentingViewController:presenting];
 }
 
 @end

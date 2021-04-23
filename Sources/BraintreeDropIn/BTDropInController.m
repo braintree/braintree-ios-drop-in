@@ -67,8 +67,6 @@
         }
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
             self.modalPresentationStyle = UIModalPresentationFormSheet;
-            // Customize the iPad size...
-            // self.preferredContentSize = CGSizeMake(600, 400);
         } else {
             self.transitioningDelegate = self;
             self.modalPresentationStyle = UIModalPresentationCustom;
@@ -90,8 +88,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpViews];
-    [self setUpChildViewControllers];
-    [self setUpConstraints];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,27 +99,34 @@
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self displayPaymentSelectionViewController];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.apiClient sendAnalyticsEvent:@"ios.dropin2.disappear"];
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    // before rotating
-    [coordinator animateAlongsideTransition:^(__unused id<UIViewControllerTransitionCoordinatorContext> context) {
-        // while rotating
-        if (self.view.window != nil && !self.isBeingDismissed) {
-            [self flexViewAnimated:NO];
-            [self.view setNeedsDisplay];
-            [self.view setNeedsLayout];
-        }
-    } completion:^(__unused id<UIViewControllerTransitionCoordinatorContext> context) {
-        // after rotating
-    }];
-}
-
 #pragma mark - Setup
+
+- (void) displayPaymentSelectionViewController {
+    self.paymentSelectionViewController = [[BTPaymentSelectionViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
+    self.paymentSelectionViewController.delegate = self;
+    self.paymentSelectionNavigationController = [[UINavigationController alloc] initWithRootViewController:self.paymentSelectionViewController];
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        self.paymentSelectionNavigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    } else {
+        self.paymentSelectionNavigationController.modalPresentationStyle = UIModalPresentationCustom;
+        self.paymentSelectionNavigationController.transitioningDelegate = self.paymentSelectionViewController;
+    }
+
+    [self presentViewController:self.paymentSelectionNavigationController animated:YES completion:nil];
+
+    [self.paymentSelectionViewController loadConfiguration];
+}
 
 - (void)setUpViews {
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[BTDropInController.self]]
@@ -136,79 +139,9 @@
     self.view.opaque = NO;
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].overlayColor;
     self.view.userInteractionEnabled = YES;
-    
-
-    self.contentView = [[UIView alloc] init];
-    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.contentView.backgroundColor = self.useBlur ? [UIColor clearColor] : [BTUIKAppearance sharedInstance].formBackgroundColor;
-    self.contentView.layer.cornerRadius = BT_HALF_SHEET_CORNER_RADIUS;
-    self.contentView.clipsToBounds = YES;
-
-    [self.view addSubview: self.contentView];
-    
-    self.contentClippingView = [[UIView alloc] init];
-    self.contentClippingView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addSubview: self.contentClippingView];
-    self.contentClippingView.backgroundColor = [UIColor clearColor];
-    self.contentClippingView.clipsToBounds = YES;
-    
-    UIBlurEffect *contentEffect = [UIBlurEffect effectWithStyle:[BTUIKAppearance sharedInstance].blurStyle];
-    self.blurredContentBackgroundView = [[UIVisualEffectView alloc] initWithEffect:contentEffect];
-    self.blurredContentBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.blurredContentBackgroundView.hidden = !self.useBlur;
-    [self.contentView addSubview:self.blurredContentBackgroundView];
-    [self.contentView sendSubviewToBack:self.blurredContentBackgroundView];
 }
 
-- (void)setUpChildViewControllers {
-    self.paymentSelectionViewController = [[BTPaymentSelectionViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
-    self.paymentSelectionViewController.delegate = self;
-    self.paymentSelectionNavigationController = [[UINavigationController alloc] initWithRootViewController:self.paymentSelectionViewController];
-    self.paymentSelectionNavigationController.view.translatesAutoresizingMaskIntoConstraints = NO;
-    self.paymentSelectionNavigationController.view.hidden = YES;
-
-    [self.contentClippingView addSubview:self.paymentSelectionNavigationController.view];
-}
-
-- (void)setUpConstraints {
-    NSDictionary *viewBindings = @{
-                                   @"view": self,
-                                   @"contentView": self.contentView,
-                                   @"contentClippingView":self.contentClippingView,
-                                   @"paymentSelectionView":self.paymentSelectionNavigationController.view
-                                   };
-
-    NSDictionary *metrics = @{@"BT_HALF_SHEET_MARGIN":@([self sheetInset])};
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(BT_HALF_SHEET_MARGIN)-[contentView]-(BT_HALF_SHEET_MARGIN)-|"
-                                                                      options:0
-                                                                      metrics:metrics
-                                                                        views:viewBindings]];
-
-    self.contentViewHeightConstraint = [self.contentView.heightAnchor constraintEqualToConstant:[self calculateContentViewHeightConstraintConstant]];
-    self.contentViewHeightConstraint.active = YES;
-
-    self.contentViewBottomConstraint = [self.contentView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-[self sheetInset]];
-    self.contentViewBottomConstraint.active = YES;
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[paymentSelectionView]|"
-                                                                      options:0
-                                                                      metrics:metrics
-                                                                        views:viewBindings]];
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[paymentSelectionView]|"
-                                                                      options:0
-                                                                      metrics:metrics
-                                                                        views:viewBindings]];
-    
-    [self.blurredContentBackgroundView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
-    [self.blurredContentBackgroundView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
-    [self.blurredContentBackgroundView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor].active = YES;
-    [self.blurredContentBackgroundView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor].active = YES;
-    
-    [self applyContentViewConstraints];
-}
-
+// REMOVE?
 - (void)loadConfiguration {
     [self.apiClient fetchOrReturnRemoteConfiguration:^(BTConfiguration * _Nullable configuration, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -291,6 +224,7 @@
     next();
 }
 
+// REMOVE
 - (void)showCardForm:(__unused id)sender {
     BTCardFormViewController* vd = [[BTCardFormViewController alloc] initWithAPIClient:self.apiClient request:self.dropInRequest];
     vd.supportedCardTypes = self.displayCardTypes;
@@ -396,6 +330,7 @@
 }
 
 - (void)selectionCompletedWithPaymentMethodType:(BTDropInPaymentMethodType)type nonce:(BTPaymentMethodNonce *)nonce error:(NSError *)error {
+    [self.paymentSelectionNavigationController dismissViewControllerAnimated:YES completion:nil];
     if (error == nil) {
         [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"BT_dropInLastSelectedPaymentMethodType"];
         if (self.handler != nil) {
@@ -417,6 +352,7 @@
 }
 
 - (void)cancelButtonPressedOnPaymentSelectionViewController:(BTPaymentSelectionViewController *)viewController {
+    [self.paymentSelectionNavigationController dismissViewControllerAnimated:YES completion:nil];
     BTDropInResult *result = [[BTDropInResult alloc] init];
     result.canceled = YES;
     if (self.handler) {
@@ -438,8 +374,6 @@
 
 - (void)reloadDropInData {
     [self.paymentSelectionViewController loadConfiguration];
-    [self flexViewAnimated:NO];
-    [self.view setNeedsDisplay];
 }
 
 - (void)editPaymentMethods:(__unused id)sender {
@@ -481,12 +415,6 @@
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     BTDropInController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     [[transitionContext containerView] addSubview:toViewController.view];
-
-    // Move content off screen so it can be animated in when it appears
-    toViewController.contentViewBottomConstraint.constant = [toViewController calculateContentViewHeightConstraintConstant];
-    [toViewController.view setNeedsUpdateConstraints];
-    [toViewController.view layoutIfNeeded];
-    [toViewController flexViewAnimated:YES];
     toViewController.view.alpha = 0;
 
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
@@ -507,8 +435,6 @@
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     BTDropInController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
-    fromViewController.contentViewBottomConstraint.constant = [fromViewController calculateContentViewHeightConstraintConstant];
-    [fromViewController.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromViewController.view.alpha = 0;
         [fromViewController.view layoutIfNeeded];
