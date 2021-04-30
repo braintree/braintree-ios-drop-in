@@ -1,6 +1,6 @@
 #import "BTPaymentMethodNonce+DropIn.h"
 
-#ifdef COCOAPODS
+#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BTCardNonce.h>
 #import <Braintree/BTPayPalAccountNonce.h>
 #import <Braintree/BTConfiguration+PayPal.h>

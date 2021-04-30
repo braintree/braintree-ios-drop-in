@@ -1,4 +1,4 @@
-#ifdef COCOAPODS
+#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BraintreeCore.h>
 #else
 #import <BraintreeCore/BraintreeCore.h>

@@ -5,7 +5,7 @@
 #import "BTPaymentMethodNonce+DropIn.h"
 #import "BTUIKAppearance.h"
 
-#ifdef COCOAPODS
+#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BraintreeCard.h>
 #import <Braintree/BraintreeCore.h>
 #else

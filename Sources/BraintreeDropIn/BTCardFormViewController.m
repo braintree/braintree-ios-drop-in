@@ -12,7 +12,7 @@
 #import "BTUIKViewUtil.h"
 #import "BTDropInLocalization_Internal.h"
 
-#ifdef COCOAPODS
+#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BraintreeCard.h>
 #import <Braintree/BraintreeCore.h>
 #import <Braintree/BraintreePaymentFlow.h>
