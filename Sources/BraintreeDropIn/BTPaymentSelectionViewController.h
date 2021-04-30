@@ -2,7 +2,7 @@
 #import "BTDropInBaseViewController.h"
 #import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 
-#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
+#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BTVenmoDriver.h>
 #else
 #import <BraintreeVenmo/BTVenmoDriver.h>

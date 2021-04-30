@@ -10,7 +10,7 @@
 #import "BTConfiguration+DropIn.h"
 #import "BTPaymentMethodNonce+DropIn.h"
 
-#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
+#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BraintreeCard.h>
 #import <Braintree/BraintreePayPal.h>
 #import <Braintree/BraintreeVenmo.h>
