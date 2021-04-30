@@ -6,7 +6,7 @@ FOUNDATION_EXPORT double BraintreeDropInVersionNumber;
 //! Project version string for BraintreeUI.
 FOUNDATION_EXPORT const unsigned char BraintreeDropInVersionString[];
 
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
 #import <Braintree/BraintreeApplePay.h>
 #import <Braintree/BraintreeUnionPay.h>
 #import <Braintree/BraintreeVenmo.h>

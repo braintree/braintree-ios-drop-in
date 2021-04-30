@@ -15,7 +15,7 @@ static NSArray *customTranslations;
         }
     }
 
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
     NSString *bundleName = @"BraintreeDropIn-Localization";
     NSString *localizationBundlePath = [NSBundle.mainBundle pathForResource:bundleName ofType:@"bundle"];
     if (!localizationBundlePath) {

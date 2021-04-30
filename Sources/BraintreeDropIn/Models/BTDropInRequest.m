@@ -1,5 +1,5 @@
 #import <BraintreeDropIn/BTDropInRequest.h>
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
 #import <Braintree/BTPostalAddress.h>
 #else
 #import <BraintreeCore/BTPostalAddress.h>

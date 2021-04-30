@@ -1,6 +1,6 @@
 #import <BraintreeDropIn/BTDropInUICustomization.h>
 
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
 #import <Braintree/BTPostalAddress.h>
 #import <Braintree/BTPayPalRequest.h>
 #import <Braintree/BTVenmoRequest.h>

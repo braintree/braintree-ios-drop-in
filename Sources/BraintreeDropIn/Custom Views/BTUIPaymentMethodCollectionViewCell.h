@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#ifdef COCOAPODS
+#if __has_include(<BraintreeDropIn/BraintreeDropIn.h>) // CocoaPods
 #import <Braintree/BTPaymentMethodNonce.h>
 #else
 #import <BraintreeCore/BTPaymentMethodNonce.h>
