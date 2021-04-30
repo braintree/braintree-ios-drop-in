@@ -1,5 +1,6 @@
 import BraintreeDropIn
 import InAppSettingsKit
+import SwiftUI
 
 class DemoContainerViewController: UIViewController {
     
@@ -11,25 +12,29 @@ class DemoContainerViewController: UIViewController {
         }
     }
     
-    private var currentViewController: DemoBaseViewController? {
+    private var currentViewController: UIViewController? {
         didSet {
-            guard let current = currentViewController else {
+            guard let currentVC = currentViewController else {
                 updateStatusItem("Demo not available")
+                return
+            }
+
+            updateStatusItem("Presenting \(type(of: currentVC))")
+            title = currentVC.title
+
+            addChild(currentVC)
+            view.addSubview(currentVC.view)
+
+            currentVC.view.pinToEdges(of: self)
+            currentVC.didMove(toParent: self)
+
+            guard let current = currentVC as? DemoBaseViewController else {
                 return
             }
 
             current.progressBlock = progressBlock
             current.completionBlock = completionBlock
             current.transactionBlock = tappedStatus
-            
-            updateStatusItem("Presenting \(type(of: current))")
-            title = current.title
-            
-            addChild(current)
-            view.addSubview(current.view)
-            
-            current.view.pinToEdges(of: self)
-            current.didMove(toParent: self)
         }
     }
     
@@ -83,7 +88,7 @@ class DemoContainerViewController: UIViewController {
         title = NSLocalizedString("Braintree", comment: "")
         
         if let auth = DemoSettings.authorizationOverride {
-            currentViewController = DemoDropInViewController(authorization: auth)
+            currentViewController = instantiateCurrentViewController(with: auth)
         } else if DemoSettings.useTokenizationKey {
             updateStatusItem("Using Tokenization Key")
             
@@ -97,7 +102,7 @@ class DemoContainerViewController: UIViewController {
                 tokenizationKey = "development_testing_integration_merchant_id"
             }
             
-            currentViewController = DemoDropInViewController(authorization: tokenizationKey)
+            currentViewController = instantiateCurrentViewController(with: tokenizationKey)
         } else {
             updateStatusItem("Fetching Client Token...")
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -109,11 +114,24 @@ class DemoContainerViewController: UIViewController {
                     return
                 }
                 
-                self.currentViewController = DemoDropInViewController(authorization: token)
+                self.currentViewController = self.instantiateCurrentViewController(with: token)
             }
         }
     }
-    
+
+    func instantiateCurrentViewController(with authorization: String) -> UIViewController? {
+        switch DemoSettings.currentUIFramework {
+        case .uikit:
+            return DemoDropInViewController(authorization: authorization)
+        case .swiftui:
+            if #available(iOS 13, *) {
+                return UIHostingController(rootView: ContentView())
+            } else {
+                return nil
+            }
+        }
+    }
+
     func updateStatusItem(_ status: String) {
         let button = statusItem?.customView as? UIButton
         button?.setTitle(status, for: .normal)

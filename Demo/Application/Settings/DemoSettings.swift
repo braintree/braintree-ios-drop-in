@@ -1,5 +1,10 @@
 import BraintreeDropIn
 
+enum DemoUIFramework: Int {
+    case uikit
+    case swiftui
+}
+
 enum DemoEnvironment: Int {
     case sandbox
     case production
@@ -13,12 +18,17 @@ enum DemoThreeDSecureRequiredSetting: Int {
 }
 
 class DemoSettings {
-    
+
+    static let UIFrameworkDefaultsKey = "BraintreeDemoSettingsUIFrameworkDefaultsKey"
     static let EnvironmentDefaultsKey = "BraintreeDemoSettingsEnvironmentDefaultsKey"
     static let CustomEnvironmentURLDefaultsKey = "BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey"
     static let ThreeDSecureRequiredDefaultsKey = "BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey"
     static let ThreeDSecureVersionDefaultsKey = "BraintreeDemoSettingsThreeDSecureVersionDefaultsKey"
-    
+
+    static var currentUIFramework: DemoUIFramework {
+        return DemoUIFramework(rawValue: UserDefaults.standard.integer(forKey: UIFrameworkDefaultsKey)) ?? DemoUIFramework.uikit
+    }
+
     static var currentEnvironment: DemoEnvironment {
         return DemoEnvironment(rawValue: UserDefaults.standard.integer(forKey: EnvironmentDefaultsKey)) ?? DemoEnvironment.sandbox
     }
