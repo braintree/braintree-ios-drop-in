@@ -212,6 +212,10 @@ dropInRequest.uiCustomization = uiCustomization
 
 Drop-in UI elements support VoiceOver.
 
+#### SwiftUI
+
+Drop-in does not officially support SwiftUI at this time.
+
 ### More Information
 
 Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
