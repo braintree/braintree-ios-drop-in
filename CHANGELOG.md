@@ -4,6 +4,8 @@
 
 * VoiceOver improvements
   * Add localized helper text for image of available card types on card entry form
+* Swift Package Manager
+  * Fix issue with mixed SPM/CocoaPods projects (fixes #325)
 
 ## 9.0.0 (2021-04-08)
 
