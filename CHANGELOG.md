@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.0.1 (2021-05-03)
 
 * VoiceOver improvements
   * Add localized helper text for image of available card types on card entry form
