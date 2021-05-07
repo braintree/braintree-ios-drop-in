@@ -276,9 +276,9 @@
 			isa = PBXGroup;
 			children = (
 				8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */,
+				805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */,
 				8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */,
 				428484CA2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift */,
-				805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */,
 				8068E531256D7489002904E6 /* Helpers.swift */,
 				8068E521256D73D5002904E6 /* Info.plist */,
 			);

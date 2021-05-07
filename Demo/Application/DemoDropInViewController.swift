@@ -78,6 +78,7 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
             guard let result = result, error == nil else {
                 self.progressBlock?("Error: \(error!.localizedDescription)")
                 print("Error: \(error!)")
+                dropInController.dismiss(animated: true, completion: nil)
                 return
             }
             
