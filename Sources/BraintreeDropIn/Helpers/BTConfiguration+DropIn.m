@@ -3,7 +3,7 @@
 @implementation BTConfiguration (DropIn)
 
 -(NSArray<NSString *> *)supportedCardTypes {
-    return (NSArray<NSString *> *)[self.json[@"creditCards"][@"supportedCardTypes"] asArray];
+    return (NSArray<NSString *> *)[self.json[@"creditCards"][@"supportedCardTypes"] asStringArray];
 }
 
 @end
