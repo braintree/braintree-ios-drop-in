@@ -5,9 +5,9 @@
         "package": "Braintree",
         "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
-          "branch": null,
-          "revision": "6a1a28421b1ce65ec9a3cd834f1e5794c3a85d7d",
-          "version": "5.3.0"
+          "branch": "btjson-refactor",
+          "revision": "91dc333b66393962265ca425c3e28e6cae3381ec",
+          "version": null
         }
       }
     ]
