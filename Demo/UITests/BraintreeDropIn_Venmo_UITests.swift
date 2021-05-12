@@ -38,7 +38,7 @@ class Venmo_UITests: XCTestCase {
         waitForElementToAppear(mockVenmo.buttons["ERROR"])
         mockVenmo.buttons["ERROR"].tap()
 
-        waitForElementToAppear(demoApp.staticTexts["Select Payment Method"])
+        waitForElementToAppear(demoApp.staticTexts["Add Payment Method"])
     }
 
     func testTokenizeVenmo_whenUserCancels_returnsCancel() {
@@ -48,7 +48,7 @@ class Venmo_UITests: XCTestCase {
         waitForElementToAppear(mockVenmo.buttons["Cancel"])
         mockVenmo.buttons["Cancel"].tap()
 
-        waitForElementToAppear(demoApp.staticTexts["Select Payment Method"])
+        waitForElementToAppear(demoApp.staticTexts["Add Payment Method"])
     }
 }
 
