@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Require `braintree_ios` v5.3.2 or higher
+
 ## 9.0.1 (2021-05-03)
 
 * VoiceOver improvements
