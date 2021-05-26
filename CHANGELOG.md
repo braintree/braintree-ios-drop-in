@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-
+* Require `braintree_ios` v5.3.2 or higher
 * PayPal
   * Fix bug where an error was returned if the user canceled the PayPal flow, instead of remaining on the payment selection sheet
 
