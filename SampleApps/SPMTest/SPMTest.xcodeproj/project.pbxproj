@@ -384,7 +384,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in";
 			requirement = {
-				branch = "next-major-version";
+				branch = "master";
 				kind = branch;
 			};
 		};
