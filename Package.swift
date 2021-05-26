@@ -13,6 +13,7 @@ let package = Package(
             targets: ["BraintreeDropIn"]
         )
     ],
+    // TODO: Update to require Braintree v5.3.2+
     dependencies: [
         .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", .branch("btjson-refactor"))
     ],
