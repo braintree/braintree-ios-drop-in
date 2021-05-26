@@ -2,6 +2,8 @@
 
 ## unreleased
 * Require `braintree_ios` v5.3.2 or higher
+* PayPal
+  * Fix bug where an error was returned if the user canceled the PayPal flow, instead of remaining on the payment selection sheet
 
 ## 9.0.1 (2021-05-03)
 

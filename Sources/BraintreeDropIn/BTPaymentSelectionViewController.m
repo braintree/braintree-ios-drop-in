@@ -289,7 +289,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [self showLoadingScreen:YES];
         [driver tokenizePayPalAccountWithPayPalRequest:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error) {
             [self showLoadingScreen:NO];
-            if (self.delegate && (tokenizedPayPalAccount != nil || error != nil)) {
+            BOOL shouldReturnError = (error != nil && error.code != BTPayPalDriverErrorTypeCanceled);
+            if (self.delegate && (tokenizedPayPalAccount != nil || shouldReturnError)) {
                 [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypePayPal nonce:tokenizedPayPalAccount error:error];
             }
         }];
