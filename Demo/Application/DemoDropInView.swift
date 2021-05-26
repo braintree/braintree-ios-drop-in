@@ -1,6 +1,6 @@
 import BraintreeDropIn
 
-protocol DemoDropInViewDelegate: class {
+protocol DemoDropInViewDelegate: AnyObject {
     func demoViewDidTapDropInButton(_ view: DemoDropInView)
     func demoViewDidTapPurchaseButton(_ view: DemoDropInView)
 }
