@@ -13,9 +13,8 @@ let package = Package(
             targets: ["BraintreeDropIn"]
         )
     ],
-    // TODO: Update to require Braintree v5.3.2+
     dependencies: [
-        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", .branch("btjson-refactor"))
+        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", from: "5.3.2")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
