@@ -24,14 +24,13 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
   s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
   s.frameworks = "UIKit"
-  # TODO: - specify at least version of Braintree iOS w/ BTJSON refactor
-  s.dependency "Braintree/ApplePay", "~> 5.3"
-  s.dependency "Braintree/Card", "~> 5.3"
-  s.dependency "Braintree/Core", "~> 5.3"
-  s.dependency "Braintree/UnionPay", "~> 5.3"
-  s.dependency "Braintree/PayPal", "~> 5.3"
-  s.dependency "Braintree/ThreeDSecure", "~> 5.3"
-  s.dependency "Braintree/Venmo", "~> 5.3"
+  s.dependency "Braintree/ApplePay", "~> 5.3", ">=5.3.2"
+  s.dependency "Braintree/Card", "~> 5.3", ">=5.3.2"
+  s.dependency "Braintree/Core", "~> 5.3", ">=5.3.2"
+  s.dependency "Braintree/UnionPay", "~> 5.3", ">=5.3.2"
+  s.dependency "Braintree/PayPal", "~> 5.3", ">=5.3.2"
+  s.dependency "Braintree/ThreeDSecure", "~> 5.3", ">=5.3.2"
+  s.dependency "Braintree/Venmo", "~> 5.3", ">=5.3.2"
   s.resource_bundles = {
     "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"] }
 
