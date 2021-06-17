@@ -146,6 +146,7 @@
 		8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BraintreeDropIn_EditMode_UITests.swift; sourceTree = "<group>"; };
 		8068E531256D7489002904E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8075165E25F7E8F9007DEFA1 /* BraintreeDropIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BraintreeDropIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C2BBA20267BEEA900FB38B4 /* Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +223,7 @@
 		4245D7A5256C5AF900F1A413 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				9C2BBA20267BEEA900FB38B4 /* Demo.entitlements */,
 				421F783C260E37EE003F99B5 /* braintree-ios-drop-in */,
 				4245D864256C5C4E00F1A413 /* Application */,
 				4245D86D256C5C4E00F1A413 /* README.md */,
@@ -729,6 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_ENTITLEMENTS = Demo/Demo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 43253H4X22;
@@ -756,6 +759,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_ENTITLEMENTS = Demo/Demo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 43253H4X22;
