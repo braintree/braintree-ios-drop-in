@@ -1,7 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-
 * Increase valid Discover card length to 19 digits
 
 ## 9.0.2 (2021-05-26)
