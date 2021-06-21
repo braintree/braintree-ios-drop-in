@@ -126,9 +126,9 @@ class DemoSettings {
     static var applePayMerchantIdentifier: String? {
         switch (currentEnvironment) {
         case .sandbox:
-            return "merchant.com.braintreepayments.sandbox.Braintree-Demo"
+            return "merchant.com.braintreepayments.apple-pay-demo.Braintree-Demo"
         case .production:
-            return "merchant.com.braintreepayments.Braintree-Demo"
+            return "merchant.com.braintreepayments.apple-pay-demo.production.Braintree-Demo"
         case .custom:
             return nil
         }
