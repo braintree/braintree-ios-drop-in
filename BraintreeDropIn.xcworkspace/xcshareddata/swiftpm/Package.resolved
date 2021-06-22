@@ -5,9 +5,9 @@
         "package": "Braintree",
         "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
-          "branch": null,
-          "revision": "55178c1a45aaa9f1e804123141b582684ea8ebb2",
-          "version": "5.3.2"
+          "branch": "spm-binary-fix-xcode12-5",
+          "revision": "9c6ac1265b73805de5ea0d8cb4d2a23c36c05101",
+          "version": null
         }
       },
       {

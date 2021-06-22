@@ -14,7 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", from: "5.3.2")
+        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", .branch("spm-binary-fix-xcode12-5"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -29,9 +29,7 @@ let package = Package(
                 .product(name: "BraintreePayPal", package: "Braintree"),
                 .product(name: "BraintreeThreeDSecure", package: "Braintree"),
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
-                .product(name: "BraintreeVenmo", package: "Braintree"),
-                .product(name: "PPRiskMagnes", package: "Braintree"),
-                .product(name: "CardinalMobile", package: "Braintree")
+                .product(name: "BraintreeVenmo", package: "Braintree")
             ],
             exclude: ["Info.plist"],
             publicHeadersPath: "Public",
