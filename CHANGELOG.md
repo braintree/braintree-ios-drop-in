@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Require `braintree_ios` v5.X.0 or higher
+  * Includes SPM binary [dependency bug fix](https://github.com/braintree/braintree_ios/pull/636) which requires Xcode 12.5+
+
 ## 9.0.2 (2021-05-26)
 * Require `braintree_ios` v5.3.2 or higher
 * PayPal
