@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Braintree",
+        "package": "braintree_ios",
         "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
-          "branch": "spm-binary-fix-xcode12-5",
-          "revision": "9c6ac1265b73805de5ea0d8cb4d2a23c36c05101",
-          "version": null
+          "branch": null,
+          "revision": "2ec4f78cb6f7159b1073958251c16c654eb52218",
+          "version": "5.4.1"
         }
       },
       {
