@@ -78,6 +78,9 @@
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
     self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
     self.navigationController.navigationBar.translucent = NO;
+    if (@available(iOS 15, *)) {
+        self.navigationController.navigationBar.scrollEdgeAppearance = self.navigationController.navigationBar.standardAppearance;
+    }
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor
                                                                       }];
