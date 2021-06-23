@@ -27,7 +27,7 @@ jobs:
         run: xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
   cocoapods_xcode_beta:
     name: CocoaPods (Xcode 13)
-    runs-on: macOS-latest
+    runs-on: macOS-11
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
