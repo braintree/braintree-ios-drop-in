@@ -2,7 +2,7 @@
   "object": {
     "pins": [
       {
-        "package": "braintree_ios",
+        "package": "Braintree",
         "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
           "branch": null,
