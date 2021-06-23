@@ -29,7 +29,9 @@ let package = Package(
                 .product(name: "BraintreePayPal", package: "Braintree"),
                 .product(name: "BraintreeThreeDSecure", package: "Braintree"),
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
-                .product(name: "BraintreeVenmo", package: "Braintree")
+                .product(name: "BraintreeVenmo", package: "Braintree"),
+                .product(name: "PPRiskMagnes", package: "Braintree"),
+                .product(name: "CardinalMobile", package: "Braintree")
             ],
             exclude: ["Info.plist"],
             publicHeadersPath: "Public",

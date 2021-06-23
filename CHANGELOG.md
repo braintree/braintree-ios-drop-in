@@ -2,7 +2,6 @@
 
 ## unreleased
 * Require `braintree_ios` v5.4.1 or higher
-  * Provides bugfix for SPM that requires Xcode 12.5+
 
 ## 9.0.2 (2021-05-26)
 * Require `braintree_ios` v5.3.2 or higher
