@@ -34,6 +34,7 @@
     // Discover
     [sampleCards addObject:@[@"6011111111111117", @"Discover"]];
     [sampleCards addObject:@[@"6011000990139424", @"Discover"]];
+    [sampleCards addObject:@[@"6500000000000000003", @"Discover"]];
 
     // Amex
     [sampleCards addObject:@[@"378282246310005", @"American Express"]];
