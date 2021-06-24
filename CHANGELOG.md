@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* iOS 15 Support
+  * Update `scrollEdgeAppearance` based on iOS 15 changes
+
 ## 9.0.2 (2021-05-26)
 * Require `braintree_ios` v5.3.2 or higher
 * PayPal
