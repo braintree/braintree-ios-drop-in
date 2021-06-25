@@ -163,7 +163,11 @@
                                                                 prefixes:@[@"^(5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[0-1]|2720)\\d*"]];
         BTUIKCardType *discover = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalizedString(CARD_TYPE_DISCOVER)
                                                       securityCodeName:BTDropInLocalizedString(CID_FIELD_PLACEHOLDER)
-                                                              prefixes:@[@"^(6011|65|64[4-9]|622)\\d*"]];
+                                                              prefixes:@[@"^(6011|65|64[4-9]|622)\\d*"]
+                                                       relaxedPrefixes:nil
+                                                    validNumberLengths:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 4)]
+                                                        validCvvLength:3
+                                                          formatSpaces:kDefaultFormatSpaceIndices];
         BTUIKCardType *jcb = [[BTUIKCardType alloc] initWithBrand:BTDropInLocalizedString(CARD_TYPE_JCB)
                                                  securityCodeName:BTDropInLocalizedString(CVV_FIELD_PLACEHOLDER)
                                                          prefixes:@[@"^35\\d*"]];
