@@ -13,7 +13,7 @@
 		800FC58F257FF3E000DEE132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC58D257FF3E000DEE132 /* Main.storyboard */; };
 		800FC591257FF3E200DEE132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800FC590257FF3E200DEE132 /* Assets.xcassets */; };
 		800FC594257FF3E200DEE132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800FC592257FF3E200DEE132 /* LaunchScreen.storyboard */; };
-		80BBF03F260BE2E0005D646D /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 80BBF03E260BE2E0005D646D /* BraintreeDropIn */; };
+		9C29493D2683CD1B003052B3 /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9C29493C2683CD1B003052B3 /* BraintreeDropIn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80BBF03F260BE2E0005D646D /* BraintreeDropIn in Frameworks */,
+				9C29493D2683CD1B003052B3 /* BraintreeDropIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			);
 			name = SPMTest;
 			packageProductDependencies = (
-				80BBF03E260BE2E0005D646D /* BraintreeDropIn */,
+				9C29493C2683CD1B003052B3 /* BraintreeDropIn */,
 			);
 			productName = SPMTest;
 			productReference = 800FC584257FF3E000DEE132 /* SPMTest.app */;
@@ -129,7 +129,7 @@
 			);
 			mainGroup = 800FC57B257FF3E000DEE132;
 			packageReferences = (
-				80BBF03D260BE2E0005D646D /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
+				9C29493B2683CD1B003052B3 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
 			);
 			productRefGroup = 800FC585257FF3E000DEE132 /* Products */;
 			projectDirPath = "";
@@ -380,20 +380,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		80BBF03D260BE2E0005D646D /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
+		9C29493B2683CD1B003052B3 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in";
+			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in.git";
 			requirement = {
-				branch = "master";
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		80BBF03E260BE2E0005D646D /* BraintreeDropIn */ = {
+		9C29493C2683CD1B003052B3 /* BraintreeDropIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 80BBF03D260BE2E0005D646D /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
+			package = 9C29493B2683CD1B003052B3 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
 			productName = BraintreeDropIn;
 		};
 /* End XCSwiftPackageProductDependency section */
