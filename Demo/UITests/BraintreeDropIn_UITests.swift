@@ -462,14 +462,19 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["1111"].exists)
     }
 
-    func testDropIn_nonUnionPayCardNumber_showsNextButton() {
+    func testDropIn_withNoCardNumberEntered_showsNextButton() {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        waitForElementToBeHittable(cardNumberTextField)
 
         XCTAssertTrue(app.buttons["Next"].exists)
     }
 
-    func testDropIn_hidesValidateButtonAfterCardNumberEntered() {
+    func testDropIn_withCardNumberEntered_showsNextButton() {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
 
