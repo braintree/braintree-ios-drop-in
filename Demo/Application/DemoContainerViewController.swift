@@ -62,11 +62,14 @@ class DemoContainerViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
         button.titleLabel?.numberOfLines = 0
-        button.titleLabel?.textColor = UIColor.white
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.frame = navigationController!.navigationBar.bounds
         button.addTarget(self, action: #selector(tappedStatus), for: .touchUpInside)
+
+        if #available(iOS 15, *) {
+            navigationController?.toolbar.scrollEdgeAppearance = navigationController?.toolbar.standardAppearance
+        }
         
         statusItem = UIBarButtonItem(customView: button)
         statusItem?.isEnabled = false
@@ -135,6 +138,9 @@ class DemoContainerViewController: UIViewController {
     func updateStatusItem(_ status: String) {
         let button = statusItem?.customView as? UIButton
         button?.setTitle(status, for: .normal)
+        if #available(iOS 13, *) {
+            button?.setTitleColor(UIColor.label, for: .normal)
+        }
         print(status)
     }
     
