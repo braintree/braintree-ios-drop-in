@@ -24,7 +24,7 @@ jobs:
       - name: Run swift package resolve
         run: cd SampleApps/SPMTest && swift package resolve
       - name: Build & archive SPMTest
-        run: xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
+        run: set -o pipefail && xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
   cocoapods_xcode_beta:
     name: CocoaPods (Xcode 13)
     runs-on: macOS-11
@@ -48,4 +48,4 @@ jobs:
       - name: Run swift package resolve
         run: cd SampleApps/SPMTest && swift package resolve
       - name: Build & archive SPMTest
-        run: xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
+        run: set -o pipefail && xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
