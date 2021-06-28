@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
                        Check out our development portal at https://developers.braintreepayments.com.
   DESC
-  s.homepage         = "https://www.braintreepayments.com/how-braintree-works"
+  s.homepage         = "https://developer.paypal.com/braintree/docs"
   s.documentation_url = "https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5"
   s.screenshots      = ["https://github.com/braintree/braintree-ios-drop-in/raw/master/Images/client-sdk-ios-series-light.png", "https://github.com/braintree/braintree-ios-drop-in/raw/master/Images/client-sdk-ios-series-dark.png"]
   s.license          = "MIT"
