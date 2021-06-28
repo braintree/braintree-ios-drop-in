@@ -70,7 +70,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // Using ivar so that setter is not called
     _collapsed = YES;
     self.unionPayEnabledMerchant = NO;
@@ -90,23 +90,23 @@
     [self.scrollView setAlwaysBounceVertical:NO];
     self.scrollView.scrollEnabled = YES;
     [self.view addSubview:self.scrollView];
-    
+
     self.scrollViewContentWrapper = [[UIView alloc] init];
     self.scrollViewContentWrapper.translatesAutoresizingMaskIntoConstraints = NO;
     [self.scrollView addSubview:self.scrollViewContentWrapper];
-    
+
     self.stackView = [BTDropInUIUtilities newStackView];
     [self.scrollViewContentWrapper addSubview:self.stackView];
-    
+
     NSDictionary *viewBindings = @{@"stackView":self.stackView,
                                    @"scrollView":self.scrollView,
                                    @"scrollViewContentWrapper": self.scrollViewContentWrapper};
-    
+
     [self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
     [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     [self.scrollView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollViewContentWrapper]|"
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
@@ -115,21 +115,21 @@
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[stackView]|"
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
-    
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[stackView]-|"
                                                                       options:0
                                                                       metrics:[BTUIKAppearance metrics]
                                                                         views:viewBindings]];
-    
+
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    
+
     [self.view addGestureRecognizer:tapGesture];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
@@ -179,7 +179,7 @@
     self.mobileCountryCodeField.delegate = self;
     self.mobilePhoneField = [[BTUIKMobileNumberFormField alloc] init];
     self.mobilePhoneField.delegate = self;
-    
+
     self.cardNumberHeader = [BTDropInUIUtilities newStackView];
     self.cardNumberHeader.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
     self.cardNumberHeader.layoutMarginsRelativeArrangement = true;
@@ -197,7 +197,7 @@
     for (BTUIKFormField *formField in self.formFields) {
         [self.stackView addArrangedSubview:formField];
     }
-    
+
     self.cardNumberField.labelText = @"";
 
     self.cardholderNameField.hidden = YES;
@@ -220,16 +220,16 @@
     self.cardList.availablePaymentOptions = self.supportedCardTypes;
     [self.cardNumberFooter addArrangedSubview:self.cardList];
     [BTDropInUIUtilities addSpacerToStackView:self.cardNumberFooter beforeView:self.cardList size: [BTUIKAppearance horizontalFormContentPadding]];
-    
+
     NSUInteger indexOfCardNumberField = [self.stackView.arrangedSubviews indexOfObject:self.cardNumberField];
     [self.stackView insertArrangedSubview:self.cardNumberFooter atIndex:(indexOfCardNumberField + 1)];
-    
+
     [self updateFormBorders];
-    
+
     //Error labels
     self.cardNumberErrorView = [BTDropInUIUtilities newStackViewForError:@""];
     [self cardNumberErrorHidden:YES];
-    
+
     //Enrollment footer
     self.enrollmentFooter = [BTDropInUIUtilities newStackView];
     self.enrollmentFooter.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance horizontalFormContentPadding], 0, [BTUIKAppearance horizontalFormContentPadding]);
@@ -284,28 +284,28 @@
     if (![self isFormValid]) {
         return nil;
     }
-    
+
     BTCard *card = [[BTCard alloc] init];
     card.number = self.cardNumberField.number;
     card.expirationMonth = self.expirationDateField.expirationMonth;
     card.expirationYear = self.expirationDateField.expirationYear;
     card.cvv = self.securityCodeField.securityCode;
-    
+
     if ([self.requiredFields containsObject:self.postalCodeField]) {
         card.postalCode = self.postalCodeField.postalCode;
     }
     if (self.cardholderNameField.cardholderName.length) {
         card.cardholderName = self.cardholderNameField.cardholderName;
     }
-    
+
     card.shouldValidate = self.shouldVaultCardSwitchField.switchControl.isOn;
     BTCardRequest *cardRequest = [[BTCardRequest alloc] initWithCard:card];
-    
+
     if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
         cardRequest.mobileCountryCode = self.mobileCountryCodeField.countryCode;
         cardRequest.mobilePhoneNumber = self.mobilePhoneField.mobileNumber;
     }
-    
+
     return cardRequest;
 }
 
@@ -338,7 +338,7 @@
             self.mobilePhoneField.hidden = ![self.requiredFields containsObject:self.mobilePhoneField] || collapsed;
             self.enrollmentFooter.hidden = self.mobilePhoneField.hidden;
             self.shouldVaultCardSwitchField.hidden = ![self shouldDisplaySaveCardToggle] || collapsed;
-            
+
             [self updateFormBorders];
             [self updateSubmitButton];
         }];
@@ -356,10 +356,10 @@
     BTUIKBarButtonItem *addButton = [[BTUIKBarButtonItem alloc] initWithTitle:BTDropInLocalizedString(ADD_CARD_ACTION) style:UIBarButtonItemStylePlain target:self action:@selector(tokenizeCard)];
     addButton.bold = YES;
     self.navigationItem.rightBarButtonItem = addButton;
-    
+
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.rightBarButtonItem.accessibilityHint = BTDropInLocalizedString(REVIEW_AND_TRY_AGAIN);
-    
+
     for (BTUIKFormField *formField in self.formFields) {
         formField.text = @"";
         formField.hidden = YES;
@@ -409,7 +409,7 @@
 - (void)updateFormBorders {
     self.cardNumberField.bottomBorder = YES;
     self.cardNumberField.topBorder = YES;
-    
+
     self.mobileCountryCodeField.topBorder = YES;
     self.mobileCountryCodeField.interFieldBorder = YES;
     self.mobilePhoneField.bottomBorder = YES;
@@ -468,7 +468,7 @@
 - (void)fetchCardCapabilities {
     [self cardNumberErrorHidden:YES];
     self.cardNumberField.state = BTUIKCardNumberFormFieldStateLoading;
-    
+
     BTCardClient *unionPayClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
     [unionPayClient fetchCapabilities:self.cardNumberField.number completion:^(BTCardCapabilities * _Nullable cardCapabilities, NSError * _Nullable error) {
         if (error || (!cardCapabilities.isUnionPay && !self.cardNumberField.valid)) {
@@ -498,7 +498,7 @@
             [self.requiredFields addObject:self.mobileCountryCodeField];
             [self.requiredFields addObject:self.mobilePhoneField];
         }
-        
+
         self.securityCodeField.textField.placeholder = self.cardNumberField.cardType.securityCodeName;
         self.cardNumberField.state = BTUIKCardNumberFormFieldStateDefault;
         self.collapsed = NO;
@@ -588,36 +588,36 @@
         UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
         spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
         [spinner startAnimating];
-        
+
         currentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
         self.view.userInteractionEnabled = NO;
     });
-    
+
     [cardClient enrollCard:cardRequest completion:^(NSString * _Nullable enrollmentID, BOOL smsCodeRequired, NSError * _Nullable error) {
 
         if (originalRightBarButtonItem) {
             [self.navigationController topViewController].navigationItem.rightBarButtonItem = originalRightBarButtonItem;
         }
-        
+
         if (error) {
             [self.delegate cardTokenizationCompleted:nil error:error sender:self];
             return;
         }
-        
+
         self.enrollmentID = enrollmentID;
-        
+
         if (!smsCodeRequired) {
             [self basicTokenization];
             return;
         }
-        
+
         // If a BTEnrollmentVerificationViewController is displayed, retry confirmation
         if ([[self.navigationController topViewController] isKindOfClass:[BTEnrollmentVerificationViewController class]]) {
             BTEnrollmentVerificationViewController *enrollmentController = (BTEnrollmentVerificationViewController*)[self.navigationController topViewController];
             [enrollmentController confirm];
             return;
         }
-        
+
         __block UINavigationController *navController = self.navigationController;
         __block BTEnrollmentVerificationViewController *enrollmentController;
         enrollmentController = [[BTEnrollmentVerificationViewController alloc] initWithPhone:self.mobilePhoneField.mobileNumber mobileCountryCode:self.mobileCountryCodeField.countryCode handler:^(NSString* authCode, BOOL resend) {
@@ -626,26 +626,26 @@
                 [self.navigationController popViewControllerAnimated:YES];
                 return;
             }
-            
+
             if (self.enrollmentFailed) {
                 self.enrollmentFailed = NO;
                 [self enrollCard];
                 return;
             }
-            
+
             __block UIBarButtonItem *originalRightBarButtonItem = enrollmentController.navigationItem.rightBarButtonItem;
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
                 spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
                 [spinner startAnimating];
-                
+
                 enrollmentController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
                 self.view.userInteractionEnabled = NO;
             });
-            
+
             cardRequest.smsCode = authCode;
             cardRequest.enrollmentID = self.enrollmentID;
-            
+
             [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.view.userInteractionEnabled = YES;
@@ -655,12 +655,12 @@
                         self.enrollmentFailed = YES;
                         return;
                     }
-                    
+
                     [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
                 });
             }];
         }];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             self.title = @"";
             [self.navigationController pushViewController:enrollmentController animated:YES];
@@ -671,7 +671,7 @@
                 [alertController addAction: alertAction];
                 [navController presentViewController:alertController animated:YES completion:nil];
             }
-            
+
         });
     }];
 }
@@ -713,7 +713,7 @@
         [self.apiClient sendAnalyticsEvent:@"ios.dropin2.card.focus"];
         self.cardEntryDidFocus = YES;
     }
-    
+
     if (!self.collapsed && formField == self.cardNumberField) {
         self.cardNumberField.state = BTUIKCardNumberFormFieldStateValidate;
         self.collapsed = YES;
@@ -725,25 +725,25 @@
 
 - (void)formFieldDidChange:(BTUIKFormField *)formField {
     [self updateSubmitButton];
-    
+
     // When focus moves from card number field, display the error state if the value in the field is invalid
     if (formField == self.cardNumberField && self.cardNumberField.state == BTUIKCardNumberFormFieldStateDefault) {
         [self cardNumberErrorHidden:self.cardNumberField.displayAsValid];
     }
-    
+
     // Analytics event - fires when a customer begins entering card information
     if (!self.cardEntryDidBegin && formField.text.length > 0) {
         [self.apiClient sendAnalyticsEvent:@"ios.dropin2.add-card.start"];
         self.cardEntryDidBegin = YES;
     }
-    
+
     // Highlight card brand in card hint view according to BIN number
     if (self.collapsed && formField == self.cardNumberField) {
         [self cardNumberErrorHidden:YES];
         BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForCardType:self.cardNumberField.cardType];
         [self.cardList emphasizePaymentOption:paymentMethodType];
     }
-    
+
     // Auto-advance fields when complete
     if (self.collapsed && formField == self.cardNumberField && formField.text.length > 0) {
         BTUIKCardType *cardType = self.cardNumberField.cardType;

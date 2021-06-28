@@ -15,7 +15,6 @@
 		422B6329260E4D3C00CAE202 /* BTUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 422B630D260E4D3C00CAE202 /* BTUI.strings */; };
 		422B632B260E4D3C00CAE202 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422B631A260E4D3C00CAE202 /* Launch Screen.storyboard */; };
 		422B6331260E4D5700CAE202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422B6330260E4D5700CAE202 /* Assets.xcassets */; };
-		422BB058260E2720007EF855 /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 422BB057260E2720007EF855 /* BraintreeDropIn */; };
 		423BD4EE260D199600D111E6 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 423BD4ED260D199600D111E6 /* InAppSettingsKit */; };
 		4245D87F256C5C4E00F1A413 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4245D866256C5C4E00F1A413 /* Settings.bundle */; };
 		4245D880256C5C4E00F1A413 /* DemoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D867256C5C4E00F1A413 /* DemoSettings.swift */; };
@@ -34,6 +33,7 @@
 		428484BD2617BFD20093461D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428484BB2617BFD20093461D /* LaunchScreen.storyboard */; };
 		428484C62617C0140093461D /* AppSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428484C52617C0140093461D /* AppSwitcher.swift */; };
 		428484CB2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428484CA2617C1160093461D /* BraintreeDropIn_Venmo_UITests.swift */; };
+		8021E361268A19F8003BBA53 /* BraintreeDropIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8021E360268A19F8003BBA53 /* BraintreeDropIn */; };
 		805384C9261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805384C8261623E20085B16C /* BraintreeDropIn_Localization_UITests.swift */; };
 		8068E520256D73D5002904E6 /* BraintreeDropIn_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E51F256D73D5002904E6 /* BraintreeDropIn_UITests.swift */; };
 		8068E52C256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068E52B256D7459002904E6 /* BraintreeDropIn_EditMode_UITests.swift */; };
@@ -155,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423BD4EE260D199600D111E6 /* InAppSettingsKit in Frameworks */,
-				422BB058260E2720007EF855 /* BraintreeDropIn in Frameworks */,
+				8021E361268A19F8003BBA53 /* BraintreeDropIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +314,7 @@
 			name = Demo;
 			packageProductDependencies = (
 				423BD4ED260D199600D111E6 /* InAppSettingsKit */,
-				422BB057260E2720007EF855 /* BraintreeDropIn */,
+				8021E360268A19F8003BBA53 /* BraintreeDropIn */,
 			);
 			productName = Demo;
 			productReference = 4245D7A3256C5AF900F1A413 /* Demo.app */;
@@ -413,7 +413,7 @@
 			mainGroup = 4245D79A256C5AF900F1A413;
 			packageReferences = (
 				423BD4EC260D199600D111E6 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
-				422BB056260E2720007EF855 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
+				8021E35F268A19F8003BBA53 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */,
 			);
 			productRefGroup = 4245D7A4256C5AF900F1A413 /* Products */;
 			projectDirPath = "";
@@ -902,14 +902,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		422BB056260E2720007EF855 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/braintree/braintree-ios-drop-in.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		423BD4EC260D199600D111E6 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
@@ -918,18 +910,26 @@
 				minimumVersion = 3.1.8;
 			};
 		};
+		8021E35F268A19F8003BBA53 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:///Users/scannillo/bt/braintree-ios-drop-in";
+			requirement = {
+				kind = revision;
+				revision = e0acadffb4fc48aa1884b024bb0d52c8cda457a1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		422BB057260E2720007EF855 /* BraintreeDropIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 422BB056260E2720007EF855 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
-			productName = BraintreeDropIn;
-		};
 		423BD4ED260D199600D111E6 /* InAppSettingsKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 423BD4EC260D199600D111E6 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
 			productName = InAppSettingsKit;
+		};
+		8021E360268A19F8003BBA53 /* BraintreeDropIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8021E35F268A19F8003BBA53 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */;
+			productName = BraintreeDropIn;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
