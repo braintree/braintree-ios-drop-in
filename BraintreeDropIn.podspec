@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
                        Check out our development portal at https://developers.braintreepayments.com.
   DESC
-  s.homepage         = "https://www.braintreepayments.com/how-braintree-works"
+  s.homepage         = "https://developer.paypal.com/braintree/docs"
   s.documentation_url = "https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5"
   s.screenshots      = ["https://github.com/braintree/braintree-ios-drop-in/raw/master/Images/client-sdk-ios-series-light.png", "https://github.com/braintree/braintree-ios-drop-in/raw/master/Images/client-sdk-ios-series-dark.png"]
   s.license          = "MIT"
@@ -24,13 +24,13 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
   s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
   s.frameworks = "UIKit"
-  s.dependency "Braintree/ApplePay", "~> 5.4", ">=5.4.1"
-  s.dependency "Braintree/Card", "~> 5.4", ">=5.4.1"
-  s.dependency "Braintree/Core", "~> 5.4", ">=5.4.1"
-  s.dependency "Braintree/UnionPay", "~> 5.4", ">=5.4.1"
-  s.dependency "Braintree/PayPal", "~> 5.4", ">=5.4.1"
-  s.dependency "Braintree/ThreeDSecure", "~> 5.4", ">=5.4.1"
-  s.dependency "Braintree/Venmo", "~> 5.4", ">=5.4.1"
+  s.dependency "Braintree/ApplePay", "~> 5.4", ">=5.4.2"
+  s.dependency "Braintree/Card", "~> 5.4", ">=5.4.2"
+  s.dependency "Braintree/Core", "~> 5.4", ">=5.4.2"
+  s.dependency "Braintree/UnionPay", "~> 5.4", ">=5.4.2"
+  s.dependency "Braintree/PayPal", "~> 5.4", ">=5.4.2"
+  s.dependency "Braintree/ThreeDSecure", "~> 5.4", ">=5.4.2"
+  s.dependency "Braintree/Venmo", "~> 5.4", ">=5.4.2"
   s.resource_bundles = {
     "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"] }
 

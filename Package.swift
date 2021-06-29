@@ -14,7 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", from: "5.4.1")
+        .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", from: "5.4.2")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -30,8 +30,7 @@ let package = Package(
                 .product(name: "BraintreeThreeDSecure", package: "Braintree"),
                 .product(name: "BraintreeUnionPay", package: "Braintree"),
                 .product(name: "BraintreeVenmo", package: "Braintree"),
-                .product(name: "PPRiskMagnes", package: "Braintree"),
-                .product(name: "CardinalMobile", package: "Braintree")
+                .product(name: "PayPalDataCollector", package: "Braintree")
             ],
             exclude: ["Info.plist"],
             publicHeadersPath: "Public",
