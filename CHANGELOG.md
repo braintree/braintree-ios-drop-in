@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.1.0 (2021-07-01)
 * Increase valid Discover card length to 19 digits
 * iOS 15 Support
   * Update `scrollEdgeAppearance` based on iOS 15 changes
