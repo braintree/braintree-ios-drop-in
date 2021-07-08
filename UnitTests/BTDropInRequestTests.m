@@ -72,4 +72,9 @@
     XCTAssertEqual(@"GEN", copiedRequest.threeDSecureRequest.additionalInformation.shippingMethodIndicator);
 }
 
+-(void)testDropInResult_PPData {
+//    id classMock = OCMClassMock([PPDataCollector class]);
+//    OCMStub(ClassMethod([classMock collectPayPalDeviceData])).andReturn(aValue);
+}
+
 @end

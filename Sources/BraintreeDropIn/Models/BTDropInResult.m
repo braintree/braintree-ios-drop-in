@@ -35,10 +35,14 @@ NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResu
 
 @implementation BTDropInResult
 
+// For testing
+static Class PayPalDataCollectorClass;
+static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
+
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _deviceData = [PPDataCollector collectPayPalDeviceData];
+        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData];
     }
 
     return self;
@@ -116,6 +120,12 @@ static NSUserDefaults *_userDefaults = nil;
     } else {
         return self.paymentMethod.paymentDescription;
     }
+}
+
+#pragma mark - Test Helpers
+
++ (void)setPayPalDataCollectorClass:(Class)payPalDataCollectorClass {
+    PayPalDataCollectorClass = payPalDataCollectorClass;
 }
 
 @end
