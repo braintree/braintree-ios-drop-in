@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Add `deviceData` to `BTDropInResult`
+
 ## 9.1.0 (2021-07-01)
 * Increase valid Discover card length to 19 digits
 * iOS 15 Support
