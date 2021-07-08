@@ -92,6 +92,11 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         if testArguments.contains("-SaveCardToggleVisible") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoAllowVaultCardOverrideSetting")
         }
+
+        UserDefaults.standard.set(false, forKey:"BraintreeDemoCollectDeviceDataSetting")
+        if testArguments.contains("-CollectDeviceData") {
+            UserDefaults.standard.set(true, forKey:"BraintreeDemoCollectDeviceDataSetting")
+        }
         
         UserDefaults.standard.set(true, forKey:"BraintreeDemoVaultCardSetting")
         if testArguments.contains("-VaultCardIsFalse") {

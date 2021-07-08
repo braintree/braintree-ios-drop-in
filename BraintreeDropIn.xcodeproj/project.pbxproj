@@ -647,8 +647,6 @@
 		A56C416C1D833348000DFFAB /* BraintreeDropIn */ = {
 			isa = PBXGroup;
 			children = (
-				A52900CF1D8903A600032220 /* Components */,
-				4295626726053C9F003680BD /* Resources */,
 				A56C41B51D83381E000DFFAB /* BTAPIClient_Internal_Category.h */,
 				A56C41A61D8335C7000DFFAB /* BTCardFormViewController.h */,
 				A56C41871D833568000DFFAB /* BTCardFormViewController.m */,
@@ -665,13 +663,15 @@
 				A56C41B71D833A6B000DFFAB /* BTUIKBarButtonItem_Internal_Declaration.h */,
 				A56C41AC1D8335C7000DFFAB /* BTVaultManagementViewController.h */,
 				A56C418D1D833568000DFFAB /* BTVaultManagementViewController.m */,
+				A52900CF1D8903A600032220 /* Components */,
 				A56C41851D8334D7000DFFAB /* Custom Views */,
-				A56C416F1D833348000DFFAB /* Info.plist */,
 				A52900E21D8903A600032220 /* Helpers */,
+				A56C416F1D833348000DFFAB /* Info.plist */,
 				A52900E61D8903A600032220 /* Localization */,
 				A56C41841D8334D1000DFFAB /* Models */,
-				A529011B1D8903A600032220 /* Vector Art */,
 				A56C41861D8334DD000DFFAB /* Public */,
+				4295626726053C9F003680BD /* Resources */,
+				A529011B1D8903A600032220 /* Vector Art */,
 			);
 			path = BraintreeDropIn;
 			sourceTree = "<group>";

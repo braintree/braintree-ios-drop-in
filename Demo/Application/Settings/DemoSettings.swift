@@ -113,6 +113,10 @@ class DemoSettings {
     static var allowVaultCardOverrideSetting: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoAllowVaultCardOverrideSetting")
     }
+
+    static var collectDeviceDataSetting: Bool {
+        return UserDefaults.standard.bool(forKey: "BraintreeDemoCollectDeviceDataSetting")
+    }
     
     static var colorSchemeSetting: BTDropInColorScheme {
         get {
