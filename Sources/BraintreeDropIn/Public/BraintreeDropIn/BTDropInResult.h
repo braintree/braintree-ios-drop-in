@@ -45,6 +45,15 @@ typedef NS_ENUM(NSInteger, BTDropInErrorType) {
 @property (nonatomic, strong, nullable) BTPaymentMethodNonce *paymentMethod;
 
 /**
+ * A `deviceData` string that represents data about a customer's device. This is generated from Braintree's advanced fraud protection service.
+ *
+ * `deviceData` should be passed into server-side calls, such as `Transaction.sale`. This enables you to collect data about a customer's device and correlate it with a session identifier on your server.
+ *
+ * Collecting and passing this data with transactions helps reduce decline rates and detect fraudulent transactions.
+ */
+@property (nonatomic, strong, nullable) NSString *deviceData;
+
+/**
  * Fetch a `BTDropInResult` with the customer's most recently vaulted payment method.
  * If the last payment method selected from Drop-in was Apple Pay, a `BTDropInResult` with
  * `paymentMethodType == .applePay` will be returned in the completion block.

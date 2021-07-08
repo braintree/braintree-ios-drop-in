@@ -99,4 +99,13 @@ class BTDropInResultTests: XCTestCase {
 
         waitForExpectations(timeout: 1.0)
     }
+
+    func testInit_callsPayPalDataCollectorCollectDeviceData_andSetsDeviceData() {
+        BTDropInResult.setPayPalDataCollectorClass(MockPPDataCollector.self)
+
+        let dropInResult = BTDropInResult()
+
+        XCTAssertTrue(MockPPDataCollector.didCollectDeviceData)
+        XCTAssertEqual(dropInResult.deviceData, "{\"correlation_id\":\"fake-client-metadata\"}")
+    }
 }
