@@ -73,13 +73,6 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Optional: Customization options for Braintree Drop-in's user interface.
 @property (nonatomic, strong, nullable) BTDropInUICustomization *uiCustomization;
 
-/// Optional: When true, Drop-In will use Braintree's advanced fraud protection service to collect device data. The resulting `deviceData` string will be available on  `BTDropInResult.deviceData`.
-///
-/// This enables you to collect data about a customer's device and correlate it with a session identifier on your server. Collecting and passing this data with transactions helps reduce decline rates.
-///
-/// Defaults to false
-@property (nonatomic, assign) BOOL collectDeviceData;
-
 @end
 
 NS_ASSUME_NONNULL_END

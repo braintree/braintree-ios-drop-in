@@ -22,26 +22,6 @@
 #import <BraintreeUnionPay/BraintreeUnionPay.h>
 #endif
 
-// Import PayPalDataCollector (Swift) module
-#if __has_include(<Braintree/Braintree-Swift.h>)      // CocoaPods
-#import <Braintree/Braintree-Swift.h>
-
-#elif SWIFT_PACKAGE                                   // SPM
-/* Use @import for SPM support
- * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
- */
-@import PayPalDataCollector;
-
-#elif __has_include("Braintree-Swift.h")              // CocoaPods for ReactNative
-/* Use quoted style when importing Swift headers for ReactNative support
- * See https://github.com/braintree/braintree_ios/issues/671
- */
-#import "Braintree-Swift.h"
-
-#else                                                 // Carthage
-#import <PayPalDataCollector/PayPalDataCollector-Swift.h>
-#endif
-
 #define BT_ANIMATION_SLIDE_SPEED 0.35
 #define BT_ANIMATION_TRANSITION_SPEED 0.1
 #define BT_HALF_SHEET_MARGIN 5
@@ -432,8 +412,6 @@
     [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark BTPaymentSelectionViewControllerDelegate
-
 - (void)selectionCompletedWithPaymentMethodType:(BTDropInPaymentMethodType)type nonce:(BTPaymentMethodNonce *)nonce error:(NSError *)error {
     if (error == nil) {
         [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"BT_dropInLastSelectedPaymentMethodType"];
@@ -441,7 +419,6 @@
             BTDropInResult *result = [BTDropInResult new];
             result.paymentMethodType = type;
             result.paymentMethod = nonce;
-            result.deviceData = [PPDataCollector collectPayPalDeviceData];
             if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:result.paymentMethodType] && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
                 [self.paymentSelectionViewController showLoadingScreen:YES];
                 [self threeDSecureVerification:nonce];

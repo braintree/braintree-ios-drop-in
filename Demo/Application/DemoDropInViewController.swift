@@ -48,7 +48,6 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
         dropInRequest.cardholderNameSetting = DemoSettings.cardholderNameSetting
         dropInRequest.vaultCard = DemoSettings.vaultCardSetting
         dropInRequest.allowVaultCardOverride = DemoSettings.allowVaultCardOverrideSetting
-        dropInRequest.collectDeviceData = DemoSettings.collectDeviceDataSetting
         
         if ProcessInfo.processInfo.arguments.contains("-PayPalOneTime") {
             dropInRequest.payPalRequest = BTPayPalCheckoutRequest(amount: "4.77")

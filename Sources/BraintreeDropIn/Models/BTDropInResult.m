@@ -11,26 +11,6 @@
 #import <BraintreeCore/BraintreeCore.h>
 #endif
 
-// Import PayPalDataCollector (Swift) module
-#if __has_include(<Braintree/Braintree-Swift.h>)      // CocoaPods
-#import <Braintree/Braintree-Swift.h>
-
-#elif SWIFT_PACKAGE                                   // SPM
-/* Use @import for SPM support
- * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
- */
-@import PayPalDataCollector;
-
-#elif __has_include("Braintree-Swift.h")              // CocoaPods for ReactNative
-/* Use quoted style when importing Swift headers for ReactNative support
- * See https://github.com/braintree/braintree_ios/issues/671
- */
-#import "Braintree-Swift.h"
-
-#else                                                 // Carthage
-#import <PayPalDataCollector/PayPalDataCollector-Swift.h>
-#endif
-
 NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResultErrorDomain";
 
 @implementation BTDropInResult
@@ -65,7 +45,6 @@ static NSUserDefaults *_userDefaults = nil;
     if (lastSelectedPaymentOptionType == BTDropInPaymentMethodTypeApplePay) {
         BTDropInResult *result = [BTDropInResult new];
         result.paymentMethodType = lastSelectedPaymentOptionType;
-        result.deviceData = [PPDataCollector collectPayPalDeviceData];
         completion(result, nil);
         return;
     }
@@ -87,7 +66,6 @@ static NSUserDefaults *_userDefaults = nil;
         BTDropInResult *result;
         if (paymentMethodNonces.count > 0) {
             result = [BTDropInResult new];
-            result.deviceData = [PPDataCollector collectPayPalDeviceData];
             BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
             result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:paymentMethod.type];
             result.paymentMethod = paymentMethod;
