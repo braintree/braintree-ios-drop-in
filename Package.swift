@@ -14,6 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
+        // TODO: Update to use latest release of braintree_ios
         //.package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", from: "5.4.2")
         .package(name: "Braintree", url: "https://github.com/braintree/braintree_ios", .branch("master")
 )
