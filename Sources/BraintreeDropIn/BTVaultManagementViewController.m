@@ -93,10 +93,10 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
         return;
     }
 
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
 
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
 
         if (error) {
             // no action

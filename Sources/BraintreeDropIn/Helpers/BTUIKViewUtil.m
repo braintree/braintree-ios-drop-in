@@ -235,7 +235,7 @@
 }
 
 + (BOOL)isLanguageLayoutDirectionRightToLeft NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
-    return [UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft;
+    return UIApplication.sharedApplication.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft;
 }
 
 + (NSTextAlignment)naturalTextAlignment {
