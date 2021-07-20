@@ -2,6 +2,8 @@
 
 ## unreleased
 * Add `deviceData` to `BTDropInResult`
+* Swift Package Manager
+  * Adds `NS_EXTENSION_UNAVAILABLE` annotations to methods unavailable for use in app extensions (fixes #343 for Xcode 13-beta3)
 
 ## 9.1.0 (2021-07-01)
 * Increase valid Discover card length to 19 digits
