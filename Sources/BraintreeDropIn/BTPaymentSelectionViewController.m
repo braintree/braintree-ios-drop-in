@@ -160,7 +160,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 #pragma mark - Accessors
 
-- (id)application {
+- (id)application NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     if (!_application) {
         _application = [UIApplication sharedApplication];
     }

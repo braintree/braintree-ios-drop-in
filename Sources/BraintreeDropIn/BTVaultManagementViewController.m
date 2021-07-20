@@ -84,7 +84,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     }
 }
 
-- (void)fetchPaymentMethodsOnCompletion:(void(^)(void))completionBlock {
+- (void)fetchPaymentMethodsOnCompletion:(void(^)(void))completionBlock NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     if (!self.apiClient.clientToken) {
         self.paymentMethodNonces = @[];
         if (completionBlock) {
