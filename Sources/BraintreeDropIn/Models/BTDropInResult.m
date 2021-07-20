@@ -11,9 +11,42 @@
 #import <BraintreeCore/BraintreeCore.h>
 #endif
 
+// Import PayPalDataCollector (Swift) module
+#if __has_include(<Braintree/Braintree-Swift.h>)      // CocoaPods
+#import <Braintree/Braintree-Swift.h>
+
+#elif SWIFT_PACKAGE                                   // SPM
+/* Use @import for SPM support
+ * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
+ */
+@import PayPalDataCollector;
+
+#elif __has_include("Braintree-Swift.h")              // CocoaPods for ReactNative
+/* Use quoted style when importing Swift headers for ReactNative support
+ * See https://github.com/braintree/braintree_ios/issues/671
+ */
+#import "Braintree-Swift.h"
+
+#else                                                 // Carthage
+#import <PayPalDataCollector/PayPalDataCollector-Swift.h>
+#endif
+
 NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResultErrorDomain";
 
 @implementation BTDropInResult
+
+// For testing
+static Class PayPalDataCollectorClass;
+static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData];
+    }
+
+    return self;
+}
 
 #pragma mark - Prefetch BTDropInResult
 
@@ -87,6 +120,12 @@ static NSUserDefaults *_userDefaults = nil;
     } else {
         return self.paymentMethod.paymentDescription;
     }
+}
+
+#pragma mark - Test Helpers
+
++ (void)setPayPalDataCollectorClass:(Class)payPalDataCollectorClass {
+    PayPalDataCollectorClass = payPalDataCollectorClass;
 }
 
 @end
