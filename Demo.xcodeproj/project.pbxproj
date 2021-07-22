@@ -907,7 +907,7 @@
 			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.8;
+				minimumVersion = 3.0.0;
 			};
 		};
 		8021E365268A1CB4003BBA53 /* XCRemoteSwiftPackageReference "braintree-ios-drop-in" */ = {
