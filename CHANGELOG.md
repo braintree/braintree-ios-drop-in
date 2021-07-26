@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.2.0 (2021-07-26)
 * Add `deviceData` to `BTDropInResult`
 * Require `braintree_ios` 5.4.3 or higher (includes Xcode 13-beta3 fixes)
 * Swift Package Manager
