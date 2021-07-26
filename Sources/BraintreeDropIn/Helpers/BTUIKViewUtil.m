@@ -234,8 +234,8 @@
     }
 }
 
-+ (BOOL)isLanguageLayoutDirectionRightToLeft {
-    return [UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft;
++ (BOOL)isLanguageLayoutDirectionRightToLeft NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
+    return UIApplication.sharedApplication.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft;
 }
 
 + (NSTextAlignment)naturalTextAlignment {
@@ -246,7 +246,7 @@
     return [self isLanguageLayoutDirectionRightToLeft] ? NSTextAlignmentLeft : NSTextAlignmentRight;
 }
 
-+ (UIWindowScene *)activeWindowScene API_AVAILABLE(ios(13.0)) {
++ (UIWindowScene *)activeWindowScene API_AVAILABLE(ios(13.0)) NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
         if (scene.activationState == UISceneActivationStateForegroundActive) {
             return (UIWindowScene *)scene;
@@ -256,7 +256,7 @@
     return nil;
 }
 
-+ (BOOL)isOrientationLandscape {
++ (BOOL)isOrientationLandscape NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     if (@available(iOS 13, *)) {
         return UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
     } else {
@@ -264,7 +264,7 @@
     }
 }
 
-+ (CGFloat)statusBarHeight {
++ (CGFloat)statusBarHeight NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     if (@available(iOS 13, *)) {
         return CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
     } else {

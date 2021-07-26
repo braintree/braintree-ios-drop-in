@@ -84,7 +84,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     }
 }
 
-- (void)fetchPaymentMethodsOnCompletion:(void(^)(void))completionBlock {
+- (void)fetchPaymentMethodsOnCompletion:(void(^)(void))completionBlock NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     if (!self.apiClient.clientToken) {
         self.paymentMethodNonces = @[];
         if (completionBlock) {
@@ -93,10 +93,10 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
         return;
     }
 
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
 
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
 
         if (error) {
             // no action

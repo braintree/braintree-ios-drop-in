@@ -5,9 +5,9 @@
         "package": "braintree_ios",
         "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
-          "branch": null,
-          "revision": "6be5b6ceabe6acf3353a986da272bc604c8cd010",
-          "version": "5.4.2"
+          "branch": "master",
+          "revision": "ca0cbc19dc767ae5f1c757101437cd7c1e482976",
+          "version": null
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/futuretap/InAppSettingsKit.git",
         "state": {
           "branch": null,
-          "revision": "e4985e0dc0de36f12801f67cc984b3d1cb7f3d52",
-          "version": "3.3.1"
+          "revision": "71e03ebad8462618f96c575c86d2e9220f880676",
+          "version": "3.3.2"
         }
       }
     ]
