@@ -31,6 +31,9 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     [super viewDidLoad];
 
     self.view.backgroundColor = [BTUIKAppearance sharedInstance].formBackgroundColor;
+    if (@available(iOS 15.0, *)) {
+        self.navigationController.navigationBar.scrollEdgeAppearance = self.navigationController.navigationBar.standardAppearance;
+    }
     self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setTitleTextAttributes:@{
