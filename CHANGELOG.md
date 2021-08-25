@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 8.2.0 (2021-08-25)
+* iOS 15 Support
+  * Update `scrollEdgeAppearance` based on iOS 15 changes
+
 ## 9.2.0 (2021-07-26)
 * Add `deviceData` to `BTDropInResult`
 * Require `braintree_ios` 5.4.3 or higher (includes Xcode 13-beta3 fixes)
