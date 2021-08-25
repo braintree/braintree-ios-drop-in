@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 8.2.0 (2021-08-25)
 * iOS 15 Support
   * Update `scrollEdgeAppearance` based on iOS 15 changes
 
