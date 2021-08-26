@@ -54,10 +54,16 @@ See [Frameworks](Frameworks.markdown) for an overview of the components that com
 
 ## Releasing
 
-The release process is self-documented in a number of rake tasks.
+A release is triggered via the `Release` workflow in the repo's `Actions` tab.
 
-To release a new version of the SDK publicly, invoke an incantation that looks like this:
+### v8
 
-```sh
-rake release && rake publish && rake distribute
-```
+*Note: development for older SDK versions should happen off branches `7.x`, `8.x`, etc. *
+
+To release a version of the v8 SDK, select `Use workflow from: 8.x` and then the appropriate Semantic Version to release under `Version to release`.
+
+Once complete, manually update the CHANGELOG on the `master` branch to include your latest v8 release notes.
+
+### v9
+
+To release a version of the v9 SDK, select `Use workflow from: master` and then the appropriate Semantic Version to release under `Version to release`.
