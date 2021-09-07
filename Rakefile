@@ -240,7 +240,7 @@ namespace :docs do
     run! "rm -rf docs_output"
     run(sourcekitten_objc_command)
     run(jazzy_command)
-    run! "rm swiftDoc.json && rm objcDoc.json"
+    run! "rm objcDoc.json"
     puts "Generated HTML documentation"
   end
 
