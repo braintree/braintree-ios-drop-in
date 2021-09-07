@@ -42,7 +42,7 @@ class << self
   end
 
   def current_version
-    File.read(PODSPEC)[SEMVER]
+    "9.2.0"
   end
 
   def current_version_with_sha
