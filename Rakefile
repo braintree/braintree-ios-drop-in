@@ -216,8 +216,8 @@ def jazzy_command
 end
 
 def sourcekitten_objc_command
-  %W[
-sourcekitten doc --objc Docs/Braintree-Drop-In-Umbrella-Header.h --      -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator)
+  %W[ sourcekitten doc --objc Docs/Braintree-Drop-In-Umbrella-Header.h -- 
+      -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator)
       -I $(pwd)/Sources/BraintreeDropIn/Public
       > objcDoc.json
   ].join(' ')
