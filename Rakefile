@@ -216,8 +216,8 @@ def jazzy_command
 end
 
 def sourcekitten_objc_command
-  %W[sourcekitten doc --objc Docs/Braintree-Drop-In-Umbrella-Header.h --
-      -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator)
+  %W[
+sourcekitten doc --objc Docs/Braintree-Drop-In-Umbrella-Header.h --      -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator)
       -I $(pwd)/Sources/BraintreeDropIn/Public
       > objcDoc.json
   ].join(' ')
@@ -241,6 +241,7 @@ namespace :docs do
     run(sourcekitten_objc_command)
     run(jazzy_command)
     run! "rm objcDoc.json"
+    run! "cp -R Images #{current_version}/Images" # copy images used in README
     puts "Generated HTML documentation"
   end
 
@@ -254,24 +255,3 @@ namespace :docs do
     puts "Published docs to github pages"
   end
 end
-
-# namespace :docs do
-
-#   desc "Generate docs with jazzy"
-#   task :generate do
-#     run(jazzy_command)
-#     run! "cp -R Images #{current_version}/Images" # copy images used in README
-#     puts "Generated HTML documentation"
-#   end
-
-#   task :publish do
-#   	version = current_version
-#     run! "git checkout gh-pages"
-#     run! "ln -sfn #{version} current" # update symlink to current version
-#     run! "git add current #{version}"
-#     run! "git commit -m 'Publish #{version} docs to github pages'"
-#     run! "git push"
-#     run! "git checkout -"
-#     puts "Published docs to github pages"
-#   end
-# end
