@@ -66,7 +66,7 @@ jobs:
         run: |
           gem install jazzy
           brew install sourcekitten
-          sourcekitten doc --objc Docs/Braintree-Braintree-Drop-In-Umbrella-Header.h -- \
+          sourcekitten doc --objc Docs/BraintreeDropIn-Umbrella-Header.h -- \
             -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator) \
             -I $(pwd)/Sources/BraintreeDropIn/Public \
             > objcDoc.json
@@ -84,3 +84,4 @@ jobs:
           git add current ${{ github.event.inputs.version }}
           git commit -m "Publish ${{ github.event.inputs.version }} docs to github pages"
           git push
+q
