@@ -205,7 +205,7 @@ end
 
 def jazzy_command
   %W[jazzy
-      --sourcekitten-sourcefile swiftDoc.json,objcDoc.json
+      --sourcekitten-sourcefile objcDoc.json
       --author Braintree
       --author_url http://braintreepayments.com
       --github_url https://github.com/braintree/braintree-ios-drop-in
