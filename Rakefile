@@ -205,14 +205,21 @@ end
 
 def jazzy_command
   %W[jazzy
-      --objc
+      --sourcekitten-sourcefile objcDoc.json
       --author Braintree
       --author_url http://braintreepayments.com
       --github_url https://github.com/braintree/braintree-ios-drop-in
       --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/#{current_version}
       --theme fullwidth
       --output #{current_version}
-      --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)/Sources/BraintreeDropIn/Public
+  ].join(' ')
+end
+
+def sourcekitten_objc_command
+  %W[ sourcekitten doc --objc Docs/BraintreeDropIn-Umbrella-Header.h -- 
+      -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator)
+      -I $(pwd)/Sources/BraintreeDropIn/Public
+      > objcDoc.json
   ].join(' ')
 end
 
@@ -223,17 +230,26 @@ namespace :docs do
 
   desc "Generate docs with jazzy"
   task :generate do
+    begin
+      run! "sourcekitten --version"
+    rescue => e
+      say(HighLine.color("Please run `brew install sourcekitten`", :red, :bold))
+      raise
+    end
+
+    run! "rm -rf docs_output"
+    run(sourcekitten_objc_command)
     run(jazzy_command)
+    run! "rm objcDoc.json"
     run! "cp -R Images #{current_version}/Images" # copy images used in README
     puts "Generated HTML documentation"
   end
 
   task :publish do
-  	version = current_version
     run! "git checkout gh-pages"
-    run! "ln -sfn #{version} current" # update symlink to current version
-    run! "git add current #{version}"
-    run! "git commit -m 'Publish #{version} docs to github pages'"
+    run! "ln -sfn #{current_version} current" # update symlink to current version
+    run! "git add current #{current_version}"
+    run! "git commit -m 'Publish #{current_version} docs to github pages'"
     run! "git push"
     run! "git checkout -"
     puts "Published docs to github pages"

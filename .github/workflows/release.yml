@@ -65,18 +65,23 @@ jobs:
       - name: Publish reference docs
         run: |
           gem install jazzy
+          brew install sourcekitten
+          sourcekitten doc --objc Docs/BraintreeDropIn-Umbrella-Header.h -- \
+            -x objective-c -isysroot $(xcrun --show-sdk-path --sdk iphonesimulator) \
+            -I $(pwd)/Sources/BraintreeDropIn/Public \
+            > objcDoc.json
           jazzy \
-            --objc \
+            --sourcekitten-sourcefile objcDoc.json \
             --author Braintree \
             --author_url http://braintreepayments.com \
             --github_url https://github.com/braintree/braintree-ios-drop-in \
             --github-file-prefix https://github.com/braintree/braintree-ios-drop-in/tree/${{ github.event.inputs.version }} \
             --theme fullwidth \
-            --output ${{ github.event.inputs.version }} \
-            --xcodebuild-arguments --objc,BraintreeDropIn-Umbrella-Header.h,--,-x,objective-c,-isysroot,$(xcrun --sdk iphonesimulator --show-sdk-path),-I,$(pwd)/Sources/BraintreeDropIn/Public
+            --output ${{ github.event.inputs.version }}
           cp -R Images ${{ github.event.inputs.version }}/Images
           git checkout gh-pages
           ln -sfn ${{ github.event.inputs.version }} current
           git add current ${{ github.event.inputs.version }}
           git commit -m "Publish ${{ github.event.inputs.version }} docs to github pages"
           git push
+q
