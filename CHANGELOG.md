@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* iOS 15 - Fix bug where payment method icon border was missing after card flow cancellation
+
 ## 8.2.0 (2021-08-25)
 * iOS 15 Support
   * Update `scrollEdgeAppearance` based on iOS 15 changes
