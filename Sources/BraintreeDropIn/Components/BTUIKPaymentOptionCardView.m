@@ -16,7 +16,6 @@
         self.vectorArtSize = BTUIKVectorArtSizeRegular;
         self.cornerRadius = 4.0;
         self.innerPadding = 0.0;
-        self.borderWidth = 0.75;
         self.borderColor = UIColor.blackColor;
         self.clipsToBounds = YES;
         self.backgroundColor = [UIColor whiteColor];
@@ -63,7 +62,7 @@
 
 - (void)setPaymentMethodType:(BTDropInPaymentMethodType)paymentMethodType {
     _paymentMethodType = paymentMethodType;
-    self.borderWidth = self.paymentMethodType == BTDropInPaymentMethodTypeApplePay ? 0.0 : self.borderWidth;
+    self.borderWidth = self.paymentMethodType == BTDropInPaymentMethodTypeApplePay ? 0.0 : 0.75;
     self.imageView = [BTUIKViewUtil vectorArtViewForPaymentMethodType:self.paymentMethodType size:self.vectorArtSize];
 }
 
