@@ -14,7 +14,7 @@ class Venmo_UITests: XCTestCase {
 
         demoApp = XCUIApplication(bundleIdentifier: "com.braintreepayments.DropInDemo")
         demoApp.launchArguments.append("-EnvironmentSandbox")
-        demoApp.launchArguments.append("-ClientToken")
+        demoApp.launchArguments.append("-TokenizationKey")
         demoApp.launch()
 
         waitForElementToAppear(demoApp.buttons["Add Payment Method"])
@@ -28,7 +28,7 @@ class Venmo_UITests: XCTestCase {
         waitForElementToAppear(mockVenmo.buttons["SUCCESS"])
         mockVenmo.buttons["SUCCESS"].tap()
 
-        waitForElementToAppear(demoApp.staticTexts["venmojoe"])
+        waitForElementToAppear(demoApp.staticTexts["@fake-venmo-username"])
     }
 
     func testTokenizeVenmo_whenErrorOccurs_returnsError() {
