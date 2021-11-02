@@ -2,6 +2,8 @@
 
 ## unreleased
 * iOS 15 - Fix bug where payment method icon border was missing after card flow cancellation
+* Require `braintree_ios` 5.5.0 or higher
+  * Adds support for Apple Silicion development / arm64 simulators
 
 ## 8.2.0 (2021-08-25)
 * iOS 15 Support
