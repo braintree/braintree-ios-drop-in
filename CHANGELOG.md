@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.3.0 (2021-11-08)
 * iOS 15 - Fix bug where payment method icon border was missing after card flow cancellation
 * Require `braintree_ios` 5.5.0 or higher
   * Adds support for Apple Silicion development / arm64 simulators
