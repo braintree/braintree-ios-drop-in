@@ -35,17 +35,4 @@ For more information on how header imports work for each package manager, see th
 
 ## Releasing
 
-A release is triggered via the `Release` workflow in the repo's `Actions` tab.
-
-### v9
-
-To release a version of the v9 SDK, select `Use workflow from: master` and then the appropriate Semantic Version to release under `Version to release`.
-
-### v8
-
-_Note: development for older SDK versions should happen off branches `7.x`, `8.x`, etc._
-
-To release a version of the v8 SDK, select `Use workflow from: 8.x` and then the appropriate Semantic Version to release under `Version to release`.
-
-Once complete, manually update the CHANGELOG on the `master` branch to include your latest v8 release notes.
-
+Refer to the `ios/releases` section in the SDK Knowledge Repo.
