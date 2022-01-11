@@ -32,6 +32,7 @@
 "EDIT_PAYMENT_METHOD"                       = "Endre betalingsmetoder";
 "THERE_WAS_AN_ERROR"                        = "Det har oppstått en feil.";
 "REVIEW_AND_TRY_AGAIN"                      = "Kontroller informasjonen og prøv på nytt.";
+"CARD_ALREADY_EXISTS"                       = "Dette betalingskortet finnes allerede som en lagret betalingsmetode.";
 "INVALID_LABEL"                             = "Ugyldig:";
 
 "YEAR_LABEL"                                = "År";
