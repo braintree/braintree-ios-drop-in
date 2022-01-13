@@ -151,6 +151,71 @@ class BraintreeDropIn_securityCodeValidation_CardForm_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_FailOnDuplicatePaymentMethod: XCTestCase {
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-FailOnDuplicatePaymentMethod")
+        app.launch()
+        sleep(1)
+        let button = app.buttons.containing(NSPredicate(format: "label LIKE '* Payment Method'")).element
+        waitForElementToBeHittable(button)
+        button.tap()
+    }
+    
+    func testDropIn_failOnDuplicatePaymentMethod_presentsAlert() {
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardNumberTextField = elementsQuery.textFields["Card Number"]
+
+        waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        let expirationDateTextField = elementsQuery.textFields["Expiration Date"]
+        waitForElementToBeHittable(expirationDateTextField)
+        expirationDateTextField.forceTapElement()
+        expirationDateTextField.typeText("11/\(Date.nextYear)")
+
+        let securityCodeField = elementsQuery.textFields["CVV"]
+        waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("200")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        waitForElementToBeHittable(app.alerts.buttons["OK"])
+        app.alerts.buttons["OK"].tap()
+        
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        waitForElementToBeHittable(cardNumberTextField)
+        cardNumberTextField.typeText("4111111111111111")
+
+        waitForElementToBeHittable(expirationDateTextField)
+        expirationDateTextField.forceTapElement()
+        expirationDateTextField.typeText("11/\(Date.nextYear)")
+
+        waitForElementToBeHittable(securityCodeField)
+        securityCodeField.forceTapElement()
+        securityCodeField.typeText("200")
+
+        app.buttons["Add Card"].forceTapElement()
+
+        waitForElementToBeHittable(app.alerts.buttons["OK"])
+        XCTAssertTrue(app.alerts.staticTexts["This credit card already exists as a saved payment method."].exists)
+        app.alerts.buttons["OK"].tap()
+    }
+
+}
+
 class BraintreeDropIn_CardDisabled_UITests: XCTestCase {
 
     var app: XCUIApplication!
