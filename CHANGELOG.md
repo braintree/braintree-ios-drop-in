@@ -2,6 +2,7 @@
 
 ## unreleased
 * Require `braintree_ios` 5.6.0 or higher
+* Add specific error message for duplicate payment method
 
 ## 9.3.0 (2021-11-08)
 * iOS 15 - Fix bug where payment method icon border was missing after card flow cancellation
