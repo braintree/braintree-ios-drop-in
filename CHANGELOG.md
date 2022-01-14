@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-* Require `braintree_ios` 5.6.0 or higher
+* Require `braintree_ios` 5.6.1 or higher
 * Add specific error message for duplicate payment method
 
 ## 9.3.0 (2021-11-08)
