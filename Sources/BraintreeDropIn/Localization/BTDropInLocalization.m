@@ -148,6 +148,10 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"REVIEW_AND_TRY_AGAIN", [self localizationTable], [self localizationBundle], @"Please review your information and try again.", @"REVIEW_AND_TRY_AGAIN");
 }
 
++ (NSString *)CARD_ALREADY_EXISTS {
+    return NSLocalizedStringWithDefaultValue(@"CARD_ALREADY_EXISTS", [self localizationTable], [self localizationBundle], @"This credit card already exists as a saved payment method.", @"CARD_ALREADY_EXISTS");
+}
+
 + (NSString *)INVALID_LABEL {
     return NSLocalizedStringWithDefaultValue(@"INVALID_LABEL", [self localizationTable], [self localizationBundle], @"Invalid:", @"INVALID_LABEL");
 }

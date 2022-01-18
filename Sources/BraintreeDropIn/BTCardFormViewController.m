@@ -566,7 +566,11 @@
             self.navigationItem.rightBarButtonItem = addCardButton;
 
             if (error != nil) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalizedString(CARD_DETAILS_LABEL) message:BTDropInLocalizedString(REVIEW_AND_TRY_AGAIN) preferredStyle:UIAlertControllerStyleAlert];
+                NSString *message = BTDropInLocalizedString(REVIEW_AND_TRY_AGAIN);
+                if (error.code == BTCardClientErrorTypeCardAlreadyExists) {
+                    message = BTDropInLocalizedString(CARD_ALREADY_EXISTS);
+                }
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalizedString(CARD_DETAILS_LABEL) message:message preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction: alertAction];
                 [navController presentViewController:alertController animated:YES completion:nil];
