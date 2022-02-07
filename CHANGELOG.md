@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Update Vault Manager inline documentation 
+
 ## 9.4.0 (2022-01-18)
 * Require `braintree_ios` 5.6.1 or higher
 * Add specific error message for duplicate payment method

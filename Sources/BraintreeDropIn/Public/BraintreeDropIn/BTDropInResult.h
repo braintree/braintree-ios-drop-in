@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, BTDropInErrorType) {
 @property (nonatomic, strong, nullable) NSString *deviceData;
 
 /**
- * Fetch a `BTDropInResult` with the customer's most recently vaulted payment method.
+ * Fetch a `BTDropInResult` with the customer's vaulted payment methods. The order is not guaranteed.
  * If the last payment method selected from Drop-in was Apple Pay, a `BTDropInResult` with
  * `paymentMethodType == .applePay` will be returned in the completion block.
  *
