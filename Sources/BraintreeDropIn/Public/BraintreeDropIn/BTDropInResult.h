@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, BTDropInErrorType) {
 /**
  * Fetch a `BTDropInResult` with the customer's vaulted payment method.
  * The payment method returned is not guaranteed to be the most recently added payment method.
- * If the last payment method selected from Drop-in was Apple Pay, a `BTDropInResult` with
+ * If the vaulted payment method is Apple Pay, a `BTDropInResult` with
  * `paymentMethodType == .applePay` will be returned in the completion block.
  *
  * @param clientToken Client token. Must be generated with a customer ID.
