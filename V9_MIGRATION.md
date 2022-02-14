@@ -2,7 +2,7 @@
 
 See the [CHANGELOG](/CHANGELOG.md) for a complete list of changes. This migration guide outlines the basics for updating your client integration from v8 to v9.
 
-_Documentation for v9 will be published to https://developers.braintreepayments.com once it is available for general release._
+_Documentation for v9 will be published to https://developer.paypal.com/braintree/docs once it is available for general release._
 
 ## Table of Contents
 

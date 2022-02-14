@@ -91,7 +91,7 @@ Apple Pay is enabled by default in Drop-in. Drop-in will show Apple Pay as a pay
 2) Present a `PKPaymentAuthorizationViewController` when the customer taps the button.
 3) Tokenize the `PKPayment` and send the resulting nonce to your server to create a transaction.
 
-Use `BTApplePayClient` to tokenize the customer's Apple Pay information - [view our official docs for more information](https://developers.braintreepayments.com/guides/apple-pay/client-side/ios/v5).
+Use `BTApplePayClient` to tokenize the customer's Apple Pay information - [view our official docs for more information](https://developer.paypal.com/braintree/docs/guides/apple-pay/client-side/ios/v5).
 
 ### 3D Secure + Drop-in
 
@@ -218,13 +218,13 @@ Drop-in does not officially support SwiftUI at this time.
 
 ### More Information
 
-Start with [**'Hello, Client!'**](https://developers.braintreepayments.com/ios/start/hello-client) for instructions on basic setup and usage.
+Start with [**'Hello, Client!'**](https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5) for instructions on basic setup and usage.
 
 Also see our [**reference documentation**](https://braintree.github.io/braintree-ios-drop-in/current/).
 
 ## Versions
 
-This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](http://developers.braintreepayments.com/guides/client-sdk/deprecation-policy).
+This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
 | 9.x.x | Active | April 2021 | TBA | TBA |
@@ -242,7 +242,7 @@ The demo app uses Swift Package Manager to fetch dependencies. Xcode will downlo
 ## Help
 
 * Read the headers
-* [Read the docs](https://developers.braintreepayments.com/ios/sdk/client)
+* [Read the docs](https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5)
 * Find a bug? [Open an issue](https://github.com/braintree/braintree-ios-drop-in/issues)
 * Want to contribute? [submit a pull request](https://help.github.com/articles/creating-a-pull-request).
 
