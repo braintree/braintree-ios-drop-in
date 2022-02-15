@@ -54,13 +54,15 @@ typedef NS_ENUM(NSInteger, BTDropInErrorType) {
 @property (nonatomic, strong, nullable) NSString *deviceData;
 
 /**
- * Fetch a `BTDropInResult` with the customer's most recently vaulted payment method.
- * If the last payment method selected from Drop-in was Apple Pay, a `BTDropInResult` with
+ * Fetch a `BTDropInResult` with the customer's vaulted payment method.
+ * The payment method returned is not guaranteed to be the most recently added payment method.
+ * If the vaulted payment method is Apple Pay, a `BTDropInResult` with
  * `paymentMethodType == .applePay` will be returned in the completion block.
  *
  * @param clientToken Client token. Must be generated with a customer ID.
  * @param completion The completion block, which passes back a result or an error. Both result and error may be nil if the customer does not have any vaulted payment methods.
  */
+ // NEXT_MAJOR_VERSION: - update this function name to more accurately represent the behavior of the function
 + (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken
                                    completion:(void (^)(BTDropInResult * _Nullable result, NSError * _Nullable error))completion;
 
