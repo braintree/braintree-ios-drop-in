@@ -21,11 +21,11 @@
  */
 @import PayPalDataCollector;
 
-#elif __has_include("Braintree-Swift.h")              // CocoaPods for ReactNative
+#elif __has_include("Braintree-umbrella.h")              // CocoaPods for ReactNative
 /* Use quoted style when importing Swift headers for ReactNative support
  * See https://github.com/braintree/braintree_ios/issues/671
  */
-#import "Braintree-Swift.h"
+@import Braintree;
 
 #else                                                 // Carthage
 #import <PayPalDataCollector/PayPalDataCollector-Swift.h>
