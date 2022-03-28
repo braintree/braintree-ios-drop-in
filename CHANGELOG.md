@@ -3,6 +3,7 @@
 ## unreleased
 * Update Vault Manager inline documentation 
 * Update import statement for transitive dependancies in react native (fixes #365)
+* Require `braintree_ios` 5.8.0 or higher
 
 ## 9.4.0 (2022-01-18)
 * Require `braintree_ios` 5.6.1 or higher
