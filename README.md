@@ -3,7 +3,7 @@
 [![Swift Package Manager compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/BraintreeDropIn.svg?style=flat)](https://cocoapods.org/pods/BraintreeDropIn)
 
-![GitHub Actions CI](https://github.com/braintree/braintree-ios-drop-in/workflows/CI/badge.svg)
+[![Release](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml/badge.svg)](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml)
 
 Welcome to Braintree's Drop-in SDK for iOS!
 
