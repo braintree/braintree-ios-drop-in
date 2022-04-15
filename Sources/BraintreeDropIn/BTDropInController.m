@@ -7,6 +7,7 @@
 #import "BTUIKAppearance.h"
 #import "BTUIKViewUtil.h"
 #import "BTConfiguration+DropIn.h"
+#import "BTDropInResult_Internal.h"
 
 #if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
 #import <Braintree/BraintreeCard.h>
@@ -245,7 +246,7 @@
 - (void)cardTokenizationCompleted:(BTPaymentMethodNonce *)tokenizedCard error:(NSError *)error sender:(BTCardFormViewController *)sender {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.handler) {
-            BTDropInResult *result = [[BTDropInResult alloc] init];
+            BTDropInResult *result = [[BTDropInResult alloc] initWithEnvironment:self.configuration.environment];
             if (tokenizedCard != nil) {
                 result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:tokenizedCard.type];
                 result.paymentMethod = tokenizedCard;
@@ -279,7 +280,7 @@
         BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
         [self.paymentSelectionViewController showLoadingScreen:NO];
         if (self.handler) {
-            BTDropInResult *dropInResult = [[BTDropInResult alloc] init];
+            BTDropInResult *dropInResult = [[BTDropInResult alloc] initWithEnvironment:self.configuration.environment];
             if (threeDSecureResult.tokenizedCard != nil) {
                 dropInResult.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
                 dropInResult.paymentMethod = threeDSecureResult.tokenizedCard;
@@ -416,7 +417,7 @@
     if (error == nil) {
         [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"BT_dropInLastSelectedPaymentMethodType"];
         if (self.handler != nil) {
-            BTDropInResult *result = [BTDropInResult new];
+            BTDropInResult *result = [[BTDropInResult alloc] initWithEnvironment:self.configuration.environment];
             result.paymentMethodType = type;
             result.paymentMethod = nonce;
             if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:result.paymentMethodType] && [self.configuration.json[@"threeDSecureEnabled"] isTrue] && self.dropInRequest.threeDSecureRequest) {
@@ -434,7 +435,7 @@
 }
 
 - (void)cancelButtonPressedOnPaymentSelectionViewController:(BTPaymentSelectionViewController *)viewController {
-    BTDropInResult *result = [[BTDropInResult alloc] init];
+    BTDropInResult *result = [[BTDropInResult alloc] initWithEnvironment:self.configuration.environment];
     result.canceled = YES;
     if (self.handler) {
         self.handler(self, result, nil);
