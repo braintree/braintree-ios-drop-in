@@ -39,10 +39,10 @@ NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResu
 static Class PayPalDataCollectorClass;
 static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 
-- (instancetype)init {
+- (instancetype)init:(BOOL)isSandbox {
     self = [super init];
     if (self) {
-        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData];
+        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData isSandbox:isSandbox];
     }
 
     return self;
