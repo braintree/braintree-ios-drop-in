@@ -85,6 +85,14 @@ static NSUserDefaults *_userDefaults = nil;
 + (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient
                                  completion:(void (^)(BTDropInResult *result, NSError *error))completion {
     
+    if (!apiClient) {
+        NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
+                                                    code:BTDropInErrorTypeAuthorization
+                                                userInfo:@{NSLocalizedDescriptionKey: @"Invalid authorization"}];
+        completion(nil, error);
+        return;
+    }
+    
     [apiClient fetchOrReturnRemoteConfiguration:^(BTConfiguration *configuration, NSError *error) {
         __block BTDropInResult *result;
         
@@ -100,15 +108,7 @@ static NSUserDefaults *_userDefaults = nil;
             completion(result, nil);
             return;
         }
-        
-        if (!apiClient) {
-            NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
-                                                        code:BTDropInErrorTypeAuthorization
-                                                    userInfo:@{NSLocalizedDescriptionKey: @"Invalid authorization"}];
-            completion(nil, error);
-            return;
-        }
-        
+
         [apiClient fetchPaymentMethodNonces:NO completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
             if (error) {
                 completion(nil, error);

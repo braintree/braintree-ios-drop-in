@@ -12,7 +12,7 @@ class BTDropInResultTests: XCTestCase {
     // MARK: - paymentDescription
 
     func testPaymentDescription_whenPaymentMethodTypeIsApplePay() {
-        let result = BTDropInResult()
+        let result = BTDropInResult(environment: "sandbox")
         result.paymentMethodType = .applePay
         XCTAssertEqual(result.paymentDescription, "Apple Pay")
     }
@@ -22,7 +22,7 @@ class BTDropInResultTests: XCTestCase {
             override var email: String? { "hello@world.com" }
         }
 
-        let result = BTDropInResult()
+        let result = BTDropInResult(environment: "sandbox")
         result.paymentMethod = MockPayPalAccountNonce()
         result.paymentMethodType = .payPal
         XCTAssertEqual(result.paymentDescription, "hello@world.com")
@@ -100,12 +100,23 @@ class BTDropInResultTests: XCTestCase {
         waitForExpectations(timeout: 1.0)
     }
 
-    func testInit_callsPayPalDataCollectorCollectDeviceData_andSetsDeviceData() {
+    func testInit_callsPayPalDataCollectorCollectDeviceData_andSetsDeviceDataWithSandbox() {
         BTDropInResult.setPayPalDataCollectorClass(MockPPDataCollector.self)
 
-        let dropInResult = BTDropInResult()
+        let dropInResult = BTDropInResult(environment: "sandbox")
 
         XCTAssertTrue(MockPPDataCollector.didCollectDeviceData)
+        XCTAssertTrue(MockPPDataCollector.isSandbox)
+        XCTAssertEqual(dropInResult.deviceData, "{\"correlation_id\":\"fake-client-metadata\"}")
+    }
+    
+    func testInit_callsPayPalDataCollectorCollectDeviceData_andSetsDeviceDataWithProduction() {
+        BTDropInResult.setPayPalDataCollectorClass(MockPPDataCollector.self)
+
+        let dropInResult = BTDropInResult(environment: "production")
+
+        XCTAssertTrue(MockPPDataCollector.didCollectDeviceData)
+        XCTAssertFalse(MockPPDataCollector.isSandbox)
         XCTAssertEqual(dropInResult.deviceData, "{\"correlation_id\":\"fake-client-metadata\"}")
     }
 }
