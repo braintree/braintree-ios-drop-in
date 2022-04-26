@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Require `braintree_ios` 5.9.0 or higher
+* Update device data collection for environment based on configuration
+
 ## 9.5.0 (2022-03-28)
 * Update Vault Manager inline documentation 
 * Update import statement for transitive dependancies in react native (fixes #365)

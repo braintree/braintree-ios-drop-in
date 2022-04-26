@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/braintree/braintree_ios",
         "state": {
           "branch": null,
-          "revision": "914f9c60232d599ed61d52be1ece34b7e700faf6",
-          "version": "5.8.0"
+          "revision": "59e0ac8add29de6a4476dc949ed86bcdc590cbb2",
+          "version": "5.9.0"
         }
       },
       {

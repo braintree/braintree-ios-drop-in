@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 // The `PPDataCollector` class, exposed internally for injecting test doubles for unit tests
 + (void)setPayPalDataCollectorClass:(nonnull Class)payPalDataCollectorClass;
 
+- (instancetype)initWithEnvironment:(NSString *)environment;
+
 @end
 
 NS_ASSUME_NONNULL_END

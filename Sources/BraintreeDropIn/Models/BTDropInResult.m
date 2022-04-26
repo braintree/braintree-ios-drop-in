@@ -48,6 +48,16 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
     return self;
 }
 
+- (instancetype)initWithEnvironment:(NSString *)environment {
+    self = [super init];
+    if (self) {
+        BOOL isSandbox = [environment isEqualToString:@"sandbox"];
+        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceDataWithIsSandbox:isSandbox];
+    }
+
+    return self;
+}
+
 #pragma mark - Prefetch BTDropInResult
 
 static NSUserDefaults *_userDefaults = nil;
@@ -74,14 +84,7 @@ static NSUserDefaults *_userDefaults = nil;
 
 + (void)mostRecentPaymentMethodForAPIClient:(BTAPIClient * _Nullable)apiClient
                                  completion:(void (^)(BTDropInResult *result, NSError *error))completion {
-    BTDropInPaymentMethodType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
-    if (lastSelectedPaymentOptionType == BTDropInPaymentMethodTypeApplePay) {
-        BTDropInResult *result = [BTDropInResult new];
-        result.paymentMethodType = lastSelectedPaymentOptionType;
-        completion(result, nil);
-        return;
-    }
-
+    
     if (!apiClient) {
         NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
                                                     code:BTDropInErrorTypeAuthorization
@@ -89,22 +92,39 @@ static NSUserDefaults *_userDefaults = nil;
         completion(nil, error);
         return;
     }
-
-    [apiClient fetchPaymentMethodNonces:NO completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
-        if (error) {
+    
+    [apiClient fetchOrReturnRemoteConfiguration:^(BTConfiguration *configuration, NSError *error) {
+        __block BTDropInResult *result;
+        
+        if (error != nil) {
             completion(nil, error);
             return;
         }
-
-        BTDropInResult *result;
-        if (paymentMethodNonces.count > 0) {
-            result = [BTDropInResult new];
-            BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
-            result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:paymentMethod.type];
-            result.paymentMethod = paymentMethod;
+        
+        BTDropInPaymentMethodType lastSelectedPaymentOptionType = [BTDropInResult.userDefaults integerForKey:@"BT_dropInLastSelectedPaymentMethodType"];
+        if (lastSelectedPaymentOptionType == BTDropInPaymentMethodTypeApplePay) {
+            result = [[BTDropInResult alloc] initWithEnvironment:configuration.environment];
+            result.paymentMethodType = lastSelectedPaymentOptionType;
+            completion(result, nil);
+            return;
         }
 
-        completion(result, nil);
+        [apiClient fetchPaymentMethodNonces:NO completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
+            if (error) {
+                completion(nil, error);
+                return;
+            }
+            
+            if (paymentMethodNonces.count > 0) {
+                result = [[BTDropInResult alloc] initWithEnvironment:configuration.environment];
+                BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
+                result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:paymentMethod.type];
+                result.paymentMethod = paymentMethod;
+            }
+            
+            completion(result, nil);
+            return;
+        }];
     }];
 }
 
