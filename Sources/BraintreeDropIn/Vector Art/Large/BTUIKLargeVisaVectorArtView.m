@@ -4,21 +4,8 @@
 
 - (void)drawArt {
     //// Color Declarations
-    UIColor* fillColor22 = [UIColor colorWithRed: 0.955 green: 0.661 blue: 0.034 alpha: 1];
-    UIColor* fillColor23 = [UIColor colorWithRed: 0.123 green: 0.11 blue: 0.351 alpha: 1];
-    
-    //// Rectangle 2 Drawing
-    UIBezierPath* rectangle2Path = [UIBezierPath bezierPathWithRect: CGRectMake(7, 55.15, 66, 5.9)];
-    [fillColor22 setFill];
-    [rectangle2Path fill];
-    
-    
-    //// Rectangle 3 Drawing
-    UIBezierPath* rectangle3Path = [UIBezierPath bezierPathWithRect: CGRectMake(7, 19.95, 66, 5.9)];
-    [fillColor23 setFill];
-    [rectangle3Path fill];
-    
-    
+    UIColor* fillColor = [UIColor colorWithRed: 0.078 green: 0.204 blue: 0.796 alpha: 1];
+
     //// Bezier Drawing
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     [bezierPath moveToPoint: CGPointMake(39.43, 32.38)];
@@ -73,7 +60,7 @@
     [bezierPath closePath];
     bezierPath.usesEvenOddFillRule = YES;
     
-    [fillColor23 setFill];
+    [fillColor setFill];
     [bezierPath fill];
 }
 @end
