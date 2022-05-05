@@ -3,6 +3,7 @@
 ## unreleased
 * Require `braintree_ios` 5.9.0 or higher
 * Update device data collection for environment based on configuration
+* Update Visa logo per updated brand guidelines
 
 ## 9.5.0 (2022-03-28)
 * Update Vault Manager inline documentation 
