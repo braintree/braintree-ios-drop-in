@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Fix bug where `deviceData` on `BTDropInResult` was always returned as `nil`
+
 ## 9.6.0 (2022-05-24)
 * Require `braintree_ios` 5.9.0 or higher
 * Update device data collection for environment based on configuration
