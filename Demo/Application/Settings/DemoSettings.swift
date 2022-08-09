@@ -25,6 +25,10 @@ class DemoSettings {
     static let ThreeDSecureRequiredDefaultsKey = "BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey"
     static let ThreeDSecureVersionDefaultsKey = "BraintreeDemoSettingsThreeDSecureVersionDefaultsKey"
 
+    static var useMockedPayPalFlow: Bool {
+        ProcessInfo.processInfo.arguments.contains("-UseMockedPayPalFlow")
+    }
+
     static var currentUIFramework: DemoUIFramework {
         return DemoUIFramework(rawValue: UserDefaults.standard.integer(forKey: UIFrameworkDefaultsKey)) ?? DemoUIFramework.uikit
     }

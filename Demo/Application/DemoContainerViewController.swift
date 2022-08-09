@@ -92,10 +92,17 @@ class DemoContainerViewController: UIViewController {
         
         if let auth = DemoSettings.authorizationOverride {
             currentViewController = instantiateCurrentViewController(with: auth)
-        } else if DemoSettings.useTokenizationKey {
+        } else if DemoSettings.useMockedPayPalFlow {
             updateStatusItem("Using Tokenization Key")
-            
+
             let tokenizationKey: String
+
+            tokenizationKey = "sandbox_q7v35n9n_555d2htrfsnnmfb3"
+            currentViewController = instantiateCurrentViewController(with: tokenizationKey)
+        }
+        else if DemoSettings.useTokenizationKey {
+            let tokenizationKey: String
+
             switch DemoSettings.currentEnvironment {
             case .sandbox:
                 tokenizationKey = "sandbox_9dbg82cq_dcpspy2brwdjr3qn"
