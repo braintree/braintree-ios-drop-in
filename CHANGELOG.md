@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.6.1 (2022-08-10)
 * Fix bug where `deviceData` on `BTDropInResult` was always returned as `nil`
 
 ## 9.6.0 (2022-05-24)
