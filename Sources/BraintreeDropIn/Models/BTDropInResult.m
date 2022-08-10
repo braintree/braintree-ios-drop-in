@@ -42,7 +42,13 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData];
+        // If we are testing we want to set PayPalDataCollectorClass to the class passed in `setPayPalDataCollectorClass`
+        if (PayPalDataCollectorClass != NSClassFromString(PayPalDataCollectorClassString)) {
+            _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData];
+            return self;
+        }
+        // Otherwise we should use `PPDataCollector` to collect device data
+        _deviceData = [PPDataCollector collectPayPalDeviceData];
     }
 
     return self;
@@ -51,8 +57,15 @@ static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
 - (instancetype)initWithEnvironment:(NSString *)environment {
     self = [super init];
     if (self) {
+        // If we are testing we want to set PayPalDataCollectorClass to the class passed in `setPayPalDataCollectorClass`
+        if (PayPalDataCollectorClass != NSClassFromString(PayPalDataCollectorClassString)) {
+            BOOL isSandbox = [environment isEqualToString:@"sandbox"];
+            _deviceData = [PayPalDataCollectorClass collectPayPalDeviceDataWithIsSandbox:isSandbox];
+            return self;
+        }
+        // Otherwise we should use `PPDataCollector` to collect device data
         BOOL isSandbox = [environment isEqualToString:@"sandbox"];
-        _deviceData = [PayPalDataCollectorClass collectPayPalDeviceDataWithIsSandbox:isSandbox];
+        _deviceData = [PPDataCollector collectPayPalDeviceDataWithIsSandbox:isSandbox];
     }
 
     return self;
