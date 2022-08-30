@@ -30,7 +30,6 @@
 @property (nonatomic, strong) NSArray *paymentOptionsData;
 @property (nonatomic, readonly) BOOL hasVaultedPaymentMethods;
 @property (nonatomic, strong) UITableView *paymentOptionsTableView;
-@property (nonatomic, strong) id application;
 @end
 
 @implementation BTPaymentSelectionViewController
@@ -160,13 +159,6 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 
 #pragma mark - Accessors
 
-- (id)application NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
-    if (!_application) {
-        _application = UIApplication.sharedApplication;
-    }
-    return _application;
-}
-
 - (BOOL)hasVaultedPaymentMethods {
     return self.paymentMethodNonces.count > 0;
 }
@@ -182,10 +174,17 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         return;
     }
     
-    [self.application setNetworkActivityIndicatorVisible:YES];
-    
+    if (@available(iOS 13, *)) {
+        // The network activity indicator no longer appears on status bars for iOS 13+
+    } else {
+        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
+    }
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
-        [self.application setNetworkActivityIndicatorVisible:NO];
+        if (@available(iOS 13, *)) {
+            // The network activity indicator no longer appears on status bars for iOS 13+
+        } else {
+            [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
+        }
         
         if (error) {
             // no action
