@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSArray *paymentOptionsData;
 @property (nonatomic, readonly) BOOL hasVaultedPaymentMethods;
 @property (nonatomic, strong) UITableView *paymentOptionsTableView;
+/// Exposed for testing
+@property (nonatomic, strong) id application;
 @end
 
 @implementation BTPaymentSelectionViewController
@@ -158,6 +160,14 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 }
 
 #pragma mark - Accessors
+
+/// Exposed for testing
+- (id)application NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
+    if (!_application) {
+        _application = UIApplication.sharedApplication;
+    }
+    return _application;
+}
 
 - (BOOL)hasVaultedPaymentMethods {
     return self.paymentMethodNonces.count > 0;
