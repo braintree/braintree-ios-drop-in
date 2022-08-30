@@ -27,7 +27,7 @@ jobs:
         run: set -o pipefail && xcodebuild -project 'SampleApps/SPMTest/SPMTest.xcodeproj' -scheme 'SPMTest' clean build archive CODE_SIGNING_ALLOWED=NO | xcpretty
   cocoapods_xcode_13:
     name: CocoaPods (Xcode 13)
-    runs-on: macOS-11
+    runs-on: macOS-12
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
         run: pod lib lint
   spm_xcode_13:
     name: SPM (Xcode 13)
-    runs-on: macOS-11
+    runs-on: macOS-12
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
