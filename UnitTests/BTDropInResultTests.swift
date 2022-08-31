@@ -40,7 +40,7 @@ class BTDropInResultTests: XCTestCase {
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 1.0)
+        waitForExpectations(timeout: 2.0)
     }
 
     func testMostRecentPaymentMethod_whenErrorOccurs_returnsError() {

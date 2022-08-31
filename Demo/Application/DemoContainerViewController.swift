@@ -115,10 +115,8 @@ class DemoContainerViewController: UIViewController {
             currentViewController = instantiateCurrentViewController(with: tokenizationKey)
         } else {
             updateStatusItem("Fetching Client Token...")
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
             DemoMerchantAPIClient.shared.createCustomerAndFetchClientToken { (clientToken, error) in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard let token = clientToken else {
                     self.updateStatusItem(error?.localizedDescription ?? "An unknown error occurred.")
                     return
@@ -178,12 +176,10 @@ class DemoContainerViewController: UIViewController {
         guard let paymentMethod = currentPaymentMethodNonce else { return }
         
         updateStatusItem("Creating Transaction...")
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         let merchantAccountId = (paymentMethod.type == "UnionPay") ? "fake_switch_usd" : nil
         
         DemoMerchantAPIClient.shared.makeTransaction(paymentMethodNonce: paymentMethod.nonce, merchantAccountId: merchantAccountId) { (transactionId, error) in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.currentPaymentMethodNonce = nil
             
             guard let id = transactionId else {

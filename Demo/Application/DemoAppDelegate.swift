@@ -11,7 +11,13 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let appearanceProxy = UIToolbar.appearance()
         appearanceProxy.barTintColor = UIColor(white: 42.0 / 255.0, alpha: 1.0)
-        appearanceProxy.barStyle = .blackTranslucent
+
+        if #available(iOS 13, *) {
+            appearanceProxy.barStyle = .black
+            appearanceProxy.isTranslucent = true
+        } else {
+            appearanceProxy.barStyle = .blackTranslucent
+        }
 
         registerUserDefaults()
         BTAppContextSwitcher.setReturnURLScheme(BraintreeDemoAppDelegatePaymentsURLScheme)
