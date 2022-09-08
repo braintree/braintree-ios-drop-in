@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.7.0 (2022-09-08)
 * Remove use of deprecated `setNetworkActivityIndicatorVisible` on iOS 13+ (the network activity indicator was removed from the status bar in iOS 13) (fixes #379)
 * Add support for iOS 16 and Xcode 14
   * Require `braintree_ios` 5.12.0 or higher
