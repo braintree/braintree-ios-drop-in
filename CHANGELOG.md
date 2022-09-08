@@ -2,6 +2,8 @@
 
 ## unreleased
 * Remove use of deprecated `setNetworkActivityIndicatorVisible` on iOS 13+ (the network activity indicator was removed from the status bar in iOS 13) (fixes #379)
+* Add support for iOS 16 and Xcode 14
+  * Require `braintree_ios` 5.12.0 or higher
 
 ## 9.6.1 (2022-08-10)
 * Fix bug where `deviceData` on `BTDropInResult` was always returned as `nil`
