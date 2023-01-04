@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Add explicit error handling for case when `BTDropInResult.mostRecentPaymentMethod(for:)` method fails to fetch any recent payment methods.
+  * Add `BTDropInErrorTypeNoRecentPaymentMethods` error code.
+
 ## 9.7.0 (2022-09-08)
 * Remove use of deprecated `setNetworkActivityIndicatorVisible` on iOS 13+ (the network activity indicator was removed from the status bar in iOS 13) (fixes #379)
 * Add support for iOS 16 and Xcode 14
