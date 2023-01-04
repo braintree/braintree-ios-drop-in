@@ -30,13 +30,15 @@ class BTDropInResultTests: XCTestCase {
 
     // MARK: - mostRecentPaymentMethod
 
-    func testMostRecentPaymentMethod_whenCustomerDoesNotHaveVaultedPaymentMethods_returnsNil() {
+    func testMostRecentPaymentMethod_whenCustomerDoesNotHaveVaultedPaymentMethods_returnsError() {
         let mockAPIClient = MockAPIClient(authType: .clientToken)
-
-        let expectation = self.expectation(description: "Calls completion with nil result")
+        mockAPIClient.vaultedPaymentMethodNonces = []
+        
+        let expectation = self.expectation(description: "Calls completion with error")
         BTDropInResult.mostRecentPaymentMethod(for: mockAPIClient) { result, error in
             XCTAssertNil(result)
-            XCTAssertNil(error)
+            XCTAssertEqual(error?.localizedDescription, "No recent payment methods found.")
+            XCTAssertEqual((error! as NSError).code, 2)
             expectation.fulfill()
         }
 

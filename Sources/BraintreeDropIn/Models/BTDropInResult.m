@@ -137,7 +137,7 @@ static NSUserDefaults *_userDefaults = nil;
                 return;
             } else {
                 NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
-                                                            code:BTDropInErrorTypeUnknown
+                                                            code:BTDropInErrorTypeNoRecentPaymentMethods
                                                         userInfo:@{NSLocalizedDescriptionKey: @"No recent payment methods found."}];
                 completion(nil, error);
                 return;
