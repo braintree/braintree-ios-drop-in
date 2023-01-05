@@ -2,6 +2,7 @@
 #import "BTDropInBaseViewController.h"
 #import "BTUIKFormField.h"
 
+// NEXT_MAJOR_VERSION: - Remove BTEnrollmentVerificationViewController.
 @interface BTEnrollmentVerificationViewController : BTDropInBaseViewController <UITextFieldDelegate, BTUIKFormFieldDelegate>
 typedef void (^BTEnrollmentHandler)(NSString* authCode, BOOL resendSms);
 

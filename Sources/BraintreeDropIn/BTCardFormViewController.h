@@ -43,7 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable, readonly) BTCardRequest *cardRequest;
 
 /// The BTCardCapabilities used to update the form after checking the card number. Applicable when UnionPay is enabled.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (nonatomic, strong, nullable, readonly) BTCardCapabilities *cardCapabilities;
+#pragma clang diagnostic pop
 
 /// The card network types supported by this merchant
 @property (nonatomic, copy) NSArray<NSNumber *> *supportedCardTypes;

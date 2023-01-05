@@ -47,7 +47,10 @@
 @property (nonatomic, strong) BTUIKCardListLabel *cardList;
 @property (nonatomic, getter=isCollapsed) BOOL collapsed;
 @property (nonatomic, strong) BTUIKFormField *firstResponderFormField;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (nonatomic, strong, nullable, readwrite) BTCardCapabilities *cardCapabilities;
+#pragma clang diagnostic pop
 @property (nonatomic) BOOL unionPayEnabledMerchant;
 @property (nonatomic, assign) BOOL cardEntryDidBegin;
 @property (nonatomic, assign) BOOL cardEntryDidFocus;
@@ -474,7 +477,10 @@
     self.cardNumberField.state = BTUIKCardNumberFormFieldStateLoading;
     
     BTCardClient *unionPayClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [unionPayClient fetchCapabilities:self.cardNumberField.number completion:^(BTCardCapabilities * _Nullable cardCapabilities, NSError * _Nullable error) {
+#pragma clang diagnostic pop
         if (error || (!cardCapabilities.isUnionPay && !self.cardNumberField.valid)) {
             [self cardNumberErrorHidden:NO];
             self.cardNumberField.state = BTUIKCardNumberFormFieldStateValidate;
@@ -543,6 +549,7 @@
 - (void)tokenizeCard {
     [self.view endEditing:YES];
 
+    // NEXT_MAJOR_VERSION: - Remove UnionPay SMS flow. Always perform "basic tokenization".
     if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
         [self enrollCard];
     } else {
@@ -563,7 +570,11 @@
     self.view.userInteractionEnabled = NO;
     __block UINavigationController *navController = self.navigationController;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // NEXT_MAJOR_VERSION: - Replace with non-deprecated `tokenizeCard()` method.
     [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
+#pragma clang diagnostic pop
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
 
@@ -585,6 +596,7 @@
     }];
 }
 
+// NEXT_MAJOR_VERSION: - Remove UnionPay SMS flow.
 - (void)enrollCard {
     __block BTCardRequest *cardRequest = self.cardRequest;
     __block BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
@@ -654,7 +666,10 @@
             cardRequest.smsCode = authCode;
             cardRequest.enrollmentID = self.enrollmentID;
             
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
+#pragma clang diagnostic pop
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.view.userInteractionEnabled = YES;
                     enrollmentController.navigationItem.rightBarButtonItem = originalRightBarButtonItem;
