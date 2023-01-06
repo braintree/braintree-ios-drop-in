@@ -3,6 +3,7 @@
 ## unreleased
 * Silence UnionPay related deprecation warnings introduced in `braintree_ios` 5.18.0 and higher.
   * *Note: The UnionPay SMS flow will be removed in BraintreeDropIn v10. UnionPay cards can now be processed as regular cards due to their partnership with Discover.*
+* Require `braintree_ios` 5.19.0 or higher
 
 ## 9.7.0 (2022-09-08)
 * Remove use of deprecated `setNetworkActivityIndicatorVisible` on iOS 13+ (the network activity indicator was removed from the status bar in iOS 13) (fixes #379)
