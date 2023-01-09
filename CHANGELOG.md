@@ -1,6 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
+* Add explicit error handling for case when `BTDropInResult.mostRecentPaymentMethod(for:)` method fails to fetch any recent payment methods.
+  * Add `BTDropInErrorTypeNoRecentPaymentMethods` error code.
 * Silence UnionPay related deprecation warnings introduced in `braintree_ios` 5.18.0 and higher.
   * *Note: The UnionPay SMS flow will be removed in BraintreeDropIn v10. UnionPay cards can now be processed as regular cards due to their partnership with Discover.*
 * Require `braintree_ios` 5.19.0 or higher

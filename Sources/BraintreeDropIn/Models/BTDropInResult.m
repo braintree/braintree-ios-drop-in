@@ -127,16 +127,21 @@ static NSUserDefaults *_userDefaults = nil;
                 completion(nil, error);
                 return;
             }
-            
-            if (paymentMethodNonces.count > 0) {
+
+            if (paymentMethodNonces.count == 0 || paymentMethodNonces == nil) {
+                NSError *error = [[NSError alloc] initWithDomain:BTDropInResultErrorDomain
+                                                            code:BTDropInErrorTypeNoRecentPaymentMethods
+                                                        userInfo:@{NSLocalizedDescriptionKey: @"No recent payment methods found."}];
+                completion(nil, error);
+                return;
+            } else {
                 result = [[BTDropInResult alloc] initWithEnvironment:configuration.environment];
                 BTPaymentMethodNonce *paymentMethod = paymentMethodNonces.firstObject;
                 result.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:paymentMethod.type];
                 result.paymentMethod = paymentMethod;
+                completion(result, nil);
+                return;
             }
-            
-            completion(result, nil);
-            return;
         }];
     }];
 }
