@@ -19,6 +19,9 @@ typedef NS_ENUM(NSInteger, BTDropInErrorType) {
 
     /// The client token or tokenization key is invalid
     BTDropInErrorTypeAuthorization,
+    
+    /// No recent payment methods were found
+    BTDropInErrorTypeNoRecentPaymentMethods
 };
 
 @interface BTDropInResult : NSObject
