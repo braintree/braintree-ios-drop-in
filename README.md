@@ -228,8 +228,8 @@ This SDK abides by our Client SDK Deprecation Policy. For more information on th
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
 | 9.x.x | Active | April 2021 | TBA | TBA |
-| 8.x.x | Inactive | Februrary 2020 | April 2022 | TBA |
-| 7.x.x | Deprecated | December 2018 | April 2021 | April 2022 |
+| 8.x.x | Deprecated | Februrary 2020 | April 2022 | TBA |
+| 7.x.x | Unsupported | December 2018 | April 2021 | April 2022 |
 
 Versions 6 and below are unsupported.
 
