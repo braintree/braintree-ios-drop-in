@@ -65,6 +65,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                                                                                action:@selector(cancelButtonPressed:)];
 
     UILabel *titleLabel = [BTUIKAppearance styledNavigationTitleLabel];
+    titleLabel.textColor = [BTUIKAppearance sharedInstance].primaryTextColor;
     titleLabel.text = BTDropInLocalizedString(SELECT_PAYMENT_LABEL);
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.numberOfLines = 2;
