@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Fixes bug where title color on `BTPaymentSelectionViewController` is set as the default `primaryColor` for the `BTDropInUICustomization(colorScheme:)` (fixes #397)
+
 ## 9.8.0 (2023-01-10)
 * Add explicit error handling for case when `BTDropInResult.mostRecentPaymentMethod(for:)` method fails to fetch any recent payment methods.
   * Add `BTDropInErrorTypeNoRecentPaymentMethods` error code.
