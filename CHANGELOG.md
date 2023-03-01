@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.8.1 (2023-03-01)
 * Fixes bug where title color on `BTPaymentSelectionViewController` is set as the default `primaryColor` for the `BTDropInUICustomization(colorScheme:)` (fixes #397)
 
 ## 9.8.0 (2023-01-10)
