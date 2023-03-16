@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Silence UnionPay related deprecation warnings introduced in `braintree_ios` 5.21.0 and higher.
+
 ## 9.8.1 (2023-03-01)
 * Fixes bug where title color on `BTPaymentSelectionViewController` is set as the default `primaryColor` for the `BTDropInUICustomization(colorScheme:)` (fixes #397)
 
