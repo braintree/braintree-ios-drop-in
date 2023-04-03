@@ -309,10 +309,13 @@
     BTCardRequest *cardRequest = [[BTCardRequest alloc] initWithCard:card];
     
     if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         cardRequest.mobileCountryCode = self.mobileCountryCodeField.countryCode;
         cardRequest.mobilePhoneNumber = self.mobilePhoneField.mobileNumber;
     }
-    
+#pragma clang diagnostic pop
+
     return cardRequest;
 }
 
@@ -663,11 +666,11 @@
                 self.view.userInteractionEnabled = NO;
             });
             
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             cardRequest.smsCode = authCode;
             cardRequest.enrollmentID = self.enrollmentID;
             
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
 #pragma clang diagnostic pop
                 dispatch_async(dispatch_get_main_queue(), ^{
