@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.8.2 (2023-04-10)
 * Silence UnionPay related deprecation warnings introduced in `braintree_ios` 5.21.0 and higher.
 
 ## 9.8.1 (2023-03-01)
