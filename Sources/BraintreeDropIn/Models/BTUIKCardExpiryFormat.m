@@ -16,9 +16,17 @@
         return;
     }
 
-    if (*cursorLocation == 1 && s.length == 1 && [s characterAtIndex:0] > '1' && [s characterAtIndex:0] <= '9') {
-        [s insertString:@"0" atIndex:0];
-        *cursorLocation += 1;
+    if (*cursorLocation == 1 && s.length == 1 && [s characterAtIndex:0] >= '0' && [s characterAtIndex:0] != '1' && [s characterAtIndex:0] <= '9') {
+            [s insertString:@"0" atIndex:0];
+            [s insertString:@"/" atIndex:2];
+            *cursorLocation += 2;
+    }
+
+    if (*cursorLocation == 2 && s.length == 2 && [s characterAtIndex:0] == '1') {
+        if ([s characterAtIndex:1] >= '0' && [s characterAtIndex:1] <= '2') {
+           [s insertString:@"/" atIndex:2];
+           *cursorLocation += 1;
+        }
     }
 
     if (self.backspace) {

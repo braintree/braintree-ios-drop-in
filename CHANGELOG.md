@@ -1,4 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
+## 9.8.3 (2023-04-13)
+* Fixes bug preventing input of digit 1 as first number for credit card expiry month
 
 ## 9.8.2 (2023-04-10)
 * Silence UnionPay related deprecation warnings introduced in `braintree_ios` 5.21.0 and higher.
