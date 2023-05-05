@@ -3,7 +3,7 @@ on: [pull_request, workflow_dispatch]
 jobs:
   cocoapods:
     name: CocoaPods (Xcode 14)
-    runs-on: macOS-latest
+    runs-on: macOS-12
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
         run: pod lib lint
   spm:
     name: SPM (Xcode 14)
-    runs-on: macOS-latest
+    runs-on: macOS-12
     steps:
       - name: Check out repository
         uses: actions/checkout@v2

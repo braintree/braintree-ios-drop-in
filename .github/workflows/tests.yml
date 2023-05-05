@@ -3,7 +3,7 @@ on: pull_request
 jobs:
   unit_test_job:
     name: Unit
-    runs-on: macOS-latest
+    runs-on: macOS-12
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UnitTests' -destination 'name=iPhone 11,platform=iOS Simulator'  test  | xcpretty
   ui_test_job:
     name: UI
-    runs-on: macOS-latest
+    runs-on: macOS-12
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
