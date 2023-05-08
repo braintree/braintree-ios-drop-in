@@ -138,6 +138,11 @@ class BraintreeDropIn_securityCodeValidation_CardForm_UITests: XCTestCase {
         securityCodeField.forceTapElement()
         securityCodeField.typeText("200")
 
+        let postalCodeField = elementsQuery.textFields["12345"]
+        waitForElementToBeHittable(postalCodeField)
+        postalCodeField.forceTapElement()
+        postalCodeField.typeText("12345")
+
         app.buttons["Add Card"].forceTapElement()
 
         waitForElementToBeHittable(app.alerts.buttons["OK"])
