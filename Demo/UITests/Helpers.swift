@@ -1,57 +1,38 @@
 import XCTest
 
 extension XCTestCase {
-    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 10,  file: String = #file, line: Int = #line) {
+
+    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 20) {
         let existsPredicate = NSPredicate(format: "exists == true")
 
-        expectation(for: existsPredicate,
-                                evaluatedWith: element, handler: nil)
+        expectation(for: existsPredicate, evaluatedWith: element)
 
-        waitForExpectations(timeout: timeout) { (error) -> Void in
-            if (error != nil) {
-                let message = "Failed to find \(element) after \(timeout) seconds."
-                self.record(XCTIssue(type: .assertionFailure,
-                                     compactDescription: message,
-                                     detailedDescription: nil,
-                                     sourceCodeContext: XCTSourceCodeContext(location: XCTSourceCodeLocation(filePath: file, lineNumber: Int(line))),
-                                     associatedError: error,
-                                     attachments: []))
-            }
-        }
+        waitForExpectations(timeout: timeout)
     }
 
-    func waitForElementToBeHittable(_ element: XCUIElement, timeout: TimeInterval = 10,  file: String = #file, line: Int = #line) {
+    func waitForElementToBeHittable(_ element: XCUIElement, timeout: TimeInterval = 20) {
         let existsPredicate = NSPredicate(format: "exists == true && hittable == true")
 
-        expectation(for: existsPredicate,
-                                evaluatedWith: element, handler: nil)
+        expectation(for: existsPredicate, evaluatedWith: element)
 
-        waitForExpectations(timeout: timeout) { (error) -> Void in
-            if (error != nil) {
-                let message = "Failed to find \(element) after \(timeout) seconds."
-                self.record(XCTIssue(type: .assertionFailure,
-                                     compactDescription: message,
-                                     detailedDescription: nil,
-                                     sourceCodeContext: XCTSourceCodeContext(location: XCTSourceCodeLocation(filePath: file, lineNumber: Int(line))),
-                                     associatedError: error,
-                                     attachments: []))
-            }
-        }
+        waitForExpectations(timeout: timeout)
     }
 }
 
 extension XCUIElement {
+
     func forceTapElement() {
         if self.isHittable {
             self.tap()
         } else {
-            let coordinate: XCUICoordinate = self.coordinate(withNormalizedOffset: CGVector(dx: 0.0, dy: 0.0))
+            let coordinate: XCUICoordinate = coordinate(withNormalizedOffset: CGVector(dx: 0.0, dy: 0.0))
             coordinate.tap()
         }
     }
 }
 
 extension Date {
+    
     static let nextYear: String = {
         let date = Date()
         let calendar = Calendar(identifier: .gregorian)

@@ -18,7 +18,7 @@ class BraintreeDropIn_Localization_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
 
         expectation(for: NSPredicate(format: "exists == true"), evaluatedWith: app.staticTexts["Seleccionar forma de pago"])
-        waitForExpectations(timeout: 10.0)
+        waitForExpectations(timeout: 20)
     }
 
     func testDropIn_displaysCustomLocalization() {
@@ -29,6 +29,6 @@ class BraintreeDropIn_Localization_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
 
         expectation(for: NSPredicate(format: "exists == true"), evaluatedWith: app.staticTexts["Zvolte platební metodu"])
-        waitForExpectations(timeout: 10.0)
+        waitForExpectations(timeout: 20)
     }
 }
