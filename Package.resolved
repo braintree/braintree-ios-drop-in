@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Braintree",
-        "repositoryURL": "https://github.com/braintree/braintree_ios",
-        "state": {
-          "branch": null,
-          "revision": "d190215f9b219ab5da899b1405ef3b2c8461b983",
-          "version": "5.19.0"
-        }
+  "pins" : [
+    {
+      "identity" : "braintree_ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/braintree/braintree_ios",
+      "state" : {
+        "revision" : "61fb99dbfe199a5f2e7232f5b7627bb92f52adf1",
+        "version" : "6.1.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

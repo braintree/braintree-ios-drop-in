@@ -24,13 +24,13 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
   s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
   s.frameworks = "UIKit"
-  s.dependency "Braintree/ApplePay", "~> 5.19"
-  s.dependency "Braintree/Card", "~> 5.19"
-  s.dependency "Braintree/Core", "~> 5.19"
-  s.dependency "Braintree/UnionPay", "~> 5.19"
-  s.dependency "Braintree/PayPal", "~> 5.19"
-  s.dependency "Braintree/ThreeDSecure", "~> 5.19"
-  s.dependency "Braintree/Venmo", "~> 5.19"
+  s.dependency "Braintree/ApplePay", "~> 6.1"
+  s.dependency "Braintree/Card", "~> 6.1"
+  s.dependency "Braintree/Core", "~> 6.1"
+  s.dependency "Braintree/UnionPay", "~> 6.1"
+  s.dependency "Braintree/PayPal", "~> 6.1"
+  s.dependency "Braintree/ThreeDSecure", "~> 6.1"
+  s.dependency "Braintree/Venmo", "~> 6.1"
   s.resource_bundles = {
     "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"] }
 
