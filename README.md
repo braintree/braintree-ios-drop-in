@@ -43,7 +43,7 @@ pod 'BraintreeDropIn'
 ```
 Then run `pod install`.
 
-See our [`Podspec`](https://github.com/braintree/braintree-ios-drop-in/blob/master/BraintreeDropIn.podspec) for more information.
+See our [`Podspec`](https://github.com/braintree/braintree-ios-drop-in/blob/main/BraintreeDropIn.podspec) for more information.
 
 *Note:* If you are using version 8.x.x of the Braintree Drop-in iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
 
@@ -167,7 +167,7 @@ BTDropInResult.mostRecentPaymentMethod(forClientToken: authorization) { result, 
 
 ### Localization
 
-Drop-in is currently localized for [22 languages](https://github.com/braintree/braintree-ios-drop-in/tree/master/Sources/BraintreeDropIn/Resources).
+Drop-in is currently localized for [22 languages](https://github.com/braintree/braintree-ios-drop-in/tree/main/Sources/BraintreeDropIn/Resources).
 
 ### Color Schemes
 
@@ -257,4 +257,4 @@ Here are a few ways to get in touch:
 
 ## License
 
-The Braintree iOS Drop-in SDK is open source and available under the MIT license. See the [LICENSE](https://github.com/braintree/braintree-ios-drop-in/blob/master/LICENSE) file for more info.
+The Braintree iOS Drop-in SDK is open source and available under the MIT license. See the [LICENSE](https://github.com/braintree/braintree-ios-drop-in/blob/main/LICENSE) file for more info.
