@@ -31,7 +31,7 @@ Example: importing an internal header file
 #import "BTUIKAppearance.h"
 ```
 
-For more information on how header imports work for each package manager, see the [DEVELOPMENT guide](https://github.com/braintree/braintree_ios/blob/master/DEVELOPMENT.md#importing-header-files) in Braintree iOS.
+For more information on how header imports work for each package manager, see the [DEVELOPMENT guide](https://github.com/braintree/braintree_ios/blob/main/DEVELOPMENT.md#importing-header-files) in Braintree iOS.
 
 ## Releasing
 
