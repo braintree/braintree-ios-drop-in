@@ -1,16 +1,22 @@
 #import "BTVaultManagementViewController.h"
 #import "BTDropInPaymentSelectionCell.h"
-#import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
-#import "BTPaymentMethodNonce+DropIn.h"
 #import "BTUIKAppearance.h"
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BraintreeCard.h>
-#import <Braintree/BraintreeCore.h>
-#else
-#import <BraintreeCard/BraintreeCard.h>
-#import <BraintreeCore/BraintreeCore.h>
+// Import BraintreeDataCollector (Swift) module
+#if __has_include(<Braintree/Braintree-Swift.h>) // CocoaPods
+#import <Braintree/Braintree-Swift.h>
+
+#else                                           // SPM
+/* Use @import for SPM support
+ * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
+ */
+@import BraintreeCore;
+@import BraintreeCard;
+@import BraintreePayPal;
+@import BraintreeVenmo;
+@import BraintreeApplePay;
+
 #endif
 
 @interface BTVaultManagementViewController ()
@@ -75,7 +81,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.appeared"];
+    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.appeared" errorDescription:NULL];
 }
 
 - (void)configurationLoaded:(__unused BTConfiguration *)configuration error:(NSError *)error {
@@ -145,7 +151,7 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     BTPaymentMethodNonce *paymentMethod = self.paymentMethodNonces[indexPath.row];
     BTDropInPaymentMethodType option = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:paymentMethod.type];
 
-    cell.detailLabel.text = paymentMethod.paymentDescription;
+    cell.detailLabel.text = [self paymentDescription:paymentMethod];
     cell.label.text = [BTUIKViewUtil nameForPaymentMethodType:option];
     cell.iconView.paymentMethodType = option;
     cell.type = option;
@@ -169,12 +175,12 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
                                      };
         [self.apiClient POST:@""
                   parameters:[parameters copy]
-                    httpType:BTAPIClientHTTPTypeGraphQLAPI
+                    httpType:BTAPIClientHTTPServiceGraphQLAPI
                   completion:^(__unused BTJSON * _Nullable body, __unused NSHTTPURLResponse * _Nullable response, __unused NSError * _Nullable error)
          {
              [self loadConfiguration];
              if (error) {
-                 [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.failed"];
+                 [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.failed" errorDescription:NULL];
                  dispatch_async(dispatch_get_main_queue(), ^{
                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:BTDropInLocalizedString(THERE_WAS_AN_ERROR) preferredStyle:UIAlertControllerStyleAlert];
                      UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
@@ -182,9 +188,23 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
                      [self presentViewController:alertController animated:YES completion:nil];
                  });
              } else {
-                 [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.succeeded"];
+                 [self.apiClient sendAnalyticsEvent:@"ios.dropin2.manager.delete.succeeded" errorDescription:NULL];
              }
          }];
+    }
+}
+
+- (NSString *)paymentDescription:(BTPaymentMethodNonce *)paymentMethodNonce {
+    if ([paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
+        return ((BTCardNonce *)self).lastFour;
+    } else if ([paymentMethodNonce isKindOfClass:[BTPayPalAccountNonce class]]) {
+        return ((BTPayPalAccountNonce *)self).email;
+    } else if ([paymentMethodNonce isKindOfClass:[BTVenmoAccountNonce class]]) {
+        return ((BTVenmoAccountNonce *)self).username;
+    } else if ([paymentMethodNonce isKindOfClass:[BTApplePayCardNonce class]]) {
+        return @"Apple Pay";
+    } else {
+        return @"";
     }
 }
 

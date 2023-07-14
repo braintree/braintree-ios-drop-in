@@ -1,17 +1,9 @@
 #import <BraintreeDropIn/BTDropInResult.h>
-#import "BTAPIClient_Internal_Category.h"
-#import "BTPaymentMethodNonce+DropIn.h"
 #import "BTUIKViewUtil.h"
 #import "BTUIKVectorArtView.h"
 #import "BTUIKPaymentOptionCardView.h"
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BraintreeCore.h>
-#else
-#import <BraintreeCore/BraintreeCore.h>
-#endif
-
-// Import PayPalDataCollector (Swift) module
+// Import BraintreeDataCollector (Swift) module
 #if __has_include(<Braintree/Braintree-Swift.h>)      // CocoaPods
 #import <Braintree/Braintree-Swift.h>
 
@@ -19,7 +11,7 @@
 /* Use @import for SPM support
  * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
  */
-@import PayPalDataCollector;
+@import BraintreeDataCollector;
 
 #elif __has_include("Braintree-umbrella.h")              // CocoaPods for ReactNative
 /* Use quoted style when importing Swift headers for ReactNative support
@@ -28,7 +20,7 @@
 @import Braintree;
 
 #else                                                 // Carthage
-#import <PayPalDataCollector/PayPalDataCollector-Swift.h>
+#import <BraintreeDataCollector/BraintreeDataCollector-Swift.h>
 #endif
 
 NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResultErrorDomain";
@@ -36,19 +28,19 @@ NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResu
 @implementation BTDropInResult
 
 // For testing
-static Class PayPalDataCollectorClass;
-static NSString *PayPalDataCollectorClassString = @"PPDataCollector";
+static Class BraintreeDataCollectorClass;
+static NSString *BraintreeDataCollectorClassString = @"BTDataCollector";
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        // If we are testing we want to set PayPalDataCollectorClass to the class passed in `setPayPalDataCollectorClass`
-        if (PayPalDataCollectorClass != NSClassFromString(PayPalDataCollectorClassString)) {
-            _deviceData = [PayPalDataCollectorClass collectPayPalDeviceData];
+        // If we are testing we want to set BraintreeDataCollectorClass to the class passed in `setBraintreeDataCollectorClass`
+        if (BraintreeDataCollectorClass != NSClassFromString(BraintreeDataCollectorClassString)) {
+            _deviceData = [BraintreeDataCollectorClass collectDeviceData];
             return self;
         }
-        // Otherwise we should use `PPDataCollector` to collect device data
-        _deviceData = [PPDataCollector collectPayPalDeviceData];
+        // Otherwise we should use `BTDataCollector` to collect device data
+        _deviceData = [BTDataCollector collectDeviceData];
     }
 
     return self;

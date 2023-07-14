@@ -4,6 +4,34 @@
 #import "BTUIKViewUtil.h"
 #import "BTUIKPaymentOptionCardView.h"
 
+// Swift Module Imports
+#if __has_include(<Braintree/Braintree-Swift.h>) // Cocoapods-generated Swift Header
+#import <Braintree/Braintree-Swift.h>
+
+#elif SWIFT_PACKAGE                              // SPM
+/* Use @import for SPM support
+ * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
+ */
+@import BraintreeCore;
+@import BraintreeCard;
+@import BraintreePayPal;
+@import BraintreeVenmo;
+@import BraintreeApplePay;
+
+#elif __has_include("Braintree-Swift.h")         // CocoaPods for ReactNative
+/* Use quoted style when importing Swift headers for ReactNative support
+ * See https://github.com/braintree/braintree_ios/issues/671
+ */
+@import Braintree;
+
+#else                                          // Carthage or Local Builds
+#import <BraintreeCore/BraintreeCore-Swift.h>
+#import <BraintreeCard/BraintreeCard-Swift.h>
+#import <BraintreePayPal/BraintreePayPal-Swift.h>
+#import <BraintreeVenmo/BraintreeVenmo-Swift.h>
+#import <BraintreeApplePay/BraintreeApplePay-Swift.h>
+#endif
+
 #define SAVED_PAYMENT_METHODS_COLLECTION_SPACING 6
 
 @interface BTVaultedPaymentMethodsTableViewCell () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -56,6 +84,20 @@
                                         animated:NO];
 }
 
+- (NSString *)paymentDescription:(BTPaymentMethodNonce *)paymentMethodNonce {
+    if ([paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
+        return ((BTCardNonce *)self).lastFour;
+    } else if ([paymentMethodNonce isKindOfClass:[BTPayPalAccountNonce class]]) {
+        return ((BTPayPalAccountNonce *)self).email;
+    } else if ([paymentMethodNonce isKindOfClass:[BTVenmoAccountNonce class]]) {
+        return ((BTVenmoAccountNonce *)self).username;
+    } else if ([paymentMethodNonce isKindOfClass:[BTApplePayCardNonce class]]) {
+        return @"Apple Pay";
+    } else {
+        return @"";
+    }
+}
+
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -69,12 +111,12 @@
     NSString *typeString = paymentInfo.type;
 
     cell.highlighted = NO;
-    cell.descriptionLabel.text = paymentInfo.paymentDescription;
+    cell.descriptionLabel.text = [self paymentDescription:paymentInfo];
     cell.titleLabel.text = [BTUIKViewUtil nameForPaymentMethodType:[BTUIKViewUtil paymentMethodTypeForPaymentInfoType:typeString]];
     cell.paymentOptionCardView.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:typeString];
 
     cell.isAccessibilityElement = YES;
-    cell.accessibilityLabel = [NSString stringWithFormat:@"%@ %@", typeString, paymentInfo.paymentDescription];
+    cell.accessibilityLabel = [NSString stringWithFormat:@"%@ %@", typeString, [self paymentDescription:paymentInfo]];
     cell.accessibilityTraits = UIAccessibilityTraitButton;
 
     return cell;

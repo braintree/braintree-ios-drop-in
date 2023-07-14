@@ -1,11 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BTPaymentMethodNonce.h>
-#else
-#import <BraintreeCore/BTPaymentMethodNonce.h>
-#endif
-
+@class BTPaymentMethodNonce;
 @class BTUIKPaymentOptionCardView;
 
 @interface BTUIPaymentMethodCollectionViewCell : UICollectionViewCell

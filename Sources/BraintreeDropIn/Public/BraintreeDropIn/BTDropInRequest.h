@@ -1,16 +1,10 @@
 #import <BraintreeDropIn/BTDropInUICustomization.h>
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BTPostalAddress.h>
-#import <Braintree/BTPayPalRequest.h>
-#import <Braintree/BTVenmoRequest.h>
-#import <Braintree/BTThreeDSecureRequest.h>
-#else
-#import <BraintreeCore/BTPostalAddress.h>
-#import <BraintreePayPal/BTPayPalRequest.h>
-#import <BraintreeVenmo/BTVenmoRequest.h>
-#import <BraintreeThreeDSecure/BTThreeDSecureRequest.h>
-#endif
+@class BTPostalAddress;
+@class BTPayPalVaultRequest;
+@class BTPayPalCheckoutRequest;
+@class BTVenmoRequest;
+@class BTThreeDSecureRequest;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,8 +16,11 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 
 @interface BTDropInRequest : NSObject <NSCopying>
 
-/// Optional: Specify the options for the PayPal flow using either BTPayPalCheckoutRequest or BTPayPalVaultRequest. If not present, a default vault flow will be used.
-@property (nonatomic, strong, nullable) BTPayPalRequest *payPalRequest;
+/// Optional: Specify the options for the BTPayPalVaultRequest.
+@property (nonatomic, strong, nullable) BTPayPalVaultRequest *payPalVaultRequest;
+
+/// Optional: Specify the options for the BTPayPalCheckoutRequest.
+@property (nonatomic, strong, nullable) BTPayPalCheckoutRequest *payPalCheckoutRequest;
 
 /// Optional: Specify the options for the Venmo flow. If not present, a default vault flow will be used.
 @property (nonatomic, strong, nullable) BTVenmoRequest *venmoRequest;

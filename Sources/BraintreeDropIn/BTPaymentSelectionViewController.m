@@ -2,24 +2,25 @@
 #import "BTPaymentSelectionViewController.h"
 #import "BTUIPaymentMethodCollectionViewCell.h"
 #import "BTDropInPaymentSelectionCell.h"
-#import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTVaultedPaymentMethodsTableViewCell.h"
 #import "BTPaymentSelectionHeaderView.h"
 #import "BTUIKAppearance.h"
-#import "BTConfiguration+DropIn.h"
-#import "BTPaymentMethodNonce+DropIn.h"
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BraintreeCard.h>
-#import <Braintree/BraintreePayPal.h>
-#import <Braintree/BraintreeVenmo.h>
-#import <Braintree/BraintreeApplePay.h>
-#else
-#import <BraintreeCard/BraintreeCard.h>
-#import <BraintreePayPal/BraintreePayPal.h>
-#import <BraintreeVenmo/BraintreeVenmo.h>
-#import <BraintreeApplePay/BraintreeApplePay.h>
+// Import BraintreeDataCollector (Swift) module
+#if __has_include(<Braintree/Braintree-Swift.h>) // CocoaPods
+#import <Braintree/Braintree-Swift.h>
+
+#else                                           // SPM
+/* Use @import for SPM support
+ * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
+ */
+@import BraintreeCore;
+@import BraintreeCard;
+@import BraintreePayPal;
+@import BraintreeVenmo;
+@import BraintreeApplePay;
+
 #endif
 
 #define SAVED_PAYMENT_METHODS_COLLECTION_SPACING 6
@@ -51,7 +52,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 - (instancetype)initWithAPIClient:(BTAPIClient *)apiClient request:(BTDropInRequest *)request {
     self = [super initWithAPIClient:apiClient request:request];
     if (self) {
-        _venmoDriver = [[BTVenmoDriver alloc] initWithAPIClient: self.apiClient];
+        _venmoClient = [[BTVenmoClient alloc] initWithAPIClient: self.apiClient];
     }
     return self;
 }
@@ -133,7 +134,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [activePaymentOptions addObject:@(BTDropInPaymentMethodTypePayPal)];
             }
 
-            if (!self.dropInRequest.venmoDisabled && self.venmoDriver.isiOSAppAvailableForAppSwitch && self.configuration.isVenmoEnabled) {
+            if (!self.dropInRequest.venmoDisabled && self.venmoClient.isVenmoAppInstalled && self.configuration.isVenmoEnabled) {
                 [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeVenmo)];
             }
 
@@ -236,7 +237,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
 - (void)sendVaultedCardAppearAnalytic {
     for (BTPaymentMethodNonce *nonce in self.paymentMethodNonces) {
         if ([nonce isKindOfClass: [BTCardNonce class]] && !_vaultedCardAppearAnalyticSent){
-            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.appear"];
+            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.appear" errorDescription:nil];
             _vaultedCardAppearAnalyticSent = YES;
             break;
         }
@@ -289,30 +290,52 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             [self.delegate performSelector:@selector(showCardForm:) withObject:self];
         }
     } else if (cell.type == BTDropInPaymentMethodTypePayPal) {
-        BTPayPalDriver *driver = [[BTPayPalDriver alloc] initWithAPIClient:self.apiClient];
+        BTPayPalClient *client = [[BTPayPalClient alloc] initWithAPIClient:self.apiClient];
 
-        BTPayPalRequest *payPalRequest = self.dropInRequest.payPalRequest;
+        BTPayPalRequest *payPalRequest = nil;
         if (payPalRequest == nil) {
-            payPalRequest = [[BTPayPalVaultRequest alloc] init];
+            payPalRequest = [[BTPayPalVaultRequest alloc] initWithOfferCredit:false]; // TODO: is this what we want?
         }
 
         [self showLoadingScreen:YES];
-        [driver tokenizePayPalAccountWithPayPalRequest:payPalRequest completion:^(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error) {
-            [self showLoadingScreen:NO];
-            BOOL shouldReturnError = (error != nil && error.code != BTPayPalDriverErrorTypeCanceled);
-            if (self.delegate && (tokenizedPayPalAccount != nil || shouldReturnError)) {
-                [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypePayPal nonce:tokenizedPayPalAccount error:error];
-            }
-        }];
+
+        if (self.dropInRequest.payPalVaultRequest != nil) {
+            BTPayPalVaultRequest *payPalVaultRequest = [[BTPayPalVaultRequest alloc] initWithOfferCredit:payPalVaultRequest.offerCredit];
+
+            [client tokenizeWithVaultRequest:payPalVaultRequest completion:^(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error) {
+                [self showLoadingScreen:NO];
+                BOOL shouldReturnError = (error != nil && error.code != 1); // 1 = BTPayPalError.canceled
+                if (self.delegate && (tokenizedPayPalAccount != nil || shouldReturnError)) {
+                    [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypePayPal nonce:tokenizedPayPalAccount error:error];
+                }
+            }];
+        } else if (self.dropInRequest.payPalCheckoutRequest != nil) {
+            BTPayPalCheckoutRequest *payPalCheckoutRequest = [[BTPayPalCheckoutRequest alloc] initWithAmount: self.dropInRequest.payPalCheckoutRequest.amount
+                                                                                                      intent:self.dropInRequest.payPalCheckoutRequest.intent
+                                                                                                  userAction:self.dropInRequest.payPalCheckoutRequest.userAction
+                                                                                               offerPayLater:self.dropInRequest.payPalCheckoutRequest.offerPayLater
+                                                                                                currencyCode:self.dropInRequest.payPalCheckoutRequest.currencyCode
+                                                                                     requestBillingAgreement:self.dropInRequest.payPalCheckoutRequest.requestBillingAgreement];
+
+            [client tokenizeWithCheckoutRequest:payPalCheckoutRequest completion:^(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error) {
+                [self showLoadingScreen:NO];
+                BOOL shouldReturnError = (error != nil && error.code != 1); // 1 = BTPayPalError.canceled
+                if (self.delegate && (tokenizedPayPalAccount != nil || shouldReturnError)) {
+                    [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypePayPal nonce:tokenizedPayPalAccount error:error];
+                }
+            }];
+        } else {
+            // TODO: throw error
+        }
     } else if (cell.type == BTDropInPaymentMethodTypeVenmo) {
         BTVenmoRequest *venmoRequest = self.dropInRequest.venmoRequest;
         if (venmoRequest == nil) {
-            venmoRequest = [[BTVenmoRequest alloc] init];
+            venmoRequest = [[BTVenmoRequest alloc] initWithPaymentMethodUsage:self.dropInRequest.venmoRequest.paymentMethodUsage];
             venmoRequest.vault = true;
         }
 
         [self showLoadingScreen:YES];
-        [self.venmoDriver tokenizeVenmoAccountWithVenmoRequest:venmoRequest completion:^(BTVenmoAccountNonce * _Nullable venmoAccountNonce, NSError * _Nullable error) {
+        [self.venmoClient tokenizeWithVenmoRequest:venmoRequest completion:^(BTVenmoAccountNonce * _Nullable venmoAccountNonce, NSError * _Nullable error) {
             [self showLoadingScreen:NO];
             if (self.delegate && (venmoAccountNonce != nil || error != nil)) {
                 [self.delegate selectionCompletedWithPaymentMethodType:BTDropInPaymentMethodTypeVenmo nonce:venmoAccountNonce error:error];
@@ -383,7 +406,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                                                          error:nil];
 
         if ([nonce isKindOfClass:BTCardNonce.class]) {
-            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select"];
+            [self.apiClient sendAnalyticsEvent:@"ios.dropin2.vaulted-card.select" errorDescription:NULL];
         }
     }
 }

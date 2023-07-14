@@ -3,24 +3,25 @@
 #import "BTCardFormViewController.h"
 #import "BTPaymentSelectionViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
-#import "BTAPIClient_Internal_Category.h"
 #import "BTUIKAppearance.h"
 #import "BTUIKViewUtil.h"
-#import "BTConfiguration+DropIn.h"
 #import "BTDropInResult_Internal.h"
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BraintreeCard.h>
-#import <Braintree/BraintreeCore.h>
-#import <Braintree/BraintreePaymentFlow.h>
-#import <Braintree/BTThreeDSecureResult.h>
-#import <Braintree/BraintreeUnionPay.h>
-#else
-#import <BraintreeCard/BraintreeCard.h>
-#import <BraintreeCore/BraintreeCore.h>
-#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
-#import <BraintreeThreeDSecure/BTThreeDSecureResult.h>
-#import <BraintreeUnionPay/BraintreeUnionPay.h>
+// Import BraintreeDataCollector (Swift) module
+#if __has_include(<Braintree/Braintree-Swift.h>) // CocoaPods
+#import <Braintree/Braintree-Swift.h>
+
+#else                                           // SPM
+/* Use @import for SPM support
+ * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
+ */
+@import BraintreeCore;
+@import BraintreeCard;
+@import BraintreePayPal;
+@import BraintreeVenmo;
+@import BraintreeApplePay;
+@import BraintreeThreeDSecure;
+
 #endif
 
 #define BT_ANIMATION_SLIDE_SPEED 0.35
@@ -34,7 +35,7 @@
 @interface BTDropInControllerDismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
 
-@interface BTDropInController () <BTDropInControllerDelegate, BTViewControllerPresentingDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate>
+@interface BTDropInController () <BTDropInControllerDelegate, BTPaymentSelectionViewControllerDelegate, BTCardFormViewControllerDelegate, UIViewControllerTransitioningDelegate, BTThreeDSecureRequestDelegate>
 
 @property (nonatomic, strong) BTConfiguration *configuration;
 @property (nonatomic, strong, readwrite) BTAPIClient *apiClient;
@@ -59,8 +60,8 @@
                                        request:(BTDropInRequest *)request
                                        handler:(BTDropInControllerHandler) handler {
     if (self = [super init]) {
-        BTAPIClient *client = [[BTAPIClient alloc] initWithAuthorization:authorization sendAnalyticsEvent:NO];
-        self.apiClient = [client copyWithSource:client.metadata.source integration:BTClientMetadataIntegrationDropIn2];
+        BTAPIClient *client = [[BTAPIClient alloc] initWithAuthorization:authorization];
+        self.apiClient.metadata.integration = BTClientMetadataIntegrationDropIn;
 
         _dropInRequest = [request copy];
         if (!_apiClient || !_dropInRequest) {
@@ -101,7 +102,7 @@
     [self.paymentSelectionViewController loadConfiguration];
     [self resetDropInState];
     [self loadConfiguration];
-    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear"];
+    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.appear" errorDescription:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -112,7 +113,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.disappear"];
+    [self.apiClient sendAnalyticsEvent:@"ios.dropin2.disappear" errorDescription:nil];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -265,26 +266,20 @@
 }
 
 - (void)threeDSecureVerification:(BTPaymentMethodNonce *)tokenizedCard {
-    BTPaymentFlowDriver *paymentFlowDriver = [[BTPaymentFlowDriver alloc] initWithAPIClient:self.apiClient];
-    paymentFlowDriver.viewControllerPresentingDelegate = self;
+    BTThreeDSecureClient *threeDSecureClient = [[BTThreeDSecureClient alloc] initWithAPIClient:self.apiClient];
 
     BTThreeDSecureRequest *request = self.dropInRequest.threeDSecureRequest;
     request.nonce = tokenizedCard.nonce;
 
-    if (request.versionRequested == BTThreeDSecureVersion2) {
-        request.threeDSecureRequestDelegate = self;
-    }
-
     [self.paymentSelectionViewController showLoadingScreen: YES];
-    [paymentFlowDriver startPaymentFlow:request completion:^(BTPaymentFlowResult * _Nonnull result, NSError * _Nonnull error) {
-        BTThreeDSecureResult *threeDSecureResult = (BTThreeDSecureResult *)result;
+    [threeDSecureClient startPaymentFlow:request completion:^(BTThreeDSecureResult * _Nonnull result, NSError * _Nonnull error) {
         [self.paymentSelectionViewController showLoadingScreen:NO];
         if (self.handler) {
             BTDropInResult *dropInResult = [[BTDropInResult alloc] initWithEnvironment:self.configuration.environment];
-            if (threeDSecureResult.tokenizedCard != nil) {
-                dropInResult.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:threeDSecureResult.tokenizedCard.type];
-                dropInResult.paymentMethod = threeDSecureResult.tokenizedCard;
-            } else if (error != nil && error.code == BTPaymentFlowDriverErrorTypeCanceled) {
+            if (result.tokenizedCard != nil) {
+                dropInResult.paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:result.tokenizedCard.type];
+                dropInResult.paymentMethod = result.tokenizedCard;
+            } else if (error != nil && error.code == 5) { // 5 = BTThreeDSecureError.canceled
                 // Show the updated payment selection screen if the user canceled out of the 3DS challenge
                 [self reloadDropInData];
                 return;

@@ -2,7 +2,6 @@
 #import "BTCardFormViewController.h"
 #import "BTPaymentSelectionViewController.h"
 #import "BTEnrollmentVerificationViewController.h"
-#import "BTAPIClient_Internal_Category.h"
 #import "BTUIKBarButtonItem_Internal_Declaration.h"
 #import "BTEnrollmentVerificationViewController.h"
 #import "BTDropInUIUtilities.h"
@@ -12,16 +11,20 @@
 #import "BTUIKViewUtil.h"
 #import "BTDropInLocalization_Internal.h"
 
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BraintreeCard.h>
-#import <Braintree/BraintreeCore.h>
-#import <Braintree/BraintreePaymentFlow.h>
-#import <Braintree/BraintreeUnionPay.h>
-#else
-#import <BraintreeCard/BraintreeCard.h>
-#import <BraintreeCore/BraintreeCore.h>
-#import <BraintreePaymentFlow/BraintreePaymentFlow.h>
-#import <BraintreeUnionPay/BraintreeUnionPay.h>
+// Import BraintreeDataCollector (Swift) module
+#if __has_include(<Braintree/Braintree-Swift.h>) // CocoaPods
+#import <Braintree/Braintree-Swift.h>
+
+#else                                           // SPM
+/* Use @import for SPM support
+ * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
+ */
+@import BraintreeCore;
+@import BraintreeCard;
+@import BraintreePayPal;
+@import BraintreeVenmo;
+@import BraintreeApplePay;
+
 #endif
 
 @interface BTCardFormViewController ()
@@ -261,7 +264,7 @@
     if (!error) {
         self.collapsed = YES;
         self.unionPayEnabledMerchant = NO;
-        if (self.configuration.isUnionPayEnabled && !self.apiClient.tokenizationKey) {
+        if (!self.apiClient.tokenizationKey) {
             self.unionPayEnabledMerchant = YES;
             [self.cardNumberField setAccessoryViewHidden:NO animated:NO];
         }
@@ -308,7 +311,7 @@
     card.shouldValidate = self.shouldVaultCardSwitchField.switchControl.isOn;
     BTCardRequest *cardRequest = [[BTCardRequest alloc] initWithCard:card];
     
-    if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
+    if (self.cardCapabilities != nil && self.cardCapabilities.isSupported) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         cardRequest.mobileCountryCode = self.mobileCountryCodeField.countryCode;

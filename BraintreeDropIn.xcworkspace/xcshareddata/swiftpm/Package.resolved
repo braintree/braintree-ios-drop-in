@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/braintree/braintree_ios",
       "state" : {
-        "revision" : "61fb99dbfe199a5f2e7232f5b7627bb92f52adf1",
-        "version" : "6.1.0"
+        "revision" : "8c6003c7f2f1a960cc1dfed962a976f29002e33a",
+        "version" : "6.2.0"
       }
     },
     {

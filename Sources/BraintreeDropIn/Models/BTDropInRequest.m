@@ -1,9 +1,4 @@
 #import <BraintreeDropIn/BTDropInRequest.h>
-#if __has_include(<Braintree/BraintreeCore.h>) // CocoaPods
-#import <Braintree/BTPostalAddress.h>
-#else
-#import <BraintreeCore/BTPostalAddress.h>
-#endif
 
 @implementation BTDropInRequest
 
@@ -19,7 +14,8 @@
 - (id)copyWithZone:(__unused NSZone *)zone {
     BTDropInRequest *request = [BTDropInRequest new];
 
-    request.payPalRequest = self.payPalRequest;
+    request.payPalVaultRequest = self.payPalVaultRequest;
+    request.payPalCheckoutRequest = self.payPalCheckoutRequest;
     request.venmoRequest = self.venmoRequest;
     request.applePayDisabled = self.applePayDisabled;
     request.paypalDisabled = self.paypalDisabled;

@@ -1,6 +1,6 @@
 #import "BTDropInBaseViewController.h"
-#import "BTAPIClient_Internal_Category.h"
 #import "BTUIKAppearance.h"
+@import BraintreeCore;
 
 @interface BTDropInBaseViewController ()
 

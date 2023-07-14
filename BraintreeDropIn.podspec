@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author           = { "Braintree" => "team-bt-sdk@paypal.com" }
   s.source           = { :git => "https://github.com/braintree/braintree-ios-drop-in.git", :tag => s.version.to_s }
 
-  s.platform         = :ios, "12.0"
+  s.platform         = :ios, "14.0"
   s.requires_arc     = true
   s.compiler_flags = "-Wall -Werror -Wextra"
   s.swift_version = "5.7"
@@ -27,10 +27,11 @@ Pod::Spec.new do |s|
   s.dependency "Braintree/ApplePay", "~> 6.1"
   s.dependency "Braintree/Card", "~> 6.1"
   s.dependency "Braintree/Core", "~> 6.1"
-  s.dependency "Braintree/UnionPay", "~> 6.1"
+  s.dependency "Braintree/LocalPayment", "~> 6.1"
   s.dependency "Braintree/PayPal", "~> 6.1"
   s.dependency "Braintree/ThreeDSecure", "~> 6.1"
   s.dependency "Braintree/Venmo", "~> 6.1"
+  s.dependency "Braintree/DataCollector", "~> 6.1"
   s.resource_bundles = {
     "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"] }
 

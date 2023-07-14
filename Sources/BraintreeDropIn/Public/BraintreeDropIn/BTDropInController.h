@@ -2,6 +2,8 @@
 #import <BraintreeDropIn/BTDropInResult.h>
 #import <BraintreeDropIn/BTDropInRequest.h>
 
+@class BTAPIClient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class BTPaymentMethodNonce;
