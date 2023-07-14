@@ -75,10 +75,11 @@ class DemoSettings {
     static var threeDSecureRequiredStatus: DemoThreeDSecureRequiredSetting {
         return DemoThreeDSecureRequiredSetting(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureRequiredDefaultsKey)) ?? .requiredIfAttempted
     }
-    
-    static var threeDSecureRequestedVersion: BTThreeDSecureVersion {
-        return BTThreeDSecureVersion(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureVersionDefaultsKey)) ?? .version2
-    }
+
+// TODO: do we need to remove this from some settings?
+//    static var threeDSecureRequestedVersion: BTThreeDSecureVersion {
+//        return BTThreeDSecureVersion(rawValue: UserDefaults.standard.integer(forKey: ThreeDSecureVersionDefaultsKey)) ?? .version2
+//    }
     
     static var customerPresent: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoCustomerPresent")

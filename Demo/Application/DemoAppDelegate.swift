@@ -1,5 +1,8 @@
 import BraintreeDropIn
 
+// TODO: we shouldn't need to do this? Or maybe we do? Idk.
+import BraintreeCore
+
 @UIApplicationMain
 class DemoAppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -20,7 +23,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         registerUserDefaults()
-        BTAppContextSwitcher.setReturnURLScheme(BraintreeDemoAppDelegatePaymentsURLScheme)
+        BTAppContextSwitcher.sharedInstance.returnURLScheme = BraintreeDemoAppDelegatePaymentsURLScheme
         
         let rootViewController = DemoContainerViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
@@ -32,7 +35,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         guard url.scheme?.lowercased() == BraintreeDemoAppDelegatePaymentsURLScheme.lowercased() else { return true }
-        return BTAppContextSwitcher.handleOpenURL(url)
+        return BTAppContextSwitcher.sharedInstance.handleOpen(url)
     }
     
     private func registerUserDefaults() {
@@ -49,12 +52,13 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         } else if testArguments.contains("-ThreeDSecureDefault") {
             UserDefaults.standard.set(DemoThreeDSecureRequiredSetting.requiredIfAttempted.rawValue, forKey:DemoSettings.ThreeDSecureRequiredDefaultsKey)
         }
-        
-        if testArguments.contains("-ThreeDSecureVersion2") {
-            UserDefaults.standard.set(BTThreeDSecureVersion.version2.rawValue, forKey:DemoSettings.ThreeDSecureVersionDefaultsKey)
-        } else if testArguments.contains("-ThreeDSecureVersionLegacy") {
-            UserDefaults.standard.set(BTThreeDSecureVersion.version1.rawValue, forKey:DemoSettings.ThreeDSecureVersionDefaultsKey)
-        }
+
+// TODO: need to remove this from settings menu
+//        if testArguments.contains("-ThreeDSecureVersion2") {
+//            UserDefaults.standard.set(BTThreeDSecureVersion.version2.rawValue, forKey:DemoSettings.ThreeDSecureVersionDefaultsKey)
+//        } else if testArguments.contains("-ThreeDSecureVersionLegacy") {
+//            UserDefaults.standard.set(BTThreeDSecureVersion.version1.rawValue, forKey:DemoSettings.ThreeDSecureVersionDefaultsKey)
+//        }
         
         if testArguments.contains("-TokenizationKey") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoUseTokenizationKey")

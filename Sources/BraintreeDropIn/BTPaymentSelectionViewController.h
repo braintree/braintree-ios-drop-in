@@ -5,7 +5,7 @@
 @class BTVenmoClient;
 
 @class BTPaymentMethodNonce;
-@protocol BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTAppSwitchDelegate, BTViewControllerPresentingDelegate;
+@protocol BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTAppSwitchDelegate;
 
 /// @class A UIViewController that displays vaulted payment methods for a customer and available payment options
 @interface BTPaymentSelectionViewController : BTDropInBaseViewController <UITableViewDataSource, UITableViewDelegate>
@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSArray *paymentMethodNonces;
 
 /// The delegate
-@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate, BTViewControllerPresentingDelegate> delegate;
+@property (nonatomic, weak) id<BTPaymentSelectionViewControllerDelegate, BTDropInControllerDelegate> delegate;
 
 @property (nonatomic, strong) BTVenmoClient *venmoClient;
 

@@ -7,7 +7,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class BTPaymentMethodNonce;
-@protocol BTAppSwitchDelegate, BTViewControllerPresentingDelegate;
+@protocol BTAppSwitchDelegate;
 
 /// The primary UIViewController for Drop-In. BTDropInController will manage the other UIViewControllers and return a BTDropInResult.
 @interface BTDropInController : UIViewController <UIToolbarDelegate, UIViewControllerTransitioningDelegate>

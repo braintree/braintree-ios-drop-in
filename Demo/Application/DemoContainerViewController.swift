@@ -2,6 +2,9 @@ import BraintreeDropIn
 import InAppSettingsKit
 import SwiftUI
 
+// TODO: we shouldn't need to do this? Or maybe we do? Idk.
+import BraintreeCore
+
 class DemoContainerViewController: UIViewController {
     
     private var statusItem: UIBarButtonItem?

@@ -7,20 +7,17 @@
 #if __has_include(<Braintree/Braintree-Swift.h>)      // CocoaPods
 #import <Braintree/Braintree-Swift.h>
 
-#elif SWIFT_PACKAGE                                   // SPM
+#else                                                // SPM
 /* Use @import for SPM support
  * See https://forums.swift.org/t/using-a-swift-package-in-a-mixed-swift-and-objective-c-project/27348
  */
 @import BraintreeDataCollector;
+@import BraintreeCore;
+@import BraintreeCard;
+@import BraintreePayPal;
+@import BraintreeVenmo;
+@import BraintreeApplePay;
 
-#elif __has_include("Braintree-umbrella.h")              // CocoaPods for ReactNative
-/* Use quoted style when importing Swift headers for ReactNative support
- * See https://github.com/braintree/braintree_ios/issues/671
- */
-@import Braintree;
-
-#else                                                 // Carthage
-#import <BraintreeDataCollector/BraintreeDataCollector-Swift.h>
 #endif
 
 NSString *const BTDropInResultErrorDomain = @"com.braintreepayments.BTDropInResultErrorDomain";
@@ -34,13 +31,14 @@ static NSString *BraintreeDataCollectorClassString = @"BTDataCollector";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        // If we are testing we want to set BraintreeDataCollectorClass to the class passed in `setBraintreeDataCollectorClass`
-        if (BraintreeDataCollectorClass != NSClassFromString(BraintreeDataCollectorClassString)) {
-            _deviceData = [BraintreeDataCollectorClass collectDeviceData];
-            return self;
-        }
-        // Otherwise we should use `BTDataCollector` to collect device data
-        _deviceData = [BTDataCollector collectDeviceData];
+// TODO: we need to move data collection somewhere else. Maybe into another method? Commenting our for now.
+//        // If we are testing we want to set BraintreeDataCollectorClass to the class passed in `setBraintreeDataCollectorClass`
+//        if (BraintreeDataCollectorClass != NSClassFromString(BraintreeDataCollectorClassString)) {
+//            _deviceData = [BraintreeDataCollectorClass collectDeviceData];
+//            return self;
+//        }
+//        // Otherwise we should use `BTDataCollector` to collect device data
+//        _deviceData = [BTDataCollector collectDeviceData];
     }
 
     return self;
@@ -49,15 +47,16 @@ static NSString *BraintreeDataCollectorClassString = @"BTDataCollector";
 - (instancetype)initWithEnvironment:(NSString *)environment {
     self = [super init];
     if (self) {
-        // If we are testing we want to set PayPalDataCollectorClass to the class passed in `setPayPalDataCollectorClass`
-        if (PayPalDataCollectorClass != NSClassFromString(PayPalDataCollectorClassString)) {
-            BOOL isSandbox = [environment isEqualToString:@"sandbox"];
-            _deviceData = [PayPalDataCollectorClass collectPayPalDeviceDataWithIsSandbox:isSandbox];
-            return self;
-        }
-        // Otherwise we should use `PPDataCollector` to collect device data
-        BOOL isSandbox = [environment isEqualToString:@"sandbox"];
-        _deviceData = [PPDataCollector collectPayPalDeviceDataWithIsSandbox:isSandbox];
+// TODO: we need to move data collection somewhere else. Maybe into another method? Commenting our for now.
+//        // If we are testing we want to set PayPalDataCollectorClass to the class passed in `setPayPalDataCollectorClass`
+//        if (PayPalDataCollectorClass != NSClassFromString(PayPalDataCollectorClassString)) {
+//            BOOL isSandbox = [environment isEqualToString:@"sandbox"];
+//            _deviceData = [PayPalDataCollectorClass collectPayPalDeviceDataWithIsSandbox:isSandbox];
+//            return self;
+//        }
+//        // Otherwise we should use `PPDataCollector` to collect device data
+//        BOOL isSandbox = [environment isEqualToString:@"sandbox"];
+//        _deviceData = [PPDataCollector collectPayPalDeviceDataWithIsSandbox:isSandbox];
     }
 
     return self;
@@ -82,8 +81,8 @@ static NSUserDefaults *_userDefaults = nil;
 
 + (void)mostRecentPaymentMethodForClientToken:(NSString *)clientToken
                                    completion:(void (^)(BTDropInResult *result, NSError *error))completion {
-    BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:clientToken sendAnalyticsEvent:NO];
-    apiClient = [apiClient copyWithSource:apiClient.metadata.source integration:BTClientMetadataIntegrationDropIn2];
+    BTAPIClient *apiClient = [[BTAPIClient alloc] initWithAuthorization:clientToken];
+    apiClient.metadata.integration = BTClientMetadataIntegrationDropIn;
     [BTDropInResult mostRecentPaymentMethodForAPIClient:apiClient completion:completion];
 }
 
@@ -148,14 +147,22 @@ static NSUserDefaults *_userDefaults = nil;
     if (self.paymentMethodType == BTDropInPaymentMethodTypeApplePay) {
         return @"Apple Pay";
     } else {
-        return self.paymentMethod.paymentDescription;
+        return [self paymentDescription:self.paymentMethod];
     }
 }
 
-#pragma mark - Test Helpers
-
-+ (void)setPayPalDataCollectorClass:(Class)payPalDataCollectorClass {
-    PayPalDataCollectorClass = payPalDataCollectorClass;
+- (NSString *)paymentDescription:(BTPaymentMethodNonce *)paymentMethodNonce {
+    if ([paymentMethodNonce isKindOfClass:[BTCardNonce class]]) {
+        return ((BTCardNonce *)self).lastFour;
+    } else if ([paymentMethodNonce isKindOfClass:[BTPayPalAccountNonce class]]) {
+        return ((BTPayPalAccountNonce *)self).email;
+    } else if ([paymentMethodNonce isKindOfClass:[BTVenmoAccountNonce class]]) {
+        return ((BTVenmoAccountNonce *)self).username;
+    } else if ([paymentMethodNonce isKindOfClass:[BTApplePayCardNonce class]]) {
+        return @"Apple Pay";
+    } else {
+        return @"";
+    }
 }
 
 @end

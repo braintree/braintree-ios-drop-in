@@ -399,16 +399,6 @@
 
 #pragma mark BTViewControllerPresentingDelegate
 
-- (void)paymentDriver:(__unused id)driver requestsPresentationOfViewController:(UIViewController *)viewController {
-    // Needed for iPad
-    viewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [self presentViewController:viewController animated:YES completion:nil];
-}
-
-- (void)paymentDriver:(__unused id)driver requestsDismissalOfViewController:(UIViewController *)viewController {
-    [viewController dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)selectionCompletedWithPaymentMethodType:(BTDropInPaymentMethodType)type nonce:(BTPaymentMethodNonce *)nonce error:(NSError *)error {
     if (error == nil) {
         [[NSUserDefaults standardUserDefaults] setInteger:type forKey:@"BT_dropInLastSelectedPaymentMethodType"];

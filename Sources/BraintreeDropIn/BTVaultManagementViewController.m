@@ -106,14 +106,14 @@ NSString *const BTGraphQLDeletePaymentMethodFromSingleUseToken = @""
     if (@available(iOS 13, *)) {
         // The network activity indicator no longer appears on status bars for iOS 13+
     } else {
-        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
+//        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
     }
 
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
         if (@available(iOS 13, *)) {
             // The network activity indicator no longer appears on status bars for iOS 13+
         } else {
-            [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
+//            [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
         }
 
         if (error) {

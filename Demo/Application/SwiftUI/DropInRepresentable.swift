@@ -1,6 +1,9 @@
 import SwiftUI
 import BraintreeDropIn
 
+// TODO: we shouldn't need to do this? Or maybe we do? Idk.
+import BraintreePayPal
+
 @available(iOS 13, *)
 struct DropInRepresentable: UIViewControllerRepresentable {
     var authorization: String
@@ -13,7 +16,7 @@ struct DropInRepresentable: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> BTDropInController {
         let request = BTDropInRequest()
-        request.payPalRequest = BTPayPalCheckoutRequest(amount: "10.00")
+        request.payPalCheckoutRequest = BTPayPalCheckoutRequest(amount: "10.00")
         return BTDropInController(authorization: authorization, request: request, handler: handler)!
     }
 

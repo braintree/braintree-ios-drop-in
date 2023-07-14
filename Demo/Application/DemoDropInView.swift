@@ -1,5 +1,8 @@
 import BraintreeDropIn
 
+// TODO: we shouldn't need to do this? Or maybe we do? Idk.
+import PassKit
+
 protocol DemoDropInViewDelegate: AnyObject {
     func demoViewDidTapDropInButton(_ view: DemoDropInView)
     func demoViewDidTapPurchaseButton(_ view: DemoDropInView)

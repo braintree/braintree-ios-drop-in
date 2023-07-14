@@ -200,7 +200,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         } else {
             NSMutableArray* vaultedNoncesForDropIn = [NSMutableArray new];
             for (BTPaymentMethodNonce *nonce in paymentMethodNonces) {
-                if ([shouldDisplayVaultedNonceForRequest:self.dropInRequest nonce:nonce config:self.configuration]) {
+                if ([self shouldDisplayVaultedNonceForRequest:self.dropInRequest nonce:nonce config:self.configuration]) {
                     [vaultedNoncesForDropIn addObject:nonce];
                 }
             }
@@ -311,7 +311,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         [self showLoadingScreen:YES];
 
         if (self.dropInRequest.payPalVaultRequest != nil) {
-            BTPayPalVaultRequest *payPalVaultRequest = [[BTPayPalVaultRequest alloc] initWithOfferCredit:payPalVaultRequest.offerCredit];
+            BTPayPalVaultRequest *payPalVaultRequest = [[BTPayPalVaultRequest alloc] initWithOfferCredit:self.dropInRequest.payPalVaultRequest.offerCredit];
 
             [client tokenizeWithVaultRequest:payPalVaultRequest completion:^(BTPayPalAccountNonce * _Nullable tokenizedPayPalAccount, NSError * _Nullable error) {
                 [self showLoadingScreen:NO];

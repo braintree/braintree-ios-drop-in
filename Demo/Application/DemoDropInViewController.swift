@@ -2,6 +2,12 @@ import UIKit
 import PassKit
 import BraintreeDropIn
 
+// TODO: we shouldn't need to do this, right?
+import BraintreeCore
+import BraintreePayPal
+import BraintreeThreeDSecure
+import BraintreeApplePay
+
 class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
     
     private var demoView = DemoDropInView()
@@ -50,7 +56,7 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
         dropInRequest.allowVaultCardOverride = DemoSettings.allowVaultCardOverrideSetting
         
         if ProcessInfo.processInfo.arguments.contains("-PayPalOneTime") {
-            dropInRequest.payPalRequest = BTPayPalCheckoutRequest(amount: "4.77")
+            dropInRequest.payPalCheckoutRequest = BTPayPalCheckoutRequest(amount: "4.77")
         }
         
         if DemoSettings.threeDSecureRequiredStatus == .required {
@@ -67,7 +73,6 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
             
             let threeDSecureRequest = BTThreeDSecureRequest()
             threeDSecureRequest.amount = 10.32
-            threeDSecureRequest.versionRequested = DemoSettings.threeDSecureRequestedVersion
             threeDSecureRequest.email = "test@example.com"
             threeDSecureRequest.shippingMethod = .sameDay
             threeDSecureRequest.billingAddress = billingAddress
@@ -183,7 +188,7 @@ extension DemoDropInViewController: PKPaymentAuthorizationViewControllerDelegate
         guard let apiClient = BTAPIClient(authorization: authorization) else { return }
         let applePayClient = BTApplePayClient(apiClient: apiClient)
         
-        applePayClient.tokenizeApplePay(payment) { (tokenizedPaymentMethod, error) in
+        applePayClient.tokenize(payment) { (tokenizedPaymentMethod, error) in
             guard let paymentMethod = tokenizedPaymentMethod, error == nil else {
                 self.progressBlock?(error!.localizedDescription)
                 completion(PKPaymentAuthorizationResult(status: .failure, errors: nil))
@@ -202,7 +207,7 @@ extension DemoDropInViewController: PKPaymentAuthorizationViewControllerDelegate
         guard let apiClient = BTAPIClient(authorization: authorization) else { return }
         let applePayClient = BTApplePayClient(apiClient: apiClient)
         
-        applePayClient.tokenizeApplePay(payment) { (tokenizedPaymentMethod, error) in
+        applePayClient.tokenize(payment) { (tokenizedPaymentMethod, error) in
             guard let paymentMethod = tokenizedPaymentMethod, error == nil else {
                 self.progressBlock?(error!.localizedDescription)
                 completion(.failure)
@@ -220,17 +225,5 @@ extension DemoDropInViewController: PKPaymentAuthorizationViewControllerDelegate
     
     func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController) {
         progressBlock?("Apple Pay will Authorize Payment")
-    }
-}
-
-// MARK: - BTViewControllerPresentingDelegate
-
-extension DemoDropInViewController: BTViewControllerPresentingDelegate {
-    func paymentDriver(_ driver: Any, requestsPresentationOf viewController: UIViewController) {
-        present(viewController, animated: true, completion: nil)
-    }
-    
-    func paymentDriver(_ driver: Any, requestsDismissalOf viewController: UIViewController) {
-        dismiss(animated: true, completion: nil)
     }
 }

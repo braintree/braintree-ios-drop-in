@@ -2,6 +2,9 @@ import UIKit
 import InAppSettingsKit
 import BraintreeDropIn
 
+// TODO: we shouldn't need to do this? Or maybe we do? Idk.
+import BraintreeCore
+
 class DemoBaseViewController: UIViewController {
     
     var progressBlock: ((String?) -> Void)?
