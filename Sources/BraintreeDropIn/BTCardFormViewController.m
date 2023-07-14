@@ -310,14 +310,15 @@
     
     card.shouldValidate = self.shouldVaultCardSwitchField.switchControl.isOn;
     BTCardRequest *cardRequest = [[BTCardRequest alloc] initWithCard:card];
-    
-    if (self.cardCapabilities != nil && self.cardCapabilities.isSupported) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        cardRequest.mobileCountryCode = self.mobileCountryCodeField.countryCode;
-        cardRequest.mobilePhoneNumber = self.mobilePhoneField.mobileNumber;
-    }
-#pragma clang diagnostic pop
+
+// TODO: what do we need for union pay now?
+//    if (self.cardCapabilities != nil && self.cardCapabilities.isSupported) {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//        cardRequest.mobileCountryCode = self.mobileCountryCodeField.countryCode;
+//        cardRequest.mobilePhoneNumber = self.mobilePhoneField.mobileNumber;
+//    }
+//#pragma clang diagnostic pop
 
     return cardRequest;
 }
@@ -478,50 +479,51 @@
     }
 }
 
-- (void)fetchCardCapabilities {
-    [self cardNumberErrorHidden:YES];
-    self.cardNumberField.state = BTUIKCardNumberFormFieldStateLoading;
-    
-    BTCardClient *unionPayClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    [unionPayClient fetchCapabilities:self.cardNumberField.number completion:^(BTCardCapabilities * _Nullable cardCapabilities, NSError * _Nullable error) {
-#pragma clang diagnostic pop
-        if (error || (!cardCapabilities.isUnionPay && !self.cardNumberField.valid)) {
-            [self cardNumberErrorHidden:NO];
-            self.cardNumberField.state = BTUIKCardNumberFormFieldStateValidate;
-            return;
-        } else if (cardCapabilities.isUnionPay && !cardCapabilities.isSupported) {
-            [self cardNumberErrorHidden:NO];
-            self.cardNumberField.state = BTUIKCardNumberFormFieldStateValidate;
-            return;
-        }
-        if (cardCapabilities.isUnionPay) {
-            self.requiredFields = [NSMutableArray arrayWithArray:@[self.cardNumberField, self.expirationDateField]];
-        } else {
-            [self updateRequiredFields];
-        }
-        self.optionalFields = [NSMutableArray new];
-        self.cardCapabilities = cardCapabilities;
-        if (cardCapabilities.isUnionPay) {
-            if (cardCapabilities.isDebit) {
-                [self.requiredFields addObject:self.securityCodeField];
-                [self.optionalFields addObject:self.securityCodeField];
-                [self.optionalFields addObject:self.expirationDateField];
-            } else {
-                [self.requiredFields addObject:self.securityCodeField];
-            }
-            [self.requiredFields addObject:self.mobileCountryCodeField];
-            [self.requiredFields addObject:self.mobilePhoneField];
-        }
-        
-        self.securityCodeField.textField.placeholder = self.cardNumberField.cardType.securityCodeName;
-        self.cardNumberField.state = BTUIKCardNumberFormFieldStateDefault;
-        self.collapsed = NO;
-        [self advanceFocusFromField:self.cardNumberField];
-        [self formFieldDidChange:nil];
-    }];
-}
+// TODO: what do we need for union pay now?
+//- (void)fetchCardCapabilities {
+//    [self cardNumberErrorHidden:YES];
+//    self.cardNumberField.state = BTUIKCardNumberFormFieldStateLoading;
+//
+//    BTCardClient *unionPayClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//    [unionPayClient fetchCapabilities:self.cardNumberField.number completion:^(BTCardCapabilities * _Nullable cardCapabilities, NSError * _Nullable error) {
+//#pragma clang diagnostic pop
+//        if (error || (!cardCapabilities.isUnionPay && !self.cardNumberField.valid)) {
+//            [self cardNumberErrorHidden:NO];
+//            self.cardNumberField.state = BTUIKCardNumberFormFieldStateValidate;
+//            return;
+//        } else if (cardCapabilities.isUnionPay && !cardCapabilities.isSupported) {
+//            [self cardNumberErrorHidden:NO];
+//            self.cardNumberField.state = BTUIKCardNumberFormFieldStateValidate;
+//            return;
+//        }
+//        if (cardCapabilities.isUnionPay) {
+//            self.requiredFields = [NSMutableArray arrayWithArray:@[self.cardNumberField, self.expirationDateField]];
+//        } else {
+//            [self updateRequiredFields];
+//        }
+//        self.optionalFields = [NSMutableArray new];
+//        self.cardCapabilities = cardCapabilities;
+//        if (cardCapabilities.isUnionPay) {
+//            if (cardCapabilities.isDebit) {
+//                [self.requiredFields addObject:self.securityCodeField];
+//                [self.optionalFields addObject:self.securityCodeField];
+//                [self.optionalFields addObject:self.expirationDateField];
+//            } else {
+//                [self.requiredFields addObject:self.securityCodeField];
+//            }
+//            [self.requiredFields addObject:self.mobileCountryCodeField];
+//            [self.requiredFields addObject:self.mobilePhoneField];
+//        }
+//
+//        self.securityCodeField.textField.placeholder = self.cardNumberField.cardType.securityCodeName;
+//        self.cardNumberField.state = BTUIKCardNumberFormFieldStateDefault;
+//        self.collapsed = NO;
+//        [self advanceFocusFromField:self.cardNumberField];
+//        [self formFieldDidChange:nil];
+//    }];
+//}
 
 - (void)cardNumberErrorHidden:(BOOL)hidden {
     [self cardNumberErrorHidden:hidden errorString:BTDropInLocalizedString(VALID_CARD_ERROR_LABEL)];
@@ -554,17 +556,11 @@
 
 - (void)tokenizeCard {
     [self.view endEditing:YES];
-
-    // NEXT_MAJOR_VERSION: - Remove UnionPay SMS flow. Always perform "basic tokenization".
-    if (self.cardCapabilities != nil && self.cardCapabilities.isUnionPay && self.cardCapabilities.isSupported) {
-        [self enrollCard];
-    } else {
-        [self basicTokenization];
-    }
+    [self basicTokenization];
 }
 
 - (void)basicTokenization {
-    BTCardRequest *cardRequest = self.cardRequest;
+    BTCard *card = self.cardRequest.card;
     BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
 
     UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
@@ -576,11 +572,7 @@
     self.view.userInteractionEnabled = NO;
     __block UINavigationController *navController = self.navigationController;
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    // NEXT_MAJOR_VERSION: - Replace with non-deprecated `tokenizeCard()` method.
-    [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-#pragma clang diagnostic pop
+    [cardClient tokenizeCard:card completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.userInteractionEnabled = YES;
 
@@ -588,7 +580,7 @@
 
             if (error != nil) {
                 NSString *message = BTDropInLocalizedString(REVIEW_AND_TRY_AGAIN);
-                if (error.code == BTCardClientErrorTypeCardAlreadyExists) {
+                if (error.code == 3) { // 3 = BTCardError.cardAlreadyExists
                     message = BTDropInLocalizedString(CARD_ALREADY_EXISTS);
                 }
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalizedString(CARD_DETAILS_LABEL) message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -603,107 +595,108 @@
 }
 
 // NEXT_MAJOR_VERSION: - Remove UnionPay SMS flow.
-- (void)enrollCard {
-    __block BTCardRequest *cardRequest = self.cardRequest;
-    __block BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
-
-    UIViewController *currentViewController = [self.navigationController topViewController];
-    __block UIBarButtonItem *originalRightBarButtonItem = currentViewController.navigationItem.rightBarButtonItem;
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
-        spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
-        [spinner startAnimating];
-        
-        currentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-        self.view.userInteractionEnabled = NO;
-    });
-    
-    [cardClient enrollCard:cardRequest completion:^(NSString * _Nullable enrollmentID, BOOL smsCodeRequired, NSError * _Nullable error) {
-
-        if (originalRightBarButtonItem) {
-            [self.navigationController topViewController].navigationItem.rightBarButtonItem = originalRightBarButtonItem;
-        }
-        
-        if (error) {
-            [self.delegate cardTokenizationCompleted:nil error:error sender:self];
-            return;
-        }
-        
-        self.enrollmentID = enrollmentID;
-        
-        if (!smsCodeRequired) {
-            [self basicTokenization];
-            return;
-        }
-        
-        // If a BTEnrollmentVerificationViewController is displayed, retry confirmation
-        if ([[self.navigationController topViewController] isKindOfClass:[BTEnrollmentVerificationViewController class]]) {
-            BTEnrollmentVerificationViewController *enrollmentController = (BTEnrollmentVerificationViewController*)[self.navigationController topViewController];
-            [enrollmentController confirm];
-            return;
-        }
-        
-        __block UINavigationController *navController = self.navigationController;
-        __block BTEnrollmentVerificationViewController *enrollmentController;
-        enrollmentController = [[BTEnrollmentVerificationViewController alloc] initWithPhone:self.mobilePhoneField.mobileNumber mobileCountryCode:self.mobileCountryCodeField.countryCode handler:^(NSString* authCode, BOOL resend) {
-            if (resend) {
-                self.firstResponderFormField = self.mobilePhoneField;
-                [self.navigationController popViewControllerAnimated:YES];
-                return;
-            }
-            
-            if (self.enrollmentFailed) {
-                self.enrollmentFailed = NO;
-                [self enrollCard];
-                return;
-            }
-            
-            __block UIBarButtonItem *originalRightBarButtonItem = enrollmentController.navigationItem.rightBarButtonItem;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
-                spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
-                [spinner startAnimating];
-                
-                enrollmentController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-                self.view.userInteractionEnabled = NO;
-            });
-            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            cardRequest.smsCode = authCode;
-            cardRequest.enrollmentID = self.enrollmentID;
-            
-            [cardClient tokenizeCard:cardRequest options:nil completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
-#pragma clang diagnostic pop
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.view.userInteractionEnabled = YES;
-                    enrollmentController.navigationItem.rightBarButtonItem = originalRightBarButtonItem;
-                    if (error) {
-                        [enrollmentController smsErrorHidden:NO];
-                        self.enrollmentFailed = YES;
-                        return;
-                    }
-                    
-                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
-                });
-            }];
-        }];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.title = @"";
-            [self.navigationController pushViewController:enrollmentController animated:YES];
-            BTJSON *environment = self.configuration.json[@"environment"];
-            if(![environment isError] && [[environment asString] isEqualToString:@"sandbox"]) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalizedString(DEV_SAMPLE_SMS_CODE_TITLE) message:BTDropInLocalizedString(DEV_SAMPLE_SMS_CODE_INFO) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction: alertAction];
-                [navController presentViewController:alertController animated:YES completion:nil];
-            }
-            
-        });
-    }];
-}
+// TODO: can we just nuke this?
+//- (void)enrollCard {
+//    __block BTCardRequest *cardRequest = self.cardRequest;
+//    __block BTCardClient *cardClient = [[BTCardClient alloc] initWithAPIClient:self.apiClient];
+//
+//    UIViewController *currentViewController = [self.navigationController topViewController];
+//    __block UIBarButtonItem *originalRightBarButtonItem = currentViewController.navigationItem.rightBarButtonItem;
+//
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
+//        spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
+//        [spinner startAnimating];
+//
+//        currentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+//        self.view.userInteractionEnabled = NO;
+//    });
+//
+//    [cardClient enrollCard:cardRequest completion:^(NSString * _Nullable enrollmentID, BOOL smsCodeRequired, NSError * _Nullable error) {
+//
+//        if (originalRightBarButtonItem) {
+//            [self.navigationController topViewController].navigationItem.rightBarButtonItem = originalRightBarButtonItem;
+//        }
+//
+//        if (error) {
+//            [self.delegate cardTokenizationCompleted:nil error:error sender:self];
+//            return;
+//        }
+//
+//        self.enrollmentID = enrollmentID;
+//
+//        if (!smsCodeRequired) {
+//            [self basicTokenization];
+//            return;
+//        }
+//
+//        // If a BTEnrollmentVerificationViewController is displayed, retry confirmation
+//        if ([[self.navigationController topViewController] isKindOfClass:[BTEnrollmentVerificationViewController class]]) {
+//            BTEnrollmentVerificationViewController *enrollmentController = (BTEnrollmentVerificationViewController*)[self.navigationController topViewController];
+//            [enrollmentController confirm];
+//            return;
+//        }
+//
+//        __block UINavigationController *navController = self.navigationController;
+//        __block BTEnrollmentVerificationViewController *enrollmentController;
+//        enrollmentController = [[BTEnrollmentVerificationViewController alloc] initWithPhone:self.mobilePhoneField.mobileNumber mobileCountryCode:self.mobileCountryCodeField.countryCode handler:^(NSString* authCode, BOOL resend) {
+//            if (resend) {
+//                self.firstResponderFormField = self.mobilePhoneField;
+//                [self.navigationController popViewControllerAnimated:YES];
+//                return;
+//            }
+//
+//            if (self.enrollmentFailed) {
+//                self.enrollmentFailed = NO;
+//                [self enrollCard];
+//                return;
+//            }
+//
+//            __block UIBarButtonItem *originalRightBarButtonItem = enrollmentController.navigationItem.rightBarButtonItem;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                UIActivityIndicatorView *spinner = [UIActivityIndicatorView new];
+//                spinner.activityIndicatorViewStyle = [BTUIKAppearance sharedInstance].activityIndicatorViewStyle;
+//                [spinner startAnimating];
+//
+//                enrollmentController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+//                self.view.userInteractionEnabled = NO;
+//            });
+//
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//            cardRequest.smsCode = authCode;
+//            cardRequest.enrollmentID = self.enrollmentID;
+//
+//            [cardClient tokenizeCard:cardRequest completion:^(BTCardNonce * _Nullable tokenizedCard, NSError * _Nullable error) {
+//#pragma clang diagnostic pop
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    self.view.userInteractionEnabled = YES;
+//                    enrollmentController.navigationItem.rightBarButtonItem = originalRightBarButtonItem;
+//                    if (error) {
+//                        [enrollmentController smsErrorHidden:NO];
+//                        self.enrollmentFailed = YES;
+//                        return;
+//                    }
+//
+//                    [self.delegate cardTokenizationCompleted:tokenizedCard error:error sender:self];
+//                });
+//            }];
+//        }];
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.title = @"";
+//            [self.navigationController pushViewController:enrollmentController animated:YES];
+//            BTJSON *environment = self.configuration.json[@"environment"];
+//            if(![environment isError] && [[environment asString] isEqualToString:@"sandbox"]) {
+//                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:BTDropInLocalizedString(DEV_SAMPLE_SMS_CODE_TITLE) message:BTDropInLocalizedString(DEV_SAMPLE_SMS_CODE_INFO) preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:BTDropInLocalizedString(TOP_LEVEL_ERROR_ALERT_VIEW_OK_BUTTON_TEXT) style:UIAlertActionStyleDefault handler:nil];
+//                [alertController addAction: alertAction];
+//                [navController presentViewController:alertController animated:YES completion:nil];
+//            }
+//
+//        });
+//    }];
+//}
 
 #pragma mark - Protocol conformance
 #pragma mark FormField Delegate Methods
@@ -727,10 +720,11 @@
         return;
     }
 
-    if (self.unionPayEnabledMerchant) {
-        [self fetchCardCapabilities];
-        return;
-    }
+// TODO: can we just nuke this?
+//    if (self.unionPayEnabledMerchant) {
+//        [self fetchCardCapabilities];
+//        return;
+//    }
 
     self.cardNumberField.state = BTUIKCardNumberFormFieldStateDefault;
     self.collapsed = NO;
@@ -739,7 +733,7 @@
 
 - (void)formFieldDidBeginEditing:(__unused BTUIKFormField *)formField {
     if (!self.cardEntryDidFocus) {
-        [self.apiClient sendAnalyticsEvent:@"ios.dropin2.card.focus"];
+        [self.apiClient sendAnalyticsEvent:@"ios.dropin2.card.focus" errorDescription:nil];
         self.cardEntryDidFocus = YES;
     }
     
@@ -762,7 +756,7 @@
     
     // Analytics event - fires when a customer begins entering card information
     if (!self.cardEntryDidBegin && formField.text.length > 0) {
-        [self.apiClient sendAnalyticsEvent:@"ios.dropin2.add-card.start"];
+        [self.apiClient sendAnalyticsEvent:@"ios.dropin2.add-card.start" errorDescription:nil];
         self.cardEntryDidBegin = YES;
     }
     

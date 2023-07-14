@@ -226,7 +226,8 @@
                 self.paymentSelectionNavigationController.view.alpha = 1.0;
 
                 NSMutableArray *paymentMethodTypes = [NSMutableArray new];
-                for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
+                NSArray<NSString *> *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asStringArray];
+                for (NSString *supportedCardType in supportedCardTypes) {
                     BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
                     if (paymentMethodType != BTDropInPaymentMethodTypeUnknown) {
                         [paymentMethodTypes addObject: @(paymentMethodType)];

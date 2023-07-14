@@ -138,7 +138,8 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeVenmo)];
             }
 
-            for (NSString *supportedCardType in self.configuration.supportedCardTypes) {
+            NSArray<NSString *> *supportedCardTypes = [self.configuration.json[@"creditCards"][@"supportedCardTypes"] asStringArray];
+            for (NSString *supportedCardType in supportedCardTypes) {
                 BTDropInPaymentMethodType paymentMethodType = [BTUIKViewUtil paymentMethodTypeForPaymentInfoType:supportedCardType];
                 if ([BTUIKViewUtil isPaymentMethodTypeACreditCard:paymentMethodType] && !self.dropInRequest.cardDisabled) {
                     // Add credit cards if they are supported
@@ -147,7 +148,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
                 }
             }
 
-            if (self.configuration.isApplePayEnabled && !self.dropInRequest.applePayDisabled && [PKPaymentAuthorizationController canMakePayments]) {
+            if (self.configuration.isApplePayEnabled && !self.dropInRequest.applePayDisabled) {
                 [activePaymentOptions addObject:@(BTDropInPaymentMethodTypeApplePay)];
             }
 
@@ -188,14 +189,10 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     
     if (@available(iOS 13, *)) {
         // The network activity indicator no longer appears on status bars for iOS 13+
-    } else {
-        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
     }
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
         if (@available(iOS 13, *)) {
             // The network activity indicator no longer appears on status bars for iOS 13+
-        } else {
-            [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
         }
         
         if (error) {
@@ -203,7 +200,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
         } else {
             NSMutableArray* vaultedNoncesForDropIn = [NSMutableArray new];
             for (BTPaymentMethodNonce *nonce in paymentMethodNonces) {
-                if ([nonce shouldDisplayVaultedNonceForRequest:self.dropInRequest config:self.configuration]) {
+                if ([shouldDisplayVaultedNonceForRequest:self.dropInRequest nonce:nonce config:self.configuration]) {
                     [vaultedNoncesForDropIn addObject:nonce];
                 }
             }
@@ -215,6 +212,20 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
             }
         }
     }];
+}
+
+- (BOOL)shouldDisplayVaultedNonceForRequest:(BTDropInRequest *)request nonce:(BTPaymentMethodNonce *)nonce config:(BTConfiguration *)configuration {
+    if ([nonce isKindOfClass:BTCardNonce.class] && (request.cardDisabled || configuration.json[@"creditCards"][@"supportedCardTypes"] == nil)) {
+        return NO;
+    } else if ([nonce isKindOfClass:BTPayPalAccountNonce.class] && (request.paypalDisabled || !configuration.isPayPalEnabled)) {
+        return NO;
+    } else if ([nonce isKindOfClass:BTVenmoAccountNonce.class] && (request.venmoDisabled || !configuration.isVenmoEnabled)) {
+        return NO;
+    } else if ([nonce isKindOfClass:BTApplePayCardNonce.class] && (request.applePayDisabled || !configuration.isApplePayEnabled)) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {
