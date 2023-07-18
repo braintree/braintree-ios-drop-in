@@ -98,7 +98,8 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
             progressBlock?("Unable to initialize BTDropInController")
             return
         }
-        
+
+        dropIn.modalPresentationStyle = .fullScreen
         present(dropIn, animated: true, completion: nil)
     }
     
