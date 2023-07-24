@@ -45,7 +45,7 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
         dropInRequest.paypalDisabled = DemoSettings.paypalDisabled
         dropInRequest.cardDisabled = ProcessInfo.processInfo.arguments.contains("-CardDisabled")
         dropInRequest.shouldMaskSecurityCode = DemoSettings.maskSecurityCode
-        dropInRequest.cardholderNameSetting = DemoSettings.cardholderNameSetting
+        dropInRequest.cardholderNameSetting = .required
         dropInRequest.vaultCard = DemoSettings.vaultCardSetting
         dropInRequest.allowVaultCardOverride = DemoSettings.allowVaultCardOverrideSetting
         

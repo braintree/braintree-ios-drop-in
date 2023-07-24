@@ -214,6 +214,15 @@
     self.mobileCountryCodeField.hidden = YES;
     self.mobilePhoneField.hidden = YES;
 
+    // Privacy Policy label
+    UILabel *privacyPolicyLabel = [[UILabel alloc] init];
+    privacyPolicyLabel.numberOfLines = 0;
+    privacyPolicyLabel.textAlignment = NSTextAlignmentCenter;
+    privacyPolicyLabel.text = @"I am a really cool Privacy Policy for PayPal";
+    [BTUIKAppearance styleSmallLabelPrimary:privacyPolicyLabel];
+
+    [self.stackView addArrangedSubview:privacyPolicyLabel];
+
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardNumberField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardholderNameField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.mobileCountryCodeField size: [BTUIKAppearance verticalFormSpace]];
