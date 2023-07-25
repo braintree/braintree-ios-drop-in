@@ -216,10 +216,13 @@
 
     // Privacy Policy label
     UILabel *privacyPolicyLabel = [[UILabel alloc] init];
+    privacyPolicyLabel.userInteractionEnabled = YES;
     privacyPolicyLabel.numberOfLines = 0;
     privacyPolicyLabel.textAlignment = NSTextAlignmentCenter;
     privacyPolicyLabel.text = @"I am a really cool Privacy Policy for PayPal";
-    [BTUIKAppearance styleSmallLabelPrimary:privacyPolicyLabel];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPrivacyPolicy:)];
+    [privacyPolicyLabel addGestureRecognizer:gestureRecognizer];
+    [BTUIKAppearance styleLabelLink:privacyPolicyLabel];
 
     [self.stackView addArrangedSubview:privacyPolicyLabel];
 
@@ -292,6 +295,11 @@
     if ([challenges containsObject:@"postal_code"]) {
         [self.requiredFields addObject:self.postalCodeField];
     }
+}
+
+- (void) tappedPrivacyPolicy: (UITapGestureRecognizer *) gestureRecognizer {
+    NSURL *privacyPolicy = [NSURL URLWithString:@"https://www.paypal.com/us/legalhub/home?locale.x=en_US"];
+    [[UIApplication sharedApplication] openURL:privacyPolicy options:@{} completionHandler:nil];
 }
 
 #pragma mark - Custom accessors
