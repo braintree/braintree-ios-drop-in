@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "L'inscription peut être requise pour cette carte. Un code message texte sera envoyé à ce numéro si nécessaire.";
 "SMS_CODE_REQUIRED"                         = "Le code de message texte est obligatoire.";
 "SMS_CODE_INVALID"                          = "Le code de message texte n'est pas valide.";
+"NOTICE_OF_COLLECTION"                      = "En payant avec ma carte, j’accepte la Politique de confidentialité de PayPal.";
 
 "CANCEL_ACTION"                             = "Annuler";
 "RETRY_ACTION"                              = "Réessayer";

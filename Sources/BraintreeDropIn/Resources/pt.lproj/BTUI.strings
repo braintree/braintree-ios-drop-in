@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "Pode ser necessário inscrever-se para obter este cartão. Se for necessário, será enviado um código SMS para este número.";
 "SMS_CODE_REQUIRED"                         = "O Código SMS é obrigatório";
 "SMS_CODE_INVALID"                          = "O Código SMS é inválido";
+"NOTICE_OF_COLLECTION"                      = "Ao pagar com o meu cartão, aceito a Declaração de Privacidade da PayPal.";
 
 "CANCEL_ACTION"                             = "Cancelar";
 "RETRY_ACTION"                              = "Tentar novamente";
@@ -56,7 +57,7 @@
 "CVN_FIELD_PLACEHOLDER"                     = "CVN";
 "POSTAL_CODE_PLACEHOLDER"                   = "12345";
 "MOBILE_NUMBER_LABEL"                       = "Número do telemóvel";
-"MOBILE_NUMBER_PLACEHOLDER"                 = "123 456 789";
+"MOBILE_NUMBER_PLACEHOLDER"                 = "123 456 7890";
 "EXPIRATION_DATE_LABEL"                     = "Data de validade";
 "CARD_NUMBER_PLACEHOLDER"                   = "Número do cartão";
 "EXPIRY_PLACEHOLDER_FOUR_DIGIT_YEAR"        = "MM / AAAA";

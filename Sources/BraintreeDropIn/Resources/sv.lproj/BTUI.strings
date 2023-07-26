@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "Registrering kan krävas för det här kortet. En SMS-kod kommer att skickas till det här numret om det behövs.";
 "SMS_CODE_REQUIRED"                         = "Du måste ange en SMS-kod";
 "SMS_CODE_INVALID"                          = "SMS-koden är ogiltig";
+"NOTICE_OF_COLLECTION"                      = "Genom att betala med mitt kort godkänner jag PayPals sekretessmeddelande.";
 
 "CANCEL_ACTION"                             = "Avbryt";
 "RETRY_ACTION"                              = "Försök igen";

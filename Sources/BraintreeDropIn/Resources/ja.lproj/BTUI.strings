@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "このカードには登録が必要な場合があります。必要な場合は、この番号にSMSコードが送信されます。";
 "SMS_CODE_REQUIRED"                         = "SMSコードが必要です";
 "SMS_CODE_INVALID"                          = "SMSコードが無効です";
+"NOTICE_OF_COLLECTION"                      = "カードで支払うことにより、PayPalプライバシーステートメントに同意したものとみなされます。";
 
 "CANCEL_ACTION"                             = "キャンセル";
 "RETRY_ACTION"                              = "再試行";
@@ -68,7 +69,7 @@
 "CARD_TYPE_AMERICAN_EXPRESS"                = "American Express";
 "CARD_TYPE_DISCOVER"                        = "詳しく見る";
 "CARD_TYPE_DINERS_CLUB"                     = "Diners Club";
-"CARD_TYPE_MASTER_CARD"                     = "MasterCard";
+"CARD_TYPE_MASTER_CARD"                     = "Mastercard";
 "CARD_TYPE_VISA"                            = "Visa";
 "CARD_TYPE_JCB"                             = "JCB";
 "CARD_TYPE_MAESTRO"                         = "Maestro";
