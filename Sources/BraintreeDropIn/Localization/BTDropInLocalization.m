@@ -324,6 +324,10 @@ static NSArray *customTranslations;
     return NSLocalizedStringWithDefaultValue(@"CARD_NOT_ACCEPTED_ERROR_LABEL", [self localizationTable], [self localizationBundle], @"Card not accepted", @"CARD_NOT_ACCEPTED_ERROR_LABEL");
 }
 
++ (NSString *)NOTICE_OF_COLLECTION {
+    return NSLocalizedStringWithDefaultValue(@"NOTICE_OF_COLLECTION", [self localizationTable], [self localizationBundle], @"By paying with my card, I agree to the PayPal Privacy Statement.", @"NOTICE_OF_COLLECTION");
+}
+
 #pragma mark Development Strings (usually not localized)
 
 + (NSString *)DEV_SAMPLE_SMS_CODE_TITLE {

@@ -219,7 +219,7 @@
     privacyPolicyLabel.userInteractionEnabled = YES;
     privacyPolicyLabel.numberOfLines = 0;
     privacyPolicyLabel.textAlignment = NSTextAlignmentCenter;
-    privacyPolicyLabel.text = @"I am a really cool Privacy Policy for PayPal";
+    privacyPolicyLabel.text = BTDropInLocalizedString(NOTICE_OF_COLLECTION);
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPrivacyPolicy:)];
     [privacyPolicyLabel addGestureRecognizer:gestureRecognizer];
     [BTUIKAppearance styleLabelLink:privacyPolicyLabel];
