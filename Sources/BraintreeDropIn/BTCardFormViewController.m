@@ -298,7 +298,7 @@
 }
 
 - (void) tappedPrivacyPolicy: (UITapGestureRecognizer *) gestureRecognizer {
-    NSURL *privacyPolicy = [NSURL URLWithString:@"https://www.paypal.com/us/legalhub/home?locale.x=en_US"];
+    NSURL *privacyPolicy = [NSURL URLWithString:@"https://www.paypal.com/us/legalhub/home"];
     [[UIApplication sharedApplication] openURL:privacyPolicy options:@{} completionHandler:nil];
 }
 
