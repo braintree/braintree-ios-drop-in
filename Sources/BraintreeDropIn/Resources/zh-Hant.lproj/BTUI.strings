@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "此卡片可能需要登記。如有需要，我們會將簡訊代碼發送至此號碼。";
 "SMS_CODE_REQUIRED"                         = "簡訊代碼為必填";
 "SMS_CODE_INVALID"                          = "簡訊代碼無效";
+"NOTICE_OF_COLLECTION"                      = "使用我的卡片付款，即表示我同意「PayPal 隱私權聲明」。";
 
 "CANCEL_ACTION"                             = "取消";
 "RETRY_ACTION"                              = "重試";

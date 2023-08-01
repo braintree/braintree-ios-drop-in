@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "Pendaftaran mungkin diperlukan untuk kartu ini. Kode SMS akan dikirim ke nomor ini jika diperlukan.";
 "SMS_CODE_REQUIRED"                         = "Kode SMS wajib diisi";
 "SMS_CODE_INVALID"                          = "Kode SMS tidak valid";
+"NOTICE_OF_COLLECTION"                      = "Dengan membayar menggunakan kartu, saya menyetujui Pernyataan Privasi PayPal.";
 
 "CANCEL_ACTION"                             = "Batalkan";
 "RETRY_ACTION"                              = "Coba lagi";
@@ -68,7 +69,7 @@
 "CARD_TYPE_AMERICAN_EXPRESS"                = "American Express";
 "CARD_TYPE_DISCOVER"                        = "Jelajahi";
 "CARD_TYPE_DINERS_CLUB"                     = "Diners Club";
-"CARD_TYPE_MASTER_CARD"                     = "MasterCard";
+"CARD_TYPE_MASTER_CARD"                     = "Mastercard";
 "CARD_TYPE_VISA"                            = "Visa";
 "CARD_TYPE_JCB"                             = "JCB";
 "CARD_TYPE_MAESTRO"                         = "Maestro";

@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "此卡可能需要注册。如有需要，我们会向此号码发送短信验证码。";
 "SMS_CODE_REQUIRED"                         = "短信验证码为必填项";
 "SMS_CODE_INVALID"                          = "短信验证码无效";
+"NOTICE_OF_COLLECTION"                      = "使用我的卡付款即表示我同意PayPal隐私声明。";
 
 "CANCEL_ACTION"                             = "取消";
 "RETRY_ACTION"                              = "重试";

@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "قد يلزم تسجيل هذه البطاقة. سنرسل رمزاً برسالة نصية إلى هذا الرقم إذا لزم الأمر.";
 "SMS_CODE_REQUIRED"                         = "رمز الرسالة النصية مطلوب";
 "SMS_CODE_INVALID"                          = "رمز الرسالة النصية غير صحيح";
+"NOTICE_OF_COLLECTION"                      = "عندما أدفع ببطاقتي، فأنا أوافق على \"بيان الخصوصية لدى PayPal\".";
 
 "CANCEL_ACTION"                             = "إلغاء";
 "RETRY_ACTION"                              = "إعادة المحاولة";
@@ -68,7 +69,7 @@
 "CARD_TYPE_AMERICAN_EXPRESS"                = "American Express‏";
 "CARD_TYPE_DISCOVER"                        = "Discover‏";
 "CARD_TYPE_DINERS_CLUB"                     = "Diners Club‏";
-"CARD_TYPE_MASTER_CARD"                     = "MasterCard‏";
+"CARD_TYPE_MASTER_CARD"                     = "Mastercard‏";
 "CARD_TYPE_VISA"                            = "Visa‏";
 "CARD_TYPE_JCB"                             = "JCB‏";
 "CARD_TYPE_MAESTRO"                         = "Maestro‏";

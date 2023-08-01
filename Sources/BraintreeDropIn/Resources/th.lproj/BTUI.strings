@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "คุณอาจจำเป็นต้องลงทะเบียนบัตรใบนี้ รหัส SMS จะถูกส่งไปยังหมายเลขนี้ถ้าจำเป็น";
 "SMS_CODE_REQUIRED"                         = "ต้องระบุรหัส SMS";
 "SMS_CODE_INVALID"                          = "รหัส SMS ไม่ถูกต้อง";
+"NOTICE_OF_COLLECTION"                      = "การชําระเงินด้วยบัตรนี้ถือว่าข้าพเจ้ายอมรับนโยบายความเป็นส่วนตัวของ PayPal";
 
 "CANCEL_ACTION"                             = "ยกเลิก";
 "RETRY_ACTION"                              = "ลองอีกครั้ง";

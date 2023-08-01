@@ -214,6 +214,18 @@
     self.mobileCountryCodeField.hidden = YES;
     self.mobilePhoneField.hidden = YES;
 
+    // Privacy Policy label
+    UILabel *privacyPolicyLabel = [[UILabel alloc] init];
+    privacyPolicyLabel.userInteractionEnabled = YES;
+    privacyPolicyLabel.numberOfLines = 0;
+    privacyPolicyLabel.textAlignment = NSTextAlignmentCenter;
+    privacyPolicyLabel.text = BTDropInLocalizedString(NOTICE_OF_COLLECTION);
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPrivacyPolicy:)];
+    [privacyPolicyLabel addGestureRecognizer:gestureRecognizer];
+    [BTUIKAppearance styleLabelLink:privacyPolicyLabel];
+
+    [self.stackView addArrangedSubview:privacyPolicyLabel];
+
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardNumberField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.cardholderNameField size: [BTUIKAppearance verticalFormSpace]];
     [BTDropInUIUtilities addSpacerToStackView:self.stackView beforeView:self.mobileCountryCodeField size: [BTUIKAppearance verticalFormSpace]];
@@ -283,6 +295,11 @@
     if ([challenges containsObject:@"postal_code"]) {
         [self.requiredFields addObject:self.postalCodeField];
     }
+}
+
+- (void) tappedPrivacyPolicy: (UITapGestureRecognizer *) gestureRecognizer {
+    NSURL *privacyPolicy = [NSURL URLWithString:@"https://www.paypal.com/us/legalhub/home"];
+    [[UIApplication sharedApplication] openURL:privacyPolicy options:@{} completionHandler:nil];
 }
 
 #pragma mark - Custom accessors

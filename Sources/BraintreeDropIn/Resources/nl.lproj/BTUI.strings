@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "Inschrijving kan vereist zijn voor deze kaart. Indien nodig wordt er een sms-code naar dit nummer gestuurd.";
 "SMS_CODE_REQUIRED"                         = "Sms-code is vereist";
 "SMS_CODE_INVALID"                          = "Sms-code is ongeldig";
+"NOTICE_OF_COLLECTION"                      = "Door met mijn kaart te betalen, ga ik akkoord met de PayPal Privacyverklaring.";
 
 "CANCEL_ACTION"                             = "Annuleren";
 "RETRY_ACTION"                              = "Opnieuw proberen";

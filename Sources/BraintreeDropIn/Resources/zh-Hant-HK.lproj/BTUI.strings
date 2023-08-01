@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "此卡可能需要登記。如有需要，將會發送 SMS 代碼至此號碼。";
 "SMS_CODE_REQUIRED"                         = "必須填寫 SMS 代碼";
 "SMS_CODE_INVALID"                          = "SMS 代碼無效";
+"NOTICE_OF_COLLECTION"                      = "一經使用信用卡付款，即表示我同意 PayPal 的《私隱權聲明》。";
 
 "CANCEL_ACTION"                             = "取消";
 "RETRY_ACTION"                              = "重試";
@@ -68,7 +69,7 @@
 "CARD_TYPE_AMERICAN_EXPRESS"                = "American Express";
 "CARD_TYPE_DISCOVER"                        = "探索";
 "CARD_TYPE_DINERS_CLUB"                     = "Diners Club";
-"CARD_TYPE_MASTER_CARD"                     = "MasterCard";
+"CARD_TYPE_MASTER_CARD"                     = "Mastercard";
 "CARD_TYPE_VISA"                            = "Visa";
 "CARD_TYPE_JCB"                             = "JCB";
 "CARD_TYPE_MAESTRO"                         = "Maestro";

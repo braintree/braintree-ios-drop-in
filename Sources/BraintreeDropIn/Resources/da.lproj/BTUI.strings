@@ -19,6 +19,7 @@
 "ENROLLMENT_WITH_SMS_HELP_LABEL"            = "Du kan blive bedt om at tilmelde dig for at tilknytte dette kort. Der vil blive sendt en sms-kode til dette nummer, hvis det er nødvendigt.";
 "SMS_CODE_REQUIRED"                         = "Sms-kode er påkrævet.";
 "SMS_CODE_INVALID"                          = "Sms-koden er ugyldig.";
+"NOTICE_OF_COLLECTION"                      = "Når jeg betaler med mit kort, accepterer jeg PayPals erklæring om personlige oplysninger.";
 
 "CANCEL_ACTION"                             = "Annuller";
 "RETRY_ACTION"                              = "Prøv igen";
