@@ -257,19 +257,19 @@
 }
 
 + (BOOL)isOrientationLandscape NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
-    if (@available(iOS 13, *)) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
         return UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
-    } else {
+    #else
         return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
-    }
+    #endif
 }
 
 + (CGFloat)statusBarHeight NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
-    if (@available(iOS 13, *)) {
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
         return CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
-    } else {
+    #else
         return CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame);
-    }
+    #endif
 }
 
 @end
