@@ -303,6 +303,8 @@
     vd.supportedCardTypes = self.displayCardTypes;
     vd.delegate = self;
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vd];
+    [navController setModalPresentationCapturesStatusBarAppearance: true];
+
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         navController.modalPresentationStyle = UIModalPresentationPageSheet;
     } else {
