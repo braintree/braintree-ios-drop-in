@@ -25,6 +25,7 @@
     request.paypalDisabled = self.paypalDisabled;
     request.venmoDisabled = self.venmoDisabled;
     request.cardDisabled = self.cardDisabled;
+    request.cardLogosDisabled = self.cardLogosDisabled;
     request.threeDSecureRequest = self.threeDSecureRequest;
     request.cardholderNameSetting = self.cardholderNameSetting;
     request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
