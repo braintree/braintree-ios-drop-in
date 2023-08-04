@@ -3,6 +3,7 @@
 ## unreleased
 * Require Xcode 14.1+ and Swift 5.7.1+ (per [App Store requirements](https://developer.apple.com/news/?id=jd9wcyov#:~:text=Starting%20April%2025%2C%202023%2C%20iOS,on%20the%20Mac%20App%20Store))
 * Add California Privacy Laws notice of collection to credit card form
+* Fix bug where presenting the Drop-in from a modal screen without a `modalPresentationStyle` does not display the status bar when both device and Drop-in are in light mode (fixes #419)
 
 ## 9.8.2 (2023-04-10)
 * Silence UnionPay related deprecation warnings introduced in `braintree_ios` 5.21.0 and higher.
