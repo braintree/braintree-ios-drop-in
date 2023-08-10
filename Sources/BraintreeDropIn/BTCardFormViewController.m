@@ -234,12 +234,15 @@
     self.cardNumberFooter.layoutMargins = UIEdgeInsetsMake(0, [BTUIKAppearance verticalFormSpace], 0, [BTUIKAppearance verticalFormSpace]);
     self.cardNumberFooter.layoutMarginsRelativeArrangement = true;
     [self.stackView addArrangedSubview:self.cardNumberFooter];
-    self.cardList = [BTUIKCardListLabel new];
-    self.cardList.translatesAutoresizingMaskIntoConstraints = NO;
-    self.cardList.availablePaymentOptions = self.supportedCardTypes;
-    [self.cardNumberFooter addArrangedSubview:self.cardList];
-    [BTDropInUIUtilities addSpacerToStackView:self.cardNumberFooter beforeView:self.cardList size: [BTUIKAppearance horizontalFormContentPadding]];
-    
+
+    if (!self.dropInRequest.cardLogosDisabled) {
+        self.cardList = [BTUIKCardListLabel new];
+        self.cardList.translatesAutoresizingMaskIntoConstraints = NO;
+        self.cardList.availablePaymentOptions = self.supportedCardTypes;
+        [self.cardNumberFooter addArrangedSubview:self.cardList];
+        [BTDropInUIUtilities addSpacerToStackView:self.cardNumberFooter beforeView:self.cardList size: [BTUIKAppearance horizontalFormContentPadding]];
+    }
+
     NSUInteger indexOfCardNumberField = [self.stackView.arrangedSubviews indexOfObject:self.cardNumberField];
     [self.stackView insertArrangedSubview:self.cardNumberFooter atIndex:(indexOfCardNumberField + 1)];
     

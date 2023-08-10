@@ -40,6 +40,9 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
 /// Defaults to false. Set to true to hide the Card option even if enabled for your account.
 @property (nonatomic, assign) BOOL cardDisabled;
 
+/// Defaults to false. Set to true to hide all card logos for your account.
+@property (nonatomic, assign) BOOL cardLogosDisabled;
+
 /// Optional: Enable 3DS verification and specify options and additional information.
 ///
 /// Note: To encourage 3DS 2.0 flows, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
