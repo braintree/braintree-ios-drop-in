@@ -258,17 +258,17 @@
 
 + (BOOL)isOrientationLandscape NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
-        return UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
+    return UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
     #else
-        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
+    return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
     #endif
 }
 
 + (CGFloat)statusBarHeight NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
     #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
-        return CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
+    return CGRectGetHeight([self activeWindowScene].statusBarManager.statusBarFrame);
     #else
-        return CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame);
+    return CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame);
     #endif
 }
 

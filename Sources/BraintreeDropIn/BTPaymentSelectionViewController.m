@@ -186,14 +186,14 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     }
     
     #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
-        // The network activity indicator no longer appears on status bars for iOS 13+
-        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
+    // The network activity indicator no longer appears on status bars for iOS 13+
+    [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:YES];
     #endif
 
     [self.apiClient fetchPaymentMethodNonces:YES completion:^(NSArray<BTPaymentMethodNonce *> *paymentMethodNonces, NSError *error) {
         #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
-            // The network activity indicator no longer appears on status bars for iOS 13+
-            [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
+        // The network activity indicator no longer appears on status bars for iOS 13+
+        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:NO];
         #endif
         
         if (error) {
