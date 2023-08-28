@@ -257,7 +257,7 @@
 }
 
 + (BOOL)isOrientationLandscape NS_EXTENSION_UNAVAILABLE("Uses APIs (i.e UIApplication.sharedApplication) not available for use in App Extensions.") {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
     return UIInterfaceOrientationIsLandscape([self activeWindowScene].interfaceOrientation);
     #else
     return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation);
