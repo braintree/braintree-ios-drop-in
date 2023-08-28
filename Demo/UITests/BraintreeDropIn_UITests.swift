@@ -180,6 +180,61 @@ class BraintreeDropIn_CardDisabled_UITests: XCTestCase {
     }
 }
 
+class BraintreeDropIn_CardLogosDisabled_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launchArguments.append("-CardLogosDisabled")
+        app.launch()
+        sleep(1)
+        waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+
+    func testDropIn_cardLogosDisabledOption_hidesCardLogos() {
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardLogoImages = elementsQuery.images.element.exists
+
+        XCTAssertFalse(cardLogoImages)
+    }
+}
+
+class BraintreeDropIn_CardLogosEnabled_UITests: XCTestCase {
+
+    var app: XCUIApplication!
+
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments.append("-EnvironmentSandbox")
+        app.launchArguments.append("-TokenizationKey")
+        app.launch()
+        sleep(1)
+        waitForElementToBeHittable(app.buttons["Add Payment Method"])
+        app.buttons["Add Payment Method"].tap()
+    }
+
+    func testDropIn_cardLogosEnabledOption_showsCardLogos() {
+        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
+        app.staticTexts["Credit or Debit Card"].tap()
+
+        let elementsQuery = app.scrollViews.otherElements
+        let cardLogoImages = elementsQuery.images.element.exists
+
+        XCTAssertTrue(cardLogoImages)
+    }
+}
+
 class BraintreeDropIn_CardForm_RequestOptions_UITests: XCTestCase {
 
     var app: XCUIApplication!
