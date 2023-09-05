@@ -19,10 +19,10 @@
                 _placeholderTextColor = UIColor.lightGrayColor;
                 _lineColor = [UIColor btuik_colorFromHex:@"BFBFBF" alpha:1.0];
                 _blurStyle = UIBlurEffectStyleExtraLight;
-                #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
-                _activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-                #else
+                #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
                 _activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
+                #else
+                _activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
                 #endif
                 _overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
                 _tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
@@ -42,10 +42,10 @@
                 _placeholderTextColor = [UIColor btuik_colorFromHex:@"8E8E8E" alpha:1.0];
                 _lineColor = [UIColor btuik_colorFromHex:@"666666" alpha:1.0];
                 _blurStyle = UIBlurEffectStyleDark;
-                #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
-                _activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-                #else
+                #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
                 _activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
+                #else
+                _activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
                 #endif
                 _overlayColor = [UIColor btuik_colorFromHex:@"000000" alpha:0.5];
                 _tintColor = [UIColor btuik_colorFromHex:@"2489F6" alpha:1.0];
