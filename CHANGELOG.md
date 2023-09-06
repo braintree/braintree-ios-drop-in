@@ -2,6 +2,7 @@
 
 ## unreleased
 * Require `braintree_ios` 5.23.0
+* Update to use macros to avoid compile time errors (fixes #421)
 
 ## 9.9.0 (2023-08-10)
 * Require Xcode 14.1+ and Swift 5.7.1+ (per [App Store requirements](https://developer.apple.com/news/?id=jd9wcyov#:~:text=Starting%20April%2025%2C%202023%2C%20iOS,on%20the%20Mac%20App%20Store))
