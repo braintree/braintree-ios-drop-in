@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.10.0 (2023-09-06)
 * Require `braintree_ios` 5.23.0
 * Update to use macros to avoid compile time errors (fixes #421)
 
