@@ -138,7 +138,7 @@ class BTPaymentMethodNonce_DropInTests: XCTestCase {
 
     func testShouldDisplay_whenVenmoEnabledInRequest_andVenmoDisabledInConfig_returnsFalse() {
         let request = BTDropInRequest()
-        let configJSON = BTJSON(value: ["payWithVenmo" : ["accessToken" : nil]])
+        let configJSON = BTJSON(value: ["payWithVenmo" : ["accessToken" : nil] as [String : Any?]])
         let config = BTConfiguration(json: configJSON)
 
         let nonce = BTVenmoAccountNonce()
