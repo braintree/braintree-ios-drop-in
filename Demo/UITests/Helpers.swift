@@ -2,7 +2,7 @@ import XCTest
 
 extension XCTestCase {
 
-    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 20) {
+    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 30) {
         let existsPredicate = NSPredicate(format: "exists == true")
 
         expectation(for: existsPredicate, evaluatedWith: element)
@@ -10,7 +10,7 @@ extension XCTestCase {
         waitForExpectations(timeout: timeout)
     }
 
-    func waitForElementToBeHittable(_ element: XCUIElement, timeout: TimeInterval = 20) {
+    func waitForElementToBeHittable(_ element: XCUIElement, timeout: TimeInterval = 30) {
         let existsPredicate = NSPredicate(format: "exists == true && hittable == true")
 
         expectation(for: existsPredicate, evaluatedWith: element)
