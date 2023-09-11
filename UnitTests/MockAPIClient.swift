@@ -19,4 +19,16 @@
     @objc override func fetchPaymentMethodNonces(_ defaultFirst: Bool, completion: @escaping ([BTPaymentMethodNonce]?, Error?) -> Void) {
         completion(vaultedPaymentMethodNonces, vaultedPaymentMethodNoncesError)
     }
+    
+    @objc override func fetchOrReturnRemoteConfiguration(_ completionBlock: @escaping (BTConfiguration?, Error?) -> Void) {
+        let fakeConfigBody = """
+        {
+            "assetsUrl": "https://assets.braintreegateway.com",
+            "environment": "sandbox",
+            "merchantId": "fake-id"
+        }
+        """.data(using: .utf8)!
+        
+        completionBlock(BTConfiguration(json: BTJSON(data: fakeConfigBody)), nil)
+    }
 }
