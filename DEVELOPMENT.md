@@ -8,16 +8,11 @@ The included demo app utilizes a [sandbox sample merchant server](https://braint
 
 ## Tests
 
-There are a number of test targets for each section of the project.
-
-It's a good idea to run `rake`, which runs all unit tests, before committing.
-
 Running the tests requires Xcode 13+.
 
-Use the following commands to run tests:
-* UI tests: `bundle && rake spec:ui`
-* Unit tests: `bundle && rake spec:unit`
-* All tests: `bundle && rake spec:all`
+Run the following test schemes in Xcode:
+- `UITests`
+- `UnitTests`
 
 ## Importing Header Files
 
