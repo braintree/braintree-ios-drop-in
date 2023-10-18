@@ -13,7 +13,7 @@ jobs:
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UnitTests' -destination 'name=iPhone 15,platform=iOS Simulator'  test  | xcpretty
   ui_test_job:
     name: UI
-    runs-on: macOS-13-xlarge
+    runs-on: macOS-13
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
