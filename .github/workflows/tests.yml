@@ -19,5 +19,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Use Xcode 14.3.1
         run: sudo xcode-select -switch /Applications/Xcode_14.3.1.app
+      - name: Install demo dependencies
+        run: pod install
       - name: Run UI Tests
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UITests' -destination 'name=iPhone 14,platform=iOS Simulator'  test  | xcpretty

@@ -235,9 +235,12 @@ Versions 6 and below are unsupported.
 
 ## Demo
 
-A demo app is included in this project. Running the demo app requires Xcode 13+. Open BraintreeDropIn.xcworkspace and run the Demo scheme to view it.
+A demo app is included in this project. Running the demo app requires Xcode 13+.
 
-The demo app uses Swift Package Manager to fetch dependencies. Xcode will download dependencies automatically when you open the workspace. Deleting derived data will delete the dependencies. Go to **File -> Swift Packages -> Resolve Package Versions** to re-download them.
+1. Run `pod install`
+    * There is a known M1 mac issue with CocoaPods. See [this solution](https://github.com/CocoaPods/CocoaPods/issues/10220#issuecomment-730963835) to resolve `ffi` dependency issues.
+1. Open `BraintreeDropIn.xcworkspace` in Xcode
+1. Select the `Demo` scheme, and then run
 
 ## Help
 
