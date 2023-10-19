@@ -5,5 +5,5 @@ use_frameworks!
 target 'Demo' do
     project 'Demo'
     pod 'InAppSettingsKit'
-    pod 'BraintreeDropIn', :path => '.'
+    pod 'BraintreeDropIn', :path => '.' # Build local BraintreeDropIn
 end
