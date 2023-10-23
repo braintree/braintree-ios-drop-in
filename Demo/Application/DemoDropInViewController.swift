@@ -27,7 +27,7 @@ class DemoDropInViewController: DemoBaseViewController, DemoDropInViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !DemoSettings.useTokenizationKey {
+        if DemoSettings.demoAuthType != .tokenizationKey {
             fetchPaymentMethods()
         }
     }

@@ -72,11 +72,6 @@ class DemoSettings {
         return UserDefaults.standard.string(forKey: "BraintreeDemoSettingsAuthorizationOverride")
     }
     
-    // TODO: - remove
-    static var useTokenizationKey: Bool {
-        return UserDefaults.standard.bool(forKey: "BraintreeDemoUseTokenizationKey")
-    }
-    
     static var demoAuthType: DemoAuthType {
         return DemoAuthType(rawValue: UserDefaults.standard.integer(forKey: AuthorizationTypeDefaultsKey))!
     }
