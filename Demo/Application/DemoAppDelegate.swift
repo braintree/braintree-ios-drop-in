@@ -66,6 +66,8 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         } else if testArguments.contains("-UITestHardcodedClientTokenWithoutCustomerID") {
             UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithoutCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-UITestHardcodedClientTokenWithCVVValidationEnabled") {
+            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenwithCVVValidationEnabled.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         }
 
         if testArguments.contains("-CreateVaultedPaymentMethod") {

@@ -23,6 +23,7 @@ enum DemoAuthType: Int {
     case mockedPayPalTokenizationKey
     case uiTestHardcodedClientTokenWithCustomerID
     case uiTestHardcodedClientTokenWithoutCustomerID
+    case uiTestHardcodedClientTokenwithCVVValidationEnabled
 }
 
 class DemoSettings {
