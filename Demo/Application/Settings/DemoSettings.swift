@@ -17,6 +17,13 @@ enum DemoThreeDSecureRequiredSetting: Int {
     case optional
 }
 
+enum DemoAuthType: Int {
+    case clientToken
+    case tokenizationKey
+    case mockedPayPalTokenizationKey
+    case uiTestHardcodedClientToken
+}
+
 class DemoSettings {
 
     static let UIFrameworkDefaultsKey = "BraintreeDemoSettingsUIFrameworkDefaultsKey"
@@ -24,10 +31,7 @@ class DemoSettings {
     static let CustomEnvironmentURLDefaultsKey = "BraintreeDemoSettingsCustomEnvironmentURLDefaultsKey"
     static let ThreeDSecureRequiredDefaultsKey = "BraintreeDemoSettingsThreeDSecureRequiredDefaultsKey"
     static let ThreeDSecureVersionDefaultsKey = "BraintreeDemoSettingsThreeDSecureVersionDefaultsKey"
-
-    static var useMockedPayPalFlow: Bool {
-        ProcessInfo.processInfo.arguments.contains("-UseMockedPayPalFlow")
-    }
+    static let AuthorizationTypeDefaultsKey = "BraintreeDemoSettingsAuthorizationTypeKey"
 
     static var currentUIFramework: DemoUIFramework {
         return DemoUIFramework(rawValue: UserDefaults.standard.integer(forKey: UIFrameworkDefaultsKey)) ?? DemoUIFramework.uikit
@@ -68,8 +72,13 @@ class DemoSettings {
         return UserDefaults.standard.string(forKey: "BraintreeDemoSettingsAuthorizationOverride")
     }
     
+    // TODO: - remove
     static var useTokenizationKey: Bool {
         return UserDefaults.standard.bool(forKey: "BraintreeDemoUseTokenizationKey")
+    }
+    
+    static var demoAuthType: DemoAuthType {
+        return DemoAuthType(rawValue: UserDefaults.standard.integer(forKey: AuthorizationTypeDefaultsKey))!
     }
     
     static var threeDSecureRequiredStatus: DemoThreeDSecureRequiredSetting {

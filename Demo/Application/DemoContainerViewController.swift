@@ -90,17 +90,19 @@ class DemoContainerViewController: UIViewController {
         
         title = NSLocalizedString("Braintree", comment: "")
         
-        if let auth = DemoSettings.authorizationOverride {
-            currentViewController = instantiateCurrentViewController(with: auth)
-        } else if DemoSettings.useMockedPayPalFlow {
-            updateStatusItem("Using Tokenization Key")
-
-            let tokenizationKey: String
-
-            tokenizationKey = "sandbox_q7v35n9n_555d2htrfsnnmfb3"
-            currentViewController = instantiateCurrentViewController(with: tokenizationKey)
-        }
-        else if DemoSettings.useTokenizationKey {
+        switch DemoSettings.demoAuthType {
+        case .clientToken:
+            updateStatusItem("Fetching Client Token...")
+            
+            DemoMerchantAPIClient.shared.createCustomerAndFetchClientToken { (clientToken, error) in
+                guard let token = clientToken else {
+                    self.updateStatusItem(error?.localizedDescription ?? "An unknown error occurred.")
+                    return
+                }
+                
+                self.currentViewController = self.instantiateCurrentViewController(with: token)
+            }
+        case .tokenizationKey:
             let tokenizationKey: String
 
             switch DemoSettings.currentEnvironment {
@@ -113,17 +115,16 @@ class DemoContainerViewController: UIViewController {
             }
             
             currentViewController = instantiateCurrentViewController(with: tokenizationKey)
-        } else {
-            updateStatusItem("Fetching Client Token...")
-            
-            DemoMerchantAPIClient.shared.createCustomerAndFetchClientToken { (clientToken, error) in
-                guard let token = clientToken else {
-                    self.updateStatusItem(error?.localizedDescription ?? "An unknown error occurred.")
-                    return
-                }
-                
-                self.currentViewController = self.instantiateCurrentViewController(with: token)
-            }
+        case .mockedPayPalTokenizationKey:
+            updateStatusItem("Using Tokenization Key")
+
+            let tokenizationKey: String
+
+            tokenizationKey = "sandbox_q7v35n9n_555d2htrfsnnmfb3"
+            currentViewController = instantiateCurrentViewController(with: tokenizationKey)
+        case .uiTestHardcodedClientToken:
+            // TODO
+            print("")
         }
     }
 

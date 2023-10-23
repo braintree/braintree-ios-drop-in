@@ -56,14 +56,16 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(BTThreeDSecureVersion.version1.rawValue, forKey:DemoSettings.ThreeDSecureVersionDefaultsKey)
         }
         
-        if testArguments.contains("-TokenizationKey") {
-            UserDefaults.standard.set(true, forKey:"BraintreeDemoUseTokenizationKey")
-        } else if testArguments.contains("-ClientToken") {
-            UserDefaults.standard.set(false, forKey:"BraintreeDemoUseTokenizationKey")
-            // Use random users for testing with Client Tokens
-            UserDefaults.standard.set(true, forKey:"BraintreeDemoCustomerPresent")
-            UserDefaults.standard.set("", forKey:"BraintreeDemoCustomerIdentifier")
+        if testArguments.contains("-ClientToken") {
+            UserDefaults.standard.set(DemoAuthType.clientToken.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-TokenizationKey") {
+            UserDefaults.standard.setValue(DemoAuthType.tokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-MockedPayPalTokenizationKey") {
+            UserDefaults.standard.setValue(DemoAuthType.mockedPayPalTokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-UITestHardcodedClientToken") {
+            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientToken.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         }
+        // TODO: - Support toggle for customID included in clientToken
 
         if testArguments.contains("-CreateVaultedPaymentMethod") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
