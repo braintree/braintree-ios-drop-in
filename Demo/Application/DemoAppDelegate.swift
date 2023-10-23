@@ -65,7 +65,7 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
         } else if testArguments.contains("-UITestHardcodedClientToken") {
             UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientToken.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         }
-        // TODO: - Support toggle for customID included in clientToken
+        // TODO: - Support toggle for customerID included in clientToken
 
         if testArguments.contains("-CreateVaultedPaymentMethod") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
