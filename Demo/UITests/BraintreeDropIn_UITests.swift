@@ -915,7 +915,7 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientTokenWithCustomerID")
+        app.launchArguments.append("-ClientToken")
         app.launchArguments.append("-ThreeDSecureRequired")
         app.launchArguments.append("-ThreeDSecureVersion2")
         app.launchArguments.append("-CreateVaulted3DS2PaymentMethod")
