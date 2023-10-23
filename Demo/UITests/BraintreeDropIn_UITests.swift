@@ -482,7 +482,7 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientToken")
+        app.launchArguments.append("-UITestHardcodedClientTokenWithoutCustomerID")
         app.launchArguments.append("-ThreeDSecureDefault")
         app.launch()
         sleep(1)
@@ -767,7 +767,7 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientToken")
+        app.launchArguments.append("-UITestHardcodedClientTokenWithoutCustomerID")
         app.launchArguments.append("-ThreeDSecureRequired")
         app.launchArguments.append("-ThreeDSecureVersion2")
         app.launch()
@@ -915,7 +915,7 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientToken")
+        app.launchArguments.append("-UITestHardcodedClientTokenWithCustomerID")
         app.launchArguments.append("-ThreeDSecureRequired")
         app.launchArguments.append("-ThreeDSecureVersion2")
         app.launchArguments.append("-CreateVaulted3DS2PaymentMethod")
@@ -958,7 +958,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientToken")
+        app.launchArguments.append("-UITestHardcodedClientTokenWithoutCustomerID")
         app.launchArguments.append("-ThreeDSecureDefault")
         app.launchArguments.append("-SaveCardToggleVisible")
         app.launch()
@@ -995,7 +995,7 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOff_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientToken")
+        app.launchArguments.append("-UITestHardcodedClientTokenWithoutCustomerID")
         app.launchArguments.append("-ThreeDSecureDefault")
         app.launchArguments.append("-SaveCardToggleVisible")
         app.launchArguments.append("-VaultCardIsFalse")
@@ -1032,7 +1032,7 @@ class BraintreeDropIn_SaveCardToggleHidden_UITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("-EnvironmentSandbox")
-        app.launchArguments.append("-UITestHardcodedClientToken")
+        app.launchArguments.append("-UITestHardcodedClientTokenWithoutCustomerID")
         app.launchArguments.append("-ThreeDSecureDefault")
         app.launch()
         sleep(1)

@@ -62,10 +62,11 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.setValue(DemoAuthType.tokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         } else if testArguments.contains("-MockedPayPalTokenizationKey") {
             UserDefaults.standard.setValue(DemoAuthType.mockedPayPalTokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
-        } else if testArguments.contains("-UITestHardcodedClientToken") {
-            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientToken.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-UITestHardcodedClientTokenWithCustomerID") {
+            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-UITestHardcodedClientTokenWithoutCustomerID") {
+            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithoutCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         }
-        // TODO: - Support toggle for customerID included in clientToken
 
         if testArguments.contains("-CreateVaultedPaymentMethod") {
             UserDefaults.standard.set(true, forKey:"BraintreeDemoCreateVaultedPaymentMethod")
