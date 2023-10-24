@@ -20,4 +20,4 @@ jobs:
       - name: Use Xcode 14.3
         run: sudo xcode-select -switch /Applications/Xcode_14.3.app
       - name: Run UI Tests
-        run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UITests' -destination 'name=iPhone 14,OS=16.4,platform=iOS Simulator' test  | xcpretty
+        run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UITests' -destination 'name=iPhone 14,OS=16.4,platform=iOS Simulator'  test  | xcpretty
