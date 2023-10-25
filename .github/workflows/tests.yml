@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Use Xcode 14.3
-        run: sudo xcode-select -switch /Applications/Xcode_14.3.app
+      - name: Use Xcode 14.3.1
+        run: sudo xcode-select -switch /Applications/Xcode_14.3.1.app
       - name: Run Unit Tests
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UnitTests' -destination 'name=iPhone 14,OS=16.4,platform=iOS Simulator'  test  | xcpretty
   ui_test_job:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Use Xcode 14.3
-        run: sudo xcode-select -switch /Applications/Xcode_14.3.app
+      - name: Use Xcode 14.3.1
+        run: sudo xcode-select -switch /Applications/Xcode_14.3.1.app
       - name: Run UI Tests
         run: set -o pipefail && xcodebuild -workspace 'BraintreeDropIn.xcworkspace' -sdk 'iphonesimulator' -configuration 'Debug' -scheme 'UITests' -destination 'name=iPhone 14,OS=16.4,platform=iOS Simulator'  test  | xcpretty
