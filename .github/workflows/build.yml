@@ -2,23 +2,23 @@ name: Build
 on: [pull_request, workflow_dispatch]
 jobs:
   cocoapods:
-    name: CocoaPods (Xcode 15)
+    name: CocoaPods (Xcode 14)
     runs-on: macOS-13
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: Use Xcode 15
-        run: sudo xcode-select -switch /Applications/Xcode_15.0.app
+      - name: Use Xcode 14.3.1
+        run: sudo xcode-select -switch /Applications/Xcode_14.3.1.app
       - name: Run pod lib lint
         run: pod lib lint
   spm:
-    name: SPM (Xcode 15)
+    name: SPM (Xcode 14)
     runs-on: macOS-13
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: Use Xcode 15
-        run: sudo xcode-select -switch /Applications/Xcode_15.0.app
+      - name: Use Xcode 14.3.1
+        run: sudo xcode-select -switch /Applications/Xcode_14.3.1.app
       - name: Use current branch
         run: sed -i '' 's/branch = .*/branch = \"'"$GITHUB_HEAD_REF"'\";/' SampleApps/SPMTest/SPMTest.xcodeproj/project.pbxproj
       - name: Run swift package resolve
