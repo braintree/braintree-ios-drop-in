@@ -64,13 +64,21 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
+			<string>PSMultiValueSpecifier</string>
 			<key>Title</key>
-			<string>Use Tokenization Key</string>
+			<string>Authorization Type</string>
 			<key>Key</key>
-			<string>BraintreeDemoUseTokenizationKey</string>
-			<key>DefaultValue</key>
-			<true/>
+			<string>BraintreeDemoSettingsAuthorizationTypeKey</string>
+			<key>Titles</key>
+			<array>
+				<string>Client Token</string>
+				<string>Tokenization Key</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
 		</dict>
 		<dict>
 			<key>Type</key>

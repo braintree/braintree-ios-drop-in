@@ -56,13 +56,16 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(BTThreeDSecureVersion.version1.rawValue, forKey:DemoSettings.ThreeDSecureVersionDefaultsKey)
         }
         
-        if testArguments.contains("-TokenizationKey") {
-            UserDefaults.standard.set(true, forKey:"BraintreeDemoUseTokenizationKey")
-        } else if testArguments.contains("-ClientToken") {
-            UserDefaults.standard.set(false, forKey:"BraintreeDemoUseTokenizationKey")
-            // Use random users for testing with Client Tokens
-            UserDefaults.standard.set(true, forKey:"BraintreeDemoCustomerPresent")
-            UserDefaults.standard.set("", forKey:"BraintreeDemoCustomerIdentifier")
+        if testArguments.contains("-ClientToken") {
+            UserDefaults.standard.set(DemoAuthType.clientToken.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-TokenizationKey") {
+            UserDefaults.standard.setValue(DemoAuthType.tokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-MockedPayPalTokenizationKey") {
+            UserDefaults.standard.setValue(DemoAuthType.mockedPayPalTokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-UITestHardcodedClientTokenWithoutCustomerID") {
+            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithoutCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
+        } else if testArguments.contains("-UITestHardcodedClientTokenWithCVVValidationEnabled") {
+            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenwithCVVValidationEnabled.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         }
 
         if testArguments.contains("-CreateVaultedPaymentMethod") {
