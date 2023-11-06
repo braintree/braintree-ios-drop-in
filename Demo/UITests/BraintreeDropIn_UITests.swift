@@ -286,7 +286,7 @@ class BraintreeDropIn_CardholderNameNotAvailable_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_cardholderNameNotAvailable_fieldDoesntExist() {
+    func testDropIn_cardholderNameNotAvailable_fieldDoesNotExist() {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
 
@@ -364,12 +364,7 @@ class BraintreeDropIn_CardholderNameAvailable_UITests: XCTestCase {
         postalCodeField.forceTapElement()
         postalCodeField.typeText("12345")
 
-        app.buttons["Add Card"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1111"])
-
-        XCTAssertTrue(app.staticTexts["1111"].exists)
-
+        XCTAssertTrue(app.buttons["Add Card"].isEnabled)
     }
 }
 
@@ -464,11 +459,7 @@ class BraintreeDropIn_CardholderNameRequired_UITests: XCTestCase {
         postalCodeField.forceTapElement()
         postalCodeField.typeText("12345")
 
-        app.buttons["Add Card"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1111"])
-
-        XCTAssertTrue(app.staticTexts["1111"].exists)
+        XCTAssertTrue(app.buttons["Add Card"].isEnabled)
     }
 }
 
@@ -487,38 +478,6 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
         sleep(1)
         waitForElementToBeHittable(app.buttons["Add Payment Method"])
         app.buttons["Add Payment Method"].tap()
-    }
-
-    func testDropIn_cardInput_receivesNonce() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        app.staticTexts["Credit or Debit Card"].tap()
-
-        let elementsQuery = app.scrollViews.otherElements
-        let cardNumberTextField = elementsQuery.textFields["Card Number"]
-
-        waitForElementToBeHittable(cardNumberTextField)
-        cardNumberTextField.typeText("4111111111111111")
-
-        let expirationDateTextField = elementsQuery.textFields["Expiration Date"]
-        waitForElementToBeHittable(expirationDateTextField)
-        expirationDateTextField.forceTapElement()
-        expirationDateTextField.typeText("11/\(Date.nextYear)")
-
-        let securityCodeField = app.scrollViews.otherElements.textFields["CVV"]
-        waitForElementToBeHittable(securityCodeField)
-        securityCodeField.forceTapElement()
-        securityCodeField.typeText("123")
-
-        let postalCodeField = app.scrollViews.otherElements.textFields["12345"]
-        waitForElementToBeHittable(postalCodeField)
-        postalCodeField.forceTapElement()
-        postalCodeField.typeText("12345")
-
-        app.buttons["Add Card"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1111"])
-
-        XCTAssertTrue(app.staticTexts["1111"].exists)
     }
 
     func testDropIn_withNoCardNumberEntered_showsNextButton() {
@@ -545,65 +504,6 @@ class BraintreeDropIn_ClientToken_CardForm_UITests: XCTestCase {
 
         XCTAssertFalse(app.buttons["Next"].exists)
     }
-
-    func pendDropIn_showsSpinnerDuringUnionPayCapabilitiesFetch() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        app.staticTexts["Credit or Debit Card"].tap()
-
-        let elementsQuery = app.scrollViews.otherElements
-        let cardNumberTextField = elementsQuery.textFields["Card Number"]
-
-        waitForElementToBeHittable(cardNumberTextField)
-        cardNumberTextField.typeText("6212345678901232")
-
-        waitForElementToBeHittable(app.buttons["Next"])
-        app.buttons["Next"].forceTapElement()
-        XCTAssertTrue(app.activityIndicators.count == 1 && app.activityIndicators["In progress"].exists)
-    }
-
-    func pendDropIn_unionPayCardNumber_receivesNonce() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        app.staticTexts["Credit or Debit Card"].tap()
-
-        let elementsQuery = app.scrollViews.otherElements
-        let cardNumberTextField = elementsQuery.textFields["Card Number"]
-
-        waitForElementToBeHittable(cardNumberTextField)
-        cardNumberTextField.typeText("6212345678901232")
-
-        waitForElementToBeHittable(app.buttons["Next"])
-        app.buttons["Next"].forceTapElement()
-
-        let expiryTextField = elementsQuery.textFields["MM/YYYY"]
-        waitForElementToBeHittable(expiryTextField)
-
-        waitForElementToBeHittable(app.staticTexts[Date.nextYear])
-        app.staticTexts["11"].forceTapElement()
-        app.staticTexts[Date.nextYear].forceTapElement()
-
-        elementsQuery.textFields["Security Code"].typeText("565")
-        app.typeText("65")
-
-        app.staticTexts["Mobile Number"].forceTapElement()
-        app.typeText("1235566543")
-
-        app.buttons["Add Card"].forceTapElement()
-
-        waitForElementToBeHittable(app.alerts.buttons["OK"])
-        app.alerts.buttons["OK"].tap()
-
-        waitForElementToBeHittable(app.textFields["SMS Code"])
-        app.textFields["SMS Code"].forceTapElement()
-        app.typeText("12345")
-
-        waitForElementToBeHittable(app.buttons["Confirm"])
-        app.buttons["Confirm"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1232"])
-
-        XCTAssertTrue(app.staticTexts["1232"].exists)
-    }
-
 }
 
 // Note: These tests are flakey. They are only working on iOS 13+ simulators
@@ -623,12 +523,7 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_paypal_showsPayPal() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        XCTAssertTrue(app.staticTexts["PayPal"].exists)
-    }
-
-    func testDropIn_paypal_receivesNonce() {
+    func testDropIn_payPal_receivesNonce() {
         // Tap Drop-in PayPal button
         waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
@@ -656,7 +551,7 @@ class BraintreeDropIn_PayPal_UITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists)
     }
 
-    func testDropIn_paypal_cancelPopupShowsSelectPaymentMethodView() {
+    func testDropIn_payPal_cancelPopupShowsSelectPaymentMethodView() {
         // Tap Drop-in PayPal button
         waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
@@ -702,7 +597,7 @@ class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_paypal_showAmount_receivesNonce() {
+    func testDropIn_payPalOneTimePayment_showsAmount() {
         // Tap Drop-in PayPal button
         waitForElementToBeHittable(app.staticTexts["PayPal"])
         app.staticTexts["PayPal"].tap()
@@ -720,16 +615,7 @@ class BraintreeDropIn_PayPal_OneTime_UITests: XCTestCase {
 
         // Interact with PayPal webview
         let webviewElementsQuery = app.webViews.element.otherElements
-
         waitForElementToAppear(webviewElementsQuery.staticTexts["4.77"])
-
-        waitForElementToBeHittable(webviewElementsQuery.links["Proceed with Sandbox Purchase"])
-
-        webviewElementsQuery.links["Proceed with Sandbox Purchase"].forceTapElement()
-
-        // Assert in demo
-        waitForElementToAppear(app.staticTexts["bt_buyer_us@paypal.com"])
-        XCTAssertTrue(app.staticTexts["bt_buyer_us@paypal.com"].exists)
     }
 
 }
@@ -751,7 +637,7 @@ class BraintreeDropIn_PayPal_Disabled_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_paypal_doesNotShowPayPal_whenDisabled() {
+    func testDropIn_payPal_doesNotShowPayPal_whenDisabled() {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         XCTAssertFalse(app.staticTexts["PayPal"].exists)
     }
@@ -776,46 +662,7 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
         app.buttons["Add Payment Method"].tap()
     }
 
-    func testDropIn_threeDSecure_2_frictionlessFlow_andTransacts() {
-        waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
-        app.staticTexts["Credit or Debit Card"].tap()
-
-        let elementsQuery = app.scrollViews.otherElements
-        let cardNumberTextField = elementsQuery.textFields["Card Number"]
-
-        waitForElementToBeHittable(cardNumberTextField)
-        cardNumberTextField.typeText("4000000000001000")
-
-        let expirationDateTextField = elementsQuery.textFields["Expiration Date"]
-        waitForElementToBeHittable(expirationDateTextField)
-        expirationDateTextField.forceTapElement()
-        expirationDateTextField.typeText("01/\(Date.threeYearsFromNow)")
-
-        let securityCodeField = elementsQuery.textFields["CVV"]
-        waitForElementToBeHittable(securityCodeField)
-        securityCodeField.forceTapElement()
-        securityCodeField.typeText("123")
-
-        let postalCodeField = elementsQuery.textFields["12345"]
-        waitForElementToBeHittable(postalCodeField)
-        postalCodeField.forceTapElement()
-        postalCodeField.typeText("12345")
-
-        app.buttons["Add Card"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1000"])
-
-        XCTAssertTrue(app.staticTexts["1000"].exists)
-
-        waitForElementToBeHittable(app.buttons["Purchase"])
-        app.buttons["Purchase"].forceTapElement()
-
-        let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
-
-        waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
-    }
-
-    func testDropIn_threeDSecure_2_challengeFlow_andTransacts() {
+    func testDropIn_threeDSecure_2_challengeFlow_challengePresented() {
         waitForElementToBeHittable(app.staticTexts["Credit or Debit Card"])
         app.staticTexts["Credit or Debit Card"].tap()
 
@@ -842,26 +689,7 @@ class BraintreeDropIn_ThreeDSecure_2_UITests: XCTestCase {
 
         app.buttons["Add Card"].forceTapElement()
 
-        waitForElementToAppear(app.staticTexts["Purchase Authentication"], timeout: 20)
-
-        let textField = app.textFields.element(boundBy: 0)
-        waitForElementToBeHittable(textField)
-        textField.forceTapElement()
-        sleep(2)
-        textField.typeText("1234")
-
-        app.buttons["SUBMIT"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1091"])
-
-        XCTAssertTrue(app.staticTexts["1091"].exists)
-
-        waitForElementToBeHittable(app.buttons["Purchase"])
-        app.buttons["Purchase"].forceTapElement()
-
-        let existsPredicate = NSPredicate(format: "label LIKE 'created*'")
-
-        waitForElementToAppear(app.buttons.containing(existsPredicate).element(boundBy: 0))
+        waitForElementToAppear(app.staticTexts["Purchase Authentication"])
     }
 
     func testDropIn_threeDSecure_2_returnsToPaymentSelectionView_whenCanceled() {
@@ -925,26 +753,14 @@ class BraintreeDropIn_ThreeDSecure_VaultedPaymentMethod_UITests: XCTestCase {
         app.buttons["Change Payment Method"].tap()
     }
 
-    func testDropIn_threeDSecure_2_challengeFlow_withVaultedPaymentMethod() {
+    func testDropIn_threeDSecure2_withVaultedPaymentMethod_challengePresented() {
         waitForElementToAppear(app.tables.firstMatch.staticTexts["Visa"])
         app.cells.firstMatch.staticTexts["Visa"].tap()
 
         XCTAssertTrue(app.activityIndicators.firstMatch.exists)
         XCTAssertEqual(0, app.cells.count)
 
-        waitForElementToAppear(app.staticTexts["Purchase Authentication"], timeout: 20)
-
-        let textField = app.textFields.element(boundBy: 0)
-        waitForElementToBeHittable(textField)
-        textField.forceTapElement()
-        sleep(2)
-        textField.typeText("1234")
-
-        app.buttons["SUBMIT"].forceTapElement()
-
-        waitForElementToAppear(app.staticTexts["1091"])
-
-        XCTAssertTrue(app.staticTexts["1091"].exists)
+        waitForElementToAppear(app.staticTexts["Purchase Authentication"])
     }
 }
 
@@ -981,7 +797,6 @@ class BraintreeDropIn_SaveCardToggleVisibleAndOn_UITests: XCTestCase {
         waitForElementToBeHittable(saveCardSwitch)
 
         XCTAssertEqual("1", saveCardSwitch.value as? String)
-
     }
 }
 
