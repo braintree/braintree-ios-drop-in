@@ -62,8 +62,6 @@ class DemoAppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.setValue(DemoAuthType.tokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         } else if testArguments.contains("-MockedPayPalTokenizationKey") {
             UserDefaults.standard.setValue(DemoAuthType.mockedPayPalTokenizationKey.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
-        } else if testArguments.contains("-UITestHardcodedClientTokenWithCustomerID") {
-            UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         } else if testArguments.contains("-UITestHardcodedClientTokenWithoutCustomerID") {
             UserDefaults.standard.setValue(DemoAuthType.uiTestHardcodedClientTokenWithoutCustomerID.rawValue, forKey: DemoSettings.AuthorizationTypeDefaultsKey)
         } else if testArguments.contains("-UITestHardcodedClientTokenWithCVVValidationEnabled") {
