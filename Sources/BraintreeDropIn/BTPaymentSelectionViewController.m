@@ -73,6 +73,16 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
 
+    self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
+    if (@available(iOS 15, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc]init];
+        appearance.backgroundColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
+
+        self.navigationController.navigationBar.standardAppearance = appearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = self.navigationController.navigationBar.standardAppearance;
+    }
+
+    [self.navigationController.navigationBar setTitleTextAttributes:@{ NSForegroundColorAttributeName: [BTUIKAppearance sharedInstance].primaryTextColor }];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; // make nav bar clear
     self.view.backgroundColor = UIColor.clearColor;
 
