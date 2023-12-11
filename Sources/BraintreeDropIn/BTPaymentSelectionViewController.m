@@ -74,6 +74,7 @@ static BOOL _vaultedCardAppearAnalyticSent = NO;
     self.navigationItem.titleView = titleLabel;
 
     self.navigationController.navigationBar.barTintColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
+    self.navigationController.navigationBar.translucent = NO;
     if (@available(iOS 15, *)) {
         UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc]init];
         appearance.backgroundColor = [BTUIKAppearance sharedInstance].barBackgroundColor;
