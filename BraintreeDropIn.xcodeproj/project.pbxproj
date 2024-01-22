@@ -392,6 +392,7 @@
 		A5CE1E071D835CC0009BE61A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		D6C2F3322239917F00DFF7E5 /* BTUIKSwitchFormField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTUIKSwitchFormField.h; sourceTree = "<group>"; };
 		D6C2F3332239917F00DFF7E5 /* BTUIKSwitchFormField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKSwitchFormField.m; sourceTree = "<group>"; };
+		DC88BEF12B5E99B3000322FB /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/BTUI.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -913,6 +914,7 @@
 				ar,
 				"zh-Hant-HK",
 				cs,
+				sk,
 			);
 			mainGroup = A56C41601D833348000DFFAB;
 			packageReferences = (
@@ -1081,6 +1083,7 @@
 				030D98331DC935B200161899 /* zh-Hant */,
 				030D98351DC9363500161899 /* ar */,
 				030D98361DC9385300161899 /* zh-Hant-HK */,
+				DC88BEF12B5E99B3000322FB /* sk */,
 			);
 			name = BTUI.strings;
 			sourceTree = "<group>";
