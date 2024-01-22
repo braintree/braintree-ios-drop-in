@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 9.10.2 (2024-XX-XX)
+* Add Slovak language support
+
 ## 9.10.1 (2023-12-18)
 * Fix bug where setting global navigation bar overrides the payment selection screen (fixes #435)
 * Allow overriding navigation bar color and text via `BTDropInUICustomization.barBackgroundColor` and `BTDropInUICustomization.primaryTextColor`
