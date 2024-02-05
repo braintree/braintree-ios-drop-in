@@ -243,6 +243,7 @@
 		53E78BED22248FD9000388D3 /* BTUIKHiperVectorArtView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTUIKHiperVectorArtView.m; sourceTree = "<group>"; };
 		8005E86025BB32A6003EC2AC /* MockVenmoDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVenmoDriver.swift; sourceTree = "<group>"; };
 		8005E86525BB34B5003EC2AC /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		8006C10E2B600C43009D510D /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/BTUI.strings; sourceTree = "<group>"; };
 		800FC5E125802B5600DEE132 /* BTUIKMasterCardVectorArtView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUIKMasterCardVectorArtView.m; sourceTree = "<group>"; };
 		800FC5E225802B5600DEE132 /* BTUIKMasterCardVectorArtView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUIKMasterCardVectorArtView.h; sourceTree = "<group>"; };
 		8038FA12269789ED007BE751 /* MockPPDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPPDataCollector.swift; sourceTree = "<group>"; };
@@ -913,6 +914,7 @@
 				ar,
 				"zh-Hant-HK",
 				cs,
+				sk,
 			);
 			mainGroup = A56C41601D833348000DFFAB;
 			packageReferences = (
@@ -1081,6 +1083,7 @@
 				030D98331DC935B200161899 /* zh-Hant */,
 				030D98351DC9363500161899 /* ar */,
 				030D98361DC9385300161899 /* zh-Hant-HK */,
+				8006C10E2B600C43009D510D /* sk */,
 			);
 			name = BTUI.strings;
 			sourceTree = "<group>";
