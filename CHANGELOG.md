@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.11.0 (2024-02-06)
 * Add Slovak language support
 
 ## 9.10.1 (2023-12-18)
