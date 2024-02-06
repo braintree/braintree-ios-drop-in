@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BTDropInRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/BTDropInRequest" class="dashAnchor"></a>
+
+    <a title="BTDropInRequest Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          BraintreeDropIn 9.11.0 Docs
+        </a>
+         (66% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/braintree/braintree-ios-drop-in">
+            <img class="header-icon" src="../img/gh.png" alt="GitHub"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">BraintreeDropIn Reference</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      BTDropInRequest Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BTDropInController.html">BTDropInController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BTDropInLocalization.html">BTDropInLocalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BTDropInRequest.html">BTDropInRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BTDropInResult.html">BTDropInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BTDropInUICustomization.html">BTDropInUICustomization</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BTDropInErrorDomain">BTDropInErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BraintreeDropInVersionNumber">BraintreeDropInVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BraintreeDropInVersionString">BraintreeDropInVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BTDropInColorScheme.html">BTDropInColorScheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BTDropInErrorType.html">BTDropInErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BTDropInPaymentMethodType.html">BTDropInPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BTFormFieldSetting.html">BTFormFieldSetting</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/BTDropInControllerDelegate.html">BTDropInControllerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Type%20Definitions.html#/c:BTDropInController.h@T@BTDropInControllerHandler">BTDropInControllerHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>BTDropInRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">BTDropInRequest</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span>
+
+<span class="c1">/// Optional: Specify the options for the PayPal flow using either BTPayPalCheckoutRequest or BTPayPalVaultRequest. If not present, a default vault flow will be used.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">BTPayPalRequest</span> <span class="o">*</span><span class="n">payPalRequest</span><span class="p">;</span>
+
+<span class="c1">/// Optional: Specify the options for the Venmo flow. If not present, a default vault flow will be used.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">BTVenmoRequest</span> <span class="o">*</span><span class="n">venmoRequest</span><span class="p">;</span>
+
+<span class="c1">/// Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">applePayDisabled</span><span class="p">;</span>
+
+<span class="c1">/// Defaults to false. Set to true to hide the PayPal option even if enabled for your account.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">paypalDisabled</span><span class="p">;</span>
+
+<span class="c1">/// Defaults to false. Set to true to hide the Venmo option even if enabled for your account.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">venmoDisabled</span><span class="p">;</span>
+
+<span class="c1">/// Defaults to false. Set to true to hide the Card option even if enabled for your account.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">cardDisabled</span><span class="p">;</span>
+
+<span class="c1">/// Defaults to false. Set to true to hide all card logos for your account.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">cardLogosDisabled</span><span class="p">;</span>
+
+<span class="c1">/// Optional: Enable 3DS verification and specify options and additional information.
+///
+/// Note: To encourage 3DS 2.0 flows, set `billingAddress`, `amount`, `email`, `mobilePhone` for best results.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">BTThreeDSecureRequest</span> <span class="o">*</span><span class="n">threeDSecureRequest</span><span class="p">;</span>
+
+<span class="c1">/// Optional: Determines the visibility and input requirements of the cardholder name field.
+///
+/// When set to BTFormFieldDisabled, the cardholder name field will not be displayed.
+/// When set to BTFormFieldOptional, the cardholder name field will be displayed but not required.
+/// When set to BTFormFieldRequired, the cardholder name field will be displayed and required.
+///
+/// Defaults to BTFormFieldDisabled.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="../Enums/BTFormFieldSetting.html">BTFormFieldSetting</a></span> <span class="n">cardholderNameSetting</span><span class="p">;</span>
+
+<span class="c1">/// Optional: If true the security code will be masked.
+/// Defaults to false.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">shouldMaskSecurityCode</span><span class="p">;</span>
+
+<span class="c1">/// Optional: If true, enables the managment UI.
+/// Defaults to false.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">vaultManager</span><span class="p">;</span>
+
+<span class="c1">/// Optional: Whether or not to vault the card upon tokenization, can only be applied when initializing the Braintree client with a client token that was generated with a customer ID. When set to `false` with `allowVaultCardOverride` set to `false`, then cards will not be vaulted.
+/// Defaults to true
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">vaultCard</span><span class="p">;</span>
+
+<span class="c1">/// Optional: When true, the card form will include an option to let the customer decide not to vault the card.
+/// Defaults to false
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">allowVaultCardOverride</span><span class="p">;</span>
+
+<span class="c1">/// Optional: Customization options for Braintree Drop-in's user interface.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/BTDropInUICustomization.html">BTDropInUICustomization</a></span> <span class="o">*</span><span class="n">uiCustomization</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BTDropInRequest</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+              <div class="slightly-smaller">
+                <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L23-L79">Show on GitHub</a>
+              </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)payPalRequest"></a>
+                    <a name="//apple_ref/swift/Property/payPalRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)payPalRequest">payPalRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Specify the options for the PayPal flow using either BTPayPalCheckoutRequest or BTPayPalVaultRequest. If not present, a default vault flow will be used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">BTPayPalRequest</span> <span class="o">*</span><span class="n">payPalRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)venmoRequest"></a>
+                    <a name="//apple_ref/swift/Property/venmoRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)venmoRequest">venmoRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Specify the options for the Venmo flow. If not present, a default vault flow will be used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">BTVenmoRequest</span> <span class="o">*</span><span class="n">venmoRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)applePayDisabled"></a>
+                    <a name="//apple_ref/swift/Property/applePayDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)applePayDisabled">applePayDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">applePayDisabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">applePayDisabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L32">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)paypalDisabled"></a>
+                    <a name="//apple_ref/swift/Property/paypalDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)paypalDisabled">paypalDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defaults to false. Set to true to hide the PayPal option even if enabled for your account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">paypalDisabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">paypalDisabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L35">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)venmoDisabled"></a>
+                    <a name="//apple_ref/swift/Property/venmoDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)venmoDisabled">venmoDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defaults to false. Set to true to hide the Venmo option even if enabled for your account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">venmoDisabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">venmoDisabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L38">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)cardDisabled"></a>
+                    <a name="//apple_ref/swift/Property/cardDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)cardDisabled">cardDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defaults to false. Set to true to hide the Card option even if enabled for your account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">cardDisabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cardDisabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L41">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)cardLogosDisabled"></a>
+                    <a name="//apple_ref/swift/Property/cardLogosDisabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)cardLogosDisabled">cardLogosDisabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defaults to false. Set to true to hide all card logos for your account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">cardLogosDisabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cardLogosDisabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L44">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)threeDSecureRequest"></a>
+                    <a name="//apple_ref/swift/Property/threeDSecureRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)threeDSecureRequest">threeDSecureRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Enable 3DS verification and specify options and additional information.</p>
+
+<p>Note: To encourage 3DS 2.0 flows, set <code>billingAddress</code>, <code>amount</code>, <code>email</code>, <code>mobilePhone</code> for best results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">BTThreeDSecureRequest</span> <span class="o">*</span><span class="n">threeDSecureRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L49">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)cardholderNameSetting"></a>
+                    <a name="//apple_ref/swift/Property/cardholderNameSetting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)cardholderNameSetting">cardholderNameSetting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Determines the visibility and input requirements of the cardholder name field.</p>
+
+<p>When set to BTFormFieldDisabled, the cardholder name field will not be displayed.
+When set to BTFormFieldOptional, the cardholder name field will be displayed but not required.
+When set to BTFormFieldRequired, the cardholder name field will be displayed and required.</p>
+
+<p>Defaults to BTFormFieldDisabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/BTFormFieldSetting.html">BTFormFieldSetting</a></span> <span class="n">cardholderNameSetting</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cardholderNameSetting</span><span class="p">:</span> <span class="kt"><a href="../Enums/BTFormFieldSetting.html">BTFormFieldSetting</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L58">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)shouldMaskSecurityCode"></a>
+                    <a name="//apple_ref/swift/Property/shouldMaskSecurityCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)shouldMaskSecurityCode">shouldMaskSecurityCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: If true the security code will be masked.
+Defaults to false.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">shouldMaskSecurityCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">shouldMaskSecurityCode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L62">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)vaultManager"></a>
+                    <a name="//apple_ref/swift/Property/vaultManager" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)vaultManager">vaultManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: If true, enables the managment UI.
+Defaults to false.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">vaultManager</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">vaultManager</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L66">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)vaultCard"></a>
+                    <a name="//apple_ref/swift/Property/vaultCard" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)vaultCard">vaultCard</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Whether or not to vault the card upon tokenization, can only be applied when initializing the Braintree client with a client token that was generated with a customer ID. When set to <code>false</code> with <code><a href="../Classes/BTDropInRequest.html#/c:objc(cs)BTDropInRequest(py)allowVaultCardOverride">allowVaultCardOverride</a></code> set to <code>false</code>, then cards will not be vaulted.
+Defaults to true</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">vaultCard</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">vaultCard</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L70">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)allowVaultCardOverride"></a>
+                    <a name="//apple_ref/swift/Property/allowVaultCardOverride" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)allowVaultCardOverride">allowVaultCardOverride</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: When true, the card form will include an option to let the customer decide not to vault the card.
+Defaults to false</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">allowVaultCardOverride</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">allowVaultCardOverride</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L74">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)BTDropInRequest(py)uiCustomization"></a>
+                    <a name="//apple_ref/swift/Property/uiCustomization" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)BTDropInRequest(py)uiCustomization">uiCustomization</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional: Customization options for Braintree Drop-in&rsquo;s user interface.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/BTDropInUICustomization.html">BTDropInUICustomization</a></span> <span class="o">*</span><span class="n">uiCustomization</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">uiCustomization</span><span class="p">:</span> <span class="kt"><a href="../Classes/BTDropInUICustomization.html">BTDropInUICustomization</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/braintree/braintree-ios-drop-in/tree/9.11.0/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h#L77">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2024 <a class="link" href="http://braintreepayments.com" target="_blank" rel="external noopener">Braintree</a>. All rights reserved. (Last updated: 2024-02-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
