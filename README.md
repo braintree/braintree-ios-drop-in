@@ -9,7 +9,7 @@ Welcome to Braintree's Drop-in SDK for iOS!
 
 ![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
 
-**The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 14.1+ and Swift 5.7.1+.
+**The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 15.0+ and Swift 5.7.1+.
 
 ## Table of Contents
 
@@ -45,7 +45,7 @@ Then run `pod install`.
 
 See our [`Podspec`](https://github.com/braintree/braintree-ios-drop-in/blob/main/BraintreeDropIn.podspec) for more information.
 
-*Note:* If you are using version 8.x.x of the Braintree Drop-in iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
+*Note:* If you are using version 8.x.x of the Braintree Drop-in iOS SDK in Xcode 12, you may see the warning `The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 15.0`. This will not prevent your app from compiling. This is a [CocoaPods issue](https://github.com/CocoaPods/CocoaPods/issues/7314) with a known workaround.
 
 ## Documentation
 
