@@ -9,7 +9,7 @@ Welcome to Braintree's Drop-in SDK for iOS!
 
 ![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
 
-**The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 15.0+ and Swift 5.7.1+.
+**The Braintree iOS Drop-in SDK permits a deployment target of iOS 17.2 or higher.** It requires Xcode 15.1+ and Swift 4+.
 
 ## Table of Contents
 
@@ -235,7 +235,7 @@ Versions 6 and below are unsupported.
 
 ## Demo
 
-A demo app is included in this project. Running the demo app requires Xcode 13+. Open BraintreeDropIn.xcworkspace and run the Demo scheme to view it.
+A demo app is included in this project. Running the demo app requires Xcode 15.1+. Open BraintreeDropIn.xcworkspace and run the Demo scheme to view it.
 
 The demo app uses Swift Package Manager to fetch dependencies. Xcode will download dependencies automatically when you open the workspace. Deleting derived data will delete the dependencies. Go to **File -> Swift Packages -> Resolve Package Versions** to re-download them.
 
