@@ -1,7 +1,7 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
 ## unreleased
-* Require Xcode 15.1+ (per [App Store requirements](https://developer.apple.com/news/?id=khzvxn8a))
+* Require Xcode 15.0+ (per [App Store requirements](https://developer.apple.com/news/?id=khzvxn8a))
 
 ## 9.11.0 (2024-02-06)
 * Add Slovak language support
