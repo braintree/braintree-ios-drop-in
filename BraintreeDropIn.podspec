@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.platform         = :ios, "12.0"
   s.requires_arc     = true
   s.compiler_flags = "-Wall -Werror -Wextra"
-  s.swift_version = "5.7"
+  s.swift_version = "5.9"
 
   s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
   s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
