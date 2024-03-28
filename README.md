@@ -235,7 +235,7 @@ Versions 6 and below are unsupported.
 
 ## Demo
 
-A demo app is included in this project. Running the demo app requires Xcode 13+. Open BraintreeDropIn.xcworkspace and run the Demo scheme to view it.
+A demo app is included in this project. Running the demo app requires Xcode 15.0+. Open BraintreeDropIn.xcworkspace and run the Demo scheme to view it.
 
 The demo app uses Swift Package Manager to fetch dependencies. Xcode will download dependencies automatically when you open the workspace. Deleting derived data will delete the dependencies. Go to **File -> Swift Packages -> Resolve Package Versions** to re-download them.
 
