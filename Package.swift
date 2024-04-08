@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -33,6 +33,7 @@ let package = Package(
                 .product(name: "PayPalDataCollector", package: "Braintree")
             ],
             exclude: ["Info.plist"],
+            resources: [.copy("PrivacyInfo.xcprivacy")],
             publicHeadersPath: "Public",
             cSettings: [
                 .headerSearchPath("Custom Views"),

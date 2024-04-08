@@ -32,6 +32,8 @@ Pod::Spec.new do |s|
   s.dependency "Braintree/ThreeDSecure", "~> 5.23"
   s.dependency "Braintree/Venmo", "~> 5.23"
   s.resource_bundles = {
-    "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"] }
+    "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"],
+    "BraintreeDropIn_PrivacyInfo" => ["Sources/BraintreeDropIn/PrivacyInfo.xcprivacy"]
+}
 
 end
