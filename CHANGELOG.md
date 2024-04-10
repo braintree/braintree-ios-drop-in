@@ -2,6 +2,7 @@
 
 ## unreleased
 * Require Xcode 15.0+ and Swift 5.9+ (per [App Store requirements](https://developer.apple.com/news/?id=khzvxn8a))
+* [Meets Apple's new Privacy Update requirements](https://developer.apple.com/news/?id=3d8a9yyh)
 
 ## 9.11.0 (2024-02-06)
 * Add Slovak language support
