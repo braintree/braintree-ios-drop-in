@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Braintree",
-        "repositoryURL": "https://github.com/braintree/braintree_ios",
-        "state": {
-          "branch": null,
-          "revision": "3924f5ea0295087081e7e637fbf1333361e7054b",
-          "version": "5.23.0"
-        }
-      },
-      {
-        "package": "InAppSettingsKit",
-        "repositoryURL": "https://github.com/futuretap/InAppSettingsKit.git",
-        "state": {
-          "branch": null,
-          "revision": "71e03ebad8462618f96c575c86d2e9220f880676",
-          "version": "3.3.2"
-        }
+  "pins" : [
+    {
+      "identity" : "braintree_ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/braintree/braintree_ios",
+      "state" : {
+        "revision" : "619e78a9ab9423be4871baf406546c22573086cf",
+        "version" : "5.25.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "inappsettingskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/futuretap/InAppSettingsKit.git",
+      "state" : {
+        "revision" : "71e03ebad8462618f96c575c86d2e9220f880676",
+        "version" : "3.3.2"
+      }
+    }
+  ],
+  "version" : 2
 }
