@@ -21,12 +21,4 @@
     // Subclass overrides this
 }
 
-- (UIImage *)imageOfSize:(CGSize)size {
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
-    [self drawRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return img;
-}
-
 @end
