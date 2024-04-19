@@ -13,10 +13,4 @@
 /// of the artwork.
 @property (nonatomic, assign) CGSize artDimensions;
 
-/// Returns a UIImage of the artwork
-///
-/// @param size the size of the desired UIImage
-/// @return A UIImage of of the artwork
-- (UIImage *)imageOfSize:(CGSize)size;
-
 @end

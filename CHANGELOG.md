@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Remove deprecated `UIGraphicsBeginImageContextWithOptions` API usage (fixes #446)
+
 ## 9.12.0 (2024-04-15)
 * Require Xcode 15.0+ and Swift 5.9+ (per [App Store requirements](https://developer.apple.com/news/?id=khzvxn8a))
 * [Meets Apple's new Privacy Update requirements](https://developer.apple.com/news/?id=3d8a9yyh)

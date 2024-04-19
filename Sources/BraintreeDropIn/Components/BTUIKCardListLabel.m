@@ -31,14 +31,13 @@
 }
 
 - (UIImage *) imageWithView:(UIView *)view {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 0.0);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:view.bounds.size];
 
-    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext * __unused context) {
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }];
 
-    UIGraphicsEndImageContext();
-
-    return img;
+    return image;
 }
 
 - (void)setAvailablePaymentOptions:(NSArray *)availablePaymentOptions {
@@ -88,10 +87,17 @@
         BTDropInPaymentMethodType option = ((NSNumber*)self.availablePaymentOptions[i]).intValue;
         float newAlpha = (paymentOption == option || paymentOption == BTDropInPaymentMethodTypeUnknown) ? 1.0 : 0.25;
         NSTextAttachment *attachment = self.availablePaymentOptionAttachments[i];
-        UIGraphicsBeginImageContextWithOptions(attachment.image.size, NO, attachment.image.scale);
-        [attachment.image drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:newAlpha];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+
+        UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
+        [format setScale:attachment.image.scale];
+
+        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:attachment.image.size format:format];
+
+        UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull context) {
+            [context currentImage];
+            [attachment.image drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:newAlpha];
+        }];
+
         attachment.image = image;
     }
     self.emphasisedPaymentOption = paymentOption;
