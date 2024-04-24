@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.12.1 (2024-04-24)
 * Remove deprecated `UIGraphicsBeginImageContextWithOptions` API usage (fixes #446)
 
 ## 9.12.0 (2024-04-15)
