@@ -1,0 +1,236 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInController.h",
+      "line": 13,
+      "symbol": "BTDropInControllerHandler",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInController.h",
+      "line": 39,
+      "symbol": "BTDropInControllerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInController.h",
+      "line": 41,
+      "symbol": "BTDropInControllerDelegate.-reloadDropInData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInLocalization.h",
+      "line": 3,
+      "symbol": "BTDropInLocalization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 3,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 4,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeAMEX",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 5,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeDinersClub",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 6,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeDiscover",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 7,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeMasterCard",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 8,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeVisa",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 9,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeJCB",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 10,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeLaser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 11,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeMaestro",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 12,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeUnionPay",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 13,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeHiper",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 14,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeHipercard",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 15,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeSolo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 16,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeSwitch",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 17,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeUKMaestro",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 18,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypePayPal",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 19,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeVenmo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInPaymentMethodType.h",
+      "line": 20,
+      "symbol": "BTDropInPaymentMethodType.BTDropInPaymentMethodTypeApplePay",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h",
+      "line": 17,
+      "symbol": "BTFormFieldSetting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h",
+      "line": 17,
+      "symbol": "BTFormFieldSetting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h",
+      "line": 18,
+      "symbol": "BTFormFieldSetting.BTFormFieldDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h",
+      "line": 19,
+      "symbol": "BTFormFieldSetting.BTFormFieldOptional",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h",
+      "line": 20,
+      "symbol": "BTFormFieldSetting.BTFormFieldRequired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInRequest.h",
+      "line": 23,
+      "symbol": "BTDropInRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInResult.h",
+      "line": 27,
+      "symbol": "BTDropInResult",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInUICustomization.h",
+      "line": 20,
+      "symbol": "BTDropInUICustomization.+new",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BTDropInUICustomization.h",
+      "line": 22,
+      "symbol": "BTDropInUICustomization.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BraintreeDropIn.h",
+      "line": 4,
+      "symbol": "BraintreeDropInVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in/Sources/BraintreeDropIn/Public/BraintreeDropIn/BraintreeDropIn.h",
+      "line": 7,
+      "symbol": "BraintreeDropInVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/braintree-ios-drop-in/braintree-ios-drop-in"
+}
