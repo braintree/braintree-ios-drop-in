@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Add the reason for PaymentInfo Collection in `PrivacyInfo.xcprivacy`
+
 ## 9.12.1 (2024-04-24)
 * Remove deprecated `UIGraphicsBeginImageContextWithOptions` API usage (fixes #446)
 
