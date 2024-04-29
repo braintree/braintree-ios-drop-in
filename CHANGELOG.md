@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## unreleased
+## 9.12.2 (2024-04-29)
 * Add the reason for PaymentInfo Collection in `PrivacyInfo.xcprivacy`
 
 ## 9.12.1 (2024-04-24)
