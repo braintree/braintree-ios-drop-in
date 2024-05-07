@@ -1,5 +1,9 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 9.12.3 (2024-05-07)
+* Updated expiring pinned vendor SSL certificates
+* Require `braintree_ios` 5.26.0
+
 ## 9.12.2 (2024-04-29)
 * Add the reason for PaymentInfo Collection in `PrivacyInfo.xcprivacy`
 
