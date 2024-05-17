@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/futuretap/InAppSettingsKit.git",
       "state" : {
-        "revision" : "5b6a33cd5d227d71f79bf8e43be2049d981c6aad",
-        "version" : "3.7.1"
+      "revision" : "71e03ebad8462618f96c575c86d2e9220f880676",
+        "version" : "3.3.2"
       }
     }
   ],
