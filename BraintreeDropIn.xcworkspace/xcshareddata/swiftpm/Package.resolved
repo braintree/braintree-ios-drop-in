@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/braintree/braintree_ios",
       "state" : {
-        "revision" : "619e78a9ab9423be4871baf406546c22573086cf",
-        "version" : "5.25.0"
+        "revision" : "da2484a697dc9940861d588157771906b40c89a3",
+        "version" : "5.26.0"
       }
     },
     {
@@ -14,7 +14,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/futuretap/InAppSettingsKit.git",
       "state" : {
-        "revision" : "71e03ebad8462618f96c575c86d2e9220f880676",
+      "revision" : "71e03ebad8462618f96c575c86d2e9220f880676",
         "version" : "3.3.2"
       }
     }
