@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BraintreeDropIn  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="BraintreeDropIn  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          BraintreeDropIn 9.13.0 Docs
+        </a>
+         (66% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/braintree/braintree-ios-drop-in">
+            <img class="header-icon" src="img/gh.png" alt="GitHub"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">BraintreeDropIn</a>
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BTDropInController.html">BTDropInController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BTDropInLocalization.html">BTDropInLocalization</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BTDropInRequest.html">BTDropInRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BTDropInResult.html">BTDropInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BTDropInUICustomization.html">BTDropInUICustomization</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BTDropInErrorDomain">BTDropInErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BraintreeDropInVersionNumber">BraintreeDropInVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BraintreeDropInVersionString">BraintreeDropInVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/BTDropInColorScheme.html">BTDropInColorScheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/BTDropInErrorType.html">BTDropInErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/BTDropInPaymentMethodType.html">BTDropInPaymentMethodType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/BTFormFieldSetting.html">BTFormFieldSetting</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/BTDropInControllerDelegate.html">BTDropInControllerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Type%20Definitions.html#/c:BTDropInController.h@T@BTDropInControllerHandler">BTDropInControllerHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 id='braintree-ios-drop-in-sdk' class='heading'>Braintree iOS Drop-in SDK</h1>
+
+<p><a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" alt="Swift Package Manager compatible"></a>
+<a href="https://cocoapods.org/pods/BraintreeDropIn"><img src="https://img.shields.io/cocoapods/v/BraintreeDropIn.svg?style=flat" alt="CocoaPods compatible"></a></p>
+
+<p><a href="https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml"><img src="https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml/badge.svg" alt="Release"></a></p>
+
+<p>Welcome to Braintree&rsquo;s Drop-in SDK for iOS!</p>
+
+<p><img src="Images/client-sdk-ios-series-light.png" alt="Drop-in light theme" title="Drop-in light theme"></p>
+
+<p><strong>The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.</strong> It requires Xcode 15.0+ and Swift 5.9+.</p>
+<h2 id='table-of-contents' class='heading'>Table of Contents</h2>
+
+<ol>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#versions">Versions</a></li>
+<li><a href="#demo">Demo App</a></li>
+<li><a href="#help">Help</a></li>
+<li><a href="#feedback">Feedback</a></li>
+<li><a href="#license">License</a></li>
+</ol>
+<h2 id='getting-started' class='heading'>Getting Started</h2>
+
+<p>We recommend using <a href="https://swift.org/package-manager/">Swift Package Manager</a> or <a href="https://github.com/CocoaPods/CocoaPods">CocoaPods</a> to integrate the Braintree Drop-in SDK with your project.</p>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<p><em>This feature is only available in v9. v9.Y.0 requires Xcode 15.0+.</em></p>
+
+<p>To add the <code>BraintreeDropIn</code> package to your Xcode project, select File &gt; Swift Packages &gt; Add Package Dependency and enter <code>https://github.com/braintree/braintree-ios-drop-in</code> as the repository URL. Tick the checkbox for <code>BraintreeDropIn</code>.</p>
+
+<p>If you look at your app target, you will see that the <code>BraintreeDropIn</code> library is automatically linked as a framework to your app (see General &gt; Frameworks, Libraries, and Embedded Content).</p>
+
+<p><em>Note</em>: There is a <a href="https://forums.swift.org/t/swift-package-binary-framework-issue/41922">known SPM issue</a> for apps with app extensions that use Swift Packages with binary dependencies. The issue occurs when uploading a build to App Store Connect. You can read the report on Swift Forums and follow <a href="https://github.com/braintree/braintree-ios-drop-in/issues/317#issuecomment-815005747">this workaround</a>.</p>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>Add to your <code>Podfile</code>:</p>
+<pre class="highlight plaintext"><code>pod 'BraintreeDropIn'
+</code></pre>
+
+<p>Then run <code>pod install</code>.</p>
+
+<p>See our <a href="https://github.com/braintree/braintree-ios-drop-in/blob/main/BraintreeDropIn.podspec"><code>Podspec</code></a> for more information.</p>
+
+<p><em>Note:</em> If you are using version 8.x.x of the Braintree Drop-in iOS SDK in Xcode 12, you may see the warning <code>The iOS Simulator deployment target is set to 8.0, but the range of supported deployment target versions is 9.0 to 14.0.99</code>. This will not prevent your app from compiling. This is a <a href="https://github.com/CocoaPods/CocoaPods/issues/7314">CocoaPods issue</a> with a known workaround.</p>
+<h2 id='documentation' class='heading'>Documentation</h2>
+<h3 id='import-braintreedropin' class='heading'>Import BraintreeDropIn</h3>
+
+<p>Add the below import statement to any class where you are using BraintreeDropIn.</p>
+<pre class="highlight plaintext"><code>import BraintreeDropIn
+</code></pre>
+<h3 id='show-drop-in' class='heading'>Show Drop-in</h3>
+
+<p>Present <code><a href="Classes/BTDropInController.html">BTDropInController</a></code> to collect the customer&rsquo;s payment information and receive the <code>nonce</code> to send to your server. Saved payment methods will appear if you specified a <code>customer_id</code> when creating your client token.</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">showDropIn</span><span class="p">(</span><span class="nv">clientTokenOrTokenizationKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">request</span> <span class="o">=</span>  <span class="kt">BTDropInRequest</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">dropIn</span> <span class="o">=</span> <span class="kt">BTDropInController</span><span class="p">(</span><span class="nv">authorization</span><span class="p">:</span> <span class="n">clientTokenOrTokenizationKey</span><span class="p">,</span> <span class="nv">request</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span>
+    <span class="p">{</span> <span class="p">(</span><span class="n">controller</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"ERROR"</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">?</span><span class="o">.</span><span class="n">isCanceled</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"CANCELED"</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">result</span> <span class="p">{</span>
+            <span class="c1">// Use the BTDropInResult properties to update your UI</span>
+            <span class="k">let</span> <span class="nv">selectedPaymentMethodType</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentMethodType</span>
+            <span class="k">let</span> <span class="nv">selectedPaymentMethod</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentMethod</span>
+            <span class="k">let</span> <span class="nv">selectedPaymentMethodIcon</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentIcon</span>
+            <span class="k">let</span> <span class="nv">selectedPaymentMethodDescription</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentDescription</span>
+        <span class="p">}</span>
+        <span class="n">controller</span><span class="o">.</span><span class="nf">dismiss</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="n">dropIn</span><span class="o">!</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='apple-pay-drop-in' class='heading'>Apple Pay + Drop-in</h3>
+
+<p>Apple Pay is enabled by default in Drop-in. Drop-in will show Apple Pay as a payment option as long as it is enabled in the control panel and the device supports it. To opt out, set <code>applePayDisabled = true</code> on your <code><a href="Classes/BTDropInRequest.html">BTDropInRequest</a></code>.</p>
+
+<p><strong>Important:</strong> If your customer selects Apple Pay as their preferred payment method then <code>result.paymentMethodType == .applePay</code> and the <code>result.paymentMethod</code> will be <code>nil</code>. Selecting Apple Pay does not display the Apple Pay sheet or create a nonce. After you receive the <code><a href="Classes/BTDropInResult.html">BTDropInResult</a></code>, you will need to:
+1) Display a <code>PKPaymentButton</code>.
+2) Present a <code>PKPaymentAuthorizationViewController</code> when the customer taps the button.
+3) Tokenize the <code>PKPayment</code> and send the resulting nonce to your server to create a transaction.</p>
+
+<p>Use <code>BTApplePayClient</code> to tokenize the customer&rsquo;s Apple Pay information - <a href="https://developer.paypal.com/braintree/docs/guides/apple-pay/client-side/ios/v5">view our official docs for more information</a>.</p>
+<h3 id='3d-secure-drop-in' class='heading'>3D Secure + Drop-in</h3>
+
+<p>The Drop-in supports 3D Secure verification. You must have 3D Secure enabled in the Control Panel. Create a <code>BTThreeDSecureRequest</code>, setting as many fields on it as possible; the more fields that are set, the less likely it is that a user will be be presented with a challenge. Set the <code>BTThreeDSecureRequest</code> on <code><a href="Classes/BTDropInRequest.html">BTDropInRequest</a></code>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">BTDropInRequest</span><span class="p">()</span>
+
+<span class="k">let</span> <span class="nv">threeDSecureRequest</span> <span class="o">=</span> <span class="kt">BTThreeDSecureRequest</span><span class="p">()</span>
+<span class="n">threeDSecureRequest</span><span class="o">.</span><span class="n">threeDSecureRequestDelegate</span> <span class="o">=</span> <span class="k">self</span>
+
+<span class="n">threeDSecureRequest</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">threeDSecureRequest</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"test@example.com"</span>
+<span class="n">threeDSecureRequest</span><span class="o">.</span><span class="n">requested</span> <span class="o">=</span> <span class="o">.</span><span class="n">version2</span>
+
+<span class="k">let</span> <span class="nv">address</span> <span class="o">=</span> <span class="kt">BTThreeDSecurePostalAddress</span><span class="p">()</span>
+<span class="n">address</span><span class="o">.</span><span class="n">givenName</span> <span class="o">=</span> <span class="s">"Jill"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="s">"Doe"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">phoneNumber</span> <span class="o">=</span> <span class="s">"5551234567"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">streetAddress</span> <span class="o">=</span> <span class="s">"555 Smith St"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">extendedAddress</span> <span class="o">=</span> <span class="s">"#2"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">locality</span> <span class="o">=</span> <span class="s">"Chicago"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="s">"IL"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">postalCode</span> <span class="o">=</span> <span class="s">"12345"</span>
+<span class="n">address</span><span class="o">.</span><span class="n">countryCodeAlpha2</span> <span class="o">=</span> <span class="s">"US"</span>
+<span class="n">threeDSecureRequest</span><span class="o">.</span><span class="n">billingAddress</span> <span class="o">=</span> <span class="n">address</span>
+
+<span class="c1">// Optional additional information.</span>
+<span class="c1">// For best results, provide as many of these elements as possible.</span>
+<span class="k">let</span> <span class="nv">additionalInformation</span> <span class="o">=</span> <span class="kt">BTThreeDSecureAdditionalInformation</span><span class="p">()</span>
+<span class="n">additionalInformation</span><span class="o">.</span><span class="n">shippingAddress</span> <span class="o">=</span> <span class="n">address</span>
+<span class="n">threeDSecureRequest</span><span class="o">.</span><span class="n">additionalInformation</span> <span class="o">=</span> <span class="n">additionalInformation</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">threeDSecureRequest</span> <span class="o">=</span> <span class="n">threeDSecureRequest</span>
+</code></pre>
+<h3 id='managing-payment-methods' class='heading'>Managing payment methods</h3>
+
+<p>By default, if you initialize the Drop-in with a client token generated with a customer ID, Drop-in will add payment methods to that customer within the Braintree Vault.  You can optionally allow the deletion of payment methods for that customer by enabling <code>vaultManager</code>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">request</span> <span class="o">=</span>  <span class="kt">BTDropInRequest</span><span class="p">()</span>
+<span class="n">request</span><span class="o">.</span><span class="n">vaultManager</span> <span class="o">=</span> <span class="kc">true</span>
+</code></pre>
+<h3 id='fetch-most-recent-payment-method' class='heading'>Fetch most recent payment method</h3>
+
+<p>If your user already has an existing payment method, you may not need to show the Drop-in UI. You can check if they have an existing payment method using <code>BTDropInResult.mostRecentPaymentMethod</code>. Note that you must use a client token that was created with a <code>customer_id</code>. <code><a href="Classes/BTDropInResult.html">BTDropInResult</a></code> makes it easy to get a description and icon of the payment method.</p>
+
+<p><img src="Images/saved-single-payment-method.png" alt="Example payment method icon and description" title="Example payment method icon and description"></p>
+<pre class="highlight swift"><code><span class="kt">BTDropInResult</span><span class="o">.</span><span class="nf">mostRecentPaymentMethod</span><span class="p">(</span><span class="nv">forClientToken</span><span class="p">:</span> <span class="n">authorization</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">,</span> <span class="n">error</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// either an error occurred or the customer doesn't have any vaulted payment methods</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentOptionType</span> <span class="o">==</span> <span class="o">.</span><span class="n">applePay</span> <span class="p">{</span>
+    <span class="c1">// Apple Pay is the most recently selected option</span>
+    <span class="c1">// Note that result.paymentMethod will be nil in this case; display Apple Pay button and tokenize using `BTApplePayClient`</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Update your UI</span>
+  <span class="k">let</span> <span class="nv">type</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentMethodType</span>
+  <span class="k">let</span> <span class="nv">icon</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentIcon</span>
+  <span class="k">let</span> <span class="nv">description</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentDescription</span>
+
+  <span class="c1">// Use the payment method to transact</span>
+  <span class="k">let</span> <span class="nv">paymentMethod</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">paymentMethod</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='localization' class='heading'>Localization</h3>
+
+<p>Drop-in is currently localized for <a href="https://github.com/braintree/braintree-ios-drop-in/tree/main/Sources/BraintreeDropIn/Resources">22 languages</a>.</p>
+<h3 id='color-schemes' class='heading'>Color Schemes</h3>
+
+<p>Drop-in is fully customizable, but we also provide <code>Light</code>, <code>Dark</code> and <code>Dynamic</code> color schemes. The dynamic color scheme will switch between light and dark based on whether the device is in light or dark mode. The <code>Dynamic</code> scheme is only available in iOS 13 or higher. Drop-in will use the <code>Light</code> color scheme by default.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">uiCustomization</span> <span class="o">=</span> <span class="kt">BTDropInUICustomization</span><span class="p">(</span><span class="nv">colorScheme</span><span class="p">:</span> <span class="o">.</span><span class="n">dark</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">dropInRequest</span> <span class="o">=</span> <span class="kt">BTDropInRequest</span><span class="p">()</span>
+<span class="n">dropInRequest</span><span class="o">.</span><span class="n">uiCustomization</span> <span class="o">=</span> <span class="n">uiCustomization</span>
+</code></pre>
+
+<p><img src="Images/client-sdk-ios-series-dark.png" alt="Drop-in dark theme" title="Drop-in dark theme"></p>
+<h3 id='customization' class='heading'>Customization</h3>
+
+<p>Use <code><a href="Classes/BTDropInUICustomization.html">BTDropInUICustomization</a></code> to customize the appearance of Drop-in.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">uiCustomization</span> <span class="o">=</span> <span class="kt">BTDropInUICustomization</span><span class="p">(</span><span class="nv">colorScheme</span><span class="p">:</span> <span class="o">.</span><span class="kd">dynamic</span><span class="p">)</span>
+<span class="n">uiCustomization</span><span class="o">.</span><span class="n">fontFamily</span> <span class="o">=</span> <span class="s">"Helvetica"</span>
+<span class="n">uiCustomization</span><span class="o">.</span><span class="n">boldFontFamily</span> <span class="o">=</span> <span class="s">"Helvetica Bold"</span>
+
+<span class="k">let</span> <span class="nv">dropInRequest</span> <span class="o">=</span> <span class="kt">BTDropInRequest</span><span class="p">()</span>
+<span class="n">dropInRequest</span><span class="o">.</span><span class="n">uiCustomization</span> <span class="o">=</span> <span class="n">uiCustomization</span>
+</code></pre>
+<h3 id='accessibility' class='heading'>Accessibility</h3>
+<h4 id='dynamic-type' class='heading'>Dynamic Type</h4>
+
+<p>Dynamic type is enabled by default for both system and custom fonts. We strongly encourage you to leave this feature on, but if you wish to disable it, you may do so by setting <code>disableDynamicType</code> to <code>true</code> on <code><a href="Classes/BTDropInUICustomization.html">BTDropInUICustomization</a></code>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">uiCustomization</span> <span class="o">=</span> <span class="kt">BTDropInUICustomization</span><span class="p">(</span><span class="nv">colorScheme</span><span class="p">:</span> <span class="o">.</span><span class="n">light</span><span class="p">)</span>
+<span class="n">uiCustomization</span><span class="o">.</span><span class="n">disableDynamicType</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="k">let</span> <span class="nv">dropInRequest</span> <span class="o">=</span> <span class="kt">BTDropInRequest</span><span class="p">()</span>
+<span class="n">dropInRequest</span><span class="o">.</span><span class="n">uiCustomization</span> <span class="o">=</span> <span class="n">uiCustomization</span>
+</code></pre>
+<h4 id='voiceover' class='heading'>VoiceOver</h4>
+
+<p>Drop-in UI elements support VoiceOver.</p>
+<h4 id='swiftui' class='heading'>SwiftUI</h4>
+
+<p>Drop-in does not officially support SwiftUI at this time.</p>
+<h3 id='more-information' class='heading'>More Information</h3>
+
+<p>Start with <a href="https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5"><strong>&lsquo;Hello, Client!&rsquo;</strong></a> for instructions on basic setup and usage.</p>
+
+<p>Also see our <a href="https://braintree.github.io/braintree-ios-drop-in/current/"><strong>reference documentation</strong></a>.</p>
+<h2 id='versions' class='heading'>Versions</h2>
+
+<p>This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our <a href="https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5">developer docs</a>.
+| Major version number | Status | Released | Deprecated | Unsupported |
+| &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash; | &mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&ndash; |
+| 9.x.x | Active | April 2021 | TBA | TBA |
+| 8.x.x | Deprecated | Februrary 2020 | April 2022 | TBA |
+| 7.x.x | Unsupported | December 2018 | April 2021 | April 2022 |</p>
+
+<p>Versions 6 and below are unsupported.</p>
+<h2 id='demo' class='heading'>Demo</h2>
+
+<p>A demo app is included in this project. Running the demo app requires Xcode 15.0+. Open BraintreeDropIn.xcworkspace and run the Demo scheme to view it.</p>
+
+<p>The demo app uses Swift Package Manager to fetch dependencies. Xcode will download dependencies automatically when you open the workspace. Deleting derived data will delete the dependencies. Go to <strong>File -&gt; Swift Packages -&gt; Resolve Package Versions</strong> to re-download them.</p>
+<h2 id='help' class='heading'>Help</h2>
+
+<ul>
+<li>Read the headers</li>
+<li><a href="https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5">Read the docs</a></li>
+<li>Find a bug? <a href="https://github.com/braintree/braintree-ios-drop-in/issues">Open an issue</a></li>
+<li>Want to contribute? <a href="https://help.github.com/articles/creating-a-pull-request">submit a pull request</a>.</li>
+</ul>
+<h2 id='feedback' class='heading'>Feedback</h2>
+
+<p>The Braintree iOS Drop-in SDK is in active development, we welcome your feedback!</p>
+
+<p>Here are a few ways to get in touch:</p>
+
+<ul>
+<li><a href="https://github.com/braintree/braintree-ios-drop-in/issues">GitHub Issues</a> - For generally applicable issues and feedback</li>
+<li><a href="https://help.braintreepayments.com">Braintree Support</a> - For personal support at any phase of integration</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p>The Braintree iOS Drop-in SDK is open source and available under the MIT license. See the <a href="https://github.com/braintree/braintree-ios-drop-in/blob/main/LICENSE">LICENSE</a> file for more info.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2024 <a class="link" href="http://braintreepayments.com" target="_blank" rel="external noopener">Braintree</a>. All rights reserved. (Last updated: 2024-08-26)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
