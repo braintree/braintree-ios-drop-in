@@ -1,6 +1,6 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
-## 9.13.0 (2024-05-07)
+## unreleased
 * Updated expiring pinned vendor SSL certificates
 * Require `braintree_ios` 5.26.0
 
