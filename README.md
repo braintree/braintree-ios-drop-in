@@ -11,6 +11,18 @@ Welcome to Braintree's Drop-in SDK for iOS!
 
 **The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 15.0+ and Swift 5.9+.
 
+## 📣 Announcements
+
+**The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025**. As of December 2024, the iOS Drop-In SDK is inactive. No additional features will be added with the exception of security updates. As an alternative, we recommend using the ![Braintree SDK](https://github.com/braintree/braintree_ios) for unbranded checkout.
+
+This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our ![developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
+
+| Status      | Date          |
+| --------    | ------------- |
+| Inactive    | December 2024 |
+| Deprecated  | June 2025     |
+| Unsupported | November 2025 |
+
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
