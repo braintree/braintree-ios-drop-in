@@ -5,21 +5,22 @@
 
 [![Release](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml/badge.svg)](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml)
 
-Welcome to Braintree's Drop-in SDK for iOS!
-
-![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
-
-**The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 15.0+ and Swift 5.9+.
-
 ## 📣 Announcements
+🚨🚨🚨 **The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025** 🚨🚨🚨 
 
-**The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025**. As of December 2024, the iOS Drop-In SDK is inactive. No additional features will be added with the exception of security updates. As an alternative, we recommend using the ![Braintree SDK](https://github.com/braintree/braintree_ios) for unbranded checkout.
+As of December 2024, the iOS Drop-In SDK is inactive. No additional features will be added with the exception of security updates. Instead, implement a custom UI using the ![Braintree SDK (braintree_ios)](https://github.com/braintree/braintree_ios).
 
 | Status      | Date          |
 | --------    | ------------- |
 | Inactive    | December 2024 |
 | Deprecated  | June 2025     |
 | Unsupported | November 2025 |
+
+## Welcome to Braintree's Drop-in SDK for iOS!
+
+![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
+
+**The Braintree iOS Drop-in SDK permits a deployment target of iOS 12.0 or higher.** It requires Xcode 15.0+ and Swift 5.9+.
 
 ## Table of Contents
 
@@ -32,6 +33,8 @@ Welcome to Braintree's Drop-in SDK for iOS!
 1. [License](#license)
 
 ## Getting Started
+
+🚨🚨🚨 **WARNING: The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025. See the Announcements section for more details** 🚨🚨🚨
 
 We recommend using [Swift Package Manager](https://swift.org/package-manager/) or [CocoaPods](https://github.com/CocoaPods/CocoaPods) to integrate the Braintree Drop-in SDK with your project.
 
@@ -234,6 +237,8 @@ Also see our [**reference documentation**](https://braintree.github.io/braintree
 
 ## Versions
 
+🚨🚨🚨 **WARNING: The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025. See the Announcements section for more details** 🚨🚨🚨
+
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
@@ -253,17 +258,15 @@ The demo app uses Swift Package Manager to fetch dependencies. Xcode will downlo
 
 * Read the headers
 * [Read the docs](https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5)
-* Find a bug? [Open an issue](https://github.com/braintree/braintree-ios-drop-in/issues)
-* Want to contribute? [submit a pull request](https://help.github.com/articles/creating-a-pull-request).
 
 ## Feedback
 
-The Braintree iOS Drop-in SDK is in active development, we welcome your feedback!
+The Braintree iOS Drop-in SDK is no longer in active development. Please see the "Announcements" section for more details.
 
 Here are a few ways to get in touch:
 
 * [GitHub Issues](https://github.com/braintree/braintree-ios-drop-in/issues) - For generally applicable issues and feedback
-* [Braintree Support](https://help.braintreepayments.com) - For personal support at any phase of integration
+* [Braintree Support](https://help.braintreepayments.com) - For support on implement a custom UI using the ![Braintree SDK (braintree_ios)](https://github.com/braintree/braintree_ios).
 
 ## License
 
