@@ -256,6 +256,8 @@ The demo app uses Swift Package Manager to fetch dependencies. Xcode will downlo
 
 ## Help
 
+The Braintree iOS Drop-in SDK is no longer in active development. Please see the "Announcements" section for more details.
+
 * Read the headers
 * [Read the docs](https://developer.paypal.com/braintree/docs/start/hello-client/ios/v5)
 
@@ -263,10 +265,7 @@ The demo app uses Swift Package Manager to fetch dependencies. Xcode will downlo
 
 The Braintree iOS Drop-in SDK is no longer in active development. Please see the "Announcements" section for more details.
 
-Here are a few ways to get in touch:
-
-* [GitHub Issues](https://github.com/braintree/braintree-ios-drop-in/issues) - For generally applicable issues and feedback
-* [Braintree Support](https://help.braintreepayments.com) - For support on implement a custom UI using the ![Braintree SDK (braintree_ios)](https://github.com/braintree/braintree_ios).
+For support on implement a custom UI using the ![Braintree SDK (braintree_ios)](https://github.com/braintree/braintree_ios), go to [Braintree Support](https://help.braintreepayments.com).
 
 ## License
 
