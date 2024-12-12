@@ -15,8 +15,6 @@ Welcome to Braintree's Drop-in SDK for iOS!
 
 **The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025**. As of December 2024, the iOS Drop-In SDK is inactive. No additional features will be added with the exception of security updates. As an alternative, we recommend using the ![Braintree SDK](https://github.com/braintree/braintree_ios) for unbranded checkout.
 
-This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our ![developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
-
 | Status      | Date          |
 | --------    | ------------- |
 | Inactive    | December 2024 |
@@ -239,11 +237,11 @@ Also see our [**reference documentation**](https://braintree.github.io/braintree
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
-| 9.x.x | Active | April 2021 | TBA | TBA |
-| 8.x.x | Deprecated | Februrary 2020 | April 2022 | TBA |
+| 9.x.x | Inactive | April 2021 | June 2025 | November 2025 |
+| 8.x.x | Unsupported | Februrary 2020 | April 2022 | November 2024 |
 | 7.x.x | Unsupported | December 2018 | April 2021 | April 2022 |
 
-Versions 6 and below are unsupported.
+Versions 8 and below are unsupported.
 
 ## Demo
 
