@@ -6,7 +6,7 @@
 [![Release](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml/badge.svg)](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml)
 
 ## 📣 Announcements
-🚨🚨🚨 **The iOS Drop-In SDK is currently inactive and will be unsupported by November 2025** 🚨🚨🚨 
+🚨🚨🚨 **The iOS Drop-In SDK is currently inactive and will be unsupported on November 1, 2025** 🚨🚨🚨 
 
 As of December 2024, the iOS Drop-In SDK is inactive. No additional features will be added with the exception of security updates. Instead, implement a custom UI using the ![Braintree SDK (braintree_ios)](https://github.com/braintree/braintree_ios).
 
