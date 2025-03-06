@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "braintree_ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/braintree/braintree_ios",
+      "state" : {
+        "revision" : "1d4fcd9343bab98759482b4da0b1b6bdaa122b31",
+        "version" : "5.27.0"
+      }
+    },
+    {
+      "identity" : "inappsettingskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/futuretap/InAppSettingsKit.git",
+      "state" : {
+        "revision" : "4a25f3e1ecdbf3759bdcd0891ae30b0e622f6eff",
+        "version" : "3.7.2"
+      }
+    }
+  ],
+  "version" : 2
+}
