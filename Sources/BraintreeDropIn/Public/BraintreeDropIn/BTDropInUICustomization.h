@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, BTDropInColorScheme) {
     BTDropInColorSchemeDynamic API_AVAILABLE(ios(13.0))
 };
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /**
  Options for customizing Braintree Drop-in's user interface.
  */

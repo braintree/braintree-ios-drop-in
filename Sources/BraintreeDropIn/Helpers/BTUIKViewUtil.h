@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, BTUIKVectorArtSize) {
     BTUIKVectorArtSizeLarge,
 };
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// @class Utilities used by other views to get localized strings, a BTDropInPaymentMethodType or artwork
 @interface BTUIKViewUtil : NSObject
 

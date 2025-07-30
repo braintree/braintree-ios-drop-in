@@ -4,6 +4,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class BTAPIClient, BTDropInRequest, BTConfiguration;
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// The base UIViewController for the sub UIViewControllers using in Drop-In
 @interface BTDropInBaseViewController : UIViewController 
 

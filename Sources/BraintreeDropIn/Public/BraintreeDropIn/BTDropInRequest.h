@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, BTFormFieldSetting) {
     BTFormFieldRequired
 };
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 @interface BTDropInRequest : NSObject <NSCopying>
 
 /// Optional: Specify the options for the PayPal flow using either BTPayPalCheckoutRequest or BTPayPalVaultRequest. If not present, a default vault flow will be used.

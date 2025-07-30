@@ -7,6 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class BTPaymentMethodNonce;
 @protocol BTAppSwitchDelegate, BTViewControllerPresentingDelegate;
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// The primary UIViewController for Drop-In. BTDropInController will manage the other UIViewControllers and return a BTDropInResult.
 @interface BTDropInController : UIViewController <UIToolbarDelegate, UIViewControllerTransitioningDelegate>
 

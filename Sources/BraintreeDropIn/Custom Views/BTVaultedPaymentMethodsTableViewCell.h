@@ -5,6 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol BTVaultedPaymentMethodsTableViewCellDelegate;
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// Table view cell that displays vaulted payment methods on the payment method selection sheet.
 /// This cell contains a horizontally scrolling collection view.
 @interface BTVaultedPaymentMethodsTableViewCell : UITableViewCell

@@ -3,6 +3,7 @@
 
 @protocol BTUIKFormFieldDelegate;
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// @class A UIView containing a BTUIKTextField and other elements to be displayed as a form field. This class is meant to be extended but can be used as is for other generic form fields.
 @interface BTUIKFormField : UIView <UITextFieldDelegate, UIKeyInput>
 

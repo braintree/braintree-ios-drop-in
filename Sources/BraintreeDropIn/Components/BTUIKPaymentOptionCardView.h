@@ -2,6 +2,7 @@
 #import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 #import "BTUIKViewUtil.h"
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// @class A UIView containing the BTUIKVectorArtView for a BTDropInPaymentMethodType within a light border.
 @interface BTUIKPaymentOptionCardView : UIView
 

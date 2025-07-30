@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <BraintreeDropIn/BTDropInPaymentMethodType.h>
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// @class A UILabel that contains images representing multiple BTDropInPaymentMethodType's
 @interface BTUIKCardListLabel : UILabel
 

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class BTCardRequest, BTCardCapabilities, BTPaymentMethodNonce;
 @protocol BTCardFormViewControllerDelegate, BTDropInControllerDelegate;
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// Contains form elements for entering card information.
 @interface BTCardFormViewController : BTDropInBaseViewController <UITextFieldDelegate, BTUIKFormFieldDelegate, BTUIKCardNumberFormFieldDelegate>
 

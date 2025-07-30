@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "BTDropInLocalization_Internal.h"
 
+__attribute__((deprecated("BraintreeDropIn is deprecated. Use the Braintre SDK instead. See https://developer.paypal.com/braintree/docs/guides/client-sdk/setup/ for more information.")))
 /// Immutable card type
 @interface BTUIKCardType : NSObject
 
