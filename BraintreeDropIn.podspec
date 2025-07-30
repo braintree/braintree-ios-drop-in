@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BraintreeDropIn"
-  s.version          = "9.13.0"
+  s.version          = "9.14.0"
   s.summary          = "Braintree Drop-in SDK: A modern foundation for accepting payments"
   s.description      = <<-DESC
                        Braintree is a full-stack payments platform for developers
@@ -24,13 +24,13 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/BraintreeDropIn/**/*.{h,m}"
   s.public_header_files = "Sources/BraintreeDropIn/Public/BraintreeDropIn/*.h"
   s.frameworks = "UIKit"
-  s.dependency "Braintree/ApplePay", "~> 5.26"
-  s.dependency "Braintree/Card", "~> 5.26"
-  s.dependency "Braintree/Core", "~> 5.26"
-  s.dependency "Braintree/UnionPay", "~> 5.26"
-  s.dependency "Braintree/PayPal", "~> 5.26"
-  s.dependency "Braintree/ThreeDSecure", "~> 5.26"
-  s.dependency "Braintree/Venmo", "~> 5.26"
+  s.dependency "Braintree/ApplePay", "~> 5.27"
+  s.dependency "Braintree/Card", "~> 5.27"
+  s.dependency "Braintree/Core", "~> 5.27"
+  s.dependency "Braintree/UnionPay", "~> 5.27"
+  s.dependency "Braintree/PayPal", "~> 5.27"
+  s.dependency "Braintree/ThreeDSecure", "~> 5.27"
+  s.dependency "Braintree/Venmo", "~> 5.27"
   s.resource_bundles = {
     "BraintreeDropIn-Localization" => ["Sources/BraintreeDropIn/Resources/*.lproj"],
     "BraintreeDropIn_PrivacyInfo" => ["Sources/BraintreeDropIn/PrivacyInfo.xcprivacy"]

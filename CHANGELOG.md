@@ -3,6 +3,9 @@
 ## unreleased
 * Added deprecation tags to all Drop-In classes
 
+## 9.14.0 (2025-03-06)
+* Require `braintree_ios` 5.27.0
+
 ## 9.13.0 (2024-08-26)
 * Updated expiring pinned vendor SSL certificates
 * Require `braintree_ios` 5.26.0
