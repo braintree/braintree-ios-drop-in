@@ -1,5 +1,8 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## unreleased
+* Added deprecation tags to all Drop-In classes
+
 ## 9.13.0 (2024-08-26)
 * Updated expiring pinned vendor SSL certificates
 * Require `braintree_ios` 5.26.0
