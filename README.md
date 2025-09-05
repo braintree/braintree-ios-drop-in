@@ -5,6 +5,15 @@
 
 [![Release](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml/badge.svg)](https://github.com/braintree/braintree-ios-drop-in/actions/workflows/release.yml)
 
+# ⚠️ Important
+Starting July 14, 2025 the Drop-in SDK will move to a [deprecated status](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v6/#status-categories) and we will no longer make any updates to this SDK. Processing will be supported for 1 year after the deprecation date, but you should upgrade immediately to avoid any disruption.
+
+Starting July 14, 2026 the Drop-in SDK will move to an [unsupported status](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v6/#status-categories) and will no longer supported by Braintree developers or Braintree Support. Processing for unsupported SDKs can be suspended at any time.
+
+Please migrate to the [Braintree SDK](https://github.com/braintree/braintree_ios) to continue processing and receiving updates.
+
+----------
+
 Welcome to Braintree's Drop-in SDK for iOS!
 
 ![Drop-in light theme](Images/client-sdk-ios-series-light.png "Drop-in light theme")
@@ -227,8 +236,8 @@ Also see our [**reference documentation**](https://braintree.github.io/braintree
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
-| 9.x.x | Active | April 2021 | TBA | TBA |
-| 8.x.x | Deprecated | Februrary 2020 | April 2022 | TBA |
+| 9.x.x | Active | April 2021 | July 2025 | July 2025 |
+| 8.x.x | Deprecated | Februrary 2020 | April 2022 | April 2023 |
 | 7.x.x | Unsupported | December 2018 | April 2021 | April 2022 |
 
 Versions 6 and below are unsupported.
