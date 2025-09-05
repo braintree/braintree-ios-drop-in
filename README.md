@@ -236,7 +236,7 @@ Also see our [**reference documentation**](https://braintree.github.io/braintree
 This SDK abides by our Client SDK Deprecation Policy. For more information on the potential statuses of an SDK check our [developer docs](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/ios/v5).
 | Major version number | Status | Released | Deprecated | Unsupported |
 | -------------------- | ------ | -------- | ---------- | ----------- |
-| 9.x.x | Active | April 2021 | July 2025 | July 2025 |
+| 9.x.x | Active | April 2021 | July 2025 | July 2026 |
 | 8.x.x | Deprecated | Februrary 2020 | April 2022 | April 2023 |
 | 7.x.x | Unsupported | December 2018 | April 2021 | April 2022 |
 
