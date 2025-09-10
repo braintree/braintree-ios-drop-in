@@ -17,7 +17,7 @@ on:
 
 jobs:
   code-scanning:
-    uses: braintree/security-workflows/.github/workflows/codeql-ios.yml@main
+    uses: braintree/security-workflows/.github/workflows/codeql-ios.yml@validationInputs
     with:
       project: Demo.xcodeproj
       workspace: BraintreeDropIn.xcworkspace
@@ -25,3 +25,5 @@ jobs:
 
   dependency-review:
     uses: braintree/security-workflows/.github/workflows/dependency-review.yml@main
+
+  
