@@ -19,8 +19,8 @@ jobs:
   code-scanning:
     uses: braintree/security-workflows/.github/workflows/codeql-ios.yml@main
     with:
-      project: Demo/Demo.xcodeproj
-      workspace: Braintree.xcworkspace
+      project: Demo.xcodeproj
+      workspace: BraintreeDropIn.xcworkspace
       scheme: Demo
 
   dependency-review:
