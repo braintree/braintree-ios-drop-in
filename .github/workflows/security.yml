@@ -21,7 +21,7 @@ jobs:
     with:
       project: SampleApps/SPMTest/SPMTest.xcodeproj
       workspace: BraintreeDropIn.xcworkspace
-      scheme: SPMTest
+      scheme: Demo
 
   dependency-review:
     uses: braintree/security-workflows/.github/workflows/dependency-review.yml@main
