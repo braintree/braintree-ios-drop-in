@@ -22,8 +22,8 @@ jobs:
       project: BraintreeDropIn.xcodeproj
       workspace: BraintreeDropIn.xcworkspace
       scheme: Demo
+      repository-type: braintree-ios-drop-in
 
   dependency-review:
     uses: braintree/security-workflows/.github/workflows/dependency-review.yml@main
-
-  
+    
