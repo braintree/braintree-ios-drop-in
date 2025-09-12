@@ -19,9 +19,9 @@ jobs:
   code-scanning:
     uses: braintree/security-workflows/.github/workflows/codeql-ios.yml@validationInputs
     with:
-      project: BraintreeDropIn.xcodeproj
+      project: SampleApps/SPMTest/SPMTest.xcodeproj
       workspace: BraintreeDropIn.xcworkspace
-      scheme: Demo
+      scheme: SPMTest
 
   dependency-review:
     uses: braintree/security-workflows/.github/workflows/dependency-review.yml@main
